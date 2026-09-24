@@ -15,7 +15,7 @@ Este libro acompaña a estudiantes de Psicología que conocen Google Forms, pero
   <div class="route-step"><strong>1. Entender la computadora</strong><span>Archivos, carpetas, programas, terminal y proyectos.</span></div>
   <div class="route-step"><strong>2. Trabajar con agentes</strong><span>Dar instrucciones, limitar tareas y revisar cambios.</span></div>
   <div class="route-step"><strong>3. Reconstruir Forms</strong><span>Preguntas, escalas, validaciones y estructura de datos.</span></div>
-  <div class="route-step"><strong>4. Ir más allá</strong><span>Aleatorización, estímulos, tiempos de reacción y lógica experimental.</span></div>
+  <div class="route-step"><strong>4. Ir más allá</strong><span>Aleatorización, lógica condicional, controles de calidad y tiempos de respuesta.</span></div>
   <div class="route-step"><strong>5. Completar el estudio</strong><span>Pilotaje, datos, publicación y proyecto final.</span></div>
 </div>
 

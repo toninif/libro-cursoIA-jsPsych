@@ -1,0 +1,20 @@
+---
+title: "Tiempos de respuesta"
+description: "Qué tiempo registra jsPsych en cada pantalla y cómo interpretarlo en una encuesta."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo requerirá especial cuidado al interpretar la precisión temporal y las limitaciones de la ejecución web.
+:::
+
+## Propósito
+
+Mostrar que jsPsych registra el tiempo de respuesta de cada pantalla y discutir qué información aporta ese dato en una encuesta.
+
+## Objetivos de aprendizaje
+
+- Localizar la variable `rt` en los datos e interpretar su unidad.
+- Calcular la duración total de la participación a partir de los datos.
+- Identificar respuestas extremadamente rápidas como posible indicador de respuesta descuidada.
+- Reconocer los límites de precisión de los tiempos medidos en un navegador.
+- Distinguir el tiempo de respuesta en una encuesta del tiempo de reacción en una tarea experimental.

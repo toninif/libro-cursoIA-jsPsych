@@ -1,6 +1,6 @@
 ---
 title: "Lógica condicional"
-description: "Cómo cambia un procedimiento según respuestas o eventos anteriores."
+description: "Cómo cambia el recorrido de una encuesta según las respuestas anteriores."
 ---
 
 ::: {.callout-note title="Borrador estructural"}
@@ -9,12 +9,12 @@ Este capítulo tiene definida su función pedagógica, pero su contenido todaví
 
 ## Propósito
 
-Representar recorridos alternativos del estudio sin introducir formalismos innecesarios antes de mostrar el problema concreto.
+Representar recorridos alternativos de la encuesta sin introducir formalismos innecesarios antes de mostrar el problema concreto.
 
 ## Objetivos de aprendizaje
 
 - Expresar una condición mediante “si ocurre…, entonces…”.
-- Identificar qué dato previo controla una decisión posterior.
-- Dibujar y revisar las ramas posibles del procedimiento.
-- Probar casos que recorran cada rama.
-
+- Implementar la finalización del estudio cuando una persona no acepta el consentimiento o no cumple un criterio de inclusión.
+- Mostrar una pregunta de seguimiento solo cuando corresponde.
+- Identificar qué dato previo controla cada decisión posterior.
+- Probar casos que recorran cada rama del procedimiento.

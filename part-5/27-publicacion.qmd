@@ -15,6 +15,7 @@ Introducir alojamiento, servidor y despliegue solo cuando el estudio local ya fu
 
 - Explicar qué cambia al publicar un estudio en Internet.
 - Distinguir alojamiento de almacenamiento de datos.
+- Publicar el estudio con GitHub Pages, introduciendo solo lo mínimo necesario de GitHub.
 - Realizar una comprobación posterior a la publicación.
 - Documentar versión, enlace y fecha del estudio publicado.
 

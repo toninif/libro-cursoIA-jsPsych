@@ -9,7 +9,7 @@ Se utilizará una escala ficticia o contenido autorizado. No se inventarán íte
 
 ## Propósito
 
-Construir una escala didáctica para trabajar operacionalización, nombres de variables, ítems invertidos y cálculo de puntuaciones.
+Construir una escala ficticia con fines pedagógicos, identificada como tal, para trabajar operacionalización, nombres de variables, ítems invertidos y cálculo de puntuaciones.
 
 ## Objetivos de aprendizaje
 
@@ -21,4 +21,6 @@ Construir una escala didáctica para trabajar operacionalización, nombres de va
 ## Decisión metodológica e implementación
 
 Que una escala aparezca correctamente en pantalla no demuestra que mida el constructo previsto ni que su puntuación sea válida.
+
+La escala de este capítulo es ficticia. En el proyecto final, cada estudiante incorporará una escala real cuyos ítems, instrucciones y referencia provee el docente.
 

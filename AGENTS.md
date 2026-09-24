@@ -66,8 +66,8 @@ El recorrido conceptual general debe ser:
 9. reproducción de formularios mediante jsPsych;
 10. estructura de los datos;
 11. capacidades que exceden Google Forms;
-12. lógica experimental;
-13. construcción de tareas psicológicas;
+12. lógica del procedimiento: aleatorización, condiciones y calidad de respuesta;
+13. construcción de una encuesta psicológica completa;
 14. almacenamiento y publicación;
 15. proyecto final.
 
@@ -128,18 +128,16 @@ El libro debe organizarse aproximadamente en estas partes:
 
 ## Parte IV. Más allá de Google Forms
 
-- Aleatorización.
-- Muestreo de estímulos.
-- Lógica condicional.
-- Tiempos de presentación.
-- Respuestas mediante teclado.
-- Tiempo de reacción.
-- Precisión.
-- Trials.
-- Bloques.
-- Feedback.
-- Estímulos visuales y auditivos.
-- Primer experimento completo.
+La Parte IV se orienta al producto final del curso, que es una encuesta. Presenta capacidades que Google Forms no ofrece o resuelve mal, aplicadas a cuestionarios y escalas.
+
+- Aleatorización del orden de ítems y de escalas.
+- Diferencia entre orden aleatorio, muestreo y asignación a condiciones.
+- Lógica condicional: criterios de inclusión, consentimiento rechazado y preguntas de seguimiento.
+- Controles de atención y calidad de respuesta.
+- Tiempos de respuesta por pantalla y duración total.
+- Respuestas apresuradas y sus limitaciones como indicador.
+- Presentación: instrucciones, barra de progreso, estilos y uso en celulares.
+- Integración en una encuesta ampliada.
 
 ## Parte V. Construcción de un estudio completo
 
@@ -316,9 +314,7 @@ mi-primer-estudio/
 ├── index.html
 ├── src/
 │   ├── experiment.js
-│   ├── questionnaires.js
-│   └── trials.js
-├── stimuli/
+│   └── questionnaires.js
 ├── styles/
 ├── README.md
 └── AGENTS.md
@@ -347,6 +343,19 @@ Los ítems de las escalas deben provenir de versiones proporcionadas explícitam
 - Fijar siempre una versión exacta en cada dirección (por ejemplo, `jspsych@8.3.0`). No usar direcciones sin versión.
 - El estudio debe poder ejecutarse abriendo `index.html` en el navegador o publicándolo en GitHub Pages.
 - No introducir Node.js, npm ni el concepto de dependencia salvo que un capítulo posterior lo justifique.
+
+## Escalas psicológicas
+
+- En los capítulos se usa una escala ficticia con fines pedagógicos, identificada como tal en el texto y en el código.
+- En el proyecto final, cada estudiante incorpora una escala real cuyos ítems, instrucciones, opciones de respuesta y referencia provee el docente.
+- El libro debe indicar con claridad dónde se incorpora ese contenido autorizado.
+
+## Editor de texto
+
+- Windows: Notepad++.
+- macOS: CotEditor.
+- Ambos son gratuitos y livianos. Presentarlos cuando los estudiantes necesiten leer archivos de código, con números de línea y resaltado de sintaxis.
+- No exigir VS Code ni otros editores pesados. Pueden mencionarse como alternativas opcionales.
 
 ## Git
 
@@ -377,7 +386,7 @@ proyectos/
 ├── 03-formulario/
 ├── 04-escalas/
 ├── 05-aleatorizacion/
-├── 06-experimento/
+├── 06-encuesta-ampliada/
 └── 07-estudio-completo/
 ```
 

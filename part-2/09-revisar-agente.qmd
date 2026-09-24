@@ -116,7 +116,7 @@ Este fragmento describe una pantalla del estudio. Cada línea que comienza con u
 
 2. `choices` significa opciones. Indica qué teclas acepta la pantalla como respuesta. En este caso son `f` y `j`.
 
-3. `trial_duration` indica cuánto tiempo permanece la pantalla, medido en milisegundos. Un **milisegundo** es la milésima parte de un segundo. El valor `500` equivale a medio segundo. La palabra inglesa *trial* se traduce como ensayo. El libro va a explicar ese concepto en la Parte IV.
+3. `trial_duration` indica cuánto tiempo permanece la pantalla, medido en milisegundos. Un **milisegundo** es la milésima parte de un segundo. El valor `500` equivale a medio segundo. La palabra inglesa *trial* se traduce como ensayo. El libro va a explicar ese concepto más adelante.
 
 Cada uno de estos elementos expresa una decisión metodológica. El estímulo, las respuestas posibles y la duración forman parte del procedimiento que diseñó el investigador.
 

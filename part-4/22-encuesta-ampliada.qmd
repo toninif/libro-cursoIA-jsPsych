@@ -1,0 +1,20 @@
+---
+title: "Una encuesta más allá de Google Forms"
+description: "Integrar aleatorización, lógica condicional, controles de calidad y presentación en el proyecto."
+---
+
+::: {.callout-note title="Borrador estructural"}
+La encuesta usará escalas ficticias con fines pedagógicos. Las escalas reales se incorporan en el proyecto final.
+:::
+
+## Propósito
+
+Integrar los recursos de la Parte IV en `mi-primer-estudio` y comparar el resultado con lo que permitiría Google Forms.
+
+## Objetivos de aprendizaje
+
+- Especificar el procedimiento completo antes de modificarlo.
+- Incorporar al proyecto los recursos de la Parte IV mediante cambios pequeños y verificados.
+- Anticipar la estructura de los datos que producirá la encuesta ampliada.
+- Recorrer todas las ramas del procedimiento y revisar los datos resultantes.
+- Documentar el estado alcanzado como checkpoint recuperable.

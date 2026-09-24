@@ -16,5 +16,5 @@ Construir el estudio final mediante etapas pequeñas que produzcan versiones eje
 - Dividir el procedimiento en componentes implementables.
 - Definir criterios de aceptación para cada componente.
 - Mantener una versión que funcione antes de agregar complejidad.
-- Integrar formularios, lógica y tarea sin perder trazabilidad.
+- Integrar consentimiento, cuestionario sociodemográfico, escalas y pantalla de cierre sin perder trazabilidad.
 

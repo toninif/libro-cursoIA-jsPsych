@@ -1,0 +1,20 @@
+---
+title: "Presentación y experiencia de participación"
+description: "Instrucciones, progreso, estilos y uso en distintos dispositivos."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse en distintos navegadores y dispositivos.
+:::
+
+## Propósito
+
+Mejorar la experiencia de las personas participantes y discutir cómo las decisiones de presentación pueden afectar las respuestas.
+
+## Objetivos de aprendizaje
+
+- Agregar una barra de progreso y evaluar su efecto sobre la participación.
+- Incorporar el archivo `styles.css` para modificar la apariencia sin cambiar el procedimiento.
+- Comprobar el funcionamiento en la pantalla de un celular.
+- Revisar la legibilidad y la accesibilidad de textos y opciones de respuesta.
+- Distinguir decisiones de presentación que cambian el instrumento de las que solo cambian su apariencia.

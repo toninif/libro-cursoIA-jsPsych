@@ -1,0 +1,20 @@
+---
+title: "Controles de atención y calidad de respuesta"
+description: "Recursos para detectar respuestas descuidadas sin confundir un indicador con un diagnóstico."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+:::
+
+## Propósito
+
+Presentar recursos para evaluar la calidad de las respuestas en una encuesta online y discutir qué decisiones metodológicas implican.
+
+## Objetivos de aprendizaje
+
+- Explicar por qué la calidad de datos es un problema específico de las encuestas online.
+- Incorporar un ítem de control de atención ficticio y registrarlo como variable.
+- Distinguir entre registrar un indicador y excluir a un participante.
+- Especificar antes de recolectar datos qué criterio de exclusión se aplicará, si se aplica alguno.
+- Verificar que el control quede registrado con el significado previsto.

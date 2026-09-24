@@ -13,8 +13,12 @@ Integrar alfabetización computacional, trabajo con agentes, metodología, imple
 
 ## Resultados esperados
 
+El producto final es un estudio de encuesta publicado con esta secuencia: consentimiento informado, cuestionario sociodemográfico, una o más escalas psicológicas y una pantalla final de cierre (*debriefing*). Las escalas reales se incorporan a partir de los ítems, las instrucciones y la referencia que provee el docente.
+
+
 - Una especificación metodológica explícita.
-- Un estudio ejecutable y probado.
+- Un estudio ejecutable, probado y publicado en GitHub Pages.
+- Datos guardados mediante DataPipe en Google Drive o Zenodo.
 - Un diccionario de datos coherente con la implementación.
 - Evidencia de pilotaje y correcciones.
 - Documentación suficiente para comprender y reproducir el trabajo.

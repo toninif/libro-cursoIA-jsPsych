@@ -1,6 +1,6 @@
 ---
 title: "Aleatorización"
-description: "Orden, muestreo y asignación al azar como decisiones diferentes."
+description: "Orden aleatorio de ítems y escalas, y su diferencia con el muestreo y la asignación a condiciones."
 ---
 
 ::: {.callout-note title="Borrador estructural"}
@@ -9,12 +9,12 @@ Este capítulo requerirá verificación metodológica y pruebas repetidas de la 
 
 ## Propósito
 
-Distinguir formas de aleatorización que suelen confundirse y relacionar cada una con una pregunta de diseño.
+Mostrar por qué puede convenir presentar ítems y escalas en orden aleatorio, y distinguir esa decisión de otras formas de aleatorización que suelen confundirse.
 
 ## Objetivos de aprendizaje
 
+- Explicar qué problema metodológico busca atenuar el orden aleatorio, como los efectos de orden en una encuesta.
 - Diferenciar orden aleatorio, muestreo y asignación a condiciones.
-- Explicar qué unidad se aleatoriza en cada caso.
-- Especificar cantidades, condiciones y restricciones.
-- Verificar la implementación mediante múltiples ejecuciones y datos registrados.
-
+- Especificar qué unidad se aleatoriza: ítems dentro de una escala o escalas dentro del estudio.
+- Registrar en los datos el orden que recibió cada participante.
+- Verificar la implementación mediante varias ejecuciones y la revisión de los datos registrados.

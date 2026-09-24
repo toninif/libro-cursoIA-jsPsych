@@ -9,12 +9,15 @@ Las opciones técnicas, costos y condiciones de privacidad deberán verificarse 
 
 ## Propósito
 
-Explicar qué resuelve jsPsych y qué infraestructura adicional se necesita para conservar respuestas fuera de la computadora del participante.
+Explicar qué resuelve jsPsych y qué infraestructura adicional se necesita para conservar respuestas fuera de la computadora del participante. El libro usa DataPipe con dos destinos posibles: Google Drive (opción 1) y Zenodo (opción 2).
 
 ## Objetivos de aprendizaje
 
 - Distinguir interfaz, ejecución, almacenamiento y exportación.
 - Comparar guardado local y remoto en términos funcionales.
+- Configurar DataPipe y conectar la extensión `@jspsych/extension-pipe` con una versión fija.
+- Comparar Google Drive y Zenodo como destinos: privacidad, límites y publicación con DOI.
+- Explicar qué son los archivos parciales que se generan cuando una persona abandona el estudio y relacionarlos con el consentimiento y el derecho a retirarse.
 - Identificar riesgos vinculados con identificadores y datos sensibles.
 - Verificar que los datos almacenados coincidan con el diccionario previsto.
 
