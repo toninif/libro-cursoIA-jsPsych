@@ -66,7 +66,6 @@ book:
 
   sidebar:
     style: docked
-    background: light
     collapse-level: 1
   page-footer:
     left: "Material educativo abierto para estudiantes de Psicología."
@@ -74,8 +73,18 @@ book:
 
 format:
   html:
-    theme: default
+    theme:
+      light: [default, theme/claro.scss]
+      dark: [default, theme/oscuro.scss]
     css: styles.css
+    highlight-style: theme/matrix.theme
+    mermaid:
+      theme: forest
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     toc: true
     toc-depth: 3
     number-sections: true

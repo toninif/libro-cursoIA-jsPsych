@@ -1,19 +1,49 @@
+/* ==========================================================
+   Estética del libro: inspiración "terminal" sobria.
+   Acentos verde fósforo apagado, títulos monoespaciados y
+   bloques de código con aspecto de consola. La lectura es
+   la prioridad: el texto principal usa una fuente sans.
+   ========================================================== */
+
 :root {
-  --book-ink: #18243a;
-  --book-muted: #526176;
-  --book-blue: #243b6b;
-  --book-teal: #087f8c;
-  --book-yellow: #f1c75b;
-  --book-coral: #c94c4c;
-  --book-paper: #f7f9fc;
-  --book-line: #d9e1ec;
-  --book-code: #eef3f8;
+  --ink: #16211b;
+  --muted: #4c5f53;
+  --green: #0e7a3c;
+  --green-link: #0b6a34;
+  --green-soft: #e6f2ea;
+  --glow: #19c35a;
+  --paper: #fafcfa;
+  --panel: #f1f6f2;
+  --line: #d3e2d7;
+  --terminal-bg: #0c1510;
+  --terminal-fg: #cdeed6;
+  --terminal-dim: #78977f;
+  --amber: #b7791f;
+  --coral: #b4483f;
 }
 
+body.quarto-dark {
+  --ink: #d3e3d8;
+  --muted: #95ab9c;
+  --green: #5ccf8a;
+  --green-link: #6fdc98;
+  --green-soft: #12241a;
+  --glow: #5ccf8a;
+  --paper: #0b110d;
+  --panel: #0e1611;
+  --line: #1f3027;
+  --terminal-bg: #060a07;
+  --terminal-fg: #cdeed6;
+  --terminal-dim: #6c8a74;
+  --amber: #e0b35a;
+  --coral: #e0857c;
+}
+
+/* ---------- Base ---------- */
+
 body {
-  color: var(--book-ink);
-  background: #ffffff;
-  font-family: "Segoe UI", Aptos, system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
   font-size: 1.04rem;
   line-height: 1.72;
 }
@@ -24,143 +54,335 @@ body {
   overflow-x: clip;
 }
 
-h1,
-h2,
-h3,
-h4,
-.sidebar-title {
-  color: var(--book-blue);
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-}
-
-h1 {
-  line-height: 1.08;
-}
-
-h2 {
-  margin-top: 2.4rem;
-  padding-bottom: 0.35rem;
-  border-bottom: 2px solid var(--book-line);
+::selection {
+  background: rgba(25, 195, 90, 0.25);
 }
 
 a {
-  color: #096b78;
-  text-decoration-thickness: 0.09em;
-  text-underline-offset: 0.16em;
+  color: var(--green-link);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 }
 
 a:hover {
-  color: var(--book-blue);
+  color: var(--green);
+  text-decoration-thickness: 0.14em;
 }
 
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--book-yellow);
+  outline: 2px solid var(--glow);
   outline-offset: 3px;
 }
 
+/* ---------- Títulos ---------- */
+
+h1,
+h2,
+h3,
+h4,
+.sidebar-title,
+.quarto-title .title {
+  font-family: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  line-height: 1.12;
+}
+
+h2 {
+  margin-top: 2.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--line);
+  font-size: 1.45rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+.header-section-number {
+  color: var(--green);
+  font-weight: 500;
+}
+
+.quarto-title .subtitle {
+  color: var(--muted);
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+}
+
+/* ---------- Barra lateral ---------- */
+
 .sidebar-navigation {
-  border-right: 1px solid var(--book-line);
+  border-right: 1px solid var(--line);
+}
+
+.sidebar-title {
+  color: var(--green);
 }
 
 .sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
-  color: var(--book-blue);
-  font-weight: 700;
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-weight: 600;
+  font-size: 0.92rem;
 }
 
+.sidebar-link.active,
+.sidebar-link.active .menu-text {
+  color: var(--green) !important;
+  font-weight: 600;
+}
+
+#TOC .nav-link.active,
+#TOC .nav-link.active:hover {
+  color: var(--green);
+  border-left-color: var(--green);
+}
+
+/* ---------- Portada: panel de terminal ---------- */
+
 .book-hero {
-  margin: 0.5rem 0 2.5rem;
-  padding: 1.5rem 0 1.5rem 1.5rem;
-  border-left: 8px solid var(--book-teal);
+  position: relative;
+  margin: 0.8rem 0 2.6rem;
+  padding: 3.1rem 1.6rem 1.6rem;
+  overflow: hidden;
+  color: var(--terminal-fg);
+  background-color: var(--terminal-bg);
+  border: 1px solid #1d3326;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(6, 30, 16, 0.18);
+}
+
+/* Barra superior de la "ventana" */
+.book-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2rem;
+  background:
+    radial-gradient(circle at 1.1rem 50%, #3c5a47 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 2.1rem 50%, #3c5a47 0.3rem, transparent 0.32rem),
+    radial-gradient(circle at 3.1rem 50%, #3c5a47 0.3rem, transparent 0.32rem),
+    #101c15;
+  border-bottom: 1px solid #1d3326;
+}
+
+/* Columnas de caracteres muy tenues, solo como textura */
+.book-hero::after {
+  content: "";
+  position: absolute;
+  inset: 2rem 0 0 0;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Cg font-family='monospace' font-size='12' fill='%2319c35a'%3E%3Ctext x='8' y='18'%3E0%3C/text%3E%3Ctext x='8' y='36'%3E1%3C/text%3E%3Ctext x='8' y='54'%3E%E3%82%A2%3C/text%3E%3Ctext x='8' y='72'%3E7%3C/text%3E%3Ctext x='52' y='96'%3E%E3%83%9F%3C/text%3E%3Ctext x='52' y='114'%3E0%3C/text%3E%3Ctext x='52' y='132'%3E3%3C/text%3E%3Ctext x='96' y='30'%3E1%3C/text%3E%3Ctext x='96' y='48'%3E%E3%82%B5%3C/text%3E%3Ctext x='140' y='120'%3E9%3C/text%3E%3Ctext x='140' y='138'%3E%E3%83%8A%3C/text%3E%3Ctext x='140' y='156'%3E0%3C/text%3E%3Ctext x='184' y='60'%3E%E3%83%A2%3C/text%3E%3Ctext x='184' y='78'%3E1%3C/text%3E%3Ctext x='184' y='96'%3E4%3C/text%3E%3C/g%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(to left, #000 0%, transparent 70%);
+  mask-image: linear-gradient(to left, #000 0%, transparent 70%);
+}
+
+.book-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.book-hero .terminal-line {
+  margin: 0 0 1rem;
+  color: var(--glow);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.book-hero .terminal-line .cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  margin-left: 0.2em;
+  vertical-align: text-bottom;
+  background: var(--glow);
+  animation: parpadeo 1.2s steps(1) infinite;
 }
 
 .book-hero p {
   max-width: 64ch;
   margin: 0;
-  color: var(--book-muted);
-  font-size: 1.2rem;
+  color: var(--terminal-fg);
+  font-size: 1.15rem;
 }
+
+@keyframes parpadeo {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Mapa del recorrido ---------- */
 
 .route-map {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.6rem;
   margin: 1.6rem 0 2.4rem;
-  border-top: 3px solid var(--book-blue);
-  border-bottom: 1px solid var(--book-line);
 }
 
 .route-step {
-  min-height: 10rem;
-  padding: 1rem 0.85rem 1.15rem;
-  border-right: 1px solid var(--book-line);
-}
-
-.route-step:last-child {
-  border-right: 0;
+  min-height: 9.5rem;
+  padding: 0.9rem 0.85rem 1rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--green);
+  border-radius: 6px;
 }
 
 .route-step strong {
   display: block;
   margin-bottom: 0.45rem;
-  color: var(--book-blue);
-  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  line-height: 1.25;
+  color: var(--ink);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.92rem;
+  line-height: 1.3;
 }
 
 .route-step span {
-  color: var(--book-muted);
-  font-size: 0.92rem;
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
   line-height: 1.45;
 }
 
+/* ---------- Código ---------- */
+
+pre,
+code,
+kbd {
+  font-family: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+}
+
+code:not(pre code) {
+  padding: 0.08em 0.3em;
+  color: #0b4d27 !important;
+  background-color: var(--green-soft) !important;
+  border-radius: 3px;
+}
+
+body.quarto-dark code:not(pre code) {
+  color: #9ff0bd !important;
+}
+
+div.sourceCode,
+pre.sourceCode,
+pre:not(.mermaid-js) {
+  color: var(--terminal-fg);
+  background-color: var(--terminal-bg) !important;
+  border: 1px solid #1d3326;
+  border-left: 3px solid var(--glow);
+  border-radius: 6px;
+}
+
+div.sourceCode pre.sourceCode {
+  border: 0;
+}
+
+pre code {
+  color: var(--terminal-fg);
+}
+
+.code-copy-button {
+  color: var(--terminal-dim) !important;
+}
+
+.code-copy-button:hover {
+  color: var(--glow) !important;
+}
+
+/* ---------- Recuadros (callouts) ---------- */
+
 .callout {
-  border-radius: 0;
+  border-radius: 6px;
   box-shadow: none;
 }
 
 .callout.callout-style-simple {
-  border-left-width: 5px;
+  border-left-width: 4px;
+}
+
+.callout .callout-title-container,
+.callout .callout-header {
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.95rem;
+}
+
+.callout-tip.callout-style-simple {
+  border-left-color: var(--glow);
 }
 
 .callout-note.callout-style-simple {
-  border-left-color: var(--book-teal);
+  border-left-color: var(--green);
 }
 
 .callout-important.callout-style-simple {
-  border-left-color: var(--book-coral);
+  border-left-color: var(--coral);
 }
 
 .callout-warning.callout-style-simple {
-  border-left-color: var(--book-yellow);
+  border-left-color: var(--amber);
 }
 
-pre,
-code {
-  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+/* ---------- Tablas ---------- */
+
+table {
+  font-size: 0.95rem;
 }
 
-code:not(pre code) {
-  padding: 0.08em 0.28em;
-  color: #173d57;
-  background: var(--book-code);
-  border-radius: 0.2rem;
+table thead th {
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--green) !important;
+  border-bottom: 2px solid var(--green) !important;
+}
+
+caption,
+.table-caption,
+figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* ---------- Respuestas desplegables y citas ---------- */
+
+details {
+  margin: 1rem 0;
+  padding: 0.6rem 0.9rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+details summary {
+  color: var(--green);
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.92rem;
+  cursor: pointer;
 }
 
 blockquote {
   margin-left: 0;
   padding-left: 1.2rem;
-  color: var(--book-muted);
-  border-left: 4px solid var(--book-yellow);
+  color: var(--muted);
+  border-left: 3px solid var(--glow);
 }
 
-.chapter-status {
-  margin-top: 1.5rem;
-  color: var(--book-muted);
-  font-size: 0.96rem;
+/* ---------- Pie de página ---------- */
+
+.nav-footer {
+  font-family: "IBM Plex Mono", Consolas, monospace;
+  font-size: 0.85rem;
 }
+
+/* ---------- Pantallas angostas ---------- */
 
 @media (max-width: 991.98px) {
   #quarto-content.page-columns {
@@ -212,14 +434,14 @@ blockquote {
 
   .route-step {
     min-height: auto;
-    border-right: 0;
-    border-bottom: 1px solid var(--book-line);
   }
 
-  .route-step:last-child {
-    border-bottom: 0;
+  .book-hero {
+    padding: 2.8rem 1.1rem 1.2rem;
   }
 }
+
+/* ---------- Movimiento reducido ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -227,5 +449,6 @@ blockquote {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+    animation: none !important;
   }
 }
