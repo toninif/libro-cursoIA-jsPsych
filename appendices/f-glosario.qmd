@@ -3,11 +3,294 @@ title: "Glosario"
 description: "Definiciones breves de los términos técnicos utilizados."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-El glosario se completará de manera acumulativa y conservará la terminología utilizada en los capítulos.
-:::
+## Cómo usar este glosario {.unnumbered}
 
-## Criterio de inclusión
+Cada término se define en lenguaje claro la primera vez que aparece en el libro. Este glosario sirve para volver a consultarlo, no para reemplazar aquella explicación. Cada entrada indica el capítulo donde podés encontrar la explicación completa.
 
-Cada término se definirá en lenguaje claro la primera vez que aparezca en el recorrido principal. Este apéndice servirá para volver a consultarlo, no para reemplazar aquella explicación.
+El glosario se completa a medida que avanza el libro. Por ahora reúne los términos de las Partes I y II.
 
+## A {.unnumbered}
+
+Administrador de tareas
+: Herramienta de Windows que muestra las aplicaciones y los procesos activos, y el uso de recursos como el procesador y la memoria. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Advertencia
+: Mensaje que informa una condición que merece atención, aunque el programa pueda continuar. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Agente de IA
+: Programa que usa un modelo de lenguaje para realizar tareas mediante acciones concretas, como leer archivos, modificarlos o ejecutar comandos. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+`AGENTS.md`
+: Archivo que comunica reglas estables a los agentes que trabajan dentro de un proyecto. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Alias
+: Nombre alternativo que un intérprete de comandos acepta para otro comando. Por ejemplo, `dir` es un alias de `Get-ChildItem`. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Almacenamiento
+: Conservación de información para usarla más adelante, incluso después de apagar la computadora. También designa la parte física que la conserva, como un disco. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Aprobación
+: Pregunta que un agente hace antes de realizar una acción. Muestra qué quiere hacer y permite aceptar o rechazar. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Archivo
+: Unidad de información guardada con un nombre. Puede contener texto, imágenes, sonidos, datos o instrucciones. Ver [capítulo 1](../part-1/01-computadora.qmd) y [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Argumento
+: Información que un comando necesita para realizar una acción. En `cd materiales`, `materiales` es el argumento. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+## B {.unnumbered}
+
+Base de datos
+: Conjunto organizado de datos que permite guardar y consultar información. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+## C {.unnumbered}
+
+Carpeta
+: Contenedor que permite organizar archivos y otras carpetas. También se la llama directorio. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Carpeta actual
+: Carpeta que se toma como referencia para interpretar una ruta relativa. En la terminal recibe el nombre de carpeta de trabajo actual. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 3](../part-1/03-terminal.qmd).
+
+Carpeta de trabajo de un agente
+: Carpeta desde la cual se inicia un agente. Define el alcance habitual de lo que puede leer y modificar. En inglés se la llama *workspace*. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Carpeta principal
+: Carpeta que contiene un proyecto completo. También se la llama raíz del proyecto o *project root*. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Chatbot
+: Programa que conversa mediante mensajes. Produce respuestas, pero no actúa sobre tus archivos. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Checkpoint
+: Copia del proyecto guardada en un momento concreto del recorrido. Funciona de manera independiente y permite comparar o recuperar el trabajo. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+CLI
+: Sigla de *command-line interface*, interfaz de línea de comandos. Designa a los programas que se usan escribiendo instrucciones en una terminal. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Codex
+: Agente de IA desarrollado por OpenAI. En este libro se usa su versión de terminal, Codex CLI. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Codificación
+: Regla que usa una computadora para guardar cada carácter como información. UTF-8 es la codificación más usada en archivos de texto actuales. Si un archivo se interpreta con otra codificación, las tildes pueden verse como símbolos extraños. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Código
+: Texto escrito según reglas que un programa puede interpretar. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Código de salida
+: Número que un programa devuelve al terminar. El valor `0` suele indicar una finalización correcta. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Comando
+: Instrucción escrita que solicita una acción. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Comando con barra
+: Instrucción que comienza con `/` y que, dentro de un agente como Codex, configura la sesión en lugar de enviarse al modelo. En inglés se lo llama *slash command*. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Constructo
+: Concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Contexto
+: Conjunto de información con la que trabaja un agente durante una sesión: los mensajes, sus respuestas y el contenido de los archivos que leyó. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Copia de respaldo
+: Copia que conserva la información en otra ubicación y permite recuperarla si se pierde o se daña el archivo de trabajo. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+## D {.unnumbered}
+
+Dato
+: Representación de información que un sistema puede registrar y procesar. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Decisión metodológica
+: Decisión que define qué se quiere investigar y bajo qué condiciones, como el constructo, la población, el procedimiento o el significado de una variable. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Decisión técnica
+: Decisión que define cómo se realiza una parte del procedimiento mediante archivos y programas. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Diferencias
+: Presentación que muestra qué cambia entre dos versiones de un archivo. Las líneas con `+` se agregan y las líneas con `-` se eliminan. En inglés se la llama *diff*. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Directorio
+: Término técnico equivalente a carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## E {.unnumbered}
+
+Ejecutar
+: Poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, usar el resultado de la manera en que se va a usar realmente. Ver [capítulo 1](../part-1/01-computadora.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Entrada
+: Información que recibe la computadora, como una tecla presionada o una respuesta escrita. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Error
+: Condición que impide completar una acción esperada. El mensaje de error describe la dificultad. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Especificación
+: Descripción precisa de lo que debe construirse, incluido el criterio para comprobar que el resultado es correcto. Ver [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Explorador de archivos
+: Programa de Windows que permite recorrer unidades, carpetas y archivos mediante una interfaz gráfica. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Extensión
+: Parte final del nombre de un archivo, separada por un punto, que ayuda a reconocer su tipo. Por ejemplo, `.csv` en `datos.csv`. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## G {.unnumbered}
+
+Git
+: Herramienta que registra las versiones de un proyecto y muestra qué cambió entre una versión y otra. El libro la va a presentar más adelante. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+GitHub
+: Servicio web que permite alojar y compartir proyectos. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+## H {.unnumbered}
+
+Hardware
+: Partes físicas de una computadora, como la pantalla, el teclado, el procesador y el disco. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Herramienta de un agente
+: Capacidad que el programa pone a disposición del modelo de lenguaje, como leer un archivo, escribirlo o ejecutar un comando. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+## I {.unnumbered}
+
+Identificador de proceso
+: Número que identifica un proceso durante una ejecución. También se lo conoce por la sigla `PID`. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Indicador
+: Línea de la terminal que muestra que el intérprete espera una instrucción. Suele incluir la carpeta actual. En inglés se lo llama *prompt*. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Instalar
+: Incorporar a la computadora los archivos y la configuración que un programa necesita para funcionar. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Interfaz gráfica
+: Conjunto de elementos visibles, como ventanas, íconos y botones, que permiten controlar un programa. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Intérprete de comandos
+: Programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. PowerShell es un intérprete de comandos. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+## L {.unnumbered}
+
+Límite de uso
+: Cantidad máxima de trabajo que se le puede pedir a un agente en un período determinado según el plan de la cuenta. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Línea de contexto
+: En una presentación de diferencias, línea que no cambia y aparece para ubicar el cambio dentro del archivo. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Lista de Markdown
+: Serie de elementos escritos en líneas que comienzan con un guion `-` seguido de un espacio. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+## M {.unnumbered}
+
+Markdown
+: Forma de escribir texto plano que marca títulos, listas y otros elementos mediante caracteres visibles, como `#`. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Memoria de trabajo
+: Parte del hardware que mantiene disponible la información mientras un programa funciona. También se la llama memoria RAM. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Milisegundo
+: Milésima parte de un segundo. El valor `500` en milisegundos equivale a medio segundo. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Modelo de lenguaje
+: Programa entrenado con grandes cantidades de texto que, a partir de un texto de entrada, produce una continuación probable. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+## N {.unnumbered}
+
+Navegador
+: Programa que permite acceder a sitios y aplicaciones web, y que interpreta los archivos de una página para mostrarla. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+## P {.unnumbered}
+
+Parámetro
+: Parte de un comando que especifica cómo interpretar el valor que sigue, como `-Seconds` en `Start-Sleep -Seconds 5`. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Permiso
+: Configuración que establece qué acciones puede realizar un agente por su cuenta y cuáles requieren aprobación. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd) y [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Plan
+: Descripción de los pasos que un agente propone realizar antes de modificar archivos. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Política de ejecución
+: Configuración de Windows que controla si PowerShell puede ejecutar scripts. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+PowerShell
+: Intérprete de comandos de Windows usado en este libro. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Procesamiento
+: Aplicación de instrucciones a la información recibida. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Proceso
+: Programa que se está ejecutando, junto con la memoria y los recursos que utiliza. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Programa
+: Conjunto organizado de instrucciones que permite realizar una tarea. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Propuesta de cambio
+: Presentación que un agente muestra antes de modificar un archivo, con las líneas que agregaría o eliminaría. Ver [capítulo 7](../part-2/07-codex-terminal.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Proyecto
+: Conjunto organizado de archivos y carpetas que comparten un propósito. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+## R {.unnumbered}
+
+`README.md`
+: Archivo que presenta un proyecto a las personas y explica su propósito, su estado y cómo comenzar. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Reemplazo
+: En una presentación de diferencias, una línea eliminada seguida de una línea agregada en la misma posición. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Registro de cambios
+: Documento que conserva, en orden, las modificaciones realizadas en un proyecto, con su fecha, sus archivos, su verificación y el estado resultante. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Reproducibilidad
+: Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Restricción metodológica
+: Límite de un pedido que protege una decisión del estudio, como un rango de edad o el texto exacto de un consentimiento. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Restricción técnica
+: Límite de un pedido que restringe qué archivos, programas o acciones puede usar el agente. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Revertir
+: Devolver una parte de un archivo a su estado anterior. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Ruta
+: Expresión que describe la ubicación de un archivo o una carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Ruta absoluta
+: Ruta que describe el recorrido completo desde una unidad o desde el punto principal del sistema. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Ruta relativa
+: Ruta que describe una ubicación a partir de la carpeta actual. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## S {.unnumbered}
+
+Salida
+: Resultado que la computadora comunica, como un texto en pantalla, un sonido o un archivo creado. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Script
+: Archivo de texto que contiene instrucciones para un intérprete de comandos. Los scripts de PowerShell usan la extensión `.ps1`. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Sistema operativo
+: Software que coordina el funcionamiento general de la computadora, como Windows, macOS o Linux. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Software
+: Programas e instrucciones que utiliza una computadora. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Subcarpeta
+: Carpeta que se encuentra dentro de otra carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## T {.unnumbered}
+
+Terminal
+: Programa que permite escribir instrucciones y leer sus resultados mediante texto. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Texto plano
+: Texto formado solo por caracteres, sin un formato exclusivo de un programa. Muchos editores pueden abrirlo. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Tubería
+: Signo `|` que envía el resultado de un comando al comando siguiente. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+## V {.unnumbered}
+
+Variable
+: Característica que se registra y que puede tomar distintos valores, como la edad. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+## W {.unnumbered}
+
+Windows Terminal
+: Aplicación de Windows que proporciona la ventana en la que funcionan intérpretes de comandos como PowerShell. Ver [capítulo 3](../part-1/03-terminal.qmd).
