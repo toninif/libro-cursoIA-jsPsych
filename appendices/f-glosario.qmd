@@ -93,6 +93,9 @@ Clase de CSS
 CLI
 : Sigla de *command-line interface*, interfaz de línea de comandos. Designa a los programas que se usan escribiendo instrucciones en una terminal. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
+Clonar
+: Crear en tu computadora una copia de un repositorio de GitHub que queda conectada con el original. Ver el [apéndice B](b-git.qmd).
+
 Codex
 : Agente de IA desarrollado por OpenAI. En este libro se usa su versión de terminal, Codex CLI. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
@@ -241,6 +244,9 @@ GitHub
 
 GitHub Pages
 : Servicio de GitHub que publica como sitio web los archivos de un repositorio. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+`.gitignore`
+: Archivo que indica qué archivos debe ignorar Git. En un estudio sirve para evitar que los archivos de datos lleguen al repositorio. Ver el [apéndice B](b-git.qmd).
 
 Guardado progresivo
 : Forma de guardado en la que cada pantalla se envía a medida que se responde. Quien abandona deja un archivo parcial. En este libro está desactivado. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
@@ -399,6 +405,9 @@ Prueba de regresión
 Prueba piloto
 : Aplicación de un estudio a pocas personas antes de la recolección real, para encontrar problemas de funcionamiento, comprensión y calidad de datos. Ver [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
 
+Pull
+: Traer a tu computadora los cambios de un repositorio de GitHub que todavía no tenés. Ver el [apéndice B](b-git.qmd).
+
 Push
 : Envío de los cambios registrados en una computadora a un repositorio de GitHub. Ver [capítulo 27](../part-5/27-publicacion.qmd).
 
@@ -418,6 +427,12 @@ Registro de cambios
 
 Repositorio
 : Espacio de GitHub que contiene los archivos de un proyecto y el historial de sus cambios. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+Repositorio local
+: Carpeta de tu computadora que Git controla, con el historial de sus cambios. Ver el [apéndice B](b-git.qmd).
+
+Repositorio remoto
+: Copia de un repositorio guardada en un servicio como GitHub. Ver el [apéndice B](b-git.qmd).
 
 Reproducibilidad
 : Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).

@@ -28,5 +28,5 @@ quarto preview
 
 ## Estado
 
-Los capítulos 1 a 28 y los checkpoints `01` a `07` están desarrollados. Los apéndices A, B, D y E todavía son borradores. El código de los checkpoints se probó con jsPsych 8.3.0 en Chromium. Las actividades todavía no se probaron en una computadora con Windows ni con una cuenta real de DataPipe.
+Los capítulos 1 a 28, los apéndices A a F y los checkpoints `01` a `07` están desarrollados. El código de los checkpoints se probó con jsPsych 8.3.0 en Chromium. Las actividades todavía no se probaron en una computadora con Windows ni con una cuenta real de DataPipe.
 

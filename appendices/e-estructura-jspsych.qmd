@@ -1,15 +1,182 @@
 ---
 title: "Estructura de un proyecto jsPsych"
-description: "Mapa de archivos y responsabilidades del proyecto acumulativo."
+description: "Mapa de archivos, responsabilidades y lugares donde queda escrita cada decisión del estudio."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-La estructura completa se documentará recién después de que cada carpeta y archivo haya aparecido en el curso.
-:::
+## Cómo usar este apéndice
 
-## Propósito
+Este apéndice ofrece una vista de conjunto del proyecto que construiste durante el libro. Sirve para consultar qué hace cada archivo, dónde se define cada decisión y qué datos produce cada tipo de pantalla. Todo lo que aparece aquí se explicó antes en los capítulos, que se indican en cada sección.
 
-Ofrecer una vista de conjunto para consulta sin anticipar esa complejidad en los primeros capítulos.
+## Los archivos del proyecto final
 
-El apéndice relacionará cada archivo con las decisiones del estudio, la interfaz, los estímulos, los estilos y los datos.
+La estructura del proyecto al final del libro, igual a la del checkpoint `07-estudio-completo`, es esta.
 
+```text
+mi-primer-estudio/
+├── index.html
+├── experiment.js
+├── styles.css
+├── diseno.md
+├── diccionario.md
+├── AGENTS.md
+└── README.md
+```
+
+| Archivo | Función | Quién lo lee | Capítulo |
+|:---|:---|:---|:---|
+| `index.html` | Página que se abre. Carga jsPsych, los plugins, la extensión de DataPipe, las hojas de estilos y `experiment.js`. | El navegador | [12](../part-3/12-primer-jspsych.qmd) |
+| `experiment.js` | Define el procedimiento: pantallas, textos, variables, orden, reglas y guardado. | El navegador | [12](../part-3/12-primer-jspsych.qmd) |
+| `styles.css` | Define la apariencia, sin cambiar el procedimiento. | El navegador | [21](../part-4/21-presentacion-encuesta.qmd) |
+| `diseno.md` | Reúne las decisiones metodológicas. | Personas y agentes | [23](../part-5/23-disenar-antes.qmd) |
+| `diccionario.md` | Describe cada variable de los datos. | Personas y agentes | [16](../part-3/16-diccionario-datos.qmd) |
+| `AGENTS.md` | Reglas estables para los agentes. | Codex, al iniciarse | [24](../part-5/24-construccion-estudio.qmd) |
+| `README.md` | Presenta el proyecto, su estado, sus pruebas y su registro de cambios. | Personas | [5](../part-1/05-proyecto.qmd) |
+
+: Archivos del proyecto final {#tbl-archivos}
+
+Los tres primeros archivos forman el estudio: son los que el navegador interpreta. Los cuatro restantes forman la documentación: explican el estudio a personas y agentes.
+
+## Dónde se define cada decisión
+
+Esta tabla responde a una pregunta frecuente al revisar un cambio: ¿dónde está escrita esta decisión?
+
+| Decisión | Dónde está escrita | Ejemplo | Capítulo |
+|:---|:---|:---|:---|
+| Texto que ve la persona | `stimulus`, `prompt`, `preamble` o `html` | `prompt: "¿Qué carrera estudiás?"` | [12](../part-3/12-primer-jspsych.qmd) |
+| Nombre de una variable | `name`, o el atributo `name` de un campo HTML | `name: "anio_carrera"` | [12](../part-3/12-primer-jspsych.qmd) |
+| Obligatoriedad | `required` | `required: true` | [12](../part-3/12-primer-jspsych.qmd) |
+| Opciones de una pregunta | `options` o `labels` | `options: ["Sí", "No"]` | [13](../part-3/13-preguntas-formularios.qmd) |
+| Botones | `choices` y `button_label` | `choices: ["Acepto participar", "No acepto"]` | [12](../part-3/12-primer-jspsych.qmd) |
+| Restricción de un valor | Atributos del campo `<input>` | `min="18" max="80"` | [13](../part-3/13-preguntas-formularios.qmd) |
+| Orden de las pantallas | Lista de `jsPsych.run` | `jsPsych.run([bienvenida, ...])` | [12](../part-3/12-primer-jspsych.qmd) |
+| Aleatorización de ítems | `randomize_question_order` | `randomize_question_order: true` | [17](../part-4/17-aleatorizacion.qmd) |
+| Aleatorización de pantallas | `jsPsych.randomization.shuffle` | `shuffle([escala_a, escala_b])` | [17](../part-4/17-aleatorizacion.qmd) |
+| Terminar el estudio según una respuesta | `on_finish` con `abortExperiment` | `if (data.response === 1) { ... }` | [18](../part-4/18-logica-condicional.qmd) |
+| Mostrar una pantalla según una respuesta | `conditional_function` | `return recursos.includes(...)` | [18](../part-4/18-logica-condicional.qmd) |
+| Variable derivada | `on_finish` de un ensayo | `data.atencion_correcta = ...` | [19](../part-4/19-controles-atencion.qmd) |
+| Etiqueta de cada fila de datos | `data` de un ensayo | `data: { pantalla: "edad" }` | [15](../part-3/15-datos-generados.qmd) |
+| Identificador de participante | `randomID` y `addProperties` | `jsPsych.data.addProperties({ participante: participante })` | [15](../part-3/15-datos-generados.qmd) |
+| Duración de una pantalla | `trial_duration`, en milisegundos. El estudio del libro no lo usa. | `trial_duration: 500` | [9](../part-2/09-revisar-agente.qmd) |
+| Dónde se guardan los datos | Extensión de DataPipe en `initJsPsych` | `experiment_id: DATAPIPE_ID` | [26](../part-5/26-guardado-datos.qmd) |
+| Cuándo se envían los datos | Parámetro `stream` de la extensión | `stream: false` | [26](../part-5/26-guardado-datos.qmd) |
+| Barra de progreso | Configuración de `initJsPsych` | `show_progress_bar: true` | [21](../part-4/21-presentacion-encuesta.qmd) |
+| Apariencia | `styles.css` | `font-size: 18px;` | [21](../part-4/21-presentacion-encuesta.qmd) |
+| Versión de jsPsych y plugins | Direcciones de `index.html` | `jspsych@8.3.0` | [12](../part-3/12-primer-jspsych.qmd) |
+
+: Dónde se define cada decisión {#tbl-decisiones}
+
+## La organización de `index.html`
+
+```text
+<head>
+  ├── codificación (charset) y adaptación al celular (viewport)
+  ├── título de la pestaña
+  ├── jsPsych
+  ├── un plugin por cada tipo de pantalla
+  ├── extensión de DataPipe
+  ├── hoja de estilos de jsPsych
+  └── styles.css (después de la de jsPsych)
+<body>
+  └── experiment.js
+```
+
+Cada dirección de `unpkg.com` termina con una versión fija. La hoja de estilos propia se carga después de la de jsPsych, para que sus reglas tengan prioridad. `experiment.js` se carga al final, cuando todo lo anterior ya está disponible.
+
+## La organización de `experiment.js`
+
+El archivo del estudio final tiene siempre el mismo orden. Conocerlo ayuda a ubicar un cambio.
+
+```text
+1. Configuración de DataPipe          DATAPIPE_ID
+2. Configuración de jsPsych           initJsPsych: barra de progreso, extensión, on_finish
+3. Identificador de participante      randomID y addProperties
+4. Definición de los ensayos          bienvenida, consentimiento, preguntas, escalas, cierre
+5. Orden aleatorio de las escalas     shuffle y primera_escala
+6. Línea de tiempo                    jsPsych.run([...])
+```
+
+Los nombres se definen antes de usarse. Por eso las escalas se definen antes de mezclarlas, y todo se define antes de `jsPsych.run`. La única excepción aparente es `participante` dentro de `on_finish` y de `filename`: esas instrucciones se ejecutan recién al final del estudio, cuando `participante` ya existe.
+
+## La anatomía de un ensayo
+
+Todos los ensayos comparten una forma. Algunos parámetros son comunes a todos los plugins y otros son propios de cada uno.
+
+```javascript
+const pregunta_estudiante = {
+  type: jsPsychSurveyMultiChoice,          // plugin: define el tipo de pantalla
+  questions: [ ... ],                      // parámetros propios del plugin
+  button_label: "Continuar",
+  data: { pantalla: "estudiante" },        // común: agrega columnas a los datos
+  on_finish: function (data) { ... }       // común: se ejecuta al terminar el ensayo
+};
+```
+
+| Parámetro común | Qué hace | Capítulo |
+|:---|:---|:---|
+| `type` | Indica el plugin. | [12](../part-3/12-primer-jspsych.qmd) |
+| `data` | Agrega columnas propias a la fila de datos del ensayo. | [15](../part-3/15-datos-generados.qmd) |
+| `on_finish` | Ejecuta instrucciones cuando el ensayo termina. | [18](../part-4/18-logica-condicional.qmd) |
+
+: Parámetros comunes a todos los ensayos {#tbl-parametros-comunes}
+
+Una línea de tiempo anidada tiene otra forma: un bloque con `timeline` y, opcionalmente, `conditional_function`.
+
+```javascript
+const pregunta_herramientas_ia = {
+  timeline: [ { ...un ensayo... } ],
+  conditional_function: function () { ... }
+};
+```
+
+## Plugins usados y datos que producen
+
+| Plugin | Nombre en el código | Dirección en `index.html` | Qué registra en `response` |
+|:---|:---|:---|:---|
+| html-button-response | `jsPsychHtmlButtonResponse` | `@jspsych/plugin-html-button-response@2.1.0` | La posición del botón presionado, desde 0. |
+| survey-text | `jsPsychSurveyText` | `@jspsych/plugin-survey-text@2.1.1` | El texto escrito, o `""` si la pregunta es opcional y quedó vacía. |
+| survey-html-form | `jsPsychSurveyHtmlForm` | `@jspsych/plugin-survey-html-form@2.1.0` | El valor de cada campo, como texto. |
+| survey-multi-choice | `jsPsychSurveyMultiChoice` | `@jspsych/plugin-survey-multi-choice@2.2.1` | El texto de la opción elegida. |
+| survey-multi-select | `jsPsychSurveyMultiSelect` | `@jspsych/plugin-survey-multi-select@2.1.1` | Una lista con los textos de las opciones elegidas. |
+| survey-likert | `jsPsychSurveyLikert` | `@jspsych/plugin-survey-likert@2.2.0` | La posición de la opción elegida en cada ítem, desde 0. |
+
+: Plugins del estudio y datos que registran {#tbl-plugins-datos}
+
+Todas las direcciones comienzan con `https://unpkg.com/`. La biblioteca se carga con `https://unpkg.com/jspsych@8.3.0` y la extensión de DataPipe con `https://unpkg.com/@jspsych/extension-pipe@0.2.0`.
+
+Además de `response`, cada fila incluye columnas que jsPsych agrega por su cuenta: `rt`, `trial_type`, `trial_index`, `time_elapsed` y `plugin_version`. Algunos plugins agregan columnas propias, como `question_order` en las escalas y los cuestionarios con orden aleatorio. El [capítulo 15](../part-3/15-datos-generados.qmd) explica cada una.
+
+## Cómo creció el proyecto
+
+El proyecto creció de a un archivo por vez, cuando cada uno se volvió necesario. Los checkpoints del libro conservan cada etapa.
+
+| Checkpoint | Archivos | Qué incorporó | Parte |
+|:---|:---|:---|:---|
+| `01-inicial` | `README.md` | Propósito y estado del proyecto. | I |
+| `02-primer-jspsych` | `index.html`, `experiment.js`, `README.md` | Bienvenida, pregunta de edad, cierre y datos en pantalla. | III |
+| `03-formulario` | Los mismos | Consentimiento, cuestionario sociodemográfico y validaciones. | III |
+| `04-escalas` | Se suma `diccionario.md` | Escala ficticia, etiquetas de pantalla, identificador y descarga de datos. | III |
+| `05-aleatorizacion` | Los mismos | Segunda escala ficticia y orden aleatorio de ítems y escalas. | IV |
+| `06-encuesta-ampliada` | Se suma `styles.css` | Reglas condicionales, control de atención, barra de progreso y adaptación al celular. | IV |
+| `07-estudio-completo` | Se suman `diseno.md` y `AGENTS.md` | DataPipe, consentimiento y cierre finales, y marcas para el proyecto final. | V |
+
+: Evolución del proyecto en los checkpoints {#tbl-evolucion}
+
+Cada checkpoint funciona por separado. Si tu versión deja de funcionar, podés copiar los archivos del checkpoint de la etapa en la que estás y continuar desde allí.
+
+## Cuando el proyecto crece más
+
+El estudio del libro cabe cómodamente en un solo archivo `experiment.js`. En estudios con muchas escalas o muchas pantallas, ese archivo puede volverse difícil de leer. Una organización habitual en ese caso separa el código en varios archivos dentro de una carpeta `src`.
+
+```text
+mi-estudio/
+├── index.html
+├── src/
+│   ├── experiment.js        configuración y línea de tiempo
+│   └── questionnaires.js    definición de cuestionarios y escalas
+├── styles/
+│   └── styles.css
+├── README.md
+└── AGENTS.md
+```
+
+Si reorganizás el proyecto así, `index.html` tiene que cargar cada archivo con su nueva ruta relativa, y `questionnaires.js` antes que `experiment.js`, porque el segundo usa lo que define el primero. Es un cambio que afecta varios archivos: pedí un plan antes de hacerlo, guardá una copia de respaldo y ejecutá el plan de pruebas completo después.
