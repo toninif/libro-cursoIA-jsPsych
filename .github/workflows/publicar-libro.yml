@@ -1,0 +1,31 @@
+# Renderiza el libro con Quarto y lo publica en la rama gh-pages
+# cada vez que cambia la rama main. También puede ejecutarse a mano
+# desde la pestaña Actions del repositorio.
+name: Publicar el libro
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.7.32
+
+      - name: Renderizar y publicar en gh-pages
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
