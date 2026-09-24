@@ -326,6 +326,44 @@ mi-primer-estudio/
 
 No introducir esta estructura completa antes de que los estudiantes necesiten comprenderla.
 
+# Decisiones del curso
+
+Estas decisiones fueron tomadas por el autor del curso. Todos los capítulos, apéndices y checkpoints deben respetarlas.
+
+## Producto final
+
+El producto final del curso es un **estudio de encuesta online** publicado y funcionando. Su secuencia es:
+
+1. consentimiento informado;
+2. cuestionario sociodemográfico;
+3. una o más escalas psicológicas (candidatas: satisfacción con la vida, personalidad o afecto positivo y negativo);
+4. pantalla final de cierre y explicación del estudio (*debriefing*).
+
+Los ítems de las escalas deben provenir de versiones proporcionadas explícitamente por el autor del curso. No redactarlos ni reproducirlos de memoria.
+
+## jsPsych
+
+- Cargar jsPsych y sus plugins desde internet mediante etiquetas `<script>` en `index.html`, sin npm ni herramientas de compilación.
+- Fijar siempre una versión exacta en cada dirección (por ejemplo, `jspsych@8.3.0`). No usar direcciones sin versión.
+- El estudio debe poder ejecutarse abriendo `index.html` en el navegador o publicándolo en GitHub Pages.
+- No introducir Node.js, npm ni el concepto de dependencia salvo que un capítulo posterior lo justifique.
+
+## Git
+
+Postergar Git. No es necesario explicarlo en profundidad. Cuando haga falta para publicar, introducir solo lo mínimo indispensable.
+
+## Publicación y datos
+
+- Publicación del estudio: GitHub y GitHub Pages.
+- Guardado de datos: DataPipe (`pipe.jspsych.org`).
+- No usar OSF como destino: DataPipe dejó de crear experimentos en OSF y dejará de escribir allí después del 16 de noviembre de 2026.
+- Presentar dos destinos de DataPipe:
+  - Opción 1: Google Drive (carpeta privada en la cuenta del investigador).
+  - Opción 2: Zenodo (depósito privado hasta que se publica; publicar genera un DOI).
+- En jsPsych 8, integrar DataPipe con la extensión `@jspsych/extension-pipe`, con versión fija. El plugin anterior `jsPsychPipe` sigue funcionando, pero no se recomienda para estudios nuevos.
+- La extensión guarda cada pantalla a medida que ocurre y genera archivos parciales cuando una persona abandona el estudio. Relacionar este comportamiento con el consentimiento informado y con la posibilidad de retirarse.
+- Antes de escribir sobre DataPipe, verificar su documentación vigente, porque cambió de manera importante en septiembre de 2026.
+
 # Checkpoints
 
 Mantener versiones recuperables del proyecto.
