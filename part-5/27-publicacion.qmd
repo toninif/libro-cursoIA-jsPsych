@@ -1,0 +1,20 @@
+---
+title: "Publicación del estudio"
+description: "Cómo pasar de una ejecución local a un enlace para participantes."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Los servicios y procedimientos de publicación cambian con el tiempo y deberán verificarse antes de enseñar este capítulo.
+:::
+
+## Propósito
+
+Introducir alojamiento, servidor y despliegue solo cuando el estudio local ya funciona y sus datos fueron revisados.
+
+## Objetivos de aprendizaje
+
+- Explicar qué cambia al publicar un estudio en Internet.
+- Distinguir alojamiento de almacenamiento de datos.
+- Realizar una comprobación posterior a la publicación.
+- Documentar versión, enlace y fecha del estudio publicado.
+

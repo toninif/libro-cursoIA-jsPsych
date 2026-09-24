@@ -1,0 +1,26 @@
+---
+title: "Cómo describir una tarea"
+description: "Instrucciones claras, delimitadas y verificables para un agente."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Enseñar a transformar una intención general en una especificación que indique resultado, alcance, restricciones y forma de comprobación.
+
+## Objetivos de aprendizaje
+
+- Identificar por qué una instrucción es ambigua o insuficiente.
+- Delimitar qué archivo o parte del proyecto puede modificarse.
+- Expresar restricciones metodológicas y técnicas.
+- Incluir un criterio observable para verificar el resultado.
+
+## Estructura de una buena instrucción
+
+```text
+qué quiero + dónde + restricciones + cómo comprobarlo
+```
+

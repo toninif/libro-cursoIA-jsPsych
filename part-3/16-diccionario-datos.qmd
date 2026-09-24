@@ -1,0 +1,20 @@
+---
+title: "Construcción de un diccionario de datos"
+description: "Documentar qué representa cada variable y qué valores puede tomar."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Convertir la estructura prevista de la base en un documento que permita interpretar, verificar y reutilizar los datos.
+
+## Objetivos de aprendizaje
+
+- Registrar nombre, significado, tipo y valores posibles de una variable.
+- Documentar datos faltantes, unidades y reglas de puntuación.
+- Comparar el diccionario previsto con los datos efectivamente producidos.
+- Mantener la documentación sincronizada con el estudio.
+

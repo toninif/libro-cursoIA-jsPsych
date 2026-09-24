@@ -1,0 +1,20 @@
+---
+title: "Prueba piloto y depuración"
+description: "Buscar problemas de funcionamiento, comprensión y calidad de datos."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Tratar el pilotaje como una investigación sistemática del estudio y no como una ejecución informal antes de publicar.
+
+## Objetivos de aprendizaje
+
+- Diseñar casos de prueba normales, extremos e inválidos.
+- Registrar pasos para reproducir un problema.
+- Diferenciar un error técnico de un problema metodológico o de comprensión.
+- Volver a probar después de una corrección.
+

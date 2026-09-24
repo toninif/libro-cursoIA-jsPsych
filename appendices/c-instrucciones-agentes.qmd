@@ -1,0 +1,15 @@
+---
+title: "Instrucciones útiles para agentes"
+description: "Patrones de tareas pequeñas, delimitadas y verificables."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Los ejemplos se incorporarán después de haber sido utilizados y verificados en los capítulos correspondientes.
+:::
+
+## Organización prevista
+
+Las instrucciones se agruparán por objetivo: inspeccionar, modificar, explicar, ejecutar, verificar y documentar.
+
+Cada ejemplo indicará también qué decisión debe aportar el estudiante y qué resultado debe comprobar.
+

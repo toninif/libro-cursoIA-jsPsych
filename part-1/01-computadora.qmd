@@ -1,0 +1,299 @@
+---
+title: "Qué hace una computadora"
+description: "Un modelo funcional para comprender cómo una computadora recibe instrucciones, transforma información y produce datos."
+---
+
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué hace una computadora cuando usás un programa.
+
+2. Vas a poder distinguir las partes físicas de las instrucciones que las controlan.
+
+3. Vas a poder diferenciar un programa de un archivo.
+
+4. Vas a poder explicar qué función cumple el sistema operativo.
+
+5. Vas a poder relacionar el funcionamiento de una computadora con la construcción de un estudio psicológico digital.
+
+## Una tarea cotidiana permite formular el problema
+
+Imaginá que completás un formulario sobre hábitos de estudio. Escribís tu edad. Elegís una opción sobre la frecuencia con la que estudiás. Después presionás el botón **Enviar**.
+
+La pantalla cambia y aparece un mensaje de confirmación. En algún lugar quedan registradas tus respuestas.
+
+La computadora realizó varias operaciones durante esos pocos segundos. Recibió acciones mediante el teclado y el mouse. Mostró preguntas en la pantalla. Comprobó algunas respuestas. Envió información. Conservó datos para que alguien pueda analizarlos más adelante.
+
+Google Forms oculta gran parte de ese trabajo. Esta característica resulta cómoda para quien crea un formulario. Sin embargo, un investigador necesita comprender las decisiones que la plataforma ejecuta.
+
+Este capítulo presenta un modelo sencillo para describir esas operaciones. Ese modelo servirá durante todo el libro.
+
+::: {.callout-tip}
+## Idea clave
+
+Una computadora sigue instrucciones que actúan sobre información. Las acciones de una persona, las instrucciones de un programa y los datos producidos forman parte del mismo proceso.
+:::
+
+## La computadora recibe, transforma, muestra y conserva información
+
+Podemos describir muchas tareas informáticas mediante cuatro acciones.
+
+1. La computadora recibe información.
+
+2. La computadora transforma esa información según ciertas instrucciones.
+
+3. La computadora muestra o comunica un resultado.
+
+4. La computadora conserva información cuando hará falta más adelante.
+
+El siguiente esquema resume el recorrido.
+
+```text
+entrada → procesamiento → salida → almacenamiento
+```
+
+Una **entrada** es la información que recibe la computadora. Una tecla presionada, un clic, una respuesta escrita y una imagen capturada por una cámara pueden funcionar como entradas.
+
+El **procesamiento** ocurre cuando la computadora aplica instrucciones a la información recibida. Una calculadora procesa los números y la operación que ingresaste. Un formulario procesa la respuesta y comprueba si cumple una regla.
+
+Una **salida** es un resultado que la computadora comunica. El resultado puede aparecer como texto en una pantalla, como un sonido o como un archivo creado.
+
+El **almacenamiento** permite conservar información. Un documento guardado es un ejemplo de información almacenada. Una respuesta también puede quedar registrada en una base de datos. Una base de datos es un conjunto organizado de datos que permite guardar y consultar información.
+
+### La calculadora muestra el ciclo completo
+
+Cuando escribís `12 × 4` en una calculadora, los números y la operación constituyen la entrada. El programa aplica una regla de multiplicación. La pantalla muestra `48` como salida. Si copiás el resultado en un documento y guardás ese documento, también incorporás almacenamiento.
+
+El mismo modelo permite describir una pregunta de edad en un estudio.
+
+```text
+La persona escribe 22.
+          ↓
+El programa comprueba que 22 se encuentra dentro del rango permitido.
+          ↓
+La pantalla permite continuar.
+          ↓
+El estudio conserva el valor 22 con el nombre edad.
+```
+
+La palabra **dato** designa una representación de información que un sistema puede registrar y procesar. El número `22` puede representar la edad informada por una persona. Una **variable** es una característica que registramos y que puede tomar distintos valores. Para interpretar el número también necesitamos conocer el nombre de la variable, la unidad y las condiciones en las que se obtuvo.
+
+::: {.callout-important}
+## El contexto permite interpretar un dato
+
+El valor `22` admite muchas interpretaciones. Puede representar una edad, un puntaje o una cantidad de respuestas correctas. El nombre de la variable y la documentación del estudio indican qué significa.
+:::
+
+## Las partes físicas hacen posible el trabajo
+
+La palabra **hardware** reúne las partes físicas de una computadora. Estas partes se pueden tocar. La pantalla, el teclado, el disco y los componentes internos pertenecen al hardware.
+
+Cada parte cumple una función. El teclado permite ingresar información. La pantalla permite mostrar resultados. El procesador realiza operaciones. La memoria de trabajo mantiene información disponible mientras un programa funciona. El almacenamiento conserva archivos incluso después de apagar el equipo.
+
+La **memoria de trabajo**, que suele llamarse memoria RAM, ayuda a sostener las tareas activas. El **almacenamiento**, que puede estar en un disco interno o en otra unidad, conserva información durante más tiempo.
+
+Pensá en un documento abierto. La computadora necesita mantener información disponible mientras escribís. Cuando guardás el documento, una copia queda registrada en el almacenamiento. Si cerrás el programa y volvés a abrir el archivo, la computadora recupera esa información.
+
+En este curso alcanza con reconocer las funciones principales. Los detalles electrónicos quedan fuera de nuestro objetivo.
+
+## Los programas indican qué operaciones deben realizarse
+
+La palabra **software** reúne los programas y las instrucciones que utiliza una computadora. Word, un navegador y una calculadora son ejemplos de software.
+
+Un **programa** es un conjunto organizado de instrucciones que permite realizar una tarea. Word contiene instrucciones para mostrar texto, cambiar su formato y guardar documentos. Un navegador contiene instrucciones para mostrar páginas y responder a las acciones de una persona.
+
+Las instrucciones deben ser precisas. Una computadora trabaja con las operaciones que el programa define. La intención general del usuario necesita convertirse en acciones que el sistema pueda ejecutar.
+
+Esta idea tendrá mucha importancia cuando trabajemos con un agente de IA. El agente podrá convertir una especificación en cambios concretos. La calidad del resultado dependerá de la claridad de la especificación y de la verificación posterior.
+
+## El sistema operativo coordina el conjunto
+
+El **sistema operativo** es el software que coordina el funcionamiento general de la computadora. Windows, macOS y distintas distribuciones de Linux son sistemas operativos.
+
+El sistema operativo permite abrir programas, mostrar ventanas, usar el teclado, acceder al almacenamiento y organizar archivos. También distribuye la memoria de trabajo y el tiempo del procesador entre los programas activos.
+
+Cuando abrís un documento con un doble clic, ocurren varias acciones. El sistema operativo identifica el archivo. Después reconoce qué programa puede abrirlo. Luego inicia ese programa y le indica qué archivo debe cargar.
+
+Estas acciones suelen ocurrir con rapidez. La **interfaz gráfica** reúne los elementos visibles que permiten controlar un programa. Esta interfaz presenta acciones mediante íconos, ventanas y botones. Más adelante usarás una terminal para solicitar algunas de esas mismas acciones mediante texto.
+
+::: {.callout-tip}
+## La interfaz cambia y la computadora conserva sus funciones
+
+Podés abrir una carpeta con el mouse o escribir una instrucción en una terminal. En ambos casos, el sistema operativo recibe una solicitud y actúa sobre la misma organización de archivos.
+:::
+
+## Los archivos conservan información con un nombre
+
+Un **archivo** es una unidad de información guardada con un nombre. Un documento de Word, una fotografía y una tabla de datos son archivos.
+
+El nombre suele incluir una **extensión**. La extensión aparece al final y ayuda a reconocer el tipo de archivo. Por ejemplo, `informe.docx` contiene la extensión `.docx`, mientras que `datos.csv` contiene la extensión `.csv`.
+
+Un archivo puede contener texto, imágenes, datos o instrucciones. Su contenido determina qué programas pueden interpretarlo.
+
+Un programa y un archivo cumplen funciones diferentes. El programa realiza operaciones. El archivo conserva información. Word puede abrir el archivo `informe.docx`. Un navegador puede abrir el archivo `index.html` de un estudio web.
+
+El próximo capítulo desarrollará con más detalle cómo se organizan los archivos dentro de carpetas y cómo se describe su ubicación.
+
+## Ejecutar pone un programa en funcionamiento
+
+**Ejecutar** un programa significa poner sus instrucciones en funcionamiento. Cuando abrís la calculadora, el sistema operativo inicia el programa. La calculadora queda disponible para recibir entradas y producir resultados.
+
+La ejecución tiene un comienzo y un final. El programa utiliza memoria de trabajo y tiempo del procesador mientras permanece activo. Cuando lo cerrás, el sistema operativo vuelve a disponer de esa capacidad.
+
+Un archivo con instrucciones necesita un programa capaz de interpretarlas. Un navegador puede interpretar los archivos que forman un estudio web. Por eso, más adelante, el navegador podrá mostrar y ejecutar el estudio que construyas con jsPsych.
+
+En el capítulo dedicado a programas y errores vas a observar este proceso con más detalle. También vas a aprender qué información brinda un mensaje cuando la ejecución encuentra un problema.
+
+## El navegador interpreta una página y responde a tus acciones
+
+Un **navegador** es un programa que permite acceder a sitios y aplicaciones web. Chrome, Firefox, Edge y Safari son navegadores.
+
+El navegador recibe archivos e instrucciones. Luego construye la página que ves. También detecta clics, teclas y otras acciones. Una página puede modificar su contenido mientras la usás.
+
+Cuando completás un formulario, el navegador muestra las preguntas y recoge tus respuestas. El programa del formulario decide qué ocurre después. Puede exigir una respuesta, mostrar otra pregunta o preparar los datos para guardarlos.
+
+jsPsych funciona dentro del navegador. Esta característica permite construir estudios que presentan estímulos, registran teclas, miden tiempos y organizan secuencias de actividades.
+
+## Un estudio psicológico digital también sigue instrucciones
+
+Una computadora desconoce el significado psicológico de una tarea. El programa recibe acciones y aplica reglas.
+
+Supongamos que una persona ve una palabra y debe presionar una tecla. El programa puede realizar esta secuencia.
+
+1. El programa muestra la palabra.
+
+2. El programa registra el momento en que apareció.
+
+3. El programa espera una tecla válida.
+
+4. El programa registra el momento de la respuesta.
+
+5. El programa calcula el tiempo transcurrido.
+
+6. El programa guarda el estímulo, la tecla y el tiempo de reacción.
+
+El investigador aporta el significado metodológico. Define qué constructo quiere estudiar. Un **constructo** es un concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. El investigador también elige los estímulos. Decide qué respuesta se considera correcta. Establece qué participantes formarán parte del estudio. También determina cómo se analizarán los datos.
+
+El programa implementa parte del procedimiento. La implementación debe representar con fidelidad esas decisiones.
+
+::: {.callout-important}
+## Un programa que funciona todavía necesita una revisión metodológica
+
+La ejecución correcta demuestra que las instrucciones pueden realizarse. La revisión metodológica evalúa si esas instrucciones corresponden al estudio que se quería construir.
+:::
+
+## Este modelo importa para investigar en Psicología
+
+La investigación psicológica utiliza programas en muchas etapas. Un programa puede presentar preguntas, asignar condiciones, mostrar estímulos, registrar respuestas y guardar datos.
+
+Cada acción visible tiene consecuencias para la investigación. Una pregunta obligatoria modifica la posibilidad de obtener datos faltantes. Una duración controla el tiempo disponible para observar un estímulo. Un nombre de variable determina cómo se reconocerá una respuesta en la base.
+
+Comprender el funcionamiento general de la computadora permite formular mejores preguntas durante la construcción de un estudio.
+
+Podés preguntar qué entrada recibe el programa. Podés preguntar qué regla aplica. Podés revisar qué salida muestra. También podés comprobar qué dato conserva.
+
+Estas preguntas ayudan a conectar la interfaz con el procedimiento y con la base de datos.
+
+## Observá una acción que ya conocés
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Abrí la calculadora de tu computadora. Escribí `15 + 7` y observá el resultado. Después abrí un documento que puedas editar. Escribí el resultado y guardá el documento con el nombre `resultado` en una ubicación que puedas encontrar.
+
+Mientras realizás la actividad, respondé estas preguntas con oraciones completas.
+
+1. ¿Qué información recibió la calculadora?
+
+2. ¿Qué operación realizó?
+
+3. ¿Qué resultado mostró?
+
+4. ¿Qué programa usaste para escribir el resultado?
+
+5. ¿Qué información quedó almacenada cuando guardaste el documento?
+
+6. ¿Qué parte física utilizaste para ingresar cada acción?
+:::
+
+## Explicá qué ocurrió durante la actividad
+
+La calculadora recibió números y una operación. El programa aplicó instrucciones y mostró un resultado. Después, otro programa recibió el texto que escribiste. El sistema operativo permitió guardar esa información como un archivo en el almacenamiento.
+
+La actividad involucró hardware, software, entradas, procesamiento, salidas y almacenamiento. También involucró decisiones tuyas. Vos elegiste la operación, el nombre del archivo y la ubicación.
+
+La computadora ejecutó esas decisiones mediante instrucciones concretas.
+
+## Comprobá lo que comprendiste
+
+Leé cada situación y respondé con una oración completa.
+
+1. Una estudiante escribe su edad en un formulario. ¿Cuál es la entrada?
+
+2. El formulario rechaza el valor `12` porque el estudio acepta participantes desde los 18 años. ¿Qué operación realizó el programa?
+
+3. La pantalla muestra el mensaje “Gracias por participar”. ¿Qué función cumple ese mensaje?
+
+4. La respuesta queda registrada con el nombre `edad`. ¿Qué se almacenó?
+
+5. Una estudiante abre Edge para completar el estudio. ¿Qué tipo de programa abrió?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. La entrada es la edad que escribió la estudiante.
+
+2. El programa comparó el valor ingresado con una regla de validación.
+
+3. El mensaje funciona como una salida que informa el resultado de la acción.
+
+4. El sistema almacenó un dato que representa la edad y lo vinculó con el nombre `edad`.
+
+5. La estudiante abrió un navegador.
+
+</details>
+
+## Revisá algunas ideas que suelen generar confusión
+
+### Un programa puede trabajar con varios archivos
+
+Word puede abrir muchos documentos. El navegador puede abrir muchas páginas. El programa aporta las operaciones y cada archivo aporta contenido o instrucciones específicas.
+
+### Guardar y mostrar cumplen funciones diferentes
+
+Un valor visible en la pantalla puede desaparecer cuando cerrás una aplicación. El almacenamiento requiere una acción que conserve la información en un archivo o en otro sistema preparado para recibirla.
+
+### La interfaz presenta una parte del funcionamiento
+
+Los botones y las ventanas permiten realizar acciones sin describir cada operación interna. Esa comodidad puede ocultar decisiones importantes. Durante el curso vas a aprender a reconocerlas cuando afecten el estudio.
+
+### La velocidad no garantiza la corrección
+
+Una computadora puede ejecutar muy rápido una instrucción equivocada. La verificación permite comprobar si la regla implementada coincide con la decisión metodológica.
+
+## Qué aprendiste en este capítulo
+
+Una computadora recibe información, aplica instrucciones, produce resultados y conserva datos. El hardware hace posibles estas operaciones. El software indica qué debe ocurrir. El sistema operativo coordina programas, dispositivos y archivos.
+
+Un programa realiza operaciones. Un archivo conserva información o instrucciones. Ejecutar un programa pone sus instrucciones en funcionamiento.
+
+Un estudio psicológico digital utiliza los mismos principios. El navegador presenta el estudio. El programa aplica las reglas del procedimiento. Las acciones de los participantes producen datos. El investigador define el significado metodológico y verifica la implementación.
+
+## Resolvé un desafío breve
+
+Elegí una acción cotidiana que realices con una computadora. Podés enviar un correo, reproducir una canción o editar una fotografía.
+
+Describí la acción mediante cuatro oraciones.
+
+1. La primera oración debe identificar la entrada.
+
+2. La segunda oración debe explicar el procesamiento.
+
+3. La tercera oración debe identificar la salida.
+
+4. La cuarta oración debe explicar qué información queda almacenada.
+
+Después agregá una quinta oración que identifique una decisión tomada por la persona usuaria.
+
+En el próximo capítulo vas a trabajar con los archivos, las carpetas y las rutas que permiten organizar esta información.

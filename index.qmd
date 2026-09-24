@@ -1,0 +1,50 @@
+---
+subtitle: "Investigación computacional con jsPsych y agentes de IA"
+description: "Un recorrido desde el uso cotidiano de una computadora hasta la construcción de un estudio psicológico online."
+---
+
+# De Google Forms a experimentos web {.unnumbered}
+
+::: {.book-hero}
+Este libro acompaña a estudiantes de Psicología que conocen Google Forms, pero nunca programaron ni trabajaron desde una terminal. El objetivo no es formar programadores: es aprender a diseñar, construir y verificar estudios psicológicos digitales con ayuda de agentes de IA.
+:::
+
+## El recorrido
+
+<div class="route-map" aria-label="Recorrido del libro">
+  <div class="route-step"><strong>1. Entender la computadora</strong><span>Archivos, carpetas, programas, terminal y proyectos.</span></div>
+  <div class="route-step"><strong>2. Trabajar con agentes</strong><span>Dar instrucciones, limitar tareas y revisar cambios.</span></div>
+  <div class="route-step"><strong>3. Reconstruir Forms</strong><span>Preguntas, escalas, validaciones y estructura de datos.</span></div>
+  <div class="route-step"><strong>4. Ir más allá</strong><span>Aleatorización, estímulos, tiempos de reacción y lógica experimental.</span></div>
+  <div class="route-step"><strong>5. Completar el estudio</strong><span>Pilotaje, datos, publicación y proyecto final.</span></div>
+</div>
+
+## Una regla para todo el curso
+
+::: {.callout-important}
+## El agente implementa; el investigador decide y verifica
+
+Un agente puede modificar archivos, ejecutar programas y proponer soluciones. No puede decidir por el investigador qué constructo medir, qué procedimiento es válido ni si una implementación representa correctamente el diseño del estudio.
+:::
+
+## Cómo se trabaja
+
+Cada concepto aparece cuando hace falta y se conecta con una tarea de investigación. El ciclo de trabajo se repite y gana complejidad a lo largo del libro:
+
+```text
+especificar → implementar → ejecutar → verificar → corregir
+```
+
+Al principio recibirás proyectos muy guiados. Más adelante tomarás más decisiones, formularás instrucciones más precisas y revisarás con mayor autonomía lo que produce el agente.
+
+## Un proyecto que crece
+
+Durante el recorrido construirás `mi-primer-estudio`. Al comienzo será una carpeta con un archivo de documentación. Después incorporará formularios, escalas, datos, aleatorización y una tarea experimental.
+
+El libro incluye puntos de recuperación o *checkpoints*. Si una versión deja de funcionar, podrás retomar el trabajo desde una etapa anterior sin perder el hilo del curso.
+
+::: {.callout-note}
+## Estado actual
+
+La arquitectura completa del libro ya está definida. Los capítulos se desarrollarán y verificarán de manera incremental; los que todavía son borradores lo indican al comienzo.
+:::

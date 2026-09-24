@@ -1,0 +1,25 @@
+---
+title: "Proyecto final"
+description: "Diseñar, construir, verificar y documentar un estudio psicológico digital."
+---
+
+::: {.callout-note title="Borrador estructural"}
+La consigna y la rúbrica se desarrollarán después de verificar todos los proyectos y competencias previas.
+:::
+
+## Propósito
+
+Integrar alfabetización computacional, trabajo con agentes, metodología, implementación y revisión crítica en un producto completo.
+
+## Resultados esperados
+
+- Una especificación metodológica explícita.
+- Un estudio ejecutable y probado.
+- Un diccionario de datos coherente con la implementación.
+- Evidencia de pilotaje y correcciones.
+- Documentación suficiente para comprender y reproducir el trabajo.
+
+## Criterios de evaluación previstos
+
+La evaluación priorizará coherencia metodológica, funcionamiento, estructura de datos y documentación. La apariencia del código no será el criterio central.
+

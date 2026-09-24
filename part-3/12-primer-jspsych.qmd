@@ -1,0 +1,24 @@
+---
+title: "Nuestro primer estudio con jsPsych"
+description: "Reconstruir una experiencia conocida dentro de un proyecto web."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse con la versión de jsPsych elegida.
+:::
+
+## Propósito
+
+Ejecutar un proyecto preparado, reconocer sus archivos principales y realizar con el agente una primera modificación pequeña.
+
+## Objetivos de aprendizaje
+
+- Explicar qué parte cumple el navegador y qué parte cumple jsPsych.
+- Ejecutar el estudio localmente siguiendo instrucciones verificables.
+- Agregar una pregunta de edad mediante una especificación acotada.
+- Comprobar la interfaz y el dato generado.
+
+## Cambio de perspectiva
+
+Todavía no se espera comprender cada línea de JavaScript. La atención estará puesta en el vínculo entre la decisión, la implementación y el resultado observable.
+

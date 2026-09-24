@@ -1,0 +1,20 @@
+---
+title: "Guardado de datos"
+description: "Del navegador a un archivo o servicio de almacenamiento."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Las opciones técnicas, costos y condiciones de privacidad deberán verificarse antes de publicar este capítulo.
+:::
+
+## Propósito
+
+Explicar qué resuelve jsPsych y qué infraestructura adicional se necesita para conservar respuestas fuera de la computadora del participante.
+
+## Objetivos de aprendizaje
+
+- Distinguir interfaz, ejecución, almacenamiento y exportación.
+- Comparar guardado local y remoto en términos funcionales.
+- Identificar riesgos vinculados con identificadores y datos sensibles.
+- Verificar que los datos almacenados coincidan con el diccionario previsto.
+

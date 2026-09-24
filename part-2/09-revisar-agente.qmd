@@ -1,0 +1,24 @@
+---
+title: "Leer y revisar lo que hace el agente"
+description: "Cómo inspeccionar cambios sin escribir todo el código desde cero."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Desarrollar una alfabetización de lectura suficiente para localizar cambios, relacionarlos con la consigna y detectar modificaciones inesperadas.
+
+## Objetivos de aprendizaje
+
+- Identificar qué archivos cambiaron.
+- Localizar textos, variables, restricciones y duraciones en fragmentos breves.
+- Comparar la solicitud original con la implementación realizada.
+- Pedir explicaciones adicionales cuando un cambio no sea comprensible.
+
+## Criterio central
+
+No hace falta escribir una solución completa para poder formular preguntas críticas sobre ella.
+

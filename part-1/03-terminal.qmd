@@ -1,0 +1,437 @@
+---
+title: "Cómo darle instrucciones a la computadora mediante texto"
+description: "Una introducción práctica a Windows Terminal y PowerShell para recorrer carpetas y comprobar resultados."
+---
+
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué es una terminal y qué función cumple PowerShell.
+
+2. Vas a poder reconocer la carpeta en la que trabaja la terminal.
+
+3. Vas a poder ver el contenido de una carpeta y desplazarte entre carpetas.
+
+4. Vas a poder crear una carpeta mediante una instrucción escrita.
+
+5. Vas a poder comprobar si cada instrucción produjo el resultado esperado.
+
+6. Vas a poder interpretar dos mensajes frecuentes sin abandonar la actividad.
+
+## Una carpeta conocida permite formular el problema
+
+En el capítulo anterior creaste una carpeta llamada `practica_archivos`. Usaste el Explorador de archivos para entrar en ella, observar su contenido y abrir sus carpetas internas. Cada acción dependió de elementos visibles. Hiciste clic sobre íconos, nombres y botones.
+
+Ahora imaginá que necesitás explicarle a otra persona cómo llegar hasta la carpeta `materiales`. Podrías describir una secuencia de clics. También podrías escribir una serie de instrucciones que nombren las acciones y las ubicaciones.
+
+Una terminal permite usar esa segunda forma de interacción. Vos escribís una instrucción. Un programa la interpreta. La computadora realiza una acción y muestra un resultado.
+
+Durante este capítulo vas a recorrer la misma organización que ya construiste. Vas a usar pocas instrucciones. Cada instrucción tendrá un propósito concreto y una forma de verificación.
+
+::: {.callout-tip}
+## La terminal permite describir acciones con texto
+
+El Explorador de archivos y la terminal permiten actuar sobre las mismas carpetas. La diferencia se encuentra en la forma de dar la instrucción. El Explorador recibe clics. La terminal recibe texto.
+:::
+
+## La terminal muestra una conversación escrita
+
+Una **terminal** es un programa que permite escribir instrucciones y leer sus resultados. Su ventana suele mostrar texto sobre un fondo uniforme. Dentro de ella aparece una línea preparada para recibir una instrucción.
+
+Windows incluye distintas herramientas relacionadas con esta tarea. En este libro usaremos **Windows Terminal** cuando se encuentre disponible. Windows Terminal es una aplicación que puede alojar distintos intérpretes de comandos. Microsoft presenta esta relación en su [documentación de Windows Terminal](https://learn.microsoft.com/es-es/windows/terminal/).
+
+Un **intérprete de comandos** es un programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. En Windows trabajaremos con **PowerShell**, que es uno de esos intérpretes.
+
+Esta distinción ayuda a comprender lo que ves.
+
+1. Windows Terminal proporciona la ventana y organiza las sesiones.
+
+2. PowerShell interpreta las instrucciones escritas dentro de esa ventana.
+
+En algunas computadoras vas a encontrar una aplicación llamada PowerShell aunque Windows Terminal no esté instalada. Esa aplicación también sirve para realizar las actividades de este capítulo.
+
+## El indicador muestra que PowerShell espera una instrucción
+
+Cuando abrís PowerShell, podés encontrar una línea parecida a esta.
+
+```text
+PS C:\Users\Ana>
+```
+
+Esa línea recibe el nombre de **indicador**. También vas a encontrar el término inglés *prompt* en documentación y mensajes técnicos.
+
+El indicador comunica dos datos importantes. Las letras `PS` señalan que estás usando PowerShell. El texto `C:\Users\Ana` muestra la ubicación actual. El signo `>` marca el lugar a partir del cual podés escribir.
+
+La ubicación actual recibe el nombre de **carpeta de trabajo actual**. PowerShell interpreta muchas instrucciones a partir de esa carpeta. Por eso conviene conocerla antes de realizar cambios.
+
+Cuando un ejemplo de este libro muestre una instrucción, escribí solamente el contenido del bloque de código. El indicador ya aparece en tu terminal.
+
+Por ejemplo, el libro puede mostrar esta instrucción.
+
+```powershell
+Get-Location
+```
+
+No necesitás escribir `PS C:\Users\Ana>` delante de ella.
+
+::: {.callout-warning}
+## Revisá la carpeta actual antes de modificar archivos
+
+Una instrucción puede funcionar correctamente en una carpeta equivocada. Antes de crear o cambiar algo, usá `Get-Location` y comprobá la ruta que muestra PowerShell.
+:::
+
+## Un comando expresa una acción concreta
+
+Un **comando** es una instrucción escrita que solicita una acción. PowerShell contiene comandos para consultar ubicaciones, recorrer carpetas y realizar muchas otras tareas.
+
+El comando `Get-Location` solicita la ubicación actual.
+
+```powershell
+Get-Location
+```
+
+Después de escribirlo, presioná la tecla Enter. PowerShell ejecutará el comando y mostrará una ruta. Microsoft describe el funcionamiento de `Get-Location` en la [referencia oficial del comando](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/get-location).
+
+La salida puede verse de esta manera.
+
+```text
+Path
+----
+C:\Users\Ana
+```
+
+La palabra `Path` significa ruta. La última línea informa la carpeta de trabajo actual.
+
+Presionar Enter cumple una función precisa. Le indica a PowerShell que terminaste de escribir y que puede interpretar la instrucción.
+
+## El comando `dir` muestra el contenido de la carpeta actual
+
+El comando `dir` solicita una lista del contenido de la carpeta actual.
+
+```powershell
+dir
+```
+
+La salida puede incluir nombres de carpetas, nombres de archivos, fechas y tamaños. La cantidad de información depende del contenido y de la versión de PowerShell.
+
+`dir` es un nombre breve que PowerShell acepta para el comando `Get-ChildItem`. Un nombre alternativo de este tipo recibe el nombre de **alias**. Los alias reducen la cantidad de texto que necesitás escribir. Microsoft documenta esta equivalencia en su [explicación sobre los alias de PowerShell](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_aliases).
+
+En este momento alcanza con recordar una acción: `dir` permite observar qué contiene la carpeta actual.
+
+La lista funciona como una verificación. Si esperabas encontrar `materiales` y ese nombre aparece, confirmaste que la carpeta está presente. Si el nombre falta, necesitás revisar la ubicación o la organización de los archivos.
+
+## El comando `cd` cambia la carpeta actual
+
+El comando `cd` permite entrar en otra carpeta. Necesita recibir el nombre o la ruta de la carpeta de destino.
+
+```powershell
+cd materiales
+```
+
+El texto `materiales` funciona como un **argumento**. Un argumento aporta la información que un comando necesita para realizar una acción. En este caso, indica el destino.
+
+Después de ejecutar el comando, el indicador cambia. También podés ejecutar `Get-Location` para comprobar la nueva ubicación.
+
+```powershell
+Get-Location
+```
+
+PowerShell acepta `cd` como alias de `Set-Location`. La [referencia de `Set-Location`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/set-location) explica que el comando establece la ubicación de trabajo actual.
+
+### Dos puntos permiten volver a la carpeta que contiene la ubicación actual
+
+Observá esta instrucción.
+
+```powershell
+cd ..
+```
+
+Los dos puntos representan la carpeta que contiene la ubicación actual. Si estás dentro de `practica_archivos\materiales`, la instrucción te lleva a `practica_archivos`.
+
+Podés comprobar el cambio con `Get-Location`. También podés ejecutar `dir` para observar el contenido de la ubicación a la que llegaste.
+
+### Las comillas conservan unida una ruta que contiene espacios
+
+Una ruta puede contener espacios. PowerShell necesita reconocerla como una sola unidad. Las comillas cumplen esa función.
+
+```powershell
+cd "C:\Users\Ana\Documents\Curso Psicología"
+```
+
+La ruta de este ejemplo cambia entre computadoras. No la copies como si fuera tu ubicación. Usá la ruta que corresponda a tu carpeta.
+
+Podés evitar parte de la escritura manual. Abrí la carpeta en el Explorador de archivos, seleccioná la barra de direcciones y copiá la ruta completa. Después escribí `cd`, agregá un espacio, pegá la ruta entre comillas y presioná Enter.
+
+```powershell
+cd "PEGÁ AQUÍ LA RUTA DE TU CARPETA"
+```
+
+Las comillas también funcionan cuando la ruta carece de espacios. Por eso resultan una opción segura durante las primeras actividades.
+
+### La tecla Tab puede completar un nombre
+
+PowerShell puede completar nombres que ya existen. Escribí las primeras letras de una carpeta y presioná la tecla Tab. Si existe una coincidencia, PowerShell completará el nombre. Si existen varias, nuevas pulsaciones pueden recorrer las opciones.
+
+Esta función reduce errores de escritura. También ayuda cuando un nombre es largo. Aun así, verificá el resultado antes de presionar Enter.
+
+## El comando `mkdir` crea una carpeta
+
+El comando `mkdir` crea una carpeta en la ubicación actual. El nombre de la carpeta se escribe después del comando.
+
+```powershell
+mkdir practica_terminal
+```
+
+En esta instrucción, `practica_terminal` funciona como argumento. PowerShell usa ese texto como nombre de la carpeta nueva.
+
+La verificación requiere una acción adicional.
+
+```powershell
+dir
+```
+
+La carpeta `practica_terminal` debería aparecer en la lista. También podés abrir el Explorador de archivos y comprobar el cambio mediante la interfaz gráfica.
+
+PowerShell acepta `mkdir` como una forma breve de crear una carpeta. La [documentación de las funciones incorporadas](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_built-in_functions) describe esta equivalencia.
+
+## El comando `cls` limpia el texto visible
+
+Una sesión puede acumular muchas líneas. El comando `cls` limpia el contenido visible de la ventana.
+
+```powershell
+cls
+```
+
+Esta acción conserva los archivos, las carpetas y la ubicación actual. También conserva la sesión abierta. Solamente despeja la pantalla. Microsoft explica este comportamiento en la [referencia de `Clear-Host`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/clear-host), que es el comando asociado con `cls`.
+
+Podés ejecutar `Get-Location` después de `cls`. La ruta mostrará que permanecés en la misma carpeta.
+
+## Los comandos permiten recorrer la práctica anterior
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Necesitás la carpeta `practica_archivos` que creaste en el capítulo anterior. Si todavía no existe, creala con el Explorador de archivos y agregá las carpetas `instrucciones`, `materiales` y `datos`.
+
+1. Abrí Windows Terminal o PowerShell desde el menú Inicio.
+
+2. Escribí `Get-Location` y presioná Enter. Leé la ruta que aparece.
+
+3. Abrí `practica_archivos` en el Explorador de archivos. Copiá su ruta desde la barra de direcciones.
+
+4. Volvé a PowerShell. Escribí `cd`, agregá un espacio y pegá la ruta entre comillas. La instrucción tendrá una forma parecida a `cd "C:\Users\Ana\Documents\practica_archivos"`.
+
+5. Ejecutá `Get-Location`. Comprobá que la última parte de la ruta sea `practica_archivos`.
+
+6. Ejecutá `dir`. Comprobá que aparezcan `instrucciones`, `materiales` y `datos`.
+
+7. Ejecutá `cd materiales` para entrar en esa carpeta.
+
+8. Ejecutá `dir`. Si completaste la actividad anterior, comprobá que aparezca `ejemplo.txt`.
+
+9. Ejecutá `cd ..` para volver a `practica_archivos`.
+
+10. Ejecutá `mkdir practica_terminal` para crear una carpeta.
+
+11. Ejecutá `dir` y comprobá que `practica_terminal` aparezca en la lista.
+
+12. Ejecutá `cd practica_terminal` y después `Get-Location`. Comprobá la ruta.
+
+13. Ejecutá `cd ..` para volver a `practica_archivos`.
+
+14. Ejecutá `cls` para despejar la pantalla.
+
+15. Ejecutá `Get-Location` una vez más. Comprobá que la limpieza de la pantalla conservó la ubicación.
+:::
+
+## Explicá qué ocurrió durante la actividad
+
+PowerShell comenzó en una carpeta determinada por la configuración de tu computadora. `Get-Location` mostró esa ubicación.
+
+El primer comando `cd` cambió la carpeta de trabajo actual y utilizó una ruta completa como argumento. Después, `dir` mostró el contenido de `practica_archivos`.
+
+El comando `cd materiales` interpretó una ruta relativa. PowerShell buscó `materiales` dentro de la carpeta actual. El comando `cd ..` cambió la ubicación a la carpeta que contiene `materiales`.
+
+El comando `mkdir practica_terminal` modificó el almacenamiento. Creó una carpeta dentro de `practica_archivos`. El comando `dir` permitió comprobar el resultado.
+
+El comando `cls` modificó únicamente la presentación de la terminal. La verificación con `Get-Location` mostró que la ubicación se conservó.
+
+La actividad siguió un ciclo breve que vas a repetir muchas veces.
+
+```text
+observar la ubicación
+          ↓
+escribir una instrucción
+          ↓
+leer el resultado
+          ↓
+comprobar el cambio
+```
+
+## La terminal ayuda a trabajar con un proyecto
+
+Un **proyecto** reúne archivos y carpetas relacionados con un mismo trabajo. Más adelante, tu proyecto contendrá las instrucciones y los materiales de un estudio psicológico.
+
+Muchas herramientas actúan sobre la carpeta actual. Un agente de IA que trabaja desde una terminal también necesita saber qué proyecto debe inspeccionar. Si abrís la herramienta desde otra ubicación, puede encontrar archivos diferentes o carecer de la información necesaria.
+
+Por eso, antes de pedir un cambio, conviene realizar tres comprobaciones.
+
+1. `Get-Location` debe mostrar la carpeta del proyecto correcto.
+
+2. `dir` debe mostrar los archivos que esperás encontrar.
+
+3. La instrucción para el agente debe nombrar el cambio y sus límites.
+
+Esta comprobación pertenece al trabajo de investigación. Un cambio aplicado a la versión equivocada puede producir diferencias entre el procedimiento que revisaste y el procedimiento que finalmente ejecutaste.
+
+::: {.callout-important}
+## La ubicación forma parte de la verificación
+
+Un comando puede estar bien escrito y actuar sobre una carpeta inesperada. Revisar la ruta permite confirmar el alcance real de la acción.
+:::
+
+## Dos mensajes frecuentes aportan información útil
+
+PowerShell muestra texto cuando encuentra una dificultad. Ese texto describe qué instrucción recibió y qué parte produjo el problema. El próximo capítulo desarrollará una estrategia para leer mensajes de error. Por ahora vas a reconocer dos situaciones frecuentes.
+
+### PowerShell puede informar que no encuentra una ruta
+
+Este mensaje aparece cuando la ubicación solicitada no coincide con una carpeta accesible desde el punto actual. Puede existir un error de escritura. También puede faltar una parte de la ruta o una comilla.
+
+Realizá estas comprobaciones.
+
+1. Ejecutá `Get-Location` para reconocer tu punto de partida.
+
+2. Ejecutá `dir` para ver los nombres disponibles.
+
+3. Compará el nombre escrito con el nombre que aparece en la lista.
+
+4. Agregá comillas cuando la ruta contenga espacios.
+
+5. Usá la tecla Tab para completar un nombre existente.
+
+Después corregí la instrucción y volvé a ejecutarla.
+
+### PowerShell puede informar que no reconoce un término
+
+Este mensaje suele aparecer cuando el nombre del comando contiene un error de escritura. Compará cada letra con el ejemplo. Comprobá que exista un espacio entre el comando y su argumento.
+
+```text
+cd materiales
+```
+
+En este ejemplo, `cd` es el comando y `materiales` es el argumento. El espacio permite distinguir ambas partes.
+
+Un mensaje de error también forma parte de la salida. Informa que PowerShell pudo leer la instrucción, pero encontró una dificultad al interpretarla o ejecutarla.
+
+## Algunas precauciones permiten trabajar con tranquilidad
+
+La terminal puede realizar cambios con rapidez. Esa capacidad requiere una revisión consciente.
+
+1. Comprobá la carpeta actual antes de crear, mover o eliminar elementos.
+
+2. Ejecutá comandos cuyo propósito puedas explicar con tus palabras.
+
+3. Leé una instrucción copiada antes de presionar Enter.
+
+4. Verificá el resultado después de cada cambio.
+
+5. Evitá usar permisos de administrador para las actividades de este libro, excepto cuando una instrucción posterior explique un motivo concreto.
+
+6. Conservá copias recuperables cuando trabajes con archivos importantes.
+
+En este capítulo evitamos comandos de eliminación. Primero necesitás adquirir el hábito de controlar la ubicación y verificar los resultados.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué programa interpreta los comandos de este capítulo?
+
+2. ¿Qué información aporta el indicador de PowerShell?
+
+3. ¿Qué comando muestra la carpeta de trabajo actual?
+
+4. ¿Qué comando muestra el contenido de esa carpeta?
+
+5. ¿Qué función cumple `materiales` en la instrucción `cd materiales`?
+
+6. ¿Qué representa `..` en la instrucción `cd ..`?
+
+7. ¿Cómo comprobarías que `mkdir practica_terminal` produjo el resultado esperado?
+
+8. ¿Qué ocurre con los archivos cuando ejecutás `cls`?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. PowerShell interpreta los comandos de este capítulo.
+
+2. El indicador muestra que PowerShell espera una instrucción y suele incluir la carpeta actual.
+
+3. `Get-Location` muestra la carpeta de trabajo actual.
+
+4. `dir` muestra el contenido de la carpeta actual.
+
+5. `materiales` funciona como argumento e indica la carpeta de destino.
+
+6. Los dos puntos representan la carpeta que contiene la ubicación actual.
+
+7. Ejecutaría `dir` y comprobaría que `practica_terminal` aparezca en la lista.
+
+8. Los archivos permanecen sin cambios cuando ejecuto `cls`.
+
+</details>
+
+## Revisá algunas situaciones que suelen causar confusión
+
+### El indicador y el comando cumplen funciones diferentes
+
+El indicador muestra que PowerShell espera una instrucción. El comando es el texto que escribís después del signo `>`.
+
+### La carpeta visible determina el alcance de muchas acciones
+
+El comando `mkdir practica_terminal` crea la carpeta dentro de la ubicación actual. El mismo comando puede producir carpetas con el mismo nombre en ubicaciones diferentes.
+
+### El Explorador y la terminal pueden mostrar el mismo cambio
+
+Una carpeta creada con `mkdir` aparece en el Explorador. Una carpeta creada con el Explorador también aparece cuando ejecutás `dir`. Ambas interfaces actúan sobre el mismo sistema de archivos.
+
+### Limpiar la pantalla conserva el trabajo realizado
+
+El comando `cls` despeja el texto visible. Las carpetas creadas y la ubicación actual se mantienen.
+
+### Memorizar todos los comandos resulta innecesario
+
+Durante una tarea real podés consultar la documentación y los ejemplos. En esta etapa importa comprender la acción, reconocer sus argumentos y saber cómo verificar el resultado.
+
+## Qué aprendiste en este capítulo
+
+Una terminal permite darle instrucciones a la computadora mediante texto. Windows Terminal proporciona una aplicación para alojar sesiones. PowerShell interpreta los comandos utilizados en este capítulo.
+
+El indicador muestra que PowerShell espera una instrucción y suele informar la carpeta actual. `Get-Location` permite confirmar esa ubicación. `dir` muestra su contenido. `cd` cambia la carpeta actual. `cd ..` vuelve a la carpeta que contiene la ubicación actual. `mkdir` crea una carpeta. `cls` limpia la pantalla y conserva los archivos.
+
+Cada instrucción requiere una verificación. La ruta permite comprobar el alcance. La salida permite reconocer el resultado. El Explorador de archivos ofrece otra forma de observar los cambios.
+
+Esta práctica prepara el trabajo con proyectos y agentes. Antes de modificar un estudio, vas a necesitar confirmar qué carpeta contiene la versión correcta.
+
+## Resolvé un desafío breve
+
+Abrí PowerShell y llegá hasta `practica_archivos`. Después completá estas acciones.
+
+1. Ejecutá un comando que muestre la ubicación actual.
+
+2. Ejecutá un comando que muestre el contenido de la carpeta.
+
+3. Creá una carpeta llamada `verificacion`.
+
+4. Entrá en `verificacion`.
+
+5. Comprobá la nueva ubicación.
+
+6. Volvé a `practica_archivos`.
+
+7. Escribí seis oraciones. Cada oración debe indicar qué comando usaste, qué esperabas que ocurriera y cómo comprobaste el resultado.
+
+En el próximo capítulo vas a estudiar qué ocurre cuando un programa se ejecuta y cómo podés leer la información que aparece cuando encuentra una dificultad.

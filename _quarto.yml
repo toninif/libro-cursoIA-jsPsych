@@ -1,0 +1,93 @@
+project:
+  type: book
+  output-dir: _book
+
+lang: es
+
+book:
+  title: "De Google Forms a experimentos web"
+  subtitle: "Investigación computacional con jsPsych y agentes de IA"
+  search: true
+  page-navigation: true
+  chapters:
+    - index.qmd
+
+    - part: "Parte I. Entender la computadora"
+      chapters:
+        - part-1/01-computadora.qmd
+        - part-1/02-archivos-carpetas-rutas.qmd
+        - part-1/03-terminal.qmd
+        - part-1/04-programas-procesos-errores.qmd
+        - part-1/05-proyecto.qmd
+
+    - part: "Parte II. Trabajar con agentes de IA"
+      chapters:
+        - part-2/06-chatbot-agente.qmd
+        - part-2/07-codex-terminal.qmd
+        - part-2/08-describir-tarea.qmd
+        - part-2/09-revisar-agente.qmd
+        - part-2/10-ciclo-trabajo.qmd
+
+    - part: "Parte III. De Google Forms a jsPsych"
+      chapters:
+        - part-3/11-google-forms.qmd
+        - part-3/12-primer-jspsych.qmd
+        - part-3/13-preguntas-formularios.qmd
+        - part-3/14-escalas-psicologicas.qmd
+        - part-3/15-datos-generados.qmd
+        - part-3/16-diccionario-datos.qmd
+
+    - part: "Parte IV. Más allá de Google Forms"
+      chapters:
+        - part-4/17-aleatorizacion.qmd
+        - part-4/18-logica-condicional.qmd
+        - part-4/19-estimulos-tiempos.qmd
+        - part-4/20-respuestas-rt.qmd
+        - part-4/21-ensayos-bloques.qmd
+        - part-4/22-primer-experimento.qmd
+
+    - part: "Parte V. Construir un estudio completo"
+      chapters:
+        - part-5/23-disenar-antes.qmd
+        - part-5/24-construccion-estudio.qmd
+        - part-5/25-pilotaje-depuracion.qmd
+        - part-5/26-guardado-datos.qmd
+        - part-5/27-publicacion.qmd
+        - part-5/28-proyecto-final.qmd
+
+    - part: "Apéndices"
+      chapters:
+        - appendices/a-terminal.qmd
+        - appendices/b-git.qmd
+        - appendices/c-instrucciones-agentes.qmd
+        - appendices/d-errores-frecuentes.qmd
+        - appendices/e-estructura-jspsych.qmd
+        - appendices/f-glosario.qmd
+
+  sidebar:
+    style: docked
+    background: light
+    collapse-level: 1
+  page-footer:
+    left: "Material educativo abierto para estudiantes de Psicología."
+    right: "Construido con Quarto."
+
+format:
+  html:
+    theme: default
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+    callout-appearance: simple
+    link-external-newwindow: true
+    grid:
+      sidebar-width: 320px
+      body-width: 780px
+      margin-width: 260px
+      gutter-width: 1.5rem
+
+execute:
+  freeze: auto

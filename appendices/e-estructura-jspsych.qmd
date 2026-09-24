@@ -1,0 +1,15 @@
+---
+title: "Estructura de un proyecto jsPsych"
+description: "Mapa de archivos y responsabilidades del proyecto acumulativo."
+---
+
+::: {.callout-note title="Borrador estructural"}
+La estructura completa se documentará recién después de que cada carpeta y archivo haya aparecido en el curso.
+:::
+
+## Propósito
+
+Ofrecer una vista de conjunto para consulta sin anticipar esa complejidad en los primeros capítulos.
+
+El apéndice relacionará cada archivo con las decisiones del estudio, la interfaz, los estímulos, los estilos y los datos.
+

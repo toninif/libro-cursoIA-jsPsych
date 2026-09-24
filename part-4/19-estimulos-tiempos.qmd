@@ -1,0 +1,20 @@
+---
+title: "Estímulos y tiempos de presentación"
+description: "Texto, imágenes y audio dentro de una secuencia controlada."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse en distintos navegadores.
+:::
+
+## Propósito
+
+Pasar del formulario a la presentación controlada de estímulos y discutir qué significa realmente establecer una duración.
+
+## Objetivos de aprendizaje
+
+- Identificar dónde se define un estímulo y dónde se define su duración.
+- Organizar archivos visuales y auditivos dentro del proyecto.
+- Distinguir tiempo de presentación, tiempo permitido de respuesta y tiempo registrado.
+- Comprobar carga, secuencia y comportamiento básico en el navegador.
+

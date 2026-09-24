@@ -1,0 +1,24 @@
+---
+title: "Los datos que estamos generando"
+description: "Filas, columnas, valores, identificadores y tiempos de respuesta."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+:::
+
+## Propósito
+
+Desplazar la atención desde las pantallas del estudio hacia la base que esas pantallas producen.
+
+## Objetivos de aprendizaje
+
+- Interpretar filas, columnas, variables y valores en una tabla de datos.
+- Distinguir datos numéricos, categóricos, textuales y faltantes.
+- Reconocer identificadores y tiempos de respuesta.
+- Anticipar los datos antes de recolectarlos.
+
+## Pregunta guía
+
+> Si una persona completa el estudio, ¿qué información exacta debería aparecer en la base?
+

@@ -1,0 +1,387 @@
+---
+title: "Qué ocurre cuando un programa se ejecuta"
+description: "Una explicación sobre programas, procesos, interrupciones y mensajes de error."
+---
+
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder distinguir la instalación, el inicio, la ejecución y el cierre de un programa.
+
+2. Vas a poder explicar qué es un proceso.
+
+3. Vas a poder observar un proceso mediante el Administrador de tareas.
+
+4. Vas a poder reconocer cuándo PowerShell está ejecutando una instrucción.
+
+5. Vas a poder interrumpir una ejecución desde la terminal.
+
+6. Vas a poder extraer información útil de un mensaje de error.
+
+7. Vas a poder diferenciar el funcionamiento técnico de la corrección metodológica.
+
+## Una aplicación que deja de responder permite formular el problema
+
+Imaginá que abrís un programa para escribir las instrucciones de un estudio. La ventana aparece y comenzás a trabajar. Después intentás abrir un archivo grande. El programa deja de responder a tus acciones durante varios segundos.
+
+La pantalla permanece visible. El puntero puede mostrar una señal de espera. El sistema operativo todavía necesita decidir cómo distribuir sus recursos. Vos también necesitás decidir si esperás, si intentás cerrar la aplicación o si buscás más información.
+
+Esta situación contiene varias acciones diferentes. Primero, el programa tuvo que estar disponible en la computadora. Después, el sistema operativo lo inició. Mientras trabajaste, existió un proceso activo. Finalmente, el programa respondió, terminó o encontró una dificultad.
+
+Comprender esa secuencia permite interpretar lo que ocurre cuando más adelante ejecutes un estudio, una herramienta o un agente desde la terminal.
+
+::: {.callout-tip}
+## La ejecución tiene una duración
+
+Un programa comienza a ejecutarse, utiliza recursos mientras trabaja y termina en algún momento. Durante ese intervalo, el sistema operativo mantiene uno o más procesos relacionados con la tarea.
+:::
+
+## Instalar prepara un programa para usos posteriores
+
+**Instalar** un programa significa incorporar a la computadora los archivos y la configuración que necesita para funcionar. Una instalación puede copiar archivos, crear accesos, registrar componentes y preparar opciones del sistema operativo.
+
+La instalación suele realizarse una vez y permite iniciar el programa muchas veces. Cuando instalás un navegador, sus archivos permanecen en el almacenamiento después de apagar la computadora. Cada vez que abrís el navegador, comenzás una ejecución nueva.
+
+Algunos programas pueden utilizarse sin un instalador tradicional. Pueden venir incluidos con el sistema o funcionar desde una carpeta. Esta diferencia depende de la forma en que fueron distribuidos. En ambos casos, el sistema necesita localizar instrucciones que pueda ejecutar.
+
+Instalar produce cambios relativamente duraderos. Iniciar produce una actividad temporal. Esta distinción ayudará cuando aparezcan herramientas como Node.js. Primero se instalará la herramienta. Después se la ejecutará cada vez que una actividad la necesite.
+
+## Iniciar solicita que el programa comience a funcionar
+
+Podés iniciar un programa desde el menú Inicio, mediante un ícono, con un archivo asociado o desde la terminal.
+
+Cuando hacés doble clic sobre un archivo `.txt`, el sistema operativo busca una aplicación asociada con ese tipo de archivo. Después inicia la aplicación y le indica qué archivo debe abrir.
+
+También podés iniciar una aplicación por su nombre desde PowerShell. El siguiente ejemplo solicita que Windows abra el Bloc de notas.
+
+```powershell
+notepad
+```
+
+El nombre disponible puede cambiar entre sistemas. Las actividades del capítulo pueden realizarse desde el menú Inicio cuando ese comando no esté disponible.
+
+El comienzo visible de una aplicación incluye varias operaciones. El sistema localiza sus archivos, reserva memoria de trabajo, crea un proceso y prepara la interfaz. Una aplicación compleja puede crear varios procesos para separar tareas.
+
+## Ejecutar significa realizar instrucciones
+
+En el primer capítulo definimos **ejecutar** como poner las instrucciones de un programa en funcionamiento. La ejecución comienza cuando el sistema inicia esas instrucciones. Continúa mientras el programa realiza operaciones.
+
+Un programa puede recibir entradas durante su ejecución. También puede leer archivos, transformar datos y producir salidas. Algunas ejecuciones permanecen activas hasta que la persona cierra una ventana. Otras realizan una tarea breve y terminan por su cuenta.
+
+Considerá una calculadora. La aplicación permanece activa mientras recibe números y operaciones. Considerá ahora un comando que muestra una ruta. `Get-Location` produce una salida y termina casi de inmediato.
+
+Ambos casos constituyen ejecuciones. La duración y la forma de interacción cambian.
+
+## Un proceso representa una ejecución activa
+
+Un **proceso** es un programa que se está ejecutando. El proceso reúne las instrucciones activas, la memoria que utilizan y otros recursos que el sistema operativo necesita administrar. La [documentación técnica de Windows](https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads) utiliza esta definición básica.
+
+Pensá en el programa como una posibilidad guardada en el almacenamiento. El proceso aparece cuando esas instrucciones comienzan a funcionar. Cuando la ejecución termina, el sistema libera los recursos asociados.
+
+Una aplicación puede utilizar un solo proceso o varios. Los navegadores suelen separar partes de su trabajo. Por eso, el Administrador de tareas puede mostrar varias filas relacionadas con una misma aplicación.
+
+Cada proceso recibe un número que permite identificarlo durante esa ejecución. Ese número se llama **identificador de proceso**. También vas a encontrar la sigla `PID`, formada a partir del término inglés *process identifier*. El número puede cambiar la próxima vez que abras el programa.
+
+En este curso vas a necesitar una idea central: mientras una herramienta trabaja, existe una ejecución activa que puede producir salidas, esperar entradas, terminar o encontrar un error.
+
+## El Administrador de tareas permite observar procesos
+
+El **Administrador de tareas** es una herramienta de Windows que muestra aplicaciones y procesos activos. También informa el uso de recursos como el procesador y la memoria. Microsoft describe estas funciones en su [guía sobre las herramientas de configuración de Windows](https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows).
+
+Podés abrirlo desde el menú Inicio. También podés usar la combinación de teclas `Ctrl + Shift + Esc`.
+
+La pestaña o sección llamada **Procesos** presenta las aplicaciones activas. La organización exacta puede cambiar entre versiones de Windows. Buscá el nombre de la aplicación que querés observar.
+
+Las columnas muestran información dinámica. El uso de procesador puede subir mientras la aplicación realiza una tarea. El uso de memoria indica una parte de los recursos que el proceso mantiene disponibles.
+
+::: {.callout-warning}
+## Finalizá una tarea solamente cuando comprendas la consecuencia
+
+El Administrador de tareas permite forzar el cierre de un programa. Esa acción puede descartar cambios que todavía no fueron guardados. Primero intentá guardar el trabajo y cerrar la aplicación mediante sus controles habituales.
+:::
+
+## El indicador desaparece mientras PowerShell espera una ejecución
+
+En el capítulo anterior viste que el indicador muestra cuándo PowerShell espera una instrucción.
+
+```text
+PS C:\Users\Ana>
+```
+
+Cuando un comando permanece activo, el indicador puede tardar en volver. Durante ese intervalo, PowerShell espera que termine la operación.
+
+El comando `Start-Sleep` permite observar este comportamiento sin modificar archivos. Suspende la actividad de la sesión durante un tiempo indicado. La [referencia oficial de `Start-Sleep`](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/start-sleep) describe ese funcionamiento.
+
+```powershell
+Start-Sleep -Seconds 5
+```
+
+La parte `-Seconds` recibe el nombre de **parámetro**. Un parámetro especifica cómo debe interpretar un comando el valor que sigue. En este caso, el número `5` representa cinco segundos.
+
+Después de presionar Enter, el indicador deja de estar disponible durante cinco segundos. Cuando el comando termina, PowerShell vuelve a mostrarlo.
+
+Esta observación aporta una señal útil. La ausencia temporal del indicador puede significar que el comando continúa en ejecución. Conviene esperar o revisar la actividad antes de escribir otra instrucción.
+
+## La combinación `Ctrl + C` puede interrumpir una ejecución
+
+Una ejecución puede durar más de lo esperado. En PowerShell, la combinación `Ctrl + C` permite solicitar la interrupción de una operación activa. La [documentación de PowerShell](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) indica que esta combinación detiene la secuencia de trabajo que se está ejecutando.
+
+Probá primero con un comando que espere durante treinta segundos.
+
+```powershell
+Start-Sleep -Seconds 30
+```
+
+Después de unos segundos, mantené presionada la tecla `Ctrl` y presioná `C`. El indicador debería volver antes de completar los treinta segundos.
+
+La interrupción actúa sobre la ejecución activa en esa terminal. Los efectos realizados antes de la interrupción pueden permanecer. Por ejemplo, un programa que ya guardó un archivo puede dejarlo en el almacenamiento aunque detengas el resto de la tarea.
+
+Por esta razón, interrumpir y deshacer describen acciones distintas. La interrupción detiene el trabajo pendiente. La recuperación de cambios anteriores requiere revisar qué alcanzó a ocurrir.
+
+## Terminar una ejecución puede ocurrir de varias maneras
+
+Una ejecución puede finalizar porque completó su tarea. `Get-Location` muestra una ruta y termina. Una aplicación con ventana puede finalizar cuando elegís **Cerrar**.
+
+También puede terminar porque la persona solicita una interrupción. `Ctrl + C` cumple esa función para muchas tareas activas en la terminal.
+
+Finalmente, una ejecución puede detenerse porque encontró una condición que le impide continuar. En ese caso, el programa suele producir un mensaje de error.
+
+El cierre habitual ofrece al programa la oportunidad de guardar información y liberar recursos. El cierre forzado reduce esa oportunidad. Por eso conviene reservarlo para situaciones en las que la aplicación dejó de responder y el trabajo guardado se encuentra protegido.
+
+## Un error informa una diferencia concreta
+
+Un **error** aparece cuando una instrucción encuentra una condición que impide completar una acción esperada. Puede faltar un archivo. La ruta puede estar equivocada. El comando puede contener un nombre desconocido. También puede faltar un permiso.
+
+El mensaje de error constituye una salida del programa. Su función consiste en describir la dificultad. PowerShell registra información sobre los comandos que fallan y puede mostrar distintos detalles según el tipo de error. La [documentación sobre el manejo de errores](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_error_handling) explica que algunas dificultades detienen una operación y otras permiten continuar con tareas posteriores.
+
+Durante las primeras prácticas alcanza con identificar cuatro elementos.
+
+1. Reconocé qué instrucción produjo el mensaje.
+
+2. Buscá el nombre del archivo, la carpeta o el comando mencionado.
+
+3. Identificá una expresión que describa la dificultad, como “ruta inexistente”, “término desconocido” o “acceso denegado”.
+
+4. Comprobá qué ocurrió después del mensaje.
+
+El color rojo suele señalar errores en PowerShell, pero el color depende de la configuración. El contenido del mensaje aporta información más confiable que su apariencia.
+
+## Una estrategia breve permite leer un mensaje extenso
+
+Los mensajes técnicos pueden incluir varias líneas. Algunas están dirigidas a personas con experiencia en programación. Podés comenzar con una lectura acotada.
+
+### Primero identificá la acción esperada
+
+Formulá una oración concreta. Por ejemplo: “Esperaba entrar en la carpeta `materiales`”. Esa oración permite comparar la intención con el resultado.
+
+### Después localizá la instrucción que falló
+
+Copiá o leé el comando exacto. Un carácter diferente puede cambiar su significado.
+
+```text
+cd materialess
+```
+
+### Luego buscá el objeto mencionado
+
+El mensaje puede repetir `materialess` o mostrar una ruta completa. Esa información indica qué intentó encontrar PowerShell.
+
+### A continuación comprobá el contexto
+
+Ejecutá `Get-Location` para confirmar la carpeta actual. Ejecutá `dir` para observar los nombres disponibles.
+
+### Finalmente corregí una causa y repetí la prueba
+
+Si la lista muestra `materiales`, corregí el nombre y ejecutá el comando otra vez.
+
+```powershell
+cd materiales
+```
+
+Cambiar una sola causa permite saber qué corrección produjo el resultado.
+
+::: {.callout-tip}
+## Conservá el mensaje exacto cuando pidas ayuda
+
+Copiá el comando y el mensaje completo. También registrá la carpeta actual y la acción que esperabas. Esa información permite que otra persona o un agente analice la situación con mayor precisión.
+:::
+
+## Los errores, las advertencias y las salidas comunican cosas diferentes
+
+Una salida informa un resultado normal. `Get-Location` muestra una ruta como parte de su funcionamiento esperado.
+
+Una **advertencia** informa una condición que merece atención. El programa puede continuar, aunque exista un riesgo o una configuración poco conveniente.
+
+Un error informa que alguna operación encontró una dificultad. El alcance varía. Puede fallar una acción concreta mientras la sesión continúa. También puede terminar el programa completo.
+
+Por eso, la presencia de texto después de un comando requiere lectura. La cantidad de líneas y el color aportan señales. Las palabras y el resultado final permiten interpretar la situación.
+
+Algunos programas que se ejecutan en la terminal devuelven un **código de salida** cuando terminan. El valor `0` suele representar una finalización correcta. Otro valor suele señalar una dificultad. En capítulos posteriores vas a encontrar estos códigos cuando ejecutes herramientas del proyecto. Por ahora alcanza con reconocer que un programa puede comunicar su estado final mediante un número.
+
+## Observá una ejecución y provocá un error controlado
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+La primera parte permite observar un proceso mediante una aplicación conocida.
+
+1. Abrí el Bloc de notas desde el menú Inicio.
+
+2. Escribí una oración y guardala en `practica_archivos\instrucciones` con el nombre `observacion_proceso.txt`.
+
+3. Abrí el Administrador de tareas con `Ctrl + Shift + Esc`.
+
+4. Buscá el Bloc de notas en la sección **Procesos**.
+
+5. Observá el nombre de la aplicación y la información disponible sobre sus recursos.
+
+6. Cerrá el Bloc de notas mediante su botón habitual.
+
+7. Volvé al Administrador de tareas y comprobá qué cambió.
+
+La segunda parte permite observar una ejecución dentro de PowerShell.
+
+8. Abrí PowerShell.
+
+9. Ejecutá `Start-Sleep -Seconds 5` y observá cuándo vuelve el indicador.
+
+10. Ejecutá `Start-Sleep -Seconds 30`.
+
+11. Esperá unos segundos y presioná `Ctrl + C`.
+
+12. Comprobá que el indicador volvió antes de completar los treinta segundos.
+
+La tercera parte produce un error previsto y recuperable.
+
+13. Entrá en `practica_archivos` mediante el procedimiento utilizado en el capítulo anterior.
+
+14. Ejecutá `cd materialess`. El nombre contiene una letra adicional de manera intencional.
+
+15. Leé el mensaje y localizá el nombre que PowerShell intentó encontrar.
+
+16. Ejecutá `Get-Location` y comprobá que la carpeta actual se mantuvo.
+
+17. Ejecutá `dir` y buscá el nombre correcto.
+
+18. Ejecutá `cd materiales`.
+
+19. Ejecutá `Get-Location` y comprobá que la corrección funcionó.
+:::
+
+## Explicá qué ocurrió durante la actividad
+
+El Bloc de notas se encontraba instalado antes de comenzar. Al abrirlo, Windows inició una ejecución y creó un proceso. El Administrador de tareas permitió observar esa actividad. Cuando cerraste la aplicación, la ejecución terminó y la lista de procesos se actualizó.
+
+`Start-Sleep -Seconds 5` mantuvo ocupada la sesión durante cinco segundos. La ausencia del indicador mostró que PowerShell esperaba la finalización. El segundo comando fue interrumpido mediante `Ctrl + C`, y la sesión volvió a quedar disponible.
+
+El comando `cd materialess` solicitó una carpeta inexistente dentro de la ubicación actual. PowerShell informó la dificultad y conservó la sesión. `Get-Location` y `dir` aportaron el contexto necesario para corregir el nombre. La nueva ejecución alcanzó el resultado esperado.
+
+## El funcionamiento técnico y la corrección metodológica requieren pruebas diferentes
+
+Un estudio puede abrirse, mostrar pantallas y guardar datos sin producir un mensaje de error. Ese funcionamiento aporta evidencia técnica. Indica que ciertas instrucciones pudieron ejecutarse.
+
+La revisión metodológica formula otras preguntas. Evalúa si los estímulos corresponden al constructo, si la asignación entre condiciones cumple el diseño, si las respuestas quedan registradas con el significado previsto y si el procedimiento respeta las decisiones éticas.
+
+Supongamos que una tarea debe mostrar una palabra durante `500` milisegundos. El programa podría ejecutarse sin errores y mostrarla durante `5000` milisegundos. La aplicación funcionaría, pero la duración implementada diferiría de la decisión metodológica.
+
+La verificación necesita observar ambos niveles.
+
+1. La verificación técnica comprueba que el programa se inicia, responde y produce archivos utilizables.
+
+2. La verificación metodológica comprueba que el procedimiento implementa las decisiones de la investigación.
+
+Un mensaje de error ayuda a localizar una dificultad técnica. La ausencia de mensajes todavía requiere una revisión del comportamiento y de los datos.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué diferencia existe entre instalar e iniciar un programa?
+
+2. ¿Qué es un proceso?
+
+3. ¿Qué herramienta de Windows permite observar procesos activos?
+
+4. ¿Qué indica la ausencia temporal del indicador de PowerShell?
+
+5. ¿Qué solicita la combinación `Ctrl + C` durante una ejecución en la terminal?
+
+6. ¿Qué dos comandos permiten comprobar el contexto de un error de ruta?
+
+7. ¿Por qué un programa que termina sin errores todavía necesita una revisión metodológica?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Instalar prepara archivos y configuraciones para usos posteriores, mientras que iniciar comienza una ejecución concreta.
+
+2. Un proceso representa un programa que se encuentra en ejecución y utiliza recursos del sistema.
+
+3. El Administrador de tareas permite observar procesos activos.
+
+4. La ausencia temporal del indicador puede señalar que PowerShell espera que termine una operación.
+
+5. `Ctrl + C` solicita la interrupción de la ejecución activa.
+
+6. `Get-Location` permite revisar la ubicación y `dir` permite observar los nombres disponibles.
+
+7. La ejecución técnica no demuestra que el procedimiento represente correctamente las decisiones metodológicas.
+
+</details>
+
+## Revisá algunas situaciones que suelen causar confusión
+
+### Instalar y ejecutar ocurren en momentos diferentes
+
+La instalación prepara el programa y realiza cambios duraderos. Cada ejecución utiliza esa instalación para realizar una tarea concreta.
+
+### Una aplicación puede utilizar varios procesos
+
+El Administrador de tareas puede mostrar varias filas vinculadas con un navegador u otra aplicación compleja. Esa distribución forma parte de su diseño.
+
+### Una ventana cerrada puede contener trabajo sin guardar
+
+El cierre habitual puede preguntar si querés guardar. El cierre forzado puede impedir esa pregunta. Guardá antes de finalizar una tarea cuando el archivo contiene cambios importantes.
+
+### Una espera breve puede formar parte del funcionamiento esperado
+
+Algunas operaciones necesitan tiempo para leer archivos, calcular resultados o iniciar servicios. Observá la salida y la actividad antes de concluir que el programa se detuvo.
+
+### Un mensaje extenso puede contener una causa concreta
+
+Comenzá por la instrucción, el objeto mencionado y la primera descripción comprensible. Conservá el mensaje completo para una revisión posterior.
+
+### Corregir varias cosas a la vez dificulta la verificación
+
+Aplicá una corrección y repetí la prueba. Esa secuencia permite relacionar el cambio con el resultado.
+
+## Qué aprendiste en este capítulo
+
+Instalar prepara un programa para usos posteriores. Iniciar comienza una ejecución concreta. Un proceso representa un programa que está funcionando y utiliza recursos administrados por el sistema operativo.
+
+El Administrador de tareas permite observar procesos. PowerShell muestra el indicador cuando espera una instrucción. Una ejecución activa puede mantener el indicador fuera de la pantalla hasta que termine. `Ctrl + C` permite solicitar una interrupción.
+
+Un error comunica una dificultad. La instrucción, la ubicación, el objeto mencionado y la descripción del problema aportan información para corregirla. La comprobación posterior permite confirmar el resultado.
+
+La ejecución correcta aporta evidencia técnica. La investigación también necesita verificar que las instrucciones implementan las decisiones metodológicas.
+
+## Resolvé un desafío breve
+
+Elegí una aplicación que uses con frecuencia. Puede ser un navegador, un reproductor o un editor de texto.
+
+1. Escribí una oración que explique cómo se inicia.
+
+2. Escribí una oración que identifique una entrada que recibe durante su ejecución.
+
+3. Escribí una oración que identifique una salida que produce.
+
+4. Abrí el Administrador de tareas y describí cómo reconociste su proceso.
+
+5. Cerrá la aplicación de la manera habitual y describí qué cambió.
+
+6. Proponé una dificultad técnica que podría ocurrir durante su uso.
+
+7. Escribí qué información necesitarías para investigar esa dificultad.
+
+En el próximo capítulo vas a reunir archivos, carpetas, documentación y verificaciones dentro de un proyecto con un propósito compartido.

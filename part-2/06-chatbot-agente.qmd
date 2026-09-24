@@ -1,0 +1,20 @@
+---
+title: "De chatbot a agente"
+description: "Qué cambia cuando una IA trabaja sobre archivos y ejecuta acciones."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Distinguir una conversación con una IA de un agente que puede inspeccionar y modificar un proyecto.
+
+## Objetivos de aprendizaje
+
+- Comparar el intercambio de mensajes de un chatbot con el ciclo de trabajo de un agente.
+- Reconocer qué recursos puede leer o modificar un agente dentro de un proyecto.
+- Identificar acciones que requieren verificación humana.
+- Comprender que acceso técnico no equivale a autoridad metodológica.
+

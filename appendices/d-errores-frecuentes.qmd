@@ -1,0 +1,15 @@
+---
+title: "Errores frecuentes"
+description: "Mensajes, causas probables y pasos seguros de diagnóstico."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este apéndice crecerá a partir de errores reales encontrados durante el desarrollo y pilotaje del curso.
+:::
+
+## Criterio de organización
+
+Cada caso mostrará qué se observa, qué significa, qué conviene comprobar primero y cómo saber si la corrección funcionó.
+
+No se presentarán recetas sin explicar qué condición intentan resolver.
+

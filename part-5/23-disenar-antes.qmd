@@ -1,0 +1,20 @@
+---
+title: "Diseñar antes de programar"
+description: "Traducir una pregunta de investigación en un procedimiento explícito."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Separar la definición metodológica del estudio de las decisiones sobre archivos y código.
+
+## Objetivos de aprendizaje
+
+- Relacionar pregunta, hipótesis, constructos y variables.
+- Especificar condiciones, manipulaciones y medidas dependientes.
+- Representar el procedimiento antes de pedir su implementación.
+- Identificar decisiones metodológicas que un agente no debe inventar.
+

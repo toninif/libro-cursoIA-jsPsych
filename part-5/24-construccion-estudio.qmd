@@ -1,0 +1,20 @@
+---
+title: "Construcción incremental del estudio"
+description: "Implementar y verificar una parte por vez."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+:::
+
+## Propósito
+
+Construir el estudio final mediante etapas pequeñas que produzcan versiones ejecutables y revisables.
+
+## Objetivos de aprendizaje
+
+- Dividir el procedimiento en componentes implementables.
+- Definir criterios de aceptación para cada componente.
+- Mantener una versión que funcione antes de agregar complejidad.
+- Integrar formularios, lógica y tarea sin perder trazabilidad.
+

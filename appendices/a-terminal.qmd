@@ -1,0 +1,15 @@
+---
+title: "Comandos de terminal"
+description: "Consulta rápida de los comandos introducidos en el libro."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este apéndice se completará a medida que los comandos aparezcan en el recorrido principal.
+:::
+
+## Criterio de organización
+
+Cada entrada incluirá el comando, su propósito en lenguaje cotidiano, un ejemplo, el resultado esperado y una advertencia cuando corresponda.
+
+No se incorporarán comandos que el estudiante todavía no haya necesitado en los capítulos.
+

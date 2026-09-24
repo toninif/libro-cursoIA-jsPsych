@@ -1,0 +1,15 @@
+---
+title: "Comandos de Git"
+description: "Referencia gradual para conservar y comparar versiones."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Git se presentará cuando resulte necesario conservar versiones; no se asumirá experiencia previa.
+:::
+
+## Propósito
+
+Reunir los comandos utilizados en el libro y explicar qué cambio producen en el estado del proyecto.
+
+La referencia evitará presentar Git como requisito conceptual antes de que el estudiante comprenda archivos, carpetas y proyectos.
+

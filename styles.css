@@ -1,0 +1,231 @@
+:root {
+  --book-ink: #18243a;
+  --book-muted: #526176;
+  --book-blue: #243b6b;
+  --book-teal: #087f8c;
+  --book-yellow: #f1c75b;
+  --book-coral: #c94c4c;
+  --book-paper: #f7f9fc;
+  --book-line: #d9e1ec;
+  --book-code: #eef3f8;
+}
+
+body {
+  color: var(--book-ink);
+  background: #ffffff;
+  font-family: "Segoe UI", Aptos, system-ui, -apple-system, sans-serif;
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4,
+.sidebar-title {
+  color: var(--book-blue);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  line-height: 1.08;
+}
+
+h2 {
+  margin-top: 2.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--book-line);
+}
+
+a {
+  color: #096b78;
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.16em;
+}
+
+a:hover {
+  color: var(--book-blue);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--book-yellow);
+  outline-offset: 3px;
+}
+
+.sidebar-navigation {
+  border-right: 1px solid var(--book-line);
+}
+
+.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  color: var(--book-blue);
+  font-weight: 700;
+}
+
+.book-hero {
+  margin: 0.5rem 0 2.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  border-left: 8px solid var(--book-teal);
+}
+
+.book-hero p {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--book-muted);
+  font-size: 1.2rem;
+}
+
+.route-map {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 1.6rem 0 2.4rem;
+  border-top: 3px solid var(--book-blue);
+  border-bottom: 1px solid var(--book-line);
+}
+
+.route-step {
+  min-height: 10rem;
+  padding: 1rem 0.85rem 1.15rem;
+  border-right: 1px solid var(--book-line);
+}
+
+.route-step:last-child {
+  border-right: 0;
+}
+
+.route-step strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--book-blue);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  line-height: 1.25;
+}
+
+.route-step span {
+  color: var(--book-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.callout {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.callout.callout-style-simple {
+  border-left-width: 5px;
+}
+
+.callout-note.callout-style-simple {
+  border-left-color: var(--book-teal);
+}
+
+.callout-important.callout-style-simple {
+  border-left-color: var(--book-coral);
+}
+
+.callout-warning.callout-style-simple {
+  border-left-color: var(--book-yellow);
+}
+
+pre,
+code {
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+code:not(pre code) {
+  padding: 0.08em 0.28em;
+  color: #173d57;
+  background: var(--book-code);
+  border-radius: 0.2rem;
+}
+
+blockquote {
+  margin-left: 0;
+  padding-left: 1.2rem;
+  color: var(--book-muted);
+  border-left: 4px solid var(--book-yellow);
+}
+
+.chapter-status {
+  margin-top: 1.5rem;
+  color: var(--book-muted);
+  font-size: 0.96rem;
+}
+
+@media (max-width: 991.98px) {
+  #quarto-content.page-columns {
+    grid-template-columns:
+      [screen-start page-start page-start-inset body-start-outset body-start]
+      1rem
+      [body-content-start]
+      minmax(0, calc(100vw - 2rem))
+      [body-content-end]
+      1rem
+      [body-end body-end-outset page-end-inset page-end screen-end-inset screen-end] !important;
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+  }
+
+  main.content,
+  #quarto-document-content,
+  .quarto-title-block,
+  .book-hero,
+  .route-map {
+    min-width: 0;
+    width: 100%;
+    max-width: calc(100vw - 2rem);
+  }
+
+  #quarto-content.page-columns > main.content {
+    width: calc(100vw - 2rem) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 2rem) !important;
+  }
+
+  #quarto-margin-sidebar {
+    display: none !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  li,
+  .route-step {
+    overflow-wrap: break-word;
+  }
+
+  .route-map {
+    grid-template-columns: 1fr;
+  }
+
+  .route-step {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--book-line);
+  }
+
+  .route-step:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,20 @@
+---
+title: "Respuestas y tiempos de reacción"
+description: "Teclado, precisión y medición temporal en una tarea."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo requerirá especial cuidado al interpretar la precisión temporal y las limitaciones de la ejecución web.
+:::
+
+## Propósito
+
+Introducir respuestas mediante teclado, criterios de corrección y tiempos de reacción como variables dependientes.
+
+## Objetivos de aprendizaje
+
+- Especificar qué teclas constituyen respuestas válidas.
+- Definir qué respuesta se considera correcta para cada estímulo.
+- Interpretar un tiempo de reacción y su unidad.
+- Detectar respuestas anticipadas, ausentes o fuera de rango.
+

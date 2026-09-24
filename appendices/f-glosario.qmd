@@ -1,0 +1,13 @@
+---
+title: "Glosario"
+description: "Definiciones breves de los términos técnicos utilizados."
+---
+
+::: {.callout-note title="Borrador estructural"}
+El glosario se completará de manera acumulativa y conservará la terminología utilizada en los capítulos.
+:::
+
+## Criterio de inclusión
+
+Cada término se definirá en lenguaje claro la primera vez que aparezca en el recorrido principal. Este apéndice servirá para volver a consultarlo, no para reemplazar aquella explicación.
+

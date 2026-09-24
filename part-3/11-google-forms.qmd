@@ -1,0 +1,24 @@
+---
+title: "Qué hace realmente Google Forms"
+description: "De una pantalla conocida a preguntas, variables, reglas y datos."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Usar Google Forms como punto de partida para revelar decisiones metodológicas y computacionales que la plataforma suele mantener invisibles.
+
+## Objetivos de aprendizaje
+
+- Relacionar una pregunta con una variable y un tipo de respuesta.
+- Identificar opciones, obligatoriedad y validaciones como reglas explícitas.
+- Anticipar qué dato producirá cada interacción.
+- Distinguir las decisiones del investigador de las funciones de la plataforma.
+
+```text
+pregunta → variable → tipo → restricción → dato
+```
+

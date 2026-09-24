@@ -1,0 +1,20 @@
+---
+title: "Lógica condicional"
+description: "Cómo cambia un procedimiento según respuestas o eventos anteriores."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+:::
+
+## Propósito
+
+Representar recorridos alternativos del estudio sin introducir formalismos innecesarios antes de mostrar el problema concreto.
+
+## Objetivos de aprendizaje
+
+- Expresar una condición mediante “si ocurre…, entonces…”.
+- Identificar qué dato previo controla una decisión posterior.
+- Dibujar y revisar las ramas posibles del procedimiento.
+- Probar casos que recorran cada rama.
+

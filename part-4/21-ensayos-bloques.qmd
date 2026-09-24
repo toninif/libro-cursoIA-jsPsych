@@ -1,0 +1,20 @@
+---
+title: "Ensayos y bloques"
+description: "Unidades repetibles para organizar una tarea psicológica."
+---
+
+::: {.callout-note title="Borrador estructural"}
+El término técnico `trial` se introducirá únicamente después de explicar la idea de ensayo.
+:::
+
+## Propósito
+
+Mostrar cómo una tarea se compone de unidades pequeñas y cómo esas unidades se agrupan con objetivos diferentes.
+
+## Objetivos de aprendizaje
+
+- Reconocer un ensayo como una unidad del procedimiento.
+- Distinguir práctica, tarea principal y bloques.
+- Asociar estímulo, respuesta esperada y datos dentro de un ensayo.
+- Verificar cantidad, orden y límites entre bloques.
+

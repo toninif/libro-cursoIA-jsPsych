@@ -1,0 +1,25 @@
+---
+title: "El ciclo especificar–ejecutar–verificar"
+description: "Un método repetible para trabajar con agentes sin delegar el criterio."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+:::
+
+## Propósito
+
+Integrar las competencias anteriores en un ciclo de trabajo que se reutilizará durante el resto del libro.
+
+## Objetivos de aprendizaje
+
+- Formular una especificación antes de solicitar cambios.
+- Ejecutar el proyecto y observar su comportamiento.
+- Verificar interfaz, datos y alcance de la modificación.
+- Corregir mediante una nueva instrucción acotada.
+- Documentar el estado que quedó funcionando.
+
+```text
+inspeccionar → planificar → modificar → ejecutar → verificar → documentar
+```
+

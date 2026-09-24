@@ -1,0 +1,24 @@
+---
+title: "Codex desde la terminal"
+description: "Preparación, acceso y primera tarea dentro de un proyecto."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Este capítulo depende de información técnica cambiante. Antes de publicarlo deberán verificarse los requisitos, comandos y condiciones de acceso vigentes.
+:::
+
+## Propósito
+
+Guiar la instalación y el primer uso de Codex sin tratar la terminal como conocimiento previo.
+
+## Objetivos de aprendizaje
+
+- Comprobar los requisitos necesarios antes de instalar herramientas.
+- Iniciar Codex dentro de la carpeta correcta.
+- Formular una primera tarea pequeña y reversible.
+- Verificar en el sistema de archivos que la acción ocurrió.
+
+## Primera tarea prevista
+
+El agente creará un archivo de texto breve y el estudiante comprobará tanto su ubicación como su contenido.
+

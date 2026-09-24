@@ -1,0 +1,24 @@
+---
+title: "Escalas psicológicas"
+description: "Ítems, opciones de respuesta y puntuaciones como decisiones metodológicas."
+---
+
+::: {.callout-note title="Borrador estructural"}
+Se utilizará una escala ficticia o contenido autorizado. No se inventarán ítems de instrumentos psicológicos reales.
+:::
+
+## Propósito
+
+Construir una escala didáctica para trabajar operacionalización, nombres de variables, ítems invertidos y cálculo de puntuaciones.
+
+## Objetivos de aprendizaje
+
+- Especificar instrucciones, ítems y categorías de respuesta sin ambigüedad.
+- Diferenciar la presentación de la escala de su puntuación.
+- Reconocer ítems invertidos y documentar su tratamiento.
+- Verificar que la interfaz y los datos coincidan con la especificación.
+
+## Decisión metodológica e implementación
+
+Que una escala aparezca correctamente en pantalla no demuestra que mida el constructo previsto ni que su puntuación sea válida.
+
