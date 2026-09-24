@@ -3,7 +3,7 @@ subtitle: "Investigación computacional con jsPsych y agentes de IA"
 description: "Un recorrido desde el uso cotidiano de una computadora hasta la construcción de un estudio psicológico online."
 ---
 
-# De Google Forms a experimentos web {.unnumbered}
+# De Google Forms a estudios web {.unnumbered}
 
 ::: {.book-hero}
 Este libro acompaña a estudiantes de Psicología que conocen Google Forms, pero nunca programaron ni trabajaron desde una terminal. El objetivo no es formar programadores: es aprender a diseñar, construir y verificar estudios psicológicos digitales con ayuda de agentes de IA.

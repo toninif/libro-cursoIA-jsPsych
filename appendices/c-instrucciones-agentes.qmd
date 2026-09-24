@@ -23,7 +23,7 @@ El texto entre corchetes, como `[nombre del archivo]`, marca lo que tenés que r
 Copiar un patrón sin tomar las decisiones que requiere produce el mismo problema que un pedido ambiguo. Antes de usar un patrón, completá la sección **Vos decidís**. Si no podés completarla, todavía no estás en condiciones de enviar el pedido.
 :::
 
-Por ahora, el apéndice contiene los patrones de la Parte II. Se va a ampliar a medida que el libro incorpore preguntas, escalas, aleatorización y tareas experimentales.
+Por ahora, el apéndice contiene los patrones de las Partes II y III. Se va a ampliar a medida que el libro incorpore aleatorización, lógica condicional, guardado y publicación.
 
 ## La estructura de un pedido completo
 
@@ -193,6 +193,93 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 **Comprobás:** que la propuesta contenga una sola línea eliminada y una sola línea agregada, y que la única diferencia entre ellas sea el texto pedido.
 
 **Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+## Construir el estudio con jsPsych
+
+Estos patrones modifican `index.html` y `experiment.js`. Recordá que agregar una pantalla requiere tres cambios: cargar el plugin, definir el ensayo e incluirlo en la línea de tiempo.
+
+### Agregar una pregunta con un plugin nuevo
+
+```text
+En index.html, agregá esta línea exacta después de la línea que carga [plugin anterior]:
+<script src="https://unpkg.com/@jspsych/[plugin]@[versión]"></script>
+
+En experiment.js, agregá un ensayo llamado [nombre] que use [nombre del plugin en el código],
+con el texto "[pregunta]", el nombre de variable "[variable]", [obligatoria u opcional]
+y el botón "Continuar". Ubicalo en la línea de tiempo después de [ensayo anterior].
+
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** la pregunta, el nombre de la variable, la obligatoriedad, las opciones si las hay, la posición y la versión exacta del plugin.
+
+**Comprobás:** que la dirección del plugin tenga la versión indicada, que el ensayo aparezca en la posición correcta y que el dato quede registrado con el nombre de variable especificado.
+
+**Usado en:** [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+### Reemplazar un ensayo conservando su nombre
+
+```text
+En experiment.js, reemplazá el ensayo [nombre] por uno que use [plugin] y que [descripción].
+Conservá el nombre [nombre] y su posición en la línea de tiempo.
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** el comportamiento nuevo, por ejemplo los atributos de una validación.
+
+**Comprobás:** la validación con casos de prueba, incluidos los casos límite.
+
+**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+### Agregar texto exacto que no debe modificarse
+
+```text
+[Descripción del ensayo.] Su texto debe ser exactamente este:
+[texto]
+No redactes contenido nuevo ni modifiques la redacción.
+No modifiques ninguna otra parte de los archivos.
+```
+
+**Vos decidís:** el texto completo. Se aplica a consentimientos, instrucciones, ítems y opciones de respuesta.
+
+**Comprobás:** el texto en pantalla, palabra por palabra, contra la fuente.
+
+**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd) y [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+### Agregar la misma propiedad a varios ensayos
+
+```text
+En experiment.js, agregá a cada ensayo el parámetro data con una propiedad [nombre].
+Usá exactamente estos valores:
+[ensayo] -> "[valor]"
+...
+No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+**Vos decidís:** el nombre de la propiedad y el valor para cada ensayo.
+
+**Comprobás:** que cada fila del archivo de datos tenga el valor esperado.
+
+**Usado en:** [capítulo 15](../part-3/15-datos-generados.qmd).
+
+### Pedir un borrador de documentación a partir del código
+
+```text
+Creá un archivo [nombre].md a partir de lo que define experiment.js.
+Usá esta estructura:
+[estructura con títulos y columnas]
+Usá solamente información que esté en experiment.js. Si algo no se puede determinar
+leyendo el código, escribí PENDIENTE en esa celda. No inventes información.
+No modifiques ningún otro archivo.
+```
+
+**Vos decidís:** la estructura del documento y el contenido de las celdas PENDIENTE.
+
+**Comprobás:** cada fila contra el código y contra un archivo de datos real. Prestá especial atención a la codificación de las escalas.
+
+**Usado en:** [capítulo 16](../part-3/16-diccionario-datos.qmd).
 
 ## Explicar
 

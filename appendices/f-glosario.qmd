@@ -7,7 +7,7 @@ description: "Definiciones breves de los términos técnicos utilizados."
 
 Cada término se define en lenguaje claro la primera vez que aparece en el libro. Este glosario sirve para volver a consultarlo, no para reemplazar aquella explicación. Cada entrada indica el capítulo donde podés encontrar la explicación completa.
 
-El glosario se completa a medida que avanza el libro. Por ahora reúne los términos de las Partes I y II.
+El glosario se completa a medida que avanza el libro. Por ahora reúne los términos de las Partes I, II y III.
 
 ## A {.unnumbered}
 
@@ -38,10 +38,16 @@ Archivo
 Argumento
 : Información que un comando necesita para realizar una acción. En `cd materiales`, `materiales` es el argumento. Ver [capítulo 3](../part-1/03-terminal.qmd).
 
+Atributo
+: Indicación escrita dentro de una etiqueta HTML que define cómo funciona un elemento, como `min="18"` en un campo de respuesta. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
 ## B {.unnumbered}
 
 Base de datos
 : Conjunto organizado de datos que permite guardar y consultar información. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Biblioteca
+: Conjunto de instrucciones ya escritas por otras personas que un programa puede usar. jsPsych es una biblioteca de JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
 
 ## C {.unnumbered}
 
@@ -56,6 +62,12 @@ Carpeta de trabajo de un agente
 
 Carpeta principal
 : Carpeta que contiene un proyecto completo. También se la llama raíz del proyecto o *project root*. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Caso de prueba
+: Entrada preparada de antemano junto con el resultado que se espera obtener. Sirve para verificar una validación u otro comportamiento. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Caso límite
+: Caso de prueba ubicado justo en el borde de una regla, como los valores 18 y 80 en un rango de 18 a 80. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
 
 Chatbot
 : Programa que conversa mediante mensajes. Produce respuestas, pero no actúa sobre tus archivos. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
@@ -84,6 +96,15 @@ Comando
 Comando con barra
 : Instrucción que comienza con `/` y que, dentro de un agente como Codex, configura la sesión en lugar de enviarse al modelo. En inglés se lo llama *slash command*. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
+Comentario de código
+: Línea que comienza con `//` en JavaScript. El navegador la ignora y sirve para dejar notas a quien lee el código. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+Consentimiento informado
+: Proceso mediante el cual una persona recibe información sobre un estudio y decide libremente si participa. En un estudio online se presenta antes de cualquier pregunta. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Consola del navegador
+: Pestaña de las herramientas para desarrolladores, que se abren con `F12`, donde el navegador muestra los errores con su archivo y número de línea. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 Constructo
 : Concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. Ver [capítulo 1](../part-1/01-computadora.qmd).
 
@@ -93,16 +114,25 @@ Contexto
 Copia de respaldo
 : Copia que conserva la información en otra ubicación y permite recuperarla si se pierde o se daña el archivo de trabajo. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
 
+CSV
+: Formato de archivo de texto que organiza datos en filas y columnas separadas por comas. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 15](../part-3/15-datos-generados.qmd).
+
 ## D {.unnumbered}
 
 Dato
 : Representación de información que un sistema puede registrar y procesar. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Dato faltante
+: Valor que debería existir en los datos y no está registrado. Ver [capítulo 11](../part-3/11-google-forms.qmd).
 
 Decisión metodológica
 : Decisión que define qué se quiere investigar y bajo qué condiciones, como el constructo, la población, el procedimiento o el significado de una variable. Ver [capítulo 5](../part-1/05-proyecto.qmd).
 
 Decisión técnica
 : Decisión que define cómo se realiza una parte del procedimiento mediante archivos y programas. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Diccionario de variables
+: Documento que describe cada variable de un conjunto de datos: nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas. También se lo llama libro de códigos. Ver [capítulo 16](../part-3/16-diccionario-datos.qmd).
 
 Diferencias
 : Presentación que muestra qué cambia entre dos versiones de un archivo. Las líneas con `+` se agregan y las líneas con `-` se eliminan. En inglés se la llama *diff*. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
@@ -115,11 +145,20 @@ Directorio
 Ejecutar
 : Poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, usar el resultado de la manera en que se va a usar realmente. Ver [capítulo 1](../part-1/01-computadora.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
+Ensayo
+: Cada pantalla de la secuencia de un estudio en jsPsych. En inglés, *trial*. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 Entrada
 : Información que recibe la computadora, como una tecla presionada o una respuesta escrita. Ver [capítulo 1](../part-1/01-computadora.qmd).
 
 Error
 : Condición que impide completar una acción esperada. El mensaje de error describe la dificultad. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Escala psicológica
+: Conjunto de ítems que buscan medir un mismo constructo. Tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+Escala validada
+: Escala para la cual existe evidencia de que una versión concreta mide lo que dice medir y lo hace de manera consistente. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
 
 Especificación
 : Descripción precisa de lo que debe construirse, incluido el criterio para comprobar que el resultado es correcto. Ver [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
@@ -129,6 +168,17 @@ Explorador de archivos
 
 Extensión
 : Parte final del nombre de un archivo, separada por un punto, que ayuda a reconocer su tipo. Por ejemplo, `.csv` en `datos.csv`. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## F {.unnumbered}
+
+Formato ancho
+: Organización de datos con una fila por persona y una columna por variable, como la hoja de Google Forms. Ver [capítulo 11](../part-3/11-google-forms.qmd) y [capítulo 15](../part-3/15-datos-generados.qmd).
+
+Formato largo
+: Organización de datos con una fila por ensayo, como la que produce jsPsych. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
+
+Formato Likert
+: Formato de respuesta con opciones ordenadas que expresan grados de acuerdo. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
 
 ## G {.unnumbered}
 
@@ -146,7 +196,16 @@ Hardware
 Herramienta de un agente
 : Capacidad que el programa pone a disposición del modelo de lenguaje, como leer un archivo, escribirlo o ejecutar un comando. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
 
+Hoja de estilos
+: Archivo que define la apariencia de una página web. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+HTML
+: Lenguaje de marcas que describe la estructura de una página web mediante etiquetas como `<h1>` o `<p>`. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 ## I {.unnumbered}
+
+Identificador de participante
+: Código que distingue a cada persona en los datos sin revelar quién es. En este libro se genera al azar con `randomID`. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
 
 Identificador de proceso
 : Número que identifica un proceso durante una ejecución. También se lo conoce por la sigla `PID`. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
@@ -163,6 +222,20 @@ Interfaz gráfica
 Intérprete de comandos
 : Programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. PowerShell es un intérprete de comandos. Ver [capítulo 3](../part-1/03-terminal.qmd).
 
+Ítem invertido
+: Ítem de una escala redactado en sentido contrario al resto. Debe transformarse antes de calcular el puntaje. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+## J {.unnumbered}
+
+JavaScript
+: Lenguaje de programación que interpretan los navegadores. jsPsych está escrito en JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+JSON
+: Forma estándar de escribir datos como texto, con pares de nombre y valor entre llaves. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
+
+jsPsych
+: Biblioteca de JavaScript para construir estudios psicológicos que funcionan en el navegador. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 ## L {.unnumbered}
 
 Límite de uso
@@ -170,6 +243,9 @@ Límite de uso
 
 Línea de contexto
 : En una presentación de diferencias, línea que no cambia y aparece para ubicar el cambio dentro del archivo. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Línea de tiempo
+: Secuencia de ensayos de un estudio en jsPsych. En inglés, *timeline*. Determina qué pantallas aparecen y en qué orden. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
 
 Lista de Markdown
 : Serie de elementos escritos en líneas que comienzan con un guion `-` seguido de un espacio. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
@@ -193,6 +269,14 @@ Modelo de lenguaje
 Navegador
 : Programa que permite acceder a sitios y aplicaciones web, y que interpreta los archivos de una página para mostrarla. Ver [capítulo 1](../part-1/01-computadora.qmd).
 
+Nivel de medición
+: Clasificación de una variable según las relaciones entre sus valores: nominal, ordinal, intervalar o de razón. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+## O {.unnumbered}
+
+Operacionalización
+: Definición de cómo se va a observar o medir un concepto en un estudio. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
 ## P {.unnumbered}
 
 Parámetro
@@ -204,11 +288,20 @@ Permiso
 Plan
 : Descripción de los pasos que un agente propone realizar antes de modificar archivos. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
 
+Plugin
+: Pieza de jsPsych que agrega un tipo de pantalla, como una pregunta de texto o una escala. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 Política de ejecución
 : Configuración de Windows que controla si PowerShell puede ejecutar scripts. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 PowerShell
 : Intérprete de comandos de Windows usado en este libro. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Pregunta abierta
+: Pregunta que permite escribir cualquier respuesta. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+Pregunta cerrada
+: Pregunta que ofrece opciones fijas. Ver [capítulo 11](../part-3/11-google-forms.qmd).
 
 Procesamiento
 : Aplicación de instrucciones a la información recibida. Ver [capítulo 1](../part-1/01-computadora.qmd).
@@ -239,6 +332,9 @@ Registro de cambios
 Reproducibilidad
 : Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
+Resaltado de sintaxis
+: Uso de colores en un editor para distinguir las partes del código. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 Restricción metodológica
 : Límite de un pedido que protege una decisión del estudio, como un rango de edad o el texto exacto de un consentimiento. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
 
@@ -265,6 +361,9 @@ Salida
 Script
 : Archivo de texto que contiene instrucciones para un intérprete de comandos. Los scripts de PowerShell usan la extensión `.ps1`. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
+Sintaxis
+: Conjunto de reglas de escritura de un lenguaje, como el uso de comas, comillas y llaves en JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
 Sistema operativo
 : Software que coordina el funcionamiento general de la computadora, como Windows, macOS o Linux. Ver [capítulo 1](../part-1/01-computadora.qmd).
 
@@ -286,6 +385,12 @@ Tubería
 : Signo `|` que envía el resultado de un comando al comando siguiente. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ## V {.unnumbered}
+
+Validación
+: Regla que un programa comprueba antes de aceptar una respuesta. Ver [capítulo 11](../part-3/11-google-forms.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Valor
+: Cada respuesta concreta que toma una variable. Ver [capítulo 11](../part-3/11-google-forms.qmd).
 
 Variable
 : Característica que se registra y que puede tomar distintos valores, como la edad. Ver [capítulo 1](../part-1/01-computadora.qmd).

@@ -5,7 +5,7 @@ project:
 lang: es
 
 book:
-  title: "De Google Forms a experimentos web"
+  title: "De Google Forms a estudios web"
   subtitle: "Investigación computacional con jsPsych y agentes de IA"
   search: true
   page-navigation: true

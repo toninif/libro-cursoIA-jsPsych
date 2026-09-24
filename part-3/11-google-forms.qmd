@@ -1,24 +1,371 @@
 ---
 title: "Qué hace realmente Google Forms"
-description: "De una pantalla conocida a preguntas, variables, reglas y datos."
+description: "Preguntas, variables, tipos de respuesta, validaciones y la tabla de datos que un formulario construye por nosotros."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder describir un formulario como un conjunto de pantallas, preguntas, reglas y datos.
+
+2. Vas a poder relacionar cada pregunta con la variable que produce.
+
+3. Vas a poder reconocer el tipo de respuesta y el nivel de medición de una variable.
+
+4. Vas a poder explicar qué es una validación y qué decisión metodológica expresa.
+
+5. Vas a poder identificar decisiones que Google Forms toma por vos.
+
+6. Vas a poder escribir la especificación de un cuestionario breve antes de construirlo.
+
+## Un formulario conocido permite formular el problema
+
+Imaginá que tu cátedra te pide un estudio breve sobre hábitos de estudio. Abrís Google Forms y en quince minutos tenés un formulario con cinco preguntas. Lo compartís por mensaje. Al día siguiente hay cuarenta respuestas en una hoja de cálculo.
+
+El proceso parece sencillo porque Google Forms resuelve muchas tareas sin mostrarlas. Decide cómo se ve cada pregunta. Comprueba que las respuestas cumplan ciertas reglas. Registra la hora de cada envío. Organiza los datos en filas y columnas. Guarda todo en los servidores de Google.
+
+En la Parte I viste que una computadora recibe información, la procesa, muestra resultados y conserva datos. Google Forms realiza esas cuatro acciones. La diferencia es que las realiza con decisiones tomadas de antemano por sus diseñadores.
+
+En los próximos capítulos vas a construir tu propio formulario con jsPsych. Allí vas a tener que tomar esas decisiones de manera explícita. Este capítulo te prepara para reconocerlas.
+
+::: {.callout-tip}
+## Idea clave
+
+Un formulario es una herramienta para producir datos. Cada pregunta, cada tipo de respuesta y cada regla de validación determina qué datos vas a obtener y cómo vas a poder analizarlos.
 :::
 
-## Propósito
+## Una pregunta produce una variable
 
-Usar Google Forms como punto de partida para revelar decisiones metodológicas y computacionales que la plataforma suele mantener invisibles.
-
-## Objetivos de aprendizaje
-
-- Relacionar una pregunta con una variable y un tipo de respuesta.
-- Identificar opciones, obligatoriedad y validaciones como reglas explícitas.
-- Anticipar qué dato producirá cada interacción.
-- Distinguir las decisiones del investigador de las funciones de la plataforma.
+En el capítulo sobre computadoras definiste **variable** como una característica que registramos y que puede tomar distintos valores. En un formulario, cada pregunta suele producir una variable.
 
 ```text
-pregunta → variable → tipo → restricción → dato
+Pregunta:  ¿Cuál es tu edad?
+Variable:  edad
+Valores:   22, 19, 35, ...
 ```
 
+La pregunta es lo que ve la persona participante. La variable es lo que queda registrado en los datos. Un **valor** es cada respuesta concreta que toma esa variable.
+
+La relación entre pregunta y variable no es automática. Implica una decisión metodológica que en investigación recibe el nombre de **operacionalización**. Operacionalizar consiste en definir cómo se va a observar o medir un concepto. Por ejemplo, “organización del estudio” es un concepto amplio. Una pregunta como “¿Cuántas horas estudiaste la semana pasada?” es una forma de operacionalizar una parte de ese concepto. Otra pregunta podría operacionalizarlo de manera diferente.
+
+Esta decisión corresponde al investigador. Ni Google Forms ni jsPsych ni un agente pueden tomarla por vos.
+
+## El tipo de respuesta determina el tipo de dato
+
+Google Forms ofrece varios tipos de pregunta. Cada uno produce un tipo de dato diferente.
+
+| Tipo en Google Forms | Qué ve la persona | Qué dato produce |
+|:---|:---|:---|
+| Respuesta corta | Un campo de una línea | Un texto breve o un número |
+| Párrafo | Un campo de varias líneas | Un texto extenso |
+| Opción múltiple | Varias opciones; se elige una | Una categoría |
+| Casillas de verificación | Varias opciones; se eligen varias | Una lista de categorías |
+| Desplegable | Una lista que se abre; se elige una | Una categoría |
+| Escala lineal | Números en una línea, por ejemplo del 1 al 5 | Un valor ordenado |
+| Cuadrícula de opción múltiple | Varias filas con las mismas opciones | Un valor por fila |
+
+: Tipos de pregunta de Google Forms y datos que producen {#tbl-tipos-forms}
+
+Las **preguntas abiertas**, como la respuesta corta y el párrafo, permiten que la persona escriba lo que quiera. Producen datos ricos, pero difíciles de resumir: “Psicología”, “psicologia” y “Lic. en Psicología” son tres textos diferentes para la computadora.
+
+Las **preguntas cerradas**, como la opción múltiple, ofrecen opciones fijas. Producen datos fáciles de contar, pero solo registran las alternativas que el investigador previó.
+
+Elegir entre una pregunta abierta y una cerrada es una decisión metodológica. Depende de qué necesitás saber y de cómo vas a analizar las respuestas.
+
+## Las variables tienen niveles de medición
+
+En Metodología de la investigación vas a estudiar en detalle los **niveles de medición**. Aquí alcanza con una versión breve, porque el nivel de medición orienta cómo conviene registrar cada respuesta.
+
+1. **Nominal.** Los valores son categorías sin orden. Por ejemplo, la carrera que estudia una persona.
+
+2. **Ordinal.** Los valores son categorías con un orden. Por ejemplo, el año de la carrera o el grado de acuerdo con una afirmación.
+
+3. **Intervalar o de razón.** Los valores son números donde las distancias tienen sentido. Por ejemplo, la edad en años.
+
+Una misma pregunta puede producir variables de nivel diferente según cómo se formule. “¿Cuál es tu edad?” con un campo numérico produce un número. “¿En qué rango de edad estás?” con opciones como “18 a 25” y “26 a 35” produce una categoría ordenada. La segunda versión pierde información. A veces esa pérdida es aceptable y a veces no. La decisión es metodológica.
+
+## Una validación expresa una regla del estudio
+
+Google Forms permite agregar reglas a una pregunta. La más conocida es marcarla como **obligatoria**. También permite exigir que una respuesta sea un número, que esté dentro de un rango o que tenga una longitud determinada.
+
+Una **validación** es una regla que el programa comprueba antes de aceptar una respuesta. Si la respuesta no cumple la regla, el programa muestra un aviso y no permite continuar.
+
+Cada validación expresa una decisión del estudio.
+
+| Validación | Decisión que expresa |
+|:---|:---|
+| La edad es obligatoria. | No se aceptan participantes que no informen su edad. |
+| La edad debe estar entre 18 y 80. | La población del estudio son personas adultas de hasta 80 años. |
+| El comentario es opcional. | Se acepta que muchas personas no respondan esa pregunta. |
+
+: Validaciones y decisiones metodológicas {#tbl-validaciones}
+
+Las validaciones tienen una consecuencia sobre los **datos faltantes**. Un dato faltante es un valor que debería existir y no está registrado. Una pregunta obligatoria evita datos faltantes en esa variable. Sin embargo, también puede generar respuestas forzadas o hacer que algunas personas abandonen el estudio. Una pregunta opcional respeta la decisión de no responder, pero produce valores vacíos que vas a tener que tratar en el análisis.
+
+::: {.callout-important}
+## Una validación no garantiza una respuesta verdadera
+
+Una regla que exige un número entre 18 y 80 impide escribir 12 o 150. No impide que una persona de 17 años escriba 18. La validación controla el formato de la respuesta, no su veracidad.
+:::
+
+## Las respuestas se organizan en una tabla
+
+Cuando alguien envía un formulario, Google Forms registra sus respuestas. Si vinculás el formulario con una hoja de cálculo, las respuestas aparecen organizadas así.
+
+```text
+Marca temporal        | ¿Cuál es tu edad? | ¿Qué carrera estudiás? | ¿En qué año estás?
+24/09/2026 10:15:02   | 22                | Psicología             | 2.º
+24/09/2026 10:17:40   | 19                | psicologia             | 1.º
+24/09/2026 10:21:11   | 31                | Lic. en Psicología     | 4.º
+```
+
+Esta tabla tiene una organización precisa.
+
+1. Cada **fila** corresponde a una persona que envió el formulario.
+
+2. Cada **columna** corresponde a una variable.
+
+3. La primera columna, **Marca temporal**, registra la fecha y la hora del envío. Google Forms la agrega por su cuenta.
+
+4. El nombre de cada columna es el texto completo de la pregunta.
+
+Esta forma de organizar los datos, con una fila por persona y una columna por variable, se llama **formato ancho**. Es la forma que muchas personas imaginan cuando piensan en una base de datos. En el capítulo sobre los datos generados vas a ver que jsPsych organiza los datos de otra manera.
+
+## Google Forms toma decisiones por vos
+
+Google Forms es útil precisamente porque decide muchas cosas. Conviene reconocerlas, porque en jsPsych vas a tener que decidirlas de manera explícita.
+
+1. **El nombre de las variables.** Google Forms usa el texto de la pregunta como nombre de la columna. Si cambiás la redacción de una pregunta durante la recolección, la columna también puede cambiar.
+
+2. **La codificación de las respuestas.** En una escala lineal registra el número elegido. En una opción múltiple registra el texto de la opción.
+
+3. **El orden.** Muestra las preguntas en el orden en que las creaste, salvo que actives opciones específicas.
+
+4. **Lo que no registra.** No registra cuánto tardó cada persona en cada pregunta. No registra si alguien abrió el formulario y lo abandonó.
+
+5. **El lugar de almacenamiento.** Guarda los datos en los servidores de Google, bajo las condiciones de ese servicio.
+
+Ninguna de estas decisiones es incorrecta en sí misma. Son decisiones que otra persona tomó por vos. Un investigador necesita saber que existen para evaluar si son adecuadas para su estudio.
+
+## Este análisis importa para investigar en Psicología
+
+La calidad de un estudio por encuesta depende de decisiones que parecen pequeñas. El nombre de una variable determina si vas a poder reconocerla en el análisis. La codificación de una escala determina cómo se calcula un puntaje. Una pregunta obligatoria cambia la cantidad de datos faltantes.
+
+En Google Forms, muchas de esas decisiones quedan ocultas. En jsPsych quedan escritas en archivos que podés leer, revisar y documentar. Esa visibilidad es una ventaja para la investigación: permite comprobar que el procedimiento implementado coincide con el diseñado y permite que otra persona lo reproduzca.
+
+## Analizá un formulario
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Si tenés una cuenta de Google, creá un formulario nuevo con estas cuatro preguntas. Si no tenés cuenta, realizá la actividad con papel, imaginando el formulario.
+
+1. “¿Cuál es tu edad?”, respuesta corta, obligatoria, con validación de número entre 18 y 80.
+
+2. “¿Qué carrera estudiás?”, respuesta corta, obligatoria.
+
+3. “¿En qué año de la carrera estás?”, opción múltiple con las opciones 1.º, 2.º, 3.º, 4.º y 5.º o más, obligatoria.
+
+4. “¿Querés agregar algún comentario?”, párrafo, opcional.
+
+Completá el formulario dos veces con respuestas inventadas. En la segunda, dejá el comentario vacío. Después abrí la pestaña **Respuestas** y vinculá una hoja de cálculo.
+
+Para cada pregunta, completá una tabla con estas columnas: pregunta, nombre de la columna en la hoja, tipo de respuesta, nivel de medición, validación y valor registrado cuando no hubo respuesta.
+:::
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+| Pregunta | Columna | Tipo | Nivel | Validación | Sin respuesta |
+|:---|:---|:---|:---|:---|:---|
+| ¿Cuál es tu edad? | ¿Cuál es tu edad? | Respuesta corta | Razón | Obligatoria, número entre 18 y 80 | No puede ocurrir |
+| ¿Qué carrera estudiás? | ¿Qué carrera estudiás? | Respuesta corta | Nominal | Obligatoria | No puede ocurrir |
+| ¿En qué año de la carrera estás? | ¿En qué año de la carrera estás? | Opción múltiple | Ordinal | Obligatoria | No puede ocurrir |
+| ¿Querés agregar algún comentario? | ¿Querés agregar algún comentario? | Párrafo | Texto abierto | Opcional | Celda vacía |
+
+Además, la hoja incluye la columna **Marca temporal**, que no corresponde a ninguna pregunta.
+
+</details>
+
+## Explicá qué ocurrió durante la actividad
+
+Cada pregunta del formulario produjo una columna. Cada envío produjo una fila. Google Forms agregó una columna que no pediste, la marca temporal, y usó el texto de cada pregunta como nombre de columna.
+
+La validación de la edad impidió valores fuera del rango. La obligatoriedad impidió celdas vacías en tres variables. El comentario opcional produjo una celda vacía en el segundo envío: un dato faltante previsto por el diseño.
+
+Todo esto ocurrió sin que escribieras una línea de código. En jsPsych vas a poder reproducir cada una de estas decisiones, y además vas a ver dónde queda escrita cada una.
+
+## Una especificación describe el cuestionario antes de construirlo
+
+En el capítulo sobre cómo describir una tarea escribiste tu primera especificación: la de una pregunta de edad. Ahora vas a extender esa práctica a un cuestionario completo.
+
+Una especificación de cuestionario puede organizarse como una tabla. Cada fila describe una pregunta y la variable que produce.
+
+| Variable | Pregunta | Tipo | Valores permitidos | Obligatoria |
+|:---|:---|:---|:---|:---|
+| `edad` | ¿Cuál es tu edad? | Numérica | Entero entre 18 y 80 | Sí |
+| `carrera` | ¿Qué carrera estudiás? | Texto abierto | Cualquier texto | Sí |
+| `anio_carrera` | ¿En qué año de la carrera estás? | Categórica ordinal | 1.º, 2.º, 3.º, 4.º, 5.º o más | Sí |
+| `comentarios` | ¿Querés agregar algún comentario? | Texto abierto | Cualquier texto o vacío | No |
+
+: Especificación del cuestionario sociodemográfico inicial {#tbl-especificacion}
+
+Observá los nombres de las variables. Son breves, están en minúscula, no tienen espacios ni tildes y usan guiones bajos para separar palabras. Ese criterio es el mismo que usaste para nombrar archivos en el capítulo sobre carpetas. Evita problemas con programas que interpretan de manera especial los espacios o los caracteres acentuados. Por eso usamos `anio_carrera` en lugar de `año de la carrera`.
+
+## Registrá la especificación en el proyecto
+
+En el capítulo sobre proyectos se anticipó que el README podría registrar qué variables produce el estudio. Ahora vas a hacerlo. La tabla se escribe en Markdown con una sintaxis que se lee bien incluso como texto plano.
+
+```markdown
+| Variable | Pregunta | Obligatoria |
+|---|---|---|
+| `edad` | ¿Cuál es tu edad? | Sí |
+```
+
+Cada fila comienza y termina con una barra vertical `|`. Las barras separan las columnas. La segunda línea, formada por guiones, separa el encabezado del resto de la tabla. Las comillas invertidas alrededor de `edad` indican que se trata de un nombre técnico.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Abrí PowerShell, llegá a `mi-primer-estudio` y comprobá la ubicación con `Get-Location`.
+
+2. Guardá una copia de respaldo de `README.md` en la carpeta `respaldos`.
+
+3. Iniciá Codex y comprobá con `/status` que los permisos sean **Read Only**.
+
+4. Escribí este pedido.
+
+```text
+En README.md, agregá antes de la sección "Reglas para trabajar con agentes"
+una sección nueva con este contenido exacto:
+
+## Variables previstas
+
+| Variable | Pregunta | Tipo | Valores permitidos | Obligatoria |
+|---|---|---|---|---|
+| `edad` | ¿Cuál es tu edad? | Numérica | Entero entre 18 y 80 | Sí |
+| `carrera` | ¿Qué carrera estudiás? | Texto abierto | Cualquier texto | Sí |
+| `anio_carrera` | ¿En qué año de la carrera estás? | Categórica ordinal | 1.º, 2.º, 3.º, 4.º, 5.º o más | Sí |
+| `comentarios` | ¿Querés agregar algún comentario? | Texto abierto | Cualquier texto o vacío | No |
+
+No modifiques ninguna otra parte de README.md ni otros archivos.
+```
+
+5. Revisá la propuesta con la lista de cinco preguntas del capítulo sobre revisión. Aprobala si coincide.
+
+6. Cerrá Codex con `/exit`.
+:::
+
+**Sin acceso a Codex:** agregá la sección con el Bloc de notas en la misma posición.
+
+## Explicá qué hizo realmente el agente
+
+El agente leyó `README.md`, buscó la sección “Reglas para trabajar con agentes” y preparó una propuesta que insertaba la tabla justo antes. El contenido lo escribiste vos: las variables, las preguntas, los tipos y las reglas. El agente decidió solamente dónde escribir cada línea dentro del archivo.
+
+Observá que la especificación no depende de ninguna herramienta. Podría implementarse en Google Forms, en jsPsych o en papel. Esa independencia es una ventaja: te permite comparar después la implementación con la especificación.
+
+## Verificá el resultado
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. En PowerShell, dentro de `mi-primer-estudio`, ejecutá `Get-Content README.md -Encoding UTF8`.
+
+2. Comprobá que la sección “Variables previstas” aparezca antes de “Reglas para trabajar con agentes”.
+
+3. Comprobá que la tabla tenga cuatro filas de variables y que cada fila tenga cinco columnas.
+
+4. Compará `README.md` con la copia de respaldo. Comprobá que no haya otras diferencias.
+
+5. Agregá una entrada al registro de cambios del README, como practicaste en el capítulo sobre el ciclo de trabajo.
+:::
+
+## Revisá algunas situaciones que suelen causar confusión
+
+### La pregunta y la variable no son lo mismo
+
+La pregunta es el texto que lee la persona. La variable es el nombre con el que se registra la respuesta. Podés mejorar la redacción de una pregunta sin cambiar el nombre de la variable.
+
+### Un campo de respuesta corta no garantiza un número
+
+En Google Forms, una respuesta corta sin validación acepta cualquier texto. Si necesitás un número, la validación debe exigirlo.
+
+### Obligatoria no significa mejor
+
+Hacer obligatorias todas las preguntas elimina los datos faltantes, pero puede forzar respuestas o provocar abandonos. Cada pregunta requiere una decisión propia.
+
+### Las opciones de una pregunta cerrada también son decisiones
+
+Si las opciones no cubren todas las situaciones posibles, algunas personas van a elegir una que no las representa. Revisá si hace falta una opción como “Otra” o “Prefiero no responder”.
+
+### Cambiar una pregunta durante la recolección cambia los datos
+
+Si modificás la redacción o las opciones después de recibir respuestas, las respuestas anteriores y las posteriores dejan de ser comparables. Estas decisiones conviene tomarlas antes de recolectar.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué diferencia existe entre una pregunta y una variable?
+
+2. ¿Qué es la operacionalización?
+
+3. ¿Qué diferencia existe entre una pregunta abierta y una pregunta cerrada?
+
+4. ¿Qué nivel de medición tiene la variable `anio_carrera`?
+
+5. ¿Qué es una validación?
+
+6. ¿Qué es un dato faltante?
+
+7. ¿Cómo se organiza una tabla en formato ancho?
+
+8. ¿Por qué conviene que los nombres de variables no tengan espacios ni tildes?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. La pregunta es el texto que ve la persona participante y la variable es el nombre con el que se registra su respuesta.
+
+2. La operacionalización es la definición de cómo se va a observar o medir un concepto.
+
+3. Una pregunta abierta permite escribir cualquier respuesta, mientras que una pregunta cerrada ofrece opciones fijas.
+
+4. La variable `anio_carrera` tiene nivel ordinal, porque sus categorías tienen un orden.
+
+5. Una validación es una regla que el programa comprueba antes de aceptar una respuesta.
+
+6. Un dato faltante es un valor que debería existir y no está registrado.
+
+7. En formato ancho, cada fila corresponde a una persona y cada columna a una variable.
+
+8. Algunos programas interpretan de manera especial los espacios y los caracteres acentuados, y eso puede producir errores.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Google Forms recibe respuestas, las valida, las organiza y las almacena. Para hacerlo toma decisiones que suelen quedar ocultas.
+
+Cada pregunta produce una variable. La relación entre ambas es una operacionalización, y la decide el investigador. El tipo de respuesta determina el tipo de dato. Las variables tienen niveles de medición: nominal, ordinal, intervalar o de razón.
+
+Una validación es una regla que el programa comprueba antes de aceptar una respuesta. Expresa una decisión del estudio y afecta la cantidad de datos faltantes, pero no garantiza que la respuesta sea verdadera.
+
+Google Forms organiza los datos en formato ancho: una fila por persona y una columna por variable. Usa el texto de la pregunta como nombre de columna y agrega una marca temporal.
+
+Una especificación de cuestionario describe cada variable antes de construir el formulario. Tu proyecto ya registra esa especificación en el README.
+
+## Resolvé un desafío breve
+
+Agregá a tu especificación dos preguntas nuevas: una sobre el género de la persona y otra sobre los recursos que usa para estudiar, con varias opciones posibles.
+
+1. Escribí la fila de la especificación para cada pregunta: variable, pregunta, tipo, valores permitidos y obligatoriedad.
+
+2. Para la pregunta de género, decidí qué opciones vas a ofrecer. Justificá si incluís una opción como “Prefiero no responder”.
+
+3. Para la pregunta de recursos, indicá qué tipo de pregunta de Google Forms usarías y qué dato produciría.
+
+4. Explicá qué nivel de medición tiene cada variable.
+
+En el próximo capítulo vas a construir tu primer estudio con jsPsych. Vas a ver dónde queda escrita cada una de las decisiones que Google Forms tomaba por vos.

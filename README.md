@@ -1,4 +1,4 @@
-# De Google Forms a experimentos web
+# De Google Forms a estudios web
 
 Quarto Book de alfabetización computacional para estudiantes de grado de Psicología. El recorrido comienza con archivos, carpetas y terminal; introduce el trabajo con agentes de IA; y culmina con la construcción, verificación y publicación de un estudio en jsPsych.
 

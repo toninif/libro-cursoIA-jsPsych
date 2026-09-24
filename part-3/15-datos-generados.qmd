@@ -1,24 +1,343 @@
 ---
-title: "Los datos que estamos generando"
-description: "Filas, columnas, valores, identificadores y tiempos de respuesta."
+title: "Los datos que genera el estudio"
+description: "Cómo organiza jsPsych los datos, cómo identificar filas y participantes, y cómo obtener un archivo para revisar."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder describir cómo organiza jsPsych los datos de un estudio.
+
+2. Vas a poder distinguir el formato largo del formato ancho.
+
+3. Vas a poder interpretar las columnas principales del archivo de datos.
+
+4. Vas a poder agregar a los datos una etiqueta por pantalla y un identificador de participante.
+
+5. Vas a poder descargar los datos como archivo CSV y abrirlos en una planilla de cálculo.
+
+6. Vas a poder anticipar la estructura de datos que producirá un estudio antes de recolectarlos.
+
+## Una tabla difícil de leer permite formular el problema
+
+Al terminar el estudio, la página muestra una tabla de datos en formato CSV. En los capítulos anteriores la usaste para comprobar que cada variable quedaba registrada. Sin embargo, esa tabla tiene tres problemas para un investigador.
+
+1. Aparece en la pantalla de quien completa el estudio y desaparece al cerrar la ventana.
+
+2. Las filas no dicen a qué pantalla corresponden, salvo por su posición.
+
+3. Nada identifica a la persona que respondió. Si juntaras los datos de veinte personas, no podrías saber qué filas son de quién.
+
+Además, la tabla no se parece a la hoja de cálculo de Google Forms. Allí había una fila por persona. Aquí hay una fila por pantalla.
+
+Este capítulo explica esa diferencia y resuelve los tres problemas. Al terminar, tu estudio va a descargar un archivo de datos que podés abrir en una planilla de cálculo.
+
+::: {.callout-tip}
+## Idea clave
+
+Antes de recolectar datos, un investigador debe saber qué archivo va a obtener: cuántas filas, qué columnas, qué significa cada valor y cómo se identifica a cada participante. Esa anticipación permite detectar problemas cuando todavía se pueden corregir.
 :::
 
-## Propósito
+## jsPsych registra una fila por ensayo
 
-Desplazar la atención desde las pantallas del estudio hacia la base que esas pantallas producen.
+Google Forms produce una tabla en **formato ancho**: una fila por persona y una columna por variable. jsPsych produce una tabla en **formato largo**: una fila por ensayo.
 
-## Objetivos de aprendizaje
+Compará las dos organizaciones para una persona que respondió edad y carrera.
 
-- Interpretar filas, columnas, variables y valores en una tabla de datos.
-- Distinguir datos numéricos, categóricos, textuales y faltantes.
-- Reconocer identificadores y tiempos de respuesta.
-- Anticipar los datos antes de recolectarlos.
+```text
+Formato ancho (Google Forms)
+Marca temporal       | edad | carrera
+24/09/2026 10:15:02  | 22   | Psicología
+```
 
-## Pregunta guía
+```text
+Formato largo (jsPsych)
+trial_index | trial_type          | response
+0           | html-button-response | 0
+1           | survey-html-form     | {"edad":"22"}
+2           | survey-text          | {"carrera":"Psicología"}
+3           | html-button-response | 0
+```
 
-> Si una persona completa el estudio, ¿qué información exacta debería aparecer en la base?
+El formato largo registra todo lo que ocurrió, pantalla por pantalla, incluidas las pantallas sin preguntas, como la bienvenida. Es un registro completo del procedimiento. El formato ancho es más cómodo para muchos análisis. Pasar de uno a otro es una tarea del análisis de datos, que se realiza con programas como una planilla de cálculo, Jamovi o R. En este libro nos concentramos en comprender el formato largo y en documentarlo.
 
+## Cada columna tiene un significado
+
+El archivo de datos de tu estudio tiene estas columnas principales.
+
+| Columna | Qué registra |
+|:---|:---|
+| `rt` | El tiempo de respuesta: milisegundos desde que apareció la pantalla hasta que la persona avanzó. |
+| `stimulus` | El contenido que mostró la pantalla, en las pantallas con texto y botones. |
+| `response` | La respuesta. En los botones, la posición del botón presionado. En las preguntas, las variables con sus valores. |
+| `trial_type` | El plugin que se usó en esa pantalla. |
+| `trial_index` | La posición de la pantalla en la línea de tiempo, contando desde 0. |
+| `time_elapsed` | Milisegundos transcurridos desde el comienzo del estudio. |
+| `plugin_version` | La versión del plugin usado. |
+
+: Columnas principales del archivo de datos {#tbl-columnas}
+
+Algunos plugins agregan columnas propias. Por ejemplo, `survey-multi-choice` agrega `response_index`, con la posición de cada opción elegida. Cuando una fila corresponde a un plugin que no usa esa columna, la celda queda vacía.
+
+Observá la columna `rt`. Google Forms no registra este dato. jsPsych lo registra en cada pantalla, sin que lo pidas. En la Parte IV vas a estudiar qué información aporta en una encuesta.
+
+## La columna `response` contiene variables agrupadas
+
+En las pantallas de preguntas, la columna `response` no contiene un único valor. Contiene un grupo de variables con sus valores, escrito así.
+
+```text
+{"genero":"Mujer","anio_carrera":"2.º"}
+```
+
+Esta notación se llama **JSON**. Es una forma estándar de escribir datos como texto. Las llaves `{ }` agrupan pares formados por un nombre y un valor, separados por dos puntos. Los pares se separan con comas. Es la misma forma que usás en `experiment.js` para describir un ensayo, porque JSON proviene de JavaScript.
+
+Cuando esta notación aparece dentro de un archivo CSV, las comillas se duplican.
+
+```text
+"{""genero"":""Mujer"",""anio_carrera"":""2.º""}"
+```
+
+Las comillas duplicadas no son un error. El formato CSV usa comillas para delimitar cada celda, así que las comillas que forman parte del contenido se escriben dos veces. Una planilla de cálculo las interpreta correctamente al abrir el archivo.
+
+## Una etiqueta identifica cada pantalla
+
+Para saber a qué pantalla corresponde una fila, podés usar la columna `trial_index`. Sin embargo, esa posición cambia si agregás o quitás pantallas. Una forma más estable es etiquetar cada ensayo.
+
+Todos los plugins aceptan un parámetro llamado `data`. Lo que escribas en ese parámetro se agrega como columnas a la fila de ese ensayo.
+
+```javascript
+const bienvenida = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: "<h1>Estudio sobre hábitos de estudio</h1><p>Gracias por tu interés en participar.</p>",
+  choices: ["Comenzar"],
+  data: { pantalla: "bienvenida" }
+};
+```
+
+Con esta línea, la fila de la bienvenida va a tener una columna `pantalla` con el valor `bienvenida`. Si cada ensayo tiene su etiqueta, cada fila del archivo va a indicar a qué pantalla corresponde.
+
+## Un identificador distingue a cada participante
+
+Cuando reúnas los datos de muchas personas, vas a necesitar saber qué filas pertenecen a cada una. Para eso se usa un **identificador de participante**: un código que distingue a cada persona sin revelar quién es.
+
+Un identificador no debe contener datos personales como el nombre, el correo electrónico o el documento. En el capítulo sobre agentes viste que los datos de participantes requieren un tratamiento protegido. Un código generado al azar permite distinguir a las personas sin identificarlas.
+
+jsPsych puede generar ese código y agregarlo a todas las filas.
+
+```javascript
+const participante = jsPsych.randomization.randomID(8);
+jsPsych.data.addProperties({ participante: participante });
+```
+
+La primera línea genera un código de ocho letras y números al azar, como `8sx0gfol`, y lo guarda con el nombre `participante`. La segunda línea agrega una columna `participante` con ese código a todas las filas de datos.
+
+## El estudio puede descargar un archivo
+
+Hasta ahora, al terminar, el estudio mostraba los datos en la pantalla. jsPsych puede, en cambio, descargar un archivo CSV.
+
+```javascript
+const jsPsych = initJsPsych({
+  on_finish: function () {
+    jsPsych.data.get().localSave("csv", "datos_" + participante + ".csv");
+  }
+});
+```
+
+La línea dentro de `on_finish` obtiene todos los datos y los guarda en un archivo. El nombre del archivo se forma uniendo `datos_`, el código del participante y la extensión `.csv`. Por ejemplo, `datos_8sx0gfol.csv`. El navegador lo guarda en la carpeta Descargas, como cualquier descarga.
+
+::: {.callout-warning}
+## La descarga sirve para probar, no para recolectar
+
+El archivo se descarga en la computadora de quien completa el estudio. Si una persona participante completara esta versión desde su casa, el archivo quedaría en su computadora y vos no lo recibirías. Esta forma de guardado sirve para probar el estudio y revisar sus datos. En la Parte V vas a configurar un guardado en línea para recolectar datos reales.
+:::
+
+## Este capítulo importa para investigar en Psicología
+
+La estructura de los datos se decide antes de recolectarlos. Si descubrís después de la recolección que faltaba un identificador o que las filas no se podían interpretar, esos datos pueden quedar inutilizables.
+
+Anticipar el archivo de datos es parte del diseño. Un investigador debería poder responder, antes de publicar un estudio, qué filas va a tener el archivo de cada participante, qué columnas, qué valores posibles y qué significa un valor vacío. En el próximo capítulo vas a escribir esas respuestas en un diccionario de variables.
+
+## Agregá etiquetas, identificador y descarga
+
+Vas a realizar dos pedidos. El primero agrega las etiquetas de pantalla. El segundo agrega el identificador y la descarga.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Guardá una copia de respaldo de `experiment.js`.
+
+2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+**Pedido 1: etiquetas de pantalla.**
+
+```text
+En experiment.js, agregá a cada ensayo el parámetro data con una propiedad pantalla.
+Usá exactamente estos valores:
+bienvenida -> "bienvenida"
+consentimiento -> "consentimiento"
+pregunta_edad -> "edad"
+preguntas_genero_anio -> "genero_anio"
+pregunta_carrera -> "carrera"
+pregunta_recursos -> "recursos"
+escala_organizacion -> "escala_organizacion"
+pregunta_comentarios -> "comentarios"
+cierre -> "cierre"
+Por ejemplo, el ensayo bienvenida debe incluir: data: { pantalla: "bienvenida" }
+No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+3. Revisá la propuesta. Debe agregar una línea `data` en cada uno de los nueve ensayos y no cambiar nada más. Aprobala si coincide.
+
+**Pedido 2: identificador y descarga.**
+
+```text
+En experiment.js:
+1. Inmediatamente después del bloque initJsPsych, agregá estas dos líneas y un comentario:
+   // Identificador aleatorio de la persona participante
+   const participante = jsPsych.randomization.randomID(8);
+   jsPsych.data.addProperties({ participante: participante });
+2. En on_finish, reemplazá la línea que muestra los datos por esta línea exacta:
+   jsPsych.data.get().localSave("csv", "datos_" + participante + ".csv");
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+4. Revisá el plan y la propuesta. Comprobá que la línea `displayData` se elimine y que la línea `localSave` la reemplace.
+:::
+
+**Sin acceso a Codex:** realizá los cambios con el editor a partir de los fragmentos de este capítulo. El checkpoint `04-escalas` contiene la versión completa de `experiment.js`.
+
+## Explicá qué hizo realmente el agente
+
+En el primer pedido, el agente agregó la misma estructura a nueve ensayos. Es un cambio repetitivo, del tipo que un agente realiza con rapidez. También es un cambio fácil de revisar, porque cada línea agregada tiene la misma forma. Revisá especialmente las comas: al agregar un parámetro al final de un ensayo, el parámetro anterior necesita una coma al final.
+
+En el segundo pedido, el agente agregó un nombre nuevo, `participante`, y lo usó en dos lugares: en `addProperties` y en el nombre del archivo. Observá que `on_finish` usa `participante` aunque aparece antes en el archivo. Esto funciona porque las instrucciones de `on_finish` recién se ejecutan cuando el estudio termina, y para entonces `participante` ya existe.
+
+## Verificá el archivo de datos
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Recargá el estudio y completalo. Al presionar **Finalizar**, el navegador va a descargar un archivo.
+
+2. Abrí la carpeta Descargas y buscá un archivo cuyo nombre empiece con `datos_`.
+
+3. Completá el estudio una segunda vez. Comprobá que se descargue un segundo archivo con otro código.
+
+4. Abrí uno de los archivos en una planilla de cálculo. Podés usar Google Sheets, LibreOffice Calc o Excel.
+
+5. Comprobá que el archivo tenga nueve filas de datos, una por pantalla, además de la fila de nombres de columnas.
+
+6. Comprobá que todas las filas tengan el mismo valor en la columna `participante`.
+
+7. Comprobá que la columna `pantalla` tenga un valor diferente en cada fila, en el orden de la línea de tiempo.
+
+8. Buscá la fila de `comentarios` y observá cómo aparece la respuesta vacía.
+:::
+
+Para abrir el archivo en Google Sheets, creá una hoja nueva y usá **Archivo**, **Importar** y **Subir**. En LibreOffice Calc, abrilo con doble clic y, en la ventana de importación, elegí la coma como separador y la codificación UTF-8.
+
+## Anticipá la base de datos
+
+Ahora podés describir el archivo que produce tu estudio antes de recolectar datos reales.
+
+```text
+Archivo:    datos_<participante>.csv, uno por persona
+Filas:      9 por persona, una por pantalla
+Columnas:   participante, pantalla, rt, response, trial_type, trial_index,
+            time_elapsed, stimulus, plugin_version, response_index, question_order
+Variables:  edad, genero, anio_carrera, carrera, recursos,
+            efoe_1 a efoe_4 y comentarios, dentro de la columna response
+```
+
+Esta descripción ya es una forma de documentación. En el próximo capítulo la vas a convertir en un diccionario de variables completo.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### El navegador no descarga nada
+
+Algunos navegadores piden permiso para descargar archivos desde una página. Revisá si aparece un aviso en la barra de direcciones. También comprobá con la consola, usando `F12`, que no haya errores.
+
+### Todas las filas aparecen en una sola columna
+
+La planilla no reconoció la coma como separador. Esto ocurre con frecuencia en Excel configurado en español, que espera punto y coma. Usá la opción de importar datos desde texto y elegí la coma como separador.
+
+### Las tildes aparecen como símbolos extraños
+
+La planilla interpretó el archivo con otra codificación, como viste en el capítulo sobre cómo describir una tarea. Al importar, elegí UTF-8.
+
+### Falta la columna `pantalla` en alguna fila
+
+Algún ensayo no tiene el parámetro `data`. Buscá en `experiment.js` el ensayo correspondiente a esa fila.
+
+### El estudio quedó en blanco después de agregar las etiquetas
+
+Probablemente falte una coma antes de la línea `data`. Abrí la consola con `F12`, ubicá la línea indicada y revisá la línea anterior.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué diferencia existe entre el formato ancho y el formato largo?
+
+2. ¿Qué registra la columna `rt`?
+
+3. ¿Qué es JSON?
+
+4. ¿Por qué aparecen comillas duplicadas en el archivo CSV?
+
+5. ¿Qué función cumple el parámetro `data` de un ensayo?
+
+6. ¿Por qué el identificador de participante no debe contener datos personales?
+
+7. ¿Por qué la descarga local no sirve para recolectar datos de participantes?
+
+8. ¿Cuántas filas produce cada participante en la versión actual del estudio?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. En formato ancho hay una fila por persona, mientras que en formato largo hay una fila por ensayo.
+
+2. Registra los milisegundos desde que apareció la pantalla hasta que la persona avanzó.
+
+3. JSON es una forma estándar de escribir datos como texto, con pares de nombre y valor entre llaves.
+
+4. El formato CSV usa comillas para delimitar las celdas, por lo que las comillas del contenido se escriben dos veces.
+
+5. Agrega columnas con información propia a la fila de datos de ese ensayo.
+
+6. El identificador debe distinguir a las personas sin permitir saber quiénes son, para proteger su privacidad.
+
+7. El archivo se descarga en la computadora de quien completa el estudio, no en la del investigador.
+
+8. Cada participante produce nueve filas.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+jsPsych registra los datos en formato largo: una fila por ensayo. Google Forms usa formato ancho: una fila por persona. Ambas organizaciones describen los mismos datos de maneras diferentes.
+
+Cada fila incluye columnas como `rt`, `response`, `trial_type` y `time_elapsed`. En las preguntas, la columna `response` agrupa las variables con sus valores en notación JSON.
+
+El parámetro `data` permite etiquetar cada ensayo. `randomID` y `addProperties` agregan un identificador de participante a todas las filas, sin datos personales. `localSave` descarga los datos como archivo CSV, lo que sirve para probar el estudio, no para recolectar datos reales.
+
+Anticipar la estructura del archivo de datos es parte del diseño del estudio.
+
+## Resolvé un desafío breve
+
+Imaginá que agregás al estudio una pantalla nueva, con dos preguntas de opción múltiple sobre horas de sueño, entre la escala y los comentarios.
+
+1. Indicá cuántas filas va a producir cada participante con ese cambio.
+
+2. Proponé una etiqueta de pantalla y dos nombres de variable para las preguntas nuevas.
+
+3. Escribí cómo se vería la columna `response` de esa pantalla para una persona que eligió “Entre 6 y 8 horas” y “Sí”.
+
+4. Indicá qué valor tendría `trial_index` para la pantalla de comentarios después del cambio.
+
+5. Explicá por qué la etiqueta `pantalla` es más estable que `trial_index` para identificar filas.
+
+En el próximo capítulo vas a documentar todas las variables del estudio en un diccionario y vas a usarlo para verificar el trabajo de un agente.

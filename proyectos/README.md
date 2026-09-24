@@ -14,5 +14,6 @@ Esta carpeta reúne versiones recuperables de `mi-primer-estudio`. Cada checkpoi
 
 ## Estado
 
-Solo `01-inicial` está inicializado. Las demás carpetas están reservadas para evitar que una estructura vacía se confunda con un estudio funcional. Cada una deberá incorporar instrucciones de ejecución y criterios de verificación cuando se desarrolle.
+Los checkpoints `01-inicial` a `04-escalas` están completos y fueron probados con jsPsych 8.3.0. Las demás carpetas están reservadas para evitar que una estructura vacía se confunda con un estudio funcional. Cada una deberá incorporar instrucciones de ejecución y criterios de verificación cuando se desarrolle.
 
+Los checkpoints `02` a `04` cargan jsPsych desde Internet, por lo que necesitan conexión para funcionar.
