@@ -1,24 +1,460 @@
 ---
 title: "Nuestro primer estudio con jsPsych"
-description: "Reconstruir una experiencia conocida dentro de un proyecto web."
+description: "Crear, ejecutar y modificar un estudio mínimo que funciona en el navegador."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse con la versión de jsPsych elegida.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué función cumplen el navegador, jsPsych y los archivos de tu proyecto.
+
+2. Vas a poder instalar un editor de texto liviano para leer archivos de código.
+
+3. Vas a poder crear y ejecutar un estudio mínimo con jsPsych.
+
+4. Vas a poder reconocer un ensayo, un plugin y una línea de tiempo en el código.
+
+5. Vas a poder agregar una pregunta con Codex a partir de una especificación acotada.
+
+6. Vas a poder comprobar la pantalla y el dato que produce la pregunta nueva.
+
+## Una especificación sin implementar permite formular el problema
+
+En el capítulo anterior escribiste la especificación de un cuestionario. Sabés qué variables querés, qué preguntas las producen y qué reglas deben cumplir. Esa especificación todavía no produce ningún dato. Necesita una implementación.
+
+En Google Forms, la implementación ocurre con clics. En este libro vas a usar **jsPsych**, una herramienta pensada para construir estudios psicológicos que funcionan en el navegador. Con jsPsych, la implementación queda escrita en archivos de texto dentro de tu proyecto.
+
+Este capítulo empieza con un estudio mínimo: una pantalla de bienvenida y una pantalla de cierre. Primero vas a crearlo copiando dos archivos. Después vas a ejecutarlo. Finalmente vas a pedirle a Codex que agregue la pregunta de edad.
+
+Todavía no se espera que comprendas cada línea de código. La atención va a estar puesta en el vínculo entre una decisión, el lugar donde queda escrita y el resultado que produce.
+
+::: {.callout-tip}
+## Idea clave
+
+Un estudio con jsPsych es un conjunto de archivos de texto que el navegador interpreta. Cada decisión del estudio, como el texto de una pregunta o su obligatoriedad, queda escrita en un lugar concreto de esos archivos.
 :::
 
-## Propósito
+## El navegador, jsPsych y tu estudio cumplen funciones diferentes
 
-Ejecutar un proyecto preparado, reconocer sus archivos principales y realizar con el agente una primera modificación pequeña.
+En el capítulo sobre computadoras viste que el navegador interpreta los archivos de una página y responde a las acciones de la persona. En el capítulo sobre el ciclo de trabajo creaste una página mínima en **HTML**. HTML es un lenguaje de marcas: indica la estructura de una página mediante etiquetas como `<h1>` para un título o `<p>` para un párrafo.
 
-## Objetivos de aprendizaje
+HTML describe qué contiene una página, pero no alcanza para mostrar pantallas en secuencia, registrar respuestas o medir tiempos. Para eso los navegadores interpretan otro lenguaje: **JavaScript**. JavaScript es un lenguaje de programación, es decir, un lenguaje para escribir instrucciones que un programa ejecuta.
 
-- Explicar qué parte cumple el navegador y qué parte cumple jsPsych.
-- Ejecutar el estudio localmente siguiendo instrucciones verificables.
-- Agregar una pregunta de edad mediante una especificación acotada.
-- Comprobar la interfaz y el dato generado.
+**jsPsych** es una biblioteca de JavaScript. Una **biblioteca** es un conjunto de instrucciones ya escritas por otras personas que un programa puede usar. jsPsych contiene las instrucciones necesarias para mostrar pantallas, registrar respuestas y organizar datos. Vos no necesitás escribir esas instrucciones. Necesitás indicar qué pantallas querés y con qué características.
 
-## Cambio de perspectiva
+En tu proyecto, cada pieza cumple una función.
 
-Todavía no se espera comprender cada línea de JavaScript. La atención estará puesta en el vínculo entre la decisión, la implementación y el resultado observable.
+| Pieza | Qué es | Qué función cumple |
+|:---|:---|:---|
+| Navegador | Un programa instalado | Interpreta los archivos y muestra el estudio. |
+| `index.html` | Un archivo de tu proyecto | Es la página que abrís. Indica qué bibliotecas cargar y qué archivo contiene tu estudio. |
+| jsPsych | Una biblioteca que se descarga de Internet | Sabe mostrar pantallas, registrar respuestas y guardar datos. |
+| `experiment.js` | Un archivo de tu proyecto | Describe tu estudio: qué pantallas hay, qué dicen y en qué orden aparecen. La extensión `.js` indica JavaScript. |
 
+: Piezas de un estudio con jsPsych {#tbl-piezas}
+
+Cuando abrís `index.html`, el navegador lo lee. Encuentra la indicación de descargar jsPsych desde Internet y la cumple. Después lee `experiment.js` y ejecuta sus instrucciones. Esas instrucciones usan jsPsych para mostrar el estudio.
+
+## Un estudio es una secuencia de ensayos
+
+jsPsych organiza un estudio como una secuencia de pantallas. Cada pantalla recibe el nombre de **ensayo**. En la documentación y en el código vas a encontrar la palabra inglesa *trial*, que significa lo mismo. En un experimento, un ensayo suele ser una presentación de un estímulo con su respuesta. En una encuesta, un ensayo es cada pantalla: la bienvenida, una pregunta, el cierre.
+
+La secuencia completa de ensayos se llama **línea de tiempo**. En inglés, *timeline*. Determina qué pantallas aparecen y en qué orden.
+
+Cada ensayo tiene un tipo. El tipo define qué clase de pantalla es: un texto con botones, una pregunta con un campo para escribir, una escala. Cada tipo está implementado en un **plugin**. Un plugin es una pieza adicional de jsPsych que agrega un tipo de pantalla. Por eso, además de jsPsych, `index.html` carga un plugin por cada tipo de pantalla que usa el estudio.
+
+```text
+línea de tiempo:  bienvenida  →  pregunta de edad  →  cierre
+tipo de ensayo:   botón          campo de texto        botón
+plugin:           html-button    survey-text           html-button
+```
+
+## Instalá un editor para leer código
+
+Hasta ahora usaste el Bloc de notas. Para leer archivos de código conviene un editor que muestre números de línea y use colores para distinguir las partes del código. Esa ayuda visual se llama **resaltado de sintaxis**. Los números de línea te van a permitir ubicar rápidamente lo que menciona una propuesta de cambio o un mensaje de error.
+
+En este libro usaremos editores gratuitos y livianos.
+
+::: {.panel-tabset}
+## Windows
+
+Usá **Notepad++**.
+
+1. Entrá en el [sitio oficial de Notepad++](https://notepad-plus-plus.org/downloads/).
+
+2. Elegí la versión más reciente y descargá el instalador.
+
+3. Ejecutá el instalador y aceptá las opciones predeterminadas.
+
+4. Abrí Notepad++ desde el menú Inicio. En el menú **Configuración**, podés elegir el idioma español si la interfaz aparece en inglés.
+
+## macOS
+
+Usá **CotEditor**.
+
+1. Entrá en el [sitio oficial de CotEditor](https://coteditor.com/) o buscá CotEditor en la App Store.
+
+2. Descargalo e instalalo como cualquier aplicación de macOS.
+
+3. Abrí CotEditor. Si no ves los números de línea, activalos desde el menú **Ver**.
+:::
+
+Descargá los editores solamente desde su sitio oficial o desde la tienda de aplicaciones de tu sistema. Si ya usás otro editor de código, como VS Code, podés seguir usándolo. Las actividades del libro no dependen del editor.
+
+## Creá los archivos del estudio
+
+Ahora vas a crear los dos archivos que convierten tu proyecto en un estudio. Tu proyecto va a pasar de tener un archivo a tener tres.
+
+```text
+mi-primer-estudio/
+├── index.html
+├── experiment.js
+└── README.md
+```
+
+Primero observá cada archivo. Después vas a copiarlos.
+
+### `index.html` indica qué cargar
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mi primer estudio</title>
+  <script src="https://unpkg.com/jspsych@8.3.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+  <link rel="stylesheet" href="https://unpkg.com/jspsych@8.3.0/css/jspsych.css">
+</head>
+<body>
+  <script src="experiment.js"></script>
+</body>
+</html>
+```
+
+Algunas líneas ya las conocés del capítulo sobre el ciclo de trabajo, como `<meta charset="utf-8">`. Las líneas nuevas cumplen estas funciones.
+
+1. Cada etiqueta `<script src="...">` le indica al navegador que cargue un archivo de JavaScript. Lo que aparece entre comillas es la dirección del archivo.
+
+2. La primera dirección carga jsPsych. La segunda carga el plugin `html-button-response`, que muestra un texto con botones.
+
+3. La etiqueta `<link rel="stylesheet" ...>` carga una **hoja de estilos**, un archivo que define la apariencia de las pantallas de jsPsych.
+
+4. La última etiqueta `<script>` carga `experiment.js`. Como no empieza con `https://`, el navegador busca el archivo en la misma carpeta que `index.html`. Es una ruta relativa, como las que estudiaste en el capítulo sobre carpetas.
+
+Las direcciones que empiezan con `https://unpkg.com/` apuntan a **unpkg**, un servicio gratuito que distribuye bibliotecas de JavaScript. Por eso el estudio necesita conexión a Internet para funcionar.
+
+::: {.callout-important}
+## La versión forma parte de la dirección
+
+Cada dirección termina con un número de versión, como `jspsych@8.3.0`. Ese número fija exactamente qué versión se descarga. Si la dirección no tuviera versión, el servicio entregaría siempre la más reciente, y una actualización podría cambiar el comportamiento del estudio en plena recolección. Fijar la versión es una decisión técnica que protege la reproducibilidad: el estudio que probaste es el mismo que van a completar las personas participantes.
+:::
+
+### `experiment.js` describe el estudio
+
+```javascript
+const jsPsych = initJsPsych({
+  on_finish: function () {
+    jsPsych.data.displayData("csv");
+  }
+});
+
+const bienvenida = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: "<h1>Estudio sobre hábitos de estudio</h1><p>Gracias por tu interés en participar.</p>",
+  choices: ["Comenzar"]
+};
+
+const cierre = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: "<p>Terminaste. Muchas gracias por participar.</p>",
+  choices: ["Finalizar"]
+};
+
+jsPsych.run([bienvenida, cierre]);
+```
+
+El archivo tiene cuatro partes.
+
+1. **La preparación de jsPsych.** Las primeras líneas ponen en marcha la biblioteca. La parte `on_finish` indica qué hacer al terminar: mostrar los datos en pantalla con formato CSV, que es texto separado por comas. Por ahora es una forma de ver los datos sin guardarlos.
+
+2. **La definición de `bienvenida`.** La palabra `const` crea un nombre, `bienvenida`, para el bloque que aparece entre llaves `{ }`. Ese bloque describe un ensayo. Cada línea dentro de las llaves es un **parámetro** del ensayo, igual que `-Seconds` era un parámetro de un comando de PowerShell. `type` indica el plugin. `stimulus` indica lo que se muestra: el texto entre comillas, con etiquetas HTML. `choices` indica los botones: la lista entre corchetes `[ ]` contiene sus textos.
+
+3. **La definición de `cierre`.** Tiene la misma forma que la bienvenida, con otro texto y otro botón.
+
+4. **La línea de tiempo.** `jsPsych.run([bienvenida, cierre])` ejecuta el estudio. La lista entre corchetes es la línea de tiempo. El orden de los nombres determina el orden de las pantallas.
+
+Observá los signos de puntuación. Los parámetros dentro de las llaves se separan con comas. Los textos van entre comillas. Cada definición termina con punto y coma. Estas reglas forman la **sintaxis** del lenguaje. Un signo faltante puede impedir que el estudio funcione, como vas a ver en la sección de errores.
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Abrí Notepad++ o CotEditor.
+
+2. Creá un archivo nuevo y copiá el contenido de `index.html`. Podés usar el botón de copiar que aparece en la esquina del bloque de código.
+
+3. Guardalo dentro de `mi-primer-estudio` con el nombre exacto `index.html`.
+
+4. Creá otro archivo nuevo, copiá el contenido de `experiment.js` y guardalo en la misma carpeta con el nombre `experiment.js`.
+
+5. Observá que, al guardar, el editor colorea el código. El color depende de la extensión del archivo.
+
+6. En PowerShell, dentro de `mi-primer-estudio`, ejecutá `dir`. Comprobá que aparezcan `index.html`, `experiment.js` y `README.md`.
+:::
+
+## Ejecutá el estudio
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Comprobá que la computadora tenga conexión a Internet.
+
+2. Abrí `mi-primer-estudio` en el Explorador de archivos y hacé doble clic sobre `index.html`.
+
+3. Comprobá que aparezca el título “Estudio sobre hábitos de estudio” y un botón “Comenzar”.
+
+4. Presioná **Comenzar**. Comprobá que aparezca el mensaje de cierre y el botón **Finalizar**.
+
+5. Presioná **Finalizar**. La página va a mostrar un texto con varias líneas separadas por comas.
+:::
+
+El texto final es la tabla de datos que produjo tu participación. Se ve parecido a esto.
+
+```text
+"rt","stimulus","response","trial_type","trial_index","plugin_version","time_elapsed"
+"607","<h1>Estudio sobre hábitos de estudio</h1><p>Gracias por tu interés en participar.</p>","0","html-button-response","0","2.1.0","613"
+"47","<p>Terminaste. Muchas gracias por participar.</p>","0","html-button-response","1","2.1.0","660"
+```
+
+La primera línea contiene los nombres de las columnas. Cada línea siguiente corresponde a un ensayo. Todavía no hace falta interpretar cada columna. En el capítulo sobre los datos generados vas a estudiarlas en detalle. Por ahora observá dos cosas: hay una fila por pantalla, y la columna `rt` contiene un número diferente en cada fila. Ese número es el tiempo, en milisegundos, que tardaste en presionar el botón.
+
+Aunque todavía no incluye preguntas, esta pantalla ya produce datos. Toda interacción con un estudio queda registrada.
+
+## Especificá la pregunta de edad
+
+Ahora vas a agregar la primera pregunta. Tu especificación del capítulo anterior dice esto.
+
+```text
+Variable:     edad
+Pregunta:     ¿Cuál es tu edad?
+Tipo:         numérica
+Valores:      entero entre 18 y 80
+Obligatoria:  sí
+```
+
+En este capítulo vas a implementar una parte: la pregunta, el nombre de la variable y la obligatoriedad. La restricción de 18 a 80 requiere otro tipo de pantalla, que vas a estudiar en el próximo capítulo. Dividir la especificación en pasos es una aplicación de lo que aprendiste sobre pedidos pequeños.
+
+Para mostrar una pregunta con un campo de texto, jsPsych ofrece el plugin `survey-text`. Ya viste un fragmento de este tipo en el capítulo sobre revisión.
+
+```javascript
+const pregunta_edad = {
+  type: jsPsychSurveyText,
+  questions: [
+    { prompt: "¿Cuál es tu edad?", name: "edad", required: true }
+  ],
+  button_label: "Continuar"
+};
+```
+
+Esta vez no vas a copiar el fragmento. Vas a pedirle a Codex que lo implemente y vas a revisar su propuesta. El pedido necesita autorizar cambios en dos archivos: `experiment.js`, para definir la pregunta y ubicarla en la línea de tiempo, e `index.html`, para cargar el plugin.
+
+## Agregá la pregunta con Codex
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Guardá copias de respaldo de `index.html` y `experiment.js` en la carpeta `respaldos`.
+
+2. Iniciá Codex en `mi-primer-estudio` y comprobá con `/status` que los permisos sean **Read Only**.
+
+3. Escribí este pedido.
+
+```text
+Quiero agregar una pregunta de edad al estudio.
+
+En index.html, agregá esta línea exacta después de la línea que carga
+plugin-html-button-response:
+<script src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1"></script>
+
+En experiment.js, agregá un ensayo llamado pregunta_edad que use jsPsychSurveyText,
+con el texto "¿Cuál es tu edad?", el nombre de variable "edad", respuesta obligatoria
+y el botón "Continuar". Ubicalo en la línea de tiempo entre bienvenida y cierre.
+
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+4. Leé el plan. Comprobá que mencione dos archivos, la línea de `index.html` con la versión `2.1.1` y la ubicación entre `bienvenida` y `cierre`.
+
+5. Si el plan coincide, escribí `Implementá el plan.` Revisá cada propuesta de cambio antes de aprobarla.
+
+6. Cerrá Codex con `/exit`.
+:::
+
+Durante la revisión, prestá atención a la dirección del plugin. Si el agente propone otra versión o una dirección sin número de versión, rechazá la propuesta y pedí que use la dirección exacta. Esta es una decisión técnica que ya tomaste en el pedido.
+
+**Sin acceso a Codex:** agregá la línea a `index.html` y el fragmento `pregunta_edad` a `experiment.js` con el editor. Después modificá la línea de tiempo para que quede `jsPsych.run([bienvenida, pregunta_edad, cierre]);`.
+
+## Explicá qué hizo realmente el agente
+
+El agente realizó tres cambios pequeños en dos archivos. La propuesta de cambio de `index.html` debería verse así.
+
+```text
+index.html
+     7     <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+     8 +   <script src="https://unpkg.com/@jspsych/plugin-survey-text@2.1.1"></script>
+     9     <link rel="stylesheet" href="https://unpkg.com/jspsych@8.3.0/css/jspsych.css">
+```
+
+La de `experiment.js` debería incluir la definición de `pregunta_edad` y un reemplazo en la última línea.
+
+```text
+experiment.js
+    ...
+    25 - jsPsych.run([bienvenida, cierre]);
+    25 + jsPsych.run([bienvenida, pregunta_edad, cierre]);
+```
+
+Los números de línea de tu propuesta pueden ser otros. Lo importante es el contenido. El primer cambio carga el plugin. El segundo define el ensayo. El tercero lo incorpora a la línea de tiempo. Sin el primero, el navegador no sabría qué es `jsPsychSurveyText`. Sin el tercero, la pregunta existiría en el archivo, pero nunca aparecería en pantalla.
+
+Esta observación es útil para revisar cualquier cambio futuro: agregar una pantalla requiere, como mínimo, que su plugin esté cargado, que el ensayo esté definido y que forme parte de la línea de tiempo.
+
+## Verificá la pregunta y su dato
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+**Lo que cambió.**
+
+1. Abrí `index.html` y `experiment.js` en el editor. Localizá cada cambio con ayuda de los números de línea.
+
+2. En `experiment.js`, localizá el texto de la pregunta, el nombre de la variable y la indicación de obligatoriedad.
+
+**Lo que se ve.**
+
+3. Abrí `index.html` en el navegador. Si ya estaba abierto, recargalo con `F5`.
+
+4. Presioná **Comenzar**. Comprobá que aparezca la pregunta “¿Cuál es tu edad?” con un botón **Continuar**.
+
+5. Presioná **Continuar** sin escribir nada. Comprobá que el navegador muestre un aviso y no permita avanzar.
+
+6. Escribí `22` y continuá hasta el final.
+
+**Lo que se registró.**
+
+7. En la tabla de datos final, buscá la fila de la pregunta. La columna `response` debe contener `{"edad":"22"}`.
+
+**Lo que se decidió.**
+
+8. Escribí `veinte` en lugar de un número. ¿El estudio lo acepta? ¿Qué parte de la especificación todavía no está implementada?
+:::
+
+La fila de la pregunta tiene una forma nueva.
+
+```text
+"302","","{""edad"":""22""}","survey-text","1","2.1.1","922"
+```
+
+La columna `response` contiene el nombre de la variable y el valor entre llaves. Las comillas aparecen duplicadas por una regla del formato CSV que vas a estudiar más adelante. Lo importante es que el dato quedó registrado con el nombre `edad`, como indicaba la especificación.
+
+La última pregunta de la actividad muestra un límite de esta versión. El campo acepta cualquier texto, incluso palabras o números fuera del rango. La especificación todavía no está completamente implementada. En el próximo capítulo vas a resolverlo.
+
+## Compará con el checkpoint
+
+El estado de tu proyecto al terminar este capítulo corresponde al checkpoint `proyectos\02-primer-jspsych`. Si tu versión no funciona y no encontrás el problema, podés copiar `index.html` y `experiment.js` desde el checkpoint a tu proyecto y continuar desde allí.
+
+Antes de copiar, conservá tu versión en `respaldos`. Compararla con el checkpoint puede mostrarte dónde estaba la diferencia.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### La página queda en blanco
+
+Una página en blanco suele indicar un error de sintaxis, como una coma o una comilla faltante. El navegador tiene una herramienta para ver ese error. Presioná `F12` para abrir las **herramientas para desarrolladores** y elegí la pestaña **Consola**. Los errores aparecen en rojo. Cada mensaje indica el archivo y el número de línea donde el navegador encontró el problema. Usá ese número para ubicar la línea en el editor y aplicá la estrategia de lectura de errores del capítulo sobre programas.
+
+### La consola dice que `initJsPsych` no está definido
+
+Ese mensaje suele significar que jsPsych no se descargó. Comprobá la conexión a Internet y revisá que la dirección de la primera etiqueta `<script>` de `index.html` esté escrita exactamente como en el libro.
+
+### La consola dice que `jsPsychSurveyText` no está definido
+
+El ensayo usa un plugin que `index.html` no cargó. Comprobá que la línea del plugin `survey-text` esté presente y escrita correctamente.
+
+### La pregunta existe en el archivo, pero no aparece
+
+Revisá la línea de tiempo al final de `experiment.js`. El nombre `pregunta_edad` debe figurar entre corchetes, separado por comas de los demás.
+
+### El navegador muestra la versión anterior
+
+Recargá la página con `F5` después de cada cambio. Comprobá en la barra de direcciones que estés abriendo el `index.html` de `mi-primer-estudio` y no el de un checkpoint.
+
+### El archivo se guardó con otra extensión
+
+Si el editor guardó `experiment.js.txt`, el navegador no va a encontrar `experiment.js`. Activá la visualización de extensiones y corregí el nombre.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué es una biblioteca?
+
+2. ¿Qué función cumple `index.html` y qué función cumple `experiment.js`?
+
+3. ¿Qué es un ensayo en jsPsych?
+
+4. ¿Qué es un plugin?
+
+5. ¿Por qué cada dirección de `index.html` incluye un número de versión?
+
+6. ¿En qué parte de `experiment.js` se define el orden de las pantallas?
+
+7. ¿Qué tres cambios hacen falta para agregar una pantalla nueva?
+
+8. ¿Qué herramienta del navegador muestra los errores de un estudio?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Una biblioteca es un conjunto de instrucciones ya escritas que un programa puede usar.
+
+2. `index.html` es la página que se abre y carga las bibliotecas, mientras que `experiment.js` describe las pantallas del estudio y su orden.
+
+3. Un ensayo es cada pantalla de la secuencia del estudio.
+
+4. Un plugin es una pieza de jsPsych que agrega un tipo de pantalla.
+
+5. El número fija la versión descargada, para que una actualización no cambie el estudio sin que lo decidas.
+
+6. El orden se define en la lista que recibe `jsPsych.run`, al final del archivo.
+
+7. Hay que cargar el plugin en `index.html`, definir el ensayo en `experiment.js` e incluirlo en la línea de tiempo.
+
+8. La consola de las herramientas para desarrolladores muestra los errores, y se abre con `F12`.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Un estudio con jsPsych está formado por archivos de texto que el navegador interpreta. `index.html` carga jsPsych, los plugins y el archivo del estudio. `experiment.js` describe las pantallas y su orden. jsPsych es una biblioteca de JavaScript que se descarga de Internet con una versión fija.
+
+Cada pantalla es un ensayo. Cada ensayo tiene un tipo, implementado en un plugin. La secuencia de ensayos es la línea de tiempo. Los parámetros de un ensayo definen qué muestra y cómo se comporta.
+
+Un editor con números de línea y resaltado de sintaxis facilita la lectura del código. La consola del navegador muestra los errores con su número de línea.
+
+Agregar una pantalla requiere cargar su plugin, definir el ensayo e incluirlo en la línea de tiempo. La pregunta de edad ya funciona y registra la variable `edad`, pero todavía acepta valores fuera del rango especificado.
+
+## Resolvé un desafío breve
+
+Sin usar Codex, realizá estos cambios con el editor. Después de cada uno, recargá el navegador y comprobá el resultado.
+
+1. Cambiá el texto del botón de bienvenida de “Comenzar” a “Empezar”.
+
+2. Agregá una segunda oración al mensaje de cierre: “Tus respuestas fueron registradas.”
+
+3. Cambiá el orden de la línea de tiempo para que la pregunta de edad aparezca antes de la bienvenida. Observá el resultado y volvé al orden original.
+
+4. Borrá a propósito una coma entre dos parámetros de `bienvenida`. Abrí la consola con `F12`, leé el error y ubicá la línea con el editor. Después restaurá la coma.
+
+5. Escribí una oración que explique qué cambio del punto 3 implicaría una decisión metodológica si ocurriera en un estudio real.
+
+En el próximo capítulo vas a completar el cuestionario sociodemográfico: vas a agregar el consentimiento, preguntas de opción múltiple y casillas, y la validación del rango de edad.

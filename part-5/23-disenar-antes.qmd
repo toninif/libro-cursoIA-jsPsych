@@ -1,20 +1,324 @@
 ---
 title: "Diseñar antes de programar"
-description: "Traducir una pregunta de investigación en un procedimiento explícito."
+description: "Traducir una pregunta de investigación en un procedimiento explícito y documentado."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder relacionar una pregunta de investigación con constructos, instrumentos y variables.
+
+2. Vas a poder elegir las escalas adecuadas para tu pregunta y justificar la elección.
+
+3. Vas a poder obtener los ítems, las instrucciones y las reglas de puntuación de la publicación original y comprobar sus condiciones de uso.
+
+4. Vas a poder especificar la población, el procedimiento, el consentimiento y el cierre del estudio.
+
+5. Vas a poder escribir un documento de diseño antes de modificar el código.
+
+6. Vas a poder identificar las decisiones metodológicas que un agente no debe tomar por vos.
+
+## Un pedido demasiado rápido permite formular el problema
+
+Imaginá que querés estudiar la ansiedad ante los exámenes en estudiantes de primer año. Abrís Codex y escribís: “Armá una encuesta sobre ansiedad ante los exámenes”.
+
+El agente puede producir en pocos minutos una encuesta que funciona. Para hacerlo, tiene que decidir qué entiende por ansiedad, qué preguntas hacer, qué escala usar o inventar, a quién está dirigida, qué dice el consentimiento y cómo se van a analizar los datos. Cada una de esas decisiones es metodológica. Ninguna le corresponde.
+
+En las Partes III y IV trabajaste sobre un estudio que el libro había diseñado por vos: los hábitos de estudio, con escalas ficticias. En la Parte V vas a construir tu propio estudio. El primer paso no es abrir el agente ni el editor. Es diseñar.
+
+::: {.callout-tip}
+## Idea clave
+
+El diseño de un estudio se escribe antes de programarlo. Un documento de diseño reúne las decisiones metodológicas en un solo lugar. Después, cada pedido al agente implementa una parte de ese documento, y cada verificación compara el resultado con él.
 :::
 
-## Propósito
+## De la pregunta al procedimiento
 
-Separar la definición metodológica del estudio de las decisiones sobre archivos y código.
+Un estudio por encuesta se puede diseñar siguiendo una cadena de decisiones. Cada eslabón depende del anterior.
 
-## Objetivos de aprendizaje
+```text
+pregunta de investigación
+      ↓
+constructos
+      ↓
+instrumentos (operacionalización)
+      ↓
+población y criterios de inclusión
+      ↓
+procedimiento
+      ↓
+variables y datos
+      ↓
+plan de análisis
+```
 
-- Relacionar pregunta, hipótesis, constructos y variables.
-- Especificar condiciones, manipulaciones y medidas dependientes.
-- Representar el procedimiento antes de pedir su implementación.
-- Identificar decisiones metodológicas que un agente no debe inventar.
+Ya conocés estos conceptos. La **operacionalización**, del capítulo sobre Google Forms, es el paso de los constructos a los instrumentos. Los **criterios de inclusión**, del capítulo sobre lógica condicional, definen la población. Las **variables**, del capítulo sobre el diccionario, son lo que efectivamente vas a registrar.
 
+### La pregunta orienta todo lo demás
+
+Una buena pregunta de investigación para este curso es concreta, se puede responder con una encuesta breve y se refiere a una población accesible. Por ejemplo: “¿Cómo se relaciona la satisfacción con la carrera con la intención de abandonarla en estudiantes de Psicología?”.
+
+Una encuesta permite describir cómo se distribuyen las respuestas y cómo se relacionan unas variables con otras. No permite, por sí sola, afirmar que una variable causa otra. Si tu pregunta habla de causas, revisala con lo que estudiás en Metodología de la investigación.
+
+## Elegir una escala es una decisión central
+
+En el capítulo sobre escalas viste cinco preguntas para elegir un instrumento: si mide el constructo que necesitás, si tiene una versión validada para tu población, qué evidencia la respalda, qué condiciones de uso tiene y si su extensión es adecuada. Ahora vas a aplicarlas.
+
+### Dónde buscar
+
+Buscá las escalas en fuentes académicas.
+
+1. **Buscadores académicos**, como Google Académico, con términos como el nombre del constructo y “escala”, “adaptación” o “validación”, junto con el país o el idioma de tu población.
+
+2. **Repositorios de revistas latinoamericanas**, como SciELO y Redalyc, donde se publican muchas adaptaciones al español.
+
+3. **Las referencias de artículos** que estudien tu tema. Si varios trabajos usan el mismo instrumento, es una pista sobre su uso en el área.
+
+::: {.callout-warning}
+## Un chatbot puede sugerir referencias que no existen
+
+Podés pedirle a un chatbot ideas sobre qué instrumentos existen para un constructo. Pero los modelos de lenguaje pueden producir referencias verosímiles que no existen o atribuir un instrumento a autores equivocados. Toda referencia que obtengas de una IA debe comprobarse en un buscador académico, y los ítems deben tomarse siempre de la publicación original.
+:::
+
+### Qué obtener de la publicación
+
+Una vez elegida la versión, necesitás obtener de su publicación original estos elementos.
+
+1. Las instrucciones exactas.
+
+2. Los ítems exactos, en su orden.
+
+3. Las opciones de respuesta exactas y su codificación numérica.
+
+4. Los ítems invertidos, si los hay.
+
+5. Las subescalas, si las hay, y qué ítems pertenecen a cada una.
+
+6. La forma de calcular el puntaje.
+
+7. La referencia bibliográfica completa.
+
+8. Las condiciones de uso: si es de libre uso para investigación o si requiere un permiso.
+
+Si alguno de estos elementos no aparece en la publicación, anotalo. Una escala sin reglas de puntuación claras es difícil de usar correctamente.
+
+Guardá una copia del artículo en una carpeta de tu computadora, fuera del proyecto. La vas a necesitar para verificar la implementación ítem por ítem.
+
+## El consentimiento y el cierre también se diseñan
+
+El texto del consentimiento no se escribe al final. Depende de decisiones que tomás en el diseño: qué se pregunta, cuánto dura, dónde se guardan los datos y quién puede acceder a ellos.
+
+Un consentimiento para una encuesta online suele incluir estos elementos.
+
+1. Quién realiza el estudio y con qué propósito general.
+
+2. Qué se le pide a la persona y cuánto dura.
+
+3. Que la participación es voluntaria y que puede abandonar en cualquier momento.
+
+4. Qué datos se registran y si son anónimos.
+
+5. Dónde se guardan los datos y quién accede a ellos.
+
+6. Si los datos se van a compartir de forma abierta, por ejemplo en un repositorio.
+
+7. Qué ocurre si la persona no acepta o abandona.
+
+8. Un contacto para consultas.
+
+En tu institución, el texto definitivo puede requerir la aprobación de un comité de ética. En el contexto del curso, tu docente te va a indicar qué criterios seguir.
+
+Al final del estudio, una pantalla de **cierre** o *debriefing* explica el propósito del estudio con más detalle, agradece la participación y ofrece un contacto. Si el estudio incluyó información que no convenía anticipar, el cierre es el momento de aclararla.
+
+## Las decisiones de calidad se toman antes
+
+En la Parte IV viste que los criterios de exclusión se deciden antes de recolectar datos. El diseño es el lugar para escribirlos. Indicá qué indicadores de calidad vas a registrar, como el control de atención o los tiempos, y qué vas a hacer con ellos en el análisis. Si decidís no excluir a nadie, también escribilo.
+
+Definí también un **tamaño de muestra objetivo**: cuántas personas querés que completen el estudio. En un proyecto de curso, ese número puede surgir de razones prácticas. En una investigación, suele justificarse con criterios estadísticos que vas a estudiar en otras materias. El tamaño objetivo te va a servir en el capítulo sobre el guardado de datos para configurar un límite de sesiones.
+
+## Este capítulo importa para investigar en Psicología
+
+Un estudio mal diseñado no se arregla con buena programación. Si la escala no mide el constructo, si la población no es la adecuada o si el consentimiento no describe el destino de los datos, el estudio tiene un problema aunque funcione perfectamente.
+
+Diseñar antes de programar también cambia la relación con el agente. Con un documento de diseño, cada pedido transcribe decisiones que ya tomaste. Sin él, cada pedido invita al agente a decidir por vos.
+
+## El documento de diseño reúne las decisiones
+
+Tu proyecto va a incorporar un archivo nuevo, `diseno.md`. El nombre no lleva tilde, por el mismo criterio que usás en los nombres de variables.
+
+El documento tiene una sección por cada eslabón de la cadena, más las secciones de ética y de datos. El checkpoint `07-estudio-completo` incluye un ejemplo completo para el estudio del libro. Podés leerlo como modelo, pero tu documento debe describir tu propio estudio.
+
+## Pedile al agente la estructura del documento
+
+Crear la estructura de un documento es una tarea técnica. Completarla es una tarea metodológica. Vas a dividir el trabajo de esa manera.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+2. Escribí este pedido.
+
+```text
+Creá un archivo diseno.md con esta estructura exacta de títulos. Debajo de cada
+título escribí solamente la palabra PENDIENTE. No agregues contenido propio.
+
+# Diseño del estudio
+## Pregunta de investigación
+## Constructos
+## Instrumentos
+## Población y criterios de inclusión
+## Procedimiento
+## Calidad de datos
+## Aspectos éticos
+## Guardado y publicación de los datos
+## Muestra
+## Plan de análisis
+
+No modifiques ningún otro archivo.
+```
+
+3. Revisá la propuesta y aprobala si coincide.
+:::
+
+**Sin acceso a Codex:** creá el archivo con el editor.
+
+Ahora completá cada sección vos. Para la sección de instrumentos, usá una tabla con estas columnas: constructo, instrumento, cantidad de ítems, opciones de respuesta, puntuación y referencia. Para el procedimiento, escribí la secuencia de pantallas, incluidas las reglas condicionales.
+
+## Pedile al agente una revisión del diseño
+
+Cuando termines de completar el documento, podés usar el agente como revisor. La revisión busca inconsistencias internas, no decide si tus elecciones son correctas.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+```text
+Revisá diseno.md y respondé estas preguntas sin modificar ningún archivo:
+1. ¿Cada constructo tiene al menos un instrumento asignado?
+2. ¿Cada instrumento tiene referencia, cantidad de ítems, opciones y puntuación?
+3. ¿El procedimiento incluye todos los instrumentos y todos los criterios de inclusión?
+4. ¿Quedó alguna sección con la palabra PENDIENTE?
+5. ¿Hay alguna contradicción entre secciones?
+No evalúes si las escalas elegidas son adecuadas. No propongas instrumentos.
+```
+:::
+
+Observá las dos últimas líneas del pedido. Limitan la revisión a la consistencia y le impiden al agente opinar sobre decisiones metodológicas o sugerir instrumentos.
+
+## Explicá qué hizo realmente el agente
+
+En el primer pedido, el agente creó un archivo con una estructura que vos definiste. No aportó contenido.
+
+En el segundo, el agente leyó tu documento y lo comparó consigo mismo. Puede detectar, por ejemplo, que mencionaste un constructo sin asignarle un instrumento o que el procedimiento omite una escala. No puede saber si la escala que elegiste mide bien tu constructo, porque eso depende de la literatura y de tu criterio.
+
+Si el agente, a pesar de la indicación, opina sobre tus elecciones o sugiere instrumentos, tratá esa respuesta con la misma cautela que cualquier referencia producida por una IA.
+
+## Verificá el diseño con otra persona
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Intercambiá tu `diseno.md` con una compañera o un compañero. Cada persona lee el documento de la otra y responde por escrito.
+
+1. ¿Se entiende qué pregunta busca responder el estudio?
+
+2. ¿Los instrumentos corresponden a los constructos mencionados?
+
+3. ¿La referencia de cada escala existe? Buscala en un buscador académico.
+
+4. ¿El procedimiento indica qué ocurre si una persona no acepta o no cumple un criterio?
+
+5. ¿El consentimiento previsto informa dónde se guardan los datos?
+
+6. ¿Los criterios de calidad están decididos?
+
+7. ¿Qué pregunta te harías si tuvieras que implementar este estudio sin hablar con su autor?
+
+Después, corregí tu documento a partir de las respuestas.
+:::
+
+La última pregunta es la prueba más exigente. Si otra persona no podría implementar tu estudio a partir del documento, un agente tampoco podría hacerlo sin completar las partes que faltan por su cuenta.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### El diseño se escribe después del código
+
+Si describís lo que ya programaste, el documento pierde su función: ya no permite comprobar que la implementación cumple el diseño.
+
+### La escala no mide el constructo de la pregunta
+
+El nombre de una escala puede parecer adecuado y su definición del constructo no coincidir con la tuya. Leé cómo definen el constructo sus autores.
+
+### Se usa una traducción propia
+
+Traducir una escala no produce una versión validada. Buscá una adaptación publicada para tu idioma y tu población.
+
+### Los ítems se copian de un sitio web sin referencia
+
+Los sitios web pueden contener versiones modificadas o incompletas. Tomá los ítems de la publicación original.
+
+### El consentimiento no coincide con el destino de los datos
+
+Si el consentimiento dice que los datos no se comparten y después se publican en un repositorio, hay un problema ético. Decidí el destino de los datos antes de escribir el consentimiento.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué eslabones forman la cadena que va de la pregunta al plan de análisis?
+
+2. ¿Qué elementos hay que obtener de la publicación original de una escala?
+
+3. ¿Por qué hay que comprobar las referencias sugeridas por una IA?
+
+4. ¿Qué elementos suele incluir el consentimiento de una encuesta online?
+
+5. ¿Qué función cumple la pantalla de cierre?
+
+6. ¿Por qué el documento de diseño se escribe antes de programar?
+
+7. ¿Qué puede revisar un agente en un documento de diseño y qué no?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Pregunta, constructos, instrumentos, población y criterios de inclusión, procedimiento, variables y datos, y plan de análisis.
+
+2. Las instrucciones, los ítems, las opciones de respuesta y su codificación, los ítems invertidos, las subescalas, la forma de puntuar, la referencia y las condiciones de uso.
+
+3. Porque los modelos de lenguaje pueden producir referencias verosímiles que no existen.
+
+4. El propósito, la tarea y la duración, el carácter voluntario, los datos registrados, su destino y acceso, si se compartirán, qué ocurre si la persona no acepta o abandona, y un contacto.
+
+5. Explica el propósito del estudio, agradece la participación y ofrece un contacto.
+
+6. Porque permite que cada pedido implemente decisiones ya tomadas y que cada verificación compare la implementación con el diseño.
+
+7. Puede revisar la consistencia interna del documento, pero no puede decidir si las elecciones metodológicas son adecuadas.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Un estudio se diseña antes de programarse. La cadena que va de la pregunta de investigación al plan de análisis organiza las decisiones: constructos, instrumentos, población, procedimiento, variables y análisis.
+
+Elegir una escala es una decisión central. Se busca en fuentes académicas, se eligen versiones validadas para la población y los ítems se obtienen de la publicación original, junto con sus reglas de puntuación, su referencia y sus condiciones de uso. Las referencias sugeridas por una IA se comprueban.
+
+El consentimiento, el cierre y los criterios de calidad también son parte del diseño. El documento `diseno.md` reúne todas estas decisiones. El agente puede crear su estructura y revisar su consistencia, pero el contenido lo decidís vos.
+
+## Resolvé un desafío breve
+
+Completá tu `diseno.md` hasta que no quede ninguna sección con PENDIENTE.
+
+1. Buscá al menos dos escalas candidatas para tu constructo principal. Para cada una, respondé las cinco preguntas del capítulo sobre escalas.
+
+2. Elegí una y justificá la elección en tres oraciones.
+
+3. Escribí la especificación completa de la escala elegida: instrucciones, ítems, opciones, codificación, ítems invertidos y puntuación.
+
+4. Escribí el texto completo del consentimiento y del cierre.
+
+5. Pedile a otra persona que responda la pregunta: “¿Podrías implementar este estudio sin hablar conmigo?”.
+
+En el próximo capítulo vas a implementar tu diseño paso a paso, partiendo de la encuesta de la Parte IV.

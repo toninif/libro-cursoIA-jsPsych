@@ -66,8 +66,8 @@ El recorrido conceptual general debe ser:
 9. reproducción de formularios mediante jsPsych;
 10. estructura de los datos;
 11. capacidades que exceden Google Forms;
-12. lógica experimental;
-13. construcción de tareas psicológicas;
+12. lógica del procedimiento: aleatorización, condiciones y calidad de respuesta;
+13. construcción de una encuesta psicológica completa;
 14. almacenamiento y publicación;
 15. proyecto final.
 
@@ -128,18 +128,16 @@ El libro debe organizarse aproximadamente en estas partes:
 
 ## Parte IV. Más allá de Google Forms
 
-- Aleatorización.
-- Muestreo de estímulos.
-- Lógica condicional.
-- Tiempos de presentación.
-- Respuestas mediante teclado.
-- Tiempo de reacción.
-- Precisión.
-- Trials.
-- Bloques.
-- Feedback.
-- Estímulos visuales y auditivos.
-- Primer experimento completo.
+La Parte IV se orienta al producto final del curso, que es una encuesta. Presenta capacidades que Google Forms no ofrece o resuelve mal, aplicadas a cuestionarios y escalas.
+
+- Aleatorización del orden de ítems y de escalas.
+- Diferencia entre orden aleatorio, muestreo y asignación a condiciones.
+- Lógica condicional: criterios de inclusión, consentimiento rechazado y preguntas de seguimiento.
+- Controles de atención y calidad de respuesta.
+- Tiempos de respuesta por pantalla y duración total.
+- Respuestas apresuradas y sus limitaciones como indicador.
+- Presentación: instrucciones, barra de progreso, estilos y uso en celulares.
+- Integración en una encuesta ampliada.
 
 ## Parte V. Construcción de un estudio completo
 
@@ -316,15 +314,69 @@ mi-primer-estudio/
 ├── index.html
 ├── src/
 │   ├── experiment.js
-│   ├── questionnaires.js
-│   └── trials.js
-├── stimuli/
+│   └── questionnaires.js
 ├── styles/
 ├── README.md
 └── AGENTS.md
 ```
 
 No introducir esta estructura completa antes de que los estudiantes necesiten comprenderla.
+
+# Decisiones del curso
+
+Estas decisiones fueron tomadas por el autor del curso. Todos los capítulos, apéndices y checkpoints deben respetarlas.
+
+## Producto final
+
+El producto final del curso es un **estudio de encuesta online** publicado y funcionando. Su secuencia es:
+
+1. consentimiento informado;
+2. cuestionario sociodemográfico;
+3. una o más escalas psicológicas elegidas por cada estudiante según su pregunta de investigación;
+4. pantalla final de cierre y explicación del estudio (*debriefing*).
+
+El libro no incluye ni reproduce ninguna escala real. No redactar ítems de instrumentos reales ni reproducirlos de memoria.
+
+## jsPsych
+
+- Cargar jsPsych y sus plugins desde internet mediante etiquetas `<script>` en `index.html`, sin npm ni herramientas de compilación.
+- Fijar siempre una versión exacta en cada dirección (por ejemplo, `jspsych@8.3.0`). No usar direcciones sin versión.
+- El estudio debe poder ejecutarse abriendo `index.html` en el navegador o publicándolo en GitHub Pages.
+- No introducir Node.js, npm ni el concepto de dependencia salvo que un capítulo posterior lo justifique.
+
+## Escalas psicológicas
+
+- En los capítulos se usa una escala ficticia con fines pedagógicos, identificada como tal en el texto y en el código.
+- En el proyecto final, cada estudiante elige la escala real que necesita según su pregunta de investigación. El libro no propone ni provee escalas concretas.
+- El libro enseña a elegir una escala (adecuación al constructo y a la población, versión validada en el idioma y la población, evidencia disponible, condiciones de uso) y a obtener los ítems, las instrucciones, las opciones de respuesta y las reglas de puntuación de la publicación original.
+- El libro debe indicar con claridad dónde se incorpora ese contenido en el proyecto.
+
+## Editor de texto
+
+- Windows: Notepad++.
+- macOS: CotEditor.
+- Ambos son gratuitos y livianos. Presentarlos cuando los estudiantes necesiten leer archivos de código, con números de línea y resaltado de sintaxis.
+- No exigir VS Code ni otros editores pesados. Pueden mencionarse como alternativas opcionales.
+
+## Git
+
+Postergar Git. No es necesario explicarlo en profundidad. Cuando haga falta para publicar, introducir solo lo mínimo indispensable.
+
+## Publicación y datos
+
+- Publicación del estudio: GitHub y GitHub Pages.
+- Presentar varias opciones para subir los archivos a GitHub. La primera, y la que se usa en las actividades, es subir los archivos arrastrándolos en la interfaz web de GitHub. Después describir las demás opciones (GitHub Desktop, Git desde la terminal con ayuda de un agente y otros servicios de alojamiento) como alternativas.
+- El repositorio publicado es público: no debe contener datos de participantes.
+- Guardado de datos: DataPipe (`pipe.jspsych.org`).
+- No usar OSF como destino: DataPipe dejó de crear experimentos en OSF y dejará de escribir allí después del 16 de noviembre de 2026.
+- Presentar dos destinos de DataPipe:
+  - Opción 1: Google Drive (carpeta privada en la cuenta del investigador).
+  - Opción 2: Zenodo (depósito privado hasta que se publica; publicar genera un DOI).
+- En jsPsych 8, integrar DataPipe con la extensión `@jspsych/extension-pipe`, con versión fija. El plugin anterior `jsPsychPipe` sigue funcionando, pero no se recomienda para estudios nuevos.
+- Usar la extensión con el guardado progresivo desactivado (`stream: false`): los datos se envían solo al final del estudio. Explicar que puede activarse y qué implica: cada pantalla se envía a medida que ocurre y quien abandona deja un archivo parcial, lo que debe reflejarse en el consentimiento y en el protocolo, porque cerrar la ventana deja de equivaler a retirarse sin dejar datos.
+- Cuando una persona no acepta el consentimiento, enviar a DataPipe solo el registro mínimo de esa decisión (las pantallas de bienvenida y consentimiento), para poder saber cuántas personas entraron y no aceptaron. El mensaje final debe describir con exactitud lo que se registra.
+- Zenodo: el depósito se mantiene privado. Solo se publica si el consentimiento autoriza compartir los datos de forma abierta y los datos están anonimizados y documentados.
+- Antes de escribir sobre DataPipe, verificar su documentación vigente, porque cambió de manera importante en septiembre de 2026.
 
 # Checkpoints
 
@@ -339,7 +391,7 @@ proyectos/
 ├── 03-formulario/
 ├── 04-escalas/
 ├── 05-aleatorizacion/
-├── 06-experimento/
+├── 06-encuesta-ampliada/
 └── 07-estudio-completo/
 ```
 

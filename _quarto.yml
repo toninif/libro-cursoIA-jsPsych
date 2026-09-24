@@ -5,7 +5,7 @@ project:
 lang: es
 
 book:
-  title: "De Google Forms a experimentos web"
+  title: "De Google Forms a estudios web"
   subtitle: "Investigación computacional con jsPsych y agentes de IA"
   search: true
   page-navigation: true
@@ -41,10 +41,10 @@ book:
       chapters:
         - part-4/17-aleatorizacion.qmd
         - part-4/18-logica-condicional.qmd
-        - part-4/19-estimulos-tiempos.qmd
-        - part-4/20-respuestas-rt.qmd
-        - part-4/21-ensayos-bloques.qmd
-        - part-4/22-primer-experimento.qmd
+        - part-4/19-controles-atencion.qmd
+        - part-4/20-tiempos-respuesta.qmd
+        - part-4/21-presentacion-encuesta.qmd
+        - part-4/22-encuesta-ampliada.qmd
 
     - part: "Parte V. Construir un estudio completo"
       chapters:
@@ -66,7 +66,6 @@ book:
 
   sidebar:
     style: docked
-    background: light
     collapse-level: 1
   page-footer:
     left: "Material educativo abierto para estudiantes de Psicología."
@@ -74,8 +73,18 @@ book:
 
 format:
   html:
-    theme: default
+    theme:
+      light: [default, theme/claro.scss]
+      dark: [default, theme/oscuro.scss]
     css: styles.css
+    highlight-style: theme/matrix.theme
+    mermaid:
+      theme: forest
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     toc: true
     toc-depth: 3
     number-sections: true

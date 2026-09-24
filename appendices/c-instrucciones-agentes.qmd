@@ -1,15 +1,519 @@
 ---
 title: "Instrucciones útiles para agentes"
-description: "Patrones de tareas pequeñas, delimitadas y verificables."
+description: "Patrones de pedidos pequeños, delimitados y verificables, agrupados por objetivo."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Los ejemplos se incorporarán después de haber sido utilizados y verificados en los capítulos correspondientes.
+## Cómo usar este apéndice
+
+Este apéndice reúne los pedidos que usaste en los capítulos. Cada pedido aparece como un **patrón**, es decir, como un modelo que podés adaptar a una situación nueva.
+
+Los patrones están agrupados por objetivo: inspeccionar, planificar, modificar, explicar, corregir, verificar y documentar. Cada uno indica tres cosas.
+
+1. **Vos decidís:** la información que tenés que aportar antes de enviar el pedido.
+
+2. **Comprobás:** lo que tenés que observar por tu cuenta después del pedido.
+
+3. **Usado en:** el capítulo donde el patrón aparece por primera vez.
+
+El texto entre corchetes, como `[nombre del archivo]`, marca lo que tenés que reemplazar. Borrá los corchetes al escribir el pedido.
+
+::: {.callout-warning}
+## Un patrón no reemplaza la especificación
+
+Copiar un patrón sin tomar las decisiones que requiere produce el mismo problema que un pedido ambiguo. Antes de usar un patrón, completá la sección **Vos decidís**. Si no podés completarla, todavía no estás en condiciones de enviar el pedido.
 :::
 
-## Organización prevista
+El apéndice reúne los patrones de las Partes II a V.
 
-Las instrucciones se agruparán por objetivo: inspeccionar, modificar, explicar, ejecutar, verificar y documentar.
+## La estructura de un pedido completo
 
-Cada ejemplo indicará también qué decisión debe aportar el estudiante y qué resultado debe comprobar.
+Todos los patrones siguen la estructura que estudiaste en el capítulo sobre cómo describir una tarea.
 
+```text
+qué quiero + dónde + restricciones + cómo comprobarlo
+```
+
+| Parte | Pregunta que responde | Ejemplo |
+|:---|:---|:---|
+| Qué quiero | ¿Qué resultado observable espero? | Agregá una sección nueva. |
+| Dónde | ¿En qué archivo y en qué posición? | En README.md, al final del archivo. |
+| Restricciones | ¿Qué no debe ocurrir? | No modifiques ninguna otra parte del archivo. |
+| Cómo comprobarlo | ¿Qué voy a observar al terminar? | Indicá qué líneas agregaste. |
+
+: Partes de un pedido completo {#tbl-partes-pedido}
+
+## Antes de enviar cualquier pedido
+
+Estas comprobaciones no son pedidos al agente. Las realizás vos antes de iniciar la sesión.
+
+1. Ejecutá `Get-Location` y comprobá que la ruta termine en la carpeta correcta.
+
+2. Ejecutá `dir` y comprobá que aparezcan los archivos esperados.
+
+3. Si el pedido va a modificar archivos importantes, guardá una copia de respaldo fuera de la carpeta del proyecto.
+
+4. Iniciá el agente y ejecutá `/status`. Comprobá la carpeta de trabajo y que los permisos sean **Read Only**.
+
+5. Escribí la especificación antes de escribir el pedido.
+
+## Inspeccionar
+
+Inspeccionar significa pedirle al agente que revise el estado actual sin modificar nada. Conviene hacerlo al comienzo de una tarea o cuando no sabés qué contiene una carpeta.
+
+### Describir el contenido de una carpeta
+
+```text
+Describí qué carpetas y archivos contiene esta carpeta. No modifiques ningún archivo.
+```
+
+**Vos decidís:** en qué carpeta iniciás el agente.
+
+**Comprobás:** que la descripción coincida con lo que muestra `dir`. Prestá atención a elementos que el agente mencione y no existan.
+
+**Usado en:** [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+### Comprobar si existe un archivo
+
+```text
+Revisá esta carpeta y decime si existe un archivo llamado [nombre del archivo].
+No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué archivo necesitás confirmar antes de continuar.
+
+**Comprobás:** la respuesta con `dir`.
+
+**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+## Planificar
+
+Planificar significa pedirle al agente que describa los cambios antes de realizarlos. Conviene hacerlo cuando la tarea afecta varias partes, involucra decisiones metodológicas o no sabés cómo la va a resolver el agente.
+
+### Pedir un plan antes de modificar
+
+```text
+[Descripción completa de la tarea.]
+Antes de modificar archivos, explicá qué cambios harías y en qué archivos.
+Esperá mi aprobación antes de implementarlos.
+```
+
+**Vos decidís:** todo el contenido de la tarea, como en cualquier pedido completo.
+
+**Comprobás:** que el plan mencione solo los archivos esperados y que no agregue elementos que no pediste. Si el plan coincide, respondé `Implementá el plan.` y revisá igualmente la propuesta de cambio.
+
+**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+### Observar cómo interpreta el agente un pedido
+
+```text
+[Pedido que querés evaluar.] No modifiques ningún archivo todavía:
+solo explicá qué cambios harías y por qué.
+```
+
+**Vos decidís:** qué pedido querés poner a prueba.
+
+**Comprobás:** qué decisiones tomaría el agente por su cuenta. Cada una indica información que tu pedido debería aportar.
+
+**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+### Invitar al agente a preguntar
+
+```text
+Si algo del pedido no está claro, preguntame antes de modificar archivos.
+```
+
+Esta línea se agrega al final de otro pedido.
+
+**Vos decidís:** responder las preguntas del agente. Si una pregunta es metodológica, respondela a partir del diseño del estudio y no de lo que proponga el agente.
+
+**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+## Modificar
+
+Modificar significa pedir un cambio en los archivos. Con permisos **Read Only**, cada modificación llega primero como una propuesta que tenés que revisar y aprobar.
+
+### Crear un archivo con contenido exacto
+
+```text
+Creá un archivo llamado [nombre] dentro de [carpeta].
+Debe contener [cantidad] línea(s) con este texto exacto:
+[texto]
+No modifiques ni crees ningún otro archivo.
+```
+
+**Vos decidís:** el nombre, la ubicación y el contenido completo.
+
+**Comprobás:** con `dir` que el archivo exista en la ubicación correcta y con `Get-Content [nombre] -Encoding UTF8` que el contenido coincida letra por letra.
+
+**Usado en:** [capítulo 7](../part-2/07-codex-terminal.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+### Agregar una sección al final de un archivo
+
+```text
+En [archivo], agregá al final del archivo una sección nueva con este contenido exacto:
+
+[contenido]
+
+No modifiques ninguna otra parte de [archivo] ni otros archivos.
+Al terminar, indicá qué líneas agregaste.
+```
+
+**Vos decidís:** el título y el texto de la sección.
+
+**Comprobás:** que la propuesta solo contenga líneas con `+`, que aparezcan al final y que el resto del archivo quede igual.
+
+**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+### Agregar un elemento a una lista existente
+
+```text
+En [archivo], dentro de la sección "[título de la sección]",
+agregá un elemento al final de la lista con este texto exacto:
+
+- [texto]
+
+No modifiques ninguna otra línea de [archivo] ni otros archivos.
+```
+
+**Vos decidís:** el texto del elemento nuevo.
+
+**Comprobás:** que la línea nueva quede dentro de la sección indicada y que ninguna línea aparezca marcada con `-`.
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+### Reemplazar un texto exacto
+
+```text
+En [archivo], reemplazá "[texto actual]" por "[texto nuevo]".
+No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+**Vos decidís:** el texto nuevo. Si el reemplazo afecta un número, un nombre de variable o una instrucción para participantes, la decisión es metodológica.
+
+**Comprobás:** que la propuesta contenga una sola línea eliminada y una sola línea agregada, y que la única diferencia entre ellas sea el texto pedido.
+
+**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+## Construir el estudio con jsPsych
+
+Estos patrones modifican `index.html` y `experiment.js`. Recordá que agregar una pantalla requiere tres cambios: cargar el plugin, definir el ensayo e incluirlo en la línea de tiempo.
+
+### Agregar una pregunta con un plugin nuevo
+
+```text
+En index.html, agregá esta línea exacta después de la línea que carga [plugin anterior]:
+<script src="https://unpkg.com/@jspsych/[plugin]@[versión]"></script>
+
+En experiment.js, agregá un ensayo llamado [nombre] que use [nombre del plugin en el código],
+con el texto "[pregunta]", el nombre de variable "[variable]", [obligatoria u opcional]
+y el botón "Continuar". Ubicalo en la línea de tiempo después de [ensayo anterior].
+
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** la pregunta, el nombre de la variable, la obligatoriedad, las opciones si las hay, la posición y la versión exacta del plugin.
+
+**Comprobás:** que la dirección del plugin tenga la versión indicada, que el ensayo aparezca en la posición correcta y que el dato quede registrado con el nombre de variable especificado.
+
+**Usado en:** [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+### Reemplazar un ensayo conservando su nombre
+
+```text
+En experiment.js, reemplazá el ensayo [nombre] por uno que use [plugin] y que [descripción].
+Conservá el nombre [nombre] y su posición en la línea de tiempo.
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** el comportamiento nuevo, por ejemplo los atributos de una validación.
+
+**Comprobás:** la validación con casos de prueba, incluidos los casos límite.
+
+**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+### Agregar texto exacto que no debe modificarse
+
+```text
+[Descripción del ensayo.] Su texto debe ser exactamente este:
+[texto]
+No redactes contenido nuevo ni modifiques la redacción.
+No modifiques ninguna otra parte de los archivos.
+```
+
+**Vos decidís:** el texto completo. Se aplica a consentimientos, instrucciones, ítems y opciones de respuesta.
+
+**Comprobás:** el texto en pantalla, palabra por palabra, contra la fuente.
+
+**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd) y [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+### Agregar la misma propiedad a varios ensayos
+
+```text
+En experiment.js, agregá a cada ensayo el parámetro data con una propiedad [nombre].
+Usá exactamente estos valores:
+[ensayo] -> "[valor]"
+...
+No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+**Vos decidís:** el nombre de la propiedad y el valor para cada ensayo.
+
+**Comprobás:** que cada fila del archivo de datos tenga el valor esperado.
+
+**Usado en:** [capítulo 15](../part-3/15-datos-generados.qmd).
+
+### Agregar una regla condicional
+
+```text
+En experiment.js, [en el ensayo X / en un bloque nuevo llamado Y], agregá una regla:
+si [condición exacta sobre una respuesta], entonces [consecuencia exacta:
+terminar el estudio con este mensaje exacto / mostrar esta pantalla].
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** la condición, la consecuencia y el texto de cualquier mensaje. El texto comparado debe coincidir exactamente con la opción de la pregunta.
+
+**Comprobás:** cada rama con un caso de prueba, incluida la cantidad de filas del archivo de datos que produce.
+
+**Usado en:** [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+### Aleatorizar y registrar el resultado
+
+```text
+Quiero aleatorizar [unidad de aleatorización].
+[Cambios exactos, incluida la línea que registra el resultado en los datos.]
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** qué se aleatoriza, qué queda fijo y cómo se registra el resultado.
+
+**Comprobás:** con varias ejecuciones, que todos los resultados posibles ocurran y que el registro coincida con lo observado.
+
+**Usado en:** [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
+### Pedir un borrador de documentación a partir del código
+
+```text
+Creá un archivo [nombre].md a partir de lo que define experiment.js.
+Usá esta estructura:
+[estructura con títulos y columnas]
+Usá solamente información que esté en experiment.js. Si algo no se puede determinar
+leyendo el código, escribí PENDIENTE en esa celda. No inventes información.
+No modifiques ningún otro archivo.
+```
+
+**Vos decidís:** la estructura del documento y el contenido de las celdas PENDIENTE.
+
+**Comprobás:** cada fila contra el código y contra un archivo de datos real. Prestá especial atención a la codificación de las escalas.
+
+**Usado en:** [capítulo 16](../part-3/16-diccionario-datos.qmd).
+
+## Explicar
+
+Explicar significa pedirle al agente información sin permitir cambios. Todo pedido de explicación debe terminar con una prohibición explícita de modificar archivos.
+
+### Explicar una línea
+
+```text
+Explicá qué hace la línea [línea]. No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué línea necesitás comprender.
+
+**Comprobás:** que la explicación sea coherente con lo que observás al ejecutar el resultado. Una explicación puede ser incorrecta.
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+### Explicar un cambio que no pediste
+
+```text
+Cambiaste [elemento] de [valor anterior] a [valor nuevo]. Yo no pedí ese cambio.
+Explicá por qué lo hiciste. No modifiques ningún archivo.
+```
+
+**Vos decidís:** si el cambio se conserva o se revierte. Una justificación convincente no convierte un cambio no pedido en una decisión correcta.
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+### Describir los cambios realizados
+
+```text
+Describí línea por línea qué cambió en [archivo] con tu última modificación.
+No modifiques ningún archivo.
+```
+
+**Comprobás:** el informe contra tu propia comparación con la copia de respaldo. El informe orienta la revisión, pero no la reemplaza.
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+### Explicar la causa de un problema
+
+```text
+Esperaba: [lo que debía ocurrir]
+Observé: [lo que ocurrió]
+Pasos: [cómo reproducir el problema]
+Mensaje de error: [mensaje exacto, o "no apareció ninguno"]
+No modifiques archivos todavía: explicá cuál puede ser la causa.
+```
+
+**Vos decidís:** qué era lo esperado. Esa información surge de tu especificación.
+
+**Comprobás:** que la causa propuesta sea coherente con lo que observaste. Después formulá un pedido de corrección acotado.
+
+**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+### Pedir una revisión de consistencia
+
+```text
+Revisá [archivo de código] y [archivo de documentación]. Antes de modificar cualquier archivo:
+1. Listá [elementos a comparar].
+2. Indicá cuáles no están documentados o están documentados de manera diferente.
+3. Señalá cualquier otro riesgo que encuentres.
+No modifiques ningún archivo. Esperá mi respuesta antes de proponer cambios.
+```
+
+**Vos decidís:** qué diferencias son reales y cómo se corrigen.
+
+**Comprobás:** cada hallazgo en los archivos. Después, ejecutá el plan de pruebas.
+
+**Usado en:** [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
+
+### Identificar dependencias antes de un cambio
+
+```text
+Quiero [reemplazar / quitar] [elemento]. Antes de modificar archivos, indicá qué otras
+partes de [archivo] dependen de ese elemento y qué pasaría con cada una.
+No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué hacer con cada dependencia. Si la decisión es metodológica, escribila en `diseno.md` antes de pedir el cambio.
+
+**Comprobás:** que el plan de pruebas siga dando los resultados esperados después del cambio.
+
+**Usado en:** [capítulo 24](../part-5/24-construccion-estudio.qmd).
+
+### Revisar el proyecto antes de publicarlo
+
+```text
+Voy a publicar este proyecto en un repositorio público. Antes de modificar cualquier
+archivo, revisá y respondé:
+1. ¿Quedan marcas COMPLETAR o REEMPLAZAR? Indicá las líneas.
+2. ¿Todas las direcciones de unpkg.com tienen una versión fija?
+3. ¿Hay archivos que parezcan datos?
+4. ¿Los nombres de archivo que usa index.html coinciden exactamente con los de la carpeta?
+No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué corregir antes de publicar.
+
+**Comprobás:** cada respuesta con `dir`, `Select-String` y el editor.
+
+**Usado en:** [capítulo 27](../part-5/27-publicacion.qmd).
+
+## Corregir
+
+Corregir significa formular un pedido nuevo a partir de lo que encontró la verificación. Una corrección es un cambio más y requiere la misma revisión.
+
+### Rechazar una propuesta y reorientar al agente
+
+Cuando una propuesta no coincide con el pedido, elegí la opción **No, and tell Codex what to do differently** y escribí qué debe cambiar.
+
+```text
+Solo tenés que [cambio pedido]. No cambies [elemento]: debe seguir en [valor].
+```
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+### Revertir un cambio
+
+```text
+Revertí el cambio de [elemento]: debe volver a [valor anterior].
+No modifiques ninguna otra línea.
+```
+
+**Vos decidís:** qué cambio se revierte y a qué valor vuelve.
+
+**Comprobás:** que la propuesta afecte solo esa línea. Después ejecutá el resultado otra vez.
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+::: {.callout-warning}
+## Si varias correcciones fallan, detenete
+
+Cuando dos o tres pedidos de corrección no producen el resultado esperado, recuperá la copia de respaldo o el último estado que funcionaba. Revisá la especificación y dividí la tarea en pasos más pequeños.
+:::
+
+## Ejecutar y verificar
+
+La ejecución y la verificación te corresponden a vos. No hay un pedido al agente que las reemplace.
+
+### Ejecutar
+
+- Un documento se ejecuta abriéndolo y leyéndolo, por ejemplo con `Get-Content [archivo] -Encoding UTF8`.
+- Una página web se ejecuta abriéndola en el navegador. Si el archivo cambió, recargala con `F5`.
+
+### Verificar en tres niveles
+
+1. **Lo que se ve.** Compará la pantalla con la especificación.
+
+2. **Lo que cambió.** Revisá la propuesta de cambio, la columna `LastWriteTime` de `dir` y el contenido de los archivos.
+
+3. **Lo que se decidió.** Comprobá que el resultado implemente las decisiones metodológicas y éticas.
+
+### Revisar una propuesta con cinco preguntas
+
+1. **Alcance.** ¿Cambiaron solamente los archivos que el pedido permitía?
+
+2. **Correspondencia.** ¿El cambio coincide con lo que pediste?
+
+3. **Excedentes.** ¿Aparece algún cambio que no pediste, especialmente una línea eliminada?
+
+4. **Decisiones.** ¿Algún cambio modifica un texto, un nombre de variable, una restricción o una duración?
+
+5. **Evidencia.** ¿Comprobaste el resultado con herramientas propias?
+
+**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+## Documentar
+
+### Agregar una entrada al registro de cambios
+
+```text
+Creá un archivo registro.md en esta carpeta con este contenido exacto:
+
+# Registro de cambios
+
+## [AAAA-MM-DD]
+
+- Pedido: [qué se pidió].
+- Archivos modificados: [archivos].
+- Verificación: [cómo se comprobó].
+- Corrección: [si hubo, qué se corrigió y por qué].
+- Estado: [en qué estado quedó].
+
+No modifiques ningún otro archivo.
+```
+
+Si el registro ya existe, reemplazá la primera línea por `En registro.md, agregá al final del archivo esta entrada con el contenido exacto:` y copiá solo la entrada nueva.
+
+**Vos decidís:** todo el contenido. El registro documenta verificaciones que solo el investigador puede afirmar.
+
+**Comprobás:** con `Get-Content registro.md -Encoding UTF8` que la entrada coincida con lo que escribiste.
+
+**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+## Pedidos que conviene evitar
+
+| Pedido | Problema | Alternativa |
+|:---|:---|:---|
+| Mejorá el README. | No describe un resultado ni un límite. | Reemplazá "[texto actual]" por "[texto nuevo]". No modifiques nada más. |
+| Revisá todo y corregí los errores. | Es amplio, difícil de verificar y consume mucho del límite de uso. | Describí el problema concreto con el patrón "Explicar la causa de un problema". |
+| Confirmá que funciona. | Pide una afirmación del agente en lugar de una verificación. | Ejecutá el resultado y aplicá los tres niveles de verificación. |
+| Elegí un rango razonable. | Delega una decisión metodológica. | Tomá la decisión e incluila en el pedido: "debe aceptar valores entre 18 y 80". |
+| Agregá una escala de ansiedad. | El agente puede inventar ítems o reproducir un instrumento sin autorización. | Usá ítems proporcionados explícitamente y pedí que no redacte ítems nuevos. |
+
+: Pedidos problemáticos y alternativas {#tbl-pedidos-evitar}

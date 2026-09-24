@@ -1,15 +1,196 @@
 ---
-title: "Comandos de Git"
-description: "Referencia gradual para conservar y comparar versiones."
+title: "Introducción optativa a Git"
+description: "Conservar y comparar versiones del proyecto desde la terminal, como alternativa a la subida por la web."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Git se presentará cuando resulte necesario conservar versiones; no se asumirá experiencia previa.
+## Para qué sirve este apéndice
+
+Las actividades obligatorias del libro no usan Git. En el [capítulo sobre publicación](../part-5/27-publicacion.qmd) subiste los archivos a GitHub desde el navegador, y GitHub registró el historial por vos.
+
+Este apéndice es para quien quiera ir un paso más allá: trabajar con Git desde la terminal, publicar cambios sin arrastrar archivos y ver con precisión qué modificó un agente. No es necesario para completar el proyecto final.
+
+::: {.callout-note}
+## Requisitos
+
+Antes de leer este apéndice conviene haber completado el capítulo sobre publicación. Necesitás una cuenta de GitHub y un repositorio con tu estudio.
 :::
 
-## Propósito
+## Qué es Git
 
-Reunir los comandos utilizados en el libro y explicar qué cambio producen en el estado del proyecto.
+**Git** es un programa que registra las versiones de los archivos de un proyecto. Cada vez que confirmás un conjunto de cambios, Git guarda una fotografía del proyecto en ese momento. Esa fotografía es un **commit**, el mismo concepto que viste en GitHub.
 
-La referencia evitará presentar Git como requisito conceptual antes de que el estudiante comprenda archivos, carpetas y proyectos.
+Git funciona en tu computadora. GitHub es un servicio web que guarda una copia de tus repositorios de Git y permite compartirlos. Cuando trabajás con Git, tenés dos copias del repositorio.
 
+```text
+tu computadora                         GitHub
+repositorio local   ──── push ────►    repositorio remoto
+                    ◄─── pull ─────
+```
+
+1. El **repositorio local** es la carpeta de tu proyecto, con el historial que registra Git.
+
+2. El **repositorio remoto** es la copia en GitHub.
+
+3. **Push**, “empujar”, envía tus commits a GitHub.
+
+4. **Pull**, “tirar”, trae a tu computadora los cambios que están en GitHub y todavía no tenés, por ejemplo los que hiciste desde el navegador.
+
+GitHub Pages publica lo que está en el repositorio remoto. Por eso, después de un push, el estudio publicado se actualiza en unos minutos.
+
+## Por qué podría interesarte
+
+Git ofrece tres ventajas para el trabajo con agentes.
+
+1. **Ver exactamente qué cambió.** El comando `git diff` muestra las diferencias entre la versión actual y el último commit, con el mismo formato de `+` y `-` que las propuestas de Codex. En Codex, el comando `/diff` hace lo mismo dentro de la sesión.
+
+2. **Volver atrás.** Cada commit es una versión recuperable, como las copias de respaldo del [capítulo sobre construcción incremental](../part-5/24-construccion-estudio.qmd), pero sin copiar carpetas a mano.
+
+3. **Publicar sin arrastrar archivos.** Un push actualiza GitHub y, con él, el estudio publicado.
+
+## Instalar y configurar Git
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Entrá en el [sitio oficial de Git](https://git-scm.com/) y descargá la versión para tu sistema. En Windows, el instalador se llama Git para Windows.
+
+2. Ejecutá el instalador y aceptá las opciones predeterminadas.
+
+3. Cerrá y abrí la terminal. Comprobá la instalación.
+
+```powershell
+git --version
+```
+
+4. Configurá tu nombre y tu correo. Git los registra en cada commit. Usá el correo de tu cuenta de GitHub.
+
+```powershell
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu-correo@ejemplo.com"
+```
+:::
+
+El parámetro `--global` indica que la configuración vale para todos tus repositorios. Solo hace falta hacerlo una vez.
+
+## Traer el repositorio a tu computadora
+
+Para trabajar con Git sobre un repositorio que ya existe en GitHub, primero lo **clonás**: creás una copia local que queda conectada con la remota.
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. En la página de tu repositorio en GitHub, presioná el botón **Code** y copiá la dirección que aparece en la pestaña **HTTPS**.
+
+2. En PowerShell, ubicate en la carpeta donde querés crear la copia, por ejemplo Documentos.
+
+3. Ejecutá este comando con tu dirección.
+
+```powershell
+git clone https://github.com/tu-usuario/estudio-habitos.git
+```
+
+4. Entrá en la carpeta creada y comprobá su contenido.
+
+```powershell
+cd estudio-habitos
+dir
+```
+:::
+
+A partir de ahora, esta carpeta es tu proyecto. Trabajá sobre ella en lugar de la carpeta anterior, para no tener dos versiones que se confundan.
+
+## El ciclo de trabajo con Git
+
+Cada cambio sigue cuatro pasos. Se suman al ciclo de trabajo del libro.
+
+| Paso | Comando | Qué hace |
+|:---|:---|:---|
+| Ver el estado | `git status` | Muestra qué archivos cambiaron desde el último commit. |
+| Ver las diferencias | `git diff` | Muestra las líneas agregadas y eliminadas. |
+| Preparar | `git add experiment.js` | Marca un archivo para incluirlo en el próximo commit. |
+| Confirmar | `git commit -m "Mensaje"` | Registra un commit con los archivos preparados y un mensaje. |
+| Publicar | `git push` | Envía los commits a GitHub. |
+
+: Ciclo de trabajo con Git {#tbl-ciclo-git}
+
+Un ejemplo completo, después de corregir la duración informada en el consentimiento:
+
+```powershell
+git status
+git diff
+git add experiment.js
+git commit -m "Actualizar la duración del consentimiento según el piloto"
+git push
+```
+
+La primera vez que hagas `git push`, Git para Windows va a abrir el navegador para que inicies sesión en GitHub y autorices el acceso. Después no vuelve a pedirlo.
+
+Para ver el historial de commits en la terminal, usá `git log --oneline`. Cada línea muestra un código breve que identifica el commit y su mensaje.
+
+::: {.callout-tip}
+## Un commit por paso verificado
+
+Hacé un commit al terminar cada paso de construcción verificado, con un mensaje que describa el cambio. El historial de Git reemplaza a las carpetas de respaldo y funciona como registro de cambios.
+:::
+
+## Proteger los datos con `.gitignore`
+
+Un archivo llamado `.gitignore`, en la carpeta principal del proyecto, indica qué archivos debe ignorar Git. Git no los incluye en ningún commit, aunque estén en la carpeta.
+
+Para un estudio, conviene ignorar cualquier archivo de datos.
+
+```text
+*.csv
+*.json
+```
+
+Cada línea es un patrón. `*.csv` significa “todos los archivos con extensión `.csv`”. Con este archivo, un CSV descargado por error en la carpeta del proyecto no llega a GitHub.
+
+Revisá igualmente `git status` antes de cada commit. Si aparece un archivo que no esperabas, no lo agregues.
+
+## Trabajar con Git y Codex
+
+Cuando la carpeta del proyecto es un repositorio de Git, el trabajo con Codex cambia en tres aspectos.
+
+1. **`/diff` funciona.** Dentro de Codex, `/diff` muestra todos los cambios desde el último commit. Es una forma rápida de revisar el trabajo de una sesión completa.
+
+2. **Codex puede ejecutar comandos de Git.** Podés pedirle, por ejemplo, que muestre el estado o que prepare un commit. Con permisos **Read Only**, va a pedir aprobación antes de ejecutar comandos que modifiquen algo. Leé cada comando antes de aprobarlo.
+
+3. **Volver atrás es más seguro.** Si una sesión con el agente produjo cambios que no querés, podés descartarlos y volver a la versión del último commit. Para un archivo, el comando es `git restore experiment.js`. Esta acción no se puede deshacer: los cambios descartados se pierden. Revisá antes con `git diff` qué vas a descartar.
+
+Un pedido útil al terminar una sesión:
+
+```text
+Mostrá con git status y git diff qué archivos y qué líneas cambiaron desde el último commit.
+No hagas ningún commit ni modifiques archivos.
+```
+
+::: {.callout-important}
+## No dejes que el agente publique sin revisar
+
+Un `git push` publica los cambios en el estudio que ven las personas participantes. Revisá el diff, ejecutá el plan de pruebas y hacé el push vos, o aprobalo explícitamente después de leer el comando.
+:::
+
+## Situaciones frecuentes
+
+### `git push` es rechazado porque el remoto tiene cambios que no tenés
+
+Ocurre si modificaste archivos desde el navegador de GitHub después de clonar. Ejecutá `git pull` para traer esos cambios y después repetí `git push`.
+
+### `git status` muestra archivos que no reconocés
+
+Pueden ser archivos temporales o de datos. No los agregues. Si son datos, sacalos de la carpeta del proyecto y agregá su extensión a `.gitignore`.
+
+### Hiciste un commit con un error
+
+No hace falta borrar nada. Corregí el archivo y hacé un commit nuevo que describa la corrección. El historial muestra ambos, y eso también es información útil.
+
+### Subiste un archivo de datos a GitHub
+
+Borrar el archivo con un commit nuevo no lo quita del historial. Como indica el capítulo sobre publicación, eliminá el repositorio en GitHub, creá uno nuevo y subí solo los archivos del estudio.
+
+## Otras formas de usar Git
+
+Si preferís no usar la terminal, **GitHub Desktop** ofrece las mismas operaciones con botones: muestra los archivos cambiados y sus diferencias, permite escribir el mensaje del commit y hacer push. Es una buena opción intermedia entre la subida por el navegador y la terminal.
+
+Para aprender más, la [documentación de GitHub en español](https://docs.github.com/es/get-started/getting-started-with-git) incluye guías introductorias sobre Git.

@@ -1,24 +1,560 @@
 ---
 title: "Codex desde la terminal"
-description: "Preparación, acceso y primera tarea dentro de un proyecto."
+description: "Instalación, inicio y primera tarea verificable con un agente dentro de una carpeta de práctica."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo depende de información técnica cambiante. Antes de publicarlo deberán verificarse los requisitos, comandos y condiciones de acceso vigentes.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder comprobar los requisitos necesarios antes de instalar Codex.
+
+2. Vas a poder interpretar cada parte del comando de instalación antes de ejecutarlo.
+
+3. Vas a poder verificar que la instalación funcionó.
+
+4. Vas a poder iniciar Codex dentro de la carpeta correcta.
+
+5. Vas a poder configurar Codex para que pida aprobación antes de modificar archivos.
+
+6. Vas a poder formular una primera tarea pequeña y comprobar su resultado desde otra terminal.
+
+## Una herramienta nueva permite formular el problema
+
+En el capítulo anterior estudiaste qué diferencia a un agente de un chatbot. Ya sabés que un agente trabaja sobre una carpeta, que puede leer y modificar archivos y que sus permisos determinan qué hace sin preguntar.
+
+Ahora necesitás un agente concreto. En este libro vamos a usar **Codex**, un agente desarrollado por OpenAI que funciona desde la terminal.
+
+La instalación de una herramienta nueva suele generar preguntas razonables. ¿Necesito pagar? ¿Qué cambia en mi computadora? ¿Cómo sé si funcionó? ¿Qué pasa si la inicio en la carpeta equivocada?
+
+Este capítulo responde esas preguntas paso a paso. La primera tarea con el agente va a ocurrir en `practica_archivos`, la carpeta que creaste en la Parte I. Esa carpeta no contiene nada importante. Si algo sale diferente de lo esperado, tu proyecto `mi-primer-estudio` va a permanecer intacto.
+
+::: {.callout-tip}
+## Idea clave
+
+Antes de trabajar con un agente sobre un proyecto importante, conviene practicar en una carpeta de prueba. Ese ensayo permite conocer la herramienta sin arriesgar el trabajo acumulado.
 :::
 
-## Propósito
+## Codex funciona en la terminal y usa un modelo remoto
 
-Guiar la instalación y el primer uso de Codex sin tratar la terminal como conocimiento previo.
+Codex existe en varias presentaciones. OpenAI ofrece una aplicación de escritorio, una extensión para editores de código y una versión que funciona en la terminal. En este libro usaremos la versión de terminal, que en la documentación aparece como **Codex CLI**. La sigla *CLI* significa *command-line interface*, es decir, interfaz de línea de comandos. Designa a los programas que se usan escribiendo instrucciones en una terminal.
 
-## Objetivos de aprendizaje
+Elegimos la terminal por tres razones.
 
-- Comprobar los requisitos necesarios antes de instalar herramientas.
-- Iniciar Codex dentro de la carpeta correcta.
-- Formular una primera tarea pequeña y reversible.
-- Verificar en el sistema de archivos que la acción ocurrió.
+1. La terminal conecta con lo que aprendiste en la Parte I: carpetas, rutas, comandos y ejecución.
 
-## Primera tarea prevista
+2. La carpeta de trabajo del agente coincide con la carpeta actual de la terminal. Esa relación hace visible el alcance de la tarea.
 
-El agente creará un archivo de texto breve y el estudiante comprobará tanto su ubicación como su contenido.
+3. La forma de trabajo se parece a la de otros agentes de terminal. Lo que aprendas se puede trasladar a otras herramientas.
 
+Como viste en el capítulo anterior, el programa que instalás no contiene el modelo de lenguaje. Codex envía tus pedidos y los fragmentos de archivos que lee a los servidores de OpenAI. Por eso necesita conexión a Internet y una cuenta.
+
+## Comprobá los requisitos antes de instalar
+
+::: {.callout-warning}
+## La información de esta sección cambia con frecuencia
+
+Los requisitos, los comandos de instalación y las condiciones de acceso de Codex se actualizan a menudo. Esta sección describe la situación de septiembre de 2026. Antes de instalar, compará los pasos con la [documentación oficial de Codex](https://developers.openai.com/codex) y con el [repositorio oficial del programa](https://github.com/openai/codex). Si encontrás diferencias, seguí la documentación oficial.
+:::
+
+Para realizar las actividades vas a necesitar lo siguiente.
+
+1. **Una computadora con Windows 11, macOS o Linux.** Los ejemplos del libro usan Windows y PowerShell. OpenAI todavía describe el funcionamiento de Codex en Windows como experimental, lo que significa que puede presentar comportamientos que se van corrigiendo en versiones nuevas.
+
+2. **Conexión a Internet.** La necesitás durante la instalación y durante cada sesión de trabajo.
+
+3. **Una cuenta de ChatGPT.** Codex se usa iniciando sesión con esa cuenta.
+
+4. **La carpeta `practica_archivos`.** Si no la tenés, creala con el Explorador de archivos y agregá dentro las carpetas `instrucciones`, `materiales` y `datos`.
+
+### El acceso gratuito tiene límites de uso
+
+Al momento de escribir este capítulo, el [centro de ayuda de OpenAI](https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan) indica que Codex está incluido en los planes de ChatGPT, incluido el plan gratuito. Cada plan tiene un **límite de uso**, es decir, una cantidad máxima de trabajo que podés pedirle al agente en un período determinado. El plan gratuito tiene el límite más bajo.
+
+Las actividades obligatorias de este libro están pensadas para realizarse sin pagar. Para eso, cada actividad propone pedidos pequeños y delimitados. Un pedido acotado consume menos uso que uno amplio, y además resulta más fácil de verificar.
+
+::: {.callout-note}
+## Si no tenés acceso a Codex
+
+Las condiciones de acceso pueden cambiar o tu cuenta puede alcanzar su límite. Cada actividad con Codex de esta parte del libro incluye una alternativa sin agente. En esos casos vas a realizar a mano la acción que le pedirías al agente y vas a aplicar la misma verificación. Lo central del curso es aprender a especificar, revisar y verificar, y esas competencias se pueden practicar igual.
+:::
+
+## Leé el comando de instalación antes de ejecutarlo
+
+La documentación oficial propone instalar Codex en Windows con una sola instrucción de PowerShell.
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+La línea puede parecer intimidante. Contiene varias partes que ya podés interpretar con lo que aprendiste en la Parte I. La regla del capítulo sobre la terminal sigue vigente: ejecutá solamente instrucciones cuyo propósito puedas explicar.
+
+Un **script** es un archivo de texto que contiene instrucciones para un intérprete de comandos. El archivo `install.ps1` es un script de PowerShell preparado por OpenAI. La extensión `.ps1` identifica ese tipo de archivo.
+
+Ahora leé la instrucción por partes.
+
+1. `powershell` inicia una nueva ejecución de PowerShell para realizar esta tarea.
+
+2. `-ExecutionPolicy ByPass` es un parámetro. La **política de ejecución** es una configuración de Windows que controla si PowerShell puede ejecutar scripts. El valor `ByPass` la omite solamente para esta ejecución. Tu configuración general no cambia. Microsoft explica este mecanismo en su [documentación sobre las políticas de ejecución](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+
+3. `-c` indica que a continuación viene el comando que esa nueva ejecución debe realizar. El comando aparece entre comillas.
+
+4. `irm` es un alias de `Invoke-RestMethod`. En este caso descarga el contenido de la dirección `https://chatgpt.com/codex/install.ps1`.
+
+5. El signo `|` recibe el nombre de **tubería**. Envía el resultado del comando de la izquierda al comando de la derecha.
+
+6. `iex` es un alias de `Invoke-Expression`. Ejecuta como instrucciones el texto que recibe.
+
+En conjunto, la línea descarga el script de instalación desde el sitio de OpenAI y lo ejecuta.
+
+::: {.callout-important}
+## Este tipo de instrucción ejecuta lo que descarga
+
+Un comando que combina `irm` e `iex` ejecuta cualquier instrucción que devuelva la dirección indicada. Usalo solamente con direcciones oficiales que puedas verificar. Copiá la instrucción desde la documentación oficial y comprobá la dirección letra por letra antes de presionar Enter. Nunca ejecutes una instrucción de este tipo que te llegue por un mensaje, un video o un foro sin comprobar su origen.
+:::
+
+## Instalá Codex y verificá la instalación
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Abrí Windows Terminal o PowerShell desde el menú Inicio. No hace falta abrirlo como administrador.
+
+2. Copiá el comando de instalación desde la documentación oficial o desde este libro. Compará la dirección con la que aparece en la documentación oficial.
+
+3. Pegá el comando en PowerShell y presioná Enter.
+
+4. Esperá hasta que vuelva a aparecer el indicador. La instalación puede mostrar mensajes de progreso durante algunos segundos.
+
+5. Leé los últimos mensajes. Buscá una expresión que informe que la instalación terminó correctamente.
+
+6. Cerrá la terminal y abrila otra vez. Este paso permite que la sesión nueva reconozca el programa instalado.
+
+7. Ejecutá el siguiente comando.
+
+```powershell
+codex --version
+```
+
+8. Comprobá que la salida muestre un nombre y un número de versión.
+:::
+
+La salida del último paso puede verse de esta manera.
+
+```text
+codex-cli 0.156.1
+```
+
+El número de tu versión probablemente sea otro. Codex se actualiza con frecuencia. Lo importante es que PowerShell reconozca el comando `codex` y muestre una versión.
+
+El texto `--version` es un parámetro, como `-Seconds` en el capítulo sobre procesos. Muchos programas de terminal aceptan este parámetro para informar qué versión está instalada. Esa información resulta útil cuando necesitás comparar tu situación con la documentación o pedir ayuda.
+
+::: {.panel-tabset}
+## Windows
+
+Usá el comando de esta sección en PowerShell.
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+## macOS y Linux
+
+La documentación oficial propone esta instrucción para la terminal de macOS o Linux. Su lógica es equivalente: `curl` descarga el script y `sh` lo ejecuta.
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+En macOS también podés usar Homebrew, si ya lo tenés instalado.
+
+```bash
+brew install --cask codex
+```
+:::
+
+## Elegí la carpeta antes de iniciar Codex
+
+Codex trabaja sobre la carpeta desde la cual lo iniciás. Por eso, el paso previo es el mismo que practicaste en la Parte I: llegar a la carpeta correcta y comprobarlo.
+
+Para esta primera sesión vas a usar `practica_archivos`.
+
+```powershell
+cd "PEGÁ AQUÍ LA RUTA DE practica_archivos"
+```
+
+```powershell
+Get-Location
+```
+
+```powershell
+dir
+```
+
+La ruta debe terminar en `practica_archivos`. La lista debe mostrar `instrucciones`, `materiales` y `datos`, además de las carpetas que hayas creado en actividades anteriores.
+
+Solo después de esta comprobación vas a iniciar el agente.
+
+```powershell
+codex
+```
+
+Este comando no termina de inmediato como `dir`. Inicia un programa que permanece activo y ocupa la ventana de la terminal. Mientras Codex funciona, el indicador de PowerShell no aparece. Vas a volver a verlo cuando cierres Codex.
+
+## Iniciá sesión con tu cuenta
+
+La primera vez que ejecutes `codex`, el programa te va a pedir que inicies sesión. La interfaz de Codex está en inglés. Vas a ver opciones parecidas a estas.
+
+| Opción en pantalla | Significado |
+|:---|:---|
+| Sign in with ChatGPT | Iniciar sesión con tu cuenta de ChatGPT. |
+| Provide your own API key | Usar una clave de acceso con pago por uso. |
+
+Elegí **Sign in with ChatGPT**. Para moverte entre las opciones usá las flechas del teclado y presioná Enter para confirmar.
+
+Codex va a abrir el navegador. Iniciá sesión con tu cuenta de ChatGPT y autorizá el acceso. Cuando el navegador informe que el proceso terminó, volvé a la terminal.
+
+La opción de clave de acceso está pensada para otro tipo de uso y cobra según la cantidad de trabajo realizado. No la necesitás para este curso.
+
+## Decidí si confiás en la carpeta
+
+Después del inicio de sesión, Codex te va a preguntar si confiás en la carpeta actual. El mensaje comienza con la pregunta *Trust this folder?*, que significa “¿Confiás en esta carpeta?”.
+
+El texto explica que Codex podrá leer, modificar y ejecutar archivos en esa carpeta, siempre dentro de los permisos que configures. También advierte que algunos archivos de configuración de una carpeta pueden ejecutar instrucciones de manera automática.
+
+Antes de responder, leé la ruta que muestra la pantalla. Debe coincidir con `practica_archivos`.
+
+- Si la ruta es correcta, elegí **Trust and continue**, que significa “Confiar y continuar”.
+- Si la ruta es incorrecta, elegí **Quit**, que significa “Salir”. Después llegá a la carpeta correcta y volvé a ejecutar `codex`.
+
+Codex guarda esta decisión para esa carpeta. La próxima vez que lo inicies allí, no va a volver a preguntar.
+
+::: {.callout-warning}
+## Confiá solamente en carpetas que conocés
+
+Confiar en una carpeta amplía lo que Codex puede hacer en ella. Respondé que sí solamente para tus carpetas de práctica y para `mi-primer-estudio`. No confíes en la carpeta de tu usuario, en Descargas ni en carpetas descargadas de fuentes que no conocés.
+:::
+
+## Reconocé las partes de la pantalla
+
+Cuando Codex termina de iniciar, la ventana muestra una organización parecida a esta. La apariencia exacta cambia entre versiones.
+
+```text
+╭────────────────────────────────────────────────╮
+│ >_ OpenAI Codex (v0.156.1)                     │
+│ model:     ...                                 │
+│ directory: C:\Users\Ana\Documents\practica_... │
+╰────────────────────────────────────────────────╯
+
+› Escribí tu pedido aquí
+```
+
+El recuadro superior funciona como encabezado. Informa la versión del programa, el modelo de lenguaje que usa y la carpeta de trabajo. La línea `directory` te permite hacer una última comprobación de la ubicación.
+
+La línea que comienza con `›` es el **cuadro de mensaje**. Allí escribís tus pedidos. Al presionar Enter, el pedido se envía al agente.
+
+Encima del cuadro de mensaje va a aparecer la conversación. Allí vas a leer tus pedidos, las respuestas del agente y las acciones que realiza.
+
+Dos teclas te permiten controlar la sesión.
+
+1. `Esc` interrumpe la tarea que el agente está realizando. Se parece a `Ctrl + C` en PowerShell. Como aprendiste en el capítulo sobre procesos, interrumpir detiene el trabajo pendiente, pero no deshace lo que ya ocurrió.
+
+2. El comando `/exit` cierra Codex y te devuelve al indicador de PowerShell.
+
+## Los comandos con barra configuran la sesión
+
+Dentro de Codex, los mensajes que comienzan con una barra `/` no se envían al modelo como pedidos. Son comandos del propio programa. Codex los llama *slash commands*, es decir, comandos con barra.
+
+Si escribís solamente `/`, Codex muestra la lista de comandos disponibles. En este capítulo vas a usar tres.
+
+| Comando | Función |
+|:---|:---|
+| `/status` | Muestra la configuración de la sesión, incluida la carpeta de trabajo y los permisos activos. |
+| `/permissions` | Permite elegir qué puede hacer Codex sin pedir aprobación. |
+| `/exit` | Cierra Codex. |
+
+: Comandos con barra usados en este capítulo {#tbl-comandos-codex}
+
+La lista incluye muchos otros comandos. No necesitás conocerlos ahora. Uno de ellos, `/init`, crea un archivo `AGENTS.md`. No lo uses todavía. Ese archivo va a aparecer en el proyecto cuando el libro explique cómo escribirlo.
+
+## Configurá Codex para que pida aprobación
+
+En el capítulo anterior viste distintos niveles de permisos. Codex ofrece tres opciones principales cuando escribís `/permissions`.
+
+| Opción | Qué puede hacer Codex sin preguntar |
+|:---|:---|
+| Read Only | Leer archivos de la carpeta de trabajo. Pide aprobación para modificar archivos o usar Internet. |
+| Default | Leer y modificar archivos de la carpeta de trabajo, y ejecutar comandos. Pide aprobación para modificar otros archivos o usar Internet. |
+| Full Access | Modificar archivos fuera de la carpeta de trabajo y usar Internet sin preguntar. |
+
+: Opciones de permisos de Codex {#tbl-permisos-codex}
+
+Durante esta parte del libro vas a trabajar con **Read Only**, que significa “solo lectura”. Con esa opción, Codex puede inspeccionar la carpeta, pero cada modificación de archivos va a requerir tu aprobación. Nunca uses **Full Access** en las actividades de este curso.
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Con Codex abierto, escribí `/status` y presioná Enter.
+
+2. Leé la información que aparece. Buscá la carpeta de trabajo y los permisos activos.
+
+3. Escribí `/permissions` y presioná Enter.
+
+4. Usá las flechas para seleccionar **Read Only** y presioná Enter.
+
+5. Escribí `/status` otra vez y comprobá que los permisos indiquen `Read Only`.
+:::
+
+Conviene repetir esta comprobación al comienzo de cada sesión. Según la versión y la configuración, Codex puede volver a su opción predeterminada cuando lo iniciás de nuevo.
+
+## Formulá una primera tarea de inspección
+
+La primera tarea no va a modificar nada. Vas a pedirle a Codex que describa la carpeta. Así vas a poder comparar su descripción con la que ya conocés.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+Escribí este pedido en el cuadro de mensaje y presioná Enter.
+
+```text
+Describí qué carpetas y archivos contiene esta carpeta. No modifiques ningún archivo.
+```
+
+Mientras el agente trabaja, observá la conversación. Prestá atención a las líneas que informan qué acciones realiza.
+:::
+
+Codex probablemente muestre una o más líneas que indican que exploró la carpeta o ejecutó un comando para listar su contenido. Puede aparecer un comando que ya conocés, como `Get-ChildItem`, que es el nombre completo de `dir`. Después va a responder con una descripción.
+
+Compará esa descripción con lo que sabés de `practica_archivos`. ¿Mencionó las carpetas `instrucciones`, `materiales` y `datos`? ¿Encontró `consigna.txt` y `ejemplo.txt`, si completaste esas actividades? ¿Agregó algo que no existe?
+
+## Formulá una primera tarea que modifique un archivo
+
+La segunda tarea va a crear un archivo pequeño. El pedido indica el nombre, la ubicación, el contenido exacto y un límite explícito.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+Escribí este pedido y presioná Enter.
+
+```text
+Creá un archivo llamado saludo.txt dentro de la carpeta instrucciones.
+Debe contener una sola línea con este texto exacto:
+Este archivo fue creado por Codex.
+No modifiques ni crees ningún otro archivo.
+```
+
+Para escribir varias líneas en un mismo pedido, usá `Shift + Enter` al final de cada línea. Si tu terminal no responde a esa combinación, probá con `Ctrl + J`. También podés escribir el pedido completo en una sola línea.
+:::
+
+Como elegiste **Read Only**, Codex no va a crear el archivo por su cuenta. Primero va a mostrar el cambio que propone y te va a pedir aprobación. La pantalla puede verse de esta manera.
+
+```text
+Would you like to make the following edits?
+
+  instrucciones\saludo.txt (+1)
+      1 + Este archivo fue creado por Codex.
+
+› 1. Yes, proceed
+  2. Yes, and don't ask again for these files
+  3. No, and tell Codex what to do differently
+```
+
+La pregunta inicial significa “¿Querés realizar los siguientes cambios?”. Debajo aparece el archivo afectado y la línea que se va a agregar. El signo `+` marca el contenido nuevo.
+
+Las opciones significan lo siguiente.
+
+| Opción | Significado |
+|:---|:---|
+| Yes, proceed | Sí, realizar este cambio. |
+| Yes, and don't ask again for these files | Sí, y no volver a preguntar por estos archivos durante la sesión. |
+| No, and tell Codex what to do differently | No, y explicarle a Codex qué hacer de otra manera. |
+
+Antes de elegir, revisá tres elementos.
+
+1. ¿El archivo es `saludo.txt` y está dentro de `instrucciones`?
+
+2. ¿El contenido coincide con el texto exacto que pediste?
+
+3. ¿La propuesta incluye algún otro archivo?
+
+Si las tres respuestas son satisfactorias, elegí **Yes, proceed**. Durante este curso evitá la segunda opción. Cada aprobación es una oportunidad de revisar.
+
+Si algo no coincide, elegí la tercera opción y explicá qué debe corregir. Por ejemplo: “El archivo debe estar dentro de la carpeta instrucciones”.
+
+## Verificá el resultado desde otra terminal
+
+Cuando Codex termine, va a informar lo que hizo. Ese informe es útil, pero no alcanza. Como estudiaste en el capítulo anterior, la verificación necesita evidencia independiente.
+
+Mientras Codex permanece abierto, podés abrir otra terminal para comprobar el resultado. En Windows Terminal, hacé clic en el botón `+` de la barra de pestañas o presioná `Ctrl + Shift + T`. Se va a abrir una pestaña nueva con una sesión de PowerShell independiente.
+
+La pestaña nueva comienza en su propia ubicación. Necesitás llegar otra vez a la carpeta.
+
+```powershell
+cd "PEGÁ AQUÍ LA RUTA DE practica_archivos"
+```
+
+```powershell
+cd instrucciones
+```
+
+```powershell
+dir
+```
+
+La lista debe mostrar `saludo.txt`. La columna `LastWriteTime` indica la fecha y la hora de la última modificación de cada archivo. La fecha de `saludo.txt` debe corresponder al momento en que aprobaste el cambio.
+
+Para leer el contenido sin abrir un editor, podés usar un comando nuevo.
+
+```powershell
+Get-Content saludo.txt
+```
+
+`Get-Content` muestra el contenido de un archivo de texto en la terminal. El nombre del archivo funciona como argumento. Microsoft describe este comando en la [referencia de `Get-Content`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/get-content).
+
+La salida debe mostrar una sola línea.
+
+```text
+Este archivo fue creado por Codex.
+```
+
+Si el texto coincide letra por letra, la tarea está verificada. Si hay diferencias, anotalas. En el capítulo sobre revisión vas a aprender a pedir correcciones acotadas.
+
+## Explicá qué hizo realmente el agente
+
+Durante la sesión, Codex realizó varias acciones que podés describir con los conceptos de la Parte I.
+
+En la primera tarea, el agente recibió tu pedido y lo envió al modelo de lenguaje. El modelo decidió que necesitaba conocer el contenido de la carpeta. Codex ejecutó un comando para listarlo, equivalente a `dir`. Con esa salida, el modelo redactó una descripción.
+
+En la segunda tarea, el modelo preparó un cambio: crear un archivo con una línea de texto. Como los permisos eran de solo lectura, Codex detuvo el trabajo y te mostró la propuesta. Tu aprobación permitió que el programa escribiera el archivo en el almacenamiento.
+
+Ninguna de estas acciones es misteriosa. Son operaciones sobre archivos y carpetas como las que ya realizaste. La diferencia es que el agente eligió qué operaciones hacer a partir de un pedido en lenguaje natural.
+
+Tu verificación con `dir` y `Get-Content` no dependió del agente. Usaste herramientas propias para confirmar la ubicación, la existencia y el contenido del archivo.
+
+## Cerrá la sesión
+
+Volvé a la pestaña donde está Codex y escribí este comando.
+
+```text
+/exit
+```
+
+Codex se cierra y el indicador de PowerShell vuelve a aparecer. Podés comprobarlo ejecutando `Get-Location`.
+
+La próxima vez que ejecutes `codex` en esta carpeta, se va a iniciar una sesión nueva. Como viste en el capítulo anterior, el agente no va a recordar la conversación anterior. Sí va a encontrar el archivo `saludo.txt`, porque quedó guardado en el almacenamiento.
+
+::: {.callout-note collapse="true"}
+## Para ampliar: otros agentes de terminal
+
+Codex no es el único agente de terminal. Claude Code, desarrollado por Anthropic, funciona de manera parecida. Al momento de escribir este libro, Claude Code requiere un plan pago o una cuenta con pago por uso. Por eso no forma parte de las actividades obligatorias.
+
+Si tenés acceso a Claude Code, la mayoría de las ideas de esta parte del libro se aplican de la misma manera.
+
+| Acción | Codex | Claude Code |
+|:---|:---|:---|
+| Iniciar el agente en la carpeta actual | `codex` | `claude` |
+| Consultar la configuración de la sesión | `/status` | `/status` |
+| Revisar los permisos | `/permissions` | `/permissions` |
+| Interrumpir la tarea en curso | `Esc` | `Esc` |
+| Cerrar el agente | `/exit` | `/exit` |
+| Archivo de instrucciones estables | `AGENTS.md` | `CLAUDE.md` |
+
+Los nombres de los comandos pueden cambiar entre versiones. Consultá la documentación de cada herramienta antes de usarla.
+:::
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué significa la sigla *CLI* en el nombre Codex CLI?
+
+2. ¿Qué hacen `irm` e `iex` en el comando de instalación?
+
+3. ¿Por qué conviene copiar el comando de instalación desde la documentación oficial?
+
+4. ¿Qué comando permite comprobar que Codex quedó instalado?
+
+5. ¿Qué dos comprobaciones de PowerShell conviene hacer antes de ejecutar `codex`?
+
+6. ¿Qué significa elegir **Trust and continue**?
+
+7. ¿Qué permite hacer la opción **Read Only**?
+
+8. ¿Por qué conviene verificar el resultado desde otra terminal en lugar de confiar en el informe del agente?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. *CLI* significa *command-line interface*, es decir, interfaz de línea de comandos.
+
+2. `irm` descarga el script de instalación desde una dirección web e `iex` ejecuta su contenido como instrucciones.
+
+3. El comando ejecuta lo que descarga, por lo que una dirección falsa o alterada podría ejecutar instrucciones peligrosas.
+
+4. El comando `codex --version` permite comprobar la instalación.
+
+5. Conviene ejecutar `Get-Location` para confirmar la carpeta y `dir` para confirmar su contenido.
+
+6. Significa que Codex podrá leer, modificar y ejecutar archivos en esa carpeta dentro de los permisos configurados.
+
+7. Permite que Codex lea archivos de la carpeta de trabajo y exige aprobación para modificarlos o para usar Internet.
+
+8. El informe describe lo que el agente cree haber hecho, mientras que `dir` y `Get-Content` aportan evidencia independiente.
+
+</details>
+
+## Revisá algunas situaciones que suelen causar errores
+
+### PowerShell no reconoce el término `codex`
+
+Este mensaje, que ya conocés del capítulo sobre la terminal, puede aparecer si la terminal se abrió antes de terminar la instalación. Cerrá la terminal, abrila otra vez y ejecutá `codex --version`. Si el mensaje persiste, repetí la instalación y leé con atención los mensajes finales.
+
+### Codex se inició en la carpeta equivocada
+
+Revisá la línea `directory` del encabezado o ejecutá `/status`. Si la carpeta no es la correcta, cerrá Codex con `/exit`, llegá a la carpeta correcta con `cd` y volvé a iniciarlo.
+
+### El navegador no se abre durante el inicio de sesión
+
+Algunas configuraciones impiden que la terminal abra el navegador. En ese caso, Codex suele mostrar una dirección web en la terminal. Copiala, pegala en el navegador y completá el inicio de sesión.
+
+### Codex informa que alcanzaste el límite de uso
+
+El límite se renueva después de un tiempo. Mientras tanto, podés realizar la alternativa sin agente de la actividad. Para evitar alcanzar el límite, formulá pedidos pequeños y evitá pedidos amplios como “revisá todo”.
+
+### Codex responde en inglés
+
+Los modelos suelen responder en el idioma del pedido. Si la respuesta llega en inglés, agregá al pedido una indicación explícita: “Respondé en español”.
+
+### Aprobaste un cambio sin revisarlo
+
+Interrumpí con `Esc` si el agente sigue trabajando. Después verificá qué archivos cambiaron con `dir` y leé su contenido. En la carpeta de práctica, el daño posible es pequeño. Este tipo de situación explica por qué conviene practicar primero allí.
+
+## Qué aprendiste en este capítulo
+
+Codex es un agente de OpenAI que funciona en la terminal. El programa que instalás se comunica con un modelo remoto, por lo que necesita conexión a Internet y una cuenta de ChatGPT.
+
+El comando de instalación descarga y ejecuta un script oficial. Antes de ejecutarlo, conviene interpretar cada parte y comprobar la dirección. `codex --version` permite verificar la instalación.
+
+Codex trabaja sobre la carpeta desde la cual lo iniciás. `Get-Location` y `dir` permiten comprobarla antes de iniciar. La pregunta *Trust this folder?* requiere leer la ruta antes de responder.
+
+Los comandos con barra configuran la sesión. `/status` muestra la carpeta y los permisos. `/permissions` permite elegir **Read Only**, que exige aprobación antes de modificar archivos. `/exit` cierra Codex.
+
+Una aprobación muestra el cambio propuesto antes de que ocurra. La verificación posterior con `dir` y `Get-Content`, realizada desde otra terminal, aporta evidencia independiente del informe del agente.
+
+## Resolvé un desafío breve
+
+Iniciá Codex otra vez en `practica_archivos` y comprobá que los permisos sean **Read Only**.
+
+1. Pedile que cree un archivo llamado `lista.txt` dentro de `materiales` con tres líneas exactas: `perro`, `mesa` y `nube`, una por línea. Indicá que no modifique ningún otro archivo.
+
+2. Antes de aprobar, anotá qué muestra la propuesta de cambio.
+
+3. Aprobá el cambio solo si coincide con tu pedido.
+
+4. Verificá el resultado desde otra pestaña con `dir` y `Get-Content`.
+
+5. Escribí cuatro oraciones: qué pediste, qué propuso el agente, qué aprobaste y cómo verificaste el resultado.
+
+**Sin acceso a Codex:** creá el archivo con el Bloc de notas y realizá la misma verificación desde PowerShell.
+
+En el próximo capítulo vas a aprender a transformar una intención general en un pedido que indique qué querés, dónde, con qué restricciones y cómo comprobar el resultado.

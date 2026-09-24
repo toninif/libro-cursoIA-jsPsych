@@ -1,15 +1,148 @@
 ---
 title: "Comandos de terminal"
-description: "Consulta rápida de los comandos introducidos en el libro."
+description: "Consulta rápida de los comandos y atajos introducidos en el libro."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este apéndice se completará a medida que los comandos aparezcan en el recorrido principal.
+## Cómo usar este apéndice
+
+Este apéndice reúne los comandos de PowerShell, los comandos de Codex y los atajos de teclado que aparecen en el libro. Cada entrada indica para qué sirve, un ejemplo, el resultado esperado y el capítulo donde se explica en detalle.
+
+No incluye comandos que el libro no haya usado. Si necesitás uno nuevo, consultá la documentación oficial y aplicá la regla de siempre: ejecutá solamente instrucciones cuyo propósito puedas explicar.
+
+::: {.callout-warning}
+## Antes de ejecutar cualquier comando que modifique archivos
+
+Comprobá la carpeta actual con `Get-Location` y su contenido con `dir`. Un comando bien escrito puede actuar sobre una carpeta equivocada.
 :::
 
-## Criterio de organización
+## Comandos de PowerShell
 
-Cada entrada incluirá el comando, su propósito en lenguaje cotidiano, un ejemplo, el resultado esperado y una advertencia cuando corresponda.
+### Ubicarse y recorrer carpetas
 
-No se incorporarán comandos que el estudiante todavía no haya necesitado en los capítulos.
+| Comando | Para qué sirve | Ejemplo | Capítulo |
+|:---|:---|:---|:---|
+| `Get-Location` | Muestra la carpeta de trabajo actual. | `Get-Location` | [3](../part-1/03-terminal.qmd) |
+| `dir` | Muestra el contenido de la carpeta actual. Es un alias de `Get-ChildItem`. | `dir` | [3](../part-1/03-terminal.qmd) |
+| `cd` | Cambia la carpeta actual. | `cd materiales` | [3](../part-1/03-terminal.qmd) |
+| `cd ..` | Vuelve a la carpeta que contiene la actual. | `cd ..` | [3](../part-1/03-terminal.qmd) |
+| `cd "ruta"` | Entra en una carpeta indicada con su ruta completa. Las comillas mantienen unida una ruta con espacios. | `cd "C:\Users\Ana\Documents\mi-primer-estudio"` | [3](../part-1/03-terminal.qmd) |
 
+: Comandos para ubicarse y recorrer carpetas {#tbl-cmd-recorrer}
+
+**Resultado esperado.** `Get-Location` muestra una ruta. `dir` muestra una lista con nombres, fechas y tamaños. La columna `LastWriteTime` indica la fecha y la hora de la última modificación de cada archivo, lo que sirve para detectar qué archivos cambió un agente ([capítulo 9](../part-2/09-revisar-agente.qmd)). Después de `cd`, el indicador muestra la nueva ubicación.
+
+### Crear y leer
+
+| Comando | Para qué sirve | Ejemplo | Capítulo |
+|:---|:---|:---|:---|
+| `mkdir` | Crea una carpeta en la ubicación actual. | `mkdir practica_terminal` | [3](../part-1/03-terminal.qmd) |
+| `Get-Content` | Muestra el contenido de un archivo de texto. | `Get-Content README.md -Encoding UTF8` | [7](../part-2/07-codex-terminal.qmd) y [8](../part-2/08-describir-tarea.qmd) |
+| `Select-String` | Busca un texto dentro de uno o varios archivos. | `Select-String -Path *.js, *.md -Pattern "COMPLETAR"` | [27](../part-5/27-publicacion.qmd) |
+| `Compare-Object` | Compara dos listas. Con `Get-Content`, compara las líneas de dos archivos. Es optativo. | Ver el [capítulo 9](../part-2/09-revisar-agente.qmd). | [9](../part-2/09-revisar-agente.qmd) |
+
+: Comandos para crear y leer {#tbl-cmd-crear}
+
+**Advertencias.** Usá siempre `-Encoding UTF8` con `Get-Content`. Sin ese parámetro, la versión de PowerShell incluida en Windows puede mostrar las tildes como símbolos extraños, aunque el archivo esté bien. En `Select-String`, el asterisco de `*.js` significa “todos los archivos con extensión `.js`”.
+
+### Programas y procesos
+
+| Comando o acción | Para qué sirve | Ejemplo | Capítulo |
+|:---|:---|:---|:---|
+| `notepad` | Abre el Bloc de notas. | `notepad` | [4](../part-1/04-programas-procesos-errores.qmd) |
+| `Start-Sleep` | Espera la cantidad de segundos indicada. Sirve para observar una ejecución activa. | `Start-Sleep -Seconds 5` | [4](../part-1/04-programas-procesos-errores.qmd) |
+| `Ctrl + C` | Interrumpe la ejecución activa en PowerShell. | Presionar durante `Start-Sleep -Seconds 30`. | [4](../part-1/04-programas-procesos-errores.qmd) |
+| `cls` | Limpia el texto visible de la terminal. No cambia archivos ni la ubicación. | `cls` | [3](../part-1/03-terminal.qmd) |
+| `Tab` | Completa el nombre de una carpeta o un archivo existente. | Escribir `cd mat` y presionar `Tab`. | [3](../part-1/03-terminal.qmd) |
+
+: Comandos y atajos para programas y procesos {#tbl-cmd-procesos}
+
+**Recordá.** Interrumpir no es deshacer. `Ctrl + C` detiene el trabajo pendiente, pero lo que ya ocurrió permanece.
+
+## Instalar y comprobar Codex
+
+El instalador oficial de Codex para Windows se ejecuta con este comando. El [capítulo 7](../part-2/07-codex-terminal.qmd) explica cada una de sus partes.
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://chatgpt.com/codex/install.ps1 | iex"
+```
+
+Después de instalar, estos comandos permiten comprobar e iniciar Codex.
+
+| Comando | Para qué sirve | Capítulo |
+|:---|:---|:---|
+| `codex --version` | Muestra la versión instalada de Codex. Si PowerShell no reconoce `codex`, cerrá y abrí la terminal. | [7](../part-2/07-codex-terminal.qmd) |
+| `codex` | Inicia Codex en la carpeta actual. | [7](../part-2/07-codex-terminal.qmd) |
+
+: Comandos para instalar y comprobar Codex {#tbl-cmd-codex-instalar}
+
+::: {.callout-important}
+## El comando de instalación ejecuta lo que descarga
+
+Copiá el comando de instalación desde la documentación oficial de Codex y comprobá la dirección antes de presionar Enter. Nunca ejecutes un comando que combine `irm` e `iex` si no conocés su origen. El [capítulo 7](../part-2/07-codex-terminal.qmd) explica cada parte del comando.
+:::
+
+## Comandos y teclas dentro de Codex
+
+Los comandos que comienzan con `/` configuran la sesión. No se envían al modelo como pedidos. Escribí solamente `/` para ver la lista completa.
+
+| Comando o tecla | Para qué sirve | Capítulo |
+|:---|:---|:---|
+| `/status` | Muestra la carpeta de trabajo, los permisos activos y otros datos de la sesión. | [7](../part-2/07-codex-terminal.qmd) |
+| `/permissions` | Permite elegir qué puede hacer Codex sin pedir aprobación. En este libro se usa **Read Only**. | [7](../part-2/07-codex-terminal.qmd) |
+| `/exit` | Cierra Codex y vuelve al indicador de PowerShell. | [7](../part-2/07-codex-terminal.qmd) |
+| `/plan` | Activa un modo en el que Codex propone un plan antes de actuar. El libro pide los planes con palabras. | [8](../part-2/08-describir-tarea.qmd) |
+| `/init` | Genera un `AGENTS.md` automático. El libro prefiere escribirlo a mano. | [24](../part-5/24-construccion-estudio.qmd) |
+| `/diff` | Muestra los cambios de la sesión. Solo funciona si la carpeta es un repositorio de Git. | [27](../part-5/27-publicacion.qmd) y [apéndice B](b-git.qmd) |
+| `Esc` | Interrumpe la tarea que Codex está realizando. | [7](../part-2/07-codex-terminal.qmd) |
+| `Shift + Enter` o `Ctrl + J` | Agrega una línea nueva dentro de un pedido, sin enviarlo. | [7](../part-2/07-codex-terminal.qmd) |
+
+: Comandos y teclas de Codex {#tbl-cmd-codex}
+
+Los nombres de estos comandos pueden cambiar entre versiones de Codex. Si alguno no funciona, escribí `/` y buscá el equivalente en la lista.
+
+### Opciones de aprobación
+
+Con permisos **Read Only**, Codex muestra una propuesta antes de modificar un archivo. Las opciones son estas.
+
+| Opción | Significado |
+|:---|:---|
+| Yes, proceed | Sí, realizar este cambio. |
+| Yes, and don't ask again for these files | Sí, y no volver a preguntar por estos archivos durante la sesión. En este libro conviene evitarla. |
+| No, and tell Codex what to do differently | No, y explicarle a Codex qué hacer de otra manera. |
+
+: Opciones de aprobación de Codex {#tbl-aprobacion}
+
+## Atajos del navegador
+
+| Atajo | Para qué sirve | Capítulo |
+|:---|:---|:---|
+| `F5` | Recarga la página. Necesario después de modificar un archivo del estudio. | [10](../part-2/10-ciclo-trabajo.qmd) |
+| `Ctrl + F5` | Recarga la página y fuerza la descarga de los archivos, sin usar versiones guardadas. | [27](../part-5/27-publicacion.qmd) |
+| `F12` | Abre las herramientas para desarrolladores. La pestaña **Consola** muestra los errores con su archivo y número de línea. | [12](../part-3/12-primer-jspsych.qmd) |
+| `Ctrl + Shift + M` | Con las herramientas para desarrolladores abiertas, simula la pantalla de un celular. | [21](../part-4/21-presentacion-encuesta.qmd) |
+
+: Atajos del navegador {#tbl-atajos-navegador}
+
+## Atajos de Windows
+
+| Atajo | Para qué sirve | Capítulo |
+|:---|:---|:---|
+| `Ctrl + Shift + Esc` | Abre el Administrador de tareas. | [4](../part-1/04-programas-procesos-errores.qmd) |
+| `Ctrl + Shift + T` | En Windows Terminal, abre una pestaña nueva. Sirve para verificar resultados mientras Codex sigue abierto. | [7](../part-2/07-codex-terminal.qmd) |
+
+: Atajos de Windows {#tbl-atajos-windows}
+
+## Una rutina de trabajo en la terminal
+
+Muchas actividades del libro siguen la misma secuencia. Podés usarla como recordatorio.
+
+```text
+1. Get-Location              ¿Estoy en la carpeta correcta?
+2. dir                       ¿Están los archivos que espero?
+3. codex                     Iniciar el agente en esa carpeta
+4. /status                   ¿Los permisos son Read Only?
+5. (pedido y revisión)       Leer la propuesta antes de aprobar
+6. /exit                     Cerrar el agente
+7. dir                       ¿Cambiaron los archivos esperados?
+8. Get-Content ... -Encoding UTF8    ¿El contenido es el pedido?
+```

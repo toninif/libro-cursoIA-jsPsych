@@ -1,0 +1,289 @@
+---
+title: "Tiempos de respuesta"
+description: "Qué tiempo registra jsPsych en cada pantalla y cómo interpretarlo en una encuesta."
+---
+
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué mide exactamente la variable `rt` en cada pantalla.
+
+2. Vas a poder calcular la duración total de una participación a partir de los datos.
+
+3. Vas a poder calcular el tiempo por ítem de una escala.
+
+4. Vas a poder usar los tiempos como indicador de respuesta apresurada, reconociendo sus límites.
+
+5. Vas a poder explicar qué limita la precisión de los tiempos medidos en un navegador.
+
+6. Vas a poder distinguir el tiempo de respuesta en una encuesta del tiempo de reacción en una tarea experimental.
+
+## Un número que nadie pidió permite formular el problema
+
+Desde el capítulo sobre tu primer estudio, cada fila del archivo de datos tiene una columna `rt`. Nunca la pediste. jsPsych la registra en todas las pantallas por su cuenta. Google Forms, en cambio, solo registra el momento en que se envía el formulario.
+
+En el capítulo anterior, la tabla del piloto incluía la duración total de cada participación. Una persona había completado el estudio en un minuto. ¿Es posible leer el consentimiento, responder el cuestionario y completar dos escalas en un minuto? ¿Cuánto tarda, en promedio, una persona que lee con atención?
+
+Los tiempos que registra jsPsych permiten responder estas preguntas. También permiten cometer errores de interpretación si no se entiende qué miden. Este capítulo trata ambas cosas.
+
+::: {.callout-tip}
+## Idea clave
+
+`rt` mide el tiempo desde que aparece una pantalla hasta que la persona avanza. En una encuesta, ese tiempo incluye leer, pensar, responder y presionar el botón. Es un dato útil para evaluar la calidad y la duración, pero no mide un proceso psicológico específico.
+:::
+
+## Cada pantalla registra su propio tiempo
+
+La variable `rt` viene del inglés *response time*, tiempo de respuesta. En jsPsych se mide en milisegundos, desde el momento en que la pantalla aparece hasta el momento en que la persona presiona el botón que la cierra.
+
+Lo que ocurre en ese intervalo depende de la pantalla.
+
+| Pantalla | Qué incluye `rt` |
+|:---|:---|
+| Bienvenida | Leer el título y presionar **Comenzar**. |
+| Consentimiento | Leer el texto del consentimiento y elegir un botón. |
+| Género y año | Leer y responder dos preguntas, y presionar **Continuar**. |
+| Escala de organización | Leer las instrucciones, leer y responder cuatro ítems, y presionar **Continuar**. |
+
+: Qué incluye el tiempo de cada pantalla {#tbl-rt-pantallas}
+
+En las pantallas con varias preguntas, `rt` corresponde al conjunto. No hay un tiempo separado para cada ítem de una escala. Si necesitaras el tiempo de cada ítem, tendrías que presentar cada uno en una pantalla diferente. Esa sería una decisión de diseño con otras consecuencias, porque cambia la forma de presentar la escala.
+
+## El tiempo transcurrido acumula
+
+La columna `time_elapsed` registra otra cosa: los milisegundos transcurridos desde el comienzo del estudio hasta el final de cada pantalla. En la última fila, la del cierre, `time_elapsed` es la duración total de la participación.
+
+```text
+pantalla              rt       time_elapsed
+bienvenida            3200     3210
+consentimiento        21500    24730
+estudiante            2100     26850
+...
+cierre                1500     245300
+```
+
+En este ejemplo, la persona tardó 21,5 segundos en el consentimiento y completó todo el estudio en 245,3 segundos, es decir, algo más de 4 minutos.
+
+Para convertir milisegundos en segundos se divide por 1000. Para convertirlos en minutos se divide por 60 000.
+
+## Este capítulo importa para investigar en Psicología
+
+Los tiempos cumplen al menos tres funciones en una encuesta.
+
+1. **Informar la duración real.** El consentimiento de tu estudio dice que la participación dura aproximadamente 5 minutos. Esa afirmación debe basarse en datos del piloto, no en una suposición. En el capítulo sobre el ciclo de trabajo viste que informar una duración inexacta es un problema ético.
+
+2. **Detectar respuestas apresuradas.** Un tiempo muy breve en una escala sugiere que la persona no leyó los ítems. Es uno de los indicadores de respuesta descuidada del capítulo anterior.
+
+3. **Detectar problemas del instrumento.** Si una pregunta tarda mucho más que las demás, puede ser confusa o difícil de responder.
+
+## Una respuesta muy rápida es un indicador, no una prueba
+
+Para usar los tiempos como indicador de respuesta apresurada, se necesita un **umbral**: un valor por debajo del cual se considera que el tiempo es sospechosamente breve.
+
+Una forma habitual de definirlo es el tiempo por ítem. Se divide el tiempo de una pantalla por la cantidad de ítems que contiene. Algunos trabajos de investigación sobre encuestas usan umbrales cercanos a 2 segundos por ítem, con el argumento de que es difícil leer y responder un ítem con atención en menos tiempo. Huang y colaboradores (2012) propusieron ese valor en un estudio sobre respuestas de esfuerzo insuficiente.
+
+Ese umbral es una convención, no una ley. Depende de la longitud de los ítems, del idioma, del dispositivo y de la población. Una persona que lee muy rápido puede quedar por debajo del umbral y haber respondido con atención.
+
+Por eso valen las mismas reglas del capítulo anterior.
+
+1. El umbral se decide y se documenta antes de recolectar datos.
+
+2. Un tiempo breve se registra como indicador. La exclusión, si corresponde, se aplica en el análisis con un criterio previo.
+
+3. Conviene combinar indicadores. Un tiempo breve junto con un control de atención fallado es más informativo que cualquiera de los dos por separado.
+
+## Los tiempos del navegador tienen límites de precisión
+
+jsPsych registra los tiempos en milisegundos, pero eso no significa que cada medición sea exacta al milisegundo. Varios factores introducen pequeñas diferencias.
+
+1. **La pantalla se actualiza por ciclos.** Una pantalla común se redibuja alrededor de 60 veces por segundo, es decir, cada 16 milisegundos aproximadamente. Una pantalla nueva aparece recién en la siguiente actualización.
+
+2. **Cada dispositivo es distinto.** Una computadora lenta, un celular antiguo o un navegador con muchas pestañas abiertas pueden demorar la presentación o el registro de la respuesta.
+
+3. **La persona puede distraerse.** Si cambia de pestaña, atiende el teléfono o se levanta, el tiempo sigue corriendo. `rt` no distingue ese tiempo del tiempo dedicado a la tarea.
+
+Para una encuesta, estas limitaciones son pequeñas en comparación con lo que se quiere observar. Diferencias de algunas decenas de milisegundos no cambian la interpretación de una escala respondida en 3 segundos o en 30. El tercer factor, en cambio, puede producir tiempos muy largos que no reflejan dificultad sino interrupciones. Por eso, en los análisis de duración, suele preferirse la mediana, que se ve menos afectada por valores extremos que el promedio.
+
+## Tiempo de respuesta no es tiempo de reacción
+
+En Psicología experimental vas a encontrar el **tiempo de reacción**: el tiempo que tarda una persona en responder a un estímulo en una tarea diseñada para medirlo. Por ejemplo, presionar una tecla lo más rápido posible cuando aparece una palabra. En esas tareas, el tiempo es la variable dependiente: lo que se busca medir.
+
+En una encuesta, el tiempo de respuesta es un dato auxiliar. Sirve para evaluar la calidad y la duración, pero no mide un proceso psicológico definido. Incluye lectura, comprensión, reflexión y movimientos del mouse o del dedo.
+
+| Aspecto | Tiempo de reacción en una tarea | Tiempo de respuesta en una encuesta |
+|:---|:---|:---|
+| Función | Variable dependiente | Indicador auxiliar |
+| Duración típica | Cientos de milisegundos | Segundos o minutos |
+| Instrucción | Responder lo más rápido posible | Responder con atención |
+| Precisión necesaria | Alta | Moderada |
+
+: Tiempo de reacción y tiempo de respuesta {#tbl-rt-comparacion}
+
+Ambos se registran en la misma columna, `rt`. La diferencia está en el diseño del estudio y en la pregunta que se quiere responder.
+
+## Pedile al agente que describa los tiempos
+
+Esta vez la actividad con Codex no modifica el estudio. Vas a usarlo para inspeccionar y después vas a comparar su explicación con lo que aprendiste.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+2. Escribí este pedido.
+
+```text
+Revisá experiment.js y explicá qué columnas del archivo de datos que produce este estudio
+registran tiempos, en qué unidad y desde qué momento hasta qué momento se mide cada una.
+Indicá también qué pantallas contienen varias preguntas y qué significa eso para rt.
+No modifiques ningún archivo.
+```
+
+3. Compará la respuesta con las secciones de este capítulo. Anotá cualquier diferencia.
+:::
+
+El agente probablemente describa `rt` y `time_elapsed` con precisión, porque son parte del funcionamiento general de jsPsych. Prestá atención a dos puntos: si menciona que `rt` de las escalas corresponde a todos los ítems juntos, y si distingue el tiempo de respuesta de un tiempo de reacción. Si la explicación omite algo o afirma algo diferente, es una buena ocasión para aplicar la regla del curso: la explicación del agente se contrasta con otras fuentes.
+
+**Sin acceso a Codex:** leé `experiment.js` y escribí vos esa explicación.
+
+## Explicá qué hizo realmente el agente
+
+El agente leyó `experiment.js`. En ese archivo no hay ninguna línea que mencione `rt` o `time_elapsed`. Para explicarlas, el agente tuvo que usar conocimiento general sobre jsPsych que forma parte de su entrenamiento. Ese conocimiento puede ser correcto, puede estar desactualizado o puede corresponder a otra versión.
+
+Esta situación es frecuente: muchas veces el agente responde con información que no está en tus archivos. Para verificarla necesitás una fuente independiente, como un archivo de datos real o la documentación oficial de jsPsych.
+
+## Calculá tiempos con una planilla
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Ejecutá el estudio completo dos veces. La primera vez, leé todo con atención. La segunda vez, respondé lo más rápido que puedas, sin leer.
+
+2. Abrí los dos archivos en una planilla de cálculo.
+
+3. En cada archivo, buscá la fila `cierre` y calculá la duración total en minutos: dividí `time_elapsed` por 60 000. En la planilla podés escribir en una celda vacía una fórmula como `=H12/60000`, reemplazando `H12` por la celda de `time_elapsed` de la fila del cierre.
+
+4. En cada archivo, calculá el tiempo por ítem de las dos escalas. Dividí `rt` por 1000 para obtener segundos y después por la cantidad de ítems de la pantalla: 4 en la escala de organización y 4 en la de motivación, contando el control de atención.
+
+5. Anotá el tiempo del consentimiento en segundos.
+
+6. Completá esta tabla.
+
+| Medida | Ejecución atenta | Ejecución rápida |
+|:---|:---|:---|
+| Duración total (minutos) | | |
+| Consentimiento (segundos) | | |
+| Escala de organización (segundos por ítem) | | |
+| Escala de motivación (segundos por ítem) | | |
+| `atencion_correcta` | | |
+:::
+
+Observá qué medidas separan con claridad las dos ejecuciones. Observá también el tiempo del consentimiento en la ejecución rápida: si fue de uno o dos segundos, no hubo tiempo de leerlo. Esa observación tiene relevancia ética, porque el consentimiento solo es informado si se lee.
+
+## Documentá los tiempos en el diccionario
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Revisá las filas de `rt` y `time_elapsed` en `diccionario.md` y agregá, si no están, estas aclaraciones.
+
+1. En `rt`: “Incluye el tiempo de lectura. En pantallas con varias preguntas corresponde al conjunto.”
+
+2. En `time_elapsed`: “En la fila `cierre`, equivale a la duración total de la participación.”
+
+3. En la sección de criterios, si tu equipo decidiera usar un umbral de tiempo, el umbral y su justificación. En el estudio del libro no se define un umbral de exclusión.
+:::
+
+## Revisá algunas situaciones que suelen causar errores
+
+### Se interpreta `rt` como el tiempo de cada ítem
+
+En las escalas, `rt` corresponde a todos los ítems juntos. Para aproximar el tiempo por ítem hay que dividir por la cantidad de ítems, y el resultado es un promedio, no el tiempo de cada uno.
+
+### Se suman los `rt` para obtener la duración total
+
+La suma de los `rt` no incluye el tiempo entre pantallas y puede diferir un poco de `time_elapsed`. Para la duración total, usá `time_elapsed` de la última fila.
+
+### Se usa el promedio con valores extremos
+
+Una persona que dejó el estudio abierto veinte minutos eleva mucho el promedio. La mediana describe mejor la duración típica.
+
+### Se elige el umbral después de ver los datos
+
+Como con el control de atención, el umbral se decide antes. Si no estaba decidido, informalo como una decisión posterior.
+
+### Se atribuye a la persona una demora del dispositivo
+
+Un celular lento puede producir tiempos más largos. Antes de interpretar diferencias de tiempo entre grupos, considerá si usaron dispositivos distintos.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué mide `rt` en una pantalla de jsPsych?
+
+2. ¿Qué registra `time_elapsed` en la fila del cierre?
+
+3. ¿Por qué no existe un tiempo por ítem en las escalas de tu estudio?
+
+4. ¿Qué es un umbral de tiempo y cuándo debe decidirse?
+
+5. ¿Qué factores limitan la precisión de los tiempos medidos en un navegador?
+
+6. ¿Por qué la mediana suele ser preferible al promedio para describir la duración?
+
+7. ¿Qué diferencia existe entre el tiempo de reacción en una tarea y el tiempo de respuesta en una encuesta?
+
+8. ¿Por qué el tiempo del consentimiento tiene relevancia ética?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Mide los milisegundos desde que aparece la pantalla hasta que la persona presiona el botón que la cierra.
+
+2. Registra la duración total de la participación, en milisegundos.
+
+3. Porque cada escala se presenta en una sola pantalla, y `rt` corresponde a toda la pantalla.
+
+4. Un umbral es un valor por debajo del cual un tiempo se considera sospechosamente breve, y debe decidirse antes de recolectar datos.
+
+5. La actualización de la pantalla por ciclos, las diferencias entre dispositivos y las distracciones de la persona.
+
+6. Porque la mediana se ve menos afectada por valores extremos, como los de personas que interrumpieron el estudio.
+
+7. En una tarea, el tiempo de reacción es la variable dependiente y se mide con instrucciones de responder rápido. En una encuesta, el tiempo de respuesta es un indicador auxiliar e incluye lectura y reflexión.
+
+8. Un consentimiento solo es informado si se lee, y un tiempo muy breve sugiere que no hubo lectura.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+jsPsych registra en cada pantalla el tiempo de respuesta, `rt`, y el tiempo transcurrido desde el comienzo, `time_elapsed`. En una encuesta, `rt` incluye lectura, reflexión y respuesta, y en las pantallas con varias preguntas corresponde al conjunto.
+
+Los tiempos permiten informar la duración real, detectar respuestas apresuradas y detectar preguntas problemáticas. Un tiempo breve es un indicador, no una prueba. El umbral es una convención que debe decidirse antes de recolectar datos.
+
+Los tiempos medidos en un navegador tienen límites de precisión que no afectan la interpretación de una encuesta, pero las interrupciones pueden producir valores extremos. El tiempo de respuesta en una encuesta no es un tiempo de reacción.
+
+## Resolvé un desafío breve
+
+Después del piloto con diez personas, obtuviste estas duraciones totales, en minutos.
+
+```text
+3,8   4,1   4,5   5,2   3,9   22,0   4,3   1,1   4,7   4,0
+```
+
+1. Calculá el promedio y la mediana de las duraciones.
+
+2. Explicá qué valor describe mejor la duración típica y por qué.
+
+3. Identificá qué duraciones podrían corresponder a una interrupción y a una respuesta apresurada.
+
+4. Revisá la oración del consentimiento que dice que la participación dura aproximadamente 5 minutos. ¿Es correcta según estos datos? Si no lo es, proponé una redacción nueva.
+
+5. Explicá por qué cambiar la duración informada en el consentimiento es una decisión que debe documentarse.
+
+**Referencia:** Huang, J. L., Curran, P. G., Keeney, J., Poposki, E. M. y DeShon, R. P. (2012). Detecting and deterring insufficient effort responding to surveys. *Journal of Business and Psychology, 27*(1), 99–114.
+
+En el próximo capítulo vas a mejorar la presentación del estudio: vas a agregar una barra de progreso, estilos propios y una adaptación para pantallas de celular.

@@ -1,24 +1,503 @@
 ---
 title: "Leer y revisar lo que hace el agente"
-description: "Cómo inspeccionar cambios sin escribir todo el código desde cero."
+description: "Cómo inspeccionar cambios, compararlos con el pedido y detectar modificaciones inesperadas sin escribir código desde cero."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder distinguir el informe del agente, la propuesta de cambio y el estado real de los archivos.
+
+2. Vas a poder leer una propuesta de cambio e identificar qué líneas se agregan, se eliminan o se modifican.
+
+3. Vas a poder identificar qué archivos cambiaron en una carpeta.
+
+4. Vas a poder localizar textos, nombres de variables, restricciones y duraciones en fragmentos breves de código.
+
+5. Vas a poder comparar un pedido con el cambio realizado y detectar modificaciones que no pediste.
+
+6. Vas a poder pedir explicaciones y correcciones sin permitir cambios nuevos.
+
+## Un informe incompleto permite formular el problema
+
+Imaginá que un compañero trabaja en una tarea de lectura de palabras. En la pantalla aparece una palabra durante medio segundo y la persona participante responde con el teclado. El compañero le pide a un agente que reemplace la palabra `MESA` por `SILLA`.
+
+El agente responde con un mensaje breve.
+
+```text
+Reemplacé MESA por SILLA en el archivo de la tarea.
+```
+
+El compañero abre el estudio en el navegador y ve la palabra `SILLA`. Todo parece correcto. Dos semanas después, al revisar los datos del piloto, descubre que la palabra permaneció cinco segundos en pantalla en lugar de medio segundo. El agente también había cambiado la duración. Su informe no lo mencionó.
+
+El programa funcionó sin errores. El cambio pedido ocurrió. Sin embargo, el procedimiento dejó de coincidir con el diseño. Este es el tipo de problema que describiste en el capítulo sobre programas y errores: una implementación que funciona técnicamente y falla metodológicamente.
+
+La revisión que estudiarás en este capítulo habría detectado el problema antes de recolectar datos.
+
+::: {.callout-tip}
+## Idea clave
+
+Revisar un cambio consiste en comparar tres cosas: lo que pediste, lo que el agente dice que hizo y lo que realmente cambió en los archivos. Solo la última aporta evidencia sobre el estado del proyecto.
 :::
 
-## Propósito
+## Tres fuentes informan sobre un cambio
 
-Desarrollar una alfabetización de lectura suficiente para localizar cambios, relacionarlos con la consigna y detectar modificaciones inesperadas.
+Cuando trabajás con un agente, contás con tres fuentes de información sobre lo que ocurrió.
 
-## Objetivos de aprendizaje
+| Fuente | Qué es | Qué valor tiene |
+|:---|:---|:---|
+| El informe del agente | El mensaje final en el que describe lo que hizo. | Orienta la revisión, pero puede omitir o describir mal algún cambio. |
+| La propuesta de cambio | Lo que el agente mostró antes de pedir tu aprobación. | Muestra con precisión qué iba a modificar en cada archivo. |
+| El estado de los archivos | Lo que contienen los archivos después del cambio. | Es la evidencia final sobre el proyecto. |
 
-- Identificar qué archivos cambiaron.
-- Localizar textos, variables, restricciones y duraciones en fragmentos breves.
-- Comparar la solicitud original con la implementación realizada.
-- Pedir explicaciones adicionales cuando un cambio no sea comprensible.
+: Fuentes de información sobre un cambio realizado por un agente {#tbl-fuentes}
 
-## Criterio central
+El informe es la fuente más cómoda y la menos confiable. Un modelo de lenguaje redacta un resumen de su propio trabajo. Ese resumen puede ser correcto, incompleto o impreciso.
 
-No hace falta escribir una solución completa para poder formular preguntas críticas sobre ella.
+La propuesta de cambio es más confiable porque muestra el contenido exacto. Sin embargo, solo la ves si los permisos exigen aprobación y si la leés antes de aceptar.
 
+El estado de los archivos es la evidencia definitiva. Lo comprobás con tus propias herramientas: `dir`, `Get-Content`, el Explorador de archivos o un editor de texto.
+
+## Una propuesta de cambio muestra diferencias entre versiones
+
+En los capítulos anteriores viste propuestas que solo agregaban líneas. Ahora vas a leer propuestas que también eliminan o reemplazan contenido.
+
+Una propuesta de cambio muestra las **diferencias** entre la versión actual de un archivo y la versión que resultaría del cambio. En documentación técnica vas a encontrar la palabra inglesa *diff*, abreviatura de *difference*, para referirse a esta forma de presentación.
+
+Observá este ejemplo.
+
+```text
+README.md
+     1 - # Mi primer estudio psicológico
+     1 + # Mi primer estudio sobre hábitos de estudio
+     2
+     3   ## Este proyecto tiene un propósito
+```
+
+Cada línea comienza con un número y, a veces, con un signo.
+
+1. El número indica la posición de la línea en el archivo.
+
+2. El signo `-` marca una línea que se elimina.
+
+3. El signo `+` marca una línea que se agrega.
+
+4. Las líneas sin signo son **contexto**. No cambian. Aparecen para que puedas ubicar el cambio dentro del archivo.
+
+Una línea eliminada seguida de una línea agregada en la misma posición representa un **reemplazo**. En el ejemplo, el título anterior se reemplaza por uno nuevo. Las líneas 2 y 3 permanecen iguales.
+
+La apariencia exacta cambia entre herramientas. Algunas usan colores: verde para las líneas agregadas y rojo para las eliminadas. Los signos `+` y `-` suelen mantenerse.
+
+::: {.callout-warning}
+## Leé las líneas con `-` con especial atención
+
+Las líneas agregadas suelen corresponder a lo que pediste. Las líneas eliminadas son las que con más frecuencia contienen cambios inesperados. Antes de aprobar, preguntate si pediste eliminar o reemplazar cada una de ellas.
+:::
+
+## El código también contiene textos, nombres y números
+
+A partir de la Parte III, tu proyecto va a contener archivos de código. Muchos cambios del agente van a ocurrir allí. No necesitás saber escribir ese código para revisar los cambios. Necesitás aprender a localizar los elementos que expresan decisiones del estudio.
+
+Observá el siguiente fragmento. Pertenece a una tarea construida con jsPsych, la herramienta que vas a usar desde la Parte III. Todavía no necesitás comprender cada signo.
+
+```javascript
+const palabra = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: "<p>MESA</p>",
+  choices: ["f", "j"],
+  trial_duration: 500
+};
+```
+
+Este fragmento describe una pantalla del estudio. Cada línea que comienza con un nombre seguido de dos puntos define una característica de esa pantalla. Por ahora conviene reconocer tres.
+
+1. `stimulus` significa estímulo. Lo que aparece entre comillas es lo que se muestra en pantalla. En este caso es la palabra `MESA`. Las marcas `<p>` y `</p>` indican que se trata de un párrafo. Vas a estudiarlas en la Parte III.
+
+2. `choices` significa opciones. Indica qué teclas acepta la pantalla como respuesta. En este caso son `f` y `j`.
+
+3. `trial_duration` indica cuánto tiempo permanece la pantalla, medido en milisegundos. Un **milisegundo** es la milésima parte de un segundo. El valor `500` equivale a medio segundo. La palabra inglesa *trial* se traduce como ensayo. El libro va a explicar ese concepto más adelante.
+
+Cada uno de estos elementos expresa una decisión metodológica. El estímulo, las respuestas posibles y la duración forman parte del procedimiento que diseñó el investigador.
+
+Observá ahora un segundo fragmento, que describe una pregunta de un cuestionario.
+
+```javascript
+const pregunta_edad = {
+  type: jsPsychSurveyText,
+  questions: [
+    { prompt: "¿Cuál es tu edad?", name: "edad", required: true }
+  ]
+};
+```
+
+Aquí también podés localizar decisiones.
+
+1. `prompt` contiene el texto de la pregunta que ve la persona participante.
+
+2. `name` contiene el nombre de la variable con el que se guardará la respuesta. En este caso es `edad`.
+
+3. `required` indica si la respuesta es obligatoria. El valor `true` significa verdadero, es decir, que la pregunta es obligatoria. El valor `false` significaría que no lo es.
+
+Estos nombres están en inglés porque así los define jsPsych. El contenido entre comillas puede estar en español, porque es lo que decide el investigador.
+
+::: {.callout-important}
+## Algunos cambios pequeños tienen consecuencias grandes
+
+Cambiar `500` por `5000` modifica la duración de un estímulo. Cambiar `"edad"` por `"age"` modifica el nombre de una variable en la base de datos. Cambiar `true` por `false` convierte una pregunta obligatoria en opcional. Los tres cambios afectan una sola palabra o un solo número, y ninguno produce un mensaje de error.
+:::
+
+## Leé una propuesta de cambio sobre código
+
+Volvé a la situación del comienzo del capítulo. El pedido fue este.
+
+```text
+En la tarea de palabras, reemplazá MESA por SILLA. No modifiques nada más.
+```
+
+La propuesta de cambio del agente fue esta.
+
+```text
+tarea.js
+     1   const palabra = {
+     2     type: jsPsychHtmlKeyboardResponse,
+     3 -   stimulus: "<p>MESA</p>",
+     3 +   stimulus: "<p>SILLA</p>",
+     4     choices: ["f", "j"],
+     5 -   trial_duration: 500
+     5 +   trial_duration: 5000
+     6   };
+```
+
+La propuesta contiene dos reemplazos. El primero, en la línea 3, corresponde al pedido. El segundo, en la línea 5, no fue solicitado. Cambia la duración de medio segundo a cinco segundos.
+
+Si el compañero hubiera leído la propuesta antes de aprobarla, habría encontrado el segundo reemplazo. En ese momento podría haber elegido la opción que rechaza el cambio y explica qué hacer de otra manera.
+
+```text
+Solo tenés que reemplazar MESA por SILLA. No cambies trial_duration: debe seguir en 500.
+```
+
+## Los archivos modificados también se pueden identificar
+
+La propuesta de cambio informa qué archivos piensa modificar el agente. Después del cambio, podés comprobarlo por tu cuenta.
+
+En un proyecto pequeño, `dir` alcanza. La columna `LastWriteTime` muestra la fecha y la hora de la última modificación de cada archivo. Los archivos modificados durante la sesión van a mostrar una hora reciente. Los demás van a conservar su hora anterior.
+
+```text
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          18/09/2026    10:02            512 README.md
+-a---          24/09/2026    16:41            284 tarea.js
+```
+
+En este ejemplo, `tarea.js` cambió hoy a las 16:41. `README.md` no cambió desde el 18 de septiembre. Si el pedido solo afectaba `tarea.js`, esta observación coincide con lo esperado.
+
+Esta forma de revisión funciona bien mientras el proyecto tiene pocos archivos. Más adelante vas a usar **Git**, una herramienta que registra cada versión del proyecto y muestra automáticamente qué cambió entre una versión y otra. Por ahora, la columna `LastWriteTime` y la lectura de los archivos son suficientes.
+
+## Una copia de respaldo permite comparar antes y después
+
+Una propuesta de cambio desaparece de la pantalla una vez que la aprobás. Si querés comparar con calma el antes y el después, necesitás conservar la versión anterior.
+
+La forma más sencilla consiste en guardar una **copia de respaldo** antes de pedir el cambio. Ya conocés este concepto desde el capítulo sobre archivos: una copia de respaldo conserva la información en otra ubicación y permite recuperarla.
+
+Conviene guardar la copia fuera de la carpeta del proyecto. Si la guardás dentro, el agente la va a encontrar y podría leerla o modificarla como parte del proyecto.
+
+```text
+Documents/
+├── mi-primer-estudio/
+│   └── README.md
+└── respaldos/
+    └── README_antes.md
+```
+
+Después del cambio, podés abrir ambos archivos en el Bloc de notas, uno al lado del otro, y compararlos. En archivos breves, esta comparación visual resulta suficiente.
+
+::: {.callout-note collapse="true"}
+## Para ampliar: comparar dos archivos desde PowerShell
+
+PowerShell incluye el comando `Compare-Object`, que compara dos listas y muestra los elementos que aparecen en una sola de ellas. Combinado con `Get-Content`, permite comparar las líneas de dos archivos.
+
+```powershell
+Compare-Object (Get-Content ..\respaldos\README_antes.md -Encoding UTF8) (Get-Content README.md -Encoding UTF8)
+```
+
+Los paréntesis indican que PowerShell debe ejecutar primero cada `Get-Content` y usar su resultado. La ruta `..\respaldos\README_antes.md` es relativa: sube a la carpeta que contiene el proyecto y entra en `respaldos`.
+
+La salida muestra solamente las líneas diferentes. La columna `SideIndicator` indica en qué archivo aparece cada línea: `<=` señala una línea que solo está en la copia anterior y `=>` señala una línea que solo está en la versión actual. Microsoft describe este comando en la [referencia de `Compare-Object`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.utility/compare-object).
+:::
+
+## Pedir explicaciones es parte de la revisión
+
+A veces un cambio no resulta comprensible. Puede aparecer una línea de código que no sabés interpretar o una modificación cuyo motivo no queda claro. En esos casos, podés pedirle al agente que explique antes de continuar.
+
+Un pedido de explicación también necesita límites. Si no los incluís, el agente puede interpretar tu pregunta como una invitación a “corregir” algo.
+
+```text
+Explicá qué hace la línea choices: ["f", "j"]. No modifiques ningún archivo.
+```
+
+```text
+Cambiaste trial_duration de 500 a 5000. Yo no pedí ese cambio.
+Explicá por qué lo hiciste. No modifiques ningún archivo.
+```
+
+La explicación te ayuda a comprender. No reemplaza tu criterio. Si el agente justifica un cambio metodológico que no pediste, la decisión sigue siendo tuya.
+
+Cuando ya decidiste qué debe corregirse, formulá un pedido de corrección acotado. **Revertir** un cambio significa devolver una parte del archivo a su estado anterior.
+
+```text
+Revertí el cambio de trial_duration: debe volver a 500.
+No modifiques ninguna otra línea.
+```
+
+Este pedido es una tarea nueva. Merece la misma revisión que cualquier otra.
+
+## Una lista breve ordena la revisión
+
+Cada vez que revises un cambio, podés responder estas cinco preguntas.
+
+1. **Alcance.** ¿Cambiaron solamente los archivos que el pedido permitía?
+
+2. **Correspondencia.** ¿El cambio realizado coincide con lo que pediste?
+
+3. **Excedentes.** ¿Aparece algún cambio que no pediste, especialmente una línea eliminada?
+
+4. **Decisiones.** ¿Algún cambio modifica un texto, un nombre de variable, una restricción o una duración?
+
+5. **Evidencia.** ¿Comprobaste el resultado con herramientas propias además del informe del agente?
+
+Si alguna respuesta es negativa o dudosa, no avances. Pedí una explicación o una corrección acotada.
+
+## Revisá propuestas de cambio sin usar el agente
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Para cada situación, leé el pedido y la propuesta de cambio. Después respondé las cinco preguntas de la lista de revisión.
+
+**Situación 1.** Pedido: “En README.md, corregí el error de ortografía ‘proyeto’. No modifiques nada más.”
+
+```text
+README.md
+     5 - Este proyeto permitirá aprender a construir un estudio.
+     5 + Este proyecto permitirá aprender a construir un estudio.
+```
+
+**Situación 2.** Pedido: “Cambiá el texto de la pregunta de edad por ‘¿Cuántos años tenés?’. No modifiques nada más.”
+
+```text
+cuestionario.js
+     4 -     { prompt: "¿Cuál es tu edad?", name: "edad", required: true }
+     4 +     { prompt: "¿Cuántos años tenés?", name: "age", required: true }
+```
+
+**Situación 3.** Pedido: “Agregá la tecla espacio como respuesta válida. No modifiques nada más.”
+
+```text
+tarea.js
+     4 -   choices: ["f", "j"],
+     4 +   choices: ["f", "j", " "],
+     5     trial_duration: 500
+```
+:::
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+**Situación 1.** El cambio afecta solo `README.md`. Reemplaza una línea por otra idéntica, salvo la palabra corregida. No hay excedentes ni decisiones metodológicas. Falta la evidencia: después de aprobar, conviene leer el archivo con `Get-Content`.
+
+**Situación 2.** El texto de la pregunta cambió como se pidió. Sin embargo, el nombre de la variable también cambió de `edad` a `age`. Ese cambio no fue solicitado y afecta la base de datos: la columna que esperabas encontrar como `edad` aparecería como `age`. Conviene rechazar la propuesta y pedir que conserve `name: "edad"`.
+
+**Situación 3.** El cambio agrega el espacio a la lista de teclas válidas, como se pidió. La línea 5 aparece como contexto y conserva la duración de 500 milisegundos. La propuesta coincide con el pedido. Aun así, agregar una tecla válida es una decisión metodológica: conviene confirmar que forma parte del diseño antes de aprobar.
+
+</details>
+
+## Explicá qué ocurrió durante la actividad
+
+Las tres situaciones tenían el mismo formato. Un pedido breve, una propuesta de pocas líneas y la instrucción de no modificar nada más.
+
+En la situación 1, la revisión confirmó que el cambio era el pedido. En la situación 2, encontró un excedente que habría cambiado la estructura de los datos. En la situación 3, confirmó el cambio y además identificó que ese cambio expresaba una decisión del estudio.
+
+Para revisar no necesitaste escribir código. Necesitaste localizar el texto de la pregunta, el nombre de la variable, las teclas válidas y la duración. Esa es la alfabetización de lectura que busca este capítulo.
+
+## Revisá un cambio real en tu proyecto
+
+Ahora vas a aplicar la revisión completa a un cambio pequeño en `mi-primer-estudio`. El cambio va a agregar una regla nueva a la sección que creaste en el capítulo anterior.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+Primero vas a preparar una copia de respaldo.
+
+1. En el Explorador de archivos, creá una carpeta llamada `respaldos` en la misma ubicación que contiene `mi-primer-estudio`. No la crees dentro del proyecto.
+
+2. Copiá `README.md` dentro de `respaldos` y renombrá la copia como `README_antes.md`.
+
+Después vas a pedir el cambio.
+
+3. Abrí PowerShell, llegá a `mi-primer-estudio` y comprobá la ubicación con `Get-Location`.
+
+4. Iniciá Codex con `codex`. Comprobá con `/status` que los permisos sean **Read Only**. Si no lo son, cambialos con `/permissions`.
+
+5. Escribí este pedido.
+
+```text
+En README.md, dentro de la sección "Reglas para trabajar con agentes",
+agregá un cuarto punto al final de la lista con este texto exacto:
+
+- Antes de pedir un cambio, guardo una copia de respaldo fuera del proyecto.
+
+No modifiques ninguna otra línea de README.md ni otros archivos.
+```
+
+6. Antes de aprobar, respondé las cinco preguntas de la lista de revisión usando la propuesta de cambio. Anotá tus respuestas.
+
+7. Aprobá solamente si la propuesta coincide con el pedido.
+
+Finalmente vas a pedir una explicación sin modificaciones.
+
+8. Escribí este pedido.
+
+```text
+Describí línea por línea qué cambió en README.md con tu última modificación.
+No modifiques ningún archivo.
+```
+
+9. Leé el informe y guardalo para compararlo con tu propia revisión.
+
+10. Cerrá Codex con `/exit`.
+:::
+
+**Sin acceso a Codex:** agregá el cuarto punto a mano con el Bloc de notas. Después realizá la verificación de la próxima sección.
+
+## Explicá qué hizo realmente el agente
+
+El agente leyó `README.md`, localizó la sección indicada y preparó una propuesta que agregaba una línea al final de la lista. Te mostró esa propuesta con el formato de diferencias y esperó tu aprobación.
+
+En el segundo pedido, el agente no ejecutó ninguna modificación. Redactó un resumen de su trabajo anterior a partir de la información disponible en la sesión. Ese resumen es un informe, la fuente menos confiable de la tabla del comienzo del capítulo. Por eso vas a compararlo con tu propia revisión.
+
+## Verificá el cambio con evidencia propia
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. En PowerShell, dentro de `mi-primer-estudio`, ejecutá `dir`. Comprobá que el proyecto siga conteniendo solo `README.md` y que la hora de `LastWriteTime` corresponda al cambio.
+
+2. Ejecutá `Get-Content README.md -Encoding UTF8` y localizá el cuarto punto de la lista.
+
+3. Abrí `README.md` y `respaldos\README_antes.md` en el Bloc de notas. Ubicá las ventanas una al lado de la otra.
+
+4. Compará ambas versiones línea por línea. Anotá todas las diferencias que encuentres.
+
+5. Compará tu lista de diferencias con el informe del agente. ¿Coinciden? ¿El informe omitió o agregó algo?
+:::
+
+Si tu revisión encontró solamente la línea pedida, el cambio está verificado. La copia de respaldo ya cumplió su función. Podés conservarla en `respaldos` o eliminarla.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### Aprobar por costumbre
+
+Después de varias aprobaciones correctas, resulta tentador aceptar sin leer. Cada propuesta es nueva. Leé siempre las líneas con `-` antes de aprobar.
+
+### Revisar solo el archivo que pediste modificar
+
+Un agente puede modificar un archivo diferente del esperado. Revisá la lista de archivos de la propuesta y la columna `LastWriteTime` de todos los archivos del proyecto.
+
+### Pasar por alto cambios mínimos
+
+Una comilla diferente, una tilde que desaparece o un número con un cero adicional pueden pasar inadvertidos. Cuando el texto o el número importan, compará carácter por carácter.
+
+### Pedirle al agente que verifique su propio trabajo
+
+El agente puede releer un archivo y confirmar que contiene lo esperado. Esa comprobación puede ser útil, pero sigue siendo un informe del agente. La verificación del investigador usa evidencia propia.
+
+### Aceptar una explicación como si fuera una autorización
+
+Una explicación convincente no convierte un cambio no pedido en una decisión correcta. Si el cambio afecta el procedimiento, la decisión te corresponde a vos.
+
+### Revisar una propuesta demasiado extensa
+
+Si una propuesta ocupa varias pantallas, la revisión pierde calidad. Rechazala y pedí que divida el trabajo en pasos más pequeños.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué tres fuentes informan sobre un cambio realizado por un agente?
+
+2. ¿Por qué el informe del agente es la fuente menos confiable?
+
+3. ¿Qué indican los signos `+` y `-` en una propuesta de cambio?
+
+4. ¿Qué es una línea de contexto?
+
+5. En el fragmento de la pregunta de edad, ¿qué elemento define el nombre de la variable?
+
+6. ¿Qué información aporta la columna `LastWriteTime`?
+
+7. ¿Por qué conviene guardar la copia de respaldo fuera de la carpeta del proyecto?
+
+8. ¿Qué límite conviene incluir en un pedido de explicación?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Informan el informe del agente, la propuesta de cambio y el estado de los archivos.
+
+2. El informe es un resumen redactado por el modelo, que puede omitir o describir mal algún cambio.
+
+3. El signo `+` indica una línea que se agrega y el signo `-` indica una línea que se elimina.
+
+4. Una línea de contexto es una línea que no cambia y aparece para ubicar el cambio dentro del archivo.
+
+5. El elemento `name` define el nombre de la variable.
+
+6. La columna `LastWriteTime` indica la fecha y la hora de la última modificación de cada archivo.
+
+7. Dentro del proyecto, el agente podría leer o modificar la copia como si formara parte del trabajo.
+
+8. Conviene incluir la indicación de no modificar ningún archivo.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Un cambio realizado por un agente puede revisarse a partir de tres fuentes. El informe orienta. La propuesta de cambio muestra con precisión qué se iba a modificar. El estado de los archivos aporta la evidencia final.
+
+Una propuesta de cambio presenta diferencias entre versiones. Las líneas con `+` se agregan, las líneas con `-` se eliminan y las líneas sin signo funcionan como contexto. Una eliminación seguida de un agregado representa un reemplazo.
+
+Para revisar código no hace falta escribirlo. Alcanza con localizar los elementos que expresan decisiones: textos, nombres de variables, teclas válidas, obligatoriedad y duraciones. Cambios de una sola palabra o de un solo número pueden alterar el procedimiento o la estructura de los datos.
+
+La columna `LastWriteTime` permite identificar qué archivos cambiaron. Una copia de respaldo guardada fuera del proyecto permite comparar el antes y el después.
+
+Pedir explicaciones forma parte de la revisión. Un pedido de explicación debe prohibir modificaciones. Una corrección debe formularse como un pedido nuevo y acotado.
+
+## Resolvé un desafío breve
+
+Leé el siguiente pedido y la propuesta de cambio.
+
+Pedido: “Hacé que la pregunta de edad sea opcional. No modifiques nada más.”
+
+```text
+cuestionario.js
+     2   const pregunta_edad = {
+     3     type: jsPsychSurveyText,
+     4     questions: [
+     5 -     { prompt: "¿Cuál es tu edad?", name: "edad", required: true }
+     5 +     { prompt: "¿Cuál es tu edad? (opcional)", name: "edad", required: false }
+     6     ]
+     7   };
+```
+
+1. Identificá todos los cambios que contiene la propuesta.
+
+2. Indicá cuáles corresponden al pedido y cuáles no.
+
+3. Explicá si el cambio no solicitado es aceptable o si lo rechazarías. Justificá tu respuesta.
+
+4. Escribí el pedido de corrección o de aclaración que le darías al agente.
+
+5. Explicá qué consecuencia metodológica tiene convertir una pregunta obligatoria en opcional. Pensá en los datos faltantes.
+
+En el próximo capítulo vas a integrar todo lo aprendido en un ciclo de trabajo completo: especificar, implementar, ejecutar, verificar, corregir y documentar.

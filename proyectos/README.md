@@ -9,10 +9,11 @@ Esta carpeta reúne versiones recuperables de `mi-primer-estudio`. Cada checkpoi
 3. `03-formulario`: preguntas y validaciones.
 4. `04-escalas`: escala didáctica y datos asociados.
 5. `05-aleatorizacion`: orden, muestreo o condiciones aleatorias.
-6. `06-experimento`: tarea breve con respuestas y tiempos.
+6. `06-encuesta-ampliada`: aleatorización, lógica condicional, controles de atención y tiempos de respuesta aplicados a la encuesta.
 7. `07-estudio-completo`: integración, pilotaje y documentación.
 
 ## Estado
 
-Solo `01-inicial` está inicializado. Las demás carpetas están reservadas para evitar que una estructura vacía se confunda con un estudio funcional. Cada una deberá incorporar instrucciones de ejecución y criterios de verificación cuando se desarrolle.
+Los siete checkpoints están completos y fueron probados con jsPsych 8.3.0. El checkpoint `07-estudio-completo` es una plantilla para el proyecto final: contiene marcas `COMPLETAR` y `REEMPLAZAR` donde cada estudiante incorpora sus propias decisiones y sus escalas.
 
+Los checkpoints `02` a `07` cargan jsPsych desde Internet, por lo que necesitan conexión para funcionar.

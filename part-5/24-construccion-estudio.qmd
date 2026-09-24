@@ -1,20 +1,359 @@
 ---
 title: "Construcción incremental del estudio"
-description: "Implementar y verificar una parte por vez."
+description: "Implementar el diseño en pasos pequeños que siempre dejan una versión que funciona."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y verificarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder dividir la implementación de un diseño en pasos pequeños.
+
+2. Vas a poder definir criterios de aceptación para cada paso.
+
+3. Vas a poder escribir un archivo `AGENTS.md` con reglas estables para los agentes que trabajen en tu proyecto.
+
+4. Vas a poder reemplazar una escala ficticia por la escala que elegiste, sin modificar su contenido.
+
+5. Vas a poder identificar dependencias entre partes del estudio antes de modificarlas.
+
+6. Vas a poder conservar una versión que funciona después de cada paso.
+
+## Un pedido enorme permite formular el problema
+
+Tu documento de diseño está completo. Tu proyecto tiene la encuesta de la Parte IV, con escalas ficticias. La tentación es escribir un solo pedido: “Implementá todo lo que dice `diseno.md`”.
+
+Ese pedido tiene los problemas que estudiaste en la Parte II. Produce una propuesta de cambio enorme, difícil de revisar. Si algo falla, no sabés qué parte lo produjo. Y deja en manos del agente muchas decisiones de implementación que conviene revisar una por una.
+
+Además, un cambio grande puede romper partes que funcionaban. En la Parte IV viste que las piezas del estudio dependen unas de otras: la pregunta de seguimiento depende de la etiqueta de la pantalla de recursos, el control de atención vive dentro de una escala, el orden aleatorio depende de una lista de escalas.
+
+Este capítulo propone construir el estudio en pasos pequeños. Cada paso termina con una versión que funciona y que está verificada.
+
+::: {.callout-tip}
+## Idea clave
+
+La construcción incremental agrega o cambia una sola cosa por vez. Cada paso tiene criterios de aceptación definidos antes, termina con una verificación y deja una copia de respaldo. Si un paso falla, se vuelve al último estado que funcionaba.
 :::
 
-## Propósito
+## Un paso tiene criterios de aceptación
 
-Construir el estudio final mediante etapas pequeñas que produzcan versiones ejecutables y revisables.
+Un **criterio de aceptación** es una condición observable que un paso debe cumplir para darlo por terminado. Es la misma idea que el criterio de verificación de un pedido, del capítulo sobre cómo describir una tarea, aplicada a una etapa de construcción.
 
-## Objetivos de aprendizaje
+Por ejemplo, para el paso “reemplazar la escala de organización por la escala elegida”, los criterios podrían ser estos.
 
-- Dividir el procedimiento en componentes implementables.
-- Definir criterios de aceptación para cada componente.
-- Mantener una versión que funcione antes de agregar complejidad.
-- Integrar formularios, lógica y tarea sin perder trazabilidad.
+1. La pantalla muestra las instrucciones exactas de la publicación.
 
+2. Cada ítem coincide palabra por palabra con la publicación, en el orden indicado.
+
+3. Las opciones de respuesta coinciden en texto y cantidad.
+
+4. Cada ítem se registra con el nombre de variable especificado.
+
+5. Las demás pantallas y reglas siguen funcionando: el plan de pruebas de la Parte IV da los resultados esperados.
+
+El último criterio es una prueba de regresión, como las del capítulo sobre la encuesta ampliada. Conviene incluirlo en todos los pasos.
+
+## Un plan de construcción ordena los pasos
+
+A partir de tu `diseno.md`, podés escribir un plan de construcción. Para un estudio como el del libro, podría ser este.
+
+| Paso | Qué cambia | Archivos |
+|:---|:---|:---|
+| 1 | Crear `AGENTS.md` con las reglas del proyecto. | `AGENTS.md` |
+| 2 | Reemplazar la primera escala ficticia por la primera escala elegida. | `experiment.js` |
+| 3 | Reemplazar o quitar la segunda escala ficticia. | `experiment.js` |
+| 4 | Revisar el control de atención y el orden aleatorio de las escalas. | `experiment.js` |
+| 5 | Reemplazar los textos del consentimiento y del cierre. | `experiment.js` |
+| 6 | Ajustar el cuestionario sociodemográfico según el diseño. | `experiment.js` |
+| 7 | Actualizar el diccionario de variables. | `diccionario.md` |
+
+: Plan de construcción del estudio {#tbl-plan-construccion}
+
+Tu plan puede tener otros pasos. Lo importante es que cada uno cambie una sola cosa y que el orden tenga sentido. Por ejemplo, el paso 4 va después de los pasos 2 y 3 porque depende de qué escalas quedaron.
+
+## Cada paso deja una copia de respaldo
+
+Hasta ahora guardabas copias de un archivo antes de un cambio. En la construcción incremental conviene guardar una copia de todo el proyecto al terminar cada paso verificado.
+
+```text
+respaldos/
+├── paso-0-inicio/
+├── paso-1-agents/
+├── paso-2-escala-1/
+└── ...
+```
+
+Para crear la copia, usá el Explorador de archivos: copiá la carpeta `mi-primer-estudio` dentro de `respaldos` y renombrá la copia con el número y el nombre del paso. La carpeta `respaldos` debe estar fuera del proyecto, como aprendiste en el capítulo sobre revisión.
+
+Si un paso falla y no encontrás la causa, copiás los archivos de la última carpeta de respaldo a tu proyecto y volvés a intentar ese paso. Es la misma lógica de los checkpoints del libro, aplicada a tu propio trabajo.
+
+## `AGENTS.md` conserva las reglas entre sesiones
+
+En el capítulo sobre agentes viste que un agente no recuerda las sesiones anteriores. En el capítulo sobre proyectos se anticipó que el proyecto iba a incorporar un archivo `AGENTS.md` cuando hiciera falta. Ahora hace falta: vas a trabajar con el agente en muchas sesiones, y hay reglas que deberían valer en todas.
+
+Codex lee automáticamente el archivo `AGENTS.md` de la carpeta en la que lo iniciás. Lo que escribas allí funciona como un conjunto de instrucciones que acompañan a cada pedido, sin que tengas que repetirlas.
+
+Un `AGENTS.md` útil describe el proyecto y establece reglas concretas. Las reglas del libro surgen de lo que aprendiste en las Partes II a IV.
+
+```markdown
+## Reglas
+
+- No redactes, completes ni modifiques ítems, instrucciones u opciones de respuesta de escalas psicológicas. Usá solamente el texto exacto que se te indique.
+- No modifiques el texto del consentimiento ni de la pantalla de cierre, salvo que el pedido incluya el texto exacto.
+- No cambies las versiones de jsPsych, de los plugins ni de la extensión. Toda dirección de `unpkg.com` debe tener una versión fija.
+- No agregues bibliotecas, npm ni herramientas de compilación.
+- Conservá los nombres de variables (`name`) y las etiquetas `pantalla`. Si un cambio los afecta, avisá antes de hacerlo.
+- No agregues archivos de datos al proyecto ni leas datos de participantes.
+- Antes de modificar más de un archivo, explicá el plan y esperá la aprobación.
+- Después de cada cambio, indicá qué archivos y qué líneas modificaste.
+```
+
+El archivo completo está en `proyectos\07-estudio-completo\AGENTS.md`. Incluye además una descripción de los archivos del proyecto y una regla sobre DataPipe que vas a entender en el capítulo sobre el guardado de datos.
+
+`AGENTS.md` no reemplaza tus pedidos ni tu revisión. Un agente puede no cumplir una regla. Pero reduce la probabilidad de errores frecuentes y hace explícitas las condiciones de trabajo del proyecto.
+
+::: {.callout-note collapse="true"}
+## Para ampliar: `AGENTS.md` en otros agentes
+
+Codex usa el nombre `AGENTS.md`. Otros agentes usan otros nombres. Claude Code, por ejemplo, lee un archivo llamado `CLAUDE.md`. Si usás más de un agente, podés mantener las reglas en `AGENTS.md` e indicar en el archivo del otro agente que las lea desde allí.
+
+Codex también ofrece el comando `/init`, que genera un `AGENTS.md` a partir del contenido del proyecto. En este libro preferimos escribirlo nosotros, porque las reglas expresan decisiones del investigador.
+:::
+
+## Paso 1: creá `AGENTS.md`
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Guardá una copia de todo el proyecto en `respaldos\paso-0-inicio`.
+
+2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+3. Escribí un pedido que cree `AGENTS.md` con el contenido exacto del archivo del checkpoint 07. Podés copiarlo desde `proyectos\07-estudio-completo\AGENTS.md` y pegarlo en el pedido.
+
+```text
+Creá un archivo AGENTS.md con este contenido exacto:
+[pegá aquí el contenido]
+No modifiques ningún otro archivo.
+```
+
+4. Aprobá la propuesta si coincide. Cerrá Codex con `/exit`.
+
+5. Volvé a iniciar Codex en la misma carpeta y escribí:
+
+```text
+¿Qué reglas tenés que seguir en este proyecto? Respondé sin modificar archivos.
+```
+
+6. Comprobá que la respuesta mencione las reglas de `AGENTS.md`.
+:::
+
+**Sin acceso a Codex:** copiá el archivo `AGENTS.md` del checkpoint 07 a tu proyecto.
+
+El paso 5 verifica que el agente efectivamente lee el archivo. Si la respuesta no menciona tus reglas, comprobá que iniciaste Codex en la carpeta del proyecto y que el archivo se llama exactamente `AGENTS.md`.
+
+## Paso 2: reemplazá la primera escala
+
+Este es el paso más delicado, porque implementa un instrumento real. El pedido transcribe tu especificación del documento de diseño.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+Completá la plantilla con la especificación de tu escala y envíala.
+
+```text
+En experiment.js, reemplazá el ensayo escala_organizacion por un ensayo llamado
+[nombre del ensayo] que use jsPsychSurveyLikert.
+
+Eliminá la lista opciones_acuerdo solo si ninguna otra escala la usa.
+Definí una lista [nombre de la lista] con estas opciones exactas, en este orden:
+[opciones]
+
+El preamble debe contener estas instrucciones exactas:
+[instrucciones]
+
+Los ítems, todos obligatorios, son exactamente estos:
+[nombre_1]: [texto del ítem 1]
+[nombre_2]: [texto del ítem 2]
+...
+
+[Incluí o no incluí] randomize_question_order: true, según las instrucciones de aplicación.
+El ensayo debe incluir data: { pantalla: "[etiqueta]" }.
+Antes del ensayo, agregá un comentario con la referencia de la escala y la lista de
+ítems invertidos: [referencia] / Ítems invertidos: [lista o "ninguno"].
+En la lista que recibe shuffle, reemplazá escala_organizacion por [nombre del ensayo].
+
+No redactes ítems nuevos ni modifiques la redacción de los ítems.
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+:::
+
+**Sin acceso a Codex:** realizá el reemplazo con el editor, usando como modelo el ensayo `escala_organizacion`.
+
+Antes de aprobar, compará la propuesta con la publicación original, no con tu especificación. Si la especificación tuviera un error de transcripción, compararla con el código no lo detectaría.
+
+## Pasos 3 y 4: atención a las dependencias
+
+La segunda escala ficticia tiene dos dependencias. El control de atención está dentro de su pantalla, y la escala forma parte de la lista que recibe `shuffle`.
+
+Antes de reemplazarla o quitarla, pedí una inspección.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+```text
+Quiero reemplazar [o quitar] el ensayo escala_motivacion. Antes de modificar archivos,
+indicá qué otras partes de experiment.js dependen de ese ensayo y qué pasaría con cada
+una si lo reemplazo [o lo quito]. No modifiques ningún archivo.
+```
+:::
+
+La respuesta debería mencionar el control de atención con su variable derivada, la lista de `shuffle` y la propiedad `primera_escala`. Con esa información, decidí:
+
+1. Si tu estudio tiene dos escalas, reemplazá la segunda con el mismo procedimiento del paso 2 y decidí si el control de atención queda en esa pantalla.
+
+2. Si tu estudio tiene una sola escala, decidí dónde va el control de atención. Una opción es moverlo a la pantalla de tu escala. Otra es ubicarlo en una pantalla propia. Revisá qué indican las instrucciones de aplicación de tu escala. Con una sola escala, además, el orden aleatorio entre escalas deja de tener sentido: la lista de `shuffle` y `primera_escala` pueden quitarse.
+
+Cada una de estas decisiones es metodológica. Escribila en `diseno.md` antes de pedir el cambio.
+
+## Paso 5: consentimiento y cierre
+
+Los textos del consentimiento y del cierre están escritos en tu documento de diseño. El pedido los transcribe.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+```text
+En experiment.js, reemplazá el texto (stimulus) del ensayo consentimiento por este
+contenido exacto, con el título entre <h2> y cada párrafo entre <p>:
+[texto del consentimiento]
+Conservá los botones "Acepto participar" y "No acepto" y su regla on_finish.
+No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+Hacé un pedido equivalente para el ensayo `cierre`.
+:::
+
+Revisá que el consentimiento mencione el destino real de los datos. Si todavía no decidiste entre Google Drive y Zenodo, dejá una marca `[COMPLETAR]` y resolvela en el capítulo sobre el guardado de datos.
+
+## Pasos 6 y 7: cuestionario y diccionario
+
+Ajustá el cuestionario sociodemográfico según tu diseño. Por ejemplo, si tu población no son estudiantes universitarios, la pregunta de inclusión y la pregunta de carrera tienen que cambiar. Si la pregunta de seguimiento sobre herramientas de IA no tiene relación con tu estudio, podés quitarla. Hacé un pedido por cambio.
+
+Al final, actualizá `diccionario.md`. Podés usar el procedimiento del capítulo sobre el diccionario: pedile al agente un borrador de las filas nuevas marcando PENDIENTE lo que el código no dice, y verificalo contra un archivo de datos real.
+
+## Explicá qué hizo realmente el agente
+
+A lo largo de los pasos, el agente trabajó siempre con la misma información de base: tu `AGENTS.md`, que leyó al comienzo de cada sesión, y el pedido de cada paso. Las reglas de `AGENTS.md` actuaron como restricciones permanentes, como “no redactes ítems” o “no cambies versiones”.
+
+En el paso de inspección de dependencias, el agente leyó el archivo completo y buscó dónde se mencionaba el ensayo. Es una tarea en la que un agente es útil, porque recorre todo el código. La decisión sobre qué hacer con cada dependencia siguió siendo tuya.
+
+## Verificá cada paso
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Al terminar cada paso:
+
+1. Comprobá los criterios de aceptación del paso.
+
+2. Ejecutá el plan de pruebas de la Parte IV, adaptado a los cambios que ya hiciste. Si quitaste una pantalla, quitá también su caso de prueba.
+
+3. Si todo está bien, guardá una copia del proyecto en `respaldos` con el número del paso.
+
+4. Agregá una entrada al registro de cambios del README.
+
+5. Si algo falla y no encontrás la causa en dos intentos, volvé a la última copia de respaldo.
+:::
+
+Al terminar todos los pasos, compará tu estudio con tu `diseno.md`, sección por sección. Cada decisión del diseño debería estar implementada, y cada parte del código debería corresponder a una decisión del diseño.
+
+## Este capítulo importa para investigar en Psicología
+
+Un estudio construido en pasos verificados tiene una historia que se puede reconstruir: qué se cambió, cuándo y cómo se comprobó. Esa trazabilidad forma parte de la reproducibilidad. Si en el análisis aparece algo extraño, podés volver a las copias de respaldo y al registro para entender qué versión del procedimiento respondió cada persona.
+
+La implementación de la escala es el paso con más consecuencias. Un ítem mal transcripto invalida la comparación con otros estudios que usaron la misma escala. Por eso se verifica contra la publicación original.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### Un paso cambia varias cosas
+
+Si un pedido modifica la escala y el consentimiento a la vez, dividilo. Un paso, un cambio.
+
+### El agente no sigue las reglas de `AGENTS.md`
+
+Comprobá que Codex se haya iniciado en la carpeta del proyecto. Si igual no las sigue, recordáselas en el pedido. `AGENTS.md` orienta, pero no garantiza.
+
+### Se quitó una escala y el estudio dejó de funcionar
+
+Probablemente otra parte dependía de ella: la lista de `shuffle`, `primera_escala` o el control de atención. Abrí la consola con `F12` y leé el error.
+
+### La escala se verificó contra la especificación
+
+La especificación es tu transcripción. Verificá contra la publicación original.
+
+### El diccionario quedó desactualizado
+
+Cambiar escalas cambia variables. Actualizá el diccionario en el paso 7 y verificalo con un archivo de datos real.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué es un criterio de aceptación?
+
+2. ¿Por qué conviene guardar una copia de todo el proyecto al terminar cada paso?
+
+3. ¿Qué función cumple `AGENTS.md`?
+
+4. ¿Cómo comprobaste que Codex lee `AGENTS.md`?
+
+5. ¿Por qué la escala se verifica contra la publicación original y no contra la especificación?
+
+6. ¿Qué partes del estudio dependen de la segunda escala ficticia?
+
+7. ¿Qué hacer si un paso falla dos veces?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Es una condición observable que un paso debe cumplir para darlo por terminado.
+
+2. Para poder volver al último estado que funcionaba si un paso posterior falla.
+
+3. Conserva reglas estables que el agente lee al comienzo de cada sesión, sin necesidad de repetirlas en cada pedido.
+
+4. Le pregunté qué reglas debía seguir en el proyecto y comprobé que la respuesta mencionara las de `AGENTS.md`.
+
+5. Porque la especificación es una transcripción que también puede contener errores.
+
+6. El control de atención con su variable derivada, la lista que recibe `shuffle` y la propiedad `primera_escala`.
+
+7. Volver a la última copia de respaldo, revisar el pedido y dividir el paso si hace falta.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+La construcción incremental implementa un diseño en pasos pequeños. Cada paso cambia una sola cosa, tiene criterios de aceptación, termina con una verificación que incluye pruebas de regresión y deja una copia de respaldo.
+
+`AGENTS.md` conserva las reglas del proyecto entre sesiones. Codex lo lee automáticamente al iniciarse en la carpeta del proyecto.
+
+Reemplazar una escala ficticia por una real requiere transcribir el texto exacto de la publicación, verificar contra esa publicación y revisar las dependencias con otras partes del estudio. Las decisiones sobre esas dependencias se documentan en el diseño.
+
+## Resolvé un desafío breve
+
+Escribí el plan de construcción de tu propio estudio.
+
+1. Listá los pasos, cada uno con los archivos que modifica.
+
+2. Para el paso de tu escala principal, escribí al menos cinco criterios de aceptación.
+
+3. Identificá qué dependencias tiene cada paso con otras partes del estudio.
+
+4. Ejecutá los pasos, guardando una copia de respaldo al terminar cada uno.
+
+5. Al final, escribí un párrafo que describa qué paso fue el más difícil de verificar y por qué.
+
+En el próximo capítulo vas a probar tu estudio con otras personas y vas a aprender a buscar la causa de un problema de manera sistemática.

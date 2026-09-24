@@ -1,24 +1,408 @@
 ---
 title: "Escalas psicológicas"
-description: "Ítems, opciones de respuesta y puntuaciones como decisiones metodológicas."
+description: "Ítems, opciones de respuesta, ítems invertidos y la diferencia entre presentar una escala y puntuarla."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Se utilizará una escala ficticia o contenido autorizado. No se inventarán ítems de instrumentos psicológicos reales.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué es una escala psicológica y qué la diferencia de una pregunta aislada.
+
+2. Vas a poder especificar las instrucciones, los ítems y las opciones de respuesta de una escala.
+
+3. Vas a poder implementar una escala con el plugin `survey-likert`.
+
+4. Vas a poder explicar cómo codifica jsPsych las respuestas de una escala.
+
+5. Vas a poder reconocer un ítem invertido y calcular un puntaje a partir de los datos.
+
+6. Vas a poder distinguir una escala que funciona técnicamente de una escala válida.
+
+## Un concepto amplio permite formular el problema
+
+Tu estudio pregunta sobre hábitos de estudio. Hasta ahora registra datos sociodemográficos: edad, género, carrera, año y recursos. Ninguna de esas variables describe cómo se organiza una persona para estudiar.
+
+“Organización del estudio” es un concepto amplio. En el capítulo sobre computadoras lo llamaste **constructo**: un concepto teórico que la investigación busca describir o medir. Un constructo no se observa directamente. Nadie puede ver la organización de una persona. Se infiere a partir de conductas, opiniones o respuestas.
+
+Una sola pregunta, como “¿Sos una persona organizada para estudiar?”, captura una parte muy pequeña del constructo y depende mucho de cómo cada persona interprete la palabra “organizada”. Por eso la Psicología usa **escalas**: conjuntos de preguntas que, en conjunto, buscan medir un mismo constructo.
+
+Este capítulo incorpora una escala al estudio. Como el libro no puede reproducir instrumentos reales sin autorización, vas a usar una **escala ficticia** construida con fines didácticos. En el proyecto final vas a elegir una escala real adecuada a tu pregunta de investigación y vas a incorporarla con el mismo procedimiento.
+
+::: {.callout-tip}
+## Idea clave
+
+Presentar una escala y puntuarla son tareas diferentes. jsPsych presenta los ítems y registra las respuestas. El puntaje surge de reglas definidas por el instrumento: qué ítems se suman, cuáles se invierten y cómo se codifica cada opción.
 :::
 
-## Propósito
+## Una escala tiene partes definidas
 
-Construir una escala didáctica para trabajar operacionalización, nombres de variables, ítems invertidos y cálculo de puntuaciones.
+Una escala psicológica suele tener cuatro partes.
 
-## Objetivos de aprendizaje
+1. **Instrucciones.** Indican qué tiene que hacer la persona y con qué marco de referencia. Por ejemplo, “pensá en el último mes”.
 
-- Especificar instrucciones, ítems y categorías de respuesta sin ambigüedad.
-- Diferenciar la presentación de la escala de su puntuación.
-- Reconocer ítems invertidos y documentar su tratamiento.
-- Verificar que la interfaz y los datos coincidan con la especificación.
+2. **Ítems.** Son las afirmaciones o preguntas a las que responde la persona. Cada ítem produce una variable.
 
-## Decisión metodológica e implementación
+3. **Opciones de respuesta.** Son las alternativas entre las que se elige. Cuando expresan grados de acuerdo ordenados, se habla de **formato Likert**, por el psicólogo que lo propuso.
 
-Que una escala aparezca correctamente en pantalla no demuestra que mida el constructo previsto ni que su puntuación sea válida.
+4. **Reglas de puntuación.** Indican cómo se combinan las respuestas para obtener un puntaje: qué ítems se suman o promedian, cuáles se invierten y qué valor numérico corresponde a cada opción.
 
+Las cuatro partes forman el instrumento. Cambiar una de ellas cambia el instrumento. Por ejemplo, si una escala validada usa siete opciones de respuesta y la implementación usa cinco, ya no se está aplicando la misma escala.
+
+## Los instrumentos reales tienen autores y condiciones de uso
+
+Las escalas que se usan en investigación fueron construidas y estudiadas por equipos de investigación. Una escala **validada** es una escala para la cual existe evidencia de que mide lo que dice medir y de que lo hace de manera consistente. Esa evidencia corresponde a una versión concreta: un idioma, una redacción, unas opciones de respuesta y una población.
+
+Además, muchos instrumentos tienen condiciones de uso. Algunos son de libre uso para investigación. Otros requieren permiso de sus autores o de una editorial.
+
+Por estas razones, en este libro se siguen tres reglas.
+
+1. No se inventan ítems de instrumentos reales.
+
+2. No se reproducen instrumentos de memoria, ni propios ni de un agente.
+
+3. Los ítems reales se incorporan a partir de la publicación original del instrumento, con su referencia.
+
+::: {.callout-important}
+## Un agente no es una fuente de ítems
+
+Si le pedís a un agente “agregá la escala de satisfacción con la vida”, puede escribir ítems parecidos a los de un instrumento publicado. No hay garantía de que coincidan con la versión validada, ni de que su uso esté autorizado. Dale siempre el texto exacto de los ítems, obtenido de la fuente original, y pedile que no los modifique.
+:::
+
+## La escala ficticia del libro
+
+La escala de este capítulo se llama **Escala ficticia de organización del estudio**. Su abreviatura es EFOE. Fue redactada para este libro con fines didácticos. No es un instrumento validado y no debe usarse para medir en una investigación.
+
+Su especificación es la siguiente.
+
+**Instrucciones:** “Indicá cuánto estás de acuerdo con cada afirmación sobre tu forma de estudiar.”
+
+| Variable | Ítem | Sentido |
+|:---|:---|:---|
+| `efoe_1` | Organizo mis horas de estudio con anticipación. | Directo |
+| `efoe_2` | Termino las tareas de estudio que me propongo. | Directo |
+| `efoe_3` | Dejo el estudio para el último momento. | Invertido |
+| `efoe_4` | Tengo un lugar habitual para estudiar. | Directo |
+
+: Ítems de la escala ficticia de organización del estudio {#tbl-efoe}
+
+**Opciones de respuesta:** Totalmente en desacuerdo, En desacuerdo, Ni de acuerdo ni en desacuerdo, De acuerdo, Totalmente de acuerdo.
+
+**Obligatoriedad:** todos los ítems son obligatorios.
+
+**Puntuación:** se invierte `efoe_3` y se suman los cuatro ítems. Un puntaje más alto indica más organización.
+
+### Un ítem invertido está redactado en sentido contrario
+
+En los ítems 1, 2 y 4, estar de acuerdo indica más organización. En el ítem 3 ocurre lo contrario: estar de acuerdo con “Dejo el estudio para el último momento” indica menos organización. Ese ítem es un **ítem invertido**.
+
+Las escalas incluyen ítems invertidos para detectar respuestas automáticas, como marcar siempre la misma opción sin leer. Antes de sumar, el ítem invertido debe transformarse para que todos los ítems apunten en la misma dirección.
+
+## jsPsych codifica las opciones desde cero
+
+El plugin `survey-likert` muestra cada ítem con sus opciones en una línea horizontal. Cuando la persona elige una opción, jsPsych registra su **posición**, contando desde cero.
+
+| Opción | Valor registrado |
+|:---|:---|
+| Totalmente en desacuerdo | 0 |
+| En desacuerdo | 1 |
+| Ni de acuerdo ni en desacuerdo | 2 |
+| De acuerdo | 3 |
+| Totalmente de acuerdo | 4 |
+
+: Codificación de las opciones en jsPsych {#tbl-codificacion}
+
+Esta codificación es una decisión técnica de jsPsych. Muchos instrumentos, en cambio, codifican sus opciones de 1 a 5. Si una escala real indica que “Totalmente en desacuerdo” vale 1, vas a tener que sumar 1 a cada valor registrado antes de calcular el puntaje. Si no lo hacés, todos los puntajes van a quedar desplazados.
+
+Con la codificación de 0 a 4, invertir un ítem consiste en restar su valor a 4.
+
+```text
+valor invertido = 4 - valor registrado
+```
+
+Si una persona respondió “De acuerdo” al ítem 3, jsPsych registra 3. El valor invertido es 4 − 3 = 1.
+
+::: {.callout-warning}
+## La codificación forma parte de la documentación
+
+Un número como `3` no significa nada por sí solo. Para interpretarlo necesitás saber qué opción representa y si el ítem es directo o invertido. Esa información debe quedar documentada. En el capítulo sobre el diccionario de variables vas a registrarla.
+:::
+
+## El plugin `survey-likert` presenta la escala
+
+El ensayo de la escala se ve así.
+
+```javascript
+// ESCALA FICTICIA CON FINES PEDAGÓGICOS.
+// No es un instrumento validado. No usar para medir en una investigación real.
+// El ítem efoe_3 está redactado en sentido inverso.
+const opciones_acuerdo = [
+  "Totalmente en desacuerdo",
+  "En desacuerdo",
+  "Ni de acuerdo ni en desacuerdo",
+  "De acuerdo",
+  "Totalmente de acuerdo"
+];
+
+const escala_organizacion = {
+  type: jsPsychSurveyLikert,
+  preamble:
+    "<p>Indicá cuánto estás de acuerdo con cada afirmación sobre tu forma de estudiar.</p>" +
+    "<p><em>Escala ficticia con fines didácticos.</em></p>",
+  questions: [
+    { prompt: "Organizo mis horas de estudio con anticipación.", name: "efoe_1", labels: opciones_acuerdo, required: true },
+    { prompt: "Termino las tareas de estudio que me propongo.", name: "efoe_2", labels: opciones_acuerdo, required: true },
+    { prompt: "Dejo el estudio para el último momento.", name: "efoe_3", labels: opciones_acuerdo, required: true },
+    { prompt: "Tengo un lugar habitual para estudiar.", name: "efoe_4", labels: opciones_acuerdo, required: true }
+  ],
+  button_label: "Continuar"
+};
+```
+
+El fragmento tiene elementos nuevos.
+
+1. Las líneas que comienzan con `//` son **comentarios**. El navegador las ignora. Sirven para dejar notas a las personas que leen el código. Aquí identifican la escala como ficticia y señalan el ítem invertido.
+
+2. `opciones_acuerdo` es una lista con las cinco opciones. Se define una sola vez y se usa en los cuatro ítems. Así, si hubiera que corregir una opción, se corrige en un solo lugar.
+
+3. `preamble` contiene el texto que aparece arriba de los ítems. Aquí incluye las instrucciones y la aclaración de que la escala es ficticia.
+
+4. Cada ítem tiene `prompt`, `name`, `labels` y `required`. El parámetro `labels` indica qué opciones mostrar.
+
+Observá que el código no dice nada sobre la puntuación. No indica que `efoe_3` se invierte ni que los ítems se suman. jsPsych solo presenta y registra. Las reglas de puntuación viven en la documentación del instrumento y se aplican en el análisis.
+
+## Este capítulo importa para investigar en Psicología
+
+Una escala mal implementada produce datos que parecen correctos. El estudio funciona, las respuestas se registran y los números existen. Sin embargo, pueden aparecer varios problemas que ningún mensaje de error va a señalar.
+
+1. Un ítem con una palabra cambiada ya no es el ítem validado.
+
+2. Una opción de respuesta faltante o en otro orden cambia el significado de los valores.
+
+3. Un ítem invertido que no se invierte en el análisis distorsiona el puntaje.
+
+4. Una codificación de 0 a 4 interpretada como de 1 a 5 desplaza todos los puntajes.
+
+Por eso, la verificación de una escala requiere comparar la implementación con la fuente, ítem por ítem y opción por opción. Es una tarea del investigador.
+
+## Agregá la escala con Codex
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Guardá copias de respaldo de `index.html` y `experiment.js`.
+
+2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+3. Escribí este pedido.
+
+```text
+Quiero agregar una escala ficticia al estudio.
+
+En index.html, agregá esta línea exacta después de la línea que carga plugin-survey-multi-select:
+<script src="https://unpkg.com/@jspsych/plugin-survey-likert@2.2.0"></script>
+
+En experiment.js, agregá un ensayo llamado escala_organizacion que use jsPsychSurveyLikert.
+Ubicalo en la línea de tiempo después de pregunta_recursos.
+
+Antes del ensayo, agregá estos tres comentarios exactos:
+// ESCALA FICTICIA CON FINES PEDAGÓGICOS.
+// No es un instrumento validado. No usar para medir en una investigación real.
+// El ítem efoe_3 está redactado en sentido inverso.
+
+Definí una lista llamada opciones_acuerdo con estas cinco opciones exactas, en este orden:
+Totalmente en desacuerdo, En desacuerdo, Ni de acuerdo ni en desacuerdo, De acuerdo,
+Totalmente de acuerdo.
+
+El preamble debe tener dos párrafos exactos:
+"Indicá cuánto estás de acuerdo con cada afirmación sobre tu forma de estudiar."
+y, en cursiva, "Escala ficticia con fines didácticos."
+
+Los ítems, todos obligatorios y con las opciones de opciones_acuerdo, son exactamente estos:
+efoe_1: Organizo mis horas de estudio con anticipación.
+efoe_2: Termino las tareas de estudio que me propongo.
+efoe_3: Dejo el estudio para el último momento.
+efoe_4: Tengo un lugar habitual para estudiar.
+
+El botón debe decir "Continuar".
+No redactes ítems nuevos ni modifiques la redacción de los ítems.
+No modifiques ninguna otra parte de los archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+4. Revisá el plan y cada propuesta de cambio. Compará cada ítem y cada opción con la especificación de este capítulo.
+:::
+
+**Sin acceso a Codex:** agregá la línea del plugin a `index.html` y copiá el fragmento de la sección anterior en `experiment.js`, antes de `pregunta_comentarios`. Después agregá `escala_organizacion` a la línea de tiempo.
+
+## Explicá qué hizo realmente el agente
+
+El agente cargó el plugin `survey-likert`, definió la lista de opciones, definió el ensayo con sus cuatro ítems y lo incorporó a la línea de tiempo. Son los mismos tres pasos de siempre, más la lista de opciones.
+
+Observá que el pedido fue más largo que los anteriores. La razón es que casi todo su contenido es texto exacto: ítems, opciones e instrucciones. Cuando el contenido expresa decisiones del instrumento, el pedido lo transcribe completo. El agente no tomó ninguna decisión sobre el contenido de la escala. Solo decidió cómo escribirlo en el formato de jsPsych.
+
+La instrucción “No redactes ítems nuevos ni modifiques la redacción de los ítems” es una restricción metodológica explícita. Protege el instrumento frente a “mejoras” que el agente podría proponer por su cuenta.
+
+## Verificá la escala y sus datos
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+**Lo que se ve.**
+
+1. Recargá el estudio y avanzá hasta la escala.
+
+2. Compará cada ítem con la tabla de especificación, palabra por palabra.
+
+3. Comprobá que cada ítem tenga cinco opciones en el orden especificado.
+
+4. Intentá avanzar dejando un ítem sin responder. Comprobá que no se pueda.
+
+**Lo que se registró.**
+
+5. Respondé con este patrón: ítem 1, “De acuerdo”; ítem 2, “Totalmente de acuerdo”; ítem 3, “En desacuerdo”; ítem 4, “Totalmente en desacuerdo”.
+
+6. Terminá el estudio. En la tabla de datos, buscá la fila de la escala. Anotá el contenido de la columna `response`.
+
+7. Antes de mirar la respuesta, escribí qué valores esperabas para cada ítem según la tabla de codificación.
+
+**Lo que se decidió.**
+
+8. Calculá el puntaje de la escala para tus respuestas, invirtiendo `efoe_3`.
+:::
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+La columna `response` debe contener `{"efoe_1":3,"efoe_2":4,"efoe_3":1,"efoe_4":0}`.
+
+El ítem 3 se invierte: 4 − 1 = 3. El puntaje es 3 + 4 + 3 + 0 = 10. La escala ficticia tiene un rango posible de 0 a 16.
+
+Si hubieras olvidado invertir el ítem 3, el puntaje habría sido 3 + 4 + 1 + 0 = 8. El error no produce ningún aviso: solo un número distinto.
+
+</details>
+
+Observá que, a diferencia de la edad, los valores de la escala aparecen sin comillas. jsPsych los registra como números. Esa diferencia importa en el análisis.
+
+## En el proyecto final vas a elegir una escala real
+
+La escala ficticia te permitió practicar todo el proceso sin reproducir un instrumento protegido. En el proyecto final vas a reemplazarla por una escala real. El libro no te va a indicar cuál: la elección depende de lo que quieras investigar. Elegir el instrumento es una de las decisiones metodológicas más importantes de un estudio por encuesta.
+
+Para elegir una escala conviene responder estas preguntas.
+
+1. **¿Mide el constructo que necesito?** El nombre de una escala no alcanza. Leé cómo definen sus autores el constructo y compará esa definición con la de tu pregunta de investigación.
+
+2. **¿Existe una versión validada para mi población?** Buscá una versión en el idioma de tus participantes y con evidencia obtenida en una población parecida. Una traducción propia no es una versión validada.
+
+3. **¿Qué evidencia de validez y confiabilidad tiene?** La publicación de la versión que elijas debería informarla.
+
+4. **¿Qué condiciones de uso tiene?** Algunos instrumentos son de libre uso para investigación. Otros requieren permiso de sus autores o de una editorial. Comprobalo antes de usarlo.
+
+5. **¿Es adecuada su extensión?** Una escala muy larga puede aumentar el cansancio y las respuestas descuidadas, un problema que vas a estudiar en la Parte IV.
+
+Una vez elegida, obtené los ítems, las instrucciones, las opciones de respuesta y las reglas de puntuación de la **publicación original** de esa versión. No uses copias de sitios web sin referencia y no le pidas a un agente que te los proporcione.
+
+Para incorporar la escala real vas a seguir el mismo procedimiento que usaste con la ficticia.
+
+1. Escribir la especificación completa a partir de la publicación original.
+
+2. Pedir la implementación con el texto exacto de ítems, instrucciones y opciones.
+
+3. Verificar la implementación contra la fuente, ítem por ítem y opción por opción.
+
+4. Documentar la codificación y las reglas de puntuación.
+
+Prestá atención a las diferencias entre la escala real y la ficticia. La escala real puede tener otra cantidad de opciones, otros ítems invertidos o una codificación que comience en 1.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### Un ítem tiene una palabra distinta
+
+Los agentes pueden corregir o “mejorar” una redacción sin que se lo pidas. Compará cada ítem con la fuente antes de aprobar la propuesta.
+
+### Las opciones aparecen en otro orden
+
+El orden de `opciones_acuerdo` determina el valor registrado. Si las opciones aparecen desordenadas, los números dejan de representar lo que creés.
+
+### La escala funciona, pero no aparece la aclaración de que es ficticia
+
+La aclaración forma parte de la especificación. Una escala ficticia sin identificar puede confundirse con un instrumento real.
+
+### El puntaje supera el máximo posible
+
+Si al sumar obtenés un valor mayor que 16, probablemente sumaste valores de 1 a 5 en lugar de 0 a 4, o invertiste mal un ítem. Revisá la codificación.
+
+### Se confunde la escala con una sola pregunta
+
+Cada ítem produce su propia variable. El puntaje de la escala es una variable nueva que se calcula en el análisis. No lo registra jsPsych.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué es una escala psicológica?
+
+2. ¿Qué cuatro partes tiene una escala?
+
+3. ¿Qué significa que una escala esté validada?
+
+4. ¿Por qué no se le pide a un agente que redacte los ítems de un instrumento?
+
+5. ¿Qué es un ítem invertido?
+
+6. ¿Qué valor registra jsPsych cuando una persona elige “Ni de acuerdo ni en desacuerdo”?
+
+7. ¿Cuál es el valor invertido de un 4 en la escala ficticia?
+
+8. ¿Por qué una escala que funciona sin errores puede estar mal implementada?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Una escala psicológica es un conjunto de ítems que buscan medir un mismo constructo.
+
+2. Una escala tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación.
+
+3. Significa que existe evidencia de que esa versión mide lo que dice medir y de que lo hace de manera consistente.
+
+4. El agente puede escribir ítems inventados o parecidos a los de un instrumento publicado, sin garantía de que coincidan con la versión validada ni de que su uso esté autorizado.
+
+5. Un ítem invertido es un ítem redactado en sentido contrario al resto, de modo que estar de acuerdo indica un nivel más bajo del constructo.
+
+6. Registra el valor 2.
+
+7. El valor invertido de 4 es 0.
+
+8. Un ítem modificado, una opción faltante o una codificación mal interpretada no producen errores técnicos, pero cambian el significado de los datos.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Una escala psicológica es un conjunto de ítems que buscan medir un constructo. Tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación. Cambiar cualquiera de esas partes cambia el instrumento.
+
+Los instrumentos reales tienen autores, evidencia de validez para versiones concretas y condiciones de uso. No se inventan ni se reproducen de memoria. En este libro los capítulos usan una escala ficticia, y en el proyecto final cada estudiante elige la escala real que necesita.
+
+El plugin `survey-likert` presenta los ítems y registra la posición de la opción elegida, contando desde 0. Los ítems invertidos se transforman antes de sumar. La puntuación no ocurre en jsPsych: ocurre en el análisis, a partir de reglas documentadas.
+
+Una escala puede funcionar técnicamente y estar mal implementada. Su verificación exige comparar cada ítem, cada opción y la codificación con la fuente.
+
+## Resolvé un desafío breve
+
+Tres personas respondieron la escala ficticia. jsPsych registró estos datos.
+
+```text
+Persona A: {"efoe_1":4,"efoe_2":4,"efoe_3":0,"efoe_4":4}
+Persona B: {"efoe_1":0,"efoe_2":1,"efoe_3":4,"efoe_4":0}
+Persona C: {"efoe_1":2,"efoe_2":2,"efoe_3":2,"efoe_4":2}
+```
+
+1. Calculá el puntaje de cada persona invirtiendo `efoe_3`.
+
+2. Calculá el puntaje que obtendría cada persona si alguien olvidara invertir `efoe_3`.
+
+3. ¿Para qué persona el error no cambia el resultado? Explicá por qué.
+
+4. Imaginá que la persona A marcó “Totalmente de acuerdo” en los cuatro ítems sin leerlos. ¿Qué valores habría registrado jsPsych? ¿Qué puntaje obtendría? ¿Cómo ayuda el ítem invertido a detectar ese patrón?
+
+En el próximo capítulo vas a estudiar el archivo de datos completo que produce tu estudio y vas a compararlo con la tabla de Google Forms.

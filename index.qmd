@@ -3,9 +3,11 @@ subtitle: "Investigación computacional con jsPsych y agentes de IA"
 description: "Un recorrido desde el uso cotidiano de una computadora hasta la construcción de un estudio psicológico online."
 ---
 
-# De Google Forms a experimentos web {.unnumbered}
+# Presentación {.unnumbered}
 
 ::: {.book-hero}
+<p class="terminal-line">&gt; especificar → implementar → ejecutar → verificar<span class="cursor" aria-hidden="true"></span></p>
+
 Este libro acompaña a estudiantes de Psicología que conocen Google Forms, pero nunca programaron ni trabajaron desde una terminal. El objetivo no es formar programadores: es aprender a diseñar, construir y verificar estudios psicológicos digitales con ayuda de agentes de IA.
 :::
 
@@ -15,7 +17,7 @@ Este libro acompaña a estudiantes de Psicología que conocen Google Forms, pero
   <div class="route-step"><strong>1. Entender la computadora</strong><span>Archivos, carpetas, programas, terminal y proyectos.</span></div>
   <div class="route-step"><strong>2. Trabajar con agentes</strong><span>Dar instrucciones, limitar tareas y revisar cambios.</span></div>
   <div class="route-step"><strong>3. Reconstruir Forms</strong><span>Preguntas, escalas, validaciones y estructura de datos.</span></div>
-  <div class="route-step"><strong>4. Ir más allá</strong><span>Aleatorización, estímulos, tiempos de reacción y lógica experimental.</span></div>
+  <div class="route-step"><strong>4. Ir más allá</strong><span>Aleatorización, lógica condicional, controles de calidad y tiempos de respuesta.</span></div>
   <div class="route-step"><strong>5. Completar el estudio</strong><span>Pilotaje, datos, publicación y proyecto final.</span></div>
 </div>
 
@@ -46,5 +48,5 @@ El libro incluye puntos de recuperación o *checkpoints*. Si una versión deja d
 ::: {.callout-note}
 ## Estado actual
 
-La arquitectura completa del libro ya está definida. Los capítulos se desarrollarán y verificarán de manera incremental; los que todavía son borradores lo indican al comienzo.
+Los veintiocho capítulos, los seis apéndices y los checkpoints del proyecto están desarrollados. Las instrucciones sobre herramientas que cambian con frecuencia, como Codex, DataPipe y GitHub, se revisaron en septiembre de 2026.
 :::

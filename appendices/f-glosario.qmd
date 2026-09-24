@@ -3,11 +3,538 @@ title: "Glosario"
 description: "Definiciones breves de los términos técnicos utilizados."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-El glosario se completará de manera acumulativa y conservará la terminología utilizada en los capítulos.
-:::
+## Cómo usar este glosario {.unnumbered}
 
-## Criterio de inclusión
+Cada término se define en lenguaje claro la primera vez que aparece en el libro. Este glosario sirve para volver a consultarlo, no para reemplazar aquella explicación. Cada entrada indica el capítulo donde podés encontrar la explicación completa.
 
-Cada término se definirá en lenguaje claro la primera vez que aparezca en el recorrido principal. Este apéndice servirá para volver a consultarlo, no para reemplazar aquella explicación.
+Reúne los términos de las cinco partes del libro.
 
+## A {.unnumbered}
+
+Accesibilidad
+: Característica de un estudio que permite que lo respondan más personas, incluidas personas con dificultades visuales o motoras. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+Administrador de tareas
+: Herramienta de Windows que muestra las aplicaciones y los procesos activos, y el uso de recursos como el procesador y la memoria. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Advertencia
+: Mensaje que informa una condición que merece atención, aunque el programa pueda continuar. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Agente de IA
+: Programa que usa un modelo de lenguaje para realizar tareas mediante acciones concretas, como leer archivos, modificarlos o ejecutar comandos. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+`AGENTS.md`
+: Archivo que comunica reglas estables a los agentes que trabajan dentro de un proyecto. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Alias
+: Nombre alternativo que un intérprete de comandos acepta para otro comando. Por ejemplo, `dir` es un alias de `Get-ChildItem`. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Almacenamiento
+: Conservación de información para usarla más adelante, incluso después de apagar la computadora. También designa la parte física que la conserva, como un disco. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Alojamiento web
+: Servicio que entrega los archivos de un sitio a los navegadores que los piden. En inglés, *hosting*. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+Aprobación
+: Pregunta que un agente hace antes de realizar una acción. Muestra qué quiere hacer y permite aceptar o rechazar. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Archivo
+: Unidad de información guardada con un nombre. Puede contener texto, imágenes, sonidos, datos o instrucciones. Ver [capítulo 1](../part-1/01-computadora.qmd) y [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Argumento
+: Información que un comando necesita para realizar una acción. En `cd materiales`, `materiales` es el argumento. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Asignación aleatoria
+: Asignación al azar de cada persona a una versión diferente del procedimiento, llamada condición. Es la base de los diseños experimentales. Ver [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
+Atributo
+: Indicación escrita dentro de una etiqueta HTML que define cómo funciona un elemento, como `min="18"` en un campo de respuesta. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+## B {.unnumbered}
+
+Barra de progreso
+: Indicador visual que muestra qué parte del estudio se completó. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+Base de datos
+: Conjunto organizado de datos que permite guardar y consultar información. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Biblioteca
+: Conjunto de instrucciones ya escritas por otras personas que un programa puede usar. jsPsych es una biblioteca de JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+## C {.unnumbered}
+
+Carpeta
+: Contenedor que permite organizar archivos y otras carpetas. También se la llama directorio. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Carpeta actual
+: Carpeta que se toma como referencia para interpretar una ruta relativa. En la terminal recibe el nombre de carpeta de trabajo actual. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 3](../part-1/03-terminal.qmd).
+
+Carpeta de trabajo de un agente
+: Carpeta desde la cual se inicia un agente. Define el alcance habitual de lo que puede leer y modificar. En inglés se la llama *workspace*. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Carpeta principal
+: Carpeta que contiene un proyecto completo. También se la llama raíz del proyecto o *project root*. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Caso de prueba
+: Entrada preparada de antemano junto con el resultado que se espera obtener. Sirve para verificar una validación u otro comportamiento. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Caso límite
+: Caso de prueba ubicado justo en el borde de una regla, como los valores 18 y 80 en un rango de 18 a 80. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Chatbot
+: Programa que conversa mediante mensajes. Produce respuestas, pero no actúa sobre tus archivos. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Checkpoint
+: Copia del proyecto guardada en un momento concreto del recorrido. Funciona de manera independiente y permite comparar o recuperar el trabajo. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Clase de CSS
+: Nombre asignado a ciertos elementos de una página que una regla de CSS puede usar como selector. Se escribe con un punto al comienzo, como `.jspsych-content`. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+CLI
+: Sigla de *command-line interface*, interfaz de línea de comandos. Designa a los programas que se usan escribiendo instrucciones en una terminal. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Clonar
+: Crear en tu computadora una copia de un repositorio de GitHub que queda conectada con el original. Ver el [apéndice B](b-git.qmd).
+
+Codex
+: Agente de IA desarrollado por OpenAI. En este libro se usa su versión de terminal, Codex CLI. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Codificación
+: Regla que usa una computadora para guardar cada carácter como información. UTF-8 es la codificación más usada en archivos de texto actuales. Si un archivo se interpreta con otra codificación, las tildes pueden verse como símbolos extraños. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Código
+: Texto escrito según reglas que un programa puede interpretar. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Código de salida
+: Número que un programa devuelve al terminar. El valor `0` suele indicar una finalización correcta. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Comando
+: Instrucción escrita que solicita una acción. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Comando con barra
+: Instrucción que comienza con `/` y que, dentro de un agente como Codex, configura la sesión en lugar de enviarse al modelo. En inglés se lo llama *slash command*. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Comentario de código
+: Línea que comienza con `//` en JavaScript. El navegador la ignora y sirve para dejar notas a quien lee el código. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+Commit
+: Cambio confirmado en un repositorio, con fecha y un mensaje que lo describe. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+Consentimiento informado
+: Proceso mediante el cual una persona recibe información sobre un estudio y decide libremente si participa. En un estudio online se presenta antes de cualquier pregunta. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Consola del navegador
+: Pestaña de las herramientas para desarrolladores, que se abren con `F12`, donde el navegador muestra los errores con su archivo y número de línea. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Construcción incremental
+: Forma de implementar un estudio en pasos pequeños, cada uno con criterios de aceptación, verificación y copia de respaldo. Ver [capítulo 24](../part-5/24-construccion-estudio.qmd).
+
+Constructo
+: Concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Contexto
+: Conjunto de información con la que trabaja un agente durante una sesión: los mensajes, sus respuestas y el contenido de los archivos que leyó. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Copia de respaldo
+: Copia que conserva la información en otra ubicación y permite recuperarla si se pierde o se daña el archivo de trabajo. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Criterio de aceptación
+: Condición observable que un paso de construcción debe cumplir para darlo por terminado. Ver [capítulo 24](../part-5/24-construccion-estudio.qmd).
+
+Criterio de inclusión
+: Condición que una persona debe cumplir para formar parte de la población del estudio. Ver [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+CSS
+: Lenguaje que describe la apariencia de una página web: tamaños, colores, márgenes y disposición. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+CSV
+: Formato de archivo de texto que organiza datos en filas y columnas separadas por comas. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 15](../part-3/15-datos-generados.qmd).
+
+## D {.unnumbered}
+
+DataPipe
+: Servicio gratuito que recibe los datos de un estudio y los guarda en un espacio de almacenamiento del investigador, como Google Drive o Zenodo. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
+Dato
+: Representación de información que un sistema puede registrar y procesar. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Dato faltante
+: Valor que debería existir en los datos y no está registrado. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+Debriefing
+: Pantalla de cierre que explica el propósito del estudio, agradece la participación y ofrece un contacto. Ver [capítulo 23](../part-5/23-disenar-antes.qmd).
+
+Decisión metodológica
+: Decisión que define qué se quiere investigar y bajo qué condiciones, como el constructo, la población, el procedimiento o el significado de una variable. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Decisión técnica
+: Decisión que define cómo se realiza una parte del procedimiento mediante archivos y programas. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Depurar
+: Encontrar y corregir la causa de un problema en un programa. En inglés, *debugging*. Ver [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
+
+Diccionario de variables
+: Documento que describe cada variable de un conjunto de datos: nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas. También se lo llama libro de códigos. Ver [capítulo 16](../part-3/16-diccionario-datos.qmd).
+
+Diferencias
+: Presentación que muestra qué cambia entre dos versiones de un archivo. Las líneas con `+` se agregan y las líneas con `-` se eliminan. En inglés se la llama *diff*. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Directorio
+: Término técnico equivalente a carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Documento de diseño
+: Documento que reúne las decisiones metodológicas de un estudio antes de programarlo. En el proyecto del libro es `diseno.md`. Ver [capítulo 23](../part-5/23-disenar-antes.qmd).
+
+DOI
+: Identificador permanente que permite citar un conjunto de datos u otra publicación. Zenodo lo genera al publicar un depósito. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
+## E {.unnumbered}
+
+Efecto de orden
+: Influencia de la posición de una pregunta, o de las preguntas anteriores, sobre las respuestas. Ver [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
+Ejecutar
+: Poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, usar el resultado de la manera en que se va a usar realmente. Ver [capítulo 1](../part-1/01-computadora.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Ensayo
+: Cada pantalla de la secuencia de un estudio en jsPsych. En inglés, *trial*. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Entrada
+: Información que recibe la computadora, como una tecla presionada o una respuesta escrita. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Error
+: Condición que impide completar una acción esperada. El mensaje de error describe la dificultad. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Escala psicológica
+: Conjunto de ítems que buscan medir un mismo constructo. Tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+Escala validada
+: Escala para la cual existe evidencia de que una versión concreta mide lo que dice medir y lo hace de manera consistente. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+Especificación
+: Descripción precisa de lo que debe construirse, incluido el criterio para comprobar que el resultado es correcto. Ver [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Explorador de archivos
+: Programa de Windows que permite recorrer unidades, carpetas y archivos mediante una interfaz gráfica. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Extensión
+: Parte final del nombre de un archivo, separada por un punto, que ayuda a reconocer su tipo. Por ejemplo, `.csv` en `datos.csv`. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Extensión de jsPsych
+: Pieza que agrega a jsPsych un comportamiento general, que no corresponde a una pantalla en particular, como el guardado de datos con DataPipe. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
+## F {.unnumbered}
+
+Formato ancho
+: Organización de datos con una fila por persona y una columna por variable, como la hoja de Google Forms. Ver [capítulo 11](../part-3/11-google-forms.qmd) y [capítulo 15](../part-3/15-datos-generados.qmd).
+
+Formato largo
+: Organización de datos con una fila por ensayo, como la que produce jsPsych. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
+
+Formato Likert
+: Formato de respuesta con opciones ordenadas que expresan grados de acuerdo. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+## G {.unnumbered}
+
+Git
+: Herramienta que registra las versiones de un proyecto y muestra qué cambió entre una versión y otra. Ver [capítulo 9](../part-2/09-revisar-agente.qmd) y [capítulo 27](../part-5/27-publicacion.qmd).
+
+GitHub
+: Servicio web que permite alojar y compartir proyectos. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+GitHub Pages
+: Servicio de GitHub que publica como sitio web los archivos de un repositorio. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+`.gitignore`
+: Archivo que indica qué archivos debe ignorar Git. En un estudio sirve para evitar que los archivos de datos lleguen al repositorio. Ver el [apéndice B](b-git.qmd).
+
+Guardado progresivo
+: Forma de guardado en la que cada pantalla se envía a medida que se responde. Quien abandona deja un archivo parcial. En este libro está desactivado. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
+## H {.unnumbered}
+
+Hardware
+: Partes físicas de una computadora, como la pantalla, el teclado, el procesador y el disco. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Herramienta de un agente
+: Capacidad que el programa pone a disposición del modelo de lenguaje, como leer un archivo, escribirlo o ejecutar un comando. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Hoja de estilos
+: Archivo que define la apariencia de una página web. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+HTML
+: Lenguaje de marcas que describe la estructura de una página web mediante etiquetas como `<h1>` o `<p>`. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+## I {.unnumbered}
+
+Identificador de participante
+: Código que distingue a cada persona en los datos sin revelar quién es. En este libro se genera al azar con `randomID`. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
+
+Identificador de proceso
+: Número que identifica un proceso durante una ejecución. También se lo conoce por la sigla `PID`. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Indicador
+: Línea de la terminal que muestra que el intérprete espera una instrucción. Suele incluir la carpeta actual. En inglés se lo llama *prompt*. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Instalar
+: Incorporar a la computadora los archivos y la configuración que un programa necesita para funcionar. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Interfaz gráfica
+: Conjunto de elementos visibles, como ventanas, íconos y botones, que permiten controlar un programa. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Intérprete de comandos
+: Programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. PowerShell es un intérprete de comandos. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Ítem de respuesta indicada
+: Ítem que no mide un constructo y pide elegir una opción determinada. Se usa como control de atención. Ver [capítulo 19](../part-4/19-controles-atencion.qmd).
+
+Ítem invertido
+: Ítem de una escala redactado en sentido contrario al resto. Debe transformarse antes de calcular el puntaje. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+
+## J {.unnumbered}
+
+JavaScript
+: Lenguaje de programación que interpretan los navegadores. jsPsych está escrito en JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+JSON
+: Forma estándar de escribir datos como texto, con pares de nombre y valor entre llaves. Ver [capítulo 15](../part-3/15-datos-generados.qmd).
+
+jsPsych
+: Biblioteca de JavaScript para construir estudios psicológicos que funcionan en el navegador. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+## L {.unnumbered}
+
+Límite de uso
+: Cantidad máxima de trabajo que se le puede pedir a un agente en un período determinado según el plan de la cuenta. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Línea de contexto
+: En una presentación de diferencias, línea que no cambia y aparece para ubicar el cambio dentro del archivo. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Línea de tiempo
+: Secuencia de ensayos de un estudio en jsPsych. En inglés, *timeline*. Determina qué pantallas aparecen y en qué orden. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Línea de tiempo anidada
+: Línea de tiempo incluida como un elemento dentro de otra. Permite mezclar o mostrar condicionalmente un grupo de pantallas. Ver [capítulo 17](../part-4/17-aleatorizacion.qmd) y [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+Lista de Markdown
+: Serie de elementos escritos en líneas que comienzan con un guion `-` seguido de un espacio. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Lógica condicional
+: Conjunto de reglas con la forma “si ocurre…, entonces…” que deciden el recorrido de un estudio según lo que ocurrió antes. Ver [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+## M {.unnumbered}
+
+Markdown
+: Forma de escribir texto plano que marca títulos, listas y otros elementos mediante caracteres visibles, como `#`. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Memoria de trabajo
+: Parte del hardware que mantiene disponible la información mientras un programa funciona. También se la llama memoria RAM. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Milisegundo
+: Milésima parte de un segundo. El valor `500` en milisegundos equivale a medio segundo. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Modelo de lenguaje
+: Programa entrenado con grandes cantidades de texto que, a partir de un texto de entrada, produce una continuación probable. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
+
+Muestreo
+: Selección al azar de algunos elementos de un conjunto más grande, como ítems de un banco. Ver [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
+## N {.unnumbered}
+
+Navegador
+: Programa que permite acceder a sitios y aplicaciones web, y que interpreta los archivos de una página para mostrarla. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Nivel de medición
+: Clasificación de una variable según las relaciones entre sus valores: nominal, ordinal, intervalar o de razón. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+## O {.unnumbered}
+
+Operacionalización
+: Definición de cómo se va a observar o medir un concepto en un estudio. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+## P {.unnumbered}
+
+Parámetro
+: Parte de un comando que especifica cómo interpretar el valor que sigue, como `-Seconds` en `Start-Sleep -Seconds 5`. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Permiso
+: Configuración que establece qué acciones puede realizar un agente por su cuenta y cuáles requieren aprobación. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd) y [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Plan
+: Descripción de los pasos que un agente propone realizar antes de modificar archivos. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Plan de pruebas
+: Lista de casos que, en conjunto, recorren todas las ramas y comprueban todos los recursos de un estudio. Ver [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
+
+Plugin
+: Pieza de jsPsych que agrega un tipo de pantalla, como una pregunta de texto o una escala. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Política de ejecución
+: Configuración de Windows que controla si PowerShell puede ejecutar scripts. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+PowerShell
+: Intérprete de comandos de Windows usado en este libro. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Pregunta abierta
+: Pregunta que permite escribir cualquier respuesta. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+Pregunta cerrada
+: Pregunta que ofrece opciones fijas. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+Preregistro
+: Documento público que describe el diseño y el plan de análisis de un estudio antes de recolectar datos. Ver [capítulo 19](../part-4/19-controles-atencion.qmd).
+
+Procesamiento
+: Aplicación de instrucciones a la información recibida. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Proceso
+: Programa que se está ejecutando, junto con la memoria y los recursos que utiliza. Ver [capítulo 4](../part-1/04-programas-procesos-errores.qmd).
+
+Programa
+: Conjunto organizado de instrucciones que permite realizar una tarea. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Propuesta de cambio
+: Presentación que un agente muestra antes de modificar un archivo, con las líneas que agregaría o eliminaría. Ver [capítulo 7](../part-2/07-codex-terminal.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Proyecto
+: Conjunto organizado de archivos y carpetas que comparten un propósito. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Prueba de regresión
+: Prueba que se repite para detectar si un cambio nuevo rompió algo que ya funcionaba. Ver [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
+
+Prueba piloto
+: Aplicación de un estudio a pocas personas antes de la recolección real, para encontrar problemas de funcionamiento, comprensión y calidad de datos. Ver [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
+
+Pull
+: Traer a tu computadora los cambios de un repositorio de GitHub que todavía no tenés. Ver el [apéndice B](b-git.qmd).
+
+Push
+: Envío de los cambios registrados en una computadora a un repositorio de GitHub. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+## R {.unnumbered}
+
+Rama
+: Línea de versiones de un repositorio. La rama principal suele llamarse `main`. En inglés, *branch*. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+`README.md`
+: Archivo que presenta un proyecto a las personas y explica su propósito, su estado y cómo comenzar. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Reemplazo
+: En una presentación de diferencias, una línea eliminada seguida de una línea agregada en la misma posición. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Registro de cambios
+: Documento que conserva, en orden, las modificaciones realizadas en un proyecto, con su fecha, sus archivos, su verificación y el estado resultante. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Repositorio
+: Espacio de GitHub que contiene los archivos de un proyecto y el historial de sus cambios. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+Repositorio local
+: Carpeta de tu computadora que Git controla, con el historial de sus cambios. Ver el [apéndice B](b-git.qmd).
+
+Repositorio remoto
+: Copia de un repositorio guardada en un servicio como GitHub. Ver el [apéndice B](b-git.qmd).
+
+Reproducibilidad
+: Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Resaltado de sintaxis
+: Uso de colores en un editor para distinguir las partes del código. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Respuesta descuidada
+: Forma de responder sin leer o sin el esfuerzo necesario, de modo que las respuestas no reflejan lo que el instrumento intenta medir. Ver [capítulo 19](../part-4/19-controles-atencion.qmd).
+
+Restricción metodológica
+: Límite de un pedido que protege una decisión del estudio, como un rango de edad o el texto exacto de un consentimiento. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Restricción técnica
+: Límite de un pedido que restringe qué archivos, programas o acciones puede usar el agente. Ver [capítulo 8](../part-2/08-describir-tarea.qmd).
+
+Revertir
+: Devolver una parte de un archivo a su estado anterior. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Ruta
+: Expresión que describe la ubicación de un archivo o una carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Ruta absoluta
+: Ruta que describe el recorrido completo desde una unidad o desde el punto principal del sistema. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Ruta relativa
+: Ruta que describe una ubicación a partir de la carpeta actual. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## S {.unnumbered}
+
+Salida
+: Resultado que la computadora comunica, como un texto en pantalla, un sonido o un archivo creado. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Script
+: Archivo de texto que contiene instrucciones para un intérprete de comandos. Los scripts de PowerShell usan la extensión `.ps1`. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+Selector
+: Parte de una regla de CSS que indica a qué elementos se aplica. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+Servidor
+: Computadora conectada a Internet que recibe pedidos de otras computadoras y les responde. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
+Sintaxis
+: Conjunto de reglas de escritura de un lenguaje, como el uso de comas, comillas y llaves en JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Sistema operativo
+: Software que coordina el funcionamiento general de la computadora, como Windows, macOS o Linux. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Software
+: Programas e instrucciones que utiliza una computadora. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Subcarpeta
+: Carpeta que se encuentra dentro de otra carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+## T {.unnumbered}
+
+Terminal
+: Programa que permite escribir instrucciones y leer sus resultados mediante texto. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+Texto plano
+: Texto formado solo por caracteres, sin un formato exclusivo de un programa. Muchos editores pueden abrirlo. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Tiempo de reacción
+: Tiempo que tarda una persona en responder a un estímulo en una tarea diseñada para medirlo. Suele ser la variable dependiente de un experimento. Ver [capítulo 20](../part-4/20-tiempos-respuesta.qmd).
+
+Tiempo de respuesta
+: En una encuesta, tiempo desde que aparece una pantalla hasta que la persona avanza. En jsPsych se registra en `rt`. Ver [capítulo 20](../part-4/20-tiempos-respuesta.qmd).
+
+Tubería
+: Signo `|` que envía el resultado de un comando al comando siguiente. Ver [capítulo 7](../part-2/07-codex-terminal.qmd).
+
+## U {.unnumbered}
+
+Umbral
+: Valor que separa los casos que cumplen un criterio de los que no, como un tiempo mínimo por ítem. Ver [capítulo 20](../part-4/20-tiempos-respuesta.qmd).
+
+Unidad de aleatorización
+: Elemento que se mezcla o se asigna al azar, como los ítems de una escala o las escalas de un estudio. Ver [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
+## V {.unnumbered}
+
+Validación
+: Regla que un programa comprueba antes de aceptar una respuesta. Ver [capítulo 11](../part-3/11-google-forms.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+
+Valor
+: Cada respuesta concreta que toma una variable. Ver [capítulo 11](../part-3/11-google-forms.qmd).
+
+Valor que no aplica
+: Ausencia de dato que corresponde a una pregunta que, por diseño, no se le hizo a esa persona. No es un dato faltante. Ver [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+Variable
+: Característica que se registra y que puede tomar distintos valores, como la edad. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Variable derivada
+: Variable que se calcula a partir de otras, en lugar de responderse de manera directa. Ver [capítulo 19](../part-4/19-controles-atencion.qmd).
+
+## W {.unnumbered}
+
+Windows Terminal
+: Aplicación de Windows que proporciona la ventana en la que funcionan intérpretes de comandos como PowerShell. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+## Z {.unnumbered}
+
+Zenodo
+: Repositorio abierto de datos de investigación. Los depósitos son privados hasta que se publican, y al publicarse reciben un DOI. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
