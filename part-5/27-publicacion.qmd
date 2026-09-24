@@ -3,37 +3,37 @@ title: "Publicación del estudio"
 description: "Cómo pasar de una ejecución local a un enlace para participantes con GitHub Pages."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder distinguir el alojamiento del estudio del almacenamiento de los datos.
+1. distinguir el alojamiento del estudio del almacenamiento de los datos;
 
-2. Vas a poder revisar el proyecto antes de publicarlo.
+2. revisar el proyecto antes de publicarlo;
 
-3. Vas a poder crear un repositorio en GitHub y subir los archivos desde el navegador.
+3. crear un repositorio en GitHub y subir los archivos desde el navegador;
 
-4. Vas a poder publicar el estudio con GitHub Pages y obtener su dirección.
+4. publicar el estudio con GitHub Pages y obtener su dirección;
 
-5. Vas a poder verificar el estudio publicado, en computadora y en celular.
+5. verificar el estudio publicado, en computadora y en celular;
 
-6. Vas a poder reconocer otras formas de publicar un estudio y cuándo conviene cada una.
+6. reconocer otras formas de publicar un estudio y cuándo conviene cada una.
 
-## Un estudio que solo existe en tu computadora permite formular el problema
+## Para empezar, un estudio que solo existe en tu computadora
 
-Tu estudio funciona, guarda los datos con DataPipe y fue piloteado. Pero para participar, una persona tiene que abrir `index.html` en tu computadora. No podés enviar un enlace.
+Tu estudio funciona, guarda los datos con DataPipe y ya lo piloteaste. Pero para participar, alguien tiene que abrir `index.html` en tu computadora, y no le podés mandar un enlace.
 
-En Google Forms, publicar es presionar **Enviar** y copiar un enlace. En tu estudio, publicar requiere que los archivos estén en un servidor que los entregue a cualquier navegador que los pida. Ese servicio se llama **alojamiento web**, o *hosting* en inglés.
+En Google Forms, publicar es apretar **Enviar** y copiar un enlace. Con tu estudio, publicar requiere que los archivos estén en un servidor que se los entregue a cualquier navegador que los pida. A ese servicio se lo llama **alojamiento web**, o *hosting* en inglés.
 
-En este libro vas a usar **GitHub Pages**, un servicio gratuito que publica como sitio web los archivos guardados en GitHub.
+En este libro vamos a usar **GitHub Pages**, un servicio gratuito que publica como sitio web los archivos guardados en GitHub.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Alojar el estudio y guardar los datos son tareas diferentes. GitHub Pages entrega los archivos del estudio a los navegadores. DataPipe recibe los datos y los guarda en tu espacio. Lo que publicás en GitHub es público; los datos nunca deben estar allí.
+Alojar el estudio y guardar los datos son tareas distintas. GitHub Pages les entrega los archivos del estudio a los navegadores, y DataPipe recibe los datos y los guarda en tu espacio. Lo que publicás en GitHub es público, así que los datos nunca pueden estar ahí.
 :::
 
-## Alojamiento y almacenamiento cumplen funciones distintas
+## Alojamiento y almacenamiento
 
 Tu estudio publicado va a involucrar tres servicios.
 
@@ -48,58 +48,58 @@ GitHub Pages ──entrega los archivos──► navegador de la persona partici
                                   Google Drive o Zenodo
 ```
 
-GitHub Pages no recibe los datos. Solo entrega `index.html`, `experiment.js`, `styles.css` y los demás archivos. DataPipe no aloja el estudio. Solo recibe los datos. Esta separación explica por qué el identificador de DataPipe está en el código y por qué el código publicado no contiene ningún dato.
+GitHub Pages no recibe los datos, solo entrega `index.html`, `experiment.js`, `styles.css` y los demás archivos. DataPipe no aloja el estudio, solo recibe los datos. Esa separación explica por qué el identificador de DataPipe está en el código y por qué el código publicado no tiene ningún dato.
 
-## GitHub guarda proyectos en repositorios
+## Los repositorios de GitHub
 
-En el capítulo sobre proyectos se mencionó **GitHub**, un servicio web para alojar y compartir proyectos. Para usarlo necesitás algunos conceptos.
+En el capítulo sobre proyectos mencionamos **GitHub**, un servicio web para alojar y compartir proyectos. Para usarlo hacen falta algunos conceptos.
 
-1. Un **repositorio** es el espacio de GitHub que contiene los archivos de un proyecto y el historial de sus cambios. Se parece a una carpeta con memoria: recuerda cada versión.
+1. Un **repositorio** es el espacio de GitHub que guarda los archivos de un proyecto y el historial de sus cambios. Es como una carpeta con memoria, porque se acuerda de cada versión.
 
-2. Un repositorio puede ser **público**, visible para cualquier persona, o **privado**. Con una cuenta gratuita, GitHub Pages solo publica repositorios públicos.
+2. Un repositorio puede ser **público**, visible para cualquiera, o **privado**. Con una cuenta gratuita, GitHub Pages solo publica repositorios públicos.
 
-3. Cada vez que agregás o cambiás archivos, GitHub registra un **commit**: un cambio confirmado, con fecha y un mensaje que lo describe. El conjunto de commits forma el historial del repositorio.
+3. Cada vez que agregás o cambiás archivos, GitHub registra un **commit**, que es un cambio confirmado con fecha y un mensaje que lo describe. Todos los commits juntos forman el historial del repositorio.
 
-Git es la herramienta que registra ese historial. En la opción de publicación de este capítulo no vas a usar Git directamente: GitHub lo hace por vos desde el navegador.
+Git es la herramienta que registra ese historial. En la opción de publicación de este capítulo no vas a usar Git directamente, porque GitHub lo hace por vos desde el navegador.
 
 ::: {.callout-important}
 ## Todo lo que subas a un repositorio público es público
 
-El código de tu estudio va a quedar visible, incluido el identificador de DataPipe. Por eso configuraste en DataPipe la validación y el límite de sesiones. Además, nunca subas archivos de datos, ni del piloto ni de pruebas. Si subís uno por error, borrarlo no alcanza: el historial del repositorio conserva las versiones anteriores. En ese caso, eliminá el repositorio completo y creá uno nuevo.
+El código de tu estudio va a quedar a la vista, identificador de DataPipe incluido, y por eso configuraste en DataPipe la validación y el límite de sesiones. Además, nunca subas archivos de datos, ni del piloto ni de pruebas. Si subís uno por error, borrarlo no alcanza, porque el historial del repositorio guarda las versiones anteriores. En ese caso, borrá el repositorio entero y creá uno nuevo.
 :::
 
-## Revisá el proyecto antes de publicarlo
+## Revisar el proyecto antes de publicar
 
-El README del checkpoint `07-estudio-completo` incluye una lista de verificación previa a la publicación. Los puntos más importantes son estos.
+El README del checkpoint `07-estudio-completo` trae una lista de verificación para antes de publicar. Los puntos más importantes son estos.
 
 1. No quedan marcas `COMPLETAR` ni `REEMPLAZAR` en `experiment.js`.
 
 2. Las escalas coinciden con la publicación original.
 
-3. El consentimiento describe el destino real de los datos y tiene un contacto válido.
+3. El consentimiento dice adónde van realmente los datos y tiene un contacto válido.
 
-4. La carpeta del proyecto no contiene archivos de datos.
+4. La carpeta del proyecto no tiene archivos de datos.
 
 5. El plan de pruebas se ejecutó completo.
 
-Para el primer punto podés usar un comando nuevo de PowerShell. `Select-String` busca un texto dentro de archivos.
+Para el primer punto podés usar un comando nuevo de PowerShell, `Select-String`, que busca un texto dentro de archivos.
 
 ```powershell
 Select-String -Path *.js, *.md -Pattern "COMPLETAR", "REEMPLAZAR"
 ```
 
-El parámetro `-Path` indica en qué archivos buscar. `*.js` significa “todos los archivos cuya extensión sea `.js`”. El asterisco reemplaza cualquier nombre. `-Pattern` indica qué textos buscar. La salida muestra cada coincidencia con el nombre del archivo y el número de línea. Si no muestra nada, no quedan marcas. Microsoft documenta este comando en la [referencia de `Select-String`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.utility/select-string).
+El parámetro `-Path` dice en qué archivos buscar. `*.js` quiere decir “todos los archivos con extensión `.js`”, porque el asterisco reemplaza cualquier nombre. `-Pattern` dice qué textos buscar. La salida muestra cada coincidencia con el nombre del archivo y el número de línea, y si no muestra nada, no quedan marcas. Microsoft documenta este comando en la [referencia de `Select-String`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.utility/select-string).
 
-Tu `diseno.md` puede conservar marcas si todavía no completaste alguna sección. Lo que no puede tener marcas es `experiment.js`, porque es lo que ven las personas participantes.
+Tu `diseno.md` puede tener marcas si todavía te falta completar alguna sección. El que no puede tenerlas es `experiment.js`, porque es lo que ven las personas participantes.
 
-## Pedile al agente una revisión previa
+## Con Codex, una revisión previa
 
-Un agente puede ayudar a revisar el proyecto completo antes de publicarlo. Es una tarea de inspección: no debe modificar nada.
+Un agente te puede ayudar a revisar todo el proyecto antes de publicarlo. Es una tarea de inspección, así que no tiene que modificar nada.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-1. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+1. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
 2. Escribí este pedido.
 
@@ -118,147 +118,147 @@ No modifiques ningún archivo.
 3. Comprobá cada respuesta por tu cuenta, con `dir`, `Select-String` y el editor.
 :::
 
-La cuarta pregunta anticipa un error frecuente. Windows no distingue mayúsculas de minúsculas en los nombres de archivo: `Experiment.js` y `experiment.js` son el mismo archivo. GitHub Pages sí las distingue. Un estudio que funciona en tu computadora puede no funcionar publicado por esa diferencia.
+La cuarta pregunta se adelanta a un error muy común. Windows no distingue mayúsculas de minúsculas en los nombres de archivo, así que `Experiment.js` y `experiment.js` son el mismo archivo. GitHub Pages sí las distingue, y por esa diferencia un estudio que funciona en tu computadora puede no funcionar publicado.
 
-## Opción 1: subí los archivos desde el navegador
+## Opción 1. Subir los archivos desde el navegador
 
-Esta es la opción que se usa en las actividades del libro. No requiere instalar nada ni usar la terminal.
+Esta es la opción que usamos en las actividades del libro. No hay que instalar nada ni usar la terminal.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 **Crear la cuenta y el repositorio.**
 
-1. Entrá en [github.com](https://github.com) y creá una cuenta gratuita con **Sign up**, si no tenés una.
+1. Entrá en [github.com](https://github.com) y, si no tenés cuenta, creá una gratuita con **Sign up**.
 
-2. Presioná el botón **New**, o el signo **+** de la parte superior, y elegí **New repository**.
+2. Apretá el botón **New**, o el signo **+** de arriba, y elegí **New repository**.
 
-3. En **Repository name**, escribí un nombre breve, sin espacios ni tildes. El nombre va a formar parte de la dirección del estudio, así que evitá nombres que revelen tus hipótesis a las personas participantes. Por ejemplo, `estudio-habitos`.
+3. En **Repository name**, escribí un nombre corto, sin espacios ni tildes, por ejemplo `estudio-habitos`. El nombre va a ser parte de la dirección del estudio, así que evitá nombres que les revelen tus hipótesis a las personas participantes.
 
 4. Elegí **Public**.
 
-5. Marcá **Add a README file**. Así el repositorio no queda vacío.
+5. Marcá **Add a README file**, así el repositorio no queda vacío.
 
-6. Presioná **Create repository**.
+6. Apretá **Create repository**.
 
 **Subir los archivos.**
 
-7. En la página del repositorio, presioná **Add file** y elegí **Upload files**.
+7. En la página del repositorio, apretá **Add file** y elegí **Upload files**.
 
-8. Abrí `mi-primer-estudio` en el Explorador de archivos. Seleccioná todos los archivos de la carpeta: `index.html`, `experiment.js`, `styles.css`, `diccionario.md`, `diseno.md`, `AGENTS.md` y `README.md`. Arrastralos a la zona indicada de la página. Arrastrá los archivos, no la carpeta: `index.html` tiene que quedar en el primer nivel del repositorio.
+8. Abrí `mi-primer-estudio` en el Explorador de archivos y seleccioná todos sus archivos, que son `index.html`, `experiment.js`, `styles.css`, `diccionario.md`, `diseno.md`, `AGENTS.md` y `README.md`. Arrastralos a la zona indicada de la página. Arrastrá los archivos y no la carpeta, porque `index.html` tiene que quedar en el primer nivel del repositorio.
 
-9. En el cuadro de la parte inferior, escribí un mensaje que describa el cambio, por ejemplo “Primera versión del estudio”. Ese mensaje es el del commit.
+9. En el cuadro de abajo, escribí un mensaje que describa el cambio, como “Primera versión del estudio”. Ese es el mensaje del commit.
 
-10. Presioná **Commit changes**. Tu `README.md` reemplaza al que GitHub había creado.
+10. Apretá **Commit changes**. Tu `README.md` reemplaza al que había creado GitHub.
 
 **Publicar con GitHub Pages.**
 
-11. En el repositorio, entrá en **Settings** y, en el menú lateral, en **Pages**.
+11. En el repositorio, entrá en **Settings** y, en el menú del costado, en **Pages**.
 
-12. En **Source**, elegí **Deploy from a branch**. En **Branch**, elegí **main** y la carpeta **/ (root)**. Presioná **Save**.
+12. En **Source**, elegí **Deploy from a branch**. En **Branch**, elegí **main** y la carpeta **/ (root)**, y apretá **Save**.
 
 13. Esperá unos minutos y recargá la página de **Pages**. Va a aparecer la dirección del estudio, con la forma `https://tu-usuario.github.io/nombre-del-repositorio/`.
 :::
 
-La interfaz de GitHub está en inglés y cambia de vez en cuando. Si no encontrás una opción, buscá el texto indicado en la página o consultá la [documentación de GitHub Pages](https://docs.github.com/es/pages/getting-started-with-github-pages/creating-a-github-pages-site). En GitHub, una **rama**, *branch* en inglés, es una línea de versiones del repositorio. Por ahora solo usás una, llamada `main`.
+La interfaz de GitHub está en inglés y cambia cada tanto. Si no encontrás una opción, buscá el texto en la página o consultá la [documentación de GitHub Pages](https://docs.github.com/es/pages/getting-started-with-github-pages/creating-a-github-pages-site). En GitHub, una **rama**, *branch* en inglés, es una línea de versiones del repositorio. Por ahora usás una sola, que se llama `main`.
 
-## Verificá el estudio publicado
+## Verificar el estudio publicado
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-1. Abrí la dirección publicada en el navegador de tu computadora. Comprobá que aparezca la bienvenida y la barra de progreso.
+1. Abrí la dirección publicada en el navegador de tu computadora y comprobá que aparezcan la bienvenida y la barra de progreso.
 
 2. Abrí la consola con `F12` y comprobá que no haya errores.
 
 3. Activá **Accept new data** en DataPipe.
 
-4. Completá el estudio desde la dirección publicada. Comprobá que aparezca el mensaje de guardado exitoso.
+4. Completá el estudio desde la dirección publicada y comprobá que aparezca el mensaje de que se guardó.
 
-5. Comprobá que el archivo haya llegado a Google Drive o Zenodo y que coincida con tu diccionario.
+5. Comprobá que el archivo haya llegado a Google Drive o a Zenodo y que coincida con tu diccionario.
 
-6. Abrí la dirección desde un celular. Recorré el estudio y comprobá la barra de progreso y las escalas.
+6. Abrí la dirección desde un celular, recorré el estudio y fijate en la barra de progreso y en las escalas.
 
-7. Elegí “No acepto” en una nueva ejecución y comprobá que llegue el archivo de dos filas.
+7. En una ejecución nueva elegí “No acepto”, y comprobá que llegue el archivo de dos filas.
 
-8. Ejecutá los casos de tu plan de pruebas que no probaste antes con DataPipe conectado.
+8. Ejecutá los casos de tu plan de pruebas que todavía no habías probado con DataPipe conectado.
 
-9. Registrá en el README la dirección publicada y la fecha de publicación.
+9. Anotá en el README la dirección publicada y la fecha de publicación.
 :::
 
-Estas participaciones de prueba quedan en tu espacio de almacenamiento. Anotá sus identificadores para excluirlas del análisis o eliminalas antes de recolectar.
+Estas participaciones de prueba quedan en tu espacio de almacenamiento. Anotá sus identificadores para dejarlas afuera del análisis, o borralas antes de recolectar.
 
-Desde este momento, la dirección publicada es tu estudio. Podés compartirla con las personas participantes. Mantené **Accept new data** activado mientras dure la recolección y desactivalo cuando termine.
+A partir de ahora, la dirección publicada es tu estudio, y la podés compartir con las personas participantes. Dejá **Accept new data** activado mientras dure la recolección y apagalo cuando termine.
 
 ## Cambiar un estudio publicado es cambiar el procedimiento
 
-Para corregir un archivo, repetí los pasos 7 a 10 con el archivo nuevo. GitHub reemplaza el anterior y registra un commit. La publicación se actualiza en unos minutos.
+Para corregir un archivo, repetí los pasos 7 a 10 con el archivo nuevo. GitHub reemplaza el anterior, registra un commit y en unos minutos se actualiza la publicación.
 
-Técnicamente es sencillo. Metodológicamente, no. Si cambiás el estudio mientras recolectás datos, las personas que participaron antes y después respondieron procedimientos diferentes. Por eso:
+Técnicamente es fácil, pero metodológicamente no. Si cambiás el estudio mientras recolectás datos, quienes participaron antes y después respondieron procedimientos distintos. Por eso conviene seguir tres reglas.
 
-1. Evitá cambios durante la recolección, salvo correcciones imprescindibles.
+1. No hagas cambios durante la recolección, salvo correcciones imprescindibles.
 
-2. Si hacés un cambio, registralo en el README con la fecha y el motivo.
+2. Si hacés un cambio, anotalo en el README con la fecha y el motivo.
 
 3. En el análisis, identificá qué participaciones corresponden a cada versión, por ejemplo por la fecha de los archivos.
 
-El historial de GitHub te ayuda: en la página de cada archivo, **History** muestra todas sus versiones y cuándo se publicaron.
+El historial de GitHub te ayuda, porque en la página de cada archivo, **History** muestra todas sus versiones y cuándo se publicaron.
 
 ## Otras opciones para publicar
 
-Subir los archivos desde el navegador es la opción más sencilla, pero no la única. Cuando tengas más experiencia o necesites hacer muchos cambios, estas alternativas pueden convenirte.
+Subir los archivos desde el navegador es la opción más sencilla, pero no la única. Cuando tengas más práctica o necesites hacer muchos cambios, estas alternativas te pueden convenir.
 
-### Opción 2: GitHub Desktop
+### Opción 2. GitHub Desktop
 
-**GitHub Desktop** es un programa gratuito, con interfaz gráfica, que conecta una carpeta de tu computadora con un repositorio de GitHub. Después de cada cambio, el programa muestra qué archivos cambiaron y qué líneas se modificaron, y te permite enviarlos a GitHub con un botón. Ese envío se llama **push**, que significa “empujar”.
+**GitHub Desktop** es un programa gratuito, con interfaz gráfica, que conecta una carpeta de tu computadora con un repositorio de GitHub. Después de cada cambio te muestra qué archivos y qué líneas cambiaron, y te deja mandarlos a GitHub con un botón. A ese envío se lo llama **push**, que quiere decir “empujar”.
 
-Conviene cuando hacés cambios frecuentes, porque evita subir archivos a mano y muestra las diferencias de cada cambio, como las propuestas de cambio de Codex.
+Conviene cuando hacés cambios seguido, porque te ahorra subir archivos a mano y te muestra las diferencias de cada cambio, como las propuestas de cambio de Codex.
 
-### Opción 3: Git desde la terminal, con ayuda de un agente
+### Opción 3. Git desde la terminal, con ayuda de un agente
 
 **Git** es la herramienta que registra el historial de los repositorios. Se usa desde la terminal con comandos como `git add`, `git commit` y `git push`. Un agente como Codex puede ejecutar esos comandos por vos, pidiendo tu aprobación en cada paso, y además usar Git para mostrarte con el comando `/diff` todos los cambios de una sesión.
 
-Conviene cuando ya te sentís cómodo con la terminal y querés que el historial de versiones forme parte de tu forma de trabajo. Requiere instalar Git y aprender algunos conceptos nuevos. El apéndice sobre Git ofrece una introducción.
+Conviene cuando ya te sentís cómodo con la terminal y querés que el historial de versiones sea parte de tu forma de trabajar. Hay que instalar Git y aprender algunos conceptos nuevos, y el apéndice sobre Git trae una introducción.
 
-### Opción 4: otros servicios de alojamiento
+### Opción 4. Otros servicios de alojamiento
 
-GitHub Pages no es el único servicio. Existen otros que permiten publicar archivos arrastrando una carpeta, y muchas universidades ofrecen servidores para sus investigadores. Como tu estudio es un conjunto de archivos que no necesita un servidor especial, puede publicarse en cualquiera de ellos. El guardado de datos sigue funcionando igual, porque depende de DataPipe y no del alojamiento.
+GitHub Pages no es el único servicio. Hay otros que permiten publicar archivos arrastrando una carpeta, y muchas universidades ofrecen servidores para sus investigadores. Como tu estudio es un conjunto de archivos que no necesita un servidor especial, se puede publicar en cualquiera de ellos. El guardado de datos funciona igual, porque depende de DataPipe y no del alojamiento.
 
-Antes de elegir otro servicio, comprobá que sea gratuito o que tu institución lo provea, y dónde quedan los archivos.
+Antes de elegir otro servicio, fijate que sea gratuito o que lo ofrezca tu institución, y dónde quedan los archivos.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-Publicar un estudio lo pone a disposición de personas que no conocés, desde dispositivos que no controlás. Todo lo que verificaste antes cobra sentido en este momento.
+Publicar un estudio lo pone al alcance de personas que no conocés, desde dispositivos que no controlás. Todo lo que verificaste antes cobra sentido en este momento.
 
-La publicación también contribuye a la reproducibilidad. Un repositorio público permite que otras personas vean exactamente qué procedimiento respondieron los participantes: los textos, el orden, las reglas y las versiones de jsPsych. Muchos artículos científicos incluyen hoy un enlace al código de sus estudios.
+La publicación también suma a la reproducibilidad. Un repositorio público deja que otras personas vean exactamente qué procedimiento respondieron los participantes, con los textos, el orden, las reglas y las versiones de jsPsych. Hoy muchos artículos científicos incluyen un enlace al código de sus estudios.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### La dirección muestra un error 404
 
-El error 404 significa que el servidor no encontró la página. Comprobá que GitHub Pages esté activado, que `index.html` esté en el primer nivel del repositorio y no dentro de una carpeta, y que hayan pasado algunos minutos desde la activación.
+El error 404 quiere decir que el servidor no encontró la página. Fijate que GitHub Pages esté activado, que `index.html` esté en el primer nivel del repositorio y no dentro de una carpeta, y que hayan pasado unos minutos desde que lo activaste.
 
 ### La página publicada queda en blanco
 
-Abrí la consola con `F12`. Si el mensaje indica que no encuentra `experiment.js` o `styles.css`, comprobá que el archivo se haya subido y que su nombre coincida exactamente, incluidas mayúsculas y minúsculas, con el que usa `index.html`.
+Abrí la consola con `F12`. Si el mensaje dice que no encuentra `experiment.js` o `styles.css`, fijate que el archivo se haya subido y que su nombre coincida exactamente, mayúsculas y minúsculas incluidas, con el que usa `index.html`.
 
 ### Los cambios no aparecen
 
-GitHub Pages tarda unos minutos en actualizarse. Además, el navegador puede mostrar una versión guardada. Recargá con `Ctrl + F5`, que fuerza al navegador a descargar los archivos otra vez.
+GitHub Pages tarda unos minutos en actualizarse, y además el navegador puede mostrar una versión guardada. Recargá con `Ctrl + F5`, que obliga al navegador a bajar los archivos otra vez.
 
 ### Se subió un archivo de datos
 
-Eliminar el archivo no lo borra del historial. Eliminá el repositorio desde **Settings**, creá uno nuevo y subí solo los archivos del estudio.
+Borrar el archivo no lo saca del historial. Borrá el repositorio desde **Settings**, creá uno nuevo y subí solo los archivos del estudio.
 
 ### Los datos no llegan desde la dirección publicada
 
-Comprobá que **Accept new data** esté activado y que `DATAPIPE_ID` contenga tu identificador. Revisá la consola con `F12`.
+Fijate que **Accept new data** esté activado y que `DATAPIPE_ID` tenga tu identificador, y revisá la consola con `F12`.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué diferencia existe entre alojar el estudio y almacenar sus datos?
+1. ¿Qué diferencia hay entre alojar el estudio y almacenar sus datos?
 
 2. ¿Qué es un repositorio?
 
@@ -272,10 +272,10 @@ Respondé cada pregunta con una oración completa.
 
 7. ¿Qué consecuencia metodológica tiene cambiar el estudio durante la recolección?
 
-8. ¿Cuándo conviene usar GitHub Desktop en lugar de subir los archivos desde el navegador?
+8. ¿Cuándo conviene usar GitHub Desktop en vez de subir los archivos desde el navegador?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Alojar el estudio es entregar sus archivos a los navegadores, mientras que almacenar los datos es recibir y guardar las respuestas.
 
@@ -295,26 +295,26 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Publicar un estudio requiere un servicio de alojamiento. GitHub Pages publica como sitio web los archivos de un repositorio público de GitHub. El alojamiento entrega el estudio y DataPipe guarda los datos. En el repositorio nunca debe haber datos.
+Para publicar un estudio hace falta un servicio de alojamiento. GitHub Pages publica como sitio web los archivos de un repositorio público de GitHub. El alojamiento entrega el estudio y DataPipe guarda los datos, y en el repositorio nunca tiene que haber datos.
 
-Antes de publicar, se revisa el proyecto con una lista de verificación. `Select-String` permite buscar marcas pendientes y un agente puede hacer una revisión previa sin modificar archivos.
+Antes de publicar, revisamos el proyecto con una lista de verificación. `Select-String` busca marcas pendientes, y un agente puede hacer una revisión previa sin modificar archivos.
 
-La opción más sencilla es subir los archivos desde el navegador y activar GitHub Pages en la configuración del repositorio. Después se verifica el estudio publicado en computadora y celular, y se comprueba que los datos lleguen. GitHub Desktop, Git desde la terminal y otros servicios de alojamiento son alternativas para otras situaciones.
+La opción más sencilla es subir los archivos desde el navegador y activar GitHub Pages en la configuración del repositorio. Después verificamos el estudio publicado en computadora y celular, y comprobamos que los datos lleguen. GitHub Desktop, Git desde la terminal y otros servicios de alojamiento son alternativas para otras situaciones.
 
-Cambiar un estudio publicado es cambiar el procedimiento. Los cambios durante la recolección se evitan y, si ocurren, se documentan.
+Cambiar un estudio publicado es cambiar el procedimiento, así que durante la recolección los cambios se evitan y, si hay alguno, se documenta.
 
-## Resolvé un desafío breve
+## Desafío
 
 1. Publicá tu estudio con la opción 1.
 
-2. Completá la verificación del estudio publicado y registrá en el README la dirección y la fecha.
+2. Hacé la verificación del estudio publicado y anotá en el README la dirección y la fecha.
 
-3. Pedile a una persona que no conozca el estudio que lo complete desde su celular, usando solo el enlace. Anotá cualquier dificultad.
+3. Pedile a alguien que no conozca el estudio que lo complete desde su celular usando solo el enlace, y anotá cualquier dificultad.
 
-4. Hacé un cambio menor en el README, subilo y comprobá en **History** que el cambio quedó registrado.
+4. Hacé un cambio menor en el README, subilo y comprobá en **History** que quedó registrado.
 
 5. Escribí un párrafo que explique qué opción de publicación usarías si tuvieras que corregir el estudio muchas veces, y por qué.
 
-En el próximo capítulo vas a reunir todo el trabajo en tu proyecto final.
+En el próximo capítulo juntamos todo el trabajo en tu proyecto final.
