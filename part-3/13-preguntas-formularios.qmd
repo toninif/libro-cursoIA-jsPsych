@@ -3,41 +3,41 @@ title: "Preguntas, respuestas y validaciones"
 description: "Consentimiento, cuestionario sociodemográfico y reglas de validación con los plugins de encuesta de jsPsych."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder elegir el plugin de jsPsych que corresponde a cada tipo de pregunta de Google Forms.
+1. elegir el plugin de jsPsych que corresponde a cada tipo de pregunta de Google Forms;
 
-2. Vas a poder incorporar una pantalla de consentimiento informado y explicar su función.
+2. sumar una pantalla de consentimiento informado y explicar para qué está;
 
-3. Vas a poder implementar una validación de rango para una respuesta numérica.
+3. implementar una validación de rango para una respuesta numérica;
 
-4. Vas a poder agregar preguntas de opción múltiple, casillas y texto abierto.
+4. agregar preguntas de opción múltiple, casillas y texto abierto;
 
-5. Vas a poder diseñar casos de prueba para comprobar las validaciones.
+5. diseñar casos de prueba para comprobar las validaciones;
 
-6. Vas a poder reconocer cómo registra jsPsych cada tipo de respuesta.
+6. reconocer cómo registra jsPsych cada tipo de respuesta.
 
-## Una pregunta que acepta cualquier cosa permite formular el problema
+## Para empezar, una pregunta que acepta cualquier cosa
 
-Al final del capítulo anterior escribiste `veinte` en la pregunta de edad y el estudio lo aceptó. También habría aceptado `12` o `150`. La especificación decía que la edad debía ser un número entero entre 18 y 80. La implementación todavía no cumplía esa regla.
+Al final del capítulo anterior escribiste `veinte` en la pregunta de edad y el estudio lo aceptó. También habría aceptado `12` o `150`. La especificación decía que la edad tenía que ser un número entero entre 18 y 80, y la implementación todavía no respetaba esa regla.
 
-En Google Forms habrías activado la validación “Número” y “Entre 18 y 80” con dos clics. En jsPsych la validación también existe, pero requiere elegir un tipo de pantalla que la permita.
+En Google Forms habrías activado la validación “Número” y “Entre 18 y 80” con dos clics. En jsPsych la validación también existe, pero hay que elegir un tipo de pantalla que la permita.
 
-Además, tu cuestionario necesita más elementos. Un estudio con personas comienza con un consentimiento informado. El cuestionario sociodemográfico incluye preguntas de distintos tipos: opciones excluyentes, opciones múltiples y respuestas abiertas.
+Además, al cuestionario le faltan cosas. Un estudio con personas empieza con un consentimiento informado, y el cuestionario sociodemográfico tiene preguntas de distintos tipos, con opciones excluyentes, opciones múltiples y respuestas abiertas.
 
-Este capítulo completa el cuestionario. Al terminar, tu proyecto va a coincidir con el checkpoint `03-formulario`.
+En este capítulo completamos el cuestionario. Al terminar, tu proyecto va a coincidir con el checkpoint `03-formulario`.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Cada tipo de pregunta de Google Forms tiene un equivalente en jsPsych. Elegir el plugin adecuado es una decisión técnica que depende de una decisión metodológica previa: qué tipo de respuesta querés obtener y qué reglas debe cumplir.
+Cada tipo de pregunta de Google Forms tiene su equivalente en jsPsych. Elegir el plugin adecuado es una decisión técnica que depende de una decisión metodológica anterior, que es qué tipo de respuesta querés obtener y qué reglas tiene que cumplir.
 :::
 
-## Cada tipo de pregunta tiene un plugin
+## Un plugin para cada tipo de pregunta
 
-jsPsych ofrece varios plugins para construir cuestionarios. La siguiente tabla los relaciona con los tipos de pregunta que conocés.
+jsPsych trae varios plugins para armar cuestionarios. En la @tbl-plugins los relacionamos con los tipos de pregunta que ya conocés.
 
 | Tipo en Google Forms | Plugin de jsPsych | Nombre en el código |
 |:---|:---|:---|
@@ -50,29 +50,29 @@ jsPsych ofrece varios plugins para construir cuestionarios. La siguiente tabla l
 
 : Tipos de pregunta y plugins de jsPsych {#tbl-plugins}
 
-Cada plugin necesita su propia línea en `index.html`, como viste en el capítulo anterior. El plugin `survey-likert` corresponde a las escalas y lo vas a usar en el próximo capítulo.
+Cada plugin necesita su propia línea en `index.html`, como viste en el capítulo anterior. `survey-likert` es el de las escalas y lo usamos en el próximo capítulo.
 
-Los plugins de encuesta comparten una estructura. Todos tienen un parámetro `questions`, que contiene una lista de preguntas entre corchetes. Cada pregunta se describe entre llaves con sus propios parámetros, como `prompt` para el texto y `name` para el nombre de la variable. Por eso, una misma pantalla puede contener más de una pregunta.
+Los plugins de encuesta comparten una estructura. Todos tienen un parámetro `questions` con una lista de preguntas entre corchetes, y cada pregunta se describe entre llaves con sus propios parámetros, como `prompt` para el texto y `name` para el nombre de la variable. Por eso una misma pantalla puede tener más de una pregunta.
 
-## El consentimiento informado va antes de cualquier pregunta
+## Primero, el consentimiento
 
-El **consentimiento informado** es el proceso mediante el cual una persona recibe información sobre un estudio y decide libremente si participa. Es un requisito ético de la investigación con personas. La información suele incluir el propósito del estudio, la duración, el carácter voluntario, la posibilidad de abandonar en cualquier momento y el tratamiento de los datos.
+El **consentimiento informado** es el proceso por el cual una persona recibe información sobre un estudio y decide libremente si participa. Es un requisito ético de la investigación con personas. La información suele incluir el propósito del estudio, cuánto dura, que es voluntario, que se puede abandonar en cualquier momento y qué se hace con los datos.
 
-En un estudio online, el consentimiento se presenta como una pantalla antes de cualquier pregunta. Ninguna respuesta debería registrarse antes de que la persona acepte participar.
+En un estudio online, el consentimiento es una pantalla que va antes de cualquier pregunta. No debería registrarse ninguna respuesta antes de que la persona acepte participar.
 
-En este capítulo vas a implementar una versión sencilla: una pantalla con el texto del consentimiento y un botón para aceptar. Quien no acepta debe cerrar la ventana. En el capítulo sobre lógica condicional vas a agregar una salida explícita para quien no acepta.
+En este capítulo implementamos una versión sencilla, con el texto del consentimiento y un botón para aceptar. Quien no acepta tiene que cerrar la ventana. En el capítulo sobre lógica condicional vamos a sumar una salida explícita para quien no acepta.
 
 ::: {.callout-important}
 ## El texto del consentimiento no se improvisa
 
-El texto de este capítulo es un ejemplo con fines pedagógicos. En un estudio real, el texto del consentimiento lo define el equipo de investigación de acuerdo con las normas éticas de su institución, y suele requerir la aprobación de un comité de ética. No le pidas a un agente que lo redacte. Dale el texto aprobado y pedile que lo use sin cambios.
+El texto de este capítulo es un ejemplo con fines pedagógicos. En un estudio real, lo define el equipo de investigación según las normas éticas de su institución, y en general lo tiene que aprobar un comité de ética. No le pidas a un agente que lo redacte. Dale el texto aprobado y pedile que lo use tal cual.
 :::
 
-## La validación de rango requiere otro plugin
+## La validación de rango
 
-El plugin `survey-text` muestra un campo de texto. Puede exigir una respuesta, pero no puede exigir que sea un número ni que esté dentro de un rango. Para eso vas a usar el plugin `survey-html-form`, que te permite describir el campo de respuesta directamente en HTML.
+El plugin `survey-text` muestra un campo de texto. Puede exigir una respuesta, pero no que sea un número ni que esté dentro de un rango. Para eso vamos a usar `survey-html-form`, que te deja describir el campo de respuesta directamente en HTML.
 
-HTML tiene una etiqueta para los campos de respuesta: `<input>`. Sus **atributos**, que son las indicaciones escritas dentro de la etiqueta, definen cómo funciona el campo.
+HTML tiene una etiqueta para los campos de respuesta, `<input>`. Sus **atributos**, que son las indicaciones que se escriben dentro de la etiqueta, definen cómo funciona el campo.
 
 ```html
 <input type="number" name="edad" min="18" max="80" required>
@@ -90,9 +90,9 @@ Cada atributo expresa una parte de la especificación.
 
 : Atributos del campo de edad {#tbl-atributos}
 
-Cuando la persona presiona **Continuar**, el navegador comprueba estas reglas. Si alguna no se cumple, muestra un aviso y no permite avanzar. Un campo de tipo número, además, rechaza valores con decimales, porque por defecto acepta solo enteros.
+Cuando la persona aprieta **Continuar**, el navegador comprueba estas reglas. Si alguna no se cumple, muestra un aviso y no deja avanzar. Además, un campo de tipo número rechaza valores con decimales, porque por defecto acepta solo enteros.
 
-El ensayo completo se ve así.
+El ensayo completo queda así.
 
 ```javascript
 const pregunta_edad = {
@@ -104,11 +104,11 @@ const pregunta_edad = {
 };
 ```
 
-El parámetro `html` contiene el texto de la pregunta y el campo. El signo `+` une los dos fragmentos de texto en uno solo. En este fragmento los textos van entre comillas simples `'` porque el HTML del campo contiene comillas dobles.
+El parámetro `html` tiene el texto de la pregunta y el campo. El signo `+` une los dos pedazos de texto en uno solo. Acá los textos van entre comillas simples `'` porque el HTML del campo ya tiene comillas dobles adentro.
 
-## Las preguntas cerradas registran el texto de la opción
+## Preguntas cerradas
 
-Para la pregunta de género y la del año de la carrera vas a usar `survey-multi-choice`. Las dos preguntas pueden compartir una pantalla.
+Para la pregunta de género y la del año de la carrera vamos a usar `survey-multi-choice`. Las dos pueden ir en la misma pantalla.
 
 ```javascript
 const preguntas_genero_anio = {
@@ -131,48 +131,48 @@ const preguntas_genero_anio = {
 };
 ```
 
-El parámetro `options` contiene la lista de opciones. jsPsych registra el texto de la opción elegida. Si una persona elige “2.º”, el dato de `anio_carrera` va a ser `2.º`.
+El parámetro `options` tiene la lista de opciones, y jsPsych registra el texto de la opción elegida. Si alguien elige “2.º”, el dato de `anio_carrera` va a ser `2.º`.
 
-Las opciones de una pregunta cerrada son decisiones metodológicas. Determinan qué respuestas son posibles. En la pregunta de género, las opciones de este ejemplo buscan incluir distintas identidades y permitir no responder. Un estudio real puede necesitar otras opciones según su población y su pregunta de investigación.
+Las opciones de una pregunta cerrada son decisiones metodológicas, porque definen qué respuestas son posibles. En la pregunta de género, las opciones del ejemplo buscan incluir distintas identidades y dejar la posibilidad de no responder. Un estudio real puede necesitar otras, según su población y su pregunta de investigación.
 
-Agrupar dos preguntas en una pantalla también es una decisión. Reduce la cantidad de pantallas, pero hace que el tiempo registrado corresponda a las dos preguntas juntas.
+Poner dos preguntas en una misma pantalla también es una decisión. Hay menos pantallas, pero el tiempo registrado corresponde a las dos preguntas juntas.
 
-## Las casillas registran una lista
+## Casillas
 
-Cuando una persona puede elegir varias opciones, se usa `survey-multi-select`. Su estructura es la misma que la de `survey-multi-choice`. La diferencia está en el dato: se registra una lista con todas las opciones elegidas.
+Cuando una persona puede elegir varias opciones, usamos `survey-multi-select`. La estructura es igual a la de `survey-multi-choice`, y la diferencia está en el dato, que es una lista con todas las opciones elegidas.
 
 ```text
 {"recursos":["Apuntes propios","Videos"]}
 ```
 
-Este tipo de dato requiere un tratamiento especial en el análisis, porque una sola variable contiene varios valores. En el capítulo sobre el diccionario de variables vas a documentar esa particularidad.
+Este tipo de dato pide un tratamiento especial en el análisis, porque una sola variable tiene varios valores. En el capítulo sobre el diccionario de variables vamos a documentar esa particularidad.
 
-## Las preguntas abiertas pueden ser cortas o largas
+## Preguntas abiertas
 
-El plugin `survey-text` sirve para preguntas abiertas. El parámetro `rows` indica cuántas líneas tiene el campo. Con una sola línea equivale a una respuesta corta. Con varias equivale a un párrafo.
+El plugin `survey-text` sirve para preguntas abiertas. El parámetro `rows` dice cuántas líneas tiene el campo. Con una sola línea equivale a una respuesta corta, y con varias, a un párrafo.
 
 ```javascript
 { prompt: "¿Querés agregar algún comentario? (opcional)", name: "comentarios", rows: 4, required: false }
 ```
 
-Cuando `required` vale `false`, la persona puede continuar sin escribir. En ese caso, jsPsych registra un texto vacío: `""`. Ese texto vacío es un dato faltante previsto por el diseño.
+Cuando `required` vale `false`, la persona puede seguir sin escribir, y jsPsych registra un texto vacío, `""`. Ese texto vacío es un dato faltante previsto por el diseño.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-Las decisiones de este capítulo afectan directamente los datos. Una validación de rango define quiénes pueden participar. Las opciones de una pregunta cerrada definen qué respuestas son posibles. La obligatoriedad define dónde puede haber datos faltantes. La pantalla de consentimiento define el momento a partir del cual es legítimo registrar respuestas.
+Las decisiones de este capítulo afectan directamente los datos. La validación de rango define quiénes pueden participar, las opciones de una pregunta cerrada definen qué respuestas son posibles, la obligatoriedad define dónde puede haber datos faltantes y la pantalla de consentimiento marca desde cuándo es legítimo registrar respuestas.
 
-Ninguna de estas decisiones depende de jsPsych. jsPsych solo las hace visibles, porque quedan escritas en `experiment.js`. Esa visibilidad te permite revisarlas, documentarlas y comprobar que coinciden con tu protocolo.
+Ninguna de estas decisiones depende de jsPsych. Lo que hace jsPsych es volverlas visibles, porque quedan escritas en `experiment.js`, y eso te permite revisarlas, documentarlas y comprobar que coinciden con tu protocolo.
 
-## Reemplazá la pregunta de edad
+## Con Codex, la pregunta de edad
 
-La primera modificación reemplaza la pregunta de edad del capítulo anterior por la versión con validación. Es un cambio que afecta dos archivos y reemplaza un ensayo existente. Por eso conviene pedir un plan.
+El primer cambio reemplaza la pregunta de edad del capítulo anterior por la versión con validación. Toca dos archivos y reemplaza un ensayo que ya existe, así que conviene pedir un plan.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Guardá copias de respaldo de `index.html` y `experiment.js`.
 
-2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+2. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
 3. Escribí este pedido.
 
@@ -191,19 +191,19 @@ No modifiques ninguna otra parte de los archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-4. Revisá el plan y cada propuesta de cambio. En `experiment.js`, localizá los cinco atributos del campo y comparalos con la tabla de atributos de este capítulo.
+4. Revisá el plan y cada propuesta de cambio. En `experiment.js`, buscá los cinco atributos del campo y comparalos con la tabla de atributos de este capítulo.
 :::
 
-**Sin acceso a Codex:** agregá la línea del plugin a `index.html` y reemplazá la definición de `pregunta_edad` por el fragmento de la sección anterior.
+**Sin acceso a Codex.** Agregá la línea del plugin a `index.html` y reemplazá la definición de `pregunta_edad` por el fragmento de la sección anterior.
 
-## Diseñá casos de prueba para la validación
+## Casos de prueba
 
-Para verificar una validación no alcanza con probar una respuesta correcta. Necesitás probar respuestas que deberían ser rechazadas y respuestas que están justo en el límite. Un **caso de prueba** es una entrada preparada de antemano junto con el resultado que esperás obtener.
+Para verificar una validación no alcanza con probar una respuesta correcta. Hay que probar respuestas que tendrían que ser rechazadas y respuestas que están justo en el límite. Un **caso de prueba** es una entrada preparada de antemano junto con el resultado que esperás.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-Recargá el estudio y probá cada valor en la pregunta de edad. Antes de probar, completá la columna “Esperado”. Después completá la columna “Observado”.
+Recargá el estudio y probá cada valor en la pregunta de edad. Antes de probar, completá la columna “Esperado”, y después la columna “Observado”.
 
 | Valor ingresado | Esperado | Observado |
 |:---|:---|:---|
@@ -215,26 +215,26 @@ Recargá el estudio y probá cada valor en la pregunta de edad. Antes de probar,
 | `22.5` | | |
 | `22` | | |
 
-Para probar un nuevo valor después de un rechazo, borrá el anterior y escribí el siguiente. Para probar un valor aceptado, tenés que volver a empezar el estudio con `F5`.
+Para probar un valor nuevo después de un rechazo, borrá el anterior y escribí el siguiente. Para probar un valor aceptado, tenés que volver a empezar el estudio con `F5`.
 :::
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
-El campo vacío, `17`, `81` y `22.5` deben ser rechazados con un aviso del navegador. `18`, `80` y `22` deben ser aceptados. Los valores `18` y `80` son casos límite: comprueban que el rango incluye sus extremos, como indica la especificación.
+El campo vacío, `17`, `81` y `22.5` deben ser rechazados con un aviso del navegador. `18`, `80` y `22` deben ser aceptados. Los valores `18` y `80` son casos límite, porque comprueban que el rango incluye sus extremos, como indica la especificación.
 
 </details>
 
-Los valores `18` y `80` son especialmente importantes. Un error frecuente consiste en implementar “mayor que 18” cuando la especificación dice “desde 18”. Solo un caso de prueba en el límite detecta esa diferencia.
+Los valores `18` y `80` son especialmente importantes. Un error muy común es implementar “mayor que 18” cuando la especificación dice “desde 18”, y solo un caso de prueba en el límite detecta esa diferencia.
 
-## Agregá el consentimiento y las preguntas cerradas
+## Con Codex, consentimiento y preguntas cerradas
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-Realizá estos dos pedidos por separado. Revisá y verificá cada uno antes de pasar al siguiente.
+Hacé estos dos pedidos por separado, y revisá y verificá cada uno antes de pasar al siguiente.
 
-**Pedido 1: consentimiento.**
+**Pedido 1. Consentimiento.**
 
 ```text
 En experiment.js, agregá un ensayo llamado consentimiento que use jsPsychHtmlButtonResponse.
@@ -250,7 +250,7 @@ Párrafo 3: Si aceptás participar, presioná el botón. Si no aceptás, cerrá 
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-**Pedido 2: género y año de la carrera.**
+**Pedido 2. Género y año de la carrera.**
 
 ```text
 En index.html, agregá esta línea exacta después de la línea que carga plugin-survey-html-form:
@@ -268,54 +268,54 @@ No modifiques ninguna otra parte de los archivos.
 ```
 :::
 
-**Sin acceso a Codex:** copiá las definiciones correspondientes desde `proyectos\03-formulario\experiment.js` y la línea del plugin desde `proyectos\03-formulario\index.html`. Después agregá los nombres a la línea de tiempo.
+**Sin acceso a Codex.** Copiá las definiciones desde `proyectos\03-formulario\experiment.js` y la línea del plugin desde `proyectos\03-formulario\index.html`. Después agregá los nombres a la línea de tiempo.
 
-## Completá el cuestionario
+## Completar el cuestionario
 
-Faltan tres preguntas de la especificación: carrera, recursos de estudio y comentarios. Ya conocés los plugins que necesitan.
+Faltan tres preguntas de la especificación, carrera, recursos de estudio y comentarios. Ya conocés los plugins que necesitan.
 
 | Ensayo | Plugin | Pregunta | Variable | Opciones | Obligatoria |
 |:---|:---|:---|:---|:---|:---|
-| `pregunta_carrera` | `survey-text` | ¿Qué carrera estudiás? | `carrera` | — | Sí |
+| `pregunta_carrera` | `survey-text` | ¿Qué carrera estudiás? | `carrera` | No corresponde | Sí |
 | `pregunta_recursos` | `survey-multi-select` | ¿Qué recursos usás para estudiar? Podés elegir más de una opción. | `recursos` | Apuntes propios, Bibliografía obligatoria, Videos, Grupos de estudio, Herramientas de IA | Sí |
-| `pregunta_comentarios` | `survey-text`, con `rows: 4` | ¿Querés agregar algún comentario? (opcional) | `comentarios` | — | No |
+| `pregunta_comentarios` | `survey-text`, con `rows: 4` | ¿Querés agregar algún comentario? (opcional) | `comentarios` | No corresponde | No |
 
 : Preguntas restantes del cuestionario {#tbl-restantes}
 
-El orden en la línea de tiempo debe ser: `bienvenida`, `consentimiento`, `pregunta_edad`, `preguntas_genero_anio`, `pregunta_carrera`, `pregunta_recursos`, `pregunta_comentarios` y `cierre`. El plugin `survey-multi-select` se carga con esta línea.
+El orden en la línea de tiempo tiene que ser `bienvenida`, `consentimiento`, `pregunta_edad`, `preguntas_genero_anio`, `pregunta_carrera`, `pregunta_recursos`, `pregunta_comentarios` y `cierre`. El plugin `survey-multi-select` se carga con esta línea.
 
 ```html
 <script src="https://unpkg.com/@jspsych/plugin-survey-multi-select@2.1.1"></script>
 ```
 
-Podés implementar estas preguntas de dos maneras. La primera es escribir un pedido para cada una, siguiendo el formato del pedido 2. La segunda es copiarlas desde el checkpoint `03-formulario`. Si tu cuenta tiene un límite de uso bajo, la segunda opción te permite reservarlo para otras actividades.
+Estas preguntas las podés implementar de dos maneras. Una es escribir un pedido para cada una, con el formato del pedido 2. La otra es copiarlas desde el checkpoint `03-formulario`. Si tu cuenta tiene un límite de uso bajo, la segunda te deja guardarlo para otras actividades.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-En el primer pedido, el agente reemplazó un ensayo por otro con el mismo nombre. Como el nombre no cambió, la línea de tiempo no necesitaba modificarse. La propuesta debería mostrar líneas eliminadas, las del ensayo con `survey-text`, y líneas agregadas, las del ensayo con `survey-html-form`.
+En el primer pedido, el agente reemplazó un ensayo por otro con el mismo nombre. Como el nombre no cambió, la línea de tiempo no hacía falta tocarla. La propuesta tendría que mostrar líneas borradas, las del ensayo con `survey-text`, y líneas agregadas, las del ensayo con `survey-html-form`.
 
-En el pedido del consentimiento, el agente transformó tu texto en HTML: agregó las etiquetas `<h2>` y `<p>` alrededor de cada fragmento. Revisá que no haya cambiado ninguna palabra al hacerlo. Un agente puede “mejorar” una redacción sin que se lo pidas, y en un consentimiento eso no es aceptable.
+En el pedido del consentimiento, el agente convirtió tu texto en HTML agregando las etiquetas `<h2>` y `<p>` alrededor de cada parte. Revisá que no haya cambiado ninguna palabra en el camino. Un agente puede “mejorar” una redacción sin que se lo pidas, y en un consentimiento eso no se acepta.
 
 En el pedido de género y año, el agente cargó un plugin nuevo, definió un ensayo con dos preguntas y lo ubicó en la línea de tiempo. Son los tres cambios que identificaste en el capítulo anterior.
 
-## Verificá el cuestionario completo
+## Verificar el cuestionario completo
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 1. Recargá el estudio y recorrelo completo.
 
-2. Comprobá el orden de las pantallas contra la línea de tiempo especificada.
+2. Comprobá que el orden de las pantallas sea el de la línea de tiempo especificada.
 
-3. En la pantalla de consentimiento, compará el texto con el del pedido, palabra por palabra.
+3. En la pantalla de consentimiento, compará el texto con el del pedido palabra por palabra.
 
-4. Intentá avanzar sin responder en cada pregunta obligatoria. Comprobá que no se pueda.
+4. Intentá avanzar sin responder en cada pregunta obligatoria y comprobá que no se pueda.
 
 5. En la pregunta de recursos, elegí dos opciones.
 
 6. En la pregunta de comentarios, avanzá sin escribir.
 
-7. En la tabla de datos final, buscá cada variable. Completá esta tabla con los valores registrados.
+7. En la tabla de datos final, buscá cada variable y completá esta tabla con los valores registrados.
 
 | Variable | Valor registrado |
 |:---|:---|
@@ -327,41 +327,41 @@ En el pedido de género y año, el agente cargó un plugin nuevo, definió un en
 | `comentarios` | |
 :::
 
-Los valores registrados deberían tener formas diferentes. La edad aparece entre comillas, como `"22"`, porque el campo HTML entrega su contenido como texto aunque sea un número. Las opciones aparecen con su texto completo. Los recursos aparecen como una lista entre corchetes. Los comentarios vacíos aparecen como `""`.
+Los valores registrados tendrían que tener formas distintas. La edad aparece entre comillas, como `"22"`, porque el campo HTML entrega su contenido como texto aunque sea un número. Las opciones aparecen con su texto completo, los recursos como una lista entre corchetes y los comentarios vacíos como `""`.
 
-Compará tu proyecto con el checkpoint `03-formulario`. La estructura y el comportamiento deberían coincidir.
+Compará tu proyecto con el checkpoint `03-formulario`. La estructura y el comportamiento tendrían que coincidir.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### El navegador acepta un valor fuera del rango
 
-Revisá que el campo tenga `type="number"` y que los atributos `min` y `max` estén escritos dentro de la etiqueta `<input>`. Un atributo fuera de la etiqueta no tiene efecto.
+Fijate que el campo tenga `type="number"` y que `min` y `max` estén escritos dentro de la etiqueta `<input>`. Un atributo fuera de la etiqueta no tiene efecto.
 
 ### La pantalla nueva aparece en blanco
 
-Probablemente falte cargar un plugin. Abrí la consola con `F12` y buscá un mensaje que diga que un nombre como `jsPsychSurveyMultiChoice` no está definido.
+Seguramente falte cargar un plugin. Abrí la consola con `F12` y buscá un mensaje que diga que un nombre como `jsPsychSurveyMultiChoice` no está definido.
 
 ### Una opción aparece con otro texto
 
-El agente pudo haber cambiado una opción, por ejemplo escribiendo “1°” en lugar de “1.º”. En una pregunta cerrada, el texto de la opción es el dato que se registra. Compará cada opción con la especificación.
+El agente pudo haber cambiado una opción, por ejemplo escribiendo “1°” en vez de “1.º”. En una pregunta cerrada, el texto de la opción es el dato que se registra, así que compará cada opción con la especificación.
 
 ### El consentimiento cambió de redacción
 
-Revisá la propuesta de cambio con especial atención. Si el agente modificó palabras, rechazá la propuesta y pedile que use el texto exacto.
+Revisá la propuesta de cambio con mucha atención. Si el agente cambió palabras, rechazá la propuesta y pedile que use el texto exacto.
 
-### Dos preguntas tienen el mismo `name`
+### Dos preguntas con el mismo `name`
 
-Si dos preguntas usan el mismo nombre de variable, sus datos se confunden. Cada `name` debe ser único en todo el estudio.
+Si dos preguntas usan el mismo nombre de variable, sus datos se mezclan. Cada `name` tiene que ser único en todo el estudio.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
 1. ¿Qué plugin corresponde a una pregunta de casillas de verificación?
 
-2. ¿Por qué el consentimiento debe aparecer antes de cualquier pregunta?
+2. ¿Por qué el consentimiento tiene que aparecer antes de cualquier pregunta?
 
-3. ¿Por qué la pregunta de edad usa `survey-html-form` en lugar de `survey-text`?
+3. ¿Por qué la pregunta de edad usa `survey-html-form` y no `survey-text`?
 
 4. ¿Qué indica el atributo `min="18"`?
 
@@ -369,12 +369,12 @@ Respondé cada pregunta con una oración completa.
 
 6. ¿Por qué conviene probar los valores 18 y 80?
 
-7. ¿Qué registra jsPsych cuando una persona elige una opción de `survey-multi-choice`?
+7. ¿Qué registra jsPsych cuando alguien elige una opción de `survey-multi-choice`?
 
 8. ¿Qué valor queda registrado cuando una pregunta abierta opcional queda sin respuesta?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Corresponde el plugin `survey-multi-select`.
 
@@ -394,25 +394,25 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
 Cada tipo de pregunta de Google Forms tiene un plugin equivalente en jsPsych. Los plugins de encuesta usan el parámetro `questions` para describir una o más preguntas por pantalla.
 
-El consentimiento informado es un requisito ético y se presenta antes de cualquier pregunta. Su texto lo define el equipo de investigación y no debe redactarlo un agente.
+El consentimiento informado es un requisito ético y va antes de cualquier pregunta. Su texto lo define el equipo de investigación, no un agente.
 
-La validación de rango se implementa con `survey-html-form` y un campo `<input>` cuyos atributos expresan la especificación. Los casos de prueba, incluidos los casos límite, permiten verificar la validación.
+La validación de rango se implementa con `survey-html-form` y un campo `<input>` cuyos atributos expresan la especificación. Con casos de prueba, incluidos los casos límite, verificamos que funcione.
 
-Las preguntas cerradas registran el texto de la opción elegida. Las casillas registran una lista. Las preguntas abiertas registran el texto escrito, o un texto vacío si son opcionales y quedan sin respuesta.
+Las preguntas cerradas registran el texto de la opción elegida y las casillas registran una lista. Las abiertas registran lo que se escribió, o un texto vacío si son opcionales y quedaron sin respuesta.
 
-Tu proyecto ya contiene un consentimiento y un cuestionario sociodemográfico completo, como el checkpoint `03-formulario`.
+Tu proyecto ya tiene un consentimiento y un cuestionario sociodemográfico completo, como el checkpoint `03-formulario`.
 
-## Resolvé un desafío breve
+## Desafío
 
-Imaginá que el equipo decide que el estudio incluye solo a estudiantes de hasta 35 años.
+Imaginá que el equipo decide que el estudio incluya solo a estudiantes de hasta 35 años.
 
 1. Escribí la nueva línea de la especificación para `edad`.
 
-2. Identificá qué atributo de `experiment.js` debe cambiar y cuál sería su nuevo valor.
+2. Identificá qué atributo de `experiment.js` tiene que cambiar y cuál sería su valor nuevo.
 
 3. Escribí el pedido para Codex con las cuatro partes de un pedido completo.
 
@@ -420,6 +420,6 @@ Imaginá que el equipo decide que el estudio incluye solo a estudiantes de hasta
 
 5. Explicá en dos oraciones por qué este cambio es una decisión metodológica y no solo técnica.
 
-No apliques el cambio a tu proyecto: el estudio del libro mantiene el rango de 18 a 80.
+No apliques el cambio a tu proyecto, porque el estudio del libro mantiene el rango de 18 a 80.
 
-En el próximo capítulo vas a incorporar una escala psicológica y vas a estudiar la diferencia entre presentar una escala y puntuarla.
+En el próximo capítulo sumamos una escala psicológica y vemos la diferencia entre presentar una escala y puntuarla.
