@@ -3,23 +3,23 @@ title: "De chatbot a agente"
 description: "Qué cambia cuando una IA puede leer archivos, ejecutar comandos y modificar un proyecto."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar qué es un modelo de lenguaje con tus propias palabras.
+1. explicar con tus palabras qué es un modelo de lenguaje;
 
-2. Vas a poder distinguir una conversación con un chatbot del trabajo de un agente.
+2. distinguir una conversación con un chatbot del trabajo de un agente;
 
-3. Vas a poder describir el ciclo que sigue un agente cuando realiza una tarea.
+3. describir el ciclo que sigue un agente cuando hace una tarea;
 
-4. Vas a poder reconocer qué recursos puede leer o modificar un agente dentro de un proyecto.
+4. reconocer qué puede leer o modificar un agente dentro de un proyecto;
 
-5. Vas a poder identificar acciones que requieren tu aprobación y tu verificación.
+5. identificar las acciones que necesitan tu aprobación y tu verificación;
 
-6. Vas a poder explicar por qué el acceso técnico de un agente no le otorga autoridad metodológica.
+6. explicar por qué el acceso técnico de un agente no le da autoridad metodológica.
 
-## Dos pedidos parecidos permiten formular el problema
+## Para empezar, dos pedidos parecidos
 
 Imaginá que abrís un chat de inteligencia artificial en el navegador y escribís este pedido.
 
@@ -27,67 +27,65 @@ Imaginá que abrís un chat de inteligencia artificial en el navegador y escrib�
 Escribí una breve descripción para el README de mi proyecto sobre hábitos de estudio.
 ```
 
-La respuesta aparece en la pantalla. Leés el texto, lo copiás y lo pegás en `README.md`. Después guardás el archivo. La IA produjo texto. Vos elegiste qué archivo abrir, dónde pegar y cuándo guardar.
+La respuesta aparece en pantalla. La leés, la copiás, la pegás en `README.md` y guardás el archivo. La IA produjo el texto, pero fuiste vos quien eligió qué archivo abrir, dónde pegar y cuándo guardar.
 
-Ahora imaginá una herramienta diferente. Abrís la terminal dentro de `mi-primer-estudio` y escribís un pedido parecido.
+Ahora imaginá otra herramienta. Abrís la terminal dentro de `mi-primer-estudio` y escribís algo parecido.
 
 ```text
 Agregá una breve descripción del proyecto al archivo README.md.
 ```
 
-Esta vez la herramienta busca el archivo, lee su contenido, redacta el texto y modifica `README.md`. Cuando termina, el cambio ya existe en tu computadora.
+Esta vez la herramienta busca el archivo, lee lo que tiene, redacta el texto y modifica `README.md`. Cuando termina, el cambio ya está en tu computadora.
 
-Ambos pedidos usan una IA para producir texto. La diferencia se encuentra en quién realiza las acciones sobre los archivos. En el primer caso las realizaste vos. En el segundo caso las realizó la herramienta.
+En los dos casos una IA produce texto. Lo que cambia es quién hace las acciones sobre los archivos. En el primero las hiciste vos y en el segundo las hizo la herramienta.
 
-Esa diferencia cambia la forma de trabajar. Cuando una herramienta puede modificar tu proyecto, necesitás saber qué puede hacer, qué hizo y cómo comprobarlo.
+Y eso cambia la forma de trabajar. Si una herramienta puede modificar tu proyecto, necesitás saber qué puede hacer, qué hizo y cómo comprobarlo.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Un chatbot produce respuestas que vos decidís cómo usar. Un agente puede actuar sobre tus archivos. Por eso, trabajar con un agente requiere delimitar su tarea y verificar sus acciones.
+Un chatbot te da respuestas y vos decidís qué hacer con ellas. Un agente puede actuar sobre tus archivos. Por eso, cuando trabajamos con un agente, tenemos que delimitar bien su tarea y verificar lo que hace.
 :::
 
-## Un modelo de lenguaje produce texto a partir de texto
+## Qué es un modelo de lenguaje
 
-Los chatbots y los agentes que usaremos funcionan gracias a un **modelo de lenguaje**. Un modelo de lenguaje es un programa entrenado con enormes cantidades de texto. A partir de un texto de entrada, produce una continuación que resulta probable según lo que aprendió durante el entrenamiento.
+Los chatbots y los agentes que vamos a usar funcionan gracias a un **modelo de lenguaje**. Es un programa entrenado con enormes cantidades de texto que, a partir de un texto de entrada, produce una continuación probable según lo que aprendió en ese entrenamiento.
 
-Esa capacidad permite resultados muy útiles. Un modelo puede resumir un documento, reformular una consigna, explicar un mensaje de error o escribir instrucciones para una computadora.
+Con eso se pueden hacer cosas muy útiles. Un modelo puede resumir un documento, reformular una consigna, explicar un mensaje de error o escribir instrucciones para una computadora.
 
-La misma capacidad tiene límites que conviene conocer desde el comienzo.
+Pero esa misma capacidad tiene límites que conviene conocer desde el principio.
 
-1. El modelo puede producir afirmaciones incorrectas con una redacción segura y convincente.
+1. Puede afirmar cosas incorrectas con una redacción segura y convincente.
 
-2. El modelo puede completar información que no le diste. Si falta un dato, puede inventar uno plausible.
+2. Puede completar información que no le diste. Si falta un dato, puede inventar uno que suene razonable.
 
-3. El modelo desconoce tu estudio, salvo por lo que le comunicás y por lo que puede leer.
+3. No conoce tu estudio, salvo por lo que le contás y lo que puede leer.
 
-4. Un mismo pedido puede producir respuestas algo diferentes en distintos intentos.
+4. El mismo pedido puede dar respuestas algo distintas en distintos intentos.
 
-Estos límites no impiden usar la herramienta. Indican que cada resultado necesita una revisión proporcional a su importancia.
+Nada de esto impide usar la herramienta. Lo que nos dice es que cada resultado necesita una revisión acorde a su importancia.
 
 ::: {.callout-warning}
-## Una redacción segura no garantiza una afirmación correcta
+## Que suene seguro no quiere decir que sea correcto
 
-El tono de una respuesta no informa sobre su exactitud. Una explicación clara puede contener un error. Comprobá los datos, las referencias y las decisiones importantes en fuentes que puedas verificar.
+El tono de una respuesta no dice nada sobre su exactitud, y una explicación clara puede tener un error. Comprobá los datos, las referencias y las decisiones importantes en fuentes que puedas verificar.
 :::
 
-## Un chatbot intercambia mensajes
+## El chatbot
 
-Un **chatbot** es un programa que conversa mediante mensajes. Vos escribís un mensaje. El programa responde con otro. La conversación avanza por turnos.
-
-El esquema de trabajo es sencillo.
+Un **chatbot** es un programa que conversa por mensajes. Vos escribís uno, el programa responde con otro y la conversación avanza por turnos.
 
 ```text
 tu mensaje → respuesta del modelo → tu próximo mensaje
 ```
 
-En este esquema, el chatbot trabaja con la información que aparece en la conversación. Si querés que revise un archivo, necesitás copiar su contenido o adjuntarlo. Si querés aplicar una sugerencia, necesitás hacerlo por tu cuenta.
+El chatbot trabaja con lo que aparece en la conversación. Si querés que revise un archivo, tenés que copiar su contenido o adjuntarlo, y si querés aplicar una sugerencia, lo tenés que hacer vos.
 
-Esa separación ofrece una protección natural. Cada cambio en tus archivos pasa por tus manos. También implica más trabajo manual cuando una tarea requiere leer muchos archivos o realizar muchas modificaciones pequeñas.
+Esa separación te protege, porque cada cambio en tus archivos pasa por tus manos. La contracara es que da más trabajo manual cuando la tarea implica leer muchos archivos o hacer muchas modificaciones chicas.
 
-## Un agente recibe una tarea y realiza acciones
+## El agente
 
-Un **agente de IA** es un programa que usa un modelo de lenguaje para realizar tareas mediante acciones concretas. Además de responder con texto, puede usar **herramientas**. En este contexto, una herramienta es una capacidad que el programa pone a disposición del modelo, como leer un archivo, escribir un archivo o ejecutar un comando en la terminal.
+Un **agente de IA** es un programa que usa un modelo de lenguaje para hacer tareas mediante acciones concretas. Además de responder con texto puede usar **herramientas**, que en este contexto son capacidades que el programa pone a disposición del modelo, como leer un archivo, escribir un archivo o ejecutar un comando en la terminal.
 
 Cuando un agente recibe una tarea, suele repetir un ciclo.
 
@@ -95,55 +93,55 @@ Cuando un agente recibe una tarea, suele repetir un ciclo.
 observar → decidir la próxima acción → actuar → observar el resultado
 ```
 
-Supongamos que le pedís que agregue una oración al final de `README.md`. El agente puede realizar esta secuencia.
+Supongamos que le pedís que agregue una oración al final de `README.md`. El agente podría seguir estos pasos.
 
-1. El agente consulta qué archivos contiene la carpeta.
+1. Consulta qué archivos hay en la carpeta.
 
-2. El agente lee `README.md`.
+2. Lee `README.md`.
 
-3. El agente decide dónde agregar la oración.
+3. Decide dónde agregar la oración.
 
-4. El agente modifica el archivo.
+4. Modifica el archivo.
 
-5. El agente vuelve a leer el archivo para comprobar el cambio.
+5. Lo vuelve a leer para comprobar el cambio.
 
-6. El agente informa qué hizo.
+6. Te cuenta qué hizo.
 
-Varias de estas acciones se parecen a las que realizaste en la Parte I. Consultar el contenido de una carpeta equivale a ejecutar `dir`. Leer un archivo equivale a abrirlo en un editor. La diferencia es que el agente decide y ejecuta esas acciones por su cuenta, dentro de los límites que le permitas.
+Varias de estas acciones se parecen a las que hiciste en la Parte I. Consultar el contenido de una carpeta equivale a ejecutar `dir`, y leer un archivo equivale a abrirlo en un editor. La diferencia es que el agente decide y ejecuta esas acciones por su cuenta, dentro de los límites que le pongas.
 
 ::: {.callout-important}
-## El agente trabaja con los mismos archivos que vos
+## Son tus archivos, no una copia
 
-Un agente no trabaja sobre una copia imaginaria. Cuando modifica `README.md`, modifica el archivo que está en tu computadora. El Explorador de archivos y PowerShell van a mostrar ese cambio.
+El agente no trabaja sobre una copia imaginaria. Cuando modifica `README.md`, modifica el archivo que está en tu computadora, y ese cambio lo vas a ver en el Explorador de archivos y en PowerShell.
 :::
 
-## Un agente trabaja sobre una carpeta
+## La carpeta de trabajo
 
-En el capítulo sobre la terminal viste que muchas herramientas actúan sobre la carpeta actual. Los agentes de terminal siguen el mismo criterio. Cuando iniciás un agente, la carpeta desde la cual lo iniciás se convierte en su **carpeta de trabajo**. En la documentación en inglés vas a encontrar la palabra *workspace* para referirse a ella.
+En el capítulo sobre la terminal vimos que muchas herramientas actúan sobre la carpeta actual. Los agentes de terminal hacen lo mismo. La carpeta desde la que abrís el agente pasa a ser su **carpeta de trabajo**, que en la documentación en inglés aparece como *workspace*.
 
-La carpeta de trabajo define el alcance habitual del agente.
+Esa carpeta marca el alcance habitual del agente.
 
-1. El agente puede leer los archivos y las carpetas que contiene.
+1. Puede leer los archivos y carpetas que contiene.
 
-2. Según los permisos configurados, puede crear o modificar archivos dentro de ella.
+2. Según los permisos que tenga, puede crear o modificar archivos dentro de ella.
 
-3. Según los permisos configurados, puede ejecutar comandos a partir de esa ubicación.
+3. Según los permisos que tenga, puede ejecutar comandos desde esa ubicación.
 
-4. Las acciones fuera de esa carpeta suelen requerir una autorización especial.
+4. Para actuar fuera de esa carpeta, en general necesita una autorización especial.
 
-Por esta razón, la ubicación inicial tiene tanta importancia. Si iniciás un agente dentro de `mi-primer-estudio`, su trabajo se concentra en tu proyecto. Si lo iniciás en la carpeta de tu usuario, el agente queda frente a todos tus documentos, descargas e imágenes.
+Por eso importa tanto desde dónde lo abrimos. Si iniciás el agente dentro de `mi-primer-estudio`, su trabajo se concentra en tu proyecto. Si lo iniciás en la carpeta de tu usuario, tiene delante todos tus documentos, descargas e imágenes.
 
 ::: {.callout-warning}
-## Iniciá el agente en la carpeta principal del proyecto
+## Abrí el agente en la carpeta principal del proyecto
 
-Antes de iniciar un agente, ejecutá `Get-Location` y `dir`. La ruta debe terminar en la carpeta del proyecto y la lista debe mostrar los archivos que esperás encontrar. Evitá iniciar un agente en la carpeta de tu usuario, en Descargas o en la raíz de un disco.
+Antes de iniciar un agente, ejecutá `Get-Location` y `dir`. La ruta tiene que terminar en la carpeta del proyecto y la lista tiene que mostrar los archivos que esperás. No abras un agente en la carpeta de tu usuario, en Descargas ni en la raíz de un disco.
 :::
 
-## Los permisos definen qué puede hacer el agente sin preguntar
+## Los permisos
 
-Los agentes de terminal permiten configurar **permisos**. Un permiso establece qué acciones puede realizar el programa por su cuenta y cuáles necesitan tu aprobación.
+Los agentes de terminal permiten configurar **permisos**, que establecen qué puede hacer el programa por su cuenta y qué necesita tu aprobación.
 
-Los niveles concretos cambian entre herramientas. En general, podemos distinguir las tres situaciones que resume la @tbl-permisos.
+Los niveles concretos cambian según la herramienta, pero en general se pueden distinguir las tres situaciones de la @tbl-permisos.
 
 | Nivel | Qué puede hacer el agente | Cuándo conviene |
 |:---|:---|:---|
@@ -153,83 +151,83 @@ Los niveles concretos cambian entre herramientas. En general, podemos distinguir
 
 : Niveles habituales de permisos en un agente de terminal {#tbl-permisos}
 
-Durante los primeros capítulos vas a trabajar con el nivel de solo lectura. Cada modificación pasará por una aprobación explícita. Esta decisión hace el trabajo algo más lento, pero te permite observar cada acción antes de que ocurra.
+En los primeros capítulos vas a trabajar en modo de solo lectura, así que cada modificación va a pasar por una aprobación explícita. Es un poco más lento, pero te deja ver cada acción antes de que ocurra.
 
-Una **aprobación** es una pregunta que el agente te hace antes de realizar una acción. Suele mostrar qué quiere hacer y te ofrece aceptar o rechazar. Aprobar sin leer elimina la protección que ofrece este mecanismo.
+Una **aprobación** es una pregunta que el agente te hace antes de hacer algo. Suele mostrarte qué quiere hacer y te deja aceptar o rechazar. Si aprobás sin leer, perdés la protección que te da este mecanismo.
 
-## Algunas acciones requieren atención especial
+## Acciones que piden más cuidado
 
-Cualquier acción de un agente merece una revisión. Algunas requieren más cuidado porque sus consecuencias son difíciles de revertir o exceden el proyecto.
+Todo lo que hace un agente merece una revisión, pero algunas acciones piden más cuidado porque cuesta revertirlas o porque van más allá del proyecto.
 
-1. **Eliminar archivos.** Una eliminación realizada desde la terminal puede omitir la Papelera de reciclaje.
+1. **Eliminar archivos.** Lo que se borra desde la terminal puede no pasar por la Papelera de reciclaje.
 
-2. **Modificar muchos archivos a la vez.** Un cambio extenso resulta más difícil de revisar.
+2. **Modificar muchos archivos a la vez.** Un cambio grande es más difícil de revisar.
 
-3. **Instalar programas.** Una instalación produce cambios duraderos en la computadora, como viste en el capítulo sobre programas y procesos.
+3. **Instalar programas.** Una instalación deja cambios duraderos en la computadora, como vimos en el capítulo sobre programas y procesos.
 
-4. **Acceder a Internet.** El agente puede descargar contenido o enviar información fuera de tu computadora.
+4. **Acceder a Internet.** El agente puede bajar contenido o mandar información fuera de tu computadora.
 
-5. **Actuar fuera de la carpeta del proyecto.** El agente puede alcanzar archivos que no forman parte de la tarea.
+5. **Actuar fuera de la carpeta del proyecto.** Puede llegar a archivos que no tienen nada que ver con la tarea.
 
-6. **Tomar decisiones metodológicas.** El agente puede cambiar una duración, un rango o una redacción que vos no decidiste cambiar.
+6. **Tomar decisiones metodológicas.** Puede cambiar una duración, un rango o una redacción que vos no decidiste cambiar.
 
-Las cinco primeras situaciones son técnicas. La última es metodológica y resulta la más fácil de pasar por alto, porque el programa puede seguir funcionando sin errores.
+Las cinco primeras son técnicas. La última es metodológica y es la que más fácil se nos pasa, porque el programa puede seguir funcionando sin errores.
 
-## El agente también envía información
+## El agente también manda información
 
-Un agente como los que usaremos no ejecuta el modelo de lenguaje dentro de tu computadora. El programa que instalás funciona como intermediario. Envía tu pedido y los fragmentos de archivos que lee a los servidores de la empresa que ofrece el modelo. Después recibe la respuesta y realiza las acciones.
+Un agente como los que vamos a usar no ejecuta el modelo de lenguaje en tu computadora. El programa que instalás hace de intermediario. Manda tu pedido, y los pedazos de archivos que lee, a los servidores de la empresa que ofrece el modelo, recibe la respuesta y después hace las acciones.
 
-Esta característica tiene consecuencias para la investigación. Los datos de participantes pueden contener información personal o sensible. Su tratamiento depende del consentimiento informado, de las normas éticas de tu institución y de la legislación sobre protección de datos.
+Esto tiene consecuencias para la investigación. Los datos de participantes pueden incluir información personal o sensible, y su tratamiento depende del consentimiento informado, de las normas éticas de tu institución y de la legislación sobre protección de datos.
 
 ::: {.callout-important}
-## Mantené los datos de participantes fuera del alcance del agente
+## Los datos de participantes, lejos del agente
 
-No guardes datos reales de participantes dentro de la carpeta en la que trabaja un agente. Durante el curso vas a trabajar con datos de prueba generados por vos. Cuando llegue el momento de recolectar datos reales, el libro va a tratar su almacenamiento de manera específica.
+No guardes datos reales de participantes en la carpeta en la que trabaja un agente. Durante el curso vas a usar datos de prueba generados por vos. Cuando llegue el momento de recolectar datos reales, vamos a ver en detalle cómo guardarlos.
 :::
 
 ## El agente no recuerda lo que no quedó escrito
 
-Durante una sesión, el agente trabaja con la información disponible en ese momento. Esa información incluye tus mensajes, sus respuestas y el contenido de los archivos que leyó. En la documentación técnica vas a encontrar el término **contexto** para referirse a ese conjunto de información.
+Durante una sesión, el agente trabaja con la información que tiene en ese momento, que incluye tus mensajes, sus respuestas y los archivos que leyó. En la documentación técnica a ese conjunto se lo llama **contexto**.
 
-Cuando cerrás la sesión y abrís otra, el agente comienza con un contexto nuevo. Puede volver a leer tus archivos, pero no conserva por sí mismo el razonamiento de la conversación anterior.
+Cuando cerrás la sesión y abrís otra, el agente arranca con un contexto nuevo. Puede volver a leer tus archivos, pero no se acuerda por sí solo de lo que razonó en la conversación anterior.
 
-Esta característica refuerza la importancia de la documentación. Un `README.md` claro permite que una persona retome el trabajo. También permite que un agente comprenda el propósito del proyecto en una sesión nueva. Más adelante, el archivo `AGENTS.md` va a conservar reglas estables para los agentes, como anticipaste en el capítulo sobre proyectos.
+Por eso la documentación es tan importante. Un `README.md` claro permite que una persona retome el trabajo, y también que un agente entienda el propósito del proyecto en una sesión nueva. Más adelante, como anticipamos en el capítulo sobre proyectos, `AGENTS.md` va a guardar las reglas estables para los agentes.
 
-## El acceso técnico no otorga autoridad metodológica
+## Acceso técnico no es autoridad metodológica
 
-Un agente puede tener permiso para modificar cualquier archivo del proyecto. Ese permiso describe lo que puede hacer técnicamente. No indica que deba decidir qué medir, a quién incluir o cómo interpretar una respuesta.
+Un agente puede tener permiso para modificar cualquier archivo del proyecto. Ese permiso describe lo que puede hacer técnicamente, pero no quiere decir que le toque decidir qué medir, a quién incluir o cómo interpretar una respuesta.
 
-Considerá este pedido.
+Pensá en este pedido.
 
 ```text
 Agregá una escala de ansiedad al estudio.
 ```
 
-El agente podría completar el pedido con rapidez. Para hacerlo, tendría que decidir qué escala usar, cuántos ítems incluir, qué redacción emplear, qué opciones de respuesta ofrecer y cómo puntuar las respuestas. Si no le diste esa información, puede inventarla. Incluso podría escribir ítems parecidos a los de un instrumento publicado, sin garantía de que coincidan con la versión validada ni de que su uso esté autorizado.
+El agente podría resolverlo rapidísimo. Pero para hacerlo tendría que decidir qué escala usar, cuántos ítems incluir, cómo redactarlos, qué opciones de respuesta ofrecer y cómo puntuar. Si no le diste esa información, puede inventarla. Hasta podría escribir ítems parecidos a los de un instrumento publicado, sin ninguna garantía de que coincidan con la versión validada ni de que su uso esté autorizado.
 
-Cada una de esas elecciones es una decisión metodológica. Corresponde al investigador tomarlas a partir de la literatura, del diseño del estudio y de los permisos de uso del instrumento. El agente puede implementar esas decisiones una vez que están tomadas.
+Cada una de esas elecciones es una decisión metodológica, y le corresponde al investigador tomarla a partir de la literatura, del diseño del estudio y de los permisos de uso del instrumento. El agente puede implementar esas decisiones una vez que están tomadas.
 
-La regla transversal del curso resume esta división del trabajo.
+La regla del curso resume esta división del trabajo.
 
 > El agente puede implementar una decisión; el investigador debe decidir qué implementar y verificar que sea correcto.
 
-## Este cambio importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-La investigación en Psicología exige que el procedimiento aplicado coincida con el procedimiento diseñado. Un estudio puede fallar metodológicamente aunque su programa funcione.
+En investigación necesitamos que el procedimiento que se aplica coincida con el que diseñamos, y un estudio puede fallar metodológicamente aunque su programa funcione.
 
-Trabajar con un agente acelera la implementación. También incorpora un nuevo participante en la construcción del estudio: un programa que puede modificar archivos a partir de instrucciones en lenguaje natural. Ese participante no conoce tus hipótesis, tu población ni las decisiones del comité de ética, salvo que las comuniques.
+Trabajar con un agente acelera la implementación, pero también suma un nuevo participante a la construcción del estudio. Es un programa que modifica archivos a partir de instrucciones en lenguaje natural y que no conoce tus hipótesis, tu población ni lo que resolvió el comité de ética, salvo que se lo cuentes.
 
-Por eso, el trabajo con agentes requiere tres competencias que vas a desarrollar durante esta parte del libro.
+Por eso el trabajo con agentes pide tres competencias que vamos a desarrollar en esta parte del libro.
 
-1. Formular pedidos claros, delimitados y verificables.
+1. Formular pedidos claros, acotados y verificables.
 
 2. Leer lo que hizo el agente y compararlo con lo que pediste.
 
-3. Comprobar el resultado con evidencia independiente de lo que el agente informa.
+3. Comprobar el resultado con evidencia que no dependa de lo que el agente dice.
 
-## Observá una sesión de trabajo con un agente
+## Una sesión de ejemplo
 
-El siguiente registro reproduce una sesión breve con un agente de terminal. Los detalles de presentación cambian entre programas y versiones. Las acciones que aparecen son las habituales.
+Este registro reproduce una sesión corta con un agente de terminal. La presentación cambia según el programa y la versión, pero las acciones son las habituales.
 
 ```text
 Pedido:
@@ -260,18 +258,18 @@ Agente:
   Agregué la línea solicitada al final de README.md. No modifiqué otros archivos.
 ```
 
-Observá tres detalles. El agente ejecutó `Get-ChildItem`, que es el nombre completo del comando `dir`. Antes de modificar el archivo, mostró el cambio propuesto y pidió aprobación. Las líneas marcadas con el signo `+` son las que iba a agregar. Al final informó lo que hizo con sus propias palabras.
+Fijate en tres detalles. El agente ejecutó `Get-ChildItem`, que es el nombre completo del comando `dir`. Antes de modificar el archivo mostró el cambio que proponía y pidió aprobación, y las líneas con el signo `+` son las que iba a agregar. Al final contó con sus palabras lo que hizo.
 
-## Clasificá acciones según su riesgo
+## Actividad
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-Leé cada acción que podría realizar un agente dentro de `mi-primer-estudio`. Para cada una, respondé tres preguntas con oraciones completas.
+Leé cada acción que podría hacer un agente dentro de `mi-primer-estudio`. Para cada una, respondé tres preguntas con oraciones completas.
 
-- ¿La acción solo lee información o también produce cambios?
-- ¿Aprobarías la acción sin revisarla, la revisarías antes de aprobarla o la rechazarías?
-- ¿La acción involucra una decisión metodológica?
+- ¿La acción solo lee información o también cambia algo?
+- ¿La aprobarías sin revisar, la revisarías antes de aprobarla o la rechazarías?
+- ¿Involucra una decisión metodológica?
 
 1. El agente lista el contenido de la carpeta del proyecto.
 
@@ -281,17 +279,17 @@ Leé cada acción que podría realizar un agente dentro de `mi-primer-estudio`. 
 
 4. El agente elimina una carpeta llamada `datos`.
 
-5. El agente cambia el rango de edad permitido de 18–80 a 16–80.
+5. El agente cambia el rango de edad permitido, que era de 18 a 80 años, por uno de 16 a 80.
 
 6. El agente instala un programa nuevo en la computadora.
 
-7. El agente lee un archivo ubicado en tu carpeta Descargas.
+7. El agente lee un archivo que está en tu carpeta Descargas.
 
 8. El agente redacta cinco ítems nuevos para una escala de autoestima.
 :::
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. La acción solo lee información. Suele ser segura y no involucra decisiones metodológicas.
 
@@ -311,36 +309,36 @@ Leé cada acción que podría realizar un agente dentro de `mi-primer-estudio`. 
 
 </details>
 
-## Explicá qué ocurrió durante la actividad
+## Qué pasó en la actividad
 
-La actividad separó dos dimensiones. La primera es técnica: qué tipo de acción realiza el agente y qué alcance tiene. La segunda es metodológica: si la acción cambia alguna decisión del estudio.
+La actividad separó dos dimensiones. Una es técnica y tiene que ver con qué tipo de acción hace el agente y hasta dónde llega. La otra es metodológica y tiene que ver con si esa acción cambia alguna decisión del estudio.
 
-Las acciones 5 y 8 pueden parecer inofensivas desde el punto de vista técnico. Modifican texto o números dentro de un archivo. Sin embargo, cambian la población del estudio o el contenido de un instrumento. Un programa puede funcionar sin errores después de esos cambios.
+Las acciones 5 y 8 parecen inofensivas desde lo técnico, porque solo cambian texto o números dentro de un archivo. Sin embargo, cambian la población del estudio o el contenido de un instrumento, y el programa puede seguir funcionando sin errores después de esos cambios.
 
-Las acciones 4, 6 y 7 presentan el riesgo opuesto. Tienen consecuencias técnicas importantes, aunque no involucren una decisión sobre el diseño.
+Con las acciones 4, 6 y 7 pasa lo contrario. Tienen consecuencias técnicas importantes, aunque no toquen ninguna decisión del diseño.
 
-Una buena revisión considera ambas dimensiones.
+Una buena revisión mira las dos dimensiones.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
 1. ¿Qué produce un modelo de lenguaje a partir de un texto de entrada?
 
-2. ¿Qué diferencia principal existe entre un chatbot y un agente?
+2. ¿Cuál es la diferencia principal entre un chatbot y un agente?
 
-3. ¿Qué pasos componen el ciclo de trabajo de un agente?
+3. ¿Qué pasos tiene el ciclo de trabajo de un agente?
 
-4. ¿Qué define la carpeta desde la cual iniciás un agente?
+4. ¿Qué define la carpeta desde la que abrís un agente?
 
 5. ¿Para qué sirve una aprobación?
 
 6. ¿Por qué no conviene guardar datos reales de participantes en la carpeta de trabajo de un agente?
 
-7. ¿Por qué el permiso para modificar archivos no convierte al agente en responsable de las decisiones metodológicas?
+7. ¿Por qué tener permiso para modificar archivos no convierte al agente en responsable de las decisiones metodológicas?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Un modelo de lenguaje produce una continuación probable del texto según lo que aprendió durante su entrenamiento.
 
@@ -358,50 +356,50 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Revisá algunas ideas que suelen generar confusión
+## Errores frecuentes
 
-### El agente no es una persona experta en tu estudio
+### Tratar al agente como experto en tu estudio
 
-El agente puede redactar con fluidez sobre muchos temas. Esa fluidez no implica que conozca tu diseño, tu población o las normas de tu institución.
+El agente escribe con fluidez sobre muchísimos temas, pero eso no quiere decir que conozca tu diseño, tu población o las normas de tu institución.
 
-### Un informe del agente no reemplaza la verificación
+### Tomar el informe del agente como prueba
 
-Cuando el agente dice “modifiqué solamente `README.md`”, está describiendo lo que cree haber hecho. La comprobación con `dir` y la lectura del archivo aportan evidencia independiente.
+Cuando el agente dice “modifiqué solamente `README.md`”, está describiendo lo que cree que hizo. Comprobar con `dir` y leer el archivo te da evidencia independiente.
 
-### Más permisos no significan mejor trabajo
+### Pensar que más permisos es mejor
 
-Un agente con acceso completo trabaja más rápido porque no pregunta. También reduce tus oportunidades de detectar un error antes de que ocurra.
+Un agente con acceso completo va más rápido porque no pregunta, pero también te deja menos oportunidades de frenar un error antes de que pase.
 
-### Un pedido breve puede producir un cambio extenso
+### Creer que un pedido corto produce un cambio chico
 
-La brevedad del pedido no limita la cantidad de cambios. Un pedido como “mejorá el proyecto” puede derivar en modificaciones en muchos archivos. El capítulo sobre cómo describir una tarea va a tratar este problema.
+Que el pedido sea breve no limita la cantidad de cambios. Algo como “mejorá el proyecto” puede terminar tocando muchos archivos. Volvemos sobre este problema en el capítulo sobre cómo describir una tarea.
 
-### Rechazar una acción no rompe la sesión
+### Tener miedo de rechazar
 
 Si rechazás una acción, el agente puede proponer otra o pedirte más información. Rechazar es una forma legítima de conducir el trabajo.
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Un modelo de lenguaje produce texto a partir de texto. Puede ser muy útil y también puede producir afirmaciones incorrectas con una redacción convincente.
+Un modelo de lenguaje produce texto a partir de texto. Puede ser muy útil y también puede decir cosas incorrectas de forma muy convincente.
 
-Un chatbot intercambia mensajes. Un agente usa herramientas para leer archivos, modificarlos y ejecutar comandos. Su trabajo sigue un ciclo de observación, decisión, acción y comprobación.
+Un chatbot intercambia mensajes. Un agente usa herramientas para leer archivos, modificarlos y ejecutar comandos, y trabaja en un ciclo de observar, decidir, actuar y comprobar.
 
-La carpeta desde la cual iniciás un agente define su carpeta de trabajo. Los permisos determinan qué acciones puede realizar sin preguntar. Las aprobaciones te permiten revisar una acción antes de que ocurra.
+La carpeta desde la que abrís un agente es su carpeta de trabajo. Los permisos definen qué puede hacer sin preguntar, y las aprobaciones te dejan revisar una acción antes de que ocurra.
 
-El agente envía a servidores externos la información que procesa. Por eso, los datos reales de participantes deben quedar fuera de su alcance.
+El agente manda a servidores externos la información que procesa, así que los datos reales de participantes tienen que quedar fuera de su alcance.
 
-El acceso técnico no otorga autoridad metodológica. El agente implementa. El investigador decide y verifica.
+Y el acceso técnico no da autoridad metodológica. El agente implementa, y el investigador decide y verifica.
 
-## Resolvé un desafío breve
+## Desafío
 
-Pensá en un estudio sencillo que te interese, por ejemplo, sobre hábitos de sueño en estudiantes.
+Pensá en un estudio sencillo que te interese, por ejemplo sobre hábitos de sueño en estudiantes.
 
-1. Escribí un pedido para un agente que implique una decisión técnica y ninguna decisión metodológica.
+1. Escribí un pedido para un agente que implique una decisión técnica y ninguna metodológica.
 
-2. Escribí un pedido que implique una decisión metodológica.
+2. Escribí otro que implique una decisión metodológica.
 
-3. Para el segundo pedido, indicá qué información tendrías que decidir antes de entregárselo a un agente.
+3. Para el segundo, anotá qué tendrías que decidir antes de dárselo a un agente.
 
 4. Explicá en dos oraciones qué podría inventar el agente si no le das esa información.
 
-En el próximo capítulo vas a instalar Codex, un agente que funciona desde la terminal, y vas a realizar con él una primera tarea pequeña y verificable.
+En el próximo capítulo instalamos Codex, un agente que funciona desde la terminal, y hacemos con él una primera tarea chica y verificable.
