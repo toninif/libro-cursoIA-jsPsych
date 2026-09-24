@@ -365,13 +365,17 @@ Postergar Git. No es necesario explicarlo en profundidad. Cuando haga falta para
 ## Publicación y datos
 
 - Publicación del estudio: GitHub y GitHub Pages.
+- Presentar varias opciones para subir los archivos a GitHub. La primera, y la que se usa en las actividades, es subir los archivos arrastrándolos en la interfaz web de GitHub. Después describir las demás opciones (GitHub Desktop, Git desde la terminal con ayuda de un agente y otros servicios de alojamiento) como alternativas.
+- El repositorio publicado es público: no debe contener datos de participantes.
 - Guardado de datos: DataPipe (`pipe.jspsych.org`).
 - No usar OSF como destino: DataPipe dejó de crear experimentos en OSF y dejará de escribir allí después del 16 de noviembre de 2026.
 - Presentar dos destinos de DataPipe:
   - Opción 1: Google Drive (carpeta privada en la cuenta del investigador).
   - Opción 2: Zenodo (depósito privado hasta que se publica; publicar genera un DOI).
 - En jsPsych 8, integrar DataPipe con la extensión `@jspsych/extension-pipe`, con versión fija. El plugin anterior `jsPsychPipe` sigue funcionando, pero no se recomienda para estudios nuevos.
-- La extensión guarda cada pantalla a medida que ocurre y genera archivos parciales cuando una persona abandona el estudio. Relacionar este comportamiento con el consentimiento informado y con la posibilidad de retirarse.
+- Usar la extensión con el guardado progresivo desactivado (`stream: false`): los datos se envían solo al final del estudio. Explicar que puede activarse y qué implica: cada pantalla se envía a medida que ocurre y quien abandona deja un archivo parcial, lo que debe reflejarse en el consentimiento y en el protocolo, porque cerrar la ventana deja de equivaler a retirarse sin dejar datos.
+- Cuando una persona no acepta el consentimiento, enviar a DataPipe solo el registro mínimo de esa decisión (las pantallas de bienvenida y consentimiento), para poder saber cuántas personas entraron y no aceptaron. El mensaje final debe describir con exactitud lo que se registra.
+- Zenodo: el depósito se mantiene privado. Solo se publica si el consentimiento autoriza compartir los datos de forma abierta y los datos están anonimizados y documentados.
 - Antes de escribir sobre DataPipe, verificar su documentación vigente, porque cambió de manera importante en septiembre de 2026.
 
 # Checkpoints
