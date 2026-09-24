@@ -346,19 +346,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Qué es un proyecto</span></span></a>
   </div>
 </li>
       </ul>
@@ -393,13 +393,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Revisar lo que hace el agente</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></span></a>
   </div>
 </li>
       </ul>
@@ -639,11 +639,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="cómo-usar-este-apéndice" class="level2" data-number="33.1">
 <h2 data-number="33.1" class="anchored" data-anchor-id="cómo-usar-este-apéndice"><span class="header-section-number">33.1</span> Cómo usar este apéndice</h2>
-<p>Este apéndice ofrece una vista de conjunto del proyecto que construiste durante el libro. Sirve para consultar qué hace cada archivo, dónde se define cada decisión y qué datos produce cada tipo de pantalla. Todo lo que aparece aquí se explicó antes en los capítulos, que se indican en cada sección.</p>
+<p>Este apéndice te da una vista de conjunto del proyecto que construiste en el libro. Sirve para consultar qué hace cada archivo, dónde se define cada decisión y qué datos produce cada tipo de pantalla. Todo lo que aparece acá ya lo explicamos en los capítulos, que se indican en cada sección.</p>
 </section>
 <section id="los-archivos-del-proyecto-final" class="level2" data-number="33.2">
 <h2 data-number="33.2" class="anchored" data-anchor-id="los-archivos-del-proyecto-final"><span class="header-section-number">33.2</span> Los archivos del proyecto final</h2>
-<p>La estructura del proyecto al final del libro, igual a la del checkpoint <code>07-estudio-completo</code>, es esta.</p>
+<p>Al final del libro, el proyecto tiene esta estructura, que es la misma del checkpoint <code>07-estudio-completo</code>.</p>
 <pre class="text"><code>mi-primer-estudio/
 ├── index.html
 ├── experiment.js
@@ -715,11 +715,11 @@ Tabla&nbsp;33.1: Archivos del proyecto final
 </div>
 </figure>
 </div>
-<p>Los tres primeros archivos forman el estudio: son los que el navegador interpreta. Los cuatro restantes forman la documentación: explican el estudio a personas y agentes.</p>
+<p>Los tres primeros archivos forman el estudio, porque son los que interpreta el navegador. Los otros cuatro forman la documentación y explican el estudio a personas y agentes.</p>
 </section>
 <section id="dónde-se-define-cada-decisión" class="level2" data-number="33.3">
 <h2 data-number="33.3" class="anchored" data-anchor-id="dónde-se-define-cada-decisión"><span class="header-section-number">33.3</span> Dónde se define cada decisión</h2>
-<p>Esta tabla responde a una pregunta frecuente al revisar un cambio: ¿dónde está escrita esta decisión?</p>
+<p>Esta tabla responde a una pregunta que aparece mucho al revisar un cambio. ¿Dónde está escrita esta decisión?</p>
 <div id="tbl-decisiones" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-decisiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -878,14 +878,14 @@ Tabla&nbsp;33.2: Dónde se define cada decisión
 </section>
 <section id="la-organización-de-experiment.js" class="level2" data-number="33.5">
 <h2 data-number="33.5" class="anchored" data-anchor-id="la-organización-de-experiment.js"><span class="header-section-number">33.5</span> La organización de <code>experiment.js</code></h2>
-<p>El archivo del estudio final tiene siempre el mismo orden. Conocerlo ayuda a ubicar un cambio.</p>
+<p>El archivo del estudio final sigue siempre el mismo orden, y conocerlo ayuda a ubicar un cambio.</p>
 <pre class="text"><code>1. Configuración de DataPipe          DATAPIPE_ID
 2. Configuración de jsPsych           initJsPsych: barra de progreso, extensión, on_finish
 3. Identificador de participante      randomID y addProperties
 4. Definición de los ensayos          bienvenida, consentimiento, preguntas, escalas, cierre
 5. Orden aleatorio de las escalas     shuffle y primera_escala
 6. Línea de tiempo                    jsPsych.run([...])</code></pre>
-<p>Los nombres se definen antes de usarse. Por eso las escalas se definen antes de mezclarlas, y todo se define antes de <code>jsPsych.run</code>. La única excepción aparente es <code>participante</code> dentro de <code>on_finish</code> y de <code>filename</code>: esas instrucciones se ejecutan recién al final del estudio, cuando <code>participante</code> ya existe.</p>
+<p>Los nombres se definen antes de usarse. Por eso las escalas se definen antes de mezclarlas, y todo se define antes de <code>jsPsych.run</code>. La única excepción aparente es <code>participante</code> dentro de <code>on_finish</code> y de <code>filename</code>, que funciona porque esas instrucciones se ejecutan recién al final del estudio, cuando <code>participante</code> ya existe.</p>
 </section>
 <section id="la-anatomía-de-un-ensayo" class="level2" data-number="33.6">
 <h2 data-number="33.6" class="anchored" data-anchor-id="la-anatomía-de-un-ensayo"><span class="header-section-number">33.6</span> La anatomía de un ensayo</h2>
@@ -932,7 +932,7 @@ Tabla&nbsp;33.3: Parámetros comunes a todos los ensayos
 </div>
 </figure>
 </div>
-<p>Una línea de tiempo anidada tiene otra forma: un bloque con <code>timeline</code> y, opcionalmente, <code>conditional_function</code>.</p>
+<p>Una línea de tiempo anidada tiene otra forma. Es un bloque con <code>timeline</code> y, si hace falta, <code>conditional_function</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pregunta_herramientas_ia <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">timeline</span><span class="op">:</span> [ { <span class="op">...</span>un ensayo<span class="op">...</span> } ]<span class="op">,</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">conditional_function</span><span class="op">:</span> <span class="kw">function</span> () { <span class="op">...</span> }</span>
@@ -1003,8 +1003,8 @@ Tabla&nbsp;33.4: Plugins del estudio y datos que registran
 </div>
 </figure>
 </div>
-<p>Todas las direcciones comienzan con <code>https://unpkg.com/</code>. La biblioteca se carga con <code>https://unpkg.com/jspsych@8.3.0</code> y la extensión de DataPipe con <code>https://unpkg.com/@jspsych/extension-pipe@0.2.0</code>.</p>
-<p>Además de <code>response</code>, cada fila incluye columnas que jsPsych agrega por su cuenta: <code>rt</code>, <code>trial_type</code>, <code>trial_index</code>, <code>time_elapsed</code> y <code>plugin_version</code>. Algunos plugins agregan columnas propias, como <code>question_order</code> en las escalas y los cuestionarios con orden aleatorio. El <a href="../part-3/15-datos-generados.html">capítulo 15</a> explica cada una.</p>
+<p>Todas las direcciones empiezan con <code>https://unpkg.com/</code>. La biblioteca se carga con <code>https://unpkg.com/jspsych@8.3.0</code> y la extensión de DataPipe con <code>https://unpkg.com/@jspsych/extension-pipe@0.2.0</code>.</p>
+<p>Además de <code>response</code>, cada fila tiene columnas que jsPsych agrega por su cuenta, como <code>rt</code>, <code>trial_type</code>, <code>trial_index</code>, <code>time_elapsed</code> y <code>plugin_version</code>. Algunos plugins agregan columnas propias, como <code>question_order</code> en las escalas y los cuestionarios con orden aleatorio. El <a href="../part-3/15-datos-generados.html">capítulo 15</a> explica cada una.</p>
 </section>
 <section id="cómo-creció-el-proyecto" class="level2" data-number="33.8">
 <h2 data-number="33.8" class="anchored" data-anchor-id="cómo-creció-el-proyecto"><span class="header-section-number">33.8</span> Cómo creció el proyecto</h2>
@@ -1078,7 +1078,7 @@ Tabla&nbsp;33.5: Evolución del proyecto en los checkpoints
 </div>
 </figure>
 </div>
-<p>Cada checkpoint funciona por separado. Si tu versión deja de funcionar, podés copiar los archivos del checkpoint de la etapa en la que estás y continuar desde allí.</p>
+<p>Cada checkpoint funciona por separado. Si tu versión deja de funcionar, podés copiar los archivos del checkpoint de la etapa en la que estás y seguir desde ahí.</p>
 </section>
 <section id="cuando-el-proyecto-crece-más" class="level2" data-number="33.9">
 <h2 data-number="33.9" class="anchored" data-anchor-id="cuando-el-proyecto-crece-más"><span class="header-section-number">33.9</span> Cuando el proyecto crece más</h2>
@@ -1092,7 +1092,7 @@ Tabla&nbsp;33.5: Evolución del proyecto en los checkpoints
 │   └── styles.css
 ├── README.md
 └── AGENTS.md</code></pre>
-<p>Si reorganizás el proyecto así, <code>index.html</code> tiene que cargar cada archivo con su nueva ruta relativa, y <code>questionnaires.js</code> antes que <code>experiment.js</code>, porque el segundo usa lo que define el primero. Es un cambio que afecta varios archivos: pedí un plan antes de hacerlo, guardá una copia de respaldo y ejecutá el plan de pruebas completo después.</p>
+<p>Si reorganizás el proyecto así, <code>index.html</code> tiene que cargar cada archivo con su nueva ruta relativa, y <code>questionnaires.js</code> antes que <code>experiment.js</code>, porque el segundo usa lo que define el primero. Como es un cambio que toca varios archivos, pedí un plan antes de hacerlo, guardá una copia de respaldo y después ejecutá el plan de pruebas completo.</p>
 
 
 </section>

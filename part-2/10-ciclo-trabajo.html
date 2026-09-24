@@ -8,7 +8,7 @@
 
 <meta name="description" content="Un método repetible para trabajar con agentes sin delegar el criterio.">
 
-<title>10&nbsp; El ciclo especificar–ejecutar–verificar – De Google Forms a estudios web</title>
+<title>10&nbsp; El ciclo de trabajo – De Google Forms a estudios web</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -350,19 +350,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Qué es un proyecto</span></span></a>
   </div>
 </li>
       </ul>
@@ -397,13 +397,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Revisar lo que hace el agente</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></span></a>
   </div>
 </li>
       </ul>
@@ -606,38 +606,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">10.1</span> Qué vas a poder hacer</a></li>
-  <li><a href="#una-tarea-completa-permite-formular-el-problema" id="toc-una-tarea-completa-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-tarea-completa-permite-formular-el-problema"><span class="header-section-number">10.2</span> Una tarea completa permite formular el problema</a></li>
-  <li><a href="#el-ciclo-organiza-el-trabajo-en-pasos" id="toc-el-ciclo-organiza-el-trabajo-en-pasos" class="nav-link" data-scroll-target="#el-ciclo-organiza-el-trabajo-en-pasos"><span class="header-section-number">10.3</span> El ciclo organiza el trabajo en pasos</a></li>
-  <li><a href="#especificar-es-decidir-antes-de-pedir" id="toc-especificar-es-decidir-antes-de-pedir" class="nav-link" data-scroll-target="#especificar-es-decidir-antes-de-pedir"><span class="header-section-number">10.4</span> Especificar es decidir antes de pedir</a></li>
-  <li><a href="#ejecutar-es-poner-el-resultado-en-funcionamiento" id="toc-ejecutar-es-poner-el-resultado-en-funcionamiento" class="nav-link" data-scroll-target="#ejecutar-es-poner-el-resultado-en-funcionamiento"><span class="header-section-number">10.5</span> Ejecutar es poner el resultado en funcionamiento</a></li>
-  <li><a href="#verificar-tiene-tres-niveles" id="toc-verificar-tiene-tres-niveles" class="nav-link" data-scroll-target="#verificar-tiene-tres-niveles"><span class="header-section-number">10.6</span> Verificar tiene tres niveles</a></li>
-  <li><a href="#un-problema-bien-descrito-es-más-fácil-de-corregir" id="toc-un-problema-bien-descrito-es-más-fácil-de-corregir" class="nav-link" data-scroll-target="#un-problema-bien-descrito-es-más-fácil-de-corregir"><span class="header-section-number">10.7</span> Un problema bien descrito es más fácil de corregir</a></li>
-  <li><a href="#documentar-conserva-lo-que-quedó-funcionando" id="toc-documentar-conserva-lo-que-quedó-funcionando" class="nav-link" data-scroll-target="#documentar-conserva-lo-que-quedó-funcionando"><span class="header-section-number">10.8</span> Documentar conserva lo que quedó funcionando</a></li>
-  <li><a href="#recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" id="toc-recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" class="nav-link" data-scroll-target="#recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Recorré el ciclo completo con una pantalla de bienvenida</a>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link active" data-scroll-target="#objetivos"><span class="header-section-number">10.1</span> Objetivos</a></li>
+  <li><a href="#para-empezar-una-tarea-completa" id="toc-para-empezar-una-tarea-completa" class="nav-link" data-scroll-target="#para-empezar-una-tarea-completa"><span class="header-section-number">10.2</span> Para empezar, una tarea completa</a></li>
+  <li><a href="#los-pasos-del-ciclo" id="toc-los-pasos-del-ciclo" class="nav-link" data-scroll-target="#los-pasos-del-ciclo"><span class="header-section-number">10.3</span> Los pasos del ciclo</a></li>
+  <li><a href="#especificar" id="toc-especificar" class="nav-link" data-scroll-target="#especificar"><span class="header-section-number">10.4</span> Especificar</a></li>
+  <li><a href="#ejecutar" id="toc-ejecutar" class="nav-link" data-scroll-target="#ejecutar"><span class="header-section-number">10.5</span> Ejecutar</a></li>
+  <li><a href="#verificar-en-tres-niveles" id="toc-verificar-en-tres-niveles" class="nav-link" data-scroll-target="#verificar-en-tres-niveles"><span class="header-section-number">10.6</span> Verificar en tres niveles</a></li>
+  <li><a href="#describir-bien-un-problema" id="toc-describir-bien-un-problema" class="nav-link" data-scroll-target="#describir-bien-un-problema"><span class="header-section-number">10.7</span> Describir bien un problema</a></li>
+  <li><a href="#documentar" id="toc-documentar" class="nav-link" data-scroll-target="#documentar"><span class="header-section-number">10.8</span> Documentar</a></li>
+  <li><a href="#actividad-una-pantalla-de-bienvenida" id="toc-actividad-una-pantalla-de-bienvenida" class="nav-link" data-scroll-target="#actividad-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Actividad, una pantalla de bienvenida</a>
   <ul class="collapse">
-  <li><a href="#paso-1.-especificá-la-pantalla" id="toc-paso-1.-especificá-la-pantalla" class="nav-link" data-scroll-target="#paso-1.-especificá-la-pantalla"><span class="header-section-number">10.9.1</span> Paso 1. Especificá la pantalla</a></li>
-  <li><a href="#pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" id="toc-pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" class="nav-link" data-scroll-target="#pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccioná, planificá y modificá con el agente</a></li>
-  <li><a href="#paso-5.-ejecutá-la-página" id="toc-paso-5.-ejecutá-la-página" class="nav-link" data-scroll-target="#paso-5.-ejecutá-la-página"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutá la página</a></li>
-  <li><a href="#paso-6.-verificá-en-tres-niveles" id="toc-paso-6.-verificá-en-tres-niveles" class="nav-link" data-scroll-target="#paso-6.-verificá-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificá en tres niveles</a></li>
-  <li><a href="#paso-7.-corregí-con-un-pedido-nuevo" id="toc-paso-7.-corregí-con-un-pedido-nuevo" class="nav-link" data-scroll-target="#paso-7.-corregí-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregí con un pedido nuevo</a></li>
-  <li><a href="#paso-8.-documentá-el-resultado" id="toc-paso-8.-documentá-el-resultado" class="nav-link" data-scroll-target="#paso-8.-documentá-el-resultado"><span class="header-section-number">10.9.6</span> Paso 8. Documentá el resultado</a></li>
+  <li><a href="#paso-1.-especificar" id="toc-paso-1.-especificar" class="nav-link" data-scroll-target="#paso-1.-especificar"><span class="header-section-number">10.9.1</span> Paso 1. Especificar</a></li>
+  <li><a href="#pasos-2-a-4.-inspeccionar-planificar-y-modificar" id="toc-pasos-2-a-4.-inspeccionar-planificar-y-modificar" class="nav-link" data-scroll-target="#pasos-2-a-4.-inspeccionar-planificar-y-modificar"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccionar, planificar y modificar</a></li>
+  <li><a href="#paso-5.-ejecutar" id="toc-paso-5.-ejecutar" class="nav-link" data-scroll-target="#paso-5.-ejecutar"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutar</a></li>
+  <li><a href="#paso-6.-verificar-en-tres-niveles" id="toc-paso-6.-verificar-en-tres-niveles" class="nav-link" data-scroll-target="#paso-6.-verificar-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificar en tres niveles</a></li>
+  <li><a href="#paso-7.-corregir-con-un-pedido-nuevo" id="toc-paso-7.-corregir-con-un-pedido-nuevo" class="nav-link" data-scroll-target="#paso-7.-corregir-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregir con un pedido nuevo</a></li>
+  <li><a href="#paso-8.-documentar" id="toc-paso-8.-documentar" class="nav-link" data-scroll-target="#paso-8.-documentar"><span class="header-section-number">10.9.6</span> Paso 8. Documentar</a></li>
   </ul></li>
-  <li><a href="#explicá-qué-hizo-realmente-el-agente" id="toc-explicá-qué-hizo-realmente-el-agente" class="nav-link" data-scroll-target="#explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">10.10</span> Explicá qué hizo realmente el agente</a></li>
-  <li><a href="#explicá-qué-ocurrió-durante-el-ciclo" id="toc-explicá-qué-ocurrió-durante-el-ciclo" class="nav-link" data-scroll-target="#explicá-qué-ocurrió-durante-el-ciclo"><span class="header-section-number">10.11</span> Explicá qué ocurrió durante el ciclo</a></li>
-  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-errores" id="toc-revisá-algunas-situaciones-que-suelen-causar-errores" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">10.12</span> Revisá algunas situaciones que suelen causar errores</a>
+  <li><a href="#qué-hizo-el-agente" id="toc-qué-hizo-el-agente" class="nav-link" data-scroll-target="#qué-hizo-el-agente"><span class="header-section-number">10.10</span> Qué hizo el agente</a></li>
+  <li><a href="#qué-pasó-en-el-ciclo" id="toc-qué-pasó-en-el-ciclo" class="nav-link" data-scroll-target="#qué-pasó-en-el-ciclo"><span class="header-section-number">10.11</span> Qué pasó en el ciclo</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">10.12</span> Errores frecuentes</a>
   <ul class="collapse">
-  <li><a href="#el-navegador-muestra-una-versión-anterior" id="toc-el-navegador-muestra-una-versión-anterior" class="nav-link" data-scroll-target="#el-navegador-muestra-una-versión-anterior"><span class="header-section-number">10.12.1</span> El navegador muestra una versión anterior</a></li>
-  <li><a href="#las-tildes-aparecen-como-símbolos-extraños" id="toc-las-tildes-aparecen-como-símbolos-extraños" class="nav-link" data-scroll-target="#las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos extraños</a></li>
-  <li><a href="#el-archivo-se-guardó-con-una-extensión-adicional" id="toc-el-archivo-se-guardó-con-una-extensión-adicional" class="nav-link" data-scroll-target="#el-archivo-se-guardó-con-una-extensión-adicional"><span class="header-section-number">10.12.3</span> El archivo se guardó con una extensión adicional</a></li>
-  <li><a href="#la-verificación-se-hizo-antes-de-la-especificación" id="toc-la-verificación-se-hizo-antes-de-la-especificación" class="nav-link" data-scroll-target="#la-verificación-se-hizo-antes-de-la-especificación"><span class="header-section-number">10.12.4</span> La verificación se hizo antes de la especificación</a></li>
-  <li><a href="#la-corrección-no-se-volvió-a-verificar" id="toc-la-corrección-no-se-volvió-a-verificar" class="nav-link" data-scroll-target="#la-corrección-no-se-volvió-a-verificar"><span class="header-section-number">10.12.5</span> La corrección no se volvió a verificar</a></li>
-  <li><a href="#el-registro-describe-lo-que-se-intentó" id="toc-el-registro-describe-lo-que-se-intentó" class="nav-link" data-scroll-target="#el-registro-describe-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> El registro describe lo que se intentó</a></li>
+  <li><a href="#el-navegador-muestra-una-versión-vieja" id="toc-el-navegador-muestra-una-versión-vieja" class="nav-link" data-scroll-target="#el-navegador-muestra-una-versión-vieja"><span class="header-section-number">10.12.1</span> El navegador muestra una versión vieja</a></li>
+  <li><a href="#las-tildes-aparecen-como-símbolos-raros" id="toc-las-tildes-aparecen-como-símbolos-raros" class="nav-link" data-scroll-target="#las-tildes-aparecen-como-símbolos-raros"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos raros</a></li>
+  <li><a href="#el-archivo-quedó-con-una-extensión-de-más" id="toc-el-archivo-quedó-con-una-extensión-de-más" class="nav-link" data-scroll-target="#el-archivo-quedó-con-una-extensión-de-más"><span class="header-section-number">10.12.3</span> El archivo quedó con una extensión de más</a></li>
+  <li><a href="#decidir-qué-verificar-después-de-ver-el-resultado" id="toc-decidir-qué-verificar-después-de-ver-el-resultado" class="nav-link" data-scroll-target="#decidir-qué-verificar-después-de-ver-el-resultado"><span class="header-section-number">10.12.4</span> Decidir qué verificar después de ver el resultado</a></li>
+  <li><a href="#no-volver-a-verificar-después-de-corregir" id="toc-no-volver-a-verificar-después-de-corregir" class="nav-link" data-scroll-target="#no-volver-a-verificar-después-de-corregir"><span class="header-section-number">10.12.5</span> No volver a verificar después de corregir</a></li>
+  <li><a href="#un-registro-que-cuenta-lo-que-se-intentó" id="toc-un-registro-que-cuenta-lo-que-se-intentó" class="nav-link" data-scroll-target="#un-registro-que-cuenta-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> Un registro que cuenta lo que se intentó</a></li>
   </ul></li>
-  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">10.13</span> Comprobá lo que comprendiste</a></li>
-  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">10.14</span> Qué aprendiste en este capítulo</a></li>
-  <li><a href="#cerrá-la-parte-ii" id="toc-cerrá-la-parte-ii" class="nav-link" data-scroll-target="#cerrá-la-parte-ii"><span class="header-section-number">10.15</span> Cerrá la Parte II</a></li>
-  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">10.16</span> Resolvé un desafío breve</a></li>
+  <li><a href="#para-repasar" id="toc-para-repasar" class="nav-link" data-scroll-target="#para-repasar"><span class="header-section-number">10.13</span> Para repasar</a></li>
+  <li><a href="#en-síntesis" id="toc-en-síntesis" class="nav-link" data-scroll-target="#en-síntesis"><span class="header-section-number">10.14</span> En síntesis</a></li>
+  <li><a href="#cierre-de-la-parte-ii" id="toc-cierre-de-la-parte-ii" class="nav-link" data-scroll-target="#cierre-de-la-parte-ii"><span class="header-section-number">10.15</span> Cierre de la Parte II</a></li>
+  <li><a href="#desafío" id="toc-desafío" class="nav-link" data-scroll-target="#desafío"><span class="header-section-number">10.16</span> Desafío</a></li>
   </ul>
 </nav>
     </div>
@@ -645,9 +645,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></h1>
 </div>
 
 
@@ -664,24 +664,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="qué-vas-a-poder-hacer" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">10.1</span> Qué vas a poder hacer</h2>
-<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<section id="objetivos" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">10.1</span> Objetivos</h2>
+<p>Al terminar este capítulo vas a poder</p>
 <ol type="1">
-<li><p>Vas a poder describir cada paso del ciclo de trabajo con un agente y quién es responsable de cada uno.</p></li>
-<li><p>Vas a poder escribir una especificación antes de pedir un cambio.</p></li>
-<li><p>Vas a poder ejecutar un resultado y observar su comportamiento.</p></li>
-<li><p>Vas a poder verificar un cambio en tres niveles: lo que se ve, lo que cambió en los archivos y lo que decidió el investigador.</p></li>
-<li><p>Vas a poder describir un problema de manera que el agente pueda analizarlo.</p></li>
-<li><p>Vas a poder corregir mediante un pedido nuevo y documentar el estado que quedó funcionando.</p></li>
+<li><p>describir cada paso del ciclo de trabajo con un agente y quién se encarga de cada uno;</p></li>
+<li><p>escribir una especificación antes de pedir un cambio;</p></li>
+<li><p>ejecutar un resultado y observar cómo se comporta;</p></li>
+<li><p>verificar un cambio en tres niveles, lo que se ve, lo que cambió en los archivos y lo que decidió el investigador;</p></li>
+<li><p>describir un problema de forma que el agente pueda analizarlo;</p></li>
+<li><p>corregir con un pedido nuevo y documentar lo que quedó funcionando.</p></li>
 </ol>
 </section>
-<section id="una-tarea-completa-permite-formular-el-problema" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="una-tarea-completa-permite-formular-el-problema"><span class="header-section-number">10.2</span> Una tarea completa permite formular el problema</h2>
-<p>En los capítulos anteriores practicaste partes separadas del trabajo con un agente. Instalaste Codex y le diste una primera tarea. Aprendiste a escribir pedidos completos. Aprendiste a revisar propuestas de cambio y a comprobar los archivos con herramientas propias.</p>
-<p>Las tareas reales combinan todas esas partes. Además, suelen incluir algo que todavía no practicaste con un agente: ejecutar el resultado para ver si se comporta como esperabas.</p>
-<p>Imaginá que necesitás la pantalla de bienvenida de un estudio. Es una página breve que se abre en el navegador y muestra un título y un párrafo. El párrafo informa cuánto dura la participación. ¿Por dónde empezás? ¿Cuándo le pedís algo al agente? ¿Cómo sabés que terminaste?</p>
-<p>Este capítulo organiza esas preguntas en un ciclo de trabajo. Vas a usar ese ciclo durante el resto del libro, cada vez con tareas más complejas.</p>
+<section id="para-empezar-una-tarea-completa" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="para-empezar-una-tarea-completa"><span class="header-section-number">10.2</span> Para empezar, una tarea completa</h2>
+<p>En los capítulos anteriores practicaste por separado distintas partes del trabajo con un agente. Instalaste Codex y le diste una primera tarea, aprendiste a escribir pedidos completos y a revisar propuestas de cambio comprobando los archivos con tus propias herramientas.</p>
+<p>Las tareas reales combinan todo eso, y además suelen incluir algo que todavía no hiciste con un agente, que es ejecutar el resultado para ver si se comporta como esperabas.</p>
+<p>Imaginá que necesitás la pantalla de bienvenida de un estudio. Es una página corta que se abre en el navegador y muestra un título y un párrafo que dice cuánto dura la participación. ¿Por dónde empezás? ¿En qué momento le pedís algo al agente? ¿Cómo sabés que terminaste?</p>
+<p>En este capítulo ordenamos esas preguntas en un ciclo de trabajo que vamos a usar durante el resto del libro, cada vez con tareas más complejas.</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -692,15 +692,15 @@ Idea clave
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El trabajo con un agente sigue un ciclo: especificar, implementar, ejecutar, verificar y corregir. El agente participa en la implementación. La especificación, la verificación y la decisión de dar la tarea por terminada corresponden al investigador.</p>
+<p>El trabajo con un agente sigue un ciclo de especificar, implementar, ejecutar, verificar y corregir. El agente participa en la implementación. La especificación, la verificación y la decisión de dar la tarea por terminada son del investigador.</p>
 </div>
 </div>
 </section>
-<section id="el-ciclo-organiza-el-trabajo-en-pasos" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="el-ciclo-organiza-el-trabajo-en-pasos"><span class="header-section-number">10.3</span> El ciclo organiza el trabajo en pasos</h2>
-<p>La introducción del libro presentó el ciclo de trabajo en su forma más breve.</p>
+<section id="los-pasos-del-ciclo" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="los-pasos-del-ciclo"><span class="header-section-number">10.3</span> Los pasos del ciclo</h2>
+<p>En la presentación del libro vimos el ciclo en su forma más corta.</p>
 <pre class="text"><code>especificar → implementar → ejecutar → verificar → corregir</code></pre>
-<p>Cuando trabajás con un agente, conviene detallar algunos de esos pasos. La implementación se divide en inspeccionar, planificar y modificar. Además, el ciclo se completa con la documentación del resultado.</p>
+<p>Cuando trabajamos con un agente, conviene desarmar algunos pasos. La implementación se divide en inspeccionar, planificar y modificar, y el ciclo se cierra documentando el resultado.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -721,7 +721,7 @@ Idea clave
 </div>
 </div>
 </div>
-<p>La siguiente tabla indica quién realiza cada paso.</p>
+<p>En la <a href="#tbl-ciclo" class="quarto-xref">Tabla&nbsp;<span>10.1</span></a> se ve quién hace cada paso.</p>
 <div id="tbl-ciclo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ciclo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -787,41 +787,41 @@ Tabla&nbsp;10.1: Pasos del ciclo de trabajo y responsables
 </div>
 </figure>
 </div>
-<p>No todas las tareas necesitan todos los pasos. Una corrección ortográfica no requiere un plan. Una tarea que modifica varias partes del estudio sí lo requiere. Con la práctica vas a reconocer qué pasos puede abreviar cada tarea.</p>
+<p>No todas las tareas necesitan todos los pasos. Corregir una falta de ortografía no requiere un plan, pero una tarea que toca varias partes del estudio sí. Con la práctica vas a ir reconociendo qué pasos se pueden abreviar en cada caso.</p>
 </section>
-<section id="especificar-es-decidir-antes-de-pedir" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="especificar-es-decidir-antes-de-pedir"><span class="header-section-number">10.4</span> Especificar es decidir antes de pedir</h2>
-<p>En el capítulo anterior aprendiste a escribir pedidos completos. La especificación es un paso previo. Reúne las decisiones que el pedido va a transmitir.</p>
+<section id="especificar" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="especificar"><span class="header-section-number">10.4</span> Especificar</h2>
+<p>En el capítulo anterior aprendiste a escribir pedidos completos. La especificación viene antes, porque junta las decisiones que después el pedido va a transmitir.</p>
 <p>Una especificación útil responde cuatro preguntas.</p>
 <ol type="1">
-<li><p>¿Qué debe existir al terminar?</p></li>
-<li><p>¿Qué contenido exacto debe tener?</p></li>
-<li><p>¿Qué no debe cambiar?</p></li>
+<li><p>¿Qué tiene que existir al terminar?</p></li>
+<li><p>¿Qué contenido exacto tiene que tener?</p></li>
+<li><p>¿Qué no tiene que cambiar?</p></li>
 <li><p>¿Cómo voy a comprobar que el resultado es correcto?</p></li>
 </ol>
-<p>La cuarta pregunta es la más importante para el ciclo. Si no sabés cómo vas a verificar el resultado, todavía no terminaste de especificar.</p>
-<p>Conviene escribir la especificación en un archivo o en papel antes de abrir el agente. Escribirla te obliga a tomar las decisiones. Guardarla te permite compararla después con el resultado.</p>
+<p>Para el ciclo, la cuarta es la más importante. Si no sabés cómo vas a verificar el resultado, todavía no terminaste de especificar.</p>
+<p>Conviene escribir la especificación en un archivo o en papel antes de abrir el agente. Escribirla te obliga a tomar las decisiones, y tenerla guardada te deja compararla después con el resultado.</p>
 </section>
-<section id="ejecutar-es-poner-el-resultado-en-funcionamiento" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="ejecutar-es-poner-el-resultado-en-funcionamiento"><span class="header-section-number">10.5</span> Ejecutar es poner el resultado en funcionamiento</h2>
-<p>En la Parte I definiste ejecutar como poner las instrucciones de un programa en funcionamiento. En el ciclo de trabajo, <strong>ejecutar</strong> significa usar el resultado de la manera en que se va a usar realmente.</p>
-<p>El tipo de ejecución depende del resultado.</p>
+<section id="ejecutar" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="ejecutar"><span class="header-section-number">10.5</span> Ejecutar</h2>
+<p>En la Parte I dijimos que ejecutar es poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, <strong>ejecutar</strong> es usar el resultado de la misma forma en que se va a usar de verdad.</p>
+<p>Cómo se ejecuta depende de qué sea el resultado.</p>
 <ul>
 <li>Un documento se ejecuta abriéndolo y leyéndolo.</li>
 <li>Una página web se ejecuta abriéndola en el navegador, que interpreta sus instrucciones.</li>
-<li>Un estudio completo se ejecuta participando en él como lo haría una persona participante.</li>
+<li>Un estudio completo se ejecuta participando como lo haría una persona participante.</li>
 </ul>
-<p>La ejecución aporta información que la lectura del archivo no ofrece. Un archivo puede contener el texto correcto y mostrarlo de manera incorrecta. Una página puede verse bien en la computadora de quien la construyó y fallar en otra situación. Por eso, leer el archivo y ejecutarlo son comprobaciones complementarias.</p>
+<p>La ejecución da información que la lectura del archivo no da. Un archivo puede tener el texto correcto y mostrarlo mal, y una página puede verse bien en la computadora de quien la hizo y fallar en otra situación. Por eso leer el archivo y ejecutarlo son comprobaciones que se complementan.</p>
 </section>
-<section id="verificar-tiene-tres-niveles" class="level2" data-number="10.6">
-<h2 data-number="10.6" class="anchored" data-anchor-id="verificar-tiene-tres-niveles"><span class="header-section-number">10.6</span> Verificar tiene tres niveles</h2>
-<p>La verificación compara el resultado con la especificación. Conviene realizarla en tres niveles.</p>
+<section id="verificar-en-tres-niveles" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="verificar-en-tres-niveles"><span class="header-section-number">10.6</span> Verificar en tres niveles</h2>
+<p>Verificar es comparar el resultado con la especificación, y conviene hacerlo en tres niveles.</p>
 <ol type="1">
-<li><p><strong>Lo que se ve.</strong> ¿La pantalla muestra lo que la especificación indica? Esta comprobación usa la ejecución.</p></li>
-<li><p><strong>Lo que cambió.</strong> ¿Cambiaron solamente los archivos esperados? ¿El contenido coincide con el pedido? Esta comprobación usa las técnicas del capítulo anterior: la propuesta de cambio, <code>dir</code>, <code>Get-Content</code> y la comparación con una copia de respaldo.</p></li>
-<li><p><strong>Lo que se decidió.</strong> ¿El resultado implementa correctamente las decisiones metodológicas y éticas? Esta comprobación usa tu criterio de investigador.</p></li>
+<li><p><strong>Lo que se ve.</strong> ¿La pantalla muestra lo que dice la especificación? Esto se comprueba ejecutando.</p></li>
+<li><p><strong>Lo que cambió.</strong> ¿Cambiaron solo los archivos esperados? ¿El contenido coincide con el pedido? Acá usamos lo del capítulo anterior, la propuesta de cambio, <code>dir</code>, <code>Get-Content</code> y la comparación con una copia de respaldo.</p></li>
+<li><p><strong>Lo que se decidió.</strong> ¿El resultado implementa bien las decisiones metodológicas y éticas? Esto lo comprueba tu criterio de investigador.</p></li>
 </ol>
-<p>Más adelante vas a agregar un cuarto nivel: los datos que produce el estudio. Todavía no lo necesitás, porque tu proyecto no recolecta datos.</p>
+<p>Más adelante vamos a sumar un cuarto nivel, los datos que produce el estudio. Todavía no hace falta, porque tu proyecto no recolecta datos.</p>
 <div class="callout callout-style-simple callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -832,14 +832,14 @@ Verificar no es preguntarle al agente si funcionó
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El agente puede afirmar que el resultado es correcto. Esa afirmación no es una verificación. La verificación compara el resultado con tu especificación usando observaciones propias.</p>
+<p>El agente puede decir que el resultado es correcto, pero eso no es una verificación. Verificar es comparar el resultado con tu especificación usando tus propias observaciones.</p>
 </div>
 </div>
 </section>
-<section id="un-problema-bien-descrito-es-más-fácil-de-corregir" class="level2" data-number="10.7">
-<h2 data-number="10.7" class="anchored" data-anchor-id="un-problema-bien-descrito-es-más-fácil-de-corregir"><span class="header-section-number">10.7</span> Un problema bien descrito es más fácil de corregir</h2>
-<p>Cuando la verificación encuentra una diferencia, el ciclo pasa a la corrección. La calidad de la corrección depende de la calidad con la que describís el problema.</p>
-<p>En el capítulo sobre programas y errores aprendiste a leer un mensaje de error: identificar la acción esperada, la instrucción que falló, el objeto mencionado y el contexto. La misma estrategia sirve para comunicarle un problema a un agente.</p>
+<section id="describir-bien-un-problema" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="describir-bien-un-problema"><span class="header-section-number">10.7</span> Describir bien un problema</h2>
+<p>Cuando la verificación encuentra una diferencia, el ciclo pasa a la corrección. Y la calidad de la corrección depende mucho de qué tan bien describas el problema.</p>
+<p>En el capítulo sobre programas y errores aprendiste a leer un mensaje de error buscando la acción esperada, la instrucción que falló, el objeto mencionado y el contexto. Esa misma estrategia sirve para contarle un problema a un agente.</p>
 <p>Compará estas dos descripciones.</p>
 <pre class="text"><code>No funciona.</code></pre>
 <pre class="text"><code>Esperaba: que la página muestre "La participación dura aproximadamente 10 minutos."
@@ -847,26 +847,26 @@ Observé: la página muestra "La participaciÃ³n dura aproximadamente 10 minuto
 Pasos: abrí bienvenida.html con doble clic desde el Explorador de archivos.
 Mensaje de error: no apareció ninguno.
 No modifiques archivos todavía: explicá cuál puede ser la causa.</code></pre>
-<p>La primera descripción obliga al agente a adivinar. La segunda le ofrece lo esperado, lo observado, la forma de reproducir el problema y el mensaje exacto, si existe. También limita la respuesta a una explicación.</p>
-<p>Pedir primero la causa y después la corrección evita que el agente pruebe cambios al azar. Una vez que comprendés la causa, formulás un pedido de corrección acotado.</p>
+<p>Con la primera, el agente tiene que adivinar. La segunda le da lo esperado, lo observado, cómo reproducir el problema y el mensaje exacto, si lo hay. Además limita la respuesta a una explicación.</p>
+<p>Pedir primero la causa y después la corrección evita que el agente pruebe cambios al azar. Cuando ya entendés la causa, hacés un pedido de corrección acotado.</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Si varias correcciones no resuelven el problema, detenete
+Si varias correcciones no funcionan, frená
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Cuando dos o tres pedidos de corrección no producen el resultado esperado, seguir pidiendo cambios suele empeorar la situación. Detené el ciclo. Recuperá la copia de respaldo o el último estado que funcionaba. Revisá la especificación y dividí la tarea en pasos más pequeños.</p>
+<p>Cuando dos o tres pedidos de corrección no dan el resultado esperado, seguir pidiendo cambios suele empeorar las cosas. Frená el ciclo, recuperá la copia de respaldo o el último estado que funcionaba, revisá la especificación y dividí la tarea en pasos más chicos.</p>
 </div>
 </div>
 </section>
-<section id="documentar-conserva-lo-que-quedó-funcionando" class="level2" data-number="10.8">
-<h2 data-number="10.8" class="anchored" data-anchor-id="documentar-conserva-lo-que-quedó-funcionando"><span class="header-section-number">10.8</span> Documentar conserva lo que quedó funcionando</h2>
-<p>El último paso del ciclo registra el resultado. En el capítulo sobre agentes viste que el agente no recuerda las sesiones anteriores. Vos tampoco vas a recordar cada detalle dentro de unas semanas.</p>
-<p>Un <strong>registro de cambios</strong> es un documento que conserva, en orden, las modificaciones realizadas en un proyecto. Cada entrada suele incluir estos datos.</p>
+<section id="documentar" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="documentar"><span class="header-section-number">10.8</span> Documentar</h2>
+<p>El último paso del ciclo deja registrado el resultado. En el capítulo sobre agentes vimos que el agente no se acuerda de las sesiones anteriores, y vos tampoco te vas a acordar de cada detalle dentro de unas semanas.</p>
+<p>Un <strong>registro de cambios</strong> es un documento que guarda, en orden, las modificaciones hechas en un proyecto. Cada entrada suele tener estos datos.</p>
 <ol type="1">
 <li><p>La fecha.</p></li>
 <li><p>Qué se pidió.</p></li>
@@ -874,25 +874,25 @@ Si varias correcciones no resuelven el problema, detenete
 <li><p>Cómo se verificó.</p></li>
 <li><p>En qué estado quedó el proyecto.</p></li>
 </ol>
-<p>El registro cumple una función de investigación. Permite reconstruir qué versión del procedimiento existía en cada momento. Esta posibilidad forma parte de la <strong>reproducibilidad</strong>, es decir, de la capacidad de otra persona para comprender y repetir lo que se hizo.</p>
-<p>Documentá lo que quedó funcionando y cómo lo comprobaste. No documentes lo que querías hacer si no llegaste a verificarlo.</p>
+<p>El registro tiene una función de investigación, porque permite reconstruir qué versión del procedimiento había en cada momento. Eso es parte de la <strong>reproducibilidad</strong>, que es la posibilidad de que otra persona entienda y repita lo que se hizo.</p>
+<p>Documentá lo que quedó funcionando y cómo lo comprobaste. Lo que querías hacer y no llegaste a verificar no va en el registro como si estuviera hecho.</p>
 </section>
-<section id="recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" class="level2" data-number="10.9">
-<h2 data-number="10.9" class="anchored" data-anchor-id="recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Recorré el ciclo completo con una pantalla de bienvenida</h2>
-<p>Ahora vas a recorrer el ciclo completo en la carpeta <code>practica_archivos</code>. Vas a crear una página web muy breve. Todavía no necesitás comprender cómo se escribe una página web. La Parte III va a explicarlo. En esta actividad, lo importante es recorrer cada paso del ciclo y reconocer quién lo realiza.</p>
-<section id="paso-1.-especificá-la-pantalla" class="level3" data-number="10.9.1">
-<h3 data-number="10.9.1" class="anchored" data-anchor-id="paso-1.-especificá-la-pantalla"><span class="header-section-number">10.9.1</span> Paso 1. Especificá la pantalla</h3>
+<section id="actividad-una-pantalla-de-bienvenida" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="actividad-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Actividad, una pantalla de bienvenida</h2>
+<p>Ahora vas a recorrer el ciclo completo en la carpeta <code>practica_archivos</code>, creando una página web muy corta. Todavía no hace falta que sepas cómo se escribe una página web, eso lo vemos en la Parte III. Acá lo importante es pasar por cada paso del ciclo y reconocer quién lo hace.</p>
+<section id="paso-1.-especificar" class="level3" data-number="10.9.1">
+<h3 data-number="10.9.1" class="anchored" data-anchor-id="paso-1.-especificar"><span class="header-section-number">10.9.1</span> Paso 1. Especificar</h3>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Realizá esta actividad guiada
+Actividad guiada
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Copiá esta especificación en un archivo de texto o en papel. Si querés, cambiá el título por el de un estudio que te interese. Mantené el resto.</p>
+<p>Copiá esta especificación en un archivo de texto o en papel. Si querés, cambiá el título por el de un estudio que te interese, pero dejá el resto igual.</p>
 <pre class="text"><code>Archivo: bienvenida.html, dentro de practica_archivos.
 
 Contenido exacto:
@@ -908,21 +908,21 @@ Verificación:
 </div>
 </div>
 </section>
-<section id="pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" class="level3" data-number="10.9.2">
-<h3 data-number="10.9.2" class="anchored" data-anchor-id="pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccioná, planificá y modificá con el agente</h3>
+<section id="pasos-2-a-4.-inspeccionar-planificar-y-modificar" class="level3" data-number="10.9.2">
+<h3 data-number="10.9.2" class="anchored" data-anchor-id="pasos-2-a-4.-inspeccionar-planificar-y-modificar"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccionar, planificar y modificar</h3>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Trabajá con Codex
+Con Codex
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Abrí PowerShell, llegá a <code>practica_archivos</code> y comprobá la ubicación con <code>Get-Location</code>.</p></li>
-<li><p>Iniciá Codex y comprobá con <code>/status</code> que los permisos sean <strong>Read Only</strong>.</p></li>
+<li><p>Abrí PowerShell, andá a <code>practica_archivos</code> y comprobá la ubicación con <code>Get-Location</code>.</p></li>
+<li><p>Abrí Codex y fijate con <code>/status</code> que los permisos estén en <strong>Read Only</strong>.</p></li>
 <li><p><strong>Inspeccionar.</strong> Escribí este pedido.</p></li>
 </ol>
 <pre class="text"><code>Revisá esta carpeta y decime si existe un archivo llamado bienvenida.html.
@@ -938,13 +938,13 @@ Gracias por tu interés en participar. La participación dura aproximadamente 10
 No agregues botones, imágenes, colores ni otros archivos.
 Antes de modificar archivos, explicá qué vas a crear y esperá mi aprobación.</code></pre>
 <ol start="5" type="1">
-<li><p>Leé el plan. Comprobá que mencione un solo archivo y los dos textos exactos. Si el plan incluye algo que no pediste, respondé indicando qué debe quitar.</p></li>
+<li><p>Leé el plan. Fijate que mencione un solo archivo y los dos textos exactos. Si incluye algo que no pediste, respondele qué tiene que sacar.</p></li>
 <li><p><strong>Modificar.</strong> Cuando el plan coincida con tu especificación, escribí <code>Implementá el plan.</code></p></li>
-<li><p>Revisá la propuesta de cambio antes de aprobarla. Localizá el título y el párrafo. Comprobá que los textos coincidan letra por letra.</p></li>
+<li><p>Revisá la propuesta de cambio antes de aprobarla. Buscá el título y el párrafo y comprobá que los textos coincidan letra por letra.</p></li>
 </ol>
 </div>
 </div>
-<p>La propuesta probablemente incluya más líneas de las que esperabas. Una página web necesita algunas líneas de estructura además del contenido visible. Podés encontrar líneas como estas.</p>
+<p>Seguramente la propuesta tenga más líneas de las que esperabas. Una página web necesita algunas líneas de estructura además del contenido que se ve. Podés encontrar algo así.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
@@ -956,47 +956,47 @@ Antes de modificar archivos, explicá qué vas a crear y esperá mi aprobación.
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Gracias por tu interés en participar. La participación dura aproximadamente 10 minutos.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>No necesitás comprender cada línea. Alcanza con localizar tres elementos.</p>
+<p>No hace falta entender cada línea. Alcanza con encontrar tres elementos.</p>
 <ol type="1">
 <li><p><code>&lt;h1&gt;</code> marca el título principal que se ve en la página.</p></li>
 <li><p><code>&lt;p&gt;</code> marca un párrafo, como viste en el capítulo anterior.</p></li>
-<li><p><code>&lt;meta charset="utf-8"&gt;</code> indica la codificación del archivo. Es la misma idea que estudiaste con <code>Get-Content</code>: le dice al navegador qué regla usar para interpretar las tildes.</p></li>
+<li><p><code>&lt;meta charset="utf-8"&gt;</code> indica la codificación del archivo. Es la misma idea que viste con <code>Get-Content</code>, le dice al navegador qué regla usar para interpretar las tildes.</p></li>
 </ol>
-<p>Si alguna línea te genera dudas, aplicá lo que aprendiste en el capítulo anterior. Antes de aprobar, elegí la opción de rechazo y pedí una explicación.</p>
+<p>Si alguna línea te genera dudas, hacé lo que aprendiste en el capítulo anterior. Antes de aprobar, elegí la opción de rechazo y pedí una explicación.</p>
 <pre class="text"><code>Explicá para qué sirve cada línea que no está dentro de &lt;body&gt;. No modifiques archivos.</code></pre>
-<p>Estas líneas de estructura no son excedentes en el sentido del capítulo anterior. No agregan contenido ni modifican decisiones del estudio. Son necesarias para que el navegador interprete el archivo. Distinguir entre una línea de estructura y un cambio de contenido es parte de la revisión.</p>
-<p><strong>Sin acceso a Codex:</strong> abrí el Bloc de notas, copiá el ejemplo anterior y guardalo como <code>bienvenida.html</code> dentro de <code>practica_archivos</code>. Revisá que el nombre no termine en <code>.txt</code>.</p>
+<p>Estas líneas de estructura no son excedentes en el sentido del capítulo anterior. No agregan contenido ni cambian decisiones del estudio, son lo que el navegador necesita para interpretar el archivo. Distinguir una línea de estructura de un cambio de contenido también es parte de la revisión.</p>
+<p><strong>Sin acceso a Codex.</strong> Abrí el Bloc de notas, copiá el ejemplo anterior y guardalo como <code>bienvenida.html</code> dentro de <code>practica_archivos</code>. Fijate que el nombre no termine en <code>.txt</code>.</p>
 </section>
-<section id="paso-5.-ejecutá-la-página" class="level3" data-number="10.9.3">
-<h3 data-number="10.9.3" class="anchored" data-anchor-id="paso-5.-ejecutá-la-página"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutá la página</h3>
+<section id="paso-5.-ejecutar" class="level3" data-number="10.9.3">
+<h3 data-number="10.9.3" class="anchored" data-anchor-id="paso-5.-ejecutar"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutar</h3>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Realizá esta actividad guiada
+Actividad guiada
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li><p>Abrí <code>practica_archivos</code> en el Explorador de archivos.</p></li>
-<li><p>Hacé doble clic sobre <code>bienvenida.html</code>. El sistema operativo va a abrirlo con tu navegador predeterminado.</p></li>
-<li><p>Observá la barra de direcciones del navegador. Debe mostrar una ruta que termina en <code>practica_archivos/bienvenida.html</code>.</p></li>
+<li><p>Hacé doble clic sobre <code>bienvenida.html</code>. El sistema operativo lo va a abrir con tu navegador predeterminado.</p></li>
+<li><p>Mirá la barra de direcciones del navegador. Tiene que mostrar una ruta que termina en <code>practica_archivos/bienvenida.html</code>.</p></li>
 </ol>
 </div>
 </div>
-<p>La barra de direcciones permite comprobar qué archivo abriste. Comienza con <code>file:///</code>, lo que indica que el navegador está mostrando un archivo de tu computadora y no una página de Internet.</p>
+<p>La barra de direcciones te confirma qué archivo abriste. Empieza con <code>file:///</code>, que quiere decir que el navegador está mostrando un archivo de tu computadora y no una página de Internet.</p>
 </section>
-<section id="paso-6.-verificá-en-tres-niveles" class="level3" data-number="10.9.4">
-<h3 data-number="10.9.4" class="anchored" data-anchor-id="paso-6.-verificá-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificá en tres niveles</h3>
+<section id="paso-6.-verificar-en-tres-niveles" class="level3" data-number="10.9.4">
+<h3 data-number="10.9.4" class="anchored" data-anchor-id="paso-6.-verificar-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificar en tres niveles</h3>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Realizá esta actividad guiada
+Actividad guiada
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1004,31 +1004,31 @@ Realizá esta actividad guiada
 <ol type="1">
 <li><p>¿El título coincide letra por letra?</p></li>
 <li><p>¿El párrafo coincide letra por letra?</p></li>
-<li><p>¿Las tildes se ven correctamente?</p></li>
+<li><p>¿Las tildes se ven bien?</p></li>
 <li><p>¿Aparece algo que no especificaste?</p></li>
 </ol>
 <p><strong>Lo que cambió.</strong> Volvé a PowerShell, en una pestaña nueva si Codex sigue abierto.</p>
 <ol start="5" type="1">
-<li>Ejecutá <code>dir</code> en <code>practica_archivos</code>. Comprobá que el único archivo nuevo sea <code>bienvenida.html</code>.</li>
+<li>Ejecutá <code>dir</code> en <code>practica_archivos</code> y comprobá que el único archivo nuevo sea <code>bienvenida.html</code>.</li>
 </ol>
 <p><strong>Lo que se decidió.</strong> Respondé con una oración completa.</p>
 <ol start="6" type="1">
-<li>¿La duración que informa la página es correcta para el estudio que imaginás?</li>
+<li>¿La duración que informa la página es la correcta para el estudio que imaginás?</li>
 </ol>
 </div>
 </div>
-<p>La última pregunta no se responde mirando la pantalla. Informar una duración falsa a las personas participantes es un problema ético, aunque la página funcione perfectamente. El consentimiento informado requiere que la información brindada sea exacta.</p>
+<p>Esta última pregunta no se responde mirando la pantalla. Informarles una duración falsa a las personas participantes es un problema ético, por más que la página funcione perfecto. El consentimiento informado requiere que la información que se da sea exacta.</p>
 </section>
-<section id="paso-7.-corregí-con-un-pedido-nuevo" class="level3" data-number="10.9.5">
-<h3 data-number="10.9.5" class="anchored" data-anchor-id="paso-7.-corregí-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregí con un pedido nuevo</h3>
-<p>Imaginá que, después de un pilotaje, el equipo comprobó que la participación dura en promedio 15 minutos. El equipo decide actualizar la información. Esa decisión es metodológica y ética. La implementación es técnica.</p>
+<section id="paso-7.-corregir-con-un-pedido-nuevo" class="level3" data-number="10.9.5">
+<h3 data-number="10.9.5" class="anchored" data-anchor-id="paso-7.-corregir-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregir con un pedido nuevo</h3>
+<p>Imaginá que después de un pilotaje el equipo comprueba que la participación dura en promedio 15 minutos, y decide actualizar la información. Esa decisión es metodológica y ética. La implementación es técnica.</p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Trabajá con Codex
+Con Codex
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1038,30 +1038,30 @@ Trabajá con Codex
 <pre class="text"><code>En bienvenida.html, reemplazá "10 minutos" por "15 minutos".
 No modifiques ninguna otra parte del archivo ni otros archivos.</code></pre>
 <ol start="2" type="1">
-<li><p>Revisá la propuesta. Debe contener una sola línea eliminada y una sola línea agregada, y la única diferencia entre ellas debe ser el número.</p></li>
-<li><p>Aprobá solamente si se cumple esa condición.</p></li>
-<li><p>Volvé al navegador y presioná <code>F5</code> para recargar la página.</p></li>
-<li><p>Comprobá que la página muestre <code>15 minutos</code> y que el resto del texto siga igual.</p></li>
+<li><p>Revisá la propuesta. Tiene que tener una sola línea borrada y una sola agregada, y la única diferencia entre ellas tiene que ser el número.</p></li>
+<li><p>Aprobá solo si se cumple eso.</p></li>
+<li><p>Volvé al navegador y apretá <code>F5</code> para recargar la página.</p></li>
+<li><p>Comprobá que diga <code>15 minutos</code> y que el resto del texto siga igual.</p></li>
 </ol>
 </div>
 </div>
-<p>El paso 4 es necesario. El navegador muestra la versión del archivo que leyó cuando abriste la página. Si el archivo cambia después, el navegador no lo detecta por su cuenta. Recargar la página le indica que vuelva a leer el archivo.</p>
-<p>Observá que la corrección recorrió el ciclo otra vez, en forma abreviada. Hubo una decisión, un pedido acotado, una propuesta revisada, una ejecución y una verificación.</p>
-<p><strong>Sin acceso a Codex:</strong> realizá el reemplazo con el Bloc de notas, guardá el archivo y recargá la página.</p>
+<p>El paso 4 hace falta porque el navegador muestra la versión del archivo que leyó cuando abriste la página. Si el archivo cambia después, el navegador no se entera solo, y al recargar le pedís que lo vuelva a leer.</p>
+<p>Fijate que la corrección recorrió de nuevo el ciclo, en versión corta. Hubo una decisión, un pedido acotado, una propuesta revisada, una ejecución y una verificación.</p>
+<p><strong>Sin acceso a Codex.</strong> Hacé el reemplazo con el Bloc de notas, guardá el archivo y recargá la página.</p>
 </section>
-<section id="paso-8.-documentá-el-resultado" class="level3" data-number="10.9.6">
-<h3 data-number="10.9.6" class="anchored" data-anchor-id="paso-8.-documentá-el-resultado"><span class="header-section-number">10.9.6</span> Paso 8. Documentá el resultado</h3>
+<section id="paso-8.-documentar" class="level3" data-number="10.9.6">
+<h3 data-number="10.9.6" class="anchored" data-anchor-id="paso-8.-documentar"><span class="header-section-number">10.9.6</span> Paso 8. Documentar</h3>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Trabajá con Codex
+Con Codex
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Escribí este pedido. Reemplazá <code>AAAA-MM-DD</code> por la fecha de hoy, por ejemplo <code>2026-09-24</code>.</p>
+<p>Escribí este pedido, reemplazando <code>AAAA-MM-DD</code> por la fecha de hoy, por ejemplo <code>2026-09-24</code>.</p>
 <pre class="text"><code>Creá un archivo registro.md en esta carpeta con este contenido exacto:
 
 # Registro de cambios
@@ -1078,71 +1078,71 @@ No modifiques ningún otro archivo.</code></pre>
 <p>Revisá la propuesta y aprobala si coincide. Después verificá el archivo con <code>Get-Content registro.md -Encoding UTF8</code>.</p>
 </div>
 </div>
-<p>El contenido del registro lo escribiste vos. El agente solo creó el archivo. Esta división refleja la regla del curso: el registro documenta decisiones y verificaciones que solo el investigador puede afirmar.</p>
-<p><strong>Sin acceso a Codex:</strong> creá <code>registro.md</code> con el Bloc de notas y copiá el mismo contenido.</p>
+<p>El contenido del registro lo escribiste vos, y el agente solo creó el archivo. Esa división respeta la regla del curso, porque el registro documenta decisiones y verificaciones que solo el investigador puede afirmar.</p>
+<p><strong>Sin acceso a Codex.</strong> Creá <code>registro.md</code> con el Bloc de notas y copiá el mismo contenido.</p>
 </section>
 </section>
-<section id="explicá-qué-hizo-realmente-el-agente" class="level2" data-number="10.10">
-<h2 data-number="10.10" class="anchored" data-anchor-id="explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">10.10</span> Explicá qué hizo realmente el agente</h2>
-<p>Durante el ciclo, el agente intervino en cinco momentos.</p>
+<section id="qué-hizo-el-agente" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="qué-hizo-el-agente"><span class="header-section-number">10.10</span> Qué hizo el agente</h2>
+<p>A lo largo del ciclo, el agente intervino en cinco momentos.</p>
 <ol type="1">
-<li><p>En la inspección, listó el contenido de la carpeta y respondió sin modificar nada.</p></li>
-<li><p>En la planificación, describió el archivo que iba a crear. Tu aprobación del plan no modificó archivos. Solo autorizó el paso siguiente.</p></li>
-<li><p>En la modificación, escribió <code>bienvenida.html</code> con el contenido y las líneas de estructura necesarias.</p></li>
-<li><p>En la corrección, reemplazó un número dentro de una línea.</p></li>
-<li><p>En la documentación, creó un archivo con un contenido que vos le diste.</p></li>
+<li><p>En la inspección listó el contenido de la carpeta y respondió sin modificar nada.</p></li>
+<li><p>En la planificación describió el archivo que iba a crear. Aprobar el plan no modificó archivos, solo habilitó el paso siguiente.</p></li>
+<li><p>En la modificación escribió <code>bienvenida.html</code> con el contenido y las líneas de estructura necesarias.</p></li>
+<li><p>En la corrección reemplazó un número dentro de una línea.</p></li>
+<li><p>En la documentación creó un archivo con un contenido que le diste vos.</p></li>
 </ol>
-<p>El agente no ejecutó la página, no evaluó si la duración era correcta y no decidió cuándo la tarea estaba terminada. Esos pasos te correspondieron a vos. La especificación inicial fue la referencia de todas las comprobaciones.</p>
+<p>El agente no ejecutó la página, no evaluó si la duración era correcta y no decidió cuándo estaba terminada la tarea. Eso te tocó a vos, y la especificación inicial fue la referencia de todas las comprobaciones.</p>
 </section>
-<section id="explicá-qué-ocurrió-durante-el-ciclo" class="level2" data-number="10.11">
-<h2 data-number="10.11" class="anchored" data-anchor-id="explicá-qué-ocurrió-durante-el-ciclo"><span class="header-section-number">10.11</span> Explicá qué ocurrió durante el ciclo</h2>
-<p>El ciclo transformó una intención general en un resultado verificado y documentado.</p>
-<p>La especificación fijó el contenido exacto y el criterio de verificación antes de abrir el agente. La inspección confirmó el punto de partida. El plan permitió revisar la interpretación del agente antes de que produjera cambios. La propuesta de cambio permitió revisar el contenido exacto. La ejecución mostró cómo se ve el resultado. La verificación comparó lo observado con la especificación en tres niveles. La corrección respondió a una decisión nueva. El registro dejó constancia del estado final.</p>
-<p>Cada paso produjo evidencia para el siguiente. Si alguno hubiera fallado, habrías sabido en qué punto del ciclo buscar la causa.</p>
+<section id="qué-pasó-en-el-ciclo" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="qué-pasó-en-el-ciclo"><span class="header-section-number">10.11</span> Qué pasó en el ciclo</h2>
+<p>El ciclo convirtió una intención general en un resultado verificado y documentado.</p>
+<p>La especificación fijó el contenido exacto y el criterio de verificación antes de abrir el agente. La inspección confirmó desde dónde partíamos, el plan te dejó revisar cómo había entendido el agente la tarea antes de que cambiara nada y la propuesta de cambio te mostró el contenido exacto. Con la ejecución viste cómo quedaba el resultado y con la verificación lo comparaste con la especificación en tres niveles. La corrección respondió a una decisión nueva y el registro dejó constancia del estado final.</p>
+<p>Cada paso dio evidencia para el siguiente. Si alguno hubiera fallado, habrías sabido en qué parte del ciclo buscar la causa.</p>
 </section>
-<section id="revisá-algunas-situaciones-que-suelen-causar-errores" class="level2" data-number="10.12">
-<h2 data-number="10.12" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">10.12</span> Revisá algunas situaciones que suelen causar errores</h2>
-<section id="el-navegador-muestra-una-versión-anterior" class="level3" data-number="10.12.1">
-<h3 data-number="10.12.1" class="anchored" data-anchor-id="el-navegador-muestra-una-versión-anterior"><span class="header-section-number">10.12.1</span> El navegador muestra una versión anterior</h3>
-<p>Si modificaste el archivo y la página no cambió, recargala con <code>F5</code>. Si sigue igual, comprobá en la barra de direcciones que el navegador esté mostrando el archivo correcto.</p>
+<section id="errores-frecuentes" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">10.12</span> Errores frecuentes</h2>
+<section id="el-navegador-muestra-una-versión-vieja" class="level3" data-number="10.12.1">
+<h3 data-number="10.12.1" class="anchored" data-anchor-id="el-navegador-muestra-una-versión-vieja"><span class="header-section-number">10.12.1</span> El navegador muestra una versión vieja</h3>
+<p>Si modificaste el archivo y la página no cambió, recargala con <code>F5</code>. Si sigue igual, fijate en la barra de direcciones que el navegador esté mostrando el archivo correcto.</p>
 </section>
-<section id="las-tildes-aparecen-como-símbolos-extraños" class="level3" data-number="10.12.2">
-<h3 data-number="10.12.2" class="anchored" data-anchor-id="las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos extraños</h3>
-<p>Este problema se relaciona con la codificación. Comprobá si el archivo contiene la línea <code>&lt;meta charset="utf-8"&gt;</code>. Si no la contiene, describí el problema al agente con el formato de este capítulo y pedí primero una explicación de la causa.</p>
+<section id="las-tildes-aparecen-como-símbolos-raros" class="level3" data-number="10.12.2">
+<h3 data-number="10.12.2" class="anchored" data-anchor-id="las-tildes-aparecen-como-símbolos-raros"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos raros</h3>
+<p>Es un problema de codificación. Fijate si el archivo tiene la línea <code>&lt;meta charset="utf-8"&gt;</code>. Si no la tiene, describile el problema al agente con el formato de este capítulo y pedile primero que explique la causa.</p>
 </section>
-<section id="el-archivo-se-guardó-con-una-extensión-adicional" class="level3" data-number="10.12.3">
-<h3 data-number="10.12.3" class="anchored" data-anchor-id="el-archivo-se-guardó-con-una-extensión-adicional"><span class="header-section-number">10.12.3</span> El archivo se guardó con una extensión adicional</h3>
-<p>Si creaste el archivo a mano, el Bloc de notas puede haberlo guardado como <code>bienvenida.html.txt</code>. En ese caso, el navegador no lo interpreta como página web. Activá la visualización de extensiones y corregí el nombre.</p>
+<section id="el-archivo-quedó-con-una-extensión-de-más" class="level3" data-number="10.12.3">
+<h3 data-number="10.12.3" class="anchored" data-anchor-id="el-archivo-quedó-con-una-extensión-de-más"><span class="header-section-number">10.12.3</span> El archivo quedó con una extensión de más</h3>
+<p>Si lo creaste a mano, el Bloc de notas puede haberlo guardado como <code>bienvenida.html.txt</code>, y entonces el navegador no lo interpreta como página web. Activá la visualización de extensiones y corregí el nombre.</p>
 </section>
-<section id="la-verificación-se-hizo-antes-de-la-especificación" class="level3" data-number="10.12.4">
-<h3 data-number="10.12.4" class="anchored" data-anchor-id="la-verificación-se-hizo-antes-de-la-especificación"><span class="header-section-number">10.12.4</span> La verificación se hizo antes de la especificación</h3>
-<p>Si decidís qué comprobar después de ver el resultado, tendés a confirmar lo que ya ves. Escribí el criterio de verificación antes de pedir el cambio.</p>
+<section id="decidir-qué-verificar-después-de-ver-el-resultado" class="level3" data-number="10.12.4">
+<h3 data-number="10.12.4" class="anchored" data-anchor-id="decidir-qué-verificar-después-de-ver-el-resultado"><span class="header-section-number">10.12.4</span> Decidir qué verificar después de ver el resultado</h3>
+<p>Si decidís qué comprobar cuando ya estás mirando el resultado, tendés a confirmar lo que ves. Escribí el criterio de verificación antes de pedir el cambio.</p>
 </section>
-<section id="la-corrección-no-se-volvió-a-verificar" class="level3" data-number="10.12.5">
-<h3 data-number="10.12.5" class="anchored" data-anchor-id="la-corrección-no-se-volvió-a-verificar"><span class="header-section-number">10.12.5</span> La corrección no se volvió a verificar</h3>
-<p>Una corrección es un cambio nuevo. Puede resolver un problema y producir otro. Después de cada corrección, repetí la ejecución y la verificación.</p>
+<section id="no-volver-a-verificar-después-de-corregir" class="level3" data-number="10.12.5">
+<h3 data-number="10.12.5" class="anchored" data-anchor-id="no-volver-a-verificar-después-de-corregir"><span class="header-section-number">10.12.5</span> No volver a verificar después de corregir</h3>
+<p>Una corrección es un cambio nuevo, y puede resolver un problema y crear otro. Después de cada corrección, repetí la ejecución y la verificación.</p>
 </section>
-<section id="el-registro-describe-lo-que-se-intentó" class="level3" data-number="10.12.6">
-<h3 data-number="10.12.6" class="anchored" data-anchor-id="el-registro-describe-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> El registro describe lo que se intentó</h3>
-<p>Un registro útil informa el estado verificado. Si una tarea quedó incompleta, el registro debe decirlo.</p>
+<section id="un-registro-que-cuenta-lo-que-se-intentó" class="level3" data-number="10.12.6">
+<h3 data-number="10.12.6" class="anchored" data-anchor-id="un-registro-que-cuenta-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> Un registro que cuenta lo que se intentó</h3>
+<p>Un registro útil informa el estado verificado. Si una tarea quedó a medias, el registro lo tiene que decir.</p>
 </section>
 </section>
-<section id="comprobá-lo-que-comprendiste" class="level2" data-number="10.13">
-<h2 data-number="10.13" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">10.13</span> Comprobá lo que comprendiste</h2>
+<section id="para-repasar" class="level2" data-number="10.13">
+<h2 data-number="10.13" class="anchored" data-anchor-id="para-repasar"><span class="header-section-number">10.13</span> Para repasar</h2>
 <p>Respondé cada pregunta con una oración completa.</p>
 <ol type="1">
-<li><p>¿Qué pasos del ciclo corresponden exclusivamente al investigador?</p></li>
+<li><p>¿Qué pasos del ciclo le corresponden solo al investigador?</p></li>
 <li><p>¿Qué cuatro preguntas responde una especificación útil?</p></li>
-<li><p>¿Qué significa ejecutar una página web?</p></li>
+<li><p>¿Qué quiere decir ejecutar una página web?</p></li>
 <li><p>¿Cuáles son los tres niveles de verificación de este capítulo?</p></li>
-<li><p>¿Qué información conviene incluir al describir un problema a un agente?</p></li>
+<li><p>¿Qué información conviene dar al describirle un problema a un agente?</p></li>
 <li><p>¿Por qué conviene pedir primero la causa de un problema y después la corrección?</p></li>
 <li><p>¿Por qué hay que recargar el navegador después de modificar un archivo?</p></li>
-<li><p>¿Qué datos incluye una entrada de un registro de cambios?</p></li>
+<li><p>¿Qué datos tiene una entrada de un registro de cambios?</p></li>
 </ol>
 <details>
 <summary>
-Consultá una posible respuesta después de resolver la actividad.
+Ver respuestas posibles
 </summary>
 <ol type="1">
 <li><p>Especificar, ejecutar, verificar y decidir cuándo la tarea está terminada corresponden al investigador.</p></li>
@@ -1156,36 +1156,36 @@ Consultá una posible respuesta después de resolver la actividad.
 </ol>
 </details>
 </section>
-<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="10.14">
-<h2 data-number="10.14" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">10.14</span> Qué aprendiste en este capítulo</h2>
-<p>El trabajo con un agente sigue un ciclo: especificar, inspeccionar, planificar, modificar, ejecutar, verificar, corregir y documentar. El agente participa en la inspección, la planificación y la modificación. El investigador especifica, ejecuta, verifica y decide cuándo la tarea terminó.</p>
-<p>Una especificación reúne las decisiones antes de pedir el cambio e incluye el criterio de verificación. Ejecutar significa usar el resultado como se va a usar realmente. La verificación ocurre en tres niveles: lo que se ve, lo que cambió y lo que se decidió.</p>
-<p>Un problema bien descrito incluye lo esperado, lo observado, los pasos para reproducirlo y el mensaje exacto. Conviene pedir primero la causa y después una corrección acotada. Si varias correcciones fallan, conviene volver a un estado conocido y revisar la especificación.</p>
-<p>Un registro de cambios conserva qué quedó funcionando y cómo se comprobó. Esa documentación contribuye a la reproducibilidad del trabajo.</p>
+<section id="en-síntesis" class="level2" data-number="10.14">
+<h2 data-number="10.14" class="anchored" data-anchor-id="en-síntesis"><span class="header-section-number">10.14</span> En síntesis</h2>
+<p>El trabajo con un agente sigue un ciclo en el que especificamos, inspeccionamos, planificamos, modificamos, ejecutamos, verificamos, corregimos y documentamos. El agente participa en la inspección, la planificación y la modificación. El investigador especifica, ejecuta, verifica y decide cuándo terminó la tarea.</p>
+<p>La especificación junta las decisiones antes de pedir el cambio e incluye el criterio de verificación. Ejecutar es usar el resultado como se va a usar de verdad, y verificar se hace en tres niveles, lo que se ve, lo que cambió y lo que se decidió.</p>
+<p>Un problema bien descrito incluye lo esperado, lo observado, los pasos para reproducirlo y el mensaje exacto. Conviene pedir primero la causa y después una corrección acotada, y si varias correcciones fallan, volver a un estado conocido y revisar la especificación.</p>
+<p>El registro de cambios guarda qué quedó funcionando y cómo se comprobó, y así contribuye a la reproducibilidad del trabajo.</p>
 </section>
-<section id="cerrá-la-parte-ii" class="level2" data-number="10.15">
-<h2 data-number="10.15" class="anchored" data-anchor-id="cerrá-la-parte-ii"><span class="header-section-number">10.15</span> Cerrá la Parte II</h2>
-<p>Con este capítulo termina la Parte II. Durante estos cinco capítulos desarrollaste tres competencias que vas a usar en el resto del libro.</p>
+<section id="cierre-de-la-parte-ii" class="level2" data-number="10.15">
+<h2 data-number="10.15" class="anchored" data-anchor-id="cierre-de-la-parte-ii"><span class="header-section-number">10.15</span> Cierre de la Parte II</h2>
+<p>Con este capítulo termina la Parte II. En estos cinco capítulos desarrollaste tres competencias que vas a usar en el resto del libro.</p>
 <ol type="1">
-<li><p>Formular pedidos claros, delimitados y verificables.</p></li>
+<li><p>Formular pedidos claros, acotados y verificables.</p></li>
 <li><p>Leer lo que hizo el agente y compararlo con lo que pediste.</p></li>
 <li><p>Comprobar el resultado con evidencia propia.</p></li>
 </ol>
-<p>Tu proyecto <code>mi-primer-estudio</code> todavía contiene un solo archivo, <code>README.md</code>. Ahora incluye además reglas de trabajo que escribiste vos. La estructura sigue coincidiendo con el checkpoint <code>proyectos\01-inicial</code>. El contenido del README puede tener secciones adicionales, como anticipó el capítulo sobre proyectos.</p>
+<p>Tu proyecto <code>mi-primer-estudio</code> sigue teniendo un solo archivo, <code>README.md</code>, que ahora además incluye reglas de trabajo escritas por vos. La estructura sigue coincidiendo con el checkpoint <code>proyectos\01-inicial</code>, aunque el README puede tener secciones extra, como anticipamos en el capítulo sobre proyectos.</p>
 </section>
-<section id="resolvé-un-desafío-breve" class="level2" data-number="10.16">
-<h2 data-number="10.16" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">10.16</span> Resolvé un desafío breve</h2>
-<p>Aplicá el ciclo completo a <code>mi-primer-estudio</code>. El objetivo es agregar al README un registro de los cambios que hiciste durante la Parte II.</p>
+<section id="desafío" class="level2" data-number="10.16">
+<h2 data-number="10.16" class="anchored" data-anchor-id="desafío"><span class="header-section-number">10.16</span> Desafío</h2>
+<p>Aplicá el ciclo completo a <code>mi-primer-estudio</code>. El objetivo es sumar al README un registro de los cambios que hiciste durante la Parte II.</p>
 <ol type="1">
-<li><p><strong>Especificá.</strong> Escribí el contenido exacto de una sección titulada <code>## Registro de cambios</code>. Incluí una entrada por cada cambio que hiciste en el README durante los capítulos 8 y 9. Usá el formato de entrada de este capítulo.</p></li>
+<li><p><strong>Especificá.</strong> Escribí el contenido exacto de una sección titulada <code>## Registro de cambios</code>, con una entrada por cada cambio que le hiciste al README en los capítulos 8 y 9. Usá el formato de entrada de este capítulo.</p></li>
 <li><p><strong>Preparate.</strong> Guardá una copia de respaldo de <code>README.md</code> en la carpeta <code>respaldos</code>.</p></li>
-<li><p><strong>Pedí el cambio.</strong> Iniciá Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong>. Pedí que agregue la sección al final del archivo con el contenido exacto. Indicá que no modifique nada más.</p></li>
-<li><p><strong>Revisá la propuesta</strong> con la lista de cinco preguntas del capítulo anterior.</p></li>
-<li><p><strong>Ejecutá y verificá.</strong> Leé el archivo con <code>Get-Content README.md -Encoding UTF8</code>. Comparalo con la copia de respaldo.</p></li>
+<li><p><strong>Pedí el cambio.</strong> Abrí Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong> y pedile que agregue la sección al final del archivo con el contenido exacto, sin modificar nada más.</p></li>
+<li><p><strong>Revisá la propuesta</strong> con las cinco preguntas del capítulo anterior.</p></li>
+<li><p><strong>Ejecutá y verificá.</strong> Leé el archivo con <code>Get-Content README.md -Encoding UTF8</code> y comparalo con la copia de respaldo.</p></li>
 <li><p><strong>Documentá.</strong> Agregá al registro una entrada para este mismo cambio, a mano o con un pedido nuevo.</p></li>
 </ol>
-<p><strong>Sin acceso a Codex:</strong> realizá los pasos 1, 2, 5 y 6. En lugar del paso 3, agregá la sección con el Bloc de notas.</p>
-<p>En la Parte III vas a usar este ciclo para construir tu primer estudio. Vas a partir de algo que ya conocés, Google Forms, para analizar qué hace realmente un formulario y cómo reproducirlo con jsPsych.</p>
+<p><strong>Sin acceso a Codex.</strong> Hacé los pasos 1, 2, 5 y 6, y en lugar del paso 3 agregá la sección con el Bloc de notas.</p>
+<p>En la Parte III vamos a usar este ciclo para construir tu primer estudio. Partimos de algo que ya conocés, Google Forms, para analizar qué hace realmente un formulario y cómo reproducirlo con jsPsych.</p>
 
 
 </section>
@@ -1610,8 +1610,8 @@ Consultá una posible respuesta después de resolver la actividad.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-2/09-revisar-agente.html" class="pagination-link" aria-label="Leer y revisar lo que hace el agente">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span>
+      <a href="../part-2/09-revisar-agente.html" class="pagination-link" aria-label="Revisar lo que hace el agente">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Revisar lo que hace el agente</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

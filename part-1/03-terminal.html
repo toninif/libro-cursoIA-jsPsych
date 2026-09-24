@@ -8,7 +8,7 @@
 
 <meta name="description" content="Una introducción práctica a Windows Terminal y PowerShell para recorrer carpetas y comprobar resultados.">
 
-<title>3&nbsp; Cómo darle instrucciones a la computadora mediante texto – De Google Forms a estudios web</title>
+<title>3&nbsp; La terminal – De Google Forms a estudios web</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/03-terminal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/03-terminal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -346,19 +346,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Qué es un proyecto</span></span></a>
   </div>
 </li>
       </ul>
@@ -393,13 +393,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Revisar lo que hace el agente</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></span></a>
   </div>
 </li>
       </ul>
@@ -602,40 +602,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">3.1</span> Qué vas a poder hacer</a></li>
-  <li><a href="#una-carpeta-conocida-permite-formular-el-problema" id="toc-una-carpeta-conocida-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-carpeta-conocida-permite-formular-el-problema"><span class="header-section-number">3.2</span> Una carpeta conocida permite formular el problema</a></li>
-  <li><a href="#la-terminal-muestra-una-conversación-escrita" id="toc-la-terminal-muestra-una-conversación-escrita" class="nav-link" data-scroll-target="#la-terminal-muestra-una-conversación-escrita"><span class="header-section-number">3.3</span> La terminal muestra una conversación escrita</a></li>
-  <li><a href="#el-indicador-muestra-que-powershell-espera-una-instrucción" id="toc-el-indicador-muestra-que-powershell-espera-una-instrucción" class="nav-link" data-scroll-target="#el-indicador-muestra-que-powershell-espera-una-instrucción"><span class="header-section-number">3.4</span> El indicador muestra que PowerShell espera una instrucción</a></li>
-  <li><a href="#un-comando-expresa-una-acción-concreta" id="toc-un-comando-expresa-una-acción-concreta" class="nav-link" data-scroll-target="#un-comando-expresa-una-acción-concreta"><span class="header-section-number">3.5</span> Un comando expresa una acción concreta</a></li>
-  <li><a href="#el-comando-dir-muestra-el-contenido-de-la-carpeta-actual" id="toc-el-comando-dir-muestra-el-contenido-de-la-carpeta-actual" class="nav-link" data-scroll-target="#el-comando-dir-muestra-el-contenido-de-la-carpeta-actual"><span class="header-section-number">3.6</span> El comando <code>dir</code> muestra el contenido de la carpeta actual</a></li>
-  <li><a href="#el-comando-cd-cambia-la-carpeta-actual" id="toc-el-comando-cd-cambia-la-carpeta-actual" class="nav-link" data-scroll-target="#el-comando-cd-cambia-la-carpeta-actual"><span class="header-section-number">3.7</span> El comando <code>cd</code> cambia la carpeta actual</a>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link active" data-scroll-target="#objetivos"><span class="header-section-number">3.1</span> Objetivos</a></li>
+  <li><a href="#para-empezar-una-carpeta-conocida" id="toc-para-empezar-una-carpeta-conocida" class="nav-link" data-scroll-target="#para-empezar-una-carpeta-conocida"><span class="header-section-number">3.2</span> Para empezar, una carpeta conocida</a></li>
+  <li><a href="#qué-es-una-terminal" id="toc-qué-es-una-terminal" class="nav-link" data-scroll-target="#qué-es-una-terminal"><span class="header-section-number">3.3</span> Qué es una terminal</a></li>
+  <li><a href="#el-indicador" id="toc-el-indicador" class="nav-link" data-scroll-target="#el-indicador"><span class="header-section-number">3.4</span> El indicador</a></li>
+  <li><a href="#los-comandos" id="toc-los-comandos" class="nav-link" data-scroll-target="#los-comandos"><span class="header-section-number">3.5</span> Los comandos</a></li>
+  <li><a href="#ver-el-contenido-con-dir" id="toc-ver-el-contenido-con-dir" class="nav-link" data-scroll-target="#ver-el-contenido-con-dir"><span class="header-section-number">3.6</span> Ver el contenido con <code>dir</code></a></li>
+  <li><a href="#moverse-con-cd" id="toc-moverse-con-cd" class="nav-link" data-scroll-target="#moverse-con-cd"><span class="header-section-number">3.7</span> Moverse con <code>cd</code></a>
   <ul class="collapse">
-  <li><a href="#dos-puntos-permiten-volver-a-la-carpeta-que-contiene-la-ubicación-actual" id="toc-dos-puntos-permiten-volver-a-la-carpeta-que-contiene-la-ubicación-actual" class="nav-link" data-scroll-target="#dos-puntos-permiten-volver-a-la-carpeta-que-contiene-la-ubicación-actual"><span class="header-section-number">3.7.1</span> Dos puntos permiten volver a la carpeta que contiene la ubicación actual</a></li>
-  <li><a href="#las-comillas-conservan-unida-una-ruta-que-contiene-espacios" id="toc-las-comillas-conservan-unida-una-ruta-que-contiene-espacios" class="nav-link" data-scroll-target="#las-comillas-conservan-unida-una-ruta-que-contiene-espacios"><span class="header-section-number">3.7.2</span> Las comillas conservan unida una ruta que contiene espacios</a></li>
-  <li><a href="#la-tecla-tab-puede-completar-un-nombre" id="toc-la-tecla-tab-puede-completar-un-nombre" class="nav-link" data-scroll-target="#la-tecla-tab-puede-completar-un-nombre"><span class="header-section-number">3.7.3</span> La tecla Tab puede completar un nombre</a></li>
+  <li><a href="#volver-con-cd-.." id="toc-volver-con-cd-.." class="nav-link" data-scroll-target="#volver-con-cd-.."><span class="header-section-number">3.7.1</span> Volver con <code>cd ..</code></a></li>
+  <li><a href="#rutas-con-espacios" id="toc-rutas-con-espacios" class="nav-link" data-scroll-target="#rutas-con-espacios"><span class="header-section-number">3.7.2</span> Rutas con espacios</a></li>
+  <li><a href="#completar-con-tab" id="toc-completar-con-tab" class="nav-link" data-scroll-target="#completar-con-tab"><span class="header-section-number">3.7.3</span> Completar con Tab</a></li>
   </ul></li>
-  <li><a href="#el-comando-mkdir-crea-una-carpeta" id="toc-el-comando-mkdir-crea-una-carpeta" class="nav-link" data-scroll-target="#el-comando-mkdir-crea-una-carpeta"><span class="header-section-number">3.8</span> El comando <code>mkdir</code> crea una carpeta</a></li>
-  <li><a href="#el-comando-cls-limpia-el-texto-visible" id="toc-el-comando-cls-limpia-el-texto-visible" class="nav-link" data-scroll-target="#el-comando-cls-limpia-el-texto-visible"><span class="header-section-number">3.9</span> El comando <code>cls</code> limpia el texto visible</a></li>
-  <li><a href="#los-comandos-permiten-recorrer-la-práctica-anterior" id="toc-los-comandos-permiten-recorrer-la-práctica-anterior" class="nav-link" data-scroll-target="#los-comandos-permiten-recorrer-la-práctica-anterior"><span class="header-section-number">3.10</span> Los comandos permiten recorrer la práctica anterior</a></li>
-  <li><a href="#explicá-qué-ocurrió-durante-la-actividad" id="toc-explicá-qué-ocurrió-durante-la-actividad" class="nav-link" data-scroll-target="#explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">3.11</span> Explicá qué ocurrió durante la actividad</a></li>
-  <li><a href="#la-terminal-ayuda-a-trabajar-con-un-proyecto" id="toc-la-terminal-ayuda-a-trabajar-con-un-proyecto" class="nav-link" data-scroll-target="#la-terminal-ayuda-a-trabajar-con-un-proyecto"><span class="header-section-number">3.12</span> La terminal ayuda a trabajar con un proyecto</a></li>
-  <li><a href="#dos-mensajes-frecuentes-aportan-información-útil" id="toc-dos-mensajes-frecuentes-aportan-información-útil" class="nav-link" data-scroll-target="#dos-mensajes-frecuentes-aportan-información-útil"><span class="header-section-number">3.13</span> Dos mensajes frecuentes aportan información útil</a>
+  <li><a href="#crear-una-carpeta-con-mkdir" id="toc-crear-una-carpeta-con-mkdir" class="nav-link" data-scroll-target="#crear-una-carpeta-con-mkdir"><span class="header-section-number">3.8</span> Crear una carpeta con <code>mkdir</code></a></li>
+  <li><a href="#limpiar-la-pantalla-con-cls" id="toc-limpiar-la-pantalla-con-cls" class="nav-link" data-scroll-target="#limpiar-la-pantalla-con-cls"><span class="header-section-number">3.9</span> Limpiar la pantalla con <code>cls</code></a></li>
+  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad"><span class="header-section-number">3.10</span> Actividad</a></li>
+  <li><a href="#qué-pasó-en-la-actividad" id="toc-qué-pasó-en-la-actividad" class="nav-link" data-scroll-target="#qué-pasó-en-la-actividad"><span class="header-section-number">3.11</span> Qué pasó en la actividad</a></li>
+  <li><a href="#por-qué-nos-importa-en-psicología" id="toc-por-qué-nos-importa-en-psicología" class="nav-link" data-scroll-target="#por-qué-nos-importa-en-psicología"><span class="header-section-number">3.12</span> Por qué nos importa en Psicología</a></li>
+  <li><a href="#dos-mensajes-frecuentes" id="toc-dos-mensajes-frecuentes" class="nav-link" data-scroll-target="#dos-mensajes-frecuentes"><span class="header-section-number">3.13</span> Dos mensajes frecuentes</a>
   <ul class="collapse">
-  <li><a href="#powershell-puede-informar-que-no-encuentra-una-ruta" id="toc-powershell-puede-informar-que-no-encuentra-una-ruta" class="nav-link" data-scroll-target="#powershell-puede-informar-que-no-encuentra-una-ruta"><span class="header-section-number">3.13.1</span> PowerShell puede informar que no encuentra una ruta</a></li>
-  <li><a href="#powershell-puede-informar-que-no-reconoce-un-término" id="toc-powershell-puede-informar-que-no-reconoce-un-término" class="nav-link" data-scroll-target="#powershell-puede-informar-que-no-reconoce-un-término"><span class="header-section-number">3.13.2</span> PowerShell puede informar que no reconoce un término</a></li>
+  <li><a href="#no-encuentra-una-ruta" id="toc-no-encuentra-una-ruta" class="nav-link" data-scroll-target="#no-encuentra-una-ruta"><span class="header-section-number">3.13.1</span> No encuentra una ruta</a></li>
+  <li><a href="#no-reconoce-un-término" id="toc-no-reconoce-un-término" class="nav-link" data-scroll-target="#no-reconoce-un-término"><span class="header-section-number">3.13.2</span> No reconoce un término</a></li>
   </ul></li>
-  <li><a href="#algunas-precauciones-permiten-trabajar-con-tranquilidad" id="toc-algunas-precauciones-permiten-trabajar-con-tranquilidad" class="nav-link" data-scroll-target="#algunas-precauciones-permiten-trabajar-con-tranquilidad"><span class="header-section-number">3.14</span> Algunas precauciones permiten trabajar con tranquilidad</a></li>
-  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">3.15</span> Comprobá lo que comprendiste</a></li>
-  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-confusión" id="toc-revisá-algunas-situaciones-que-suelen-causar-confusión" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">3.16</span> Revisá algunas situaciones que suelen causar confusión</a>
+  <li><a href="#algunas-precauciones" id="toc-algunas-precauciones" class="nav-link" data-scroll-target="#algunas-precauciones"><span class="header-section-number">3.14</span> Algunas precauciones</a></li>
+  <li><a href="#para-repasar" id="toc-para-repasar" class="nav-link" data-scroll-target="#para-repasar"><span class="header-section-number">3.15</span> Para repasar</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">3.16</span> Errores frecuentes</a>
   <ul class="collapse">
-  <li><a href="#el-indicador-y-el-comando-cumplen-funciones-diferentes" id="toc-el-indicador-y-el-comando-cumplen-funciones-diferentes" class="nav-link" data-scroll-target="#el-indicador-y-el-comando-cumplen-funciones-diferentes"><span class="header-section-number">3.16.1</span> El indicador y el comando cumplen funciones diferentes</a></li>
-  <li><a href="#la-carpeta-visible-determina-el-alcance-de-muchas-acciones" id="toc-la-carpeta-visible-determina-el-alcance-de-muchas-acciones" class="nav-link" data-scroll-target="#la-carpeta-visible-determina-el-alcance-de-muchas-acciones"><span class="header-section-number">3.16.2</span> La carpeta visible determina el alcance de muchas acciones</a></li>
-  <li><a href="#el-explorador-y-la-terminal-pueden-mostrar-el-mismo-cambio" id="toc-el-explorador-y-la-terminal-pueden-mostrar-el-mismo-cambio" class="nav-link" data-scroll-target="#el-explorador-y-la-terminal-pueden-mostrar-el-mismo-cambio"><span class="header-section-number">3.16.3</span> El Explorador y la terminal pueden mostrar el mismo cambio</a></li>
-  <li><a href="#limpiar-la-pantalla-conserva-el-trabajo-realizado" id="toc-limpiar-la-pantalla-conserva-el-trabajo-realizado" class="nav-link" data-scroll-target="#limpiar-la-pantalla-conserva-el-trabajo-realizado"><span class="header-section-number">3.16.4</span> Limpiar la pantalla conserva el trabajo realizado</a></li>
-  <li><a href="#memorizar-todos-los-comandos-resulta-innecesario" id="toc-memorizar-todos-los-comandos-resulta-innecesario" class="nav-link" data-scroll-target="#memorizar-todos-los-comandos-resulta-innecesario"><span class="header-section-number">3.16.5</span> Memorizar todos los comandos resulta innecesario</a></li>
+  <li><a href="#confundir-el-indicador-con-el-comando" id="toc-confundir-el-indicador-con-el-comando" class="nav-link" data-scroll-target="#confundir-el-indicador-con-el-comando"><span class="header-section-number">3.16.1</span> Confundir el indicador con el comando</a></li>
+  <li><a href="#olvidar-en-qué-carpeta-estás" id="toc-olvidar-en-qué-carpeta-estás" class="nav-link" data-scroll-target="#olvidar-en-qué-carpeta-estás"><span class="header-section-number">3.16.2</span> Olvidar en qué carpeta estás</a></li>
+  <li><a href="#pensar-que-el-explorador-y-la-terminal-ven-cosas-distintas" id="toc-pensar-que-el-explorador-y-la-terminal-ven-cosas-distintas" class="nav-link" data-scroll-target="#pensar-que-el-explorador-y-la-terminal-ven-cosas-distintas"><span class="header-section-number">3.16.3</span> Pensar que el Explorador y la terminal ven cosas distintas</a></li>
+  <li><a href="#creer-que-cls-borra-el-trabajo" id="toc-creer-que-cls-borra-el-trabajo" class="nav-link" data-scroll-target="#creer-que-cls-borra-el-trabajo"><span class="header-section-number">3.16.4</span> Creer que <code>cls</code> borra el trabajo</a></li>
+  <li><a href="#querer-memorizar-todos-los-comandos" id="toc-querer-memorizar-todos-los-comandos" class="nav-link" data-scroll-target="#querer-memorizar-todos-los-comandos"><span class="header-section-number">3.16.5</span> Querer memorizar todos los comandos</a></li>
   </ul></li>
-  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">3.17</span> Qué aprendiste en este capítulo</a></li>
-  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">3.18</span> Resolvé un desafío breve</a></li>
+  <li><a href="#en-síntesis" id="toc-en-síntesis" class="nav-link" data-scroll-target="#en-síntesis"><span class="header-section-number">3.17</span> En síntesis</a></li>
+  <li><a href="#desafío" id="toc-desafío" class="nav-link" data-scroll-target="#desafío"><span class="header-section-number">3.18</span> Desafío</a></li>
   </ul>
 </nav>
     </div>
@@ -643,9 +643,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/03-terminal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/03-terminal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></h1>
 </div>
 
 
@@ -662,61 +662,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="qué-vas-a-poder-hacer" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">3.1</span> Qué vas a poder hacer</h2>
-<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<section id="objetivos" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">3.1</span> Objetivos</h2>
+<p>Al terminar este capítulo vas a poder</p>
 <ol type="1">
-<li><p>Vas a poder explicar qué es una terminal y qué función cumple PowerShell.</p></li>
-<li><p>Vas a poder reconocer la carpeta en la que trabaja la terminal.</p></li>
-<li><p>Vas a poder ver el contenido de una carpeta y desplazarte entre carpetas.</p></li>
-<li><p>Vas a poder crear una carpeta mediante una instrucción escrita.</p></li>
-<li><p>Vas a poder comprobar si cada instrucción produjo el resultado esperado.</p></li>
-<li><p>Vas a poder interpretar dos mensajes frecuentes sin abandonar la actividad.</p></li>
+<li><p>explicar qué es una terminal y qué hace PowerShell;</p></li>
+<li><p>reconocer en qué carpeta está trabajando la terminal;</p></li>
+<li><p>ver el contenido de una carpeta y moverte entre carpetas;</p></li>
+<li><p>crear una carpeta escribiendo una instrucción;</p></li>
+<li><p>comprobar si cada instrucción hizo lo que esperabas;</p></li>
+<li><p>entender dos mensajes frecuentes sin abandonar la actividad.</p></li>
 </ol>
 </section>
-<section id="una-carpeta-conocida-permite-formular-el-problema" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="una-carpeta-conocida-permite-formular-el-problema"><span class="header-section-number">3.2</span> Una carpeta conocida permite formular el problema</h2>
-<p>En el capítulo anterior creaste una carpeta llamada <code>practica_archivos</code>. Usaste el Explorador de archivos para entrar en ella, observar su contenido y abrir sus carpetas internas. Cada acción dependió de elementos visibles. Hiciste clic sobre íconos, nombres y botones.</p>
-<p>Ahora imaginá que necesitás explicarle a otra persona cómo llegar hasta la carpeta <code>materiales</code>. Podrías describir una secuencia de clics. También podrías escribir una serie de instrucciones que nombren las acciones y las ubicaciones.</p>
-<p>Una terminal permite usar esa segunda forma de interacción. Vos escribís una instrucción. Un programa la interpreta. La computadora realiza una acción y muestra un resultado.</p>
-<p>Durante este capítulo vas a recorrer la misma organización que ya construiste. Vas a usar pocas instrucciones. Cada instrucción tendrá un propósito concreto y una forma de verificación.</p>
+<section id="para-empezar-una-carpeta-conocida" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="para-empezar-una-carpeta-conocida"><span class="header-section-number">3.2</span> Para empezar, una carpeta conocida</h2>
+<p>En el capítulo anterior creaste una carpeta llamada <code>practica_archivos</code>. Entraste con el Explorador de archivos, miraste qué tenía y abriste sus carpetas internas. Todo lo hiciste con clics sobre íconos, nombres y botones.</p>
+<p>Ahora imaginá que tenés que explicarle a otra persona cómo llegar hasta la carpeta <code>materiales</code>. Podrías describirle una secuencia de clics, o podrías escribirle una lista de instrucciones que nombren cada acción y cada lugar.</p>
+<p>La terminal trabaja de esa segunda forma. Vos escribís una instrucción, un programa la interpreta, la computadora hace algo y te muestra el resultado.</p>
+<p>En este capítulo vamos a recorrer la misma organización que ya armaste. Usamos pocas instrucciones y cada una tiene un propósito concreto y una forma de comprobar que funcionó.</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-La terminal permite describir acciones con texto
+Idea clave
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El Explorador de archivos y la terminal permiten actuar sobre las mismas carpetas. La diferencia se encuentra en la forma de dar la instrucción. El Explorador recibe clics. La terminal recibe texto.</p>
+<p>El Explorador de archivos y la terminal trabajan sobre las mismas carpetas. Lo que cambia es la forma de pedir las cosas. El Explorador recibe clics y la terminal recibe texto.</p>
 </div>
 </div>
 </section>
-<section id="la-terminal-muestra-una-conversación-escrita" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="la-terminal-muestra-una-conversación-escrita"><span class="header-section-number">3.3</span> La terminal muestra una conversación escrita</h2>
-<p>Una <strong>terminal</strong> es un programa que permite escribir instrucciones y leer sus resultados. Su ventana suele mostrar texto sobre un fondo uniforme. Dentro de ella aparece una línea preparada para recibir una instrucción.</p>
-<p>Windows incluye distintas herramientas relacionadas con esta tarea. En este libro usaremos <strong>Windows Terminal</strong> cuando se encuentre disponible. Windows Terminal es una aplicación que puede alojar distintos intérpretes de comandos. Microsoft presenta esta relación en su <a href="https://learn.microsoft.com/es-es/windows/terminal/">documentación de Windows Terminal</a>.</p>
-<p>Un <strong>intérprete de comandos</strong> es un programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. En Windows trabajaremos con <strong>PowerShell</strong>, que es uno de esos intérpretes.</p>
-<p>Esta distinción ayuda a comprender lo que ves.</p>
+<section id="qué-es-una-terminal" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="qué-es-una-terminal"><span class="header-section-number">3.3</span> Qué es una terminal</h2>
+<p>Una <strong>terminal</strong> es un programa en el que escribimos instrucciones y leemos sus resultados. Suele ser una ventana con texto sobre un fondo liso, con una línea preparada para recibir lo que escribas.</p>
+<p>Windows trae varias herramientas para esto. En el libro usamos <strong>Windows Terminal</strong> cuando está disponible. Es una aplicación que puede alojar distintos intérpretes de comandos, como explica Microsoft en su <a href="https://learn.microsoft.com/es-es/windows/terminal/">documentación de Windows Terminal</a>.</p>
+<p>Un <strong>intérprete de comandos</strong> es un programa que lee instrucciones escritas y le pide al sistema operativo que las ejecute. En Windows vamos a trabajar con <strong>PowerShell</strong>, que es uno de esos intérpretes.</p>
+<p>Separar las dos cosas ayuda a entender lo que ves en pantalla.</p>
 <ol type="1">
-<li><p>Windows Terminal proporciona la ventana y organiza las sesiones.</p></li>
-<li><p>PowerShell interpreta las instrucciones escritas dentro de esa ventana.</p></li>
+<li><p>Windows Terminal pone la ventana y organiza las sesiones.</p></li>
+<li><p>PowerShell interpreta lo que escribís dentro de esa ventana.</p></li>
 </ol>
-<p>En algunas computadoras vas a encontrar una aplicación llamada PowerShell aunque Windows Terminal no esté instalada. Esa aplicación también sirve para realizar las actividades de este capítulo.</p>
+<p>Puede que en tu computadora encuentres una aplicación llamada PowerShell y no tengas Windows Terminal instalada. No hay problema, porque esa aplicación también sirve para todo lo que hacemos en este capítulo.</p>
 </section>
-<section id="el-indicador-muestra-que-powershell-espera-una-instrucción" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="el-indicador-muestra-que-powershell-espera-una-instrucción"><span class="header-section-number">3.4</span> El indicador muestra que PowerShell espera una instrucción</h2>
-<p>Cuando abrís PowerShell, podés encontrar una línea parecida a esta.</p>
+<section id="el-indicador" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="el-indicador"><span class="header-section-number">3.4</span> El indicador</h2>
+<p>Cuando abrís PowerShell vas a ver una línea parecida a esta.</p>
 <pre class="text"><code>PS C:\Users\Ana&gt;</code></pre>
-<p>Esa línea recibe el nombre de <strong>indicador</strong>. También vas a encontrar el término inglés <em>prompt</em> en documentación y mensajes técnicos.</p>
-<p>El indicador comunica dos datos importantes. Las letras <code>PS</code> señalan que estás usando PowerShell. El texto <code>C:\Users\Ana</code> muestra la ubicación actual. El signo <code>&gt;</code> marca el lugar a partir del cual podés escribir.</p>
-<p>La ubicación actual recibe el nombre de <strong>carpeta de trabajo actual</strong>. PowerShell interpreta muchas instrucciones a partir de esa carpeta. Por eso conviene conocerla antes de realizar cambios.</p>
-<p>Cuando un ejemplo de este libro muestre una instrucción, escribí solamente el contenido del bloque de código. El indicador ya aparece en tu terminal.</p>
-<p>Por ejemplo, el libro puede mostrar esta instrucción.</p>
+<p>Esa línea se llama <strong>indicador</strong>. En la documentación técnica también vas a encontrar la palabra inglesa <em>prompt</em>.</p>
+<p>El indicador te da dos datos. Las letras <code>PS</code> avisan que estás usando PowerShell y el texto <code>C:\Users\Ana</code> muestra dónde estás parado. El signo <code>&gt;</code> marca el lugar desde donde podés escribir.</p>
+<p>Ese lugar donde estás parado se llama <strong>carpeta de trabajo actual</strong>. PowerShell interpreta muchas instrucciones a partir de ella, así que conviene saber cuál es antes de cambiar nada.</p>
+<p>Cuando el libro muestre una instrucción, escribí solo lo que está dentro del bloque de código. El indicador ya aparece en tu terminal. Por ejemplo, si ves esto</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Location</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>No necesitás escribir <code>PS C:\Users\Ana&gt;</code> delante de ella.</p>
+<p>no hace falta que escribas <code>PS C:\Users\Ana&gt;</code> adelante.</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -727,120 +726,120 @@ Revisá la carpeta actual antes de modificar archivos
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Una instrucción puede funcionar correctamente en una carpeta equivocada. Antes de crear o cambiar algo, usá <code>Get-Location</code> y comprobá la ruta que muestra PowerShell.</p>
+<p>Una instrucción puede funcionar perfecto en la carpeta equivocada. Antes de crear o cambiar algo, usá <code>Get-Location</code> y fijate qué ruta muestra PowerShell.</p>
 </div>
 </div>
 </section>
-<section id="un-comando-expresa-una-acción-concreta" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="un-comando-expresa-una-acción-concreta"><span class="header-section-number">3.5</span> Un comando expresa una acción concreta</h2>
-<p>Un <strong>comando</strong> es una instrucción escrita que solicita una acción. PowerShell contiene comandos para consultar ubicaciones, recorrer carpetas y realizar muchas otras tareas.</p>
-<p>El comando <code>Get-Location</code> solicita la ubicación actual.</p>
+<section id="los-comandos" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="los-comandos"><span class="header-section-number">3.5</span> Los comandos</h2>
+<p>Un <strong>comando</strong> es una instrucción escrita que pide una acción. PowerShell tiene comandos para consultar dónde estamos, movernos entre carpetas y muchas otras tareas.</p>
+<p>El comando <code>Get-Location</code> pide la ubicación actual.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Location</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Después de escribirlo, presioná la tecla Enter. PowerShell ejecutará el comando y mostrará una ruta. Microsoft describe el funcionamiento de <code>Get-Location</code> en la <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/get-location">referencia oficial del comando</a>.</p>
-<p>La salida puede verse de esta manera.</p>
+<p>Después de escribirlo apretá Enter. PowerShell ejecuta el comando y muestra una ruta. Si querés más detalle, Microsoft lo describe en la <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/get-location">referencia oficial del comando</a>.</p>
+<p>La salida se ve más o menos así.</p>
 <pre class="text"><code>Path
 ----
 C:\Users\Ana</code></pre>
-<p>La palabra <code>Path</code> significa ruta. La última línea informa la carpeta de trabajo actual.</p>
-<p>Presionar Enter cumple una función precisa. Le indica a PowerShell que terminaste de escribir y que puede interpretar la instrucción.</p>
+<p><code>Path</code> quiere decir ruta, y la última línea es la carpeta de trabajo actual.</p>
+<p>Apretar Enter tiene una función precisa. Le avisa a PowerShell que terminaste de escribir y que ya puede interpretar la instrucción.</p>
 </section>
-<section id="el-comando-dir-muestra-el-contenido-de-la-carpeta-actual" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="el-comando-dir-muestra-el-contenido-de-la-carpeta-actual"><span class="header-section-number">3.6</span> El comando <code>dir</code> muestra el contenido de la carpeta actual</h2>
-<p>El comando <code>dir</code> solicita una lista del contenido de la carpeta actual.</p>
+<section id="ver-el-contenido-con-dir" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="ver-el-contenido-con-dir"><span class="header-section-number">3.6</span> Ver el contenido con <code>dir</code></h2>
+<p>El comando <code>dir</code> pide la lista de lo que hay en la carpeta actual.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La salida puede incluir nombres de carpetas, nombres de archivos, fechas y tamaños. La cantidad de información depende del contenido y de la versión de PowerShell.</p>
-<p><code>dir</code> es un nombre breve que PowerShell acepta para el comando <code>Get-ChildItem</code>. Un nombre alternativo de este tipo recibe el nombre de <strong>alias</strong>. Los alias reducen la cantidad de texto que necesitás escribir. Microsoft documenta esta equivalencia en su <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_aliases">explicación sobre los alias de PowerShell</a>.</p>
-<p>En este momento alcanza con recordar una acción: <code>dir</code> permite observar qué contiene la carpeta actual.</p>
-<p>La lista funciona como una verificación. Si esperabas encontrar <code>materiales</code> y ese nombre aparece, confirmaste que la carpeta está presente. Si el nombre falta, necesitás revisar la ubicación o la organización de los archivos.</p>
+<p>La salida puede incluir nombres de carpetas y de archivos, fechas y tamaños. Cuánta información aparece depende del contenido y de la versión de PowerShell.</p>
+<p><code>dir</code> es un nombre corto que PowerShell acepta para el comando <code>Get-ChildItem</code>. A un nombre alternativo de este tipo se lo llama <strong>alias</strong>, y sirve para escribir menos. Microsoft documenta esta equivalencia en su <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_aliases">explicación sobre los alias de PowerShell</a>.</p>
+<p>Por ahora alcanza con recordar que <code>dir</code> te muestra qué hay en la carpeta actual.</p>
+<p>Esa lista también sirve para verificar. Si esperabas encontrar <code>materiales</code> y el nombre aparece, confirmaste que la carpeta está ahí. Si no aparece, hay que revisar dónde estás o cómo están organizados los archivos.</p>
 </section>
-<section id="el-comando-cd-cambia-la-carpeta-actual" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="el-comando-cd-cambia-la-carpeta-actual"><span class="header-section-number">3.7</span> El comando <code>cd</code> cambia la carpeta actual</h2>
-<p>El comando <code>cd</code> permite entrar en otra carpeta. Necesita recibir el nombre o la ruta de la carpeta de destino.</p>
+<section id="moverse-con-cd" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="moverse-con-cd"><span class="header-section-number">3.7</span> Moverse con <code>cd</code></h2>
+<p>El comando <code>cd</code> sirve para entrar en otra carpeta. Necesita que le digas el nombre o la ruta del destino.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> materiales</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>El texto <code>materiales</code> funciona como un <strong>argumento</strong>. Un argumento aporta la información que un comando necesita para realizar una acción. En este caso, indica el destino.</p>
-<p>Después de ejecutar el comando, el indicador cambia. También podés ejecutar <code>Get-Location</code> para comprobar la nueva ubicación.</p>
+<p>Acá <code>materiales</code> es un <strong>argumento</strong>, o sea, la información que el comando necesita para hacer su trabajo. En este caso le indica adónde ir.</p>
+<p>Después de ejecutarlo vas a ver que el indicador cambia. También podés ejecutar <code>Get-Location</code> para confirmar la nueva ubicación.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Location</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>PowerShell acepta <code>cd</code> como alias de <code>Set-Location</code>. La <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/set-location">referencia de <code>Set-Location</code></a> explica que el comando establece la ubicación de trabajo actual.</p>
-<section id="dos-puntos-permiten-volver-a-la-carpeta-que-contiene-la-ubicación-actual" class="level3" data-number="3.7.1">
-<h3 data-number="3.7.1" class="anchored" data-anchor-id="dos-puntos-permiten-volver-a-la-carpeta-que-contiene-la-ubicación-actual"><span class="header-section-number">3.7.1</span> Dos puntos permiten volver a la carpeta que contiene la ubicación actual</h3>
-<p>Observá esta instrucción.</p>
+<p>PowerShell acepta <code>cd</code> como alias de <code>Set-Location</code>. En la <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/set-location">referencia de <code>Set-Location</code></a> se explica que ese comando fija la ubicación de trabajo actual.</p>
+<section id="volver-con-cd-.." class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="volver-con-cd-.."><span class="header-section-number">3.7.1</span> Volver con <code>cd ..</code></h3>
+<p>Mirá esta instrucción.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="op">..</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Los dos puntos representan la carpeta que contiene la ubicación actual. Si estás dentro de <code>practica_archivos\materiales</code>, la instrucción te lleva a <code>practica_archivos</code>.</p>
-<p>Podés comprobar el cambio con <code>Get-Location</code>. También podés ejecutar <code>dir</code> para observar el contenido de la ubicación a la que llegaste.</p>
+<p>Los dos puntos seguidos representan la carpeta que contiene a la actual. Si estás dentro de <code>practica_archivos\materiales</code>, esta instrucción te lleva a <code>practica_archivos</code>.</p>
+<p>Para comprobar el cambio usá <code>Get-Location</code>, y si querés ver qué hay en el lugar al que llegaste, ejecutá <code>dir</code>.</p>
 </section>
-<section id="las-comillas-conservan-unida-una-ruta-que-contiene-espacios" class="level3" data-number="3.7.2">
-<h3 data-number="3.7.2" class="anchored" data-anchor-id="las-comillas-conservan-unida-una-ruta-que-contiene-espacios"><span class="header-section-number">3.7.2</span> Las comillas conservan unida una ruta que contiene espacios</h3>
-<p>Una ruta puede contener espacios. PowerShell necesita reconocerla como una sola unidad. Las comillas cumplen esa función.</p>
+<section id="rutas-con-espacios" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="rutas-con-espacios"><span class="header-section-number">3.7.2</span> Rutas con espacios</h3>
+<p>Una ruta puede tener espacios, y PowerShell necesita reconocerla como una sola cosa. Para eso están las comillas.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"C:\Users\Ana\Documents\Curso Psicología"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La ruta de este ejemplo cambia entre computadoras. No la copies como si fuera tu ubicación. Usá la ruta que corresponda a tu carpeta.</p>
-<p>Podés evitar parte de la escritura manual. Abrí la carpeta en el Explorador de archivos, seleccioná la barra de direcciones y copiá la ruta completa. Después escribí <code>cd</code>, agregá un espacio, pegá la ruta entre comillas y presioná Enter.</p>
+<p>La ruta del ejemplo cambia de una computadora a otra, así que no la copies como si fuera la tuya. Usá la ruta de tu carpeta.</p>
+<p>Hay una forma de escribir menos. Abrí la carpeta en el Explorador de archivos, hacé clic en la barra de direcciones y copiá la ruta completa. Después escribí <code>cd</code>, dejá un espacio, pegá la ruta entre comillas y apretá Enter.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> <span class="st">"PEGÁ AQUÍ LA RUTA DE TU CARPETA"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Las comillas también funcionan cuando la ruta carece de espacios. Por eso resultan una opción segura durante las primeras actividades.</p>
+<p>Las comillas funcionan aunque la ruta no tenga espacios. Por eso, en las primeras actividades, conviene usarlas siempre.</p>
 </section>
-<section id="la-tecla-tab-puede-completar-un-nombre" class="level3" data-number="3.7.3">
-<h3 data-number="3.7.3" class="anchored" data-anchor-id="la-tecla-tab-puede-completar-un-nombre"><span class="header-section-number">3.7.3</span> La tecla Tab puede completar un nombre</h3>
-<p>PowerShell puede completar nombres que ya existen. Escribí las primeras letras de una carpeta y presioná la tecla Tab. Si existe una coincidencia, PowerShell completará el nombre. Si existen varias, nuevas pulsaciones pueden recorrer las opciones.</p>
-<p>Esta función reduce errores de escritura. También ayuda cuando un nombre es largo. Aun así, verificá el resultado antes de presionar Enter.</p>
+<section id="completar-con-tab" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="completar-con-tab"><span class="header-section-number">3.7.3</span> Completar con Tab</h3>
+<p>PowerShell puede completar nombres que ya existen. Escribí las primeras letras de una carpeta y apretá la tecla Tab. Si hay una coincidencia, PowerShell completa el nombre, y si hay varias, podés seguir apretando Tab para recorrerlas.</p>
+<p>Esto evita errores de tipeo y ayuda mucho con los nombres largos. Igual, mirá cómo quedó la instrucción antes de apretar Enter.</p>
 </section>
 </section>
-<section id="el-comando-mkdir-crea-una-carpeta" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="el-comando-mkdir-crea-una-carpeta"><span class="header-section-number">3.8</span> El comando <code>mkdir</code> crea una carpeta</h2>
-<p>El comando <code>mkdir</code> crea una carpeta en la ubicación actual. El nombre de la carpeta se escribe después del comando.</p>
+<section id="crear-una-carpeta-con-mkdir" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="crear-una-carpeta-con-mkdir"><span class="header-section-number">3.8</span> Crear una carpeta con <code>mkdir</code></h2>
+<p>El comando <code>mkdir</code> crea una carpeta en la ubicación actual. El nombre va después del comando.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mkdir practica_terminal</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>En esta instrucción, <code>practica_terminal</code> funciona como argumento. PowerShell usa ese texto como nombre de la carpeta nueva.</p>
-<p>La verificación requiere una acción adicional.</p>
+<p>En esta instrucción <code>practica_terminal</code> es el argumento, y PowerShell lo usa como nombre de la carpeta nueva.</p>
+<p>Para verificar hace falta un paso más.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La carpeta <code>practica_terminal</code> debería aparecer en la lista. También podés abrir el Explorador de archivos y comprobar el cambio mediante la interfaz gráfica.</p>
-<p>PowerShell acepta <code>mkdir</code> como una forma breve de crear una carpeta. La <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_built-in_functions">documentación de las funciones incorporadas</a> describe esta equivalencia.</p>
+<p>La carpeta <code>practica_terminal</code> tendría que aparecer en la lista. También podés abrir el Explorador de archivos y ver el cambio desde ahí.</p>
+<p>PowerShell acepta <code>mkdir</code> como forma corta de crear una carpeta. La <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/about/about_built-in_functions">documentación de las funciones incorporadas</a> describe esta equivalencia.</p>
 </section>
-<section id="el-comando-cls-limpia-el-texto-visible" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="el-comando-cls-limpia-el-texto-visible"><span class="header-section-number">3.9</span> El comando <code>cls</code> limpia el texto visible</h2>
-<p>Una sesión puede acumular muchas líneas. El comando <code>cls</code> limpia el contenido visible de la ventana.</p>
+<section id="limpiar-la-pantalla-con-cls" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="limpiar-la-pantalla-con-cls"><span class="header-section-number">3.9</span> Limpiar la pantalla con <code>cls</code></h2>
+<p>Después de un rato la ventana se llena de líneas. El comando <code>cls</code> borra el texto que se ve.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cls</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Esta acción conserva los archivos, las carpetas y la ubicación actual. También conserva la sesión abierta. Solamente despeja la pantalla. Microsoft explica este comportamiento en la <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/clear-host">referencia de <code>Clear-Host</code></a>, que es el comando asociado con <code>cls</code>.</p>
-<p>Podés ejecutar <code>Get-Location</code> después de <code>cls</code>. La ruta mostrará que permanecés en la misma carpeta.</p>
+<p>Los archivos, las carpetas y la ubicación actual quedan como estaban, y la sesión sigue abierta. Lo único que cambia es lo que ves en pantalla. Microsoft lo explica en la <a href="https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.core/clear-host">referencia de <code>Clear-Host</code></a>, que es el comando que está detrás de <code>cls</code>.</p>
+<p>Si ejecutás <code>Get-Location</code> después de <code>cls</code>, vas a ver que seguís en la misma carpeta.</p>
 </section>
-<section id="los-comandos-permiten-recorrer-la-práctica-anterior" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="los-comandos-permiten-recorrer-la-práctica-anterior"><span class="header-section-number">3.10</span> Los comandos permiten recorrer la práctica anterior</h2>
+<section id="actividad" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="actividad"><span class="header-section-number">3.10</span> Actividad</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Realizá esta actividad guiada
+Actividad guiada
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Necesitás la carpeta <code>practica_archivos</code> que creaste en el capítulo anterior. Si todavía no existe, creala con el Explorador de archivos y agregá las carpetas <code>instrucciones</code>, <code>materiales</code> y <code>datos</code>.</p>
+<p>Necesitás la carpeta <code>practica_archivos</code> del capítulo anterior. Si no la tenés, creala con el Explorador de archivos y agregale las carpetas <code>instrucciones</code>, <code>materiales</code> y <code>datos</code>.</p>
 <ol type="1">
 <li><p>Abrí Windows Terminal o PowerShell desde el menú Inicio.</p></li>
-<li><p>Escribí <code>Get-Location</code> y presioná Enter. Leé la ruta que aparece.</p></li>
-<li><p>Abrí <code>practica_archivos</code> en el Explorador de archivos. Copiá su ruta desde la barra de direcciones.</p></li>
-<li><p>Volvé a PowerShell. Escribí <code>cd</code>, agregá un espacio y pegá la ruta entre comillas. La instrucción tendrá una forma parecida a <code>cd "C:\Users\Ana\Documents\practica_archivos"</code>.</p></li>
-<li><p>Ejecutá <code>Get-Location</code>. Comprobá que la última parte de la ruta sea <code>practica_archivos</code>.</p></li>
-<li><p>Ejecutá <code>dir</code>. Comprobá que aparezcan <code>instrucciones</code>, <code>materiales</code> y <code>datos</code>.</p></li>
+<li><p>Escribí <code>Get-Location</code> y apretá Enter. Leé la ruta que aparece.</p></li>
+<li><p>Abrí <code>practica_archivos</code> en el Explorador de archivos y copiá su ruta desde la barra de direcciones.</p></li>
+<li><p>Volvé a PowerShell. Escribí <code>cd</code>, dejá un espacio y pegá la ruta entre comillas. Te va a quedar algo parecido a <code>cd "C:\Users\Ana\Documents\practica_archivos"</code>.</p></li>
+<li><p>Ejecutá <code>Get-Location</code> y comprobá que la última parte de la ruta sea <code>practica_archivos</code>.</p></li>
+<li><p>Ejecutá <code>dir</code> y comprobá que aparezcan <code>instrucciones</code>, <code>materiales</code> y <code>datos</code>.</p></li>
 <li><p>Ejecutá <code>cd materiales</code> para entrar en esa carpeta.</p></li>
-<li><p>Ejecutá <code>dir</code>. Si completaste la actividad anterior, comprobá que aparezca <code>ejemplo.txt</code>.</p></li>
+<li><p>Ejecutá <code>dir</code>. Si hiciste la actividad anterior, tendría que aparecer <code>ejemplo.txt</code>.</p></li>
 <li><p>Ejecutá <code>cd ..</code> para volver a <code>practica_archivos</code>.</p></li>
 <li><p>Ejecutá <code>mkdir practica_terminal</code> para crear una carpeta.</p></li>
-<li><p>Ejecutá <code>dir</code> y comprobá que <code>practica_terminal</code> aparezca en la lista.</p></li>
-<li><p>Ejecutá <code>cd practica_terminal</code> y después <code>Get-Location</code>. Comprobá la ruta.</p></li>
+<li><p>Ejecutá <code>dir</code> y comprobá que <code>practica_terminal</code> esté en la lista.</p></li>
+<li><p>Ejecutá <code>cd practica_terminal</code> y después <code>Get-Location</code>. Revisá la ruta.</p></li>
 <li><p>Ejecutá <code>cd ..</code> para volver a <code>practica_archivos</code>.</p></li>
-<li><p>Ejecutá <code>cls</code> para despejar la pantalla.</p></li>
-<li><p>Ejecutá <code>Get-Location</code> una vez más. Comprobá que la limpieza de la pantalla conservó la ubicación.</p></li>
+<li><p>Ejecutá <code>cls</code> para limpiar la pantalla.</p></li>
+<li><p>Ejecutá <code>Get-Location</code> una vez más y comprobá que limpiar la pantalla no cambió la ubicación.</p></li>
 </ol>
 </div>
 </div>
 </section>
-<section id="explicá-qué-ocurrió-durante-la-actividad" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">3.11</span> Explicá qué ocurrió durante la actividad</h2>
-<p>PowerShell comenzó en una carpeta determinada por la configuración de tu computadora. <code>Get-Location</code> mostró esa ubicación.</p>
-<p>El primer comando <code>cd</code> cambió la carpeta de trabajo actual y utilizó una ruta completa como argumento. Después, <code>dir</code> mostró el contenido de <code>practica_archivos</code>.</p>
-<p>El comando <code>cd materiales</code> interpretó una ruta relativa. PowerShell buscó <code>materiales</code> dentro de la carpeta actual. El comando <code>cd ..</code> cambió la ubicación a la carpeta que contiene <code>materiales</code>.</p>
-<p>El comando <code>mkdir practica_terminal</code> modificó el almacenamiento. Creó una carpeta dentro de <code>practica_archivos</code>. El comando <code>dir</code> permitió comprobar el resultado.</p>
-<p>El comando <code>cls</code> modificó únicamente la presentación de la terminal. La verificación con <code>Get-Location</code> mostró que la ubicación se conservó.</p>
-<p>La actividad siguió un ciclo breve que vas a repetir muchas veces.</p>
+<section id="qué-pasó-en-la-actividad" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="qué-pasó-en-la-actividad"><span class="header-section-number">3.11</span> Qué pasó en la actividad</h2>
+<p>PowerShell arrancó en una carpeta que depende de cómo está configurada tu computadora, y <code>Get-Location</code> te mostró cuál era.</p>
+<p>El primer <code>cd</code> cambió la carpeta de trabajo actual usando una ruta completa como argumento. Después <code>dir</code> mostró lo que había en <code>practica_archivos</code>.</p>
+<p>Con <code>cd materiales</code> PowerShell interpretó una ruta relativa, es decir, buscó <code>materiales</code> dentro de la carpeta en la que estabas. Con <code>cd ..</code> volviste a la carpeta que contiene a <code>materiales</code>.</p>
+<p><code>mkdir practica_terminal</code> sí modificó algo guardado en la computadora, porque creó una carpeta dentro de <code>practica_archivos</code>. Con <code>dir</code> comprobaste el resultado.</p>
+<p><code>cls</code> solo cambió lo que se veía en la terminal, y <code>Get-Location</code> confirmó que la ubicación seguía igual.</p>
+<p>En la actividad repetiste un ciclo corto que vamos a usar muchísimas veces.</p>
 <pre class="text"><code>observar la ubicación
           ↓
 escribir una instrucción
@@ -849,84 +848,84 @@ leer el resultado
           ↓
 comprobar el cambio</code></pre>
 </section>
-<section id="la-terminal-ayuda-a-trabajar-con-un-proyecto" class="level2" data-number="3.12">
-<h2 data-number="3.12" class="anchored" data-anchor-id="la-terminal-ayuda-a-trabajar-con-un-proyecto"><span class="header-section-number">3.12</span> La terminal ayuda a trabajar con un proyecto</h2>
-<p>Un <strong>proyecto</strong> reúne archivos y carpetas relacionados con un mismo trabajo. Más adelante, tu proyecto contendrá las instrucciones y los materiales de un estudio psicológico.</p>
-<p>Muchas herramientas actúan sobre la carpeta actual. Un agente de IA que trabaja desde una terminal también necesita saber qué proyecto debe inspeccionar. Si abrís la herramienta desde otra ubicación, puede encontrar archivos diferentes o carecer de la información necesaria.</p>
-<p>Por eso, antes de pedir un cambio, conviene realizar tres comprobaciones.</p>
+<section id="por-qué-nos-importa-en-psicología" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="por-qué-nos-importa-en-psicología"><span class="header-section-number">3.12</span> Por qué nos importa en Psicología</h2>
+<p>Un <strong>proyecto</strong> reúne los archivos y carpetas de un mismo trabajo. Más adelante tu proyecto va a tener las instrucciones y los materiales de un estudio psicológico.</p>
+<p>Muchas herramientas trabajan sobre la carpeta actual. Un agente de IA que corre desde la terminal también necesita saber qué proyecto tiene que mirar. Si lo abrís desde otro lugar, puede encontrar archivos que no son los que pensabas o no encontrar lo que necesita.</p>
+<p>Por eso, antes de pedir un cambio, conviene hacer tres comprobaciones.</p>
 <ol type="1">
-<li><p><code>Get-Location</code> debe mostrar la carpeta del proyecto correcto.</p></li>
-<li><p><code>dir</code> debe mostrar los archivos que esperás encontrar.</p></li>
-<li><p>La instrucción para el agente debe nombrar el cambio y sus límites.</p></li>
+<li><p><code>Get-Location</code> tiene que mostrar la carpeta del proyecto correcto.</p></li>
+<li><p><code>dir</code> tiene que mostrar los archivos que esperás encontrar.</p></li>
+<li><p>La instrucción para el agente tiene que decir qué cambiar y hasta dónde.</p></li>
 </ol>
-<p>Esta comprobación pertenece al trabajo de investigación. Un cambio aplicado a la versión equivocada puede producir diferencias entre el procedimiento que revisaste y el procedimiento que finalmente ejecutaste.</p>
+<p>Esto también es parte del trabajo de investigación. Si un cambio se aplica a la versión equivocada, el procedimiento que revisaste y el que finalmente se ejecuta pueden terminar siendo distintos.</p>
 <div class="callout callout-style-simple callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-La ubicación forma parte de la verificación
+La ubicación también se verifica
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un comando puede estar bien escrito y actuar sobre una carpeta inesperada. Revisar la ruta permite confirmar el alcance real de la acción.</p>
+<p>Un comando puede estar bien escrito y actuar sobre una carpeta que no esperabas. Revisar la ruta te confirma sobre qué actuó realmente.</p>
 </div>
 </div>
 </section>
-<section id="dos-mensajes-frecuentes-aportan-información-útil" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="dos-mensajes-frecuentes-aportan-información-útil"><span class="header-section-number">3.13</span> Dos mensajes frecuentes aportan información útil</h2>
-<p>PowerShell muestra texto cuando encuentra una dificultad. Ese texto describe qué instrucción recibió y qué parte produjo el problema. El próximo capítulo desarrollará una estrategia para leer mensajes de error. Por ahora vas a reconocer dos situaciones frecuentes.</p>
-<section id="powershell-puede-informar-que-no-encuentra-una-ruta" class="level3" data-number="3.13.1">
-<h3 data-number="3.13.1" class="anchored" data-anchor-id="powershell-puede-informar-que-no-encuentra-una-ruta"><span class="header-section-number">3.13.1</span> PowerShell puede informar que no encuentra una ruta</h3>
-<p>Este mensaje aparece cuando la ubicación solicitada no coincide con una carpeta accesible desde el punto actual. Puede existir un error de escritura. También puede faltar una parte de la ruta o una comilla.</p>
-<p>Realizá estas comprobaciones.</p>
+<section id="dos-mensajes-frecuentes" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="dos-mensajes-frecuentes"><span class="header-section-number">3.13</span> Dos mensajes frecuentes</h2>
+<p>Cuando PowerShell encuentra un problema, muestra un texto que dice qué instrucción recibió y qué parte falló. En el próximo capítulo vemos cómo leer mensajes de error con más calma. Por ahora vamos a reconocer dos situaciones que aparecen seguido.</p>
+<section id="no-encuentra-una-ruta" class="level3" data-number="3.13.1">
+<h3 data-number="3.13.1" class="anchored" data-anchor-id="no-encuentra-una-ruta"><span class="header-section-number">3.13.1</span> No encuentra una ruta</h3>
+<p>Este mensaje aparece cuando la ubicación que pediste no coincide con ninguna carpeta a la que se pueda llegar desde donde estás. Puede haber un error de tipeo, faltar una parte de la ruta o faltar una comilla.</p>
+<p>Probá con estas comprobaciones.</p>
 <ol type="1">
-<li><p>Ejecutá <code>Get-Location</code> para reconocer tu punto de partida.</p></li>
-<li><p>Ejecutá <code>dir</code> para ver los nombres disponibles.</p></li>
-<li><p>Compará el nombre escrito con el nombre que aparece en la lista.</p></li>
-<li><p>Agregá comillas cuando la ruta contenga espacios.</p></li>
-<li><p>Usá la tecla Tab para completar un nombre existente.</p></li>
+<li><p>Ejecutá <code>Get-Location</code> para saber desde dónde partís.</p></li>
+<li><p>Ejecutá <code>dir</code> para ver qué nombres hay disponibles.</p></li>
+<li><p>Compará lo que escribiste con lo que aparece en la lista.</p></li>
+<li><p>Poné comillas si la ruta tiene espacios.</p></li>
+<li><p>Usá Tab para completar un nombre que existe.</p></li>
 </ol>
 <p>Después corregí la instrucción y volvé a ejecutarla.</p>
 </section>
-<section id="powershell-puede-informar-que-no-reconoce-un-término" class="level3" data-number="3.13.2">
-<h3 data-number="3.13.2" class="anchored" data-anchor-id="powershell-puede-informar-que-no-reconoce-un-término"><span class="header-section-number">3.13.2</span> PowerShell puede informar que no reconoce un término</h3>
-<p>Este mensaje suele aparecer cuando el nombre del comando contiene un error de escritura. Compará cada letra con el ejemplo. Comprobá que exista un espacio entre el comando y su argumento.</p>
+<section id="no-reconoce-un-término" class="level3" data-number="3.13.2">
+<h3 data-number="3.13.2" class="anchored" data-anchor-id="no-reconoce-un-término"><span class="header-section-number">3.13.2</span> No reconoce un término</h3>
+<p>Este mensaje suele aparecer cuando el nombre del comando está mal escrito. Compará letra por letra con el ejemplo y fijate que haya un espacio entre el comando y su argumento.</p>
 <pre class="text"><code>cd materiales</code></pre>
-<p>En este ejemplo, <code>cd</code> es el comando y <code>materiales</code> es el argumento. El espacio permite distinguir ambas partes.</p>
-<p>Un mensaje de error también forma parte de la salida. Informa que PowerShell pudo leer la instrucción, pero encontró una dificultad al interpretarla o ejecutarla.</p>
+<p>En este ejemplo <code>cd</code> es el comando y <code>materiales</code> es el argumento. El espacio es lo que permite distinguirlos.</p>
+<p>Un mensaje de error también es una salida. Te dice que PowerShell pudo leer la instrucción pero tuvo un problema al interpretarla o al ejecutarla.</p>
 </section>
 </section>
-<section id="algunas-precauciones-permiten-trabajar-con-tranquilidad" class="level2" data-number="3.14">
-<h2 data-number="3.14" class="anchored" data-anchor-id="algunas-precauciones-permiten-trabajar-con-tranquilidad"><span class="header-section-number">3.14</span> Algunas precauciones permiten trabajar con tranquilidad</h2>
-<p>La terminal puede realizar cambios con rapidez. Esa capacidad requiere una revisión consciente.</p>
+<section id="algunas-precauciones" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="algunas-precauciones"><span class="header-section-number">3.14</span> Algunas precauciones</h2>
+<p>La terminal hace cambios rápido, y eso pide revisar con atención.</p>
 <ol type="1">
-<li><p>Comprobá la carpeta actual antes de crear, mover o eliminar elementos.</p></li>
+<li><p>Comprobá la carpeta actual antes de crear, mover o eliminar cosas.</p></li>
 <li><p>Ejecutá comandos cuyo propósito puedas explicar con tus palabras.</p></li>
-<li><p>Leé una instrucción copiada antes de presionar Enter.</p></li>
+<li><p>Leé cualquier instrucción copiada antes de apretar Enter.</p></li>
 <li><p>Verificá el resultado después de cada cambio.</p></li>
-<li><p>Evitá usar permisos de administrador para las actividades de este libro, excepto cuando una instrucción posterior explique un motivo concreto.</p></li>
-<li><p>Conservá copias recuperables cuando trabajes con archivos importantes.</p></li>
+<li><p>No uses permisos de administrador para las actividades del libro, salvo que más adelante una instrucción explique por qué hace falta.</p></li>
+<li><p>Si trabajás con archivos importantes, guardá copias que puedas recuperar.</p></li>
 </ol>
-<p>En este capítulo evitamos comandos de eliminación. Primero necesitás adquirir el hábito de controlar la ubicación y verificar los resultados.</p>
+<p>En este capítulo no usamos comandos para eliminar. Primero conviene que te acostumbres a controlar dónde estás y a verificar los resultados.</p>
 </section>
-<section id="comprobá-lo-que-comprendiste" class="level2" data-number="3.15">
-<h2 data-number="3.15" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">3.15</span> Comprobá lo que comprendiste</h2>
+<section id="para-repasar" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="para-repasar"><span class="header-section-number">3.15</span> Para repasar</h2>
 <p>Respondé cada pregunta con una oración completa.</p>
 <ol type="1">
 <li><p>¿Qué programa interpreta los comandos de este capítulo?</p></li>
-<li><p>¿Qué información aporta el indicador de PowerShell?</p></li>
+<li><p>¿Qué información te da el indicador de PowerShell?</p></li>
 <li><p>¿Qué comando muestra la carpeta de trabajo actual?</p></li>
 <li><p>¿Qué comando muestra el contenido de esa carpeta?</p></li>
 <li><p>¿Qué función cumple <code>materiales</code> en la instrucción <code>cd materiales</code>?</p></li>
 <li><p>¿Qué representa <code>..</code> en la instrucción <code>cd ..</code>?</p></li>
-<li><p>¿Cómo comprobarías que <code>mkdir practica_terminal</code> produjo el resultado esperado?</p></li>
-<li><p>¿Qué ocurre con los archivos cuando ejecutás <code>cls</code>?</p></li>
+<li><p>¿Cómo comprobarías que <code>mkdir practica_terminal</code> hizo lo que esperabas?</p></li>
+<li><p>¿Qué les pasa a los archivos cuando ejecutás <code>cls</code>?</p></li>
 </ol>
 <details>
 <summary>
-Consultá una posible respuesta después de resolver la actividad.
+Ver respuestas posibles
 </summary>
 <ol type="1">
 <li><p>PowerShell interpreta los comandos de este capítulo.</p></li>
@@ -940,39 +939,39 @@ Consultá una posible respuesta después de resolver la actividad.
 </ol>
 </details>
 </section>
-<section id="revisá-algunas-situaciones-que-suelen-causar-confusión" class="level2" data-number="3.16">
-<h2 data-number="3.16" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">3.16</span> Revisá algunas situaciones que suelen causar confusión</h2>
-<section id="el-indicador-y-el-comando-cumplen-funciones-diferentes" class="level3" data-number="3.16.1">
-<h3 data-number="3.16.1" class="anchored" data-anchor-id="el-indicador-y-el-comando-cumplen-funciones-diferentes"><span class="header-section-number">3.16.1</span> El indicador y el comando cumplen funciones diferentes</h3>
-<p>El indicador muestra que PowerShell espera una instrucción. El comando es el texto que escribís después del signo <code>&gt;</code>.</p>
+<section id="errores-frecuentes" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">3.16</span> Errores frecuentes</h2>
+<section id="confundir-el-indicador-con-el-comando" class="level3" data-number="3.16.1">
+<h3 data-number="3.16.1" class="anchored" data-anchor-id="confundir-el-indicador-con-el-comando"><span class="header-section-number">3.16.1</span> Confundir el indicador con el comando</h3>
+<p>El indicador avisa que PowerShell espera una instrucción. El comando es lo que escribís después del signo <code>&gt;</code>.</p>
 </section>
-<section id="la-carpeta-visible-determina-el-alcance-de-muchas-acciones" class="level3" data-number="3.16.2">
-<h3 data-number="3.16.2" class="anchored" data-anchor-id="la-carpeta-visible-determina-el-alcance-de-muchas-acciones"><span class="header-section-number">3.16.2</span> La carpeta visible determina el alcance de muchas acciones</h3>
-<p>El comando <code>mkdir practica_terminal</code> crea la carpeta dentro de la ubicación actual. El mismo comando puede producir carpetas con el mismo nombre en ubicaciones diferentes.</p>
+<section id="olvidar-en-qué-carpeta-estás" class="level3" data-number="3.16.2">
+<h3 data-number="3.16.2" class="anchored" data-anchor-id="olvidar-en-qué-carpeta-estás"><span class="header-section-number">3.16.2</span> Olvidar en qué carpeta estás</h3>
+<p><code>mkdir practica_terminal</code> crea la carpeta dentro de la ubicación actual. El mismo comando, ejecutado en otro lugar, crea otra carpeta con el mismo nombre en otra parte.</p>
 </section>
-<section id="el-explorador-y-la-terminal-pueden-mostrar-el-mismo-cambio" class="level3" data-number="3.16.3">
-<h3 data-number="3.16.3" class="anchored" data-anchor-id="el-explorador-y-la-terminal-pueden-mostrar-el-mismo-cambio"><span class="header-section-number">3.16.3</span> El Explorador y la terminal pueden mostrar el mismo cambio</h3>
-<p>Una carpeta creada con <code>mkdir</code> aparece en el Explorador. Una carpeta creada con el Explorador también aparece cuando ejecutás <code>dir</code>. Ambas interfaces actúan sobre el mismo sistema de archivos.</p>
+<section id="pensar-que-el-explorador-y-la-terminal-ven-cosas-distintas" class="level3" data-number="3.16.3">
+<h3 data-number="3.16.3" class="anchored" data-anchor-id="pensar-que-el-explorador-y-la-terminal-ven-cosas-distintas"><span class="header-section-number">3.16.3</span> Pensar que el Explorador y la terminal ven cosas distintas</h3>
+<p>Una carpeta creada con <code>mkdir</code> aparece en el Explorador, y una creada con el Explorador aparece cuando ejecutás <code>dir</code>. Las dos interfaces trabajan sobre los mismos archivos.</p>
 </section>
-<section id="limpiar-la-pantalla-conserva-el-trabajo-realizado" class="level3" data-number="3.16.4">
-<h3 data-number="3.16.4" class="anchored" data-anchor-id="limpiar-la-pantalla-conserva-el-trabajo-realizado"><span class="header-section-number">3.16.4</span> Limpiar la pantalla conserva el trabajo realizado</h3>
-<p>El comando <code>cls</code> despeja el texto visible. Las carpetas creadas y la ubicación actual se mantienen.</p>
+<section id="creer-que-cls-borra-el-trabajo" class="level3" data-number="3.16.4">
+<h3 data-number="3.16.4" class="anchored" data-anchor-id="creer-que-cls-borra-el-trabajo"><span class="header-section-number">3.16.4</span> Creer que <code>cls</code> borra el trabajo</h3>
+<p><code>cls</code> limpia el texto de la ventana. Las carpetas que creaste y la ubicación actual siguen igual.</p>
 </section>
-<section id="memorizar-todos-los-comandos-resulta-innecesario" class="level3" data-number="3.16.5">
-<h3 data-number="3.16.5" class="anchored" data-anchor-id="memorizar-todos-los-comandos-resulta-innecesario"><span class="header-section-number">3.16.5</span> Memorizar todos los comandos resulta innecesario</h3>
-<p>Durante una tarea real podés consultar la documentación y los ejemplos. En esta etapa importa comprender la acción, reconocer sus argumentos y saber cómo verificar el resultado.</p>
+<section id="querer-memorizar-todos-los-comandos" class="level3" data-number="3.16.5">
+<h3 data-number="3.16.5" class="anchored" data-anchor-id="querer-memorizar-todos-los-comandos"><span class="header-section-number">3.16.5</span> Querer memorizar todos los comandos</h3>
+<p>No hace falta. En una tarea real podés consultar la documentación y los ejemplos. En esta etapa lo importante es entender qué hace cada acción, reconocer sus argumentos y saber cómo verificar el resultado.</p>
 </section>
 </section>
-<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="3.17">
-<h2 data-number="3.17" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">3.17</span> Qué aprendiste en este capítulo</h2>
-<p>Una terminal permite darle instrucciones a la computadora mediante texto. Windows Terminal proporciona una aplicación para alojar sesiones. PowerShell interpreta los comandos utilizados en este capítulo.</p>
-<p>El indicador muestra que PowerShell espera una instrucción y suele informar la carpeta actual. <code>Get-Location</code> permite confirmar esa ubicación. <code>dir</code> muestra su contenido. <code>cd</code> cambia la carpeta actual. <code>cd ..</code> vuelve a la carpeta que contiene la ubicación actual. <code>mkdir</code> crea una carpeta. <code>cls</code> limpia la pantalla y conserva los archivos.</p>
-<p>Cada instrucción requiere una verificación. La ruta permite comprobar el alcance. La salida permite reconocer el resultado. El Explorador de archivos ofrece otra forma de observar los cambios.</p>
-<p>Esta práctica prepara el trabajo con proyectos y agentes. Antes de modificar un estudio, vas a necesitar confirmar qué carpeta contiene la versión correcta.</p>
+<section id="en-síntesis" class="level2" data-number="3.17">
+<h2 data-number="3.17" class="anchored" data-anchor-id="en-síntesis"><span class="header-section-number">3.17</span> En síntesis</h2>
+<p>La terminal nos permite darle instrucciones a la computadora por escrito. Windows Terminal es la aplicación que aloja las sesiones y PowerShell es el que interpreta los comandos de este capítulo.</p>
+<p>El indicador avisa que PowerShell espera una instrucción y suele mostrar la carpeta actual. Con <code>Get-Location</code> confirmamos esa ubicación y con <code>dir</code> vemos su contenido. <code>cd</code> nos lleva a otra carpeta y <code>cd ..</code> nos devuelve a la que contiene la actual. <code>mkdir</code> crea una carpeta y <code>cls</code> limpia la pantalla sin tocar los archivos.</p>
+<p>Cada instrucción se verifica. La ruta nos dice sobre qué actuamos, la salida nos muestra qué pasó y el Explorador de archivos nos da otra forma de mirar los cambios.</p>
+<p>Todo esto prepara el trabajo con proyectos y agentes, porque antes de modificar un estudio vamos a tener que confirmar qué carpeta tiene la versión correcta.</p>
 </section>
-<section id="resolvé-un-desafío-breve" class="level2" data-number="3.18">
-<h2 data-number="3.18" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">3.18</span> Resolvé un desafío breve</h2>
-<p>Abrí PowerShell y llegá hasta <code>practica_archivos</code>. Después completá estas acciones.</p>
+<section id="desafío" class="level2" data-number="3.18">
+<h2 data-number="3.18" class="anchored" data-anchor-id="desafío"><span class="header-section-number">3.18</span> Desafío</h2>
+<p>Abrí PowerShell y llegá hasta <code>practica_archivos</code>. Después hacé lo siguiente.</p>
 <ol type="1">
 <li><p>Ejecutá un comando que muestre la ubicación actual.</p></li>
 <li><p>Ejecutá un comando que muestre el contenido de la carpeta.</p></li>
@@ -980,9 +979,9 @@ Consultá una posible respuesta después de resolver la actividad.
 <li><p>Entrá en <code>verificacion</code>.</p></li>
 <li><p>Comprobá la nueva ubicación.</p></li>
 <li><p>Volvé a <code>practica_archivos</code>.</p></li>
-<li><p>Escribí seis oraciones. Cada oración debe indicar qué comando usaste, qué esperabas que ocurriera y cómo comprobaste el resultado.</p></li>
+<li><p>Escribí seis oraciones. En cada una contá qué comando usaste, qué esperabas que pasara y cómo comprobaste el resultado.</p></li>
 </ol>
-<p>En el próximo capítulo vas a estudiar qué ocurre cuando un programa se ejecuta y cómo podés leer la información que aparece cuando encuentra una dificultad.</p>
+<p>En el próximo capítulo vemos qué pasa cuando un programa se ejecuta y cómo leer la información que aparece cuando algo sale mal.</p>
 
 
 </section>
@@ -1412,8 +1411,8 @@ Consultá una posible respuesta después de resolver la actividad.
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-1/04-programas-procesos-errores.html" class="pagination-link" aria-label="Qué ocurre cuando un programa se ejecuta">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-1/04-programas-procesos-errores.html" class="pagination-link" aria-label="Programas, procesos y errores">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

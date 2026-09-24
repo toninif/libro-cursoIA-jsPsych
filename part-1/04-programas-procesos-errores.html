@@ -8,7 +8,7 @@
 
 <meta name="description" content="Una explicación sobre programas, procesos, interrupciones y mensajes de error.">
 
-<title>4&nbsp; Qué ocurre cuando un programa se ejecuta – De Google Forms a estudios web</title>
+<title>4&nbsp; Programas, procesos y errores – De Google Forms a estudios web</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -288,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/04-programas-procesos-errores.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/04-programas-procesos-errores.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -346,19 +346,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Qué es un proyecto</span></span></a>
   </div>
 </li>
       </ul>
@@ -393,13 +393,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Revisar lo que hace el agente</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo de trabajo</span></span></a>
   </div>
 </li>
       </ul>
@@ -602,41 +602,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">4.1</span> Qué vas a poder hacer</a></li>
-  <li><a href="#una-aplicación-que-deja-de-responder-permite-formular-el-problema" id="toc-una-aplicación-que-deja-de-responder-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-aplicación-que-deja-de-responder-permite-formular-el-problema"><span class="header-section-number">4.2</span> Una aplicación que deja de responder permite formular el problema</a></li>
-  <li><a href="#instalar-prepara-un-programa-para-usos-posteriores" id="toc-instalar-prepara-un-programa-para-usos-posteriores" class="nav-link" data-scroll-target="#instalar-prepara-un-programa-para-usos-posteriores"><span class="header-section-number">4.3</span> Instalar prepara un programa para usos posteriores</a></li>
-  <li><a href="#iniciar-solicita-que-el-programa-comience-a-funcionar" id="toc-iniciar-solicita-que-el-programa-comience-a-funcionar" class="nav-link" data-scroll-target="#iniciar-solicita-que-el-programa-comience-a-funcionar"><span class="header-section-number">4.4</span> Iniciar solicita que el programa comience a funcionar</a></li>
-  <li><a href="#ejecutar-significa-realizar-instrucciones" id="toc-ejecutar-significa-realizar-instrucciones" class="nav-link" data-scroll-target="#ejecutar-significa-realizar-instrucciones"><span class="header-section-number">4.5</span> Ejecutar significa realizar instrucciones</a></li>
-  <li><a href="#un-proceso-representa-una-ejecución-activa" id="toc-un-proceso-representa-una-ejecución-activa" class="nav-link" data-scroll-target="#un-proceso-representa-una-ejecución-activa"><span class="header-section-number">4.6</span> Un proceso representa una ejecución activa</a></li>
-  <li><a href="#el-administrador-de-tareas-permite-observar-procesos" id="toc-el-administrador-de-tareas-permite-observar-procesos" class="nav-link" data-scroll-target="#el-administrador-de-tareas-permite-observar-procesos"><span class="header-section-number">4.7</span> El Administrador de tareas permite observar procesos</a></li>
-  <li><a href="#el-indicador-desaparece-mientras-powershell-espera-una-ejecución" id="toc-el-indicador-desaparece-mientras-powershell-espera-una-ejecución" class="nav-link" data-scroll-target="#el-indicador-desaparece-mientras-powershell-espera-una-ejecución"><span class="header-section-number">4.8</span> El indicador desaparece mientras PowerShell espera una ejecución</a></li>
-  <li><a href="#la-combinación-ctrl-c-puede-interrumpir-una-ejecución" id="toc-la-combinación-ctrl-c-puede-interrumpir-una-ejecución" class="nav-link" data-scroll-target="#la-combinación-ctrl-c-puede-interrumpir-una-ejecución"><span class="header-section-number">4.9</span> La combinación <code>Ctrl + C</code> puede interrumpir una ejecución</a></li>
-  <li><a href="#terminar-una-ejecución-puede-ocurrir-de-varias-maneras" id="toc-terminar-una-ejecución-puede-ocurrir-de-varias-maneras" class="nav-link" data-scroll-target="#terminar-una-ejecución-puede-ocurrir-de-varias-maneras"><span class="header-section-number">4.10</span> Terminar una ejecución puede ocurrir de varias maneras</a></li>
-  <li><a href="#un-error-informa-una-diferencia-concreta" id="toc-un-error-informa-una-diferencia-concreta" class="nav-link" data-scroll-target="#un-error-informa-una-diferencia-concreta"><span class="header-section-number">4.11</span> Un error informa una diferencia concreta</a></li>
-  <li><a href="#una-estrategia-breve-permite-leer-un-mensaje-extenso" id="toc-una-estrategia-breve-permite-leer-un-mensaje-extenso" class="nav-link" data-scroll-target="#una-estrategia-breve-permite-leer-un-mensaje-extenso"><span class="header-section-number">4.12</span> Una estrategia breve permite leer un mensaje extenso</a>
+  <li><a href="#objetivos" id="toc-objetivos" class="nav-link active" data-scroll-target="#objetivos"><span class="header-section-number">4.1</span> Objetivos</a></li>
+  <li><a href="#para-empezar-una-aplicación-que-no-responde" id="toc-para-empezar-una-aplicación-que-no-responde" class="nav-link" data-scroll-target="#para-empezar-una-aplicación-que-no-responde"><span class="header-section-number">4.2</span> Para empezar, una aplicación que no responde</a></li>
+  <li><a href="#instalar" id="toc-instalar" class="nav-link" data-scroll-target="#instalar"><span class="header-section-number">4.3</span> Instalar</a></li>
+  <li><a href="#iniciar" id="toc-iniciar" class="nav-link" data-scroll-target="#iniciar"><span class="header-section-number">4.4</span> Iniciar</a></li>
+  <li><a href="#ejecutar" id="toc-ejecutar" class="nav-link" data-scroll-target="#ejecutar"><span class="header-section-number">4.5</span> Ejecutar</a></li>
+  <li><a href="#los-procesos" id="toc-los-procesos" class="nav-link" data-scroll-target="#los-procesos"><span class="header-section-number">4.6</span> Los procesos</a></li>
+  <li><a href="#el-administrador-de-tareas" id="toc-el-administrador-de-tareas" class="nav-link" data-scroll-target="#el-administrador-de-tareas"><span class="header-section-number">4.7</span> El Administrador de tareas</a></li>
+  <li><a href="#cuando-el-indicador-no-vuelve" id="toc-cuando-el-indicador-no-vuelve" class="nav-link" data-scroll-target="#cuando-el-indicador-no-vuelve"><span class="header-section-number">4.8</span> Cuando el indicador no vuelve</a></li>
+  <li><a href="#interrumpir-con-ctrl-c" id="toc-interrumpir-con-ctrl-c" class="nav-link" data-scroll-target="#interrumpir-con-ctrl-c"><span class="header-section-number">4.9</span> Interrumpir con <code>Ctrl + C</code></a></li>
+  <li><a href="#las-formas-de-terminar" id="toc-las-formas-de-terminar" class="nav-link" data-scroll-target="#las-formas-de-terminar"><span class="header-section-number">4.10</span> Las formas de terminar</a></li>
+  <li><a href="#los-errores" id="toc-los-errores" class="nav-link" data-scroll-target="#los-errores"><span class="header-section-number">4.11</span> Los errores</a></li>
+  <li><a href="#cómo-leer-un-mensaje-largo" id="toc-cómo-leer-un-mensaje-largo" class="nav-link" data-scroll-target="#cómo-leer-un-mensaje-largo"><span class="header-section-number">4.12</span> Cómo leer un mensaje largo</a>
   <ul class="collapse">
-  <li><a href="#primero-identificá-la-acción-esperada" id="toc-primero-identificá-la-acción-esperada" class="nav-link" data-scroll-target="#primero-identificá-la-acción-esperada"><span class="header-section-number">4.12.1</span> Primero identificá la acción esperada</a></li>
-  <li><a href="#después-localizá-la-instrucción-que-falló" id="toc-después-localizá-la-instrucción-que-falló" class="nav-link" data-scroll-target="#después-localizá-la-instrucción-que-falló"><span class="header-section-number">4.12.2</span> Después localizá la instrucción que falló</a></li>
-  <li><a href="#luego-buscá-el-objeto-mencionado" id="toc-luego-buscá-el-objeto-mencionado" class="nav-link" data-scroll-target="#luego-buscá-el-objeto-mencionado"><span class="header-section-number">4.12.3</span> Luego buscá el objeto mencionado</a></li>
-  <li><a href="#a-continuación-comprobá-el-contexto" id="toc-a-continuación-comprobá-el-contexto" class="nav-link" data-scroll-target="#a-continuación-comprobá-el-contexto"><span class="header-section-number">4.12.4</span> A continuación comprobá el contexto</a></li>
-  <li><a href="#finalmente-corregí-una-causa-y-repetí-la-prueba" id="toc-finalmente-corregí-una-causa-y-repetí-la-prueba" class="nav-link" data-scroll-target="#finalmente-corregí-una-causa-y-repetí-la-prueba"><span class="header-section-number">4.12.5</span> Finalmente corregí una causa y repetí la prueba</a></li>
+  <li><a href="#primero-qué-esperabas" id="toc-primero-qué-esperabas" class="nav-link" data-scroll-target="#primero-qué-esperabas"><span class="header-section-number">4.12.1</span> Primero, qué esperabas</a></li>
+  <li><a href="#segundo-qué-instrucción-falló" id="toc-segundo-qué-instrucción-falló" class="nav-link" data-scroll-target="#segundo-qué-instrucción-falló"><span class="header-section-number">4.12.2</span> Segundo, qué instrucción falló</a></li>
+  <li><a href="#tercero-qué-objeto-se-menciona" id="toc-tercero-qué-objeto-se-menciona" class="nav-link" data-scroll-target="#tercero-qué-objeto-se-menciona"><span class="header-section-number">4.12.3</span> Tercero, qué objeto se menciona</a></li>
+  <li><a href="#cuarto-el-contexto" id="toc-cuarto-el-contexto" class="nav-link" data-scroll-target="#cuarto-el-contexto"><span class="header-section-number">4.12.4</span> Cuarto, el contexto</a></li>
+  <li><a href="#quinto-corregir-una-cosa-y-volver-a-probar" id="toc-quinto-corregir-una-cosa-y-volver-a-probar" class="nav-link" data-scroll-target="#quinto-corregir-una-cosa-y-volver-a-probar"><span class="header-section-number">4.12.5</span> Quinto, corregir una cosa y volver a probar</a></li>
   </ul></li>
-  <li><a href="#los-errores-las-advertencias-y-las-salidas-comunican-cosas-diferentes" id="toc-los-errores-las-advertencias-y-las-salidas-comunican-cosas-diferentes" class="nav-link" data-scroll-target="#los-errores-las-advertencias-y-las-salidas-comunican-cosas-diferentes"><span class="header-section-number">4.13</span> Los errores, las advertencias y las salidas comunican cosas diferentes</a></li>
-  <li><a href="#observá-una-ejecución-y-provocá-un-error-controlado" id="toc-observá-una-ejecución-y-provocá-un-error-controlado" class="nav-link" data-scroll-target="#observá-una-ejecución-y-provocá-un-error-controlado"><span class="header-section-number">4.14</span> Observá una ejecución y provocá un error controlado</a></li>
-  <li><a href="#explicá-qué-ocurrió-durante-la-actividad" id="toc-explicá-qué-ocurrió-durante-la-actividad" class="nav-link" data-scroll-target="#explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">4.15</span> Explicá qué ocurrió durante la actividad</a></li>
-  <li><a href="#el-funcionamiento-técnico-y-la-corrección-metodológica-requieren-pruebas-diferentes" id="toc-el-funcionamiento-técnico-y-la-corrección-metodológica-requieren-pruebas-diferentes" class="nav-link" data-scroll-target="#el-funcionamiento-técnico-y-la-corrección-metodológica-requieren-pruebas-diferentes"><span class="header-section-number">4.16</span> El funcionamiento técnico y la corrección metodológica requieren pruebas diferentes</a></li>
-  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">4.17</span> Comprobá lo que comprendiste</a></li>
-  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-confusión" id="toc-revisá-algunas-situaciones-que-suelen-causar-confusión" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">4.18</span> Revisá algunas situaciones que suelen causar confusión</a>
+  <li><a href="#salidas-advertencias-y-errores" id="toc-salidas-advertencias-y-errores" class="nav-link" data-scroll-target="#salidas-advertencias-y-errores"><span class="header-section-number">4.13</span> Salidas, advertencias y errores</a></li>
+  <li><a href="#actividad" id="toc-actividad" class="nav-link" data-scroll-target="#actividad"><span class="header-section-number">4.14</span> Actividad</a></li>
+  <li><a href="#qué-pasó-en-la-actividad" id="toc-qué-pasó-en-la-actividad" class="nav-link" data-scroll-target="#qué-pasó-en-la-actividad"><span class="header-section-number">4.15</span> Qué pasó en la actividad</a></li>
+  <li><a href="#por-qué-nos-importa-en-psicología" id="toc-por-qué-nos-importa-en-psicología" class="nav-link" data-scroll-target="#por-qué-nos-importa-en-psicología"><span class="header-section-number">4.16</span> Por qué nos importa en Psicología</a></li>
+  <li><a href="#para-repasar" id="toc-para-repasar" class="nav-link" data-scroll-target="#para-repasar"><span class="header-section-number">4.17</span> Para repasar</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">4.18</span> Errores frecuentes</a>
   <ul class="collapse">
-  <li><a href="#instalar-y-ejecutar-ocurren-en-momentos-diferentes" id="toc-instalar-y-ejecutar-ocurren-en-momentos-diferentes" class="nav-link" data-scroll-target="#instalar-y-ejecutar-ocurren-en-momentos-diferentes"><span class="header-section-number">4.18.1</span> Instalar y ejecutar ocurren en momentos diferentes</a></li>
-  <li><a href="#una-aplicación-puede-utilizar-varios-procesos" id="toc-una-aplicación-puede-utilizar-varios-procesos" class="nav-link" data-scroll-target="#una-aplicación-puede-utilizar-varios-procesos"><span class="header-section-number">4.18.2</span> Una aplicación puede utilizar varios procesos</a></li>
-  <li><a href="#una-ventana-cerrada-puede-contener-trabajo-sin-guardar" id="toc-una-ventana-cerrada-puede-contener-trabajo-sin-guardar" class="nav-link" data-scroll-target="#una-ventana-cerrada-puede-contener-trabajo-sin-guardar"><span class="header-section-number">4.18.3</span> Una ventana cerrada puede contener trabajo sin guardar</a></li>
-  <li><a href="#una-espera-breve-puede-formar-parte-del-funcionamiento-esperado" id="toc-una-espera-breve-puede-formar-parte-del-funcionamiento-esperado" class="nav-link" data-scroll-target="#una-espera-breve-puede-formar-parte-del-funcionamiento-esperado"><span class="header-section-number">4.18.4</span> Una espera breve puede formar parte del funcionamiento esperado</a></li>
-  <li><a href="#un-mensaje-extenso-puede-contener-una-causa-concreta" id="toc-un-mensaje-extenso-puede-contener-una-causa-concreta" class="nav-link" data-scroll-target="#un-mensaje-extenso-puede-contener-una-causa-concreta"><span class="header-section-number">4.18.5</span> Un mensaje extenso puede contener una causa concreta</a></li>
-  <li><a href="#corregir-varias-cosas-a-la-vez-dificulta-la-verificación" id="toc-corregir-varias-cosas-a-la-vez-dificulta-la-verificación" class="nav-link" data-scroll-target="#corregir-varias-cosas-a-la-vez-dificulta-la-verificación"><span class="header-section-number">4.18.6</span> Corregir varias cosas a la vez dificulta la verificación</a></li>
+  <li><a href="#confundir-instalar-con-ejecutar" id="toc-confundir-instalar-con-ejecutar" class="nav-link" data-scroll-target="#confundir-instalar-con-ejecutar"><span class="header-section-number">4.18.1</span> Confundir instalar con ejecutar</a></li>
+  <li><a href="#preocuparse-por-ver-varios-procesos" id="toc-preocuparse-por-ver-varios-procesos" class="nav-link" data-scroll-target="#preocuparse-por-ver-varios-procesos"><span class="header-section-number">4.18.2</span> Preocuparse por ver varios procesos</a></li>
+  <li><a href="#forzar-el-cierre-con-trabajo-sin-guardar" id="toc-forzar-el-cierre-con-trabajo-sin-guardar" class="nav-link" data-scroll-target="#forzar-el-cierre-con-trabajo-sin-guardar"><span class="header-section-number">4.18.3</span> Forzar el cierre con trabajo sin guardar</a></li>
+  <li><a href="#pensar-que-toda-espera-es-un-problema" id="toc-pensar-que-toda-espera-es-un-problema" class="nav-link" data-scroll-target="#pensar-que-toda-espera-es-un-problema"><span class="header-section-number">4.18.4</span> Pensar que toda espera es un problema</a></li>
+  <li><a href="#asustarse-con-un-mensaje-largo" id="toc-asustarse-con-un-mensaje-largo" class="nav-link" data-scroll-target="#asustarse-con-un-mensaje-largo"><span class="header-section-number">4.18.5</span> Asustarse con un mensaje largo</a></li>
+  <li><a href="#corregir-varias-cosas-a-la-vez" id="toc-corregir-varias-cosas-a-la-vez" class="nav-link" data-scroll-target="#corregir-varias-cosas-a-la-vez"><span class="header-section-number">4.18.6</span> Corregir varias cosas a la vez</a></li>
   </ul></li>
-  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">4.19</span> Qué aprendiste en este capítulo</a></li>
-  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">4.20</span> Resolvé un desafío breve</a></li>
+  <li><a href="#en-síntesis" id="toc-en-síntesis" class="nav-link" data-scroll-target="#en-síntesis"><span class="header-section-number">4.19</span> En síntesis</a></li>
+  <li><a href="#desafío" id="toc-desafío" class="nav-link" data-scroll-target="#desafío"><span class="header-section-number">4.20</span> Desafío</a></li>
   </ul>
 </nav>
     </div>
@@ -644,9 +644,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/04-programas-procesos-errores.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/04-programas-procesos-errores.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Programas, procesos y errores</span></h1>
 </div>
 
 
@@ -663,214 +663,214 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="qué-vas-a-poder-hacer" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">4.1</span> Qué vas a poder hacer</h2>
-<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<section id="objetivos" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="objetivos"><span class="header-section-number">4.1</span> Objetivos</h2>
+<p>Al terminar este capítulo vas a poder</p>
 <ol type="1">
-<li><p>Vas a poder distinguir la instalación, el inicio, la ejecución y el cierre de un programa.</p></li>
-<li><p>Vas a poder explicar qué es un proceso.</p></li>
-<li><p>Vas a poder observar un proceso mediante el Administrador de tareas.</p></li>
-<li><p>Vas a poder reconocer cuándo PowerShell está ejecutando una instrucción.</p></li>
-<li><p>Vas a poder interrumpir una ejecución desde la terminal.</p></li>
-<li><p>Vas a poder extraer información útil de un mensaje de error.</p></li>
-<li><p>Vas a poder diferenciar el funcionamiento técnico de la corrección metodológica.</p></li>
+<li><p>distinguir la instalación, el inicio, la ejecución y el cierre de un programa;</p></li>
+<li><p>explicar qué es un proceso;</p></li>
+<li><p>observar un proceso con el Administrador de tareas;</p></li>
+<li><p>darte cuenta de cuándo PowerShell está ejecutando una instrucción;</p></li>
+<li><p>interrumpir una ejecución desde la terminal;</p></li>
+<li><p>sacar información útil de un mensaje de error;</p></li>
+<li><p>diferenciar que algo funcione técnicamente de que sea correcto desde el punto de vista metodológico.</p></li>
 </ol>
 </section>
-<section id="una-aplicación-que-deja-de-responder-permite-formular-el-problema" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="una-aplicación-que-deja-de-responder-permite-formular-el-problema"><span class="header-section-number">4.2</span> Una aplicación que deja de responder permite formular el problema</h2>
-<p>Imaginá que abrís un programa para escribir las instrucciones de un estudio. La ventana aparece y comenzás a trabajar. Después intentás abrir un archivo grande. El programa deja de responder a tus acciones durante varios segundos.</p>
-<p>La pantalla permanece visible. El puntero puede mostrar una señal de espera. El sistema operativo todavía necesita decidir cómo distribuir sus recursos. Vos también necesitás decidir si esperás, si intentás cerrar la aplicación o si buscás más información.</p>
-<p>Esta situación contiene varias acciones diferentes. Primero, el programa tuvo que estar disponible en la computadora. Después, el sistema operativo lo inició. Mientras trabajaste, existió un proceso activo. Finalmente, el programa respondió, terminó o encontró una dificultad.</p>
-<p>Comprender esa secuencia permite interpretar lo que ocurre cuando más adelante ejecutes un estudio, una herramienta o un agente desde la terminal.</p>
+<section id="para-empezar-una-aplicación-que-no-responde" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="para-empezar-una-aplicación-que-no-responde"><span class="header-section-number">4.2</span> Para empezar, una aplicación que no responde</h2>
+<p>Imaginá que abrís un programa para escribir las instrucciones de un estudio. Aparece la ventana y empezás a trabajar. En un momento intentás abrir un archivo grande y el programa deja de responder durante varios segundos.</p>
+<p>La ventana sigue ahí y el puntero quizás muestra que algo está cargando. El sistema operativo todavía tiene que decidir cómo repartir sus recursos, y vos tenés que decidir si esperás, si intentás cerrar la aplicación o si buscás más información.</p>
+<p>En esa situación pasan varias cosas distintas. Primero el programa tuvo que estar disponible en la computadora. Después el sistema operativo lo inició. Mientras trabajabas hubo un proceso activo. Y al final el programa respondió, terminó o se encontró con un problema.</p>
+<p>Entender esa secuencia te va a servir cuando más adelante ejecutes un estudio, una herramienta o un agente desde la terminal.</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-La ejecución tiene una duración
+Idea clave
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Un programa comienza a ejecutarse, utiliza recursos mientras trabaja y termina en algún momento. Durante ese intervalo, el sistema operativo mantiene uno o más procesos relacionados con la tarea.</p>
+<p>Un programa empieza a ejecutarse, usa recursos mientras trabaja y en algún momento termina. Durante ese tiempo el sistema operativo mantiene uno o más procesos dedicados a esa tarea.</p>
 </div>
 </div>
 </section>
-<section id="instalar-prepara-un-programa-para-usos-posteriores" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="instalar-prepara-un-programa-para-usos-posteriores"><span class="header-section-number">4.3</span> Instalar prepara un programa para usos posteriores</h2>
-<p><strong>Instalar</strong> un programa significa incorporar a la computadora los archivos y la configuración que necesita para funcionar. Una instalación puede copiar archivos, crear accesos, registrar componentes y preparar opciones del sistema operativo.</p>
-<p>La instalación suele realizarse una vez y permite iniciar el programa muchas veces. Cuando instalás un navegador, sus archivos permanecen en el almacenamiento después de apagar la computadora. Cada vez que abrís el navegador, comenzás una ejecución nueva.</p>
-<p>Algunos programas pueden utilizarse sin un instalador tradicional. Pueden venir incluidos con el sistema o funcionar desde una carpeta. Esta diferencia depende de la forma en que fueron distribuidos. En ambos casos, el sistema necesita localizar instrucciones que pueda ejecutar.</p>
-<p>Instalar produce cambios relativamente duraderos. Iniciar produce una actividad temporal. Esta distinción ayudará cuando aparezcan herramientas como Node.js. Primero se instalará la herramienta. Después se la ejecutará cada vez que una actividad la necesite.</p>
+<section id="instalar" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="instalar"><span class="header-section-number">4.3</span> Instalar</h2>
+<p><strong>Instalar</strong> un programa es incorporar a la computadora los archivos y la configuración que necesita para funcionar. Una instalación puede copiar archivos, crear accesos directos, registrar componentes y ajustar opciones del sistema operativo.</p>
+<p>En general se instala una vez y después el programa se abre muchas veces. Cuando instalás un navegador, sus archivos quedan guardados aunque apagues la computadora, y cada vez que lo abrís empieza una ejecución nueva.</p>
+<p>Algunos programas se usan sin un instalador tradicional, porque vienen con el sistema o funcionan desde una carpeta. Eso depende de cómo se distribuyen. En cualquier caso, el sistema necesita encontrar instrucciones que pueda ejecutar.</p>
+<p>Instalar deja cambios más o menos duraderos, mientras que iniciar produce una actividad temporal. Vamos a volver a esta diferencia cuando aparezcan herramientas como Node.js, que primero se instalan y después se ejecutan cada vez que una actividad las necesita.</p>
 </section>
-<section id="iniciar-solicita-que-el-programa-comience-a-funcionar" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="iniciar-solicita-que-el-programa-comience-a-funcionar"><span class="header-section-number">4.4</span> Iniciar solicita que el programa comience a funcionar</h2>
-<p>Podés iniciar un programa desde el menú Inicio, mediante un ícono, con un archivo asociado o desde la terminal.</p>
-<p>Cuando hacés doble clic sobre un archivo <code>.txt</code>, el sistema operativo busca una aplicación asociada con ese tipo de archivo. Después inicia la aplicación y le indica qué archivo debe abrir.</p>
-<p>También podés iniciar una aplicación por su nombre desde PowerShell. El siguiente ejemplo solicita que Windows abra el Bloc de notas.</p>
+<section id="iniciar" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="iniciar"><span class="header-section-number">4.4</span> Iniciar</h2>
+<p>Un programa se puede iniciar desde el menú Inicio, con un ícono, abriendo un archivo asociado o desde la terminal.</p>
+<p>Cuando hacés doble clic sobre un archivo <code>.txt</code>, el sistema operativo busca qué aplicación está asociada a ese tipo de archivo, la inicia y le dice qué archivo tiene que abrir.</p>
+<p>También podés iniciar una aplicación por su nombre desde PowerShell. Este ejemplo le pide a Windows que abra el Bloc de notas.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>notepad</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>El nombre disponible puede cambiar entre sistemas. Las actividades del capítulo pueden realizarse desde el menú Inicio cuando ese comando no esté disponible.</p>
-<p>El comienzo visible de una aplicación incluye varias operaciones. El sistema localiza sus archivos, reserva memoria de trabajo, crea un proceso y prepara la interfaz. Una aplicación compleja puede crear varios procesos para separar tareas.</p>
+<p>El nombre disponible puede variar según el sistema. Si ese comando no te funciona, podés hacer las actividades del capítulo desde el menú Inicio.</p>
+<p>Detrás de lo que vemos cuando arranca una aplicación hay varias operaciones. El sistema encuentra sus archivos, reserva memoria de trabajo, crea un proceso y prepara la interfaz. Una aplicación compleja puede crear varios procesos para separar tareas.</p>
 </section>
-<section id="ejecutar-significa-realizar-instrucciones" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="ejecutar-significa-realizar-instrucciones"><span class="header-section-number">4.5</span> Ejecutar significa realizar instrucciones</h2>
-<p>En el primer capítulo definimos <strong>ejecutar</strong> como poner las instrucciones de un programa en funcionamiento. La ejecución comienza cuando el sistema inicia esas instrucciones. Continúa mientras el programa realiza operaciones.</p>
-<p>Un programa puede recibir entradas durante su ejecución. También puede leer archivos, transformar datos y producir salidas. Algunas ejecuciones permanecen activas hasta que la persona cierra una ventana. Otras realizan una tarea breve y terminan por su cuenta.</p>
-<p>Considerá una calculadora. La aplicación permanece activa mientras recibe números y operaciones. Considerá ahora un comando que muestra una ruta. <code>Get-Location</code> produce una salida y termina casi de inmediato.</p>
-<p>Ambos casos constituyen ejecuciones. La duración y la forma de interacción cambian.</p>
+<section id="ejecutar" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="ejecutar"><span class="header-section-number">4.5</span> Ejecutar</h2>
+<p>En el primer capítulo dijimos que <strong>ejecutar</strong> es poner en funcionamiento las instrucciones de un programa. La ejecución empieza cuando el sistema arranca esas instrucciones y sigue mientras el programa hace su trabajo.</p>
+<p>Mientras se ejecuta, un programa puede recibir entradas, leer archivos, transformar datos y producir salidas. Algunas ejecuciones siguen activas hasta que la persona cierra una ventana. Otras hacen una tarea corta y terminan solas.</p>
+<p>Pensá en la calculadora, que queda abierta mientras le das números y operaciones. Ahora pensá en <code>Get-Location</code>, que muestra una ruta y termina casi al instante.</p>
+<p>Las dos son ejecuciones. Lo que cambia es cuánto duran y cómo interactuamos con ellas.</p>
 </section>
-<section id="un-proceso-representa-una-ejecución-activa" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="un-proceso-representa-una-ejecución-activa"><span class="header-section-number">4.6</span> Un proceso representa una ejecución activa</h2>
-<p>Un <strong>proceso</strong> es un programa que se está ejecutando. El proceso reúne las instrucciones activas, la memoria que utilizan y otros recursos que el sistema operativo necesita administrar. La <a href="https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads">documentación técnica de Windows</a> utiliza esta definición básica.</p>
-<p>Pensá en el programa como una posibilidad guardada en el almacenamiento. El proceso aparece cuando esas instrucciones comienzan a funcionar. Cuando la ejecución termina, el sistema libera los recursos asociados.</p>
-<p>Una aplicación puede utilizar un solo proceso o varios. Los navegadores suelen separar partes de su trabajo. Por eso, el Administrador de tareas puede mostrar varias filas relacionadas con una misma aplicación.</p>
-<p>Cada proceso recibe un número que permite identificarlo durante esa ejecución. Ese número se llama <strong>identificador de proceso</strong>. También vas a encontrar la sigla <code>PID</code>, formada a partir del término inglés <em>process identifier</em>. El número puede cambiar la próxima vez que abras el programa.</p>
-<p>En este curso vas a necesitar una idea central: mientras una herramienta trabaja, existe una ejecución activa que puede producir salidas, esperar entradas, terminar o encontrar un error.</p>
+<section id="los-procesos" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="los-procesos"><span class="header-section-number">4.6</span> Los procesos</h2>
+<p>Un <strong>proceso</strong> es un programa que se está ejecutando. Incluye las instrucciones activas, la memoria que usan y otros recursos que el sistema operativo tiene que administrar. Es la definición básica que usa la <a href="https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads">documentación técnica de Windows</a>.</p>
+<p>Podemos pensar el programa como algo guardado que está disponible para usarse. El proceso aparece cuando esas instrucciones se ponen en marcha, y cuando la ejecución termina el sistema libera los recursos que usaba.</p>
+<p>Una aplicación puede usar un solo proceso o varios. Los navegadores, por ejemplo, suelen repartir su trabajo, y por eso el Administrador de tareas a veces muestra varias filas para una misma aplicación.</p>
+<p>Cada proceso recibe un número que lo identifica durante esa ejecución. Se llama <strong>identificador de proceso</strong> y también vas a ver la sigla <code>PID</code>, del inglés <em>process identifier</em>. La próxima vez que abras el programa ese número puede ser otro.</p>
+<p>Para este curso quedate con esta idea. Mientras una herramienta trabaja hay una ejecución activa, y esa ejecución puede producir salidas, esperar entradas, terminar o encontrarse con un error.</p>
 </section>
-<section id="el-administrador-de-tareas-permite-observar-procesos" class="level2" data-number="4.7">
-<h2 data-number="4.7" class="anchored" data-anchor-id="el-administrador-de-tareas-permite-observar-procesos"><span class="header-section-number">4.7</span> El Administrador de tareas permite observar procesos</h2>
-<p>El <strong>Administrador de tareas</strong> es una herramienta de Windows que muestra aplicaciones y procesos activos. También informa el uso de recursos como el procesador y la memoria. Microsoft describe estas funciones en su <a href="https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows">guía sobre las herramientas de configuración de Windows</a>.</p>
-<p>Podés abrirlo desde el menú Inicio. También podés usar la combinación de teclas <code>Ctrl + Shift + Esc</code>.</p>
-<p>La pestaña o sección llamada <strong>Procesos</strong> presenta las aplicaciones activas. La organización exacta puede cambiar entre versiones de Windows. Buscá el nombre de la aplicación que querés observar.</p>
-<p>Las columnas muestran información dinámica. El uso de procesador puede subir mientras la aplicación realiza una tarea. El uso de memoria indica una parte de los recursos que el proceso mantiene disponibles.</p>
+<section id="el-administrador-de-tareas" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="el-administrador-de-tareas"><span class="header-section-number">4.7</span> El Administrador de tareas</h2>
+<p>El <strong>Administrador de tareas</strong> es una herramienta de Windows que muestra las aplicaciones y los procesos activos, y cuánto procesador y memoria usan. Microsoft describe estas funciones en su <a href="https://support.microsoft.com/en-us/windows/experience/system-configuration-tools-in-windows">guía sobre las herramientas de configuración de Windows</a>.</p>
+<p>Lo podés abrir desde el menú Inicio o con la combinación de teclas <code>Ctrl + Shift + Esc</code>.</p>
+<p>La pestaña o sección <strong>Procesos</strong> muestra las aplicaciones activas. La organización puede cambiar según la versión de Windows, así que buscá el nombre de la aplicación que te interesa.</p>
+<p>Las columnas se actualizan todo el tiempo. El uso de procesador puede subir mientras la aplicación hace algo, y el uso de memoria muestra una parte de los recursos que el proceso tiene reservados.</p>
 <div class="callout callout-style-simple callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Finalizá una tarea solamente cuando comprendas la consecuencia
+Finalizá una tarea solo si sabés qué va a pasar
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El Administrador de tareas permite forzar el cierre de un programa. Esa acción puede descartar cambios que todavía no fueron guardados. Primero intentá guardar el trabajo y cerrar la aplicación mediante sus controles habituales.</p>
+<p>El Administrador de tareas permite forzar el cierre de un programa, y eso puede hacer que se pierdan cambios sin guardar. Primero intentá guardar y cerrar la aplicación de la forma habitual.</p>
 </div>
 </div>
 </section>
-<section id="el-indicador-desaparece-mientras-powershell-espera-una-ejecución" class="level2" data-number="4.8">
-<h2 data-number="4.8" class="anchored" data-anchor-id="el-indicador-desaparece-mientras-powershell-espera-una-ejecución"><span class="header-section-number">4.8</span> El indicador desaparece mientras PowerShell espera una ejecución</h2>
-<p>En el capítulo anterior viste que el indicador muestra cuándo PowerShell espera una instrucción.</p>
+<section id="cuando-el-indicador-no-vuelve" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="cuando-el-indicador-no-vuelve"><span class="header-section-number">4.8</span> Cuando el indicador no vuelve</h2>
+<p>En el capítulo anterior vimos que el indicador aparece cuando PowerShell espera una instrucción.</p>
 <pre class="text"><code>PS C:\Users\Ana&gt;</code></pre>
-<p>Cuando un comando permanece activo, el indicador puede tardar en volver. Durante ese intervalo, PowerShell espera que termine la operación.</p>
-<p>El comando <code>Start-Sleep</code> permite observar este comportamiento sin modificar archivos. Suspende la actividad de la sesión durante un tiempo indicado. La <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/start-sleep">referencia oficial de <code>Start-Sleep</code></a> describe ese funcionamiento.</p>
+<p>Si un comando sigue activo, el indicador puede tardar en volver, porque PowerShell está esperando que la operación termine.</p>
+<p>Con el comando <code>Start-Sleep</code> podemos ver esto sin tocar ningún archivo. Lo que hace es dejar la sesión en pausa durante el tiempo que le digamos, como explica su <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/start-sleep">referencia oficial</a>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Start-Sleep</span> <span class="op">-</span>Seconds <span class="dv">5</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>La parte <code>-Seconds</code> recibe el nombre de <strong>parámetro</strong>. Un parámetro especifica cómo debe interpretar un comando el valor que sigue. En este caso, el número <code>5</code> representa cinco segundos.</p>
-<p>Después de presionar Enter, el indicador deja de estar disponible durante cinco segundos. Cuando el comando termina, PowerShell vuelve a mostrarlo.</p>
-<p>Esta observación aporta una señal útil. La ausencia temporal del indicador puede significar que el comando continúa en ejecución. Conviene esperar o revisar la actividad antes de escribir otra instrucción.</p>
+<p>La parte <code>-Seconds</code> se llama <strong>parámetro</strong>. Un parámetro le dice al comando cómo interpretar el valor que viene después. Acá el número <code>5</code> significa cinco segundos.</p>
+<p>Después de apretar Enter, el indicador desaparece durante cinco segundos y vuelve cuando el comando termina.</p>
+<p>Esto es una pista útil. Si el indicador no está, es probable que el comando siga ejecutándose, así que conviene esperar o fijarse qué está pasando antes de escribir otra cosa.</p>
 </section>
-<section id="la-combinación-ctrl-c-puede-interrumpir-una-ejecución" class="level2" data-number="4.9">
-<h2 data-number="4.9" class="anchored" data-anchor-id="la-combinación-ctrl-c-puede-interrumpir-una-ejecución"><span class="header-section-number">4.9</span> La combinación <code>Ctrl + C</code> puede interrumpir una ejecución</h2>
-<p>Una ejecución puede durar más de lo esperado. En PowerShell, la combinación <code>Ctrl + C</code> permite solicitar la interrupción de una operación activa. La <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally">documentación de PowerShell</a> indica que esta combinación detiene la secuencia de trabajo que se está ejecutando.</p>
-<p>Probá primero con un comando que espere durante treinta segundos.</p>
+<section id="interrumpir-con-ctrl-c" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="interrumpir-con-ctrl-c"><span class="header-section-number">4.9</span> Interrumpir con <code>Ctrl + C</code></h2>
+<p>A veces una ejecución tarda más de lo que esperábamos. En PowerShell, la combinación <code>Ctrl + C</code> pide que se interrumpa la operación activa. Según la <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_try_catch_finally">documentación de PowerShell</a>, esa combinación detiene lo que se está ejecutando en ese momento.</p>
+<p>Probalo con un comando que espera treinta segundos.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Start-Sleep</span> <span class="op">-</span>Seconds <span class="dv">30</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Después de unos segundos, mantené presionada la tecla <code>Ctrl</code> y presioná <code>C</code>. El indicador debería volver antes de completar los treinta segundos.</p>
-<p>La interrupción actúa sobre la ejecución activa en esa terminal. Los efectos realizados antes de la interrupción pueden permanecer. Por ejemplo, un programa que ya guardó un archivo puede dejarlo en el almacenamiento aunque detengas el resto de la tarea.</p>
-<p>Por esta razón, interrumpir y deshacer describen acciones distintas. La interrupción detiene el trabajo pendiente. La recuperación de cambios anteriores requiere revisar qué alcanzó a ocurrir.</p>
+<p>Después de unos segundos, mantené apretada la tecla <code>Ctrl</code> y apretá <code>C</code>. El indicador tendría que volver antes de que pasen los treinta segundos.</p>
+<p>La interrupción actúa sobre lo que se está ejecutando en esa terminal, pero lo que ya se hizo antes puede quedar. Si un programa ya guardó un archivo, ese archivo sigue ahí aunque detengas el resto de la tarea.</p>
+<p>Por eso interrumpir no es lo mismo que deshacer. Interrumpir frena lo que faltaba. Para recuperar lo anterior hay que revisar qué llegó a pasar.</p>
 </section>
-<section id="terminar-una-ejecución-puede-ocurrir-de-varias-maneras" class="level2" data-number="4.10">
-<h2 data-number="4.10" class="anchored" data-anchor-id="terminar-una-ejecución-puede-ocurrir-de-varias-maneras"><span class="header-section-number">4.10</span> Terminar una ejecución puede ocurrir de varias maneras</h2>
-<p>Una ejecución puede finalizar porque completó su tarea. <code>Get-Location</code> muestra una ruta y termina. Una aplicación con ventana puede finalizar cuando elegís <strong>Cerrar</strong>.</p>
-<p>También puede terminar porque la persona solicita una interrupción. <code>Ctrl + C</code> cumple esa función para muchas tareas activas en la terminal.</p>
-<p>Finalmente, una ejecución puede detenerse porque encontró una condición que le impide continuar. En ese caso, el programa suele producir un mensaje de error.</p>
-<p>El cierre habitual ofrece al programa la oportunidad de guardar información y liberar recursos. El cierre forzado reduce esa oportunidad. Por eso conviene reservarlo para situaciones en las que la aplicación dejó de responder y el trabajo guardado se encuentra protegido.</p>
+<section id="las-formas-de-terminar" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="las-formas-de-terminar"><span class="header-section-number">4.10</span> Las formas de terminar</h2>
+<p>Una ejecución puede terminar porque completó su tarea, como <code>Get-Location</code> cuando muestra la ruta. Una aplicación con ventana termina cuando elegís <strong>Cerrar</strong>.</p>
+<p>También puede terminar porque alguien pide que se interrumpa, que es lo que hace <code>Ctrl + C</code> con muchas tareas de la terminal.</p>
+<p>Y puede frenarse porque encontró algo que le impide seguir. En ese caso el programa suele mostrar un mensaje de error.</p>
+<p>Cuando cerramos un programa de la forma habitual, le damos la oportunidad de guardar información y liberar recursos. El cierre forzado le quita esa oportunidad. Por eso conviene dejarlo para cuando la aplicación dejó de responder y el trabajo ya está guardado.</p>
 </section>
-<section id="un-error-informa-una-diferencia-concreta" class="level2" data-number="4.11">
-<h2 data-number="4.11" class="anchored" data-anchor-id="un-error-informa-una-diferencia-concreta"><span class="header-section-number">4.11</span> Un error informa una diferencia concreta</h2>
-<p>Un <strong>error</strong> aparece cuando una instrucción encuentra una condición que impide completar una acción esperada. Puede faltar un archivo. La ruta puede estar equivocada. El comando puede contener un nombre desconocido. También puede faltar un permiso.</p>
-<p>El mensaje de error constituye una salida del programa. Su función consiste en describir la dificultad. PowerShell registra información sobre los comandos que fallan y puede mostrar distintos detalles según el tipo de error. La <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_error_handling">documentación sobre el manejo de errores</a> explica que algunas dificultades detienen una operación y otras permiten continuar con tareas posteriores.</p>
-<p>Durante las primeras prácticas alcanza con identificar cuatro elementos.</p>
+<section id="los-errores" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="los-errores"><span class="header-section-number">4.11</span> Los errores</h2>
+<p>Un <strong>error</strong> aparece cuando una instrucción se encuentra con algo que le impide hacer lo que se esperaba. Puede faltar un archivo, la ruta puede estar mal, el comando puede tener un nombre que no existe o puede faltar un permiso.</p>
+<p>El mensaje de error también es una salida del programa, y su función es describir el problema. PowerShell guarda información sobre los comandos que fallan y muestra distintos detalles según el tipo de error. En la <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_error_handling">documentación sobre el manejo de errores</a> se explica que algunos problemas frenan una operación y otros dejan seguir con las tareas siguientes.</p>
+<p>En las primeras prácticas alcanza con buscar cuatro cosas.</p>
 <ol type="1">
-<li><p>Reconocé qué instrucción produjo el mensaje.</p></li>
-<li><p>Buscá el nombre del archivo, la carpeta o el comando mencionado.</p></li>
-<li><p>Identificá una expresión que describa la dificultad, como “ruta inexistente”, “término desconocido” o “acceso denegado”.</p></li>
-<li><p>Comprobá qué ocurrió después del mensaje.</p></li>
+<li><p>Qué instrucción produjo el mensaje.</p></li>
+<li><p>Qué archivo, carpeta o comando se menciona.</p></li>
+<li><p>Alguna expresión que describa el problema, como “ruta inexistente”, “término desconocido” o “acceso denegado”.</p></li>
+<li><p>Qué pasó después del mensaje.</p></li>
 </ol>
-<p>El color rojo suele señalar errores en PowerShell, pero el color depende de la configuración. El contenido del mensaje aporta información más confiable que su apariencia.</p>
+<p>En PowerShell los errores suelen aparecer en rojo, pero el color depende de la configuración. Lo que dice el mensaje es más confiable que cómo se ve.</p>
 </section>
-<section id="una-estrategia-breve-permite-leer-un-mensaje-extenso" class="level2" data-number="4.12">
-<h2 data-number="4.12" class="anchored" data-anchor-id="una-estrategia-breve-permite-leer-un-mensaje-extenso"><span class="header-section-number">4.12</span> Una estrategia breve permite leer un mensaje extenso</h2>
-<p>Los mensajes técnicos pueden incluir varias líneas. Algunas están dirigidas a personas con experiencia en programación. Podés comenzar con una lectura acotada.</p>
-<section id="primero-identificá-la-acción-esperada" class="level3" data-number="4.12.1">
-<h3 data-number="4.12.1" class="anchored" data-anchor-id="primero-identificá-la-acción-esperada"><span class="header-section-number">4.12.1</span> Primero identificá la acción esperada</h3>
-<p>Formulá una oración concreta. Por ejemplo: “Esperaba entrar en la carpeta <code>materiales</code>”. Esa oración permite comparar la intención con el resultado.</p>
+<section id="cómo-leer-un-mensaje-largo" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="cómo-leer-un-mensaje-largo"><span class="header-section-number">4.12</span> Cómo leer un mensaje largo</h2>
+<p>Los mensajes técnicos pueden tener muchas líneas, y algunas están pensadas para gente con experiencia en programación. Podés empezar con una lectura acotada, en cinco pasos.</p>
+<section id="primero-qué-esperabas" class="level3" data-number="4.12.1">
+<h3 data-number="4.12.1" class="anchored" data-anchor-id="primero-qué-esperabas"><span class="header-section-number">4.12.1</span> Primero, qué esperabas</h3>
+<p>Escribí una oración concreta, como “Esperaba entrar en la carpeta <code>materiales</code>”. Con esa oración podés comparar lo que querías hacer con lo que pasó.</p>
 </section>
-<section id="después-localizá-la-instrucción-que-falló" class="level3" data-number="4.12.2">
-<h3 data-number="4.12.2" class="anchored" data-anchor-id="después-localizá-la-instrucción-que-falló"><span class="header-section-number">4.12.2</span> Después localizá la instrucción que falló</h3>
-<p>Copiá o leé el comando exacto. Un carácter diferente puede cambiar su significado.</p>
+<section id="segundo-qué-instrucción-falló" class="level3" data-number="4.12.2">
+<h3 data-number="4.12.2" class="anchored" data-anchor-id="segundo-qué-instrucción-falló"><span class="header-section-number">4.12.2</span> Segundo, qué instrucción falló</h3>
+<p>Copiá o leé el comando exacto, porque un solo carácter distinto puede cambiar su significado.</p>
 <pre class="text"><code>cd materialess</code></pre>
 </section>
-<section id="luego-buscá-el-objeto-mencionado" class="level3" data-number="4.12.3">
-<h3 data-number="4.12.3" class="anchored" data-anchor-id="luego-buscá-el-objeto-mencionado"><span class="header-section-number">4.12.3</span> Luego buscá el objeto mencionado</h3>
-<p>El mensaje puede repetir <code>materialess</code> o mostrar una ruta completa. Esa información indica qué intentó encontrar PowerShell.</p>
+<section id="tercero-qué-objeto-se-menciona" class="level3" data-number="4.12.3">
+<h3 data-number="4.12.3" class="anchored" data-anchor-id="tercero-qué-objeto-se-menciona"><span class="header-section-number">4.12.3</span> Tercero, qué objeto se menciona</h3>
+<p>El mensaje puede repetir <code>materialess</code> o mostrar una ruta completa. Eso te dice qué intentó encontrar PowerShell.</p>
 </section>
-<section id="a-continuación-comprobá-el-contexto" class="level3" data-number="4.12.4">
-<h3 data-number="4.12.4" class="anchored" data-anchor-id="a-continuación-comprobá-el-contexto"><span class="header-section-number">4.12.4</span> A continuación comprobá el contexto</h3>
-<p>Ejecutá <code>Get-Location</code> para confirmar la carpeta actual. Ejecutá <code>dir</code> para observar los nombres disponibles.</p>
+<section id="cuarto-el-contexto" class="level3" data-number="4.12.4">
+<h3 data-number="4.12.4" class="anchored" data-anchor-id="cuarto-el-contexto"><span class="header-section-number">4.12.4</span> Cuarto, el contexto</h3>
+<p>Ejecutá <code>Get-Location</code> para confirmar la carpeta actual y <code>dir</code> para ver qué nombres hay disponibles.</p>
 </section>
-<section id="finalmente-corregí-una-causa-y-repetí-la-prueba" class="level3" data-number="4.12.5">
-<h3 data-number="4.12.5" class="anchored" data-anchor-id="finalmente-corregí-una-causa-y-repetí-la-prueba"><span class="header-section-number">4.12.5</span> Finalmente corregí una causa y repetí la prueba</h3>
-<p>Si la lista muestra <code>materiales</code>, corregí el nombre y ejecutá el comando otra vez.</p>
+<section id="quinto-corregir-una-cosa-y-volver-a-probar" class="level3" data-number="4.12.5">
+<h3 data-number="4.12.5" class="anchored" data-anchor-id="quinto-corregir-una-cosa-y-volver-a-probar"><span class="header-section-number">4.12.5</span> Quinto, corregir una cosa y volver a probar</h3>
+<p>Si en la lista aparece <code>materiales</code>, corregí el nombre y ejecutá el comando otra vez.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> materiales</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Cambiar una sola causa permite saber qué corrección produjo el resultado.</p>
+<p>Si cambiás una sola cosa por vez, sabés qué corrección produjo el resultado.</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Conservá el mensaje exacto cuando pidas ayuda
+Guardá el mensaje exacto cuando pidas ayuda
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Copiá el comando y el mensaje completo. También registrá la carpeta actual y la acción que esperabas. Esa información permite que otra persona o un agente analice la situación con mayor precisión.</p>
+<p>Copiá el comando y el mensaje completo, y anotá también la carpeta actual y lo que esperabas que pasara. Con esa información otra persona, o un agente, puede analizar la situación con mucha más precisión.</p>
 </div>
 </div>
 </section>
 </section>
-<section id="los-errores-las-advertencias-y-las-salidas-comunican-cosas-diferentes" class="level2" data-number="4.13">
-<h2 data-number="4.13" class="anchored" data-anchor-id="los-errores-las-advertencias-y-las-salidas-comunican-cosas-diferentes"><span class="header-section-number">4.13</span> Los errores, las advertencias y las salidas comunican cosas diferentes</h2>
-<p>Una salida informa un resultado normal. <code>Get-Location</code> muestra una ruta como parte de su funcionamiento esperado.</p>
-<p>Una <strong>advertencia</strong> informa una condición que merece atención. El programa puede continuar, aunque exista un riesgo o una configuración poco conveniente.</p>
-<p>Un error informa que alguna operación encontró una dificultad. El alcance varía. Puede fallar una acción concreta mientras la sesión continúa. También puede terminar el programa completo.</p>
-<p>Por eso, la presencia de texto después de un comando requiere lectura. La cantidad de líneas y el color aportan señales. Las palabras y el resultado final permiten interpretar la situación.</p>
-<p>Algunos programas que se ejecutan en la terminal devuelven un <strong>código de salida</strong> cuando terminan. El valor <code>0</code> suele representar una finalización correcta. Otro valor suele señalar una dificultad. En capítulos posteriores vas a encontrar estos códigos cuando ejecutes herramientas del proyecto. Por ahora alcanza con reconocer que un programa puede comunicar su estado final mediante un número.</p>
+<section id="salidas-advertencias-y-errores" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="salidas-advertencias-y-errores"><span class="header-section-number">4.13</span> Salidas, advertencias y errores</h2>
+<p>Una salida informa un resultado normal. Cuando <code>Get-Location</code> muestra una ruta, está haciendo exactamente lo que tiene que hacer.</p>
+<p>Una <strong>advertencia</strong> avisa sobre algo que merece atención. El programa puede seguir, aunque haya un riesgo o una configuración poco recomendable.</p>
+<p>Un error avisa que alguna operación tuvo un problema. El alcance varía. Puede fallar una acción puntual y la sesión seguir, o puede terminar todo el programa.</p>
+<p>Por eso, cuando aparece texto después de un comando, hay que leerlo. La cantidad de líneas y el color dan pistas, pero son las palabras y el resultado final los que permiten entender qué pasó.</p>
+<p>Algunos programas de la terminal devuelven un <strong>código de salida</strong> cuando terminan. En general <code>0</code> quiere decir que todo salió bien y cualquier otro valor indica un problema. Vas a ver estos códigos más adelante, cuando ejecutes herramientas del proyecto. Por ahora alcanza con saber que un programa puede comunicar cómo terminó mediante un número.</p>
 </section>
-<section id="observá-una-ejecución-y-provocá-un-error-controlado" class="level2" data-number="4.14">
-<h2 data-number="4.14" class="anchored" data-anchor-id="observá-una-ejecución-y-provocá-un-error-controlado"><span class="header-section-number">4.14</span> Observá una ejecución y provocá un error controlado</h2>
+<section id="actividad" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="actividad"><span class="header-section-number">4.14</span> Actividad</h2>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Realizá esta actividad guiada
+Actividad guiada
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>La primera parte permite observar un proceso mediante una aplicación conocida.</p>
+<p>En la primera parte vas a observar un proceso usando una aplicación conocida.</p>
 <ol type="1">
 <li><p>Abrí el Bloc de notas desde el menú Inicio.</p></li>
 <li><p>Escribí una oración y guardala en <code>practica_archivos\instrucciones</code> con el nombre <code>observacion_proceso.txt</code>.</p></li>
 <li><p>Abrí el Administrador de tareas con <code>Ctrl + Shift + Esc</code>.</p></li>
 <li><p>Buscá el Bloc de notas en la sección <strong>Procesos</strong>.</p></li>
-<li><p>Observá el nombre de la aplicación y la información disponible sobre sus recursos.</p></li>
-<li><p>Cerrá el Bloc de notas mediante su botón habitual.</p></li>
-<li><p>Volvé al Administrador de tareas y comprobá qué cambió.</p></li>
+<li><p>Mirá el nombre de la aplicación y la información sobre sus recursos.</p></li>
+<li><p>Cerrá el Bloc de notas con su botón habitual.</p></li>
+<li><p>Volvé al Administrador de tareas y fijate qué cambió.</p></li>
 </ol>
-<p>La segunda parte permite observar una ejecución dentro de PowerShell.</p>
+<p>En la segunda parte vas a observar una ejecución dentro de PowerShell.</p>
 <ol start="8" type="1">
 <li><p>Abrí PowerShell.</p></li>
-<li><p>Ejecutá <code>Start-Sleep -Seconds 5</code> y observá cuándo vuelve el indicador.</p></li>
+<li><p>Ejecutá <code>Start-Sleep -Seconds 5</code> y fijate cuándo vuelve el indicador.</p></li>
 <li><p>Ejecutá <code>Start-Sleep -Seconds 30</code>.</p></li>
-<li><p>Esperá unos segundos y presioná <code>Ctrl + C</code>.</p></li>
-<li><p>Comprobá que el indicador volvió antes de completar los treinta segundos.</p></li>
+<li><p>Esperá unos segundos y apretá <code>Ctrl + C</code>.</p></li>
+<li><p>Comprobá que el indicador volvió antes de los treinta segundos.</p></li>
 </ol>
-<p>La tercera parte produce un error previsto y recuperable.</p>
+<p>En la tercera parte vas a provocar un error a propósito y a corregirlo.</p>
 <ol start="13" type="1">
-<li><p>Entrá en <code>practica_archivos</code> mediante el procedimiento utilizado en el capítulo anterior.</p></li>
-<li><p>Ejecutá <code>cd materialess</code>. El nombre contiene una letra adicional de manera intencional.</p></li>
-<li><p>Leé el mensaje y localizá el nombre que PowerShell intentó encontrar.</p></li>
-<li><p>Ejecutá <code>Get-Location</code> y comprobá que la carpeta actual se mantuvo.</p></li>
+<li><p>Entrá en <code>practica_archivos</code> como lo hiciste en el capítulo anterior.</p></li>
+<li><p>Ejecutá <code>cd materialess</code>. El nombre tiene una letra de más a propósito.</p></li>
+<li><p>Leé el mensaje y buscá qué nombre intentó encontrar PowerShell.</p></li>
+<li><p>Ejecutá <code>Get-Location</code> y comprobá que seguís en la misma carpeta.</p></li>
 <li><p>Ejecutá <code>dir</code> y buscá el nombre correcto.</p></li>
 <li><p>Ejecutá <code>cd materiales</code>.</p></li>
 <li><p>Ejecutá <code>Get-Location</code> y comprobá que la corrección funcionó.</p></li>
@@ -878,39 +878,39 @@ Realizá esta actividad guiada
 </div>
 </div>
 </section>
-<section id="explicá-qué-ocurrió-durante-la-actividad" class="level2" data-number="4.15">
-<h2 data-number="4.15" class="anchored" data-anchor-id="explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">4.15</span> Explicá qué ocurrió durante la actividad</h2>
-<p>El Bloc de notas se encontraba instalado antes de comenzar. Al abrirlo, Windows inició una ejecución y creó un proceso. El Administrador de tareas permitió observar esa actividad. Cuando cerraste la aplicación, la ejecución terminó y la lista de procesos se actualizó.</p>
-<p><code>Start-Sleep -Seconds 5</code> mantuvo ocupada la sesión durante cinco segundos. La ausencia del indicador mostró que PowerShell esperaba la finalización. El segundo comando fue interrumpido mediante <code>Ctrl + C</code>, y la sesión volvió a quedar disponible.</p>
-<p>El comando <code>cd materialess</code> solicitó una carpeta inexistente dentro de la ubicación actual. PowerShell informó la dificultad y conservó la sesión. <code>Get-Location</code> y <code>dir</code> aportaron el contexto necesario para corregir el nombre. La nueva ejecución alcanzó el resultado esperado.</p>
+<section id="qué-pasó-en-la-actividad" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="qué-pasó-en-la-actividad"><span class="header-section-number">4.15</span> Qué pasó en la actividad</h2>
+<p>El Bloc de notas ya estaba instalado antes de empezar. Cuando lo abriste, Windows inició una ejecución y creó un proceso, que pudiste ver en el Administrador de tareas. Al cerrar la aplicación, la ejecución terminó y la lista de procesos se actualizó.</p>
+<p><code>Start-Sleep -Seconds 5</code> dejó la sesión ocupada durante cinco segundos, y la ausencia del indicador te mostró que PowerShell estaba esperando. El segundo comando lo cortaste con <code>Ctrl + C</code> y la sesión volvió a quedar disponible.</p>
+<p>Con <code>cd materialess</code> pediste una carpeta que no existía en la ubicación actual. PowerShell avisó del problema y la sesión siguió abierta. <code>Get-Location</code> y <code>dir</code> te dieron el contexto para corregir el nombre, y la segunda vez funcionó.</p>
 </section>
-<section id="el-funcionamiento-técnico-y-la-corrección-metodológica-requieren-pruebas-diferentes" class="level2" data-number="4.16">
-<h2 data-number="4.16" class="anchored" data-anchor-id="el-funcionamiento-técnico-y-la-corrección-metodológica-requieren-pruebas-diferentes"><span class="header-section-number">4.16</span> El funcionamiento técnico y la corrección metodológica requieren pruebas diferentes</h2>
-<p>Un estudio puede abrirse, mostrar pantallas y guardar datos sin producir un mensaje de error. Ese funcionamiento aporta evidencia técnica. Indica que ciertas instrucciones pudieron ejecutarse.</p>
-<p>La revisión metodológica formula otras preguntas. Evalúa si los estímulos corresponden al constructo, si la asignación entre condiciones cumple el diseño, si las respuestas quedan registradas con el significado previsto y si el procedimiento respeta las decisiones éticas.</p>
-<p>Supongamos que una tarea debe mostrar una palabra durante <code>500</code> milisegundos. El programa podría ejecutarse sin errores y mostrarla durante <code>5000</code> milisegundos. La aplicación funcionaría, pero la duración implementada diferiría de la decisión metodológica.</p>
-<p>La verificación necesita observar ambos niveles.</p>
+<section id="por-qué-nos-importa-en-psicología" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="por-qué-nos-importa-en-psicología"><span class="header-section-number">4.16</span> Por qué nos importa en Psicología</h2>
+<p>Un estudio puede abrirse, mostrar pantallas y guardar datos sin un solo mensaje de error. Eso es evidencia técnica, porque nos dice que ciertas instrucciones se pudieron ejecutar.</p>
+<p>La revisión metodológica hace otras preguntas. Se fija si los estímulos corresponden al constructo, si la asignación a condiciones respeta el diseño, si las respuestas quedan registradas con el significado que queríamos y si el procedimiento cumple con las decisiones éticas.</p>
+<p>Supongamos que una tarea tiene que mostrar una palabra durante <code>500</code> milisegundos. El programa podría ejecutarse sin errores y mostrarla durante <code>5000</code> milisegundos. La aplicación funcionaría, pero la duración no sería la que decidimos.</p>
+<p>Por eso verificamos en dos niveles.</p>
 <ol type="1">
-<li><p>La verificación técnica comprueba que el programa se inicia, responde y produce archivos utilizables.</p></li>
-<li><p>La verificación metodológica comprueba que el procedimiento implementa las decisiones de la investigación.</p></li>
+<li><p>La verificación técnica comprueba que el programa arranca, responde y produce archivos que se pueden usar.</p></li>
+<li><p>La verificación metodológica comprueba que el procedimiento hace lo que decidimos en la investigación.</p></li>
 </ol>
-<p>Un mensaje de error ayuda a localizar una dificultad técnica. La ausencia de mensajes todavía requiere una revisión del comportamiento y de los datos.</p>
+<p>Un mensaje de error ayuda a encontrar un problema técnico. Que no aparezca ninguno no alcanza, y todavía hay que revisar el comportamiento y los datos.</p>
 </section>
-<section id="comprobá-lo-que-comprendiste" class="level2" data-number="4.17">
-<h2 data-number="4.17" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">4.17</span> Comprobá lo que comprendiste</h2>
+<section id="para-repasar" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="para-repasar"><span class="header-section-number">4.17</span> Para repasar</h2>
 <p>Respondé cada pregunta con una oración completa.</p>
 <ol type="1">
-<li><p>¿Qué diferencia existe entre instalar e iniciar un programa?</p></li>
+<li><p>¿Qué diferencia hay entre instalar e iniciar un programa?</p></li>
 <li><p>¿Qué es un proceso?</p></li>
-<li><p>¿Qué herramienta de Windows permite observar procesos activos?</p></li>
-<li><p>¿Qué indica la ausencia temporal del indicador de PowerShell?</p></li>
-<li><p>¿Qué solicita la combinación <code>Ctrl + C</code> durante una ejecución en la terminal?</p></li>
-<li><p>¿Qué dos comandos permiten comprobar el contexto de un error de ruta?</p></li>
-<li><p>¿Por qué un programa que termina sin errores todavía necesita una revisión metodológica?</p></li>
+<li><p>¿Qué herramienta de Windows te permite ver los procesos activos?</p></li>
+<li><p>¿Qué indica que el indicador de PowerShell desaparezca por un rato?</p></li>
+<li><p>¿Qué pide la combinación <code>Ctrl + C</code> durante una ejecución en la terminal?</p></li>
+<li><p>¿Qué dos comandos te ayudan a entender el contexto de un error de ruta?</p></li>
+<li><p>¿Por qué un programa que termina sin errores igual necesita una revisión metodológica?</p></li>
 </ol>
 <details>
 <summary>
-Consultá una posible respuesta después de resolver la actividad.
+Ver respuestas posibles
 </summary>
 <ol type="1">
 <li><p>Instalar prepara archivos y configuraciones para usos posteriores, mientras que iniciar comienza una ejecución concreta.</p></li>
@@ -923,53 +923,53 @@ Consultá una posible respuesta después de resolver la actividad.
 </ol>
 </details>
 </section>
-<section id="revisá-algunas-situaciones-que-suelen-causar-confusión" class="level2" data-number="4.18">
-<h2 data-number="4.18" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">4.18</span> Revisá algunas situaciones que suelen causar confusión</h2>
-<section id="instalar-y-ejecutar-ocurren-en-momentos-diferentes" class="level3" data-number="4.18.1">
-<h3 data-number="4.18.1" class="anchored" data-anchor-id="instalar-y-ejecutar-ocurren-en-momentos-diferentes"><span class="header-section-number">4.18.1</span> Instalar y ejecutar ocurren en momentos diferentes</h3>
-<p>La instalación prepara el programa y realiza cambios duraderos. Cada ejecución utiliza esa instalación para realizar una tarea concreta.</p>
+<section id="errores-frecuentes" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">4.18</span> Errores frecuentes</h2>
+<section id="confundir-instalar-con-ejecutar" class="level3" data-number="4.18.1">
+<h3 data-number="4.18.1" class="anchored" data-anchor-id="confundir-instalar-con-ejecutar"><span class="header-section-number">4.18.1</span> Confundir instalar con ejecutar</h3>
+<p>La instalación prepara el programa y deja cambios duraderos. Cada ejecución usa esa instalación para hacer una tarea concreta.</p>
 </section>
-<section id="una-aplicación-puede-utilizar-varios-procesos" class="level3" data-number="4.18.2">
-<h3 data-number="4.18.2" class="anchored" data-anchor-id="una-aplicación-puede-utilizar-varios-procesos"><span class="header-section-number">4.18.2</span> Una aplicación puede utilizar varios procesos</h3>
-<p>El Administrador de tareas puede mostrar varias filas vinculadas con un navegador u otra aplicación compleja. Esa distribución forma parte de su diseño.</p>
+<section id="preocuparse-por-ver-varios-procesos" class="level3" data-number="4.18.2">
+<h3 data-number="4.18.2" class="anchored" data-anchor-id="preocuparse-por-ver-varios-procesos"><span class="header-section-number">4.18.2</span> Preocuparse por ver varios procesos</h3>
+<p>El Administrador de tareas puede mostrar varias filas para un navegador u otra aplicación compleja. Así están diseñadas y no es señal de que algo ande mal.</p>
 </section>
-<section id="una-ventana-cerrada-puede-contener-trabajo-sin-guardar" class="level3" data-number="4.18.3">
-<h3 data-number="4.18.3" class="anchored" data-anchor-id="una-ventana-cerrada-puede-contener-trabajo-sin-guardar"><span class="header-section-number">4.18.3</span> Una ventana cerrada puede contener trabajo sin guardar</h3>
-<p>El cierre habitual puede preguntar si querés guardar. El cierre forzado puede impedir esa pregunta. Guardá antes de finalizar una tarea cuando el archivo contiene cambios importantes.</p>
+<section id="forzar-el-cierre-con-trabajo-sin-guardar" class="level3" data-number="4.18.3">
+<h3 data-number="4.18.3" class="anchored" data-anchor-id="forzar-el-cierre-con-trabajo-sin-guardar"><span class="header-section-number">4.18.3</span> Forzar el cierre con trabajo sin guardar</h3>
+<p>El cierre habitual suele preguntarte si querés guardar, y el cierre forzado se saltea esa pregunta. Si el archivo tiene cambios importantes, guardalo antes de finalizar la tarea.</p>
 </section>
-<section id="una-espera-breve-puede-formar-parte-del-funcionamiento-esperado" class="level3" data-number="4.18.4">
-<h3 data-number="4.18.4" class="anchored" data-anchor-id="una-espera-breve-puede-formar-parte-del-funcionamiento-esperado"><span class="header-section-number">4.18.4</span> Una espera breve puede formar parte del funcionamiento esperado</h3>
-<p>Algunas operaciones necesitan tiempo para leer archivos, calcular resultados o iniciar servicios. Observá la salida y la actividad antes de concluir que el programa se detuvo.</p>
+<section id="pensar-que-toda-espera-es-un-problema" class="level3" data-number="4.18.4">
+<h3 data-number="4.18.4" class="anchored" data-anchor-id="pensar-que-toda-espera-es-un-problema"><span class="header-section-number">4.18.4</span> Pensar que toda espera es un problema</h3>
+<p>Hay operaciones que necesitan tiempo para leer archivos, calcular resultados o poner en marcha un servicio. Mirá la salida y la actividad antes de concluir que el programa se colgó.</p>
 </section>
-<section id="un-mensaje-extenso-puede-contener-una-causa-concreta" class="level3" data-number="4.18.5">
-<h3 data-number="4.18.5" class="anchored" data-anchor-id="un-mensaje-extenso-puede-contener-una-causa-concreta"><span class="header-section-number">4.18.5</span> Un mensaje extenso puede contener una causa concreta</h3>
-<p>Comenzá por la instrucción, el objeto mencionado y la primera descripción comprensible. Conservá el mensaje completo para una revisión posterior.</p>
+<section id="asustarse-con-un-mensaje-largo" class="level3" data-number="4.18.5">
+<h3 data-number="4.18.5" class="anchored" data-anchor-id="asustarse-con-un-mensaje-largo"><span class="header-section-number">4.18.5</span> Asustarse con un mensaje largo</h3>
+<p>Empezá por la instrucción, el objeto que se menciona y la primera descripción que entiendas. Guardá el mensaje completo por si hace falta revisarlo después.</p>
 </section>
-<section id="corregir-varias-cosas-a-la-vez-dificulta-la-verificación" class="level3" data-number="4.18.6">
-<h3 data-number="4.18.6" class="anchored" data-anchor-id="corregir-varias-cosas-a-la-vez-dificulta-la-verificación"><span class="header-section-number">4.18.6</span> Corregir varias cosas a la vez dificulta la verificación</h3>
-<p>Aplicá una corrección y repetí la prueba. Esa secuencia permite relacionar el cambio con el resultado.</p>
+<section id="corregir-varias-cosas-a-la-vez" class="level3" data-number="4.18.6">
+<h3 data-number="4.18.6" class="anchored" data-anchor-id="corregir-varias-cosas-a-la-vez"><span class="header-section-number">4.18.6</span> Corregir varias cosas a la vez</h3>
+<p>Si cambiás muchas cosas juntas, no sabés cuál resolvió el problema. Aplicá una corrección, volvé a probar y recién después seguí.</p>
 </section>
 </section>
-<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="4.19">
-<h2 data-number="4.19" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">4.19</span> Qué aprendiste en este capítulo</h2>
-<p>Instalar prepara un programa para usos posteriores. Iniciar comienza una ejecución concreta. Un proceso representa un programa que está funcionando y utiliza recursos administrados por el sistema operativo.</p>
-<p>El Administrador de tareas permite observar procesos. PowerShell muestra el indicador cuando espera una instrucción. Una ejecución activa puede mantener el indicador fuera de la pantalla hasta que termine. <code>Ctrl + C</code> permite solicitar una interrupción.</p>
-<p>Un error comunica una dificultad. La instrucción, la ubicación, el objeto mencionado y la descripción del problema aportan información para corregirla. La comprobación posterior permite confirmar el resultado.</p>
-<p>La ejecución correcta aporta evidencia técnica. La investigación también necesita verificar que las instrucciones implementan las decisiones metodológicas.</p>
+<section id="en-síntesis" class="level2" data-number="4.19">
+<h2 data-number="4.19" class="anchored" data-anchor-id="en-síntesis"><span class="header-section-number">4.19</span> En síntesis</h2>
+<p>Instalar prepara un programa para usarlo después, e iniciar pone en marcha una ejecución concreta. Un proceso es un programa que está funcionando y que usa recursos administrados por el sistema operativo.</p>
+<p>Con el Administrador de tareas podemos ver los procesos. En la terminal, PowerShell muestra el indicador cuando espera una instrucción, y mientras un comando sigue activo el indicador puede no aparecer. Con <code>Ctrl + C</code> pedimos que se interrumpa.</p>
+<p>Un error nos cuenta que hubo un problema. La instrucción, la ubicación, el objeto mencionado y la descripción nos dan pistas para corregirlo, y la prueba posterior confirma si lo logramos.</p>
+<p>Que algo se ejecute bien es evidencia técnica. En investigación también tenemos que comprobar que esas instrucciones hacen lo que decidimos metodológicamente.</p>
 </section>
-<section id="resolvé-un-desafío-breve" class="level2" data-number="4.20">
-<h2 data-number="4.20" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">4.20</span> Resolvé un desafío breve</h2>
-<p>Elegí una aplicación que uses con frecuencia. Puede ser un navegador, un reproductor o un editor de texto.</p>
+<section id="desafío" class="level2" data-number="4.20">
+<h2 data-number="4.20" class="anchored" data-anchor-id="desafío"><span class="header-section-number">4.20</span> Desafío</h2>
+<p>Elegí una aplicación que uses seguido, como un navegador, un reproductor o un editor de texto.</p>
 <ol type="1">
-<li><p>Escribí una oración que explique cómo se inicia.</p></li>
-<li><p>Escribí una oración que identifique una entrada que recibe durante su ejecución.</p></li>
-<li><p>Escribí una oración que identifique una salida que produce.</p></li>
-<li><p>Abrí el Administrador de tareas y describí cómo reconociste su proceso.</p></li>
-<li><p>Cerrá la aplicación de la manera habitual y describí qué cambió.</p></li>
-<li><p>Proponé una dificultad técnica que podría ocurrir durante su uso.</p></li>
-<li><p>Escribí qué información necesitarías para investigar esa dificultad.</p></li>
+<li><p>Escribí una oración que explique cómo la iniciás.</p></li>
+<li><p>Escribí otra que nombre una entrada que recibe mientras se ejecuta.</p></li>
+<li><p>Escribí una más que nombre una salida que produce.</p></li>
+<li><p>Abrí el Administrador de tareas y contá cómo reconociste su proceso.</p></li>
+<li><p>Cerrá la aplicación de la forma habitual y describí qué cambió.</p></li>
+<li><p>Imaginá un problema técnico que podría aparecer mientras la usás.</p></li>
+<li><p>Escribí qué información necesitarías para investigar ese problema.</p></li>
 </ol>
-<p>En el próximo capítulo vas a reunir archivos, carpetas, documentación y verificaciones dentro de un proyecto con un propósito compartido.</p>
+<p>En el próximo capítulo juntamos archivos, carpetas, documentación y verificaciones dentro de un proyecto con un propósito común.</p>
 
 
 </section>
@@ -1394,13 +1394,13 @@ Consultá una posible respuesta después de resolver la actividad.
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../part-1/03-terminal.html" class="pagination-link" aria-label="Cómo darle instrucciones a la computadora mediante texto">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span>
+      <a href="../part-1/03-terminal.html" class="pagination-link" aria-label="La terminal">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">La terminal</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-1/05-proyecto.html" class="pagination-link" aria-label="Cómo se organiza un proyecto">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-1/05-proyecto.html" class="pagination-link" aria-label="Qué es un proyecto">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Qué es un proyecto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
