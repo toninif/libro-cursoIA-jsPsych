@@ -27,7 +27,7 @@ Tu estudio pregunta sobre hábitos de estudio. Hasta ahora registra datos sociod
 
 Una sola pregunta, como “¿Sos una persona organizada para estudiar?”, captura una parte muy pequeña del constructo y depende mucho de cómo cada persona interprete la palabra “organizada”. Por eso la Psicología usa **escalas**: conjuntos de preguntas que, en conjunto, buscan medir un mismo constructo.
 
-Este capítulo incorpora una escala al estudio. Como el libro no puede reproducir instrumentos reales sin autorización, vas a usar una **escala ficticia** construida con fines didácticos. En el proyecto final vas a incorporar una escala real cuyos ítems te va a proporcionar tu docente.
+Este capítulo incorpora una escala al estudio. Como el libro no puede reproducir instrumentos reales sin autorización, vas a usar una **escala ficticia** construida con fines didácticos. En el proyecto final vas a elegir una escala real adecuada a tu pregunta de investigación y vas a incorporarla con el mismo procedimiento.
 
 ::: {.callout-tip}
 ## Idea clave
@@ -61,7 +61,7 @@ Por estas razones, en este libro se siguen tres reglas.
 
 2. No se reproducen instrumentos de memoria, ni propios ni de un agente.
 
-3. Los ítems reales se incorporan a partir de una fuente provista explícitamente, con su referencia.
+3. Los ítems reales se incorporan a partir de la publicación original del instrumento, con su referencia.
 
 ::: {.callout-important}
 ## Un agente no es una fuente de ítems
@@ -284,13 +284,27 @@ Si hubieras olvidado invertir el ítem 3, el puntaje habría sido 3 + 4 + 1 + 0 
 
 Observá que, a diferencia de la edad, los valores de la escala aparecen sin comillas. jsPsych los registra como números. Esa diferencia importa en el análisis.
 
-## En el proyecto final vas a usar una escala real
+## En el proyecto final vas a elegir una escala real
 
-La escala ficticia te permitió practicar todo el proceso sin reproducir un instrumento protegido. En el proyecto final vas a reemplazarla por una escala real. Tu docente te va a dar los ítems, las instrucciones, las opciones de respuesta, las reglas de puntuación y la referencia bibliográfica de la versión que corresponda.
+La escala ficticia te permitió practicar todo el proceso sin reproducir un instrumento protegido. En el proyecto final vas a reemplazarla por una escala real. El libro no te va a indicar cuál: la elección depende de lo que quieras investigar. Elegir el instrumento es una de las decisiones metodológicas más importantes de un estudio por encuesta.
 
-Para incorporar la escala real vas a seguir el mismo procedimiento.
+Para elegir una escala conviene responder estas preguntas.
 
-1. Escribir la especificación completa a partir de la fuente provista.
+1. **¿Mide el constructo que necesito?** El nombre de una escala no alcanza. Leé cómo definen sus autores el constructo y compará esa definición con la de tu pregunta de investigación.
+
+2. **¿Existe una versión validada para mi población?** Buscá una versión en el idioma de tus participantes y con evidencia obtenida en una población parecida. Una traducción propia no es una versión validada.
+
+3. **¿Qué evidencia de validez y confiabilidad tiene?** La publicación de la versión que elijas debería informarla.
+
+4. **¿Qué condiciones de uso tiene?** Algunos instrumentos son de libre uso para investigación. Otros requieren permiso de sus autores o de una editorial. Comprobalo antes de usarlo.
+
+5. **¿Es adecuada su extensión?** Una escala muy larga puede aumentar el cansancio y las respuestas descuidadas, un problema que vas a estudiar en la Parte IV.
+
+Una vez elegida, obtené los ítems, las instrucciones, las opciones de respuesta y las reglas de puntuación de la **publicación original** de esa versión. No uses copias de sitios web sin referencia y no le pidas a un agente que te los proporcione.
+
+Para incorporar la escala real vas a seguir el mismo procedimiento que usaste con la ficticia.
+
+1. Escribir la especificación completa a partir de la publicación original.
 
 2. Pedir la implementación con el texto exacto de ítems, instrucciones y opciones.
 
@@ -367,7 +381,7 @@ Respondé cada pregunta con una oración completa.
 
 Una escala psicológica es un conjunto de ítems que buscan medir un constructo. Tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación. Cambiar cualquiera de esas partes cambia el instrumento.
 
-Los instrumentos reales tienen autores, evidencia de validez para versiones concretas y condiciones de uso. No se inventan ni se reproducen de memoria. En este libro los capítulos usan una escala ficticia, y el proyecto final usa una escala real provista por el docente.
+Los instrumentos reales tienen autores, evidencia de validez para versiones concretas y condiciones de uso. No se inventan ni se reproducen de memoria. En este libro los capítulos usan una escala ficticia, y en el proyecto final cada estudiante elige la escala real que necesita.
 
 El plugin `survey-likert` presenta los ítems y registra la posición de la opción elegida, contando desde 0. Los ítems invertidos se transforman antes de sumar. La puntuación no ocurre en jsPsych: ocurre en el análisis, a partir de reglas documentadas.
 

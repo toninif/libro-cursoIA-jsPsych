@@ -16,5 +16,7 @@ Separar la definición metodológica del estudio de las decisiones sobre archivo
 - Relacionar pregunta, hipótesis, constructos y variables.
 - Especificar condiciones, manipulaciones y medidas dependientes.
 - Representar el procedimiento antes de pedir su implementación.
+- Elegir las escalas adecuadas a la pregunta de investigación y justificar la elección.
+- Obtener los ítems, las instrucciones y las reglas de puntuación de la publicación original y comprobar sus condiciones de uso.
 - Identificar decisiones metodológicas que un agente no debe inventar.
 

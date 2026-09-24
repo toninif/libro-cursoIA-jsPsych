@@ -332,10 +332,10 @@ El producto final del curso es un **estudio de encuesta online** publicado y fun
 
 1. consentimiento informado;
 2. cuestionario sociodemográfico;
-3. una o más escalas psicológicas (candidatas: satisfacción con la vida, personalidad o afecto positivo y negativo);
+3. una o más escalas psicológicas elegidas por cada estudiante según su pregunta de investigación;
 4. pantalla final de cierre y explicación del estudio (*debriefing*).
 
-Los ítems de las escalas deben provenir de versiones proporcionadas explícitamente por el autor del curso. No redactarlos ni reproducirlos de memoria.
+El libro no incluye ni reproduce ninguna escala real. No redactar ítems de instrumentos reales ni reproducirlos de memoria.
 
 ## jsPsych
 
@@ -347,8 +347,9 @@ Los ítems de las escalas deben provenir de versiones proporcionadas explícitam
 ## Escalas psicológicas
 
 - En los capítulos se usa una escala ficticia con fines pedagógicos, identificada como tal en el texto y en el código.
-- En el proyecto final, cada estudiante incorpora una escala real cuyos ítems, instrucciones, opciones de respuesta y referencia provee el docente.
-- El libro debe indicar con claridad dónde se incorpora ese contenido autorizado.
+- En el proyecto final, cada estudiante elige la escala real que necesita según su pregunta de investigación. El libro no propone ni provee escalas concretas.
+- El libro enseña a elegir una escala (adecuación al constructo y a la población, versión validada en el idioma y la población, evidencia disponible, condiciones de uso) y a obtener los ítems, las instrucciones, las opciones de respuesta y las reglas de puntuación de la publicación original.
+- El libro debe indicar con claridad dónde se incorpora ese contenido en el proyecto.
 
 ## Editor de texto
 

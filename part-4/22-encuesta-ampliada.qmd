@@ -284,4 +284,4 @@ Imaginá que el equipo decide agregar una tercera regla de inclusión: el estudi
 
 No apliques el cambio a tu proyecto.
 
-En la Parte V vas a completar el estudio: vas a diseñar el procedimiento final con una escala real provista por tu docente, pilotearlo, configurar el guardado de datos con DataPipe y publicarlo en Internet con GitHub Pages.
+En la Parte V vas a completar el estudio: vas a diseñar el procedimiento final con una escala real que elijas según tu pregunta de investigación, pilotearlo, configurar el guardado de datos con DataPipe y publicarlo en Internet con GitHub Pages.
