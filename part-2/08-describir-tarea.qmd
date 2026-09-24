@@ -1,26 +1,487 @@
 ---
 title: "Cómo describir una tarea"
-description: "Instrucciones claras, delimitadas y verificables para un agente."
+description: "Instrucciones claras, delimitadas y verificables para trabajar con un agente."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo tiene definida su función pedagógica, pero su contenido todavía debe desarrollarse y revisarse.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar por qué un pedido ambiguo produce resultados difíciles de prever.
+
+2. Vas a poder escribir un pedido que indique qué querés, dónde, con qué restricciones y cómo comprobar el resultado.
+
+3. Vas a poder delimitar qué archivo o qué parte del proyecto puede modificarse.
+
+4. Vas a poder distinguir restricciones técnicas de restricciones metodológicas.
+
+5. Vas a poder pedir un plan antes de que el agente modifique archivos.
+
+6. Vas a poder aplicar estas pautas a una primera modificación de `mi-primer-estudio`.
+
+## Un pedido breve permite formular el problema
+
+Imaginá que una estudiante abre Codex en la carpeta de su proyecto y escribe este pedido.
+
+```text
+Mejorá el README.
+```
+
+El agente trabaja durante unos segundos y propone un cambio extenso. Reemplaza el título por uno en inglés. Reescribe todos los párrafos. Agrega una sección de instalación con comandos que el proyecto no usa. Elimina la oración que aclaraba que el estudio todavía no recolecta datos.
+
+La estudiante esperaba algo mucho más pequeño. Quería corregir una oración que le parecía confusa. El agente no leyó mal el pedido. El pedido no contenía esa información.
+
+Cada parte que falta en un pedido se convierte en una decisión que toma el agente. “Mejorá” no indica qué significa mejor. “El README” no indica qué parte. El pedido tampoco dice qué debe conservarse ni cómo reconocer que la tarea terminó.
+
+Este capítulo presenta una forma de escribir pedidos que reduce esas decisiones implícitas.
+
+::: {.callout-tip}
+## Idea clave
+
+Un buen pedido deja al agente la menor cantidad posible de decisiones importantes. Indica qué resultado esperás, dónde debe ocurrir, qué límites debe respetar y cómo vas a comprobarlo.
 :::
 
-## Propósito
+## El agente completa lo que falta
 
-Enseñar a transformar una intención general en una especificación que indique resultado, alcance, restricciones y forma de comprobación.
+En el capítulo sobre agentes viste que un modelo de lenguaje puede completar información que no le diste. Esa característica explica el problema anterior.
 
-## Objetivos de aprendizaje
+Cuando un pedido es ambiguo, el agente elige una interpretación posible. A veces coincide con la tuya. Otras veces no. En ambos casos, la elección ocurre sin que puedas revisarla antes.
 
-- Identificar por qué una instrucción es ambigua o insuficiente.
-- Delimitar qué archivo o parte del proyecto puede modificarse.
-- Expresar restricciones metodológicas y técnicas.
-- Incluir un criterio observable para verificar el resultado.
+Compará estos dos pedidos.
 
-## Estructura de una buena instrucción
+```text
+Agregá una pregunta de edad.
+```
+
+```text
+Agregá una pregunta de edad. Debe ser obligatoria y aceptar valores entre 18 y 80.
+No modifiques ninguna otra parte del estudio.
+```
+
+El primer pedido deja abiertas varias decisiones. ¿La pregunta es obligatoria? ¿Qué valores acepta? ¿Dónde aparece? ¿Qué otras partes pueden cambiar? El segundo pedido responde las más importantes.
+
+Algunas de esas decisiones son metodológicas. El rango de edad define quiénes pueden participar. Si el pedido no lo indica, el agente puede elegir un rango que parezca razonable y que no coincida con los criterios de tu estudio.
+
+## Un pedido completo tiene cuatro partes
+
+Un pedido que un agente puede cumplir y que vos podés verificar suele contener cuatro partes.
 
 ```text
 qué quiero + dónde + restricciones + cómo comprobarlo
 ```
 
+No hace falta escribirlas en ese orden ni con esos títulos. Lo importante es que cada una esté presente cuando la tarea lo requiera.
+
+### Qué quiero describe un resultado observable
+
+La primera parte indica el resultado esperado. Conviene describirlo como algo que se pueda observar, no como una intención general.
+
+| Intención general | Resultado observable |
+|:---|:---|
+| Mejorá el README. | Reemplazá la oración “Proyecto para la facultad.” por “Este proyecto permitirá aprender a construir un estudio psicológico digital.” |
+| Hacé más clara la consigna. | Dividí el segundo párrafo de la consigna en dos oraciones. |
+| Arreglá la pregunta de edad. | Hacé que la pregunta de edad sea obligatoria. |
+
+: Intenciones generales transformadas en resultados observables {#tbl-resultados}
+
+Verbos como “mejorá”, “arreglá” u “optimizá” expresan una intención, pero no describen un resultado. Verbos como “agregá”, “reemplazá”, “eliminá” o “creá” suelen indicar una acción concreta.
+
+### Dónde delimita el lugar del cambio
+
+La segunda parte indica el archivo y, cuando hace falta, la posición dentro del archivo.
+
+```text
+En el archivo README.md, al final del documento...
+```
+
+```text
+En la sección "El proyecto se encuentra en su etapa inicial"...
+```
+
+Nombrar el archivo reduce la posibilidad de que el agente modifique otro. Nombrar la sección o la posición reduce la posibilidad de que reorganice el documento.
+
+### Las restricciones indican qué no debe ocurrir
+
+La tercera parte establece límites. Las restricciones pueden ser técnicas o metodológicas.
+
+Una **restricción técnica** limita qué archivos, programas o acciones puede usar el agente.
+
+- No modifiques ningún otro archivo.
+- No instales programas.
+- No cambies los nombres de los archivos.
+
+Una **restricción metodológica** protege una decisión del estudio.
+
+- Mantené el rango de edad entre 18 y 80.
+- Usá exactamente el texto de consentimiento que te doy.
+- No agregues ni redactes ítems de la escala.
+
+Las restricciones metodológicas merecen especial atención. El programa puede funcionar sin errores aunque una decisión metodológica haya cambiado. Por eso conviene expresarlas de manera explícita.
+
+### Cómo comprobarlo define el criterio de verificación
+
+La cuarta parte indica cómo vas a reconocer que la tarea está terminada. Puede cumplir dos funciones.
+
+1. Orienta al agente sobre qué debe lograr.
+
+2. Te obliga a pensar la verificación antes de ver el resultado.
+
+Un criterio útil describe algo que podés observar por tu cuenta.
+
+```text
+Al terminar, README.md debe contener la sección nueva al final y el resto del archivo debe quedar igual.
+```
+
+También podés pedir un informe que facilite tu revisión.
+
+```text
+Al terminar, indicá qué archivos modificaste y qué líneas agregaste.
+```
+
+Recordá que el informe del agente orienta la revisión, pero no la reemplaza.
+
+## El texto exacto protege las decisiones importantes
+
+Algunas partes de un estudio pueden redactarse con libertad. Otras necesitan un texto exacto.
+
+Cuando el contenido expresa una decisión metodológica o ética, conviene escribirlo vos y pedirle al agente que lo use sin cambios. Esto incluye el texto de un consentimiento informado, la redacción de los ítems de una escala, las opciones de respuesta y las instrucciones de una tarea.
+
+```text
+Agregá este texto exacto, sin modificar la redacción:
+"Tu participación es voluntaria. Podés abandonar el estudio en cualquier momento."
+```
+
+Cuando el contenido no involucra decisiones del estudio, podés delegar más. Por ejemplo, podés pedirle al agente que proponga un nombre de archivo o que ordene una lista alfabéticamente. Aun así, vas a revisar el resultado.
+
+::: {.callout-important}
+## El agente no debe redactar ítems de instrumentos psicológicos
+
+Pedirle a un agente que “escriba una escala de autoestima” produce ítems inventados o parecidos a instrumentos publicados. Ninguna de las dos opciones es aceptable en una investigación. Los ítems deben provenir de un instrumento validado cuyo uso esté autorizado o de un proceso de construcción documentado. En este libro vas a usar escalas ficticias con fines pedagógicos o ítems proporcionados de manera explícita.
+:::
+
+## Un pedido pequeño es más fácil de verificar
+
+Un pedido puede cumplir las cuatro partes y aun así ser demasiado amplio.
+
+```text
+En experiment.js, agregá las preguntas de edad, género y carrera, cambiá los colores,
+reorganizá las pantallas y corregí los errores que encuentres.
+```
+
+Este pedido combina varias tareas. Si el resultado presenta un problema, resulta difícil saber qué parte lo produjo. La revisión también se vuelve extensa.
+
+En el capítulo sobre programas y errores viste que conviene corregir una causa por vez. El mismo principio se aplica a los pedidos. Una tarea por pedido permite revisar cada cambio y relacionarlo con su resultado.
+
+Los pedidos pequeños tienen otra ventaja. Consumen menos del límite de uso de tu cuenta. Esto permite realizar las actividades del curso sin necesidad de un plan pago.
+
+## Un plan permite revisar antes de modificar
+
+Algunas tareas no son tan pequeñas o no sabés exactamente cómo debería resolverse. En esos casos, podés pedirle al agente que explique qué haría antes de hacerlo.
+
+```text
+Antes de modificar archivos, explicá qué cambios harías y en qué archivos.
+Esperá mi aprobación antes de implementarlos.
+```
+
+Un **plan** es una descripción de los pasos que el agente propone realizar. Leer un plan te permite detectar interpretaciones incorrectas cuando todavía no produjeron cambios. Si el plan te parece adecuado, respondés que lo implemente. Si no, lo corregís.
+
+Pedir un plan tiene un costo: la tarea requiere un intercambio más. Conviene usarlo cuando la tarea afecta varias partes del proyecto, cuando involucra decisiones metodológicas o cuando no sabés qué va a hacer el agente.
+
+Codex también ofrece un modo de planificación que se activa con el comando `/plan`. En ese modo, el agente se concentra en proponer un plan antes de actuar. En este libro vamos a pedir los planes con palabras, porque esa forma funciona con cualquier agente.
+
+### También podés pedir que pregunte
+
+Otra forma de reducir decisiones implícitas es invitar al agente a preguntar.
+
+```text
+Si algo del pedido no está claro, preguntame antes de modificar archivos.
+```
+
+Esta indicación resulta útil cuando sospechás que el pedido puede interpretarse de más de una manera.
+
+## Los pedidos se vuelven más precisos a medida que el estudio crece
+
+Durante el curso vas a formular pedidos cada vez más completos. Los siguientes ejemplos muestran tres niveles.
+
+**Pedido inicial.** Afecta un solo archivo y no involucra decisiones metodológicas.
+
+```text
+Creá un archivo README.md y escribí una breve descripción del proyecto.
+```
+
+**Pedido intermedio.** Incluye una restricción metodológica y un límite de alcance.
+
+```text
+Agregá una pregunta de edad. Debe ser obligatoria y aceptar valores entre 18 y 80.
+No modifiques ninguna otra parte del estudio.
+```
+
+**Pedido avanzado.** Exige inspección, análisis y un plan antes de modificar.
+
+```text
+Revisá la implementación de la asignación aleatoria entre las condiciones positiva,
+neutra y negativa. Antes de modificar archivos, explicá cómo está implementada
+actualmente y qué riesgos encontrás. Luego proponé un cambio y esperá la aprobación
+antes de implementarlo.
+```
+
+Todavía no necesitás comprender qué es una asignación aleatoria ni cómo se implementa. Observá la forma del pedido. Primero pide inspeccionar. Después pide un análisis. Finalmente pide un plan y reserva la decisión para vos.
+
+## Una decisión metodológica se traduce en una especificación
+
+Antes de escribir un pedido sobre una pregunta del estudio, conviene escribir su especificación. Una **especificación** es una descripción precisa de lo que debe construirse. En el capítulo sobre proyectos viste un primer ejemplo con la pregunta de edad.
+
+```text
+Pregunta:
+¿Cuál es tu edad?
+
+Variable:
+edad
+
+Tipo:
+numérica
+
+Restricción:
+18–80
+
+Obligatoria:
+sí
+```
+
+Cada línea de esta especificación proviene de una decisión. La redacción de la pregunta, el nombre de la variable, el tipo de dato y el rango son decisiones tuyas. Cuando llegue el momento de implementarla, el pedido al agente va a transcribir esa especificación.
+
+Esta práctica acompaña todo el curso. Primero decidís. Después especificás. Recién entonces pedís la implementación.
+
+## Transformá pedidos ambiguos en pedidos verificables
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Leé cada pedido ambiguo. Reescribilo para que incluya qué querés, dónde, con qué restricciones y cómo vas a comprobarlo. Podés inventar los detalles que falten, siempre que sean coherentes con un estudio sencillo.
+
+1. `Mejorá el README.`
+
+2. `Agregá una pregunta sobre la carrera.`
+
+3. `Hacé que el estudio sea más corto.`
+
+4. `Poné una escala de estrés.`
+
+Después respondé dos preguntas para cada pedido reescrito.
+
+- ¿Qué decisión metodológica, si existe, tuviste que tomar vos?
+- ¿Qué observarías para comprobar que el agente cumplió el pedido?
+:::
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. “En README.md, reemplazá la oración ‘Proyecto para la facultad.’ por ‘Este proyecto permitirá aprender a construir un estudio psicológico digital.’ No modifiques ninguna otra línea. Al terminar, indicá qué línea cambiaste.” No hay una decisión metodológica. La comprobación consiste en leer el archivo y confirmar que solo cambió esa oración.
+
+2. “Agregá una pregunta con el texto ‘¿Qué carrera estudiás?’. Debe ser de opción múltiple con estas opciones exactas: Psicología, Medicina, Otra. La respuesta debe guardarse con el nombre carrera. No modifiques otras preguntas.” Las opciones y el nombre de la variable son decisiones del investigador. La comprobación incluye ver la pregunta en pantalla y encontrar la variable `carrera` en los datos. Todavía no sabés cómo encontrar datos, pero ya podés anticipar qué deberías buscar.
+
+3. Este pedido requiere primero una decisión metodológica. ¿Qué parte se acorta? ¿Se eliminan preguntas? ¿Cuáles? Una reescritura posible es: “Eliminá la pregunta sobre horas de sueño del fin de semana. No modifiques las demás preguntas.” La decisión de eliminar esa pregunta corresponde al investigador.
+
+4. Este pedido no debería entregarse a un agente sin una decisión previa. Hay que elegir un instrumento validado y autorizado, o usar una escala ficticia con fines pedagógicos. Una reescritura posible es: “Agregá una escala con estos cinco ítems exactos y estas cinco opciones de respuesta exactas… No redactes ítems nuevos.” La comprobación consiste en comparar cada ítem con la fuente.
+
+</details>
+
+## Explicá qué ocurrió durante la actividad
+
+Los pedidos 1 y 2 podían mejorarse agregando información. El pedido 1 necesitaba precisión técnica. El pedido 2 necesitaba decisiones sobre opciones y nombres de variables.
+
+Los pedidos 3 y 4 mostraron un límite diferente. No alcanzaba con redactar mejor. Primero había que tomar una decisión metodológica que el pedido original delegaba sin decirlo.
+
+Esta distinción es central. Un pedido puede fallar por falta de claridad o por falta de una decisión. En el primer caso, reescribís el pedido. En el segundo, primero decidís y después reescribís.
+
+## Observá cómo interpreta el agente un pedido ambiguo
+
+Ahora vas a trabajar por primera vez con Codex dentro de `mi-primer-estudio`. La primera actividad no modifica archivos. Su propósito es observar qué decisiones tomaría el agente frente a un pedido ambiguo.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Abrí PowerShell y llegá a `mi-primer-estudio`. Comprobá la ubicación con `Get-Location` y el contenido con `dir`.
+
+2. Ejecutá `codex`. Como es la primera vez que lo iniciás en esta carpeta, va a preguntarte si confiás en ella. Comprobá la ruta antes de responder.
+
+3. Escribí `/permissions` y elegí **Read Only**. Comprobalo con `/status`.
+
+4. Escribí este pedido.
+
+```text
+Mejorá el README. No modifiques ningún archivo todavía: solo explicá qué cambios harías y por qué.
+```
+
+5. Leé la respuesta. Anotá al menos tres decisiones que el agente tomaría por su cuenta.
+:::
+
+La respuesta probablemente incluya varias propuestas. El agente puede sugerir agregar secciones, cambiar títulos, incorporar instrucciones de instalación o reescribir el propósito. Algunas propuestas pueden ser razonables. Otras pueden anticipar partes del proyecto que todavía no existen.
+
+Observá que cada propuesta responde a una pregunta que tu pedido no contestaba. Esa es la información que un pedido completo debería aportar.
+
+**Sin acceso a Codex:** escribí vos tres cambios diferentes que alguien podría hacer a partir del pedido “Mejorá el README”. Después explicá por qué los tres cumplen el pedido literal.
+
+## Formulá un pedido completo para el proyecto
+
+Ahora vas a pedir una modificación real. Vas a agregar al README una sección con reglas de trabajo. El contenido lo decidís vos. El agente se ocupa de ubicarlo en el archivo.
+
+La sección va a usar una **lista** de Markdown. En Markdown, cada línea que comienza con un guion `-` seguido de un espacio se muestra como un elemento de una lista.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+Con Codex abierto en `mi-primer-estudio` y los permisos en **Read Only**, escribí este pedido.
+
+```text
+En README.md, agregá al final del archivo una sección nueva con este contenido exacto:
+
+## Reglas para trabajar con agentes
+
+- Cada pedido indica qué quiero, dónde, con qué restricciones y cómo comprobarlo.
+- El agente no toma decisiones metodológicas.
+- Cada cambio se verifica antes de continuar.
+
+No modifiques ninguna otra parte de README.md ni otros archivos.
+Al terminar, indicá qué líneas agregaste.
+```
+
+Antes de aprobar, revisá la propuesta.
+
+1. ¿El único archivo afectado es `README.md`?
+
+2. ¿Todas las líneas nuevas están marcadas con `+` y aparecen al final?
+
+3. ¿Hay alguna línea marcada con `-`? Ese signo indica una línea que se eliminaría.
+
+4. ¿El texto coincide letra por letra con el que escribiste?
+
+Si todo coincide, aprobá con **Yes, proceed**.
+:::
+
+**Sin acceso a Codex:** abrí `README.md` con el Bloc de notas, agregá la sección al final y guardá el archivo. Después realizá la misma verificación.
+
+## Explicá qué hizo realmente el agente
+
+El agente leyó `README.md` para conocer su contenido y localizar el final del archivo. Después preparó una modificación que agregaba las líneas indicadas. Como los permisos eran de solo lectura, te mostró la propuesta y esperó tu aprobación.
+
+Tu pedido dejó muy pocas decisiones abiertas. Indicaste el archivo, la posición, el contenido exacto y los límites. La única decisión que quedó en manos del agente fue técnica: cómo realizar la escritura. Por eso la propuesta resultó fácil de revisar.
+
+Observá también la diferencia con la primera actividad. Allí el agente propuso muchas ideas porque el pedido lo habilitaba. Aquí propuso un cambio preciso porque el pedido lo delimitaba.
+
+## Verificá el resultado
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Abrí una pestaña nueva de Windows Terminal y llegá a `mi-primer-estudio`.
+
+2. Ejecutá `dir`. Comprobá que la carpeta siga conteniendo solo `README.md` y que su columna `LastWriteTime` muestre la hora del cambio.
+
+3. Ejecutá `Get-Content README.md -Encoding UTF8`. Más abajo se explica la función del parámetro `-Encoding`.
+
+4. Comprobá que las secciones anteriores sigan iguales.
+
+5. Comprobá que la sección nueva aparezca al final con el texto exacto.
+
+6. Compará lo que observaste con el informe que dio el agente.
+:::
+
+El parámetro `-Encoding UTF8` resuelve un problema frecuente. Una **codificación** es la regla que usa una computadora para guardar cada carácter como información. UTF-8 es la codificación más usada en archivos de texto actuales. Algunas versiones de PowerShell, como la que viene incluida en Windows, pueden leer estos archivos con otra regla. En ese caso, las tildes y la letra ñ aparecen como símbolos extraños, por ejemplo `psicolÃ³gico` en lugar de `psicológico`.
+
+El archivo no está dañado. PowerShell lo está interpretando con una regla diferente. El parámetro `-Encoding UTF8` le indica qué regla usar. Microsoft documenta este parámetro en la [referencia de `Get-Content`](https://learn.microsoft.com/es-es/powershell/module/microsoft.powershell.management/get-content).
+
+Si encontrás una diferencia, anotala. En el próximo capítulo vas a aprender a revisar cambios con más detalle y a pedir correcciones acotadas.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### El pedido combina varias tareas
+
+Si un pedido contiene la palabra “y” varias veces, probablemente combine tareas diferentes. Separalas en pedidos sucesivos y verificá cada una.
+
+### El pedido dice qué hacer, pero no qué conservar
+
+Un pedido como “agregá una sección” no impide que el agente reorganice el resto del archivo. Agregá una restricción como “No modifiques ninguna otra parte del archivo”.
+
+### El criterio de verificación depende del agente
+
+“Confirmá que funciona” pide una afirmación del agente. “Al terminar, el archivo debe contener la sección nueva al final” describe algo que podés observar por tu cuenta.
+
+### El pedido delega una decisión metodológica sin advertirlo
+
+Pedidos como “elegí un rango razonable” o “agregá algunas preguntas sobre ansiedad” entregan al agente decisiones que corresponden al investigador. Tomá la decisión primero e incluila en el pedido.
+
+### El texto exacto llega modificado
+
+El agente puede cambiar comillas, tildes o signos de puntuación. Cuando el texto importa, compararlo letra por letra forma parte de la verificación.
+
+### Un pedido demasiado largo también genera problemas
+
+Un pedido extenso puede contener instrucciones contradictorias. Si necesitás varios párrafos para describir una tarea, probablemente convenga dividirla o pedir primero un plan.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué ocurre con la información que falta en un pedido?
+
+2. ¿Cuáles son las cuatro partes de un pedido completo?
+
+3. ¿Qué diferencia existe entre una restricción técnica y una restricción metodológica?
+
+4. ¿Por qué conviene dar el texto exacto de un consentimiento o de un ítem?
+
+5. ¿Para qué sirve pedir un plan antes de modificar archivos?
+
+6. ¿Por qué conviene realizar una tarea por pedido?
+
+7. ¿Qué indica una línea marcada con `-` en una propuesta de cambio?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. El agente la completa con una interpretación propia, que puede no coincidir con la del investigador.
+
+2. Un pedido completo indica qué quiero, dónde, qué restricciones debe respetar y cómo voy a comprobar el resultado.
+
+3. Una restricción técnica limita archivos, programas o acciones, mientras que una restricción metodológica protege una decisión del estudio.
+
+4. Ese texto expresa decisiones metodológicas o éticas, y el agente podría modificarlo si tiene libertad para redactarlo.
+
+5. Un plan permite detectar interpretaciones incorrectas antes de que se conviertan en cambios.
+
+6. Una tarea por pedido facilita la revisión y permite relacionar cada cambio con su resultado.
+
+7. Una línea marcada con `-` indica contenido que el agente propone eliminar.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Un pedido ambiguo deja decisiones en manos del agente. El agente completa la información que falta con interpretaciones propias.
+
+Un pedido completo indica qué querés como resultado observable, dónde debe ocurrir el cambio, qué restricciones debe respetar y cómo vas a comprobarlo. Las restricciones pueden ser técnicas o metodológicas.
+
+Cuando el contenido expresa una decisión metodológica o ética, conviene escribir el texto exacto. El agente no debe redactar ítems de instrumentos psicológicos.
+
+Los pedidos pequeños facilitan la revisión y consumen menos del límite de uso. Pedir un plan o invitar al agente a preguntar permite detectar malentendidos antes de que se conviertan en cambios.
+
+Antes de pedir la implementación de una pregunta, conviene escribir su especificación. Primero decidís. Después especificás. Recién entonces pedís la implementación.
+
+## Resolvé un desafío breve
+
+Imaginá que querés agregar a tu estudio una pregunta sobre la cantidad de horas que una persona duerme por noche.
+
+1. Escribí la especificación con el formato de este capítulo: pregunta, variable, tipo, restricción y obligatoriedad.
+
+2. Señalá qué líneas de la especificación son decisiones metodológicas.
+
+3. Escribí el pedido que le darías a un agente. Incluí las cuatro partes.
+
+4. Escribí una versión del pedido que solicite primero un plan.
+
+5. Explicá en dos oraciones qué observarías para verificar el resultado.
+
+No envíes este pedido a Codex todavía. Tu proyecto no contiene aún los archivos necesarios para implementar preguntas. Esos archivos van a aparecer en la Parte III.
+
+En el próximo capítulo vas a aprender a leer con más detalle lo que hizo un agente, a comparar el resultado con tu pedido y a pedir explicaciones cuando un cambio no sea comprensible.
