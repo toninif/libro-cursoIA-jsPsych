@@ -23,7 +23,7 @@ El texto entre corchetes, como `[nombre del archivo]`, marca lo que tenés que r
 Copiar un patrón sin tomar las decisiones que requiere produce el mismo problema que un pedido ambiguo. Antes de usar un patrón, completá la sección **Vos decidís**. Si no podés completarla, todavía no estás en condiciones de enviar el pedido.
 :::
 
-Por ahora, el apéndice contiene los patrones de las Partes II y III. Se va a ampliar a medida que el libro incorpore aleatorización, lógica condicional, guardado y publicación.
+Por ahora, el apéndice contiene los patrones de las Partes II a IV. Se va a ampliar a medida que el libro incorpore el guardado y la publicación.
 
 ## La estructura de un pedido completo
 
@@ -264,6 +264,37 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 
 **Usado en:** [capítulo 15](../part-3/15-datos-generados.qmd).
 
+### Agregar una regla condicional
+
+```text
+En experiment.js, [en el ensayo X / en un bloque nuevo llamado Y], agregá una regla:
+si [condición exacta sobre una respuesta], entonces [consecuencia exacta:
+terminar el estudio con este mensaje exacto / mostrar esta pantalla].
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** la condición, la consecuencia y el texto de cualquier mensaje. El texto comparado debe coincidir exactamente con la opción de la pregunta.
+
+**Comprobás:** cada rama con un caso de prueba, incluida la cantidad de filas del archivo de datos que produce.
+
+**Usado en:** [capítulo 18](../part-4/18-logica-condicional.qmd).
+
+### Aleatorizar y registrar el resultado
+
+```text
+Quiero aleatorizar [unidad de aleatorización].
+[Cambios exactos, incluida la línea que registra el resultado en los datos.]
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+**Vos decidís:** qué se aleatoriza, qué queda fijo y cómo se registra el resultado.
+
+**Comprobás:** con varias ejecuciones, que todos los resultados posibles ocurran y que el registro coincida con lo observado.
+
+**Usado en:** [capítulo 17](../part-4/17-aleatorizacion.qmd).
+
 ### Pedir un borrador de documentación a partir del código
 
 ```text
@@ -334,6 +365,22 @@ No modifiques archivos todavía: explicá cuál puede ser la causa.
 **Comprobás:** que la causa propuesta sea coherente con lo que observaste. Después formulá un pedido de corrección acotado.
 
 **Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+### Pedir una revisión de consistencia
+
+```text
+Revisá [archivo de código] y [archivo de documentación]. Antes de modificar cualquier archivo:
+1. Listá [elementos a comparar].
+2. Indicá cuáles no están documentados o están documentados de manera diferente.
+3. Señalá cualquier otro riesgo que encuentres.
+No modifiques ningún archivo. Esperá mi respuesta antes de proponer cambios.
+```
+
+**Vos decidís:** qué diferencias son reales y cómo se corrigen.
+
+**Comprobás:** cada hallazgo en los archivos. Después, ejecutá el plan de pruebas.
+
+**Usado en:** [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
 
 ## Corregir
 

@@ -3,18 +3,374 @@ title: "Aleatorización"
 description: "Orden aleatorio de ítems y escalas, y su diferencia con el muestreo y la asignación a condiciones."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-Este capítulo requerirá verificación metodológica y pruebas repetidas de la implementación.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder explicar qué problema metodológico busca atenuar el orden aleatorio en una encuesta.
+
+2. Vas a poder distinguir el orden aleatorio, el muestreo y la asignación a condiciones.
+
+3. Vas a poder identificar qué unidad se aleatoriza en cada caso.
+
+4. Vas a poder presentar en orden aleatorio los ítems de una escala y las escalas de un estudio.
+
+5. Vas a poder registrar en los datos el orden que recibió cada participante.
+
+6. Vas a poder verificar una aleatorización ejecutando el estudio varias veces.
+
+## Un orden fijo permite formular el problema
+
+Tu estudio tiene hoy una escala ficticia de cuatro ítems. En este capítulo vas a agregar una segunda escala ficticia, sobre motivación para el estudio. La pregunta inmediata es: ¿en qué orden se presentan?
+
+Si todas las personas responden primero la escala de organización y después la de motivación, pueden aparecer efectos que no tienen que ver con los constructos. Las respuestas a la primera escala pueden influir en la segunda. Quien acaba de reflexionar sobre cuánto posterga el estudio puede evaluar su motivación de otra manera. Además, al final de un cuestionario el cansancio puede reducir la atención.
+
+Estos fenómenos se llaman **efectos de orden**. En un orden fijo, el efecto afecta a todas las personas de la misma manera y queda mezclado con las respuestas. No hay forma de separarlo después.
+
+Google Forms permite mezclar el orden de las opciones de una pregunta y, en algunas configuraciones, el de las preguntas de una sección. jsPsych permite controlar con precisión qué se mezcla y, sobre todo, registrar qué orden recibió cada persona.
+
+::: {.callout-tip}
+## Idea clave
+
+Aleatorizar no es desordenar. Es una decisión metodológica que define qué se asigna al azar, entre qué alternativas y con qué propósito. Una aleatorización que no se registra en los datos no se puede verificar ni analizar.
 :::
 
-## Propósito
+## Tres formas de aleatorización que suelen confundirse
 
-Mostrar por qué puede convenir presentar ítems y escalas en orden aleatorio, y distinguir esa decisión de otras formas de aleatorización que suelen confundirse.
+La palabra “aleatorización” se usa para operaciones diferentes. Conviene distinguirlas desde el comienzo.
 
-## Objetivos de aprendizaje
+| Forma | Qué hace | Ejemplo en una encuesta | Pregunta de diseño |
+|:---|:---|:---|:---|
+| Orden aleatorio | Presenta los mismos elementos en un orden diferente para cada persona. | Todas las personas responden los cuatro ítems, pero cada una los ve en otro orden. | ¿Cómo evito que el orden influya en las respuestas? |
+| Muestreo | Elige al azar algunos elementos de un conjunto más grande. | De un banco de veinte ítems, cada persona responde diez elegidos al azar. | ¿Cómo reduzco la extensión sin perder variedad? |
+| Asignación a condiciones | Asigna a cada persona una versión diferente del procedimiento. | La mitad recibe una consigna sobre el último mes y la otra mitad sobre la última semana. | ¿Qué efecto tiene una variación que yo manipulo? |
 
-- Explicar qué problema metodológico busca atenuar el orden aleatorio, como los efectos de orden en una encuesta.
-- Diferenciar orden aleatorio, muestreo y asignación a condiciones.
-- Especificar qué unidad se aleatoriza: ítems dentro de una escala o escalas dentro del estudio.
-- Registrar en los datos el orden que recibió cada participante.
-- Verificar la implementación mediante varias ejecuciones y la revisión de los datos registrados.
+: Formas de aleatorización {#tbl-aleatorizacion}
+
+La diferencia central está en qué recibe cada persona. En el orden aleatorio, todas reciben lo mismo en distinto orden. En el muestreo, cada una recibe una parte distinta. En la asignación a condiciones, cada una recibe una versión distinta.
+
+La **asignación aleatoria** a condiciones es la base de los diseños experimentales. En la materia Metodología de la investigación vas a estudiar por qué permite atribuir diferencias entre grupos a la manipulación y no a características previas de las personas. En este libro la vas a encontrar como concepto. Tu encuesta usa orden aleatorio.
+
+## Cada aleatorización tiene una unidad
+
+La **unidad de aleatorización** es el elemento que se mezcla o se asigna. En tu estudio hay dos unidades posibles.
+
+1. **Los ítems dentro de una escala.** Cada persona ve los cuatro ítems de la escala de organización, pero en un orden diferente.
+
+2. **Las escalas dentro del estudio.** Cada persona ve las dos escalas, pero algunas empiezan por la de organización y otras por la de motivación.
+
+No todo conviene aleatorizarse. El consentimiento debe ir primero. El cuestionario sociodemográfico suele ir al comienzo o al final, en un orden fijo. La pantalla de cierre va al final. Decidir qué se aleatoriza y qué no es parte del diseño.
+
+::: {.callout-important}
+## Los instrumentos validados pueden indicar un orden
+
+Algunas escalas validadas se aplican en un orden fijo de ítems. Mezclar sus ítems puede alejar la aplicación de las condiciones en las que se obtuvo la evidencia de validez. Antes de aleatorizar los ítems de una escala real, consultá sus instrucciones de aplicación. Esa decisión le corresponde al investigador, no al agente.
+:::
+
+## La segunda escala ficticia
+
+Para practicar el orden de las escalas necesitás al menos dos. La **Escala ficticia de motivación para el estudio**, EFME, fue redactada para este libro con fines didácticos. No es un instrumento validado.
+
+**Instrucciones:** “Indicá cuánto estás de acuerdo con cada afirmación sobre tu interés por estudiar.”
+
+| Variable | Ítem | Sentido |
+|:---|:---|:---|
+| `efme_1` | Disfruto aprender los temas de mi carrera. | Directo |
+| `efme_2` | Estudio aunque no tenga un examen cerca. | Directo |
+| `efme_3` | Me interesa profundizar en lo que estudio. | Directo |
+
+: Ítems de la escala ficticia de motivación para el estudio {#tbl-efme}
+
+Usa las mismas cinco opciones de respuesta que la EFOE, la misma codificación de 0 a 4 y la aclaración de que es ficticia. No tiene ítems invertidos.
+
+## El orden de los ítems se aleatoriza con un parámetro
+
+El plugin `survey-likert` tiene un parámetro para presentar los ítems en orden aleatorio.
+
+```javascript
+randomize_question_order: true,
+```
+
+Con esta línea, cada vez que se muestra la escala, jsPsych mezcla el orden de los ítems. Además, registra el orden usado en una columna llamada `question_order`.
+
+```text
+question_order: [2,0,3,1]
+```
+
+Cada número es la posición del ítem en la definición de `experiment.js`, contando desde cero. En el ejemplo, la persona vio primero el ítem de la posición 2 (`efoe_3`), después el de la posición 0 (`efoe_1`), después el 3 (`efoe_4`) y al final el 1 (`efoe_2`).
+
+Las respuestas siguen registradas con el nombre de cada ítem. `efoe_3` es siempre “Dejo el estudio para el último momento”, aparezca donde aparezca. Esa es una de las razones por las que cada ítem tiene su propio `name`: sin nombres, las respuestas se registrarían por posición y el orden aleatorio las volvería imposibles de interpretar.
+
+## El orden de las escalas se aleatoriza mezclando una lista
+
+Para mezclar el orden de las escalas, jsPsych ofrece la función `shuffle`, que significa “mezclar”. Recibe una lista y devuelve la misma lista en un orden aleatorio.
+
+```javascript
+// Orden aleatorio de las escalas: cada participante recibe un orden al azar
+const escalas_en_orden = jsPsych.randomization.shuffle([escala_organizacion, escala_motivacion]);
+jsPsych.data.addProperties({ primera_escala: escalas_en_orden[0].data.pantalla });
+```
+
+La primera línea crea una lista con las dos escalas, la mezcla y le da el nombre `escalas_en_orden`. La segunda línea registra qué escala quedó primera. `escalas_en_orden[0]` es el primer elemento de la lista mezclada. Como en `question_order`, las posiciones se cuentan desde cero. `.data.pantalla` es la etiqueta que le pusiste a esa escala en el capítulo sobre los datos. El resultado se agrega a todas las filas en una columna `primera_escala`.
+
+Después, la línea de tiempo incluye la lista mezclada en el lugar donde antes estaba la escala.
+
+```javascript
+jsPsych.run([
+  bienvenida,
+  consentimiento,
+  pregunta_edad,
+  preguntas_genero_anio,
+  pregunta_carrera,
+  pregunta_recursos,
+  { timeline: escalas_en_orden },
+  pregunta_comentarios,
+  cierre
+]);
+```
+
+El elemento `{ timeline: escalas_en_orden }` es una **línea de tiempo anidada**: una línea de tiempo dentro de otra. jsPsych la recorre en su lugar, pantalla por pantalla, y después continúa con el resto. En el próximo capítulo vas a usar líneas de tiempo anidadas para mostrar pantallas solo en ciertas condiciones.
+
+## Este capítulo importa para investigar en Psicología
+
+Aleatorizar el orden no elimina los efectos de orden. Los distribuye entre las personas de manera que no favorezcan sistemáticamente a una escala o a un ítem. Si el orden se registra, además, se puede estudiar en el análisis si tuvo algún efecto.
+
+Por eso el registro es tan importante como la aleatorización. Una aleatorización que no queda en los datos no se puede verificar: nadie puede comprobar que ocurrió ni cómo. Tampoco se puede reportar en un artículo con precisión.
+
+## Muestreo y asignación a condiciones en el código
+
+Tu estudio no usa muestreo ni asignación a condiciones. Sin embargo, conviene que sepas reconocerlos cuando los encuentres en otros proyectos. Leé estos fragmentos sin agregarlos a tu proyecto.
+
+**Muestreo.** La función `sampleWithoutReplacement` elige al azar una cantidad de elementos de una lista, sin repetir.
+
+```javascript
+const items_elegidos = jsPsych.randomization.sampleWithoutReplacement(banco_de_items, 10);
+```
+
+**Asignación a condiciones.** La misma función, usada para elegir un solo elemento de una lista de condiciones, asigna una condición a cada persona.
+
+```javascript
+const condicion = jsPsych.randomization.sampleWithoutReplacement(["mes", "semana"], 1)[0];
+jsPsych.data.addProperties({ condicion: condicion });
+```
+
+Observá que ambos fragmentos usan la misma función. La diferencia no está en el código sino en lo que representa: una muestra de ítems o una condición experimental. Por eso, para revisar una aleatorización, primero hay que saber qué decisión metodológica implementa.
+
+Esta forma de asignar condiciones no garantiza grupos del mismo tamaño. Con pocas personas, el azar puede producir, por ejemplo, 12 personas en una condición y 8 en otra. Cuando el equilibrio entre grupos importa, existen procedimientos para asignar condiciones de manera balanceada. El servicio que vas a usar en la Parte V para guardar datos ofrece uno.
+
+## Agregá la segunda escala
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Guardá una copia de respaldo de `experiment.js`.
+
+2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+3. Escribí este pedido.
+
+```text
+En experiment.js, agregá un ensayo llamado escala_motivacion inmediatamente después
+de la definición de escala_organizacion. Debe usar jsPsychSurveyLikert y la lista
+opciones_acuerdo que ya existe.
+
+Antes del ensayo, agregá estos dos comentarios exactos:
+// SEGUNDA ESCALA FICTICIA CON FINES PEDAGÓGICOS.
+// No es un instrumento validado. No usar para medir en una investigación real.
+
+El preamble debe tener dos párrafos exactos:
+"Indicá cuánto estás de acuerdo con cada afirmación sobre tu interés por estudiar."
+y, en cursiva, "Escala ficticia con fines didácticos."
+
+Los ítems, todos obligatorios, son exactamente estos:
+efme_1: Disfruto aprender los temas de mi carrera.
+efme_2: Estudio aunque no tenga un examen cerca.
+efme_3: Me interesa profundizar en lo que estudio.
+
+El botón debe decir "Continuar" y el ensayo debe incluir data: { pantalla: "escala_motivacion" }.
+Agregá escala_motivacion a la línea de tiempo inmediatamente después de escala_organizacion.
+No redactes ítems nuevos. No modifiques ninguna otra parte del archivo ni otros archivos.
+```
+
+4. Revisá la propuesta. Compará cada ítem con la tabla de la EFME. Aprobala si coincide.
+:::
+
+**Sin acceso a Codex:** copiá la definición de `escala_motivacion` desde `proyectos\05-aleatorizacion\experiment.js`. En esa versión, el ensayo incluye además `randomize_question_order`, que vas a agregar en el paso siguiente.
+
+## Aleatorizá el orden y registralo
+
+Este pedido modifica la línea de tiempo y agrega un registro nuevo. Conviene pedir un plan.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+```text
+Quiero aleatorizar el orden de las escalas y de sus ítems.
+
+1. En escala_organizacion y en escala_motivacion, agregá el parámetro
+   randomize_question_order: true inmediatamente antes de questions.
+2. Después de la definición de escala_motivacion, agregá estas líneas exactas:
+   // Orden aleatorio de las escalas: cada participante recibe un orden al azar
+   const escalas_en_orden = jsPsych.randomization.shuffle([escala_organizacion, escala_motivacion]);
+   jsPsych.data.addProperties({ primera_escala: escalas_en_orden[0].data.pantalla });
+3. En la línea de tiempo, reemplazá escala_organizacion y escala_motivacion
+   por un único elemento: { timeline: escalas_en_orden }
+
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
+```
+
+Revisá con atención el cambio en la línea de tiempo. Deben desaparecer los dos nombres de las escalas y aparecer un único elemento en su lugar. Si las escalas quedaran tanto dentro de `escalas_en_orden` como en la línea de tiempo principal, cada persona las respondería dos veces.
+:::
+
+**Sin acceso a Codex:** realizá los cambios con el editor a partir de los fragmentos de este capítulo.
+
+## Explicá qué hizo realmente el agente
+
+En el primer pedido, el agente agregó un ensayo con la misma estructura que la escala existente. Como la lista `opciones_acuerdo` ya existía, no necesitó repetir las opciones: las reutilizó.
+
+En el segundo pedido, el agente hizo tres cambios con funciones diferentes. El parámetro `randomize_question_order` delega en jsPsych el orden de los ítems. La función `shuffle` produce un orden de escalas al comienzo del estudio, antes de que aparezca la primera pantalla. La línea de tiempo anidada ubica ese orden en el lugar correcto de la secuencia.
+
+Observá cuándo ocurre la aleatorización del orden de las escalas: cuando el navegador carga `experiment.js`. Cada vez que alguien abre el estudio, se produce un orden nuevo. Por eso, para ver otro orden, tenés que recargar la página.
+
+## Verificá la aleatorización con varias ejecuciones
+
+Una aleatorización no se puede verificar con una sola ejecución. Con una ejecución solo ves un orden posible. Para comprobar que el orden cambia, necesitás ejecutar el estudio varias veces y registrar lo que ocurre.
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. Ejecutá el estudio completo ocho veces. Podés responder rápido: lo que importa es el orden.
+
+2. En cada ejecución, anotá qué escala apareció primero y cuál fue el primer ítem de cada escala.
+
+3. Al terminar cada ejecución, abrí el archivo de datos y anotá el valor de `primera_escala` y de `question_order` en las dos filas de las escalas.
+
+4. Completá esta tabla.
+
+| Ejecución | Escala que viste primero | `primera_escala` | ¿Coinciden? | `question_order` de la EFOE |
+|:---|:---|:---|:---|:---|
+| 1 | | | | |
+| 2 | | | | |
+| ... | | | | |
+| 8 | | | | |
+
+5. Respondé: ¿cuántas veces apareció primero cada escala? ¿Se repitió algún orden de ítems?
+:::
+
+Es probable que cada escala haya aparecido primero alrededor de la mitad de las veces, aunque no necesariamente cuatro y cuatro. Con ocho ejecuciones, un resultado de seis a dos también es compatible con el azar. Lo que la verificación debe mostrar es que ambos órdenes ocurren y que el registro coincide siempre con lo que viste.
+
+Si en ocho ejecuciones siempre apareció la misma escala primero, algo está mal. Revisá que la línea de tiempo use `escalas_en_orden` y no los nombres originales.
+
+## Actualizá el diccionario
+
+La aleatorización agregó información a los datos. El diccionario tiene que documentarla.
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Agregá a `diccionario.md`, a mano o con un pedido a Codex con el texto exacto:
+
+1. Una fila en la tabla de variables generales para `primera_escala`.
+
+2. Una fila para `question_order`, indicando que aparece solo en las filas de las escalas.
+
+3. Una fila en la tabla de preguntas para `efme_1` a `efme_3`.
+
+4. Una oración en la sección de codificación que aclare que el orden de presentación no cambia el nombre ni la codificación de los ítems.
+
+5. La actualización de la cantidad de filas por participante, que ahora es diez.
+
+Compará tu diccionario con el del checkpoint `05-aleatorizacion`.
+:::
+
+Tu proyecto coincide ahora con el checkpoint `05-aleatorizacion`.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### El orden no cambia
+
+Recargá la página con `F5` antes de cada ejecución. El orden de las escalas se decide al cargar `experiment.js`.
+
+### Las escalas aparecen dos veces
+
+Las escalas quedaron en la línea de tiempo principal además de estar en `escalas_en_orden`. Quitá los nombres de la línea principal.
+
+### `primera_escala` no coincide con lo que viste
+
+Revisá que la línea `addProperties` use `escalas_en_orden[0]` y no `escala_organizacion`.
+
+### Se aleatorizó algo que debía quedar fijo
+
+Si el consentimiento o el cierre cambian de lugar, alguna de esas pantallas quedó dentro de la lista mezclada. Revisá qué elementos contiene la lista que recibe `shuffle`.
+
+### Los ítems no tienen `name`
+
+Sin `name`, jsPsych registra las respuestas como `Q0`, `Q1` y así sucesivamente, según su posición en la definición. Con orden aleatorio, esos nombres son muy fáciles de malinterpretar. Cada ítem debe tener un nombre propio.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Qué es un efecto de orden?
+
+2. ¿Qué diferencia existe entre orden aleatorio, muestreo y asignación a condiciones?
+
+3. ¿Qué es la unidad de aleatorización?
+
+4. ¿Qué registra la columna `question_order`?
+
+5. ¿Qué hace la función `shuffle`?
+
+6. ¿Qué es una línea de tiempo anidada?
+
+7. ¿Por qué una sola ejecución no alcanza para verificar una aleatorización?
+
+8. ¿Por qué conviene consultar las instrucciones de una escala validada antes de aleatorizar sus ítems?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Un efecto de orden es una influencia de la posición de una pregunta o de las preguntas anteriores sobre las respuestas.
+
+2. El orden aleatorio presenta los mismos elementos en distinto orden, el muestreo elige al azar algunos elementos de un conjunto y la asignación a condiciones asigna a cada persona una versión distinta del procedimiento.
+
+3. Es el elemento que se mezcla o se asigna al azar, como los ítems de una escala o las escalas de un estudio.
+
+4. Registra el orden en que se mostraron los ítems, indicando la posición de cada ítem en la definición, contando desde cero.
+
+5. Recibe una lista y devuelve la misma lista en un orden aleatorio.
+
+6. Es una línea de tiempo incluida como un elemento dentro de otra línea de tiempo.
+
+7. Una sola ejecución muestra un único orden posible y no permite comprobar que el orden cambia.
+
+8. La evidencia de validez puede depender del orden de aplicación, y mezclar los ítems podría alejar la aplicación de esas condiciones.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+El orden de presentación puede influir en las respuestas. Aleatorizarlo distribuye esos efectos entre las personas, y registrarlo permite verificarlo y analizarlo.
+
+El orden aleatorio, el muestreo y la asignación a condiciones son formas distintas de aleatorización. Se diferencian en lo que recibe cada persona y responden a preguntas de diseño diferentes. Cada una tiene una unidad de aleatorización.
+
+En jsPsych, `randomize_question_order` mezcla los ítems de una escala y registra el orden en `question_order`. La función `shuffle` mezcla una lista de ensayos, y una línea de tiempo anidada la ubica en la secuencia. `addProperties` permite registrar el orden resultante.
+
+Una aleatorización se verifica con varias ejecuciones y con la comparación entre lo que se vio y lo que se registró.
+
+## Resolvé un desafío breve
+
+Imaginá que el equipo decide mezclar el orden de las dos escalas pero mantener fijo el orden de los ítems de la EFOE, porque así lo indican sus instrucciones de aplicación.
+
+1. Indicá qué línea de `experiment.js` debería cambiar y cómo.
+
+2. Explicá qué valor tendría la columna `question_order` en la fila de la EFOE después del cambio.
+
+3. Escribí el pedido para Codex con las cuatro partes de un pedido completo.
+
+4. Explicá por qué esta decisión es metodológica y quién debería tomarla.
+
+No apliques el cambio a tu proyecto.
+
+En el próximo capítulo vas a hacer que el recorrido del estudio cambie según las respuestas: una salida para quien no acepta participar, un criterio de inclusión y una pregunta que solo aparece cuando corresponde.

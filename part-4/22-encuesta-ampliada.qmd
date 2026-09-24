@@ -1,20 +1,287 @@
 ---
 title: "Una encuesta más allá de Google Forms"
-description: "Integrar aleatorización, lógica condicional, controles de calidad y presentación en el proyecto."
+description: "Integrar, verificar y documentar la encuesta ampliada."
 ---
 
-::: {.callout-note title="Borrador estructural"}
-La encuesta usará escalas ficticias con fines pedagógicos. Las escalas reales se incorporan en el proyecto final.
+## Qué vas a poder hacer
+
+Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+
+1. Vas a poder describir el procedimiento completo de tu encuesta en una tabla.
+
+2. Vas a poder comparar tu encuesta con lo que permite Google Forms.
+
+3. Vas a poder diseñar un plan de pruebas que cubra todas las ramas y los recursos del estudio.
+
+4. Vas a poder explicar qué es una prueba de regresión y por qué hace falta.
+
+5. Vas a poder pedirle a un agente una revisión de consistencia sin permitir cambios.
+
+6. Vas a poder comparar tu proyecto con el checkpoint del final de la Parte IV.
+
+## Muchos cambios pequeños permiten formular el problema
+
+Durante la Parte IV hiciste muchos cambios pequeños. Agregaste una escala, aleatorizaste el orden, creaste tres reglas condicionales, sumaste un control de atención con una variable derivada, incorporaste una barra de progreso y una hoja de estilos. Cada cambio se verificó por separado.
+
+Que cada cambio funcione por separado no garantiza que el conjunto funcione. Un cambio puede interferir con otro. Por ejemplo, la regla de la pregunta de seguimiento depende de la etiqueta `pantalla` de la pregunta de recursos. Si alguien cambiara esa etiqueta al editar otra cosa, la regla dejaría de funcionar sin ningún mensaje de error.
+
+Además, la documentación se actualizó en varios momentos. ¿Coincide todavía con el código? ¿El diccionario describe todas las variables y todos los recorridos?
+
+Este capítulo no agrega recursos nuevos. Integra, verifica y documenta lo que ya existe. Es una práctica que vas a repetir al final de cada etapa de un proyecto real.
+
+::: {.callout-tip}
+## Idea clave
+
+Un estudio se verifica como conjunto, no solo cambio por cambio. Después de muchas modificaciones, conviene describir el procedimiento completo, probar todas sus ramas y comprobar que la documentación coincide con lo que el estudio realmente hace.
 :::
 
-## Propósito
+## El procedimiento completo cabe en una tabla
 
-Integrar los recursos de la Parte IV en `mi-primer-estudio` y comparar el resultado con lo que permitiría Google Forms.
+Una forma clara de describir el estudio es una tabla con una fila por pantalla. La tabla reúne en un solo lugar las decisiones que tomaste a lo largo de los capítulos.
 
-## Objetivos de aprendizaje
+| Orden | Pantalla | Plugin | Variables | Condición o recurso |
+|:---|:---|:---|:---|:---|
+| 1 | `bienvenida` | html-button-response | — | — |
+| 2 | `consentimiento` | html-button-response | Respuesta 0 o 1 | Si responde 1, el estudio termina. |
+| 3 | `estudiante` | survey-multi-choice | `estudiante` | Si responde “No”, el estudio termina. |
+| 4 | `edad` | survey-html-form | `edad` | Validación de 18 a 80. |
+| 5 | `genero_anio` | survey-multi-choice | `genero`, `anio_carrera` | — |
+| 6 | `carrera` | survey-text | `carrera` | — |
+| 7 | `recursos` | survey-multi-select | `recursos` | — |
+| 8 | `herramientas_ia` | survey-text | `herramientas_ia` | Solo si `recursos` incluye “Herramientas de IA”. |
+| 9 y 10 | `escala_organizacion` y `escala_motivacion` | survey-likert | `efoe_1` a `efoe_4`; `efme_1` a `efme_3`, `control_atencion` | Orden aleatorio de escalas y de ítems. Variable derivada `atencion_correcta`. |
+| 11 | `comentarios` | survey-text | `comentarios` | Opcional. |
+| 12 | `cierre` | html-button-response | — | Descarga de datos. |
 
-- Especificar el procedimiento completo antes de modificarlo.
-- Incorporar al proyecto los recursos de la Parte IV mediante cambios pequeños y verificados.
-- Anticipar la estructura de los datos que producirá la encuesta ampliada.
-- Recorrer todas las ramas del procedimiento y revisar los datos resultantes.
-- Documentar el estado alcanzado como checkpoint recuperable.
+: Procedimiento completo de la encuesta ampliada {#tbl-procedimiento}
+
+Además, todas las filas incluyen `participante` y `primera_escala`, y todas las pantallas muestran la barra de progreso y usan los estilos de `styles.css`.
+
+## Tu encuesta hace cosas que Google Forms no hace
+
+Compará tu estudio con lo que permitiría Google Forms.
+
+| Recurso | Google Forms | Tu encuesta |
+|:---|:---|:---|
+| Validación de rango numérico | Sí | Sí |
+| Salida explícita si no se acepta el consentimiento | Parcial, con secciones | Sí, con mensaje propio |
+| Criterio de inclusión con mensaje | Parcial, con secciones | Sí |
+| Pregunta de seguimiento según una respuesta de casillas | No, las secciones dependen de preguntas de opción única | Sí |
+| Orden aleatorio de ítems con registro del orden | Mezcla, pero no registra el orden | Sí, en `question_order` |
+| Orden aleatorio de escalas con registro | No | Sí, en `primera_escala` |
+| Control de atención con variable derivada | El ítem sí, la variable no | Sí |
+| Tiempo por pantalla | No | Sí, en `rt` |
+| Identificador anónimo por participante | No, solo marca temporal | Sí |
+| Apariencia y adaptación propias | Limitada | Sí, en `styles.css` |
+
+: Google Forms y la encuesta ampliada {#tbl-forms-vs-jspsych}
+
+Las funciones de Google Forms cambian con el tiempo y algunas descripciones de esta tabla pueden quedar desactualizadas. Lo importante no es la comparación puntual, sino el tipo de diferencia: en tu encuesta cada recurso es visible, se registra en los datos y se puede documentar.
+
+La comparación tiene otro lado. Google Forms es más rápido de construir, no requiere revisar código y guarda los datos automáticamente. Todavía no resolviste cómo recibir los datos de las personas participantes: por ahora se descargan en su computadora. Eso es lo que vas a resolver en la Parte V.
+
+## Un plan de pruebas cubre ramas y recursos
+
+En los capítulos anteriores probaste cada recurso por separado. Ahora necesitás un **plan de pruebas**: una lista de casos que, en conjunto, recorran todas las ramas y comprueben todos los recursos.
+
+Un plan de pruebas útil tiene dos tipos de casos.
+
+1. **Casos de las funciones nuevas.** Comprueban los recursos de la Parte IV: las ramas, la aleatorización, el control de atención, la barra de progreso y la adaptación al celular.
+
+2. **Casos de regresión.** Comprueban que lo que funcionaba antes sigue funcionando. Una **prueba de regresión** repite una prueba anterior para detectar si un cambio nuevo rompió algo que ya estaba bien. Por ejemplo, la validación de edad del capítulo sobre validaciones.
+
+Las pruebas de regresión suelen olvidarse, porque parece que lo que ya funcionaba no puede dejar de funcionar. Sin embargo, cada cambio en `experiment.js` puede afectar cualquier otra parte del archivo.
+
+## Pedile al agente una revisión de consistencia
+
+Un agente puede ser útil para revisar si el código y la documentación coinciden. Es una tarea de lectura y comparación, en la que no hace falta modificar nada. Esta vez vas a usar un pedido del nivel más avanzado del libro: inspeccionar, analizar y proponer, esperando tu decisión.
+
+::: {.callout-note}
+## Trabajá con Codex
+
+1. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+
+2. Escribí este pedido.
+
+```text
+Revisá experiment.js y diccionario.md. Antes de modificar cualquier archivo:
+1. Listá todas las variables y etiquetas de pantalla que aparecen en experiment.js.
+2. Indicá cuáles no están documentadas en diccionario.md o están documentadas
+   de manera diferente.
+3. Indicá si el diccionario describe correctamente la cantidad de filas de cada
+   recorrido posible del estudio.
+4. Señalá cualquier otro riesgo que encuentres, como una condición que dependa
+   de un texto que podría no coincidir.
+No modifiques ningún archivo. Esperá mi respuesta antes de proponer cambios.
+```
+
+3. Leé el informe. Para cada diferencia que señale, comprobala vos en los archivos. Anotá cuáles son reales y cuáles no.
+
+4. Para cada diferencia real, decidí la corrección y pedila con el texto exacto, o hacela con el editor.
+:::
+
+**Sin acceso a Codex:** realizá la revisión vos, comparando `experiment.js` con `diccionario.md` línea por línea.
+
+## Explicá qué hizo realmente el agente
+
+El agente leyó dos archivos y los comparó. Para listar las variables tuvo que encontrar cada `name` y cada etiqueta `pantalla`. Para evaluar los recorridos tuvo que interpretar las reglas condicionales y contar pantallas.
+
+Esta tarea es útil porque el agente recorre todo el archivo sin cansarse. También tiene riesgos. El agente puede señalar diferencias que no existen, omitir alguna real o contar mal las filas de un recorrido. Por eso cada hallazgo se comprueba en los archivos, y la verificación final se hace con los datos, como vas a hacer en la sección siguiente.
+
+Observá que el pedido no autorizaba modificaciones. Si el agente hubiera corregido el diccionario por su cuenta, habría tomado decisiones de documentación que te corresponden. Separar la revisión de la corrección te permite decidir qué cambiar.
+
+## Ejecutá el plan de pruebas
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+Ejecutá cada caso. Para cada uno, anotá el resultado observado y si coincide con el esperado. Recargá el estudio con `F5` antes de cada caso.
+
+| Caso | Tipo | Acciones | Resultado esperado |
+|:---|:---|:---|:---|
+| 1 | Rama | Elegir “No acepto”. | Mensaje de no participación. Archivo con 2 filas. |
+| 2 | Rama | Aceptar y responder “No” a la inclusión. | Mensaje de inclusión. Archivo con 3 filas. |
+| 3 | Rama | Completar sin elegir “Herramientas de IA”. | Sin pregunta de seguimiento. Archivo con 11 filas. |
+| 4 | Rama | Completar eligiendo “Herramientas de IA”. | Con pregunta de seguimiento. Archivo con 12 filas. |
+| 5 | Control | Marcar “En desacuerdo” en el control. | `atencion_correcta` igual a `true`. |
+| 6 | Control | Marcar otra opción en el control. | `atencion_correcta` igual a `false`. |
+| 7 | Aleatorización | Repetir el caso 3 cuatro veces. | Ambas escalas aparecen primero al menos una vez. `primera_escala` coincide con lo observado. |
+| 8 | Regresión | Probar edades vacía, 17, 18, 80 y 81. | Se rechazan vacía, 17 y 81. Se aceptan 18 y 80. |
+| 9 | Regresión | Intentar avanzar sin responder cada pregunta obligatoria. | Ninguna permite avanzar. |
+| 10 | Regresión | Dejar el comentario vacío. | `comentarios` igual a `""`. |
+| 11 | Presentación | Recorrer el estudio en la simulación de celular. | Barra de progreso visible y opciones de las escalas en vertical. |
+
+: Plan de pruebas de la encuesta ampliada {#tbl-plan-pruebas}
+
+Si un caso falla, describí el problema con el formato del capítulo sobre el ciclo de trabajo antes de pedir una corrección.
+:::
+
+El plan tiene once casos. Parecen muchos para una encuesta breve, pero cada uno cubre algo que una persona participante podría encontrar. Una rama que nunca probaste es una rama que no sabés si funciona.
+
+Guardá el plan de pruebas. Lo vas a volver a usar cada vez que modifiques el estudio.
+
+## Documentá el estado alcanzado
+
+::: {.callout-note}
+## Realizá esta actividad guiada
+
+1. En `README.md`, actualizá la descripción del estado del proyecto. Indicá qué recursos incorpora, que las escalas son ficticias y que los datos todavía se descargan en la computadora de quien completa el estudio.
+
+2. Agregá al README la tabla del procedimiento completo de este capítulo o un enlace a una sección donde esté.
+
+3. Guardá el plan de pruebas en el README, en una sección titulada “Cómo verificar el estudio”.
+
+4. Agregá una entrada al registro de cambios que resuma la Parte IV y la verificación realizada.
+:::
+
+## Compará con el checkpoint del final de la Parte IV
+
+Tu proyecto debería tener esta estructura.
+
+```text
+mi-primer-estudio/
+├── index.html
+├── experiment.js
+├── styles.css
+├── diccionario.md
+└── README.md
+```
+
+El checkpoint `proyectos\06-encuesta-ampliada` contiene la versión de referencia de `index.html`, `experiment.js`, `styles.css` y `diccionario.md`, y un README con el plan de pruebas. Compará tus archivos con los del checkpoint. Tu README va a ser diferente, porque incluye tus reglas de trabajo y tu registro de cambios.
+
+Si tu versión presenta un problema que no lográs resolver, podés copiar los archivos del checkpoint. Antes, guardá tu versión en `respaldos` para poder compararla después.
+
+## Este capítulo importa para investigar en Psicología
+
+Un estudio publicado con una rama rota recolecta datos inservibles o, peor, datos que parecen correctos y no lo son. Si la pregunta de seguimiento nunca apareciera, por ejemplo, la variable `herramientas_ia` estaría vacía para todas las personas, y alguien podría concluir que nadie usa herramientas de IA.
+
+Verificar el conjunto antes de recolectar es parte de la responsabilidad del investigador. Un plan de pruebas documentado, además, permite que otra persona compruebe el estudio y contribuye a su reproducibilidad.
+
+## Revisá algunas situaciones que suelen causar errores
+
+### Se prueba solo el recorrido principal
+
+La mayoría de las pruebas espontáneas completan el estudio de la manera más habitual. Las ramas menos frecuentes quedan sin probar. El plan de pruebas evita ese sesgo.
+
+### Se acepta el informe del agente sin comprobarlo
+
+Una revisión de consistencia puede contener errores. Comprobá cada hallazgo en los archivos antes de corregir.
+
+### Se corrige durante la revisión
+
+Si al encontrar un problema lo corregís de inmediato y seguís probando, las pruebas anteriores quedan desactualizadas. Terminá el plan, anotá los problemas, corregí y volvé a ejecutar el plan completo.
+
+### La documentación describe una versión anterior
+
+Después de muchos cambios, es fácil que el README o el diccionario describan una versión que ya no existe. La revisión de consistencia sirve para detectarlo.
+
+## Comprobá lo que comprendiste
+
+Respondé cada pregunta con una oración completa.
+
+1. ¿Por qué no alcanza con verificar cada cambio por separado?
+
+2. ¿Qué información reúne la tabla del procedimiento completo?
+
+3. ¿Qué es una prueba de regresión?
+
+4. ¿Qué dos tipos de casos debe incluir un plan de pruebas?
+
+5. ¿Por qué el pedido de revisión de consistencia prohibía modificar archivos?
+
+6. ¿Por qué hay que comprobar cada hallazgo del agente?
+
+7. ¿Qué problema de tu encuesta todavía no está resuelto?
+
+<details>
+<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+
+1. Porque un cambio puede interferir con otro, y el conjunto puede fallar aunque cada parte haya funcionado por separado.
+
+2. Reúne, para cada pantalla, su orden, su plugin, sus variables y sus condiciones o recursos.
+
+3. Es una prueba que se repite para detectar si un cambio nuevo rompió algo que ya funcionaba.
+
+4. Debe incluir casos de las funciones nuevas y casos de regresión.
+
+5. Para separar la revisión de la corrección y reservar para el investigador las decisiones sobre qué cambiar.
+
+6. Porque el agente puede señalar diferencias inexistentes u omitir diferencias reales.
+
+7. Los datos todavía se descargan en la computadora de quien completa el estudio, por lo que el investigador no los recibe.
+
+</details>
+
+## Qué aprendiste en este capítulo
+
+Después de muchos cambios pequeños, un estudio se verifica como conjunto. Una tabla del procedimiento completo reúne las decisiones de diseño en un solo lugar.
+
+Tu encuesta incorpora recursos que Google Forms no ofrece o resuelve mal, y cada uno queda registrado en los datos y documentado. También tiene una limitación que Forms no tiene: todavía no guarda los datos en un lugar al que el investigador tenga acceso.
+
+Un plan de pruebas combina casos de las funciones nuevas y casos de regresión. Un agente puede ayudar con una revisión de consistencia entre el código y la documentación, siempre que no modifique archivos y que cada hallazgo se compruebe.
+
+Tu proyecto coincide ahora con el checkpoint `06-encuesta-ampliada`.
+
+## Cerrá la Parte IV
+
+Con este capítulo termina la Parte IV. Empezaste con una encuesta que reproducía un formulario y terminaste con una encuesta que aleatoriza, se ramifica, controla la atención, registra tiempos y se adapta al dispositivo.
+
+En el camino aprendiste a reconocer dónde queda escrita cada decisión: la aleatorización en `randomize_question_order` y `shuffle`, las reglas en `on_finish` y `conditional_function`, las variables derivadas en `on_finish`, la presentación en `styles.css`. También aprendiste que registrar un indicador no es excluir, que una pregunta que no aplica no es un dato faltante y que un umbral se decide antes de ver los datos.
+
+## Resolvé un desafío breve
+
+Imaginá que el equipo decide agregar una tercera regla de inclusión: el estudio solo es para personas que estudian Psicología. La pregunta de carrera se transformaría en una pregunta cerrada con las opciones “Psicología” y “Otra carrera”, y el estudio terminaría si la persona elige “Otra carrera”.
+
+1. Actualizá la tabla del procedimiento completo con el cambio.
+
+2. Indicá qué variable cambia de tipo y cómo cambia su fila en el diccionario.
+
+3. Agregá al plan de pruebas los casos necesarios para la nueva rama.
+
+4. Indicá qué casos de regresión del plan actual podrían verse afectados.
+
+5. Explicá en dos oraciones qué consecuencia tiene este cambio sobre la población del estudio.
+
+No apliques el cambio a tu proyecto.
+
+En la Parte V vas a completar el estudio: vas a diseñar el procedimiento final con una escala real provista por tu docente, pilotearlo, configurar el guardado de datos con DataPipe y publicarlo en Internet con GitHub Pages.

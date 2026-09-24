@@ -1,0 +1,33 @@
+/* Apariencia del estudio. Estos estilos cambian cómo se ve el estudio, no su procedimiento. */
+
+/* Texto más grande y con más espacio entre líneas, para facilitar la lectura */
+body {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Ancho máximo del contenido, para que las líneas no sean demasiado largas en pantallas grandes */
+.jspsych-content {
+  max-width: 700px;
+}
+
+/* En pantallas angostas, como las de un celular, las opciones de las escalas se muestran una debajo de la otra */
+@media (max-width: 600px) {
+  .jspsych-content {
+    padding: 0 16px;
+  }
+  #jspsych-survey-likert-form .jspsych-survey-likert-opts li {
+    display: block;
+    width: 100% !important;
+    text-align: left;
+    margin-bottom: 8px;
+  }
+  #jspsych-survey-likert-form .jspsych-survey-likert-opts li input[type=radio] {
+    display: inline-block;
+    position: static;
+    margin: 0 8px 0 0;
+  }
+  #jspsych-survey-likert-form .jspsych-survey-likert-opts:before {
+    display: none;
+  }
+}
