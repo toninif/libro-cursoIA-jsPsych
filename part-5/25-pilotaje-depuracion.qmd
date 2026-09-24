@@ -3,39 +3,39 @@ title: "Prueba piloto y depuración"
 description: "Buscar problemas de funcionamiento, comprensión y calidad de datos antes de recolectar."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar qué aporta una prueba piloto que no aportan tus propias pruebas.
+1. explicar qué aporta una prueba piloto que tus propias pruebas no aportan;
 
-2. Vas a poder organizar un piloto breve con otras personas.
+2. organizar un piloto corto con otras personas;
 
-3. Vas a poder usar los datos del piloto para revisar la duración, la comprensión y la calidad de los datos.
+3. usar los datos del piloto para revisar la duración, la comprensión y la calidad de los datos;
 
-4. Vas a poder probar casos límite que ocurren en el uso real.
+4. probar casos límite que aparecen en el uso real;
 
-5. Vas a poder buscar la causa de un error de manera sistemática.
+5. buscar la causa de un error de forma sistemática;
 
-6. Vas a poder describir un error a un agente para obtener una explicación antes que un cambio.
+6. describirle un error a un agente para obtener una explicación antes que un cambio.
 
-## Un estudio probado solo por su autor permite formular el problema
+## Para empezar, un estudio que solo probó su autor
 
-Tu estudio pasó todas las pruebas de tu plan. Las ramas funcionan, las validaciones rechazan lo que deben rechazar y los datos coinciden con el diccionario. Sin embargo, todas esas pruebas las hiciste vos.
+Tu estudio pasó todas las pruebas de tu plan. Las ramas funcionan, las validaciones rechazan lo que tienen que rechazar y los datos coinciden con el diccionario. Pero todas esas pruebas las hiciste vos.
 
-Vos sabés qué significa cada pregunta, en qué orden van las pantallas y qué respuesta espera el control de atención. Una persona que nunca vio el estudio no lo sabe. Puede no entender una consigna, tardar el triple de lo que calculaste, responder desde un celular antiguo o presionar el botón de retroceso del navegador. Ninguna de esas situaciones aparece en tus pruebas.
+Vos sabés qué significa cada pregunta, en qué orden van las pantallas y qué respuesta espera el control de atención. Alguien que nunca vio el estudio no sabe nada de eso. Puede no entender una consigna, tardar el triple de lo que calculaste, responder desde un celular viejo o apretar el botón de volver del navegador, y ninguna de esas situaciones aparece en tus pruebas.
 
-Una **prueba piloto** es una aplicación del estudio a un grupo pequeño de personas antes de la recolección real. Su objetivo no es obtener resultados, sino encontrar problemas mientras todavía se pueden corregir.
+Una **prueba piloto** es aplicar el estudio a un grupo chico de personas antes de la recolección real. No busca resultados, busca problemas mientras todavía se pueden corregir.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Tus pruebas comprueban que el estudio hace lo que decidiste. El piloto comprueba si lo que decidiste funciona con otras personas. Los datos del piloto no se analizan como resultados: se usan para mejorar el estudio.
+Tus pruebas comprueban que el estudio hace lo que decidiste. El piloto comprueba si lo que decidiste funciona con otras personas. Los datos del piloto no se analizan como resultados, se usan para mejorar el estudio.
 :::
 
-## Un piloto busca tres tipos de problemas
+## Tres tipos de problemas
 
-Un piloto puede revelar problemas de naturaleza diferente.
+Un piloto puede mostrar problemas de naturaleza distinta.
 
 | Tipo de problema | Ejemplo | Cómo se detecta |
 |:---|:---|:---|
@@ -45,25 +45,25 @@ Un piloto puede revelar problemas de naturaleza diferente.
 
 : Problemas que puede revelar un piloto {#tbl-problemas-piloto}
 
-Cada tipo requiere una fuente de información diferente. Por eso un piloto combina observación, conversación y revisión de datos.
+Cada tipo necesita una fuente de información distinta, y por eso un piloto combina observación, conversación y revisión de datos.
 
-## Organizá un piloto breve
+## Organizar un piloto corto
 
-Para un estudio de curso, un piloto de tres a cinco personas suele ser suficiente para encontrar los problemas más importantes. Conviene que sean personas parecidas a tu población, pero que no formen parte de la muestra real.
+Para un estudio de curso, un piloto de tres a cinco personas suele alcanzar para encontrar los problemas más importantes. Conviene que se parezcan a tu población, pero que no formen parte de la muestra real.
 
-En esta etapa tu estudio todavía no está publicado ni conectado al servicio de guardado. Los datos se descargan en la computadora donde se completa el estudio. Por eso, lo más práctico es que cada persona del piloto participe en tu computadora o en la suya, y que te envíe el archivo descargado.
+En esta etapa tu estudio todavía no está publicado ni conectado al servicio de guardado, así que los datos se descargan en la computadora donde se completa. Lo más práctico es que cada persona del piloto participe en tu computadora o en la suya, y que te mande el archivo descargado.
 
 ### Antes del piloto
 
-1. Explicá que se trata de una prueba y que te interesa encontrar problemas, no sus respuestas.
+1. Explicá que es una prueba y que lo que te interesa es encontrar problemas, no sus respuestas.
 
-2. Pedí que respondan como lo harían en un estudio real, sin preguntarte nada durante la participación.
+2. Pediles que respondan como en un estudio real, sin preguntarte nada mientras participan.
 
-3. Si podés, observá sin intervenir. Anotá dónde dudan, qué releen y en qué pantalla se detienen.
+3. Si podés, observá sin intervenir. Anotá dónde dudan, qué releen y en qué pantalla se quedan.
 
 ### Después del piloto
 
-Hacé estas preguntas a cada persona y anotá las respuestas.
+Hacele estas preguntas a cada persona y anotá las respuestas.
 
 1. ¿Hubo alguna consigna o pregunta que no entendiste o que entendiste de más de una manera?
 
@@ -71,35 +71,35 @@ Hacé estas preguntas a cada persona y anotá las respuestas.
 
 3. ¿Cuánto creés que duró?
 
-4. ¿Algo funcionó de manera extraña o inesperada?
+4. ¿Algo funcionó de forma rara o inesperada?
 
-5. ¿Desde qué dispositivo y navegador participaste?
+5. ¿Desde qué dispositivo y qué navegador participaste?
 
 ::: {.callout-important}
 ## Los datos del piloto no son datos del estudio
 
-Las respuestas del piloto se obtienen con una versión del estudio que todavía va a cambiar. No las mezcles con los datos reales. Guardalas en una carpeta separada, fuera del proyecto, y eliminalas cuando ya no las necesites. Aunque sean de compañeros, son datos de personas y merecen el mismo cuidado.
+Las respuestas del piloto se obtienen con una versión del estudio que todavía va a cambiar, así que no las mezcles con los datos reales. Guardalas en una carpeta aparte, fuera del proyecto, y borralas cuando ya no las necesites. Aunque sean de compañeros, son datos de personas y merecen el mismo cuidado.
 :::
 
-## Los datos del piloto informan decisiones
+## Qué nos dicen los datos del piloto
 
-Con los archivos del piloto podés revisar varias cuestiones.
+Con los archivos del piloto podés revisar varias cosas.
 
-1. **La duración.** Calculá la duración de cada participación, como en el capítulo sobre tiempos de respuesta. Usá la mediana. Si difiere de lo que dice el consentimiento, corregí el consentimiento.
+1. **La duración.** Calculá la duración de cada participación, como en el capítulo sobre tiempos de respuesta, y usá la mediana. Si no coincide con lo que dice el consentimiento, corregí el consentimiento.
 
 2. **Las pantallas lentas.** Si una pantalla tarda mucho más que las demás, puede ser confusa.
 
-3. **El control de atención.** Si varias personas atentas lo fallaron, probablemente la consigna del control no es clara.
+3. **El control de atención.** Si varias personas atentas lo fallaron, seguramente la consigna del control no es clara.
 
-4. **El diccionario.** Comprobá que cada archivo tenga las filas y los valores que el diccionario describe.
+4. **El diccionario.** Comprobá que cada archivo tenga las filas y los valores que describe el diccionario.
 
-5. **Las preguntas abiertas.** Leé las respuestas. Si muchas personas escribieron algo que no esperabas, quizás la pregunta no pide lo que creés.
+5. **Las preguntas abiertas.** Leé las respuestas. Si mucha gente escribió algo que no esperabas, quizás la pregunta no pide lo que creés.
 
-Cada problema encontrado se corrige con un paso de construcción, como en el capítulo anterior: un cambio, criterios de aceptación, verificación y copia de respaldo.
+Cada problema que encuentres se corrige con un paso de construcción, como en el capítulo anterior, con un cambio, criterios de aceptación, verificación y copia de respaldo.
 
-## Los casos límite aparecen en el uso real
+## Casos límite del uso real
 
-Además del piloto con personas, conviene probar situaciones que ninguna persona del piloto va a producir a propósito. En el capítulo sobre validaciones viste los casos límite de un rango. En el uso real hay otros.
+Además del piloto con personas, conviene probar situaciones que nadie del piloto va a provocar a propósito. En el capítulo sobre validaciones viste los casos límite de un rango, pero en el uso real hay otros.
 
 | Situación | Qué ocurre en tu estudio |
 |:---|:---|
@@ -112,66 +112,66 @@ Además del piloto con personas, conviene probar situaciones que ninguna persona
 
 : Casos límite del uso real {#tbl-casos-limite}
 
-Algunas de estas situaciones no tienen solución técnica en tu estudio. No podés impedir que alguien recargue la página. Pero conocerlas te permite interpretar los datos. Por ejemplo, si en la recolección real encontrás más archivos de consentimiento que de participaciones completas, parte de la diferencia puede deberse a personas que recargaron la página.
+Algunas de estas situaciones no tienen solución técnica en tu estudio. No podés impedir que alguien recargue la página, pero conocerlas te ayuda a interpretar los datos. Si en la recolección real encontrás más archivos de consentimiento que participaciones completas, por ejemplo, parte de esa diferencia puede ser gente que recargó la página.
 
-## Depurar es buscar una causa con método
+## Depurar con método
 
-**Depurar** significa encontrar y corregir la causa de un problema en un programa. En inglés se dice *debugging*. La palabra puede sugerir un proceso intuitivo, pero conviene seguir un método. Ya conocés sus partes, de los capítulos sobre errores y sobre el ciclo de trabajo.
+**Depurar** es encontrar y corregir la causa de un problema en un programa, lo que en inglés se llama *debugging*. La palabra puede sonar a algo intuitivo, pero conviene seguir un método, y ya conocés sus partes de los capítulos sobre errores y sobre el ciclo de trabajo.
 
-1. **Reproducir.** Encontrá una secuencia de acciones que produzca el problema siempre. Si no podés reproducirlo, no vas a poder saber si lo corregiste.
+1. **Reproducir.** Encontrá una secuencia de acciones que produzca el problema siempre. Si no lo podés reproducir, no vas a poder saber si lo corregiste.
 
-2. **Observar.** Abrí la consola con `F12` y leé los mensajes. Revisá el archivo de datos.
+2. **Observar.** Abrí la consola con `F12`, leé los mensajes y revisá el archivo de datos.
 
-3. **Aislar.** Preguntate qué cambió desde la última versión que funcionaba. Compará con la copia de respaldo del último paso verificado.
+3. **Aislar.** Preguntate qué cambió desde la última versión que funcionaba, y compará con el respaldo del último paso verificado.
 
 4. **Formular una hipótesis.** Escribí en una oración cuál creés que es la causa.
 
-5. **Cambiar una sola cosa.** Corregí solo lo que la hipótesis señala.
+5. **Cambiar una sola cosa.** Corregí solo lo que señala la hipótesis.
 
-6. **Verificar.** Repetí la secuencia que reproducía el problema. Después ejecutá el plan de pruebas completo, para detectar si la corrección rompió otra cosa.
+6. **Verificar.** Repetí la secuencia que reproducía el problema, y después ejecutá el plan de pruebas completo para ver si la corrección rompió otra cosa.
 
-El paso 3 muestra el valor de la construcción incremental. Si guardaste una copia después de cada paso verificado, sabés que el problema apareció en el último paso. La búsqueda se reduce a un cambio pequeño.
+El paso 3 muestra lo que vale la construcción incremental. Si guardaste una copia después de cada paso verificado, sabés que el problema apareció en el último paso, y la búsqueda se reduce a un cambio chico.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-Los problemas que un piloto detecta afectan la validez del estudio. Una consigna ambigua mide algo diferente de lo que pretendías. Un consentimiento con una duración errónea no informa correctamente. Una pregunta de opción múltiple sin la opción adecuada obliga a elegir una respuesta que no representa a la persona.
+Los problemas que detecta un piloto afectan la validez del estudio. Una consigna ambigua mide algo distinto de lo que querías, un consentimiento con una duración equivocada no informa bien y una pregunta de opción múltiple sin la opción adecuada obliga a elegir una respuesta que no representa a la persona.
 
-Corregir estos problemas después de la recolección es imposible: los datos ya se obtuvieron con la versión defectuosa. El piloto es la última oportunidad de hacerlo a bajo costo. Además, informar que el estudio fue piloteado, y qué se cambió como resultado, es parte de un reporte transparente.
+Corregir estos problemas después de recolectar es imposible, porque los datos ya se obtuvieron con la versión defectuosa. El piloto es la última oportunidad de hacerlo barato. Y contar que el estudio se piloteó, y qué se cambió a partir de eso, es parte de un informe transparente.
 
-## Practicá la depuración con un error preparado
+## Actividad, un error preparado
 
-Para practicar el método sin arriesgar tu proyecto, vas a trabajar sobre una copia del checkpoint `06-encuesta-ampliada` con un error introducido a propósito.
+Para practicar el método sin arriesgar tu proyecto, vas a trabajar sobre una copia del checkpoint `06-encuesta-ampliada` con un error metido a propósito.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-1. Copiá la carpeta `proyectos\06-encuesta-ampliada` dentro de `practica_archivos` y renombrala como `practica_depuracion`.
+1. Copiá la carpeta `proyectos\06-encuesta-ampliada` dentro de `practica_archivos` y cambiale el nombre por `practica_depuracion`.
 
-2. Abrí `experiment.js` de la copia en el editor. Buscá esta línea:
+2. Abrí el `experiment.js` de la copia en el editor y buscá esta línea.
 
 ```javascript
     return recursos.includes("Herramientas de IA");
 ```
 
-3. Reemplazala por esta, que tiene un error:
+3. Reemplazala por esta otra, que tiene un error.
 
 ```javascript
     return recursos.includes("Herramientas de ia");
 ```
 
-4. Guardá el archivo y cerrá el editor. A partir de ahora, hacé de cuenta que no sabés qué cambió.
+4. Guardá el archivo y cerrá el editor. De acá en adelante, hacé de cuenta que no sabés qué cambió.
 
-5. Ejecutá el caso D del plan de pruebas: completá el estudio eligiendo “Herramientas de IA”. Anotá qué ocurre.
+5. Ejecutá el caso D del plan de pruebas, completando el estudio con “Herramientas de IA” elegida, y anotá qué pasa.
 :::
 
-La pregunta de seguimiento no aparece y la consola no muestra ningún error. El programa funciona, pero la regla nunca se cumple. Es el tipo de error más difícil de encontrar, porque no produce ningún aviso.
+La pregunta de seguimiento no aparece y la consola no muestra ningún error. El programa funciona, pero la regla nunca se cumple. Es el tipo de error más difícil de encontrar, justamente porque no da ningún aviso.
 
-## Pedile al agente una explicación, no un cambio
+## Con Codex, una explicación antes que un cambio
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-1. Iniciá Codex en `practica_archivos\practica_depuracion` con permisos **Read Only**.
+1. Abrí Codex en `practica_archivos\practica_depuracion` con permisos **Read Only**.
 
 2. Describí el problema con el formato del capítulo sobre el ciclo de trabajo.
 
@@ -185,25 +185,25 @@ Mensaje de error: la consola no muestra ninguno.
 No modifiques archivos todavía: explicá cuál puede ser la causa.
 ```
 
-3. Leé la explicación. Si coincide con lo que observás en el código, pedí la corrección con un pedido acotado. Si no coincide, pedí que revise otra posibilidad.
+3. Leé la explicación. Si coincide con lo que ves en el código, pedí la corrección con un pedido acotado. Si no coincide, pedile que revise otra posibilidad.
 
 4. Después de la corrección, repetí el caso D y el plan de pruebas completo.
 :::
 
-**Sin acceso a Codex:** aplicá el método vos. Una pista: compará el texto de la condición con el texto exacto de la opción en la pregunta de recursos.
+**Sin acceso a Codex.** Aplicá vos el método. Una pista, compará el texto de la condición con el texto exacto de la opción en la pregunta de recursos.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-El agente leyó `experiment.js` buscando qué controla la aparición de la pregunta. Encontró la `conditional_function` y comparó el texto de la condición con las opciones de la pregunta de recursos. Como los textos difieren en mayúsculas, la comparación nunca es verdadera.
+El agente leyó `experiment.js` buscando qué controla que aparezca la pregunta. Encontró la `conditional_function` y comparó el texto de la condición con las opciones de la pregunta de recursos. Como los textos difieren en las mayúsculas, la comparación nunca da verdadero.
 
-Observá por qué el pedido funcionó. Describía lo esperado, lo observado y los pasos, y aclaraba que no había mensajes de error. Con esa información, el agente pudo concentrarse en las reglas condicionales en lugar de buscar errores de sintaxis. Además, al pedir primero una explicación, pudiste comprobar la causa antes de aceptar un cambio.
+Fijate por qué funcionó el pedido. Describía lo esperado, lo observado y los pasos, y aclaraba que no había mensajes de error. Con eso, el agente pudo concentrarse en las reglas condicionales en vez de buscar errores de sintaxis. Y como pediste primero una explicación, pudiste comprobar la causa antes de aceptar un cambio.
 
-Si hubieras escrito solamente “la pregunta de IA no funciona, arreglala”, el agente podría haber reescrito la condición de otra forma, o agregado código innecesario, sin que supieras cuál era el problema.
+Si hubieras escrito solo “la pregunta de IA no funciona, arreglala”, el agente podría haber reescrito la condición de otra forma, o sumado código innecesario, sin que supieras cuál era el problema.
 
-## Documentá el piloto
+## Documentar el piloto
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 Agregá al README de tu proyecto una sección “Pilotaje” con esta información.
 
@@ -211,46 +211,46 @@ Agregá al README de tu proyecto una sección “Pilotaje” con esta informaci�
 
 2. La mediana de la duración.
 
-3. Qué problemas se encontraron, de qué tipo y cómo se corrigieron.
+3. Qué problemas aparecieron, de qué tipo eran y cómo se corrigieron.
 
-4. Si se modificó la duración informada en el consentimiento.
+4. Si se cambió la duración informada en el consentimiento.
 
 5. Qué casos límite se probaron y con qué resultado.
 :::
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
-### El piloto lo hacen personas que conocen el estudio
+### Que el piloto lo hagan personas que conocen el estudio
 
-Una persona que ayudó a diseñarlo no va a detectar problemas de comprensión. Buscá personas que no lo conozcan.
+Alguien que ayudó a diseñarlo no va a detectar problemas de comprensión. Buscá gente que no lo conozca.
 
-### Se corrige durante el piloto
+### Corregir durante el piloto
 
-Si cambiás el estudio entre una persona y otra, las participaciones no son comparables y no sabés qué versión produjo cada problema. Terminá el piloto, anotá los problemas y corregí después.
+Si cambiás el estudio entre una persona y la siguiente, las participaciones no son comparables y no sabés qué versión causó cada problema. Terminá el piloto, anotá los problemas y corregí después.
 
-### Se cambian varias cosas para corregir un error
+### Cambiar varias cosas para corregir un error
 
-Si la corrección incluye varios cambios, no sabés cuál resolvió el problema, y alguno puede introducir otro. Un cambio por vez.
+Si la corrección incluye varios cambios, no sabés cuál resolvió el problema, y alguno puede traer otro. Un cambio por vez.
 
-### Se acepta la primera explicación del agente
+### Quedarse con la primera explicación del agente
 
-Una explicación verosímil puede ser incorrecta. Comprobala en el código antes de pedir el cambio y verificá después con el caso que reproducía el problema.
+Una explicación que suena bien puede estar mal. Comprobala en el código antes de pedir el cambio y verificá después con el caso que reproducía el problema.
 
-### Los datos del piloto quedan dentro del proyecto
+### Dejar los datos del piloto dentro del proyecto
 
-Los archivos del piloto no deben estar en la carpeta del proyecto. En el próximo capítulo vas a publicar esa carpeta, y todo lo que contenga va a quedar a la vista.
+Los archivos del piloto no van en la carpeta del proyecto. En el próximo capítulo vas a publicar esa carpeta, y todo lo que tenga va a quedar a la vista.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué aporta una prueba piloto que no aportan tus propias pruebas?
+1. ¿Qué aporta una prueba piloto que tus propias pruebas no aportan?
 
-2. ¿Qué tres tipos de problemas puede revelar un piloto?
+2. ¿Qué tres tipos de problemas puede mostrar un piloto?
 
 3. ¿Por qué los datos del piloto no se mezclan con los datos reales?
 
-4. ¿Qué ocurre si una persona recarga la página a mitad del estudio?
+4. ¿Qué pasa si una persona recarga la página a mitad del estudio?
 
 5. ¿Cuáles son los pasos del método de depuración?
 
@@ -259,7 +259,7 @@ Respondé cada pregunta con una oración completa.
 7. ¿Por qué conviene pedir primero una explicación y después un cambio?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Muestra cómo funciona el estudio con personas que no conocen sus decisiones, en sus propios dispositivos y con sus propias interpretaciones.
 
@@ -271,27 +271,27 @@ Respondé cada pregunta con una oración completa.
 
 5. Reproducir, observar, aislar, formular una hipótesis, cambiar una sola cosa y verificar.
 
-6. Porque el programa funcionaba sin mostrar errores: la regla nunca se cumplía.
+6. Porque el programa funcionaba sin mostrar errores y la regla nunca se cumplía.
 
 7. Para comprobar la causa antes de aceptar un cambio y evitar correcciones innecesarias o equivocadas.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Una prueba piloto aplica el estudio a pocas personas antes de la recolección real para encontrar problemas de funcionamiento, de comprensión y de calidad de datos. Combina observación, preguntas posteriores y revisión de los archivos. Sus datos no se analizan como resultados.
+Una prueba piloto aplica el estudio a pocas personas antes de la recolección real para encontrar problemas de funcionamiento, de comprensión y de calidad de datos. Combina observación, preguntas posteriores y revisión de los archivos, y sus datos no se analizan como resultados.
 
-Los casos límite del uso real, como recargar la página o retroceder, no siempre tienen solución técnica, pero conocerlos permite interpretar los datos.
+Los casos límite del uso real, como recargar la página o volver atrás, no siempre tienen solución técnica, pero conocerlos ayuda a interpretar los datos.
 
-Depurar es buscar una causa con método: reproducir, observar, aislar, formular una hipótesis, cambiar una sola cosa y verificar. Las copias de respaldo de la construcción incremental reducen la búsqueda. Un agente puede ayudar a encontrar la causa si recibe una descripción precisa y se le pide una explicación antes que un cambio.
+Depurar es buscar una causa con método. Reproducimos, observamos, aislamos, formulamos una hipótesis, cambiamos una sola cosa y verificamos. Los respaldos de la construcción incremental acotan la búsqueda, y un agente puede ayudar a encontrar la causa si recibe una descripción precisa y le pedimos una explicación antes que un cambio.
 
-## Resolvé un desafío breve
+## Desafío
 
-Realizá un piloto de tu estudio con al menos tres personas.
+Hacé un piloto de tu estudio con por lo menos tres personas.
 
-1. Completá una tabla con la duración de cada participación, la mediana y la duración informada en el consentimiento.
+1. Armá una tabla con la duración de cada participación, la mediana y la duración informada en el consentimiento.
 
-2. Listá todos los problemas encontrados y clasificalos por tipo.
+2. Listá todos los problemas que aparecieron y clasificalos por tipo.
 
 3. Para cada problema, escribí el paso de construcción que lo corrige.
 
@@ -299,4 +299,4 @@ Realizá un piloto de tu estudio con al menos tres personas.
 
 5. Probá al menos tres casos límite de la tabla del capítulo y anotá los resultados.
 
-En el próximo capítulo vas a conectar tu estudio con DataPipe, para que las respuestas lleguen a un espacio de almacenamiento que controlás.
+En el próximo capítulo conectamos tu estudio con DataPipe, para que las respuestas lleguen a un espacio de almacenamiento que controlás vos.

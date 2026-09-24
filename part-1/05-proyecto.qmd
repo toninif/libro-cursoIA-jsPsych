@@ -1,150 +1,150 @@
 ---
-title: "Cómo se organiza un proyecto"
+title: "Qué es un proyecto"
 description: "La primera versión recuperable del estudio que crecerá durante el curso."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar qué convierte una carpeta en un proyecto.
+1. explicar qué convierte a una carpeta en un proyecto;
 
-2. Vas a poder reconocer la carpeta principal de un proyecto.
+2. reconocer la carpeta principal de un proyecto;
 
-3. Vas a poder distinguir la documentación, los materiales, las instrucciones y los datos.
+3. distinguir documentación, materiales, instrucciones y datos;
 
-4. Vas a poder explicar qué funciones cumplen `README.md` y `AGENTS.md`.
+4. explicar para qué sirven `README.md` y `AGENTS.md`;
 
-5. Vas a poder crear la primera versión de `mi-primer-estudio`.
+5. crear la primera versión de `mi-primer-estudio`;
 
-6. Vas a poder verificar su ubicación, su estructura y su documentación.
+6. verificar su ubicación, su estructura y su documentación;
 
-7. Vas a poder explicar para qué sirve un checkpoint.
+7. explicar para qué sirve un checkpoint.
 
-## Varios archivos dispersos permiten formular el problema
+## Para empezar, archivos por todos lados
 
-Imaginá que comenzás a preparar un estudio sobre hábitos de estudio. Guardás una consigna en Documentos. Descargás una imagen en Descargas. Escribís posibles preguntas en un archivo llamado `ideas final.docx`. Después creás otra versión llamada `ideas final 2.docx`.
+Imaginá que empezás a preparar un estudio sobre hábitos de estudio. Guardás una consigna en Documentos, bajás una imagen que queda en Descargas y anotás algunas preguntas en un archivo llamado `ideas final.docx`. Después hacés otra versión, `ideas final 2.docx`.
 
-Una semana más tarde necesitás continuar. Recordás el tema general, pero aparecen preguntas concretas.
+Una semana más tarde querés retomar. Te acordás del tema general, pero aparecen preguntas concretas.
 
-1. ¿Qué archivo contiene la versión actual?
+1. ¿Qué archivo tiene la versión actual?
 
-2. ¿Qué imagen forma parte del estudio?
+2. ¿Qué imagen es parte del estudio?
 
-3. ¿Dónde se guardarán las respuestas?
+3. ¿Dónde se van a guardar las respuestas?
 
-4. ¿Qué decisiones ya fueron tomadas?
+4. ¿Qué decisiones ya tomaste?
 
-5. ¿Qué tareas quedan pendientes?
+5. ¿Qué te falta hacer?
 
-Los archivos existen, pero su relación depende de tu memoria. Otra persona tendría dificultades para comprenderlos. Un agente también carecería de un punto de partida claro.
+Los archivos están, pero cómo se relacionan entre sí depende de tu memoria. Otra persona tendría problemas para entenderlos, y un agente no tendría un punto de partida claro.
 
-Un proyecto organiza esas relaciones. Reúne los archivos vinculados con un propósito y conserva información que permite interpretarlos.
+Un proyecto ordena esas relaciones. Junta los archivos que tienen un mismo propósito y guarda la información necesaria para entenderlos.
 
 ::: {.callout-tip}
-## Un proyecto vincula un propósito con una organización verificable
+## Idea clave
 
-La carpeta principal delimita los archivos. La documentación explica el objetivo y el estado. La estructura permite encontrar cada elemento y comprobar los cambios.
+La carpeta principal marca qué archivos son parte del trabajo. La documentación explica el objetivo y el estado. La estructura te deja encontrar cada cosa y comprobar los cambios.
 :::
 
-## Un proyecto reúne trabajo relacionado
+## Qué es un proyecto
 
-Un **proyecto** es un conjunto organizado de archivos y carpetas que comparten un propósito. Puede representar un informe, una aplicación, un análisis o un estudio psicológico digital.
+Un **proyecto** es un conjunto ordenado de archivos y carpetas que comparten un propósito. Puede ser un informe, una aplicación, un análisis o un estudio psicológico online.
 
-La organización cumple varias funciones.
+Esa organización nos sirve para varias cosas.
 
-1. Mantiene juntos los archivos que participan en el mismo trabajo.
+1. Mantener juntos los archivos del mismo trabajo.
 
-2. Permite reconocer qué función cumple cada archivo.
+2. Saber qué función cumple cada archivo.
 
-3. Conserva instrucciones para continuar la tarea.
+3. Guardar indicaciones para poder retomar la tarea.
 
-4. Facilita la revisión de los cambios.
+4. Revisar los cambios con más facilidad.
 
-5. Ayuda a trasladar el trabajo a otra computadora.
+5. Llevar el trabajo a otra computadora.
 
-Una carpeta adquiere sentido como proyecto cuando su contenido responde a un objetivo compartido y puede interpretarse mediante su estructura y su documentación.
+Una carpeta se vuelve un proyecto cuando su contenido responde a un objetivo común y se puede entender a partir de su estructura y su documentación.
 
-Durante el curso vas a construir un proyecto llamado `mi-primer-estudio`. Su propósito será aprender a diseñar, implementar y verificar un estudio psicológico digital. La estructura crecerá cuando cada etapa necesite nuevos archivos.
+Durante el curso vas a construir un proyecto llamado `mi-primer-estudio`. Su propósito es aprender a diseñar, implementar y verificar un estudio psicológico online. La estructura va a ir creciendo a medida que cada etapa necesite archivos nuevos.
 
-## La carpeta principal delimita el proyecto
+## La carpeta principal
 
-La carpeta que contiene el proyecto completo recibe el nombre de **carpeta principal**. En documentación técnica también vas a encontrar las expresiones **raíz del proyecto** y *project root*.
+A la carpeta que contiene todo el proyecto la llamamos **carpeta principal**. En la documentación técnica también vas a encontrar **raíz del proyecto** o *project root*.
 
-En la primera etapa, la estructura será pequeña.
+En la primera etapa la estructura es chiquita.
 
 ```text
 mi-primer-estudio/
     README.md
 ```
 
-La carpeta `mi-primer-estudio` es la carpeta principal. El archivo `README.md` se encuentra directamente dentro de ella.
+`mi-primer-estudio` es la carpeta principal y `README.md` está directamente adentro.
 
-Esta ubicación importa. Más adelante, algunas herramientas buscarán archivos especiales a partir de la raíz. Un agente que comienza a trabajar allí podrá inspeccionar el contenido del proyecto y leer sus instrucciones.
+Esa ubicación importa. Más adelante algunas herramientas van a buscar ciertos archivos a partir de la raíz, y un agente que arranca a trabajar ahí va a poder revisar el contenido del proyecto y leer sus instrucciones.
 
-La carpeta principal también funciona como referencia para las rutas relativas. Cuando la ubicación actual es `mi-primer-estudio`, la ruta relativa `README.md` identifica el archivo de documentación.
+La carpeta principal también es la referencia de las rutas relativas. Si estás parado en `mi-primer-estudio`, la ruta relativa `README.md` apunta al archivo de documentación.
 
 ::: {.callout-important}
-## La carpeta principal define el alcance inicial del trabajo
+## Empezá siempre desde la carpeta principal
 
-Antes de ejecutar una herramienta o iniciar un agente, comprobá que PowerShell se encuentre en la carpeta principal del proyecto. `Get-Location` muestra la ubicación y `dir` muestra su contenido.
+Antes de ejecutar una herramienta o abrir un agente, comprobá que PowerShell esté en la carpeta principal del proyecto. `Get-Location` te muestra dónde estás y `dir` te muestra qué hay.
 :::
 
-## Los archivos cumplen funciones diferentes
+## Qué tipo de archivos hay en un proyecto
 
-Un proyecto de investigación puede reunir varios tipos de contenido. Cada tipo responde a una necesidad.
+Un proyecto de investigación puede juntar distintos tipos de contenido, y cada uno responde a una necesidad.
 
-### La documentación explica el trabajo
+### Documentación
 
-La documentación describe el propósito, el estado, las decisiones y los pasos necesarios para usar o revisar el proyecto.
+Describe el propósito, el estado, las decisiones y los pasos para usar o revisar el proyecto.
 
-En esta primera etapa, `README.md` será el único archivo. Su contenido explicará por qué existe el proyecto y qué incluye actualmente.
+En esta primera etapa `README.md` va a ser el único archivo. Ahí vamos a explicar por qué existe el proyecto y qué tiene por ahora.
 
-### Las instrucciones definen el comportamiento del estudio
+### Instrucciones
 
-Más adelante aparecerán archivos con instrucciones que el navegador podrá ejecutar. Esas instrucciones controlarán preguntas, estímulos, tiempos y respuestas. Con frecuencia reciben el nombre de **código**.
+Más adelante van a aparecer archivos con instrucciones que el navegador puede ejecutar. Esas instrucciones controlan preguntas, estímulos, tiempos y respuestas, y en general se las llama **código**.
 
-El código es texto escrito según reglas que un programa puede interpretar. Este libro introducirá esas reglas de manera progresiva. Primero vas a aprender a leer, localizar y verificar cambios pequeños.
+El código es texto escrito siguiendo reglas que un programa puede interpretar. Vamos a ir presentando esas reglas de a poco. Primero vas a aprender a leer, a encontrar cosas y a verificar cambios chicos.
 
-### Los materiales aportan contenido al procedimiento
+### Materiales
 
-Las imágenes, los sonidos, los textos y otros estímulos forman parte de los materiales. Su selección depende del diseño metodológico y de los permisos para utilizarlos.
+Las imágenes, los sonidos, los textos y otros estímulos son materiales. Cuáles usamos depende del diseño metodológico y de los permisos que tengamos para usarlos.
 
-### Los datos registran interacciones y resultados
+### Datos
 
-Las respuestas, los tiempos y las condiciones asignadas pueden convertirse en datos. Su ubicación, su estructura y su protección requieren decisiones explícitas.
+Las respuestas, los tiempos y las condiciones asignadas pueden convertirse en datos. Dónde se guardan, cómo se organizan y cómo se protegen son decisiones que hay que tomar de forma explícita.
 
-### La configuración orienta a las herramientas
+### Configuración
 
-Algunos archivos indican cómo debe ejecutarse, revisarse o publicarse un proyecto. Esos archivos aparecerán cuando hagan falta. Incorporarlos antes de comprender su función agregaría complejidad innecesaria.
+Algunos archivos indican cómo ejecutar, revisar o publicar un proyecto. Los vamos a agregar cuando hagan falta, porque sumarlos antes de entender para qué sirven solo complica las cosas.
 
-Por ahora, una carpeta y un archivo de documentación resultan suficientes.
+Por ahora, con una carpeta y un archivo de documentación alcanza.
 
-## `README.md` presenta el proyecto a una persona
+## El `README.md`
 
-El nombre `README` puede leerse como una invitación en inglés: “leeme”. Un archivo con ese nombre suele presentar el proyecto y explicar cómo comenzar.
+`README` se puede leer como una invitación en inglés, “leeme”. Un archivo con ese nombre suele presentar el proyecto y explicar cómo empezar.
 
-La extensión `.md` indica que el archivo utiliza **Markdown**. Markdown es una forma de escribir texto plano y señalar títulos, enlaces u otros elementos mediante caracteres visibles.
+La extensión `.md` indica que el archivo usa **Markdown**, que es una forma de escribir texto plano marcando títulos, enlaces y otros elementos con caracteres visibles.
 
-El texto plano contiene caracteres que muchos programas pueden abrir. No depende de un formato exclusivo de Word. El Bloc de notas y otros editores gratuitos pueden modificarlo.
+El texto plano tiene caracteres que casi cualquier programa puede abrir, sin depender de un formato propio de Word. Lo podés modificar con el Bloc de notas o con otros editores gratuitos.
 
-GitHub es un servicio web que permite alojar y compartir proyectos. Lo utilizaremos en una etapa posterior del curso. GitHub reconoce los archivos `README.md` y suele mostrarlos al entrar en un proyecto. Su [documentación sobre archivos README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) recomienda incluir información como el propósito, la utilidad y la forma de comenzar.
+GitHub es un servicio web para alojar y compartir proyectos. Lo vamos a usar más adelante en el curso. GitHub reconoce los archivos `README.md` y suele mostrarlos cuando entrás a un proyecto. En su [documentación sobre archivos README](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) recomienda contar para qué sirve el proyecto, qué utilidad tiene y cómo empezar a usarlo.
 
 Un README inicial puede responder cuatro preguntas.
 
 1. ¿Cómo se llama el proyecto?
 
-2. ¿Qué propósito tiene?
+2. ¿Para qué sirve?
 
-3. ¿En qué estado se encuentra?
+3. ¿En qué estado está?
 
-4. ¿Cuál será el próximo paso?
+4. ¿Cuál es el próximo paso?
 
-Durante este capítulo vas a escribir respuestas breves y verificables.
+En este capítulo vas a escribir respuestas cortas y que se puedan comprobar.
 
-## Markdown permite marcar títulos con caracteres visibles
+## Títulos en Markdown
 
-Observá este ejemplo.
+Mirá este ejemplo.
 
 ```markdown
 # Mi primer estudio psicológico
@@ -154,45 +154,45 @@ Observá este ejemplo.
 Este proyecto permitirá aprender a construir y verificar un estudio psicológico digital.
 ```
 
-El primer signo `#` marca el título principal. Los dos signos `##` marcan un título interno. La línea restante contiene un párrafo.
+Un signo `#` marca el título principal y dos signos `##` marcan un título interno. La última línea es un párrafo.
 
-Los signos forman parte del archivo de texto. Un programa capaz de interpretar Markdown puede mostrarlos como títulos con distinto tamaño. Un editor básico puede mostrarlos como caracteres comunes. El contenido se conserva en ambos casos.
+Esos signos son parte del archivo de texto. Un programa que entiende Markdown los muestra como títulos de distinto tamaño, y un editor básico los muestra como caracteres comunes. En los dos casos el contenido es el mismo.
 
-En esta etapa necesitás reconocer solamente esos dos niveles. Las demás posibilidades de Markdown aparecerán cuando ayuden a documentar una tarea concreta.
+Por ahora alcanza con reconocer esos dos niveles. El resto de lo que permite Markdown lo vamos a ver cuando nos ayude a documentar algo concreto.
 
-## `AGENTS.md` orientará el trabajo de los agentes
+## El `AGENTS.md`
 
-Más adelante, el proyecto incorporará un archivo llamado `AGENTS.md`. Su función será comunicar instrucciones estables a los agentes que trabajen dentro del proyecto.
+Más adelante vamos a sumar al proyecto un archivo llamado `AGENTS.md`. Sirve para darles instrucciones estables a los agentes que trabajen en el proyecto.
 
-Ese archivo podrá indicar quiénes usarán el estudio, qué términos deben explicarse, qué archivos requieren cuidado y qué verificaciones deben realizarse después de una modificación.
+Ahí podemos indicar quiénes van a usar el estudio, qué términos hay que explicar, qué archivos piden cuidado y qué verificaciones hacer después de cada cambio.
 
-`README.md` presenta el proyecto y ayuda a las personas a comprenderlo. `AGENTS.md` establece reglas de trabajo para los agentes. Ambos archivos pueden compartir información, aunque cumplen funciones diferentes.
+`README.md` presenta el proyecto y ayuda a las personas a entenderlo. `AGENTS.md` fija reglas de trabajo para los agentes. Pueden compartir información, pero cumplen funciones distintas.
 
-En el siguiente capítulo vas a estudiar qué cambia cuando una IA puede leer archivos y realizar acciones. El archivo `AGENTS.md` se incorporará cuando esa función resulte necesaria.
+En el próximo capítulo vemos qué cambia cuando una IA puede leer archivos y hacer cosas. `AGENTS.md` va a aparecer cuando lo necesitemos.
 
-## El proyecto técnico representa decisiones metodológicas
+## Decisiones metodológicas y decisiones técnicas
 
-La carpeta organiza una implementación. El estudio comienza con decisiones de investigación que necesitan quedar documentadas.
+La carpeta organiza una implementación, pero el estudio empieza con decisiones de investigación que tienen que quedar documentadas.
 
-Una **decisión metodológica** define qué se quiere investigar y bajo qué condiciones. Por ejemplo, el investigador decide qué constructo estudiar, quiénes pueden participar, qué procedimiento se utilizará y qué variable representará cada respuesta.
+Una **decisión metodológica** define qué queremos investigar y en qué condiciones. Por ejemplo, qué constructo estudiar, quiénes pueden participar, qué procedimiento usar y qué variable va a representar cada respuesta.
 
-Una **decisión técnica** define cómo se realizará una parte del procedimiento mediante archivos y programas. Por ejemplo, el equipo decide qué nombre tendrá una variable, dónde estará una imagen y qué archivo controlará una pantalla.
+Una **decisión técnica** define cómo se lleva a cabo una parte del procedimiento con archivos y programas. Por ejemplo, qué nombre tiene una variable, dónde está una imagen o qué archivo controla una pantalla.
 
-Las decisiones se relacionan. El nombre técnico `edad` puede representar la edad informada por una persona. El rango permitido debe surgir de los criterios metodológicos del estudio.
+Unas y otras se relacionan. El nombre técnico `edad` puede representar la edad que informa una persona, pero el rango permitido tiene que salir de los criterios metodológicos del estudio.
 
-El proyecto necesita registrar ambas capas. La ejecución permite comprobar la implementación técnica. El protocolo, la documentación y la revisión del investigador permiten evaluar la correspondencia metodológica.
+El proyecto tiene que registrar las dos capas. Ejecutar el estudio nos permite comprobar la implementación técnica. El protocolo, la documentación y la revisión del investigador nos permiten evaluar si esa implementación corresponde a lo que decidimos.
 
 ::: {.callout-warning}
-## La estructura ordenada todavía necesita contenido válido
+## Ordenado no quiere decir válido
 
-Una carpeta puede contener archivos bien nombrados y un programa puede ejecutarse correctamente. La calidad metodológica depende de las decisiones que esos archivos implementan.
+Una carpeta puede tener archivos con buenos nombres y un programa puede ejecutarse perfecto. La calidad metodológica depende de las decisiones que esos archivos implementan.
 :::
 
-## El proyecto crecerá cuando aparezca una necesidad
+## Un proyecto que crece cuando hace falta
 
-El proyecto inicial contiene un solo archivo. Esa restricción permite concentrarse en el propósito, la ubicación y la verificación.
+El proyecto inicial tiene un solo archivo. Esa limitación nos deja concentrarnos en el propósito, la ubicación y la verificación.
 
-En una etapa posterior aparecerán archivos para mostrar el estudio en un navegador.
+Más adelante van a aparecer archivos para mostrar el estudio en el navegador.
 
 ```text
 mi-primer-estudio/
@@ -201,15 +201,15 @@ mi-primer-estudio/
     README.md
 ```
 
-Esa estructura se introducirá cuando el curso explique qué función cumple cada archivo. Más adelante también podrán aparecer carpetas para materiales, estilos y componentes del estudio.
+Esa estructura la vamos a presentar cuando expliquemos qué hace cada archivo. Después pueden aparecer también carpetas para materiales, estilos y partes del estudio.
 
-Agregar archivos de forma gradual permite comprender por qué existe cada elemento. También facilita la detección de errores. Cuando una etapa pequeña funciona, el siguiente cambio tiene un punto de partida conocido.
+Sumar archivos de a poco ayuda a entender por qué existe cada uno, y también a encontrar errores. Si una etapa chica funciona, el siguiente cambio parte de algo conocido.
 
-## Un checkpoint conserva una etapa recuperable
+## Los checkpoints
 
-Un **checkpoint** es una copia del proyecto guardada en un momento concreto del recorrido. Cada checkpoint de este curso funciona de manera independiente y representa una etapa terminada.
+Un **checkpoint** es una copia del proyecto guardada en un momento concreto del recorrido. Cada checkpoint del curso funciona por su cuenta y representa una etapa terminada.
 
-El primer checkpoint contiene solamente `README.md`.
+El primero tiene solo `README.md`.
 
 ```text
 proyectos/
@@ -217,36 +217,36 @@ proyectos/
         README.md
 ```
 
-El número `01` indica la posición dentro de la secuencia. La palabra `inicial` describe la etapa.
+El número `01` marca la posición en la secuencia y la palabra `inicial` describe la etapa.
 
-Los checkpoints permiten comparar el trabajo propio con una versión de referencia. También permiten continuar si una versión posterior deja de funcionar. La recuperación consiste en copiar una etapa conocida y trabajar sobre la copia.
+Con los checkpoints podés comparar tu trabajo con una versión de referencia, y también seguir adelante si una versión posterior deja de funcionar. Para recuperarte, copiás una etapa conocida y trabajás sobre esa copia.
 
-La versión de referencia debe conservarse sin cambios durante las actividades. Tu trabajo cotidiano ocurrirá dentro de `mi-primer-estudio`.
+La versión de referencia no se toca durante las actividades. Tu trabajo de todos los días va dentro de `mi-primer-estudio`.
 
 ::: {.callout-tip}
-## Un checkpoint ofrece un punto de recuperación
+## Un lugar al que volver
 
-Cuando una práctica produce cambios difíciles de comprender, podés volver a una etapa funcional. Después podés repetir un cambio por vez y verificar cada resultado.
+Si una práctica te deja cambios que no entendés, podés volver a una etapa que funcionaba. Después repetís los cambios de a uno y verificás cada resultado.
 :::
 
-## Creá la primera versión del proyecto
+## Actividad
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 Primero vas a crear la carpeta principal.
 
-1. Elegí una ubicación que puedas encontrar con facilidad. Podés usar Documentos o una carpeta destinada al curso.
+1. Elegí un lugar que puedas encontrar fácil, como Documentos o una carpeta para el curso.
 
 2. Creá una carpeta llamada `mi-primer-estudio`.
 
-3. Abrí esa carpeta y comprobá que se encuentre vacía.
+3. Abrila y comprobá que esté vacía.
 
 Después vas a crear la documentación.
 
 4. Abrí el Bloc de notas u otro editor de texto plano.
 
-5. Copiá el siguiente contenido.
+5. Copiá este contenido.
 
 ```markdown
 # Mi primer estudio psicológico
@@ -268,80 +268,80 @@ El proyecto incorporará archivos e instrucciones de manera gradual durante el c
 
 7. Escribí el nombre completo `README.md`.
 
-8. Si el editor ofrece una opción para elegir el tipo de archivo, seleccioná una alternativa que conserve el nombre completo, como **Todos los archivos**.
+8. Si el editor te deja elegir el tipo de archivo, elegí una opción que respete el nombre completo, como **Todos los archivos**.
 
 9. Cerrá el editor y activá la visualización de extensiones en el Explorador de archivos.
 
 10. Comprobá que el archivo se llame `README.md`.
 
-Finalmente vas a verificar el proyecto desde PowerShell.
+Por último vas a verificar el proyecto desde PowerShell.
 
 11. Copiá la ruta de `mi-primer-estudio` desde la barra de direcciones del Explorador.
 
 12. Abrí PowerShell.
 
-13. Escribí `cd`, agregá un espacio y pegá la ruta entre comillas.
+13. Escribí `cd`, dejá un espacio y pegá la ruta entre comillas.
 
 14. Ejecutá `Get-Location` y comprobá que la ruta termine en `mi-primer-estudio`.
 
 15. Ejecutá `dir` y comprobá que aparezca `README.md`.
 
-16. Abrí `README.md` y comprobá que el contenido se haya conservado.
+16. Abrí `README.md` y comprobá que el contenido esté completo.
 
 17. Cerrá el archivo, cerrá PowerShell y volvé a encontrar el proyecto desde el Explorador.
 :::
 
-## Explicá qué ocurrió durante la actividad
+## Qué pasó en la actividad
 
-Creaste una carpeta principal con un propósito definido. El nombre `mi-primer-estudio` permite reconocerla. Su ubicación completa permite distinguirla de otras carpetas que podrían compartir el mismo nombre.
+Creaste una carpeta principal con un propósito definido. El nombre `mi-primer-estudio` te permite reconocerla y su ubicación completa la distingue de otras carpetas que podrían llamarse igual.
 
-El editor creó un archivo de texto plano. La extensión `.md` indicó que su contenido utiliza Markdown. Los títulos y los párrafos documentaron el propósito, el estado y el próximo paso.
+El editor creó un archivo de texto plano. La extensión `.md` indica que usa Markdown, y los títulos y párrafos documentan el propósito, el estado y el próximo paso.
 
-PowerShell permitió verificar dos condiciones. `Get-Location` confirmó la ubicación. `dir` confirmó la estructura. La apertura final del archivo confirmó el contenido.
+Con PowerShell comprobaste dos cosas. `Get-Location` confirmó la ubicación y `dir` confirmó la estructura. Al abrir el archivo al final, confirmaste también el contenido.
 
-La verificación reunió tres preguntas diferentes.
+En definitiva, la verificación respondió tres preguntas distintas.
 
-1. ¿Creé el proyecto en la ubicación prevista?
+1. ¿Creé el proyecto donde quería?
 
-2. ¿La carpeta contiene el archivo previsto?
+2. ¿La carpeta tiene el archivo que tiene que tener?
 
-3. ¿El archivo contiene la información prevista?
+3. ¿El archivo tiene la información que tiene que tener?
 
-Responder las tres preguntas aporta más evidencia que observar únicamente el nombre de la carpeta.
+Responder las tres da mucha más evidencia que mirar solo el nombre de la carpeta.
 
-## El primer checkpoint permite comparar y recuperar
+## Comparar con el primer checkpoint
 
-Este libro incluye una versión de referencia dentro de `proyectos\01-inicial`. Esa carpeta contiene el estado esperado al finalizar este capítulo.
+El libro trae una versión de referencia en `proyectos\01-inicial`, con el estado esperado al terminar este capítulo.
 
-Si tenés acceso a los archivos del curso, podés abrir ese checkpoint y comparar su estructura con `mi-primer-estudio`. La redacción puede presentar pequeñas diferencias si personalizaste el propósito. La estructura debe contener un archivo llamado `README.md` dentro de la carpeta principal.
+Si tenés los archivos del curso, abrí ese checkpoint y compará su estructura con `mi-primer-estudio`. Si personalizaste el propósito, la redacción puede cambiar un poco, pero la estructura tiene que ser la misma, con un `README.md` dentro de la carpeta principal.
 
-Conservá `01-inicial` como referencia. Si una actividad futura daña tu proyecto, copiá el checkpoint en otra ubicación y asignale un nombre nuevo. Después repetí solamente los cambios que ya comprendés.
+Guardá `01-inicial` como referencia. Si una actividad futura rompe tu proyecto, copiá el checkpoint en otro lugar, ponele un nombre nuevo y repetí solo los cambios que ya entendés.
 
-La recuperación también forma parte de una práctica responsable de investigación. Una versión identificable permite reconstruir qué procedimiento estaba disponible en una etapa determinada.
+Poder recuperar versiones también es parte de investigar de forma responsable. Una versión identificable permite reconstruir qué procedimiento había en una etapa determinada.
 
-## Una revisión puede anticipar los datos futuros
+## Pensar en los datos desde ahora
 
-El proyecto todavía no recolecta respuestas. Sin embargo, ya podés practicar una pregunta que acompañará todo el curso: ¿qué datos producirá este estudio?
+El proyecto todavía no recolecta respuestas, pero ya podemos practicar una pregunta que nos va a acompañar todo el curso. ¿Qué datos va a producir este estudio?
 
-Imaginá que más adelante agregás una pregunta de edad. La especificación podría incluir estas oraciones.
+Imaginá que más adelante agregás una pregunta de edad. La especificación podría decir algo así.
 
-1. El estudio registrará la respuesta con el nombre `edad`.
+1. El estudio va a registrar la respuesta con el nombre `edad`.
 
-2. La respuesta tendrá un valor numérico.
+2. La respuesta va a ser un número.
 
-3. La respuesta aceptará valores entre 18 y 80.
+3. Se van a aceptar valores entre 18 y 80.
 
-4. El procedimiento indicará qué debe ocurrir cuando una persona deja el campo vacío.
+4. El procedimiento va a indicar qué pasa si una persona deja el campo vacío.
 
-Estas decisiones todavía no forman parte del proyecto inicial. El ejemplo muestra cómo una intención de investigación necesita convertirse en una especificación verificable antes de implementar una pregunta.
+Nada de esto forma parte todavía del proyecto inicial. El ejemplo muestra cómo una intención de investigación tiene que convertirse en una especificación que se pueda verificar antes de programar una pregunta.
 
-Más adelante, el README podrá registrar qué variables produce el estudio y dónde encontrar su definición completa.
+Más adelante el README puede registrar qué variables produce el estudio y dónde está su definición completa.
 
-## La documentación permite que otra persona continúe
+## Documentar para que otro pueda seguir
 
-Un proyecto necesita ser comprensible después de una pausa. También necesita permitir una revisión realizada por otra persona.
+Un proyecto tiene que poder entenderse después de una pausa, y también tiene que poder revisarlo otra persona.
 
-Considerá dos descripciones posibles.
+Compará estas dos descripciones.
 
 ```text
 Proyecto para la facultad.
@@ -351,32 +351,32 @@ Proyecto para la facultad.
 Este proyecto permitirá aprender a diseñar, construir y verificar un estudio psicológico digital.
 ```
 
-La segunda oración comunica una finalidad concreta. Todavía puede ampliarse, pero ofrece un criterio para evaluar los próximos cambios.
+La segunda dice para qué es el proyecto. Se puede ampliar, pero ya da un criterio para evaluar los próximos cambios.
 
-Cuando una persona lea el README, debería poder reconocer el objetivo general y el estado actual. Cuando un agente lo lea, tendrá contexto para interpretar los archivos. La documentación reduce la dependencia de la memoria de quien creó el proyecto.
+Quien lea el README tendría que poder reconocer el objetivo general y el estado actual. Un agente que lo lea va a tener contexto para interpretar los archivos. La documentación hace que el proyecto dependa menos de la memoria de quien lo creó.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué relación comparten los archivos de un proyecto?
+1. ¿Qué tienen en común los archivos de un proyecto?
 
-2. ¿Qué significa la expresión “carpeta principal”?
+2. ¿Qué quiere decir “carpeta principal”?
 
-3. ¿Qué función cumple `README.md`?
+3. ¿Para qué sirve `README.md`?
 
-4. ¿Qué información comunicará `AGENTS.md` en una etapa posterior?
+4. ¿Qué información va a comunicar `AGENTS.md` más adelante?
 
 5. ¿Qué indica la extensión `.md`?
 
-6. ¿Qué tres aspectos verificaste después de crear el proyecto?
+6. ¿Qué tres cosas verificaste después de crear el proyecto?
 
 7. ¿Para qué sirve un checkpoint?
 
-8. ¿Por qué una estructura correcta todavía requiere una revisión metodológica?
+8. ¿Por qué una estructura correcta igual necesita una revisión metodológica?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Los archivos de un proyecto comparten un propósito y una organización.
 
@@ -396,65 +396,65 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Revisá algunas situaciones que suelen causar confusión
+## Errores frecuentes
 
-### El archivo puede terminar con una extensión adicional
+### Un `.txt` de más
 
-Algunos editores agregan `.txt` de manera automática. Activá la visualización de extensiones y comprobá que el nombre sea `README.md` en lugar de `README.md.txt`.
+Algunos editores agregan `.txt` sin avisar. Activá la visualización de extensiones y comprobá que el nombre sea `README.md` y no `README.md.txt`.
 
-### La carpeta puede quedar dentro de otra carpeta con el mismo nombre
+### Una carpeta dentro de otra con el mismo nombre
 
-Comprobá la ruta completa. La estructura esperada contiene una carpeta principal y el archivo directamente dentro de ella.
+Revisá la ruta completa. Lo que buscamos es una carpeta principal con el archivo directamente adentro.
 
 ```text
 mi-primer-estudio/
     README.md
 ```
 
-### Una copia dispersa puede confundirse con el proyecto actual
+### Copias sueltas que se confunden con el proyecto
 
-Evitá crear varias carpetas llamadas `mi-primer-estudio` en ubicaciones distintas. Cuando exista más de una copia, documentá cuál representa el trabajo actual y cuál funciona como respaldo.
+No crees varias carpetas `mi-primer-estudio` en distintos lugares. Si hay más de una copia, anotá cuál es la actual y cuál es un respaldo.
 
-### Un README demasiado general aporta poco contexto
+### Un README demasiado general
 
-Escribí qué permitirá hacer el proyecto y en qué estado se encuentra. Las expresiones concretas ayudan a evaluar si una modificación corresponde al objetivo.
+Escribí qué se va a poder hacer con el proyecto y en qué estado está. Las frases concretas ayudan a decidir si un cambio va con el objetivo o no.
 
-### La estructura completa del curso todavía resultaría prematura
+### Querer armar toda la estructura de entrada
 
-Cada archivo aparecerá cuando puedas explicar su función. La estructura inicial mantiene visible todo el proyecto y facilita su verificación.
+Cada archivo aparece cuando podés explicar para qué está. Con la estructura inicial ves todo el proyecto de un vistazo y te resulta más fácil verificarlo.
 
-### El checkpoint de referencia debe permanecer recuperable
+### Trabajar sobre el checkpoint
 
-Realizá las actividades dentro de `mi-primer-estudio`. Usá `proyectos\01-inicial` para comparar o copiar una base nueva.
+Hacé las actividades dentro de `mi-primer-estudio`. `proyectos\01-inicial` es para comparar o para copiar una base nueva.
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Un proyecto reúne archivos y carpetas que comparten un propósito. La carpeta principal delimita el trabajo y funciona como referencia para las rutas relativas.
+Un proyecto junta archivos y carpetas que comparten un propósito. La carpeta principal marca los límites del trabajo y es la referencia de las rutas relativas.
 
-Los archivos pueden documentar, implementar instrucciones, aportar materiales, registrar datos o configurar herramientas. La estructura crece cuando el proyecto necesita cumplir una función nueva.
+Los archivos pueden documentar, contener instrucciones, aportar materiales, registrar datos o configurar herramientas. La estructura crece cuando el proyecto necesita algo nuevo.
 
-`README.md` presenta el proyecto mediante texto en formato Markdown. `AGENTS.md` comunicará reglas estables a los agentes en una etapa posterior.
+`README.md` presenta el proyecto con texto en Markdown, y más adelante `AGENTS.md` les va a dar reglas estables a los agentes.
 
-El proyecto inicial contiene solamente `README.md`. `Get-Location` permite verificar la ubicación. `dir` permite verificar la estructura. La lectura del archivo permite verificar el contenido.
+El proyecto inicial tiene solo `README.md`. Con `Get-Location` verificamos la ubicación, con `dir` la estructura y leyendo el archivo, el contenido.
 
-Un checkpoint conserva una etapa recuperable. La primera referencia del curso se encuentra en `proyectos\01-inicial`.
+Un checkpoint guarda una etapa a la que podemos volver. La primera referencia del curso está en `proyectos\01-inicial`.
 
-La organización técnica ayuda a implementar y revisar el estudio. Las decisiones metodológicas determinan qué debe representar esa organización.
+La organización técnica nos ayuda a implementar y revisar el estudio, pero son las decisiones metodológicas las que definen qué tiene que representar.
 
-## Resolvé un desafío breve
+## Desafío
 
-Pedile a otra persona que revise `mi-primer-estudio` sin explicarle previamente cómo lo creaste.
+Pedile a otra persona que revise `mi-primer-estudio` sin contarle antes cómo lo armaste.
 
-1. La persona debe encontrar la carpeta a partir de la ubicación que le indiques.
+1. Tiene que encontrar la carpeta a partir de la ubicación que le digas.
 
-2. La persona debe identificar el propósito mediante `README.md`.
+2. Tiene que identificar el propósito leyendo `README.md`.
 
-3. La persona debe describir el estado actual del proyecto.
+3. Tiene que describir en qué estado está el proyecto.
 
-4. La persona debe indicar cuál será el próximo paso.
+4. Tiene que decir cuál es el próximo paso.
 
-5. La persona debe confirmar que el proyecto todavía no recolecta datos.
+5. Tiene que confirmar que el proyecto todavía no recolecta datos.
 
-Registrá cualquier pregunta que la documentación haya dejado sin respuesta. Después agregá al README una oración que resuelva esa duda y volvé a realizar la revisión.
+Anotá las preguntas que la documentación no le haya respondido. Después agregá al README una oración que resuelva esa duda y repetí la revisión.
 
-Con este proyecto termina la Parte I. En la Parte II vas a estudiar cómo trabaja un agente de IA sobre una carpeta, qué acciones puede realizar y qué decisiones debe conservar el investigador.
+Con este proyecto cerramos la Parte I. En la Parte II vemos cómo trabaja un agente de IA sobre una carpeta, qué puede hacer y qué decisiones tiene que conservar el investigador.

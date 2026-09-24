@@ -3,47 +3,47 @@ title: "El diccionario de variables"
 description: "Documentar cada variable del estudio y usar esa documentación para verificar la implementación."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar qué es un diccionario de variables y para qué sirve.
+1. explicar qué es un diccionario de variables y para qué sirve;
 
-2. Vas a poder identificar la información que debe documentarse para cada variable.
+2. identificar qué hay que documentar de cada variable;
 
-3. Vas a poder pedirle a un agente un borrador del diccionario a partir del código.
+3. pedirle a un agente un borrador del diccionario a partir del código;
 
-4. Vas a poder verificar ese borrador contra el código y contra un archivo de datos real.
+4. verificar ese borrador contra el código y contra un archivo de datos real;
 
-5. Vas a poder completar el diccionario con las decisiones que el código no contiene.
+5. completar el diccionario con las decisiones que el código no tiene;
 
-6. Vas a poder comparar tu proyecto con el checkpoint del final de la Parte III.
+6. comparar tu proyecto con el checkpoint del final de la Parte III.
 
-## Un número sin contexto permite formular el problema
+## Para empezar, un número sin contexto
 
-Imaginá que dentro de tres meses abrís un archivo de datos de tu estudio y encontrás esta celda.
+Imaginá que dentro de tres meses abrís un archivo de datos de tu estudio y te encontrás con esta celda.
 
 ```text
 {"efoe_1":3,"efoe_2":4,"efoe_3":1,"efoe_4":0}
 ```
 
-¿Qué significa `efoe`? ¿El 3 es “De acuerdo” o “Ni de acuerdo ni en desacuerdo”? ¿El ítem 3 se suma directamente o se invierte? ¿Cuál es el puntaje máximo posible?
+¿Qué es `efoe`? ¿El 3 es “De acuerdo” o “Ni de acuerdo ni en desacuerdo”? ¿El ítem 3 se suma tal cual o se invierte? ¿Cuál es el puntaje máximo posible?
 
-Hoy conocés las respuestas porque acabás de construir el estudio. Dentro de tres meses, probablemente no. Otra persona que quiera revisar o reproducir tu trabajo no las conoce en absoluto. Un agente que lea el archivo en una sesión nueva tampoco.
+Hoy sabés las respuestas porque acabás de construir el estudio, pero dentro de tres meses seguramente no. Otra persona que quiera revisar o reproducir tu trabajo directamente no las sabe, y un agente que lea el archivo en una sesión nueva tampoco.
 
-En el capítulo sobre computadoras viste que un dato necesita contexto para interpretarse: el valor `22` puede ser una edad, un puntaje o una cantidad de respuestas correctas. Este capítulo reúne ese contexto en un documento.
+En el capítulo sobre computadoras vimos que un dato necesita contexto para interpretarse, porque un `22` puede ser una edad, un puntaje o una cantidad de respuestas correctas. En este capítulo juntamos ese contexto en un documento.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Un diccionario de variables describe cada variable de un estudio: de dónde viene, qué valores puede tomar y cómo se interpretan. Es la documentación que permite entender los datos sin depender de la memoria de quien los recolectó.
+Un diccionario de variables describe cada variable de un estudio, de dónde viene, qué valores puede tomar y cómo se interpretan. Es la documentación que permite entender los datos sin depender de la memoria de quien los recolectó.
 :::
 
-## Un diccionario describe cada variable
+## Qué es un diccionario de variables
 
-Un **diccionario de variables**, también llamado libro de códigos, es un documento que describe todas las variables de un conjunto de datos. Para cada variable suele indicar lo siguiente.
+Un **diccionario de variables**, también llamado libro de códigos, es un documento que describe todas las variables de un conjunto de datos. Para cada una suele indicar varias cosas.
 
-1. **Nombre.** Cómo aparece la variable en los datos, por ejemplo `anio_carrera`.
+1. **Nombre.** Cómo aparece en los datos, por ejemplo `anio_carrera`.
 
 2. **Origen.** Qué pantalla o qué proceso la produce.
 
@@ -55,19 +55,19 @@ Un **diccionario de variables**, también llamado libro de códigos, es un docum
 
 6. **Datos faltantes.** Si puede quedar sin respuesta y cómo aparece en ese caso.
 
-7. **Notas.** Cualquier información necesaria para interpretarla, como un ítem invertido o una regla de puntuación.
+7. **Notas.** Todo lo que haga falta para interpretarla, como un ítem invertido o una regla de puntuación.
 
-En el capítulo sobre Google Forms escribiste una especificación de variables en el README. La especificación describe lo que el estudio *debería* registrar. El diccionario describe lo que el estudio *efectivamente* registra. Si ambos coinciden, la implementación cumple la especificación. Si difieren, encontraste algo que revisar.
+En el capítulo sobre Google Forms escribiste una especificación de variables en el README. La especificación describe lo que el estudio *debería* registrar, y el diccionario describe lo que *efectivamente* registra. Si coinciden, la implementación cumple la especificación. Si no, encontraste algo para revisar.
 
-## El diccionario también describe variables que no pediste
+## Variables que no pediste
 
-Tu archivo de datos contiene variables que no provienen de ninguna pregunta: `participante`, `pantalla`, `rt`, `time_elapsed`, `trial_index` y `trial_type`. Algunas las agregaste vos. Otras las agrega jsPsych por su cuenta.
+Tu archivo de datos tiene variables que no salen de ninguna pregunta, como `participante`, `pantalla`, `rt`, `time_elapsed`, `trial_index` y `trial_type`. Algunas las agregaste vos y otras las agrega jsPsych por su cuenta.
 
-Todas deben figurar en el diccionario. Una persona que abra el archivo va a encontrar esas columnas y necesita saber qué significan.
+Todas tienen que estar en el diccionario, porque quien abra el archivo se va a encontrar con esas columnas y necesita saber qué significan.
 
-Además, el diccionario debe explicar la organización del archivo. En tu estudio, las respuestas no ocupan columnas propias: aparecen agrupadas en la columna `response`. Esa particularidad, que estudiaste en el capítulo anterior, también se documenta.
+Además, el diccionario tiene que explicar cómo está organizado el archivo. En tu estudio, las respuestas no tienen columnas propias, sino que aparecen agrupadas en la columna `response`. Esa particularidad, que vimos en el capítulo anterior, también se documenta.
 
-## El diccionario va en su propio archivo
+## Un archivo propio
 
 El diccionario de tu estudio va a ser un archivo Markdown llamado `diccionario.md`, dentro de la carpeta principal del proyecto.
 
@@ -79,26 +79,26 @@ mi-primer-estudio/
 └── README.md
 ```
 
-Podría ser una sección del README, pero un archivo separado tiene ventajas. Se puede compartir junto con los datos sin incluir el resto de la documentación. Además, el README queda breve y enfocado en presentar el proyecto.
+Podría ser una sección del README, pero tenerlo aparte tiene ventajas. Se puede compartir junto con los datos sin el resto de la documentación, y el README queda corto y enfocado en presentar el proyecto.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-La reproducibilidad, que definiste en el capítulo sobre el ciclo de trabajo, depende de que otra persona pueda comprender tus datos. Muchas revistas científicas y repositorios de datos piden un diccionario de variables junto con los datos. Cuando publiques datos en un repositorio como Zenodo, en la Parte V, el diccionario va a ser parte de lo que publiques.
+La reproducibilidad, que definimos en el capítulo sobre el ciclo de trabajo, depende de que otra persona pueda entender tus datos. Muchas revistas científicas y repositorios de datos piden un diccionario de variables junto con los datos. Cuando publiques datos en un repositorio como Zenodo, en la Parte V, el diccionario va a ser parte de lo que publiques.
 
-El diccionario también es una herramienta de verificación. Escribirlo te obliga a revisar cada variable, y en ese proceso suelen aparecer problemas: un nombre de variable repetido, una opción que no coincide con la especificación, una codificación que no esperabas.
+El diccionario también sirve para verificar. Escribirlo te obliga a revisar cada variable, y en ese recorrido suelen aparecer problemas, como un nombre de variable repetido, una opción que no coincide con la especificación o una codificación que no esperabas.
 
-## Pedile a Codex un borrador
+## Con Codex, un borrador
 
-Extraer la lista de variables de `experiment.js` es una tarea repetitiva y técnica: consiste en leer cada ensayo y anotar sus nombres, preguntas y opciones. Es el tipo de tarea en la que un agente puede ahorrarte tiempo.
+Sacar la lista de variables de `experiment.js` es una tarea repetitiva y técnica, porque hay que leer cada ensayo y anotar nombres, preguntas y opciones. En ese tipo de tareas un agente te puede ahorrar tiempo.
 
-Sin embargo, el código no contiene toda la información del diccionario. No dice cómo se puntúa la escala, ni qué valor numérico registra jsPsych para cada opción, ni cómo tratar un dato faltante en el análisis. Esas son decisiones metodológicas. El agente puede extraer lo que el código dice. No puede saber lo que el código no dice.
+Pero el código no tiene toda la información del diccionario. No dice cómo se puntúa la escala, ni qué número registra jsPsych para cada opción, ni cómo tratar un dato faltante en el análisis. Esas son decisiones metodológicas. El agente puede sacar lo que el código dice, pero no puede saber lo que el código no dice.
 
-Por eso el pedido le indica al agente que marque lo que no puede determinar.
+Por eso el pedido le indica que marque lo que no puede determinar.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-1. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+1. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
 2. Escribí este pedido.
 
@@ -126,62 +126,62 @@ leyendo el código, escribí PENDIENTE en esa celda. No inventes información.
 No modifiques ningún otro archivo.
 ```
 
-3. Revisá la propuesta de cambio. Es un archivo nuevo, así que todas las líneas van a aparecer con `+`. Leela completa antes de aprobarla.
+3. Revisá la propuesta de cambio. Como es un archivo nuevo, todas las líneas van a aparecer con `+`. Leela entera antes de aprobarla.
 :::
 
-**Sin acceso a Codex:** escribí el diccionario con el editor, usando como modelo el archivo `proyectos\04-escalas\diccionario.md`. No lo copies directamente: completalo leyendo tu propio `experiment.js`.
+**Sin acceso a Codex.** Escribí el diccionario con el editor, tomando como modelo `proyectos\04-escalas\diccionario.md`. No lo copies tal cual, completalo leyendo tu propio `experiment.js`.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-El agente leyó `experiment.js` y recorrió los ensayos. Para cada pregunta, extrajo el valor de `name`, el texto de `prompt` y las opciones. A partir de esa información armó las tablas con el formato que le indicaste.
+El agente leyó `experiment.js` y recorrió los ensayos. De cada pregunta sacó el valor de `name`, el texto de `prompt` y las opciones, y con eso armó las tablas en el formato que le pediste.
 
-Para completar algunas celdas, el agente tuvo que interpretar el código. Por ejemplo, para indicar el tipo de la variable `edad` tuvo que reconocer que `type="number"` significa un campo numérico. Para describir `rt` o `time_elapsed` tuvo que usar conocimiento general sobre jsPsych, porque esas columnas no aparecen en tu código.
+Para completar algunas celdas tuvo que interpretar el código. Para decir de qué tipo es `edad`, por ejemplo, tuvo que reconocer que `type="number"` es un campo numérico. Y para describir `rt` o `time_elapsed` tuvo que usar lo que sabe en general sobre jsPsych, porque esas columnas no aparecen en tu código.
 
-Esas interpretaciones pueden ser correctas o no. Por eso el paso siguiente es la verificación.
+Esas interpretaciones pueden estar bien o no, y por eso lo que sigue es verificar.
 
-## Verificá el borrador contra el código y contra los datos
+## Verificar contra el código y contra los datos
 
-La verificación del diccionario tiene dos comparaciones. La primera compara el diccionario con el código. La segunda lo compara con un archivo de datos real. La segunda es la más importante: el diccionario describe los datos, y solo los datos muestran lo que realmente se registra.
+La verificación del diccionario tiene dos comparaciones, una con el código y otra con un archivo de datos real. La segunda es la más importante, porque el diccionario describe los datos y solo los datos muestran lo que realmente se registra.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-1. Completá el estudio una vez con respuestas conocidas. Anotá tus respuestas mientras lo hacés. Usá el mismo patrón de la escala del capítulo sobre escalas: 3, 4, 1 y 0 en los valores registrados.
+1. Completá el estudio una vez con respuestas conocidas y anotalas mientras lo hacés. En la escala usá el mismo patrón del capítulo sobre escalas, que da 3, 4, 1 y 0 como valores registrados.
 
 2. Abrí el archivo de datos descargado en una planilla de cálculo.
 
 3. Abrí `diccionario.md` en el editor.
 
-4. Para cada fila de la tabla de variables de las preguntas, comprobá:
-   - que el nombre coincida exactamente con el que aparece en los datos;
-   - que la pregunta coincida con la de `experiment.js`;
-   - que los valores posibles coincidan con los que registró jsPsych;
-   - que la obligatoriedad coincida con el comportamiento del estudio.
+4. Para cada fila de la tabla de variables de las preguntas, comprobá cuatro cosas.
+   - Que el nombre sea exactamente el que aparece en los datos.
+   - Que la pregunta sea la de `experiment.js`.
+   - Que los valores posibles coincidan con los que registró jsPsych.
+   - Que la obligatoriedad coincida con cómo se comporta el estudio.
 
-5. Buscá en particular la fila de la escala. ¿Qué valores posibles indica el borrador? ¿Coinciden con los valores 0 a 4 que registró jsPsych?
+5. Buscá en especial la fila de la escala. ¿Qué valores posibles indica el borrador? ¿Coinciden con los valores de 0 a 4 que registró jsPsych?
 
-6. Buscá las celdas marcadas como PENDIENTE. Anotá qué información falta en cada una.
+6. Buscá las celdas marcadas como PENDIENTE y anotá qué información falta en cada una.
 
-7. Anotá toda diferencia que encuentres entre el borrador y los datos.
+7. Anotá todas las diferencias que encuentres entre el borrador y los datos.
 :::
 
-Un error frecuente en los borradores generados por agentes es describir los valores de una escala Likert como 1 a 5. Muchas escalas se codifican así, y el modelo de lenguaje puede suponerlo. Sin embargo, jsPsych registra valores de 0 a 4. Solo la comparación con un archivo de datos real detecta esa diferencia. Si la encontraste, acabás de observar por qué el informe de un agente, o un documento redactado por él, no reemplaza la verificación.
+Un error muy común en los borradores que escriben los agentes es describir los valores de una escala Likert como de 1 a 5. Muchas escalas se codifican así, y el modelo de lenguaje puede darlo por hecho. Pero jsPsych registra de 0 a 4, y solo la comparación con un archivo de datos real detecta esa diferencia. Si te pasó, acabás de ver por qué el informe de un agente, o un documento escrito por él, no reemplaza la verificación.
 
-## Completá el diccionario con las decisiones metodológicas
+## Completar con las decisiones metodológicas
 
-El borrador describe lo que está en el código. Faltan dos secciones que expresan decisiones: la codificación y puntuación de la escala, y el tratamiento de los datos faltantes. Esa información la aportás vos, a partir de la especificación del capítulo sobre escalas.
+El borrador describe lo que está en el código. Faltan dos secciones que expresan decisiones, la codificación y puntuación de la escala y el tratamiento de los datos faltantes. Esa información la ponés vos, a partir de la especificación del capítulo sobre escalas.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-Primero, pedí que se corrijan las diferencias que encontraste. Formulá un pedido por cada diferencia, con el valor correcto. Por ejemplo:
+Primero pedí que se corrijan las diferencias que encontraste, con un pedido por cada una y el valor correcto. Por ejemplo, así.
 
 ```text
 En diccionario.md, en la fila de efoe_1 a efoe_4, reemplazá los valores posibles por
 "0 a 4 (ver codificación)". No modifiques ninguna otra parte del archivo.
 ```
 
-Después, agregá las secciones finales.
+Después agregá las secciones finales.
 
 ```text
 En diccionario.md, agregá al final del archivo este contenido exacto:
@@ -211,28 +211,28 @@ El ítem `efoe_3` ("Dejo el estudio para el último momento.") está redactado e
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-Finalmente, resolvé las celdas PENDIENTE que queden. Para cada una, decidí el contenido y pedí el cambio con el texto exacto, o editala vos con el editor.
+Por último, resolvé las celdas PENDIENTE que queden. Para cada una, decidí qué va y pedí el cambio con el texto exacto, o editala vos con el editor.
 :::
 
-**Sin acceso a Codex:** agregá las secciones con el editor.
+**Sin acceso a Codex.** Agregá las secciones con el editor.
 
-## Conectá el diccionario con el README
+## Conectar el diccionario con el README
 
-El README presenta el proyecto. Conviene que indique dónde está el diccionario.
+El README presenta el proyecto, así que conviene que diga dónde está el diccionario.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 1. Abrí `README.md` en el editor.
 
-2. Al final de la sección “Variables previstas”, agregá esta oración: “La descripción completa de las variables registradas está en `diccionario.md`.”
+2. Al final de la sección “Variables previstas”, agregá esta oración, “La descripción completa de las variables registradas está en `diccionario.md`.”
 
 3. Agregá una entrada al registro de cambios que documente la creación del diccionario y su verificación contra un archivo de datos real.
 :::
 
-## Compará con el checkpoint del final de la Parte III
+## Comparar con el checkpoint
 
-Tu proyecto debería tener ahora esta estructura.
+Ahora tu proyecto tendría que tener esta estructura.
 
 ```text
 mi-primer-estudio/
@@ -242,52 +242,52 @@ mi-primer-estudio/
 └── README.md
 ```
 
-El checkpoint `proyectos\04-escalas` contiene la versión de referencia de `index.html`, `experiment.js` y `diccionario.md`. Compará tus archivos con los del checkpoint. El contenido de tu README va a ser diferente, porque incluye tus reglas de trabajo y tu registro de cambios. La redacción de tu diccionario también puede diferir. Lo importante es que describa correctamente las mismas variables.
+El checkpoint `proyectos\04-escalas` tiene la versión de referencia de `index.html`, `experiment.js` y `diccionario.md`. Compará tus archivos con esos. Tu README va a ser distinto, porque tiene tus reglas de trabajo y tu registro de cambios, y la redacción de tu diccionario también puede variar. Lo que importa es que describa bien las mismas variables.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
-### El diccionario describe lo que se pidió, no lo que se registró
+### Documentar lo que se pidió y no lo que se registró
 
-Si escribís el diccionario a partir de la especificación en lugar de los datos, podés documentar una variable que nunca se implementó o un valor que el estudio no produce. El diccionario se verifica contra los datos.
+Si escribís el diccionario a partir de la especificación y no de los datos, podés documentar una variable que nunca se implementó o un valor que el estudio no produce. El diccionario se verifica contra los datos.
 
-### Faltan las variables generadas por jsPsych
+### Olvidar las variables que agrega jsPsych
 
-Columnas como `rt` o `time_elapsed` aparecen en los datos aunque no las hayas definido. Si no figuran en el diccionario, una persona que lea los datos no va a saber qué significan.
+Columnas como `rt` o `time_elapsed` aparecen en los datos aunque no las hayas definido. Si no están en el diccionario, quien lea los datos no va a saber qué significan.
 
-### La codificación no está documentada
+### No documentar la codificación
 
-Un valor numérico sin su codificación no se puede interpretar. Cada escala necesita su tabla de codificación.
+Un número sin su codificación no se puede interpretar. Cada escala necesita su tabla de codificación.
 
-### El diccionario quedó desactualizado
+### Dejar el diccionario desactualizado
 
-Cada vez que modifiques el estudio, revisá si el cambio afecta el diccionario. Agregar una pregunta, cambiar una opción o cambiar un nombre de variable requiere actualizarlo. Incluí esa revisión en tu ciclo de trabajo.
+Cada vez que modifiques el estudio, fijate si el cambio afecta el diccionario. Agregar una pregunta, cambiar una opción o cambiar un nombre de variable obliga a actualizarlo, así que sumá esa revisión a tu ciclo de trabajo.
 
-### El agente completó una celda PENDIENTE por su cuenta
+### Que el agente complete un PENDIENTE por su cuenta
 
-Si una celda que el código no permite determinar aparece completa, preguntá de dónde salió esa información. Puede ser una suposición razonable o una invención.
+Si una celda que el código no permite determinar aparece completa, preguntá de dónde salió esa información. Puede ser una suposición razonable o un invento.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
 1. ¿Qué es un diccionario de variables?
 
-2. ¿Qué diferencia existe entre la especificación de variables y el diccionario?
+2. ¿Qué diferencia hay entre la especificación de variables y el diccionario?
 
 3. ¿Por qué el diccionario incluye variables como `rt` o `trial_index`?
 
-4. ¿Qué parte del diccionario puede extraer un agente del código y qué parte no?
+4. ¿Qué parte del diccionario puede sacar un agente del código y qué parte no?
 
-5. ¿Por qué el pedido indicaba escribir PENDIENTE en lugar de completar todas las celdas?
+5. ¿Por qué el pedido decía que escribiera PENDIENTE en vez de completar todas las celdas?
 
 6. ¿Por qué se verifica el diccionario contra un archivo de datos real?
 
 7. ¿Cuándo hay que actualizar el diccionario?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
-1. Un diccionario de variables es un documento que describe cada variable de un conjunto de datos: su nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas.
+1. Un diccionario de variables es un documento que describe cada variable de un conjunto de datos, con su nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas.
 
 2. La especificación describe lo que el estudio debería registrar, mientras que el diccionario describe lo que efectivamente registra.
 
@@ -303,27 +303,27 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Un diccionario de variables describe cada variable de un conjunto de datos, incluidas las que agrega jsPsych por su cuenta. Documenta nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas, y explica la organización del archivo.
+Un diccionario de variables describe cada variable de un conjunto de datos, incluidas las que agrega jsPsych por su cuenta. Documenta nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas, y explica cómo está organizado el archivo.
 
-La especificación describe lo que el estudio debería registrar. El diccionario describe lo que efectivamente registra. Compararlos es una forma de verificar la implementación.
+La especificación describe lo que el estudio debería registrar y el diccionario, lo que efectivamente registra. Compararlos es una forma de verificar la implementación.
 
-Un agente puede producir un borrador a partir del código, pero solo puede describir lo que el código contiene. Las decisiones metodológicas, como la codificación y la puntuación de una escala, las aporta el investigador. El borrador se verifica contra un archivo de datos real.
+Un agente puede hacer un borrador a partir del código, pero solo puede describir lo que el código tiene. Las decisiones metodológicas, como la codificación y la puntuación de una escala, las pone el investigador, y el borrador se verifica contra un archivo de datos real.
 
-Tu proyecto coincide ahora con el checkpoint `04-escalas`.
+Tu proyecto ya coincide con el checkpoint `04-escalas`.
 
-## Cerrá la Parte III
+## Cierre de la Parte III
 
-Con este capítulo termina la Parte III. Empezaste analizando qué hace Google Forms y terminaste con un estudio que reproduce un formulario completo con jsPsych.
+Con este capítulo termina la Parte III. Empezamos analizando qué hace Google Forms y terminamos con un estudio que reproduce un formulario completo con jsPsych.
 
-Tu estudio tiene bienvenida, consentimiento, cuestionario sociodemográfico con validaciones, una escala ficticia y cierre. Registra un identificador de participante, etiqueta cada pantalla y descarga los datos. Además, está documentado en un diccionario de variables.
+Tu estudio tiene bienvenida, consentimiento, cuestionario sociodemográfico con validaciones, una escala ficticia y cierre. Registra un identificador de participante, etiqueta cada pantalla y descarga los datos, y además está documentado en un diccionario de variables.
 
-En el camino viste dónde queda escrita cada decisión: el texto de una pregunta en `prompt`, el nombre de una variable en `name`, una restricción en los atributos de un campo, la obligatoriedad en `required`, el orden en la línea de tiempo y el guardado en `on_finish`.
+En el camino viste dónde queda escrita cada decisión. El texto de una pregunta va en `prompt`, el nombre de una variable en `name`, una restricción en los atributos de un campo, la obligatoriedad en `required`, el orden en la línea de tiempo y el guardado en `on_finish`.
 
-## Resolvé un desafío breve
+## Desafío
 
-Imaginá que otra persona del equipo agrega al estudio esta pregunta, sin avisarte.
+Imaginá que alguien del equipo agrega esta pregunta al estudio sin avisarte.
 
 ```javascript
 const pregunta_trabajo = {
@@ -338,10 +338,10 @@ const pregunta_trabajo = {
 
 1. Escribí la fila del diccionario para la variable `trabaja`.
 
-2. Indicá qué valor quedaría registrado si una persona no responde. Para averiguarlo, podés agregar la pregunta a una copia de tu proyecto y probarla.
+2. Decí qué valor quedaría registrado si una persona no responde. Para averiguarlo podés agregar la pregunta a una copia de tu proyecto y probarla.
 
 3. Agregá a la sección de datos faltantes una línea que documente ese caso.
 
-4. Indicá qué otra parte del diccionario cambiaría. Pensá en la cantidad de filas por participante y en los valores posibles de `pantalla`.
+4. Decí qué otra parte del diccionario cambiaría. Pensá en la cantidad de filas por participante y en los valores posibles de `pantalla`.
 
-En la Parte IV vas a incorporar a tu encuesta recursos que Google Forms no ofrece o resuelve mal: el orden aleatorio de los ítems, la lógica condicional, los controles de atención y el análisis de los tiempos de respuesta.
+En la Parte IV le sumamos a tu encuesta cosas que Google Forms no ofrece o resuelve mal, como el orden aleatorio de los ítems, la lógica condicional, los controles de atención y el análisis de los tiempos de respuesta.

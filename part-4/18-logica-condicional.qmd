@@ -3,43 +3,43 @@ title: "Lógica condicional"
 description: "Cómo cambia el recorrido de una encuesta según las respuestas anteriores."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder expresar una regla del procedimiento con la forma “si ocurre…, entonces…”.
+1. expresar una regla del procedimiento con la forma “si pasa tal cosa, entonces…”;
 
-2. Vas a poder dibujar las ramas posibles de un estudio.
+2. dibujar las ramas posibles de un estudio;
 
-3. Vas a poder terminar el estudio cuando una persona no acepta el consentimiento o no cumple un criterio de inclusión.
+3. terminar el estudio cuando una persona no acepta el consentimiento o no cumple un criterio de inclusión;
 
-4. Vas a poder mostrar una pregunta de seguimiento solo cuando corresponde.
+4. mostrar una pregunta de seguimiento solo cuando corresponde;
 
-5. Vas a poder distinguir un dato faltante de una pregunta que no aplica.
+5. distinguir un dato faltante de una pregunta que no aplica;
 
-6. Vas a poder diseñar casos de prueba que recorran cada rama.
+6. diseñar casos de prueba que recorran cada rama.
 
-## Un solo camino permite formular el problema
+## Para empezar, un solo camino
 
-Hasta ahora tu estudio tiene un único recorrido. Todas las personas ven las mismas pantallas en la misma secuencia, salvo el orden aleatorio de las escalas. Esa estructura genera tres problemas.
+Hasta ahora tu estudio tiene un único recorrido. Todo el mundo ve las mismas pantallas en la misma secuencia, salvo el orden aleatorio de las escalas, y eso trae tres problemas.
 
-Primero, el consentimiento tiene un solo botón. Quien no quiere participar tiene que cerrar la ventana. No hay una forma explícita de decir que no, y el estudio no confirma que la decisión fue respetada.
+El primero es que el consentimiento tiene un solo botón. Quien no quiere participar tiene que cerrar la ventana, no hay una forma explícita de decir que no y el estudio no confirma que esa decisión se respetó.
 
-Segundo, el estudio está pensado para estudiantes universitarios, pero no lo comprueba. Cualquier persona que reciba el enlace puede responder.
+El segundo es que el estudio está pensado para estudiantes universitarios, pero no lo comprueba. Cualquiera que reciba el enlace puede responder.
 
-Tercero, algunas preguntas solo tienen sentido para algunas personas. Si alguien eligió “Herramientas de IA” entre sus recursos de estudio, podría interesarte saber cuáles usa. Preguntárselo a quien no las usa sería confuso.
+El tercero es que algunas preguntas solo tienen sentido para algunas personas. Si alguien eligió “Herramientas de IA” entre sus recursos de estudio, quizás te interese saber cuáles usa. Pero preguntárselo a quien no las usa sería confuso.
 
-Google Forms resuelve algunas de estas situaciones con la opción “Ir a la sección según la respuesta”. jsPsych las resuelve con **lógica condicional**: reglas que deciden qué ocurre a continuación según lo que pasó antes.
+Google Forms resuelve algunas de estas situaciones con la opción “Ir a la sección según la respuesta”. jsPsych las resuelve con **lógica condicional**, o sea, reglas que deciden qué pasa después según lo que pasó antes.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Una regla condicional tiene la forma “si ocurre…, entonces…”. Cada regla crea ramas en el procedimiento. Cada rama produce un archivo de datos diferente y necesita su propia verificación.
+Una regla condicional tiene la forma “si pasa tal cosa, entonces pasa tal otra”. Cada regla abre ramas en el procedimiento, y cada rama produce un archivo de datos distinto y necesita su propia verificación.
 :::
 
-## Una regla condicional tiene una condición y una consecuencia
+## Condición y consecuencia
 
-Antes de escribir código, conviene formular cada regla en palabras. Tu estudio va a tener tres reglas.
+Antes de escribir código conviene formular cada regla en palabras. Tu estudio va a tener tres.
 
 1. **Si** la persona elige “No acepto” en el consentimiento, **entonces** el estudio termina con un mensaje.
 
@@ -47,9 +47,9 @@ Antes de escribir código, conviene formular cada regla en palabras. Tu estudio 
 
 3. **Si** la persona eligió “Herramientas de IA” entre sus recursos, **entonces** aparece una pregunta sobre qué herramientas usa.
 
-Cada regla tiene dos partes. La **condición** es lo que se comprueba: una respuesta anterior. La **consecuencia** es lo que ocurre si la condición se cumple: terminar el estudio o mostrar una pantalla.
+Cada regla tiene dos partes. La **condición** es lo que se comprueba, que es una respuesta anterior. La **consecuencia** es lo que pasa si la condición se cumple, como terminar el estudio o mostrar una pantalla.
 
-Cada condición depende de un dato previo. Identificar ese dato es el primer paso para implementar la regla y para verificarla después.
+Cada condición depende de un dato previo, e identificar ese dato es el primer paso para implementar la regla y después verificarla.
 
 | Regla | Dato que controla la decisión | Consecuencia |
 |:---|:---|:---|
@@ -59,17 +59,17 @@ Cada condición depende de un dato previo. Identificar ese dato es el primer pas
 
 : Reglas condicionales del estudio {#tbl-reglas}
 
-## Las ramas se pueden dibujar
+## Dibujar las ramas
 
-Cuando un procedimiento tiene reglas condicionales, conviene dibujar sus ramas. El dibujo permite ver todos los recorridos posibles antes de implementarlos.
+Cuando un procedimiento tiene reglas condicionales, conviene dibujar sus ramas. Así ves todos los recorridos posibles antes de implementarlos.
 
 ```{mermaid}
 %%| fig-cap: "Recorridos posibles del estudio con las tres reglas condicionales."
 flowchart TD
   B[Bienvenida] --> C{Consentimiento}
-  C -->|No acepto| F1[Fin: no participa]
+  C -->|No acepto| F1[Fin sin participar]
   C -->|Acepto| E{¿Estudia en la universidad?}
-  E -->|No| F2[Fin: no cumple el criterio]
+  E -->|No| F2[Fin por criterio de inclusión]
   E -->|Sí| D[Edad, género y año, carrera, recursos]
   D --> R{¿Eligió Herramientas de IA?}
   R -->|Sí| IA[Pregunta sobre herramientas de IA]
@@ -78,11 +78,11 @@ flowchart TD
   S --> K[Comentarios y cierre]
 ```
 
-El diagrama muestra cuatro recorridos: dos terminan antes, uno completa el estudio sin la pregunta de seguimiento y uno la incluye. Vas a tener que probar los cuatro.
+El diagrama muestra cuatro recorridos. Dos terminan antes, uno completa el estudio sin la pregunta de seguimiento y otro la incluye. Vas a tener que probar los cuatro.
 
-## Terminar el estudio es una consecuencia
+## Terminar el estudio
 
-Para terminar el estudio cuando la persona no acepta, el consentimiento necesita dos botones y una regla. jsPsych permite ejecutar instrucciones cuando un ensayo termina, mediante el parámetro `on_finish`. Ya lo usaste en la configuración general de jsPsych para guardar los datos al final del estudio. Ahora lo vas a usar en un ensayo.
+Para terminar el estudio cuando la persona no acepta, el consentimiento necesita dos botones y una regla. jsPsych permite ejecutar instrucciones cuando termina un ensayo con el parámetro `on_finish`. Ya lo usaste en la configuración general de jsPsych para guardar los datos al final, y ahora lo vas a usar en un ensayo.
 
 ```javascript
 const consentimiento = {
@@ -103,19 +103,19 @@ const consentimiento = {
 };
 ```
 
-Las partes nuevas son estas.
+Estas son las partes nuevas.
 
-1. `choices` tiene dos botones. Como viste en el capítulo sobre los datos, jsPsych registra la posición del botón presionado: 0 para “Acepto participar” y 1 para “No acepto”.
+1. `choices` tiene dos botones. Como vimos en el capítulo sobre los datos, jsPsych registra la posición del botón que se apretó, 0 para “Acepto participar” y 1 para “No acepto”.
 
-2. `on_finish: function (data) { ... }` contiene instrucciones que se ejecutan cuando el ensayo termina. La palabra `data` da acceso a los datos de ese ensayo.
+2. `on_finish: function (data) { ... }` tiene instrucciones que se ejecutan cuando el ensayo termina, y la palabra `data` da acceso a los datos de ese ensayo.
 
-3. `if (data.response === 1) { ... }` es la regla. `if` significa “si”. Lo que está entre paréntesis es la condición: que la respuesta sea igual a 1. El signo `===` compara si dos valores son iguales. Lo que está entre llaves es la consecuencia.
+3. `if (data.response === 1) { ... }` es la regla. `if` quiere decir “si”. Lo que está entre paréntesis es la condición, que la respuesta sea igual a 1, y el signo `===` compara si dos valores son iguales. Lo que está entre llaves es la consecuencia.
 
-4. `jsPsych.abortExperiment("...")` termina el estudio y muestra el mensaje indicado.
+4. `jsPsych.abortExperiment("...")` termina el estudio y muestra el mensaje que le pasamos.
 
-Observá que la última oración del consentimiento cambió. Ya no dice “Si no aceptás, cerrá esta ventana”, porque ahora existe un botón para no aceptar.
+Fijate que la última oración del consentimiento cambió. Ya no dice “Si no aceptás, cerrá esta ventana”, porque ahora hay un botón para no aceptar.
 
-## Un criterio de inclusión también puede terminar el estudio
+## Un criterio de inclusión
 
 La regla de inclusión tiene la misma forma. La pregunta usa `survey-multi-choice` y la condición compara el texto de la respuesta.
 
@@ -142,11 +142,11 @@ const pregunta_estudiante = {
 };
 ```
 
-La condición `data.response.estudiante === "No"` busca dentro de la respuesta la variable `estudiante` y la compara con el texto `"No"`. El texto debe coincidir exactamente con la opción. Si la opción dijera “no” en minúscula, la comparación con “No” fallaría y la regla nunca se cumpliría.
+La condición `data.response.estudiante === "No"` busca dentro de la respuesta la variable `estudiante` y la compara con el texto `"No"`. El texto tiene que coincidir exactamente con la opción. Si la opción dijera “no” en minúscula, la comparación con “No” fallaría y la regla nunca se cumpliría.
 
-### Una validación y un criterio de inclusión no son lo mismo
+### Validación y criterio de inclusión
 
-La pregunta de edad también expresa un criterio: aceptar personas de 18 a 80 años. Sin embargo, está implementada como validación. Compará qué ocurre en cada caso.
+La pregunta de edad también expresa un criterio, que es aceptar personas de 18 a 80 años, pero está implementada como validación. Compará qué pasa en cada caso.
 
 | Situación | Implementación | Qué experimenta la persona |
 |:---|:---|:---|
@@ -155,11 +155,11 @@ La pregunta de edad también expresa un criterio: aceptar personas de 18 a 80 a�
 
 : Validación frente a criterio de inclusión {#tbl-validacion-inclusion}
 
-Para la persona, la segunda experiencia es más clara y respetuosa. La primera, además, puede inducir a escribir una edad falsa para poder avanzar. Elegir entre ambas implementaciones es una decisión metodológica y ética. En tu estudio, la validación de edad se mantiene porque también cumple la función de controlar el formato de la respuesta. En el desafío final vas a analizar una alternativa.
+Para la persona, la segunda experiencia es más clara y respetuosa. La primera, encima, puede empujarla a escribir una edad falsa para poder avanzar. Elegir entre una y otra es una decisión metodológica y ética. En tu estudio mantenemos la validación de edad porque también sirve para controlar el formato de la respuesta. En el desafío final vas a analizar una alternativa.
 
-## Una pregunta de seguimiento aparece solo si corresponde
+## Una pregunta que aparece solo si corresponde
 
-Para la tercera regla no hay que terminar el estudio: hay que decidir si una pantalla aparece o no. jsPsych lo resuelve con una línea de tiempo anidada, como la del capítulo anterior, que incluye una función de condición.
+En la tercera regla no hay que terminar el estudio, sino decidir si una pantalla aparece o no. jsPsych lo resuelve con una línea de tiempo anidada, como la del capítulo anterior, que tiene una función de condición.
 
 ```javascript
 // Pregunta de seguimiento: solo aparece si la persona eligió "Herramientas de IA"
@@ -183,51 +183,51 @@ const pregunta_herramientas_ia = {
 
 El bloque tiene dos partes.
 
-1. `timeline` contiene el ensayo de la pregunta, escrito como ya conocés.
+1. `timeline` tiene el ensayo de la pregunta, escrito como ya conocés.
 
-2. `conditional_function` contiene la regla. jsPsych la ejecuta justo antes de llegar a esta parte de la secuencia. Si la función devuelve verdadero, la pregunta aparece. Si devuelve falso, jsPsych la salta.
+2. `conditional_function` tiene la regla. jsPsych la ejecuta justo antes de llegar a esta parte de la secuencia. Si la función devuelve verdadero, la pregunta aparece, y si devuelve falso, jsPsych la saltea.
 
 Dentro de la función hay dos líneas.
 
-1. La primera busca la respuesta de la pregunta de recursos. Se lee de izquierda a derecha: de todos los datos, filtrá la fila cuya `pantalla` es `"recursos"`, tomá la primera y, dentro de su respuesta, la variable `recursos`. El resultado es la lista de opciones elegidas.
+1. La primera busca la respuesta de la pregunta de recursos, y se lee de izquierda a derecha. De todos los datos, filtrá la fila cuya `pantalla` es `"recursos"`, tomá la primera y, dentro de su respuesta, la variable `recursos`. El resultado es la lista de opciones elegidas.
 
-2. La segunda devuelve el resultado de comprobar si esa lista incluye el texto `"Herramientas de IA"`. La palabra `return` significa “devolver”.
+2. La segunda devuelve el resultado de comprobar si esa lista incluye el texto `"Herramientas de IA"`. La palabra `return` quiere decir “devolver”.
 
-Observá que la búsqueda usa la etiqueta `pantalla` que agregaste en el capítulo sobre los datos. Sin esa etiqueta, encontrar la fila correcta sería mucho más difícil.
+Fijate que la búsqueda usa la etiqueta `pantalla` que agregaste en el capítulo sobre los datos. Sin esa etiqueta, encontrar la fila correcta sería mucho más difícil.
 
-## Una pregunta que no aplica no es un dato faltante
+## No aplica no es lo mismo que faltante
 
-Cuando la pregunta de seguimiento no aparece, su fila no existe en los datos. Esa ausencia tiene un significado diferente al de un comentario vacío.
+Cuando la pregunta de seguimiento no aparece, su fila no existe en los datos. Y esa ausencia no significa lo mismo que un comentario vacío.
 
-- Un **dato faltante** es un valor que debería existir y no está. La pregunta se mostró y la persona no respondió.
+- Un **dato faltante** es un valor que debería estar y no está. La pregunta se mostró y la persona no respondió.
 - Un valor que **no aplica** corresponde a una pregunta que, por diseño, no se le hizo a esa persona.
 
-Confundir ambos casos produce errores de análisis. Si alguien calculara el porcentaje de personas que no respondieron sobre herramientas de IA contando a quienes nunca vieron la pregunta, obtendría un número sin sentido. El diccionario de variables debe distinguirlos.
+Confundirlos lleva a errores de análisis. Si alguien calculara el porcentaje de personas que no respondieron sobre herramientas de IA contando a quienes nunca vieron la pregunta, obtendría un número sin sentido. El diccionario de variables tiene que distinguir los dos casos.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-La lógica condicional implementa decisiones éticas y metodológicas. La salida explícita del consentimiento respeta la decisión de no participar. El criterio de inclusión define la población del estudio. Las preguntas de seguimiento reducen la carga para quien no las necesita.
+La lógica condicional implementa decisiones éticas y metodológicas. La salida explícita del consentimiento respeta la decisión de no participar, el criterio de inclusión define la población del estudio y las preguntas de seguimiento le ahorran carga a quien no las necesita.
 
-Cada regla también cambia los datos. Quien no acepta produce un archivo de dos filas. Quien no cumple el criterio, uno de tres. Quien usa herramientas de IA, una fila más que quien no las usa. Antes de recolectar, tenés que saber qué archivo produce cada recorrido.
+Cada regla también cambia los datos. Quien no acepta produce un archivo de dos filas, quien no cumple el criterio, uno de tres, y quien usa herramientas de IA, una fila más que quien no las usa. Antes de recolectar, tenés que saber qué archivo produce cada recorrido.
 
 ::: {.callout-important}
 ## Decidí qué se registra de quien no participa
 
-Con esta implementación, quien elige “No acepto” produce igualmente un archivo con dos filas: la bienvenida y la respuesta al consentimiento. No contiene respuestas a preguntas ni datos personales, y permite saber cuántas personas decidieron no participar. Aun así, registrar esa decisión es una elección del equipo de investigación. El mensaje final debe describir con exactitud lo que se registró. En la Parte V vas a revisar esta decisión cuando configures el guardado en línea.
+Con esta implementación, quien elige “No acepto” igual produce un archivo de dos filas, con la bienvenida y la respuesta al consentimiento. No tiene respuestas a preguntas ni datos personales, y permite saber cuántas personas decidieron no participar. Aun así, registrar esa decisión es una elección del equipo de investigación, y el mensaje final tiene que describir con exactitud lo que se registró. En la Parte V vamos a revisar esta decisión cuando configures el guardado en línea.
 :::
 
-## Agregá las reglas al estudio
+## Con Codex
 
-Vas a realizar tres pedidos, uno por regla. Después de cada uno, verificá la rama correspondiente antes de pasar al siguiente.
+Vas a hacer tres pedidos, uno por regla. Después de cada uno, verificá la rama que corresponde antes de pasar al siguiente.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Guardá una copia de respaldo de `experiment.js`.
 
-2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+2. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
-**Pedido 1: consentimiento con salida.**
+**Pedido 1. Consentimiento con salida.**
 
 ```text
 En experiment.js, modificá el ensayo consentimiento:
@@ -243,7 +243,7 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-**Pedido 2: criterio de inclusión.**
+**Pedido 2. Criterio de inclusión.**
 
 ```text
 En experiment.js, agregá un ensayo llamado pregunta_estudiante después de consentimiento
@@ -257,7 +257,7 @@ jsPsych.abortExperiment con este mensaje exacto:
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-**Pedido 3: pregunta de seguimiento.**
+**Pedido 3. Pregunta de seguimiento.**
 
 ```text
 En experiment.js, agregá después de pregunta_recursos un bloque llamado
@@ -271,25 +271,25 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-En cada propuesta, compará el código con los fragmentos de este capítulo. El agente puede escribir la condición de otra manera y obtener el mismo resultado. Si no entendés una forma diferente, pedí una explicación antes de aprobar.
+En cada propuesta, compará el código con los fragmentos de este capítulo. El agente puede escribir la condición de otra manera y llegar al mismo resultado. Si no entendés una forma distinta, pedí una explicación antes de aprobar.
 :::
 
-**Sin acceso a Codex:** realizá los cambios con el editor a partir de los fragmentos de este capítulo. El checkpoint `06-encuesta-ampliada` contiene la versión completa.
+**Sin acceso a Codex.** Hacé los cambios con el editor a partir de los fragmentos de este capítulo. El checkpoint `06-encuesta-ampliada` tiene la versión completa.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-En los pedidos 1 y 2, el agente agregó una función que se ejecuta al terminar un ensayo. La función compara una respuesta con un valor y, si coinciden, termina el estudio. La decisión sobre qué respuesta termina el estudio, y con qué mensaje, la tomaste vos.
+En los pedidos 1 y 2, el agente agregó una función que se ejecuta al terminar un ensayo. La función compara una respuesta con un valor y, si coinciden, termina el estudio. Qué respuesta termina el estudio, y con qué mensaje, lo decidiste vos.
 
-En el pedido 3, el agente envolvió la pregunta en una línea de tiempo anidada y le agregó una condición. Para escribir la condición tuvo que saber dónde encontrar la respuesta de recursos. La encontró gracias a la etiqueta `pantalla`.
+En el pedido 3, el agente metió la pregunta dentro de una línea de tiempo anidada y le agregó una condición. Para escribirla tuvo que saber dónde estaba la respuesta de recursos, y la encontró gracias a la etiqueta `pantalla`.
 
-Si el agente escribió la condición de otra forma, por ejemplo con `indexOf` en lugar de `includes`, el resultado puede ser equivalente. Lo que no puede cambiar es el texto comparado: debe coincidir exactamente con la opción de la pregunta de recursos.
+Si el agente escribió la condición de otra forma, por ejemplo con `indexOf` en vez de `includes`, el resultado puede ser equivalente. Lo que no puede cambiar es el texto comparado, que tiene que coincidir exactamente con la opción de la pregunta de recursos.
 
-## Verificá cada rama
+## Verificar cada rama
 
-Una regla condicional se verifica recorriendo cada rama. Para eso necesitás un caso de prueba por rama, como aprendiste en el capítulo sobre validaciones.
+Una regla condicional se verifica recorriendo cada rama, y para eso necesitás un caso de prueba por rama, como vimos en el capítulo sobre validaciones.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 Completá la columna “Esperado” antes de probar. Para cada caso, recargá el estudio con `F5`, recorrelo y abrí el archivo descargado.
 
@@ -300,67 +300,67 @@ Completá la columna “Esperado” antes de probar. Para cada caso, recargá el
 | C | Completar sin elegir “Herramientas de IA” | | | |
 | D | Completar eligiendo “Herramientas de IA” | | | |
 
-En los casos A y B, comprobá además que el mensaje final coincida con el texto especificado.
+En los casos A y B, comprobá además que el mensaje final sea el texto especificado.
 :::
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 | Caso | Mensaje o pantalla | Filas del archivo |
 |:---|:---|:---|
-| A | Mensaje de no participación | 2: bienvenida y consentimiento |
-| B | Mensaje de criterio de inclusión | 3: bienvenida, consentimiento y estudiante |
+| A | Mensaje de no participación | 2 (bienvenida y consentimiento) |
+| B | Mensaje de criterio de inclusión | 3 (bienvenida, consentimiento y estudiante) |
 | C | No aparece la pregunta sobre herramientas de IA | 11 |
 | D | Aparece la pregunta sobre herramientas de IA | 12 |
 
 </details>
 
-Si alguna rama no se comporta como esperabas, describí el problema al agente con el formato del capítulo sobre el ciclo de trabajo: esperado, observado, pasos y mensaje exacto.
+Si alguna rama no se comporta como esperabas, describile el problema al agente con el formato del capítulo sobre el ciclo de trabajo, con lo esperado, lo observado, los pasos y el mensaje exacto.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### La regla nunca se cumple
 
-Revisá que el texto o el número comparado coincida exactamente con la respuesta. `"no"` no es igual a `"No"`, y el botón “No acepto” se registra como `1`, no como `"No acepto"`.
+Fijate que el texto o el número comparado coincida exactamente con la respuesta. `"no"` no es igual a `"No"`, y el botón “No acepto” se registra como `1`, no como `"No acepto"`.
 
 ### La pregunta de seguimiento aparece siempre o nunca
 
-Revisá que el texto de `includes` coincida exactamente con la opción de la pregunta de recursos, incluidas las mayúsculas.
+Fijate que el texto de `includes` coincida exactamente con la opción de la pregunta de recursos, mayúsculas incluidas.
 
-### El estudio termina, pero se muestra una pantalla en blanco
+### El estudio termina pero queda una pantalla en blanco
 
-Revisá que `abortExperiment` reciba el mensaje entre comillas. Abrí la consola con `F12` para buscar errores.
+Fijate que `abortExperiment` reciba el mensaje entre comillas, y abrí la consola con `F12` para buscar errores.
 
-### La pregunta de seguimiento produce un error en la consola
+### La pregunta de seguimiento tira un error en la consola
 
 Si la condición busca la pantalla `"recursos"` y esa etiqueta no existe, la búsqueda no encuentra ninguna fila. Comprobá que el ensayo de recursos tenga `data: { pantalla: "recursos" }`.
 
-### Solo se probó la rama principal
+### Probar solo la rama principal
 
-Las ramas menos frecuentes también las van a recorrer personas reales. Probá cada una.
+Las ramas menos frecuentes también las van a recorrer personas reales, así que probá cada una.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
 1. ¿Qué partes tiene una regla condicional?
 
-2. ¿Qué dato controla la aparición de la pregunta sobre herramientas de IA?
+2. ¿Qué dato controla que aparezca la pregunta sobre herramientas de IA?
 
 3. ¿Qué hace el parámetro `on_finish` de un ensayo?
 
 4. ¿Qué compara el signo `===`?
 
-5. ¿Qué diferencia existe entre terminar el estudio con `abortExperiment` y saltar una pantalla con `conditional_function`?
+5. ¿Qué diferencia hay entre terminar el estudio con `abortExperiment` y saltear una pantalla con `conditional_function`?
 
-6. ¿Por qué una persona de 17 años queda detenida en la pregunta de edad, mientras que una persona que no estudia recibe un mensaje?
+6. ¿Por qué una persona de 17 años queda frenada en la pregunta de edad, mientras que una persona que no estudia recibe un mensaje?
 
-7. ¿Qué diferencia existe entre un dato faltante y un valor que no aplica?
+7. ¿Qué diferencia hay entre un dato faltante y un valor que no aplica?
 
 8. ¿Cuántos casos de prueba necesitás, como mínimo, para verificar las tres reglas?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Una regla condicional tiene una condición, que es lo que se comprueba, y una consecuencia, que es lo que ocurre si la condición se cumple.
 
@@ -380,25 +380,25 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-La lógica condicional crea ramas en el procedimiento. Cada regla tiene una condición, que depende de un dato previo, y una consecuencia. Dibujar las ramas permite ver todos los recorridos antes de implementarlos.
+La lógica condicional abre ramas en el procedimiento. Cada regla tiene una condición, que depende de un dato previo, y una consecuencia. Dibujar las ramas nos deja ver todos los recorridos antes de implementarlos.
 
-En jsPsych, `on_finish` ejecuta instrucciones al terminar un ensayo, `if` expresa una condición y `abortExperiment` termina el estudio con un mensaje. Una línea de tiempo anidada con `conditional_function` muestra una parte de la secuencia solo cuando la condición se cumple.
+En jsPsych, `on_finish` ejecuta instrucciones al terminar un ensayo, `if` expresa una condición y `abortExperiment` termina el estudio con un mensaje. Una línea de tiempo anidada con `conditional_function` muestra una parte de la secuencia solo cuando se cumple la condición.
 
-Una validación y un criterio de inclusión pueden expresar la misma restricción con experiencias muy diferentes para la persona. Una pregunta que no aplica no es un dato faltante, y el diccionario debe distinguirlos.
+Una validación y un criterio de inclusión pueden expresar la misma restricción con experiencias muy distintas para la persona. Y una pregunta que no aplica no es un dato faltante, así que el diccionario tiene que distinguirlos.
 
-Cada rama produce un archivo diferente y requiere su propio caso de prueba.
+Cada rama produce un archivo distinto y necesita su propio caso de prueba.
 
-## Resolvé un desafío breve
+## Desafío
 
-Imaginá que el equipo decide reemplazar la validación de edad por un criterio de inclusión: la pregunta aceptaría cualquier número entero positivo, y el estudio terminaría con un mensaje si la persona tiene menos de 18 años o más de 80.
+Imaginá que el equipo decide cambiar la validación de edad por un criterio de inclusión. La pregunta aceptaría cualquier número entero positivo, y el estudio terminaría con un mensaje si la persona tiene menos de 18 años o más de 80.
 
 1. Formulá la regla con la forma “si…, entonces…”.
 
-2. Indicá qué atributos del campo de edad habría que cambiar.
+2. Decí qué atributos del campo de edad habría que cambiar.
 
-3. Escribí el mensaje que recibiría una persona excluida. Cuidá que sea respetuoso y exacto.
+3. Escribí el mensaje que recibiría una persona excluida, cuidando que sea respetuoso y exacto.
 
 4. Dibujá cómo cambiaría el diagrama de ramas.
 
@@ -408,4 +408,4 @@ Imaginá que el equipo decide reemplazar la validación de edad por un criterio 
 
 No apliques el cambio a tu proyecto.
 
-En el próximo capítulo vas a incorporar un control de atención y vas a discutir cómo evaluar la calidad de las respuestas sin convertir un indicador en una sentencia.
+En el próximo capítulo sumamos un control de atención y discutimos cómo evaluar la calidad de las respuestas sin convertir un indicador en una sentencia.

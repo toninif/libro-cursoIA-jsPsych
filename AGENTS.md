@@ -199,6 +199,18 @@ Evitar:
 
 El estudiante es principiante, no incapaz.
 
+## Voz del libro
+
+El libro tiene la voz de su autor: un docente rioplatense, directo y cercano, que explica como en una clase bien dada. No debe sonar a texto generado por IA.
+
+- La narración va en primera persona del plural ("vamos a armar", "en este capítulo vemos"). Las indicaciones al estudiante van con vos ("abrí la terminal", "revisá la propuesta").
+- No usar rayas (—) ni guiones largos (–) en la prosa.
+- No usar dos puntos en la prosa. Reformular la oración o cerrar con punto. Los dos puntos solo quedan donde son técnicos, como en el código, en los pedidos a Codex y en las tablas.
+- Títulos cortos y naturales. Evitar títulos que sean oraciones completas.
+- Evitar fórmulas repetidas y muletillas de IA, como "no solo… sino también", "vale la pena destacar", "en resumen", "cabe señalar", "esta distinción es central" o cadenas de oraciones cortas con la misma estructura.
+- Variar la forma de las oraciones y usar conectores naturales ("porque", "así que", "o sea", "por eso").
+- Secciones fijas de cada capítulo: Objetivos, Actividad, Con Codex, Qué hizo el agente (con variaciones), Para repasar, Errores frecuentes, En síntesis y Desafío.
+
 # Código
 
 No presentar grandes bloques de código sin explicación.

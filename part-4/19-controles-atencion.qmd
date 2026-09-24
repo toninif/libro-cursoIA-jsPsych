@@ -3,41 +3,41 @@ title: "Controles de atención y calidad de respuesta"
 description: "Recursos para detectar respuestas descuidadas sin confundir un indicador con un diagnóstico."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar por qué la calidad de las respuestas es un problema específico de las encuestas online.
+1. explicar por qué la calidad de las respuestas es un problema propio de las encuestas online;
 
-2. Vas a poder describir distintos indicadores de respuesta descuidada.
+2. describir distintos indicadores de respuesta descuidada;
 
-3. Vas a poder incorporar un ítem de control de atención y registrarlo como variable.
+3. sumar un ítem de control de atención y registrarlo como variable;
 
-4. Vas a poder crear una variable derivada a partir de una respuesta.
+4. crear una variable derivada a partir de una respuesta;
 
-5. Vas a poder distinguir entre registrar un indicador y excluir a un participante.
+5. distinguir entre registrar un indicador y excluir a un participante;
 
-6. Vas a poder especificar un criterio de calidad antes de recolectar datos.
+6. especificar un criterio de calidad antes de recolectar datos.
 
-## Una respuesta demasiado uniforme permite formular el problema
+## Para empezar, respuestas demasiado parejas
 
-Imaginá que revisás los datos de un piloto. Una persona marcó “De acuerdo” en todos los ítems de las dos escalas. En la escala de organización, eso incluye estar de acuerdo con “Organizo mis horas de estudio con anticipación” y con “Dejo el estudio para el último momento”. Además, completó el estudio en un minuto.
+Imaginá que estás revisando los datos de un piloto. Una persona marcó “De acuerdo” en todos los ítems de las dos escalas. En la de organización, eso quiere decir que está de acuerdo con “Organizo mis horas de estudio con anticipación” y también con “Dejo el estudio para el último momento”. Encima completó el estudio en un minuto.
 
-Puede ser que esa persona realmente se vea así. También puede ser que haya respondido sin leer. Los datos no permiten saberlo con certeza.
+Puede ser que esa persona realmente se vea así, o puede ser que haya respondido sin leer. Con los datos no hay forma de saberlo con certeza.
 
-En un estudio presencial, un investigador puede observar si alguien lee las consignas. En un estudio online nadie observa. Las personas responden desde su casa, a veces apuradas, distraídas o sin interés en la tarea. Algunas respuestas pueden no reflejar lo que la escala intenta medir.
+En un estudio presencial, el investigador puede ver si alguien lee las consignas. En uno online no mira nadie. La gente responde desde su casa, a veces apurada, distraída o sin ganas, y algunas respuestas pueden no reflejar lo que la escala busca medir.
 
-Este problema se conoce como **respuesta descuidada** o de esfuerzo insuficiente. Afecta la calidad de los datos y puede distorsionar los resultados. Este capítulo presenta formas de detectarlo y, sobre todo, de tomar decisiones responsables sobre esa detección.
+A esto se lo llama **respuesta descuidada**, o de esfuerzo insuficiente. Afecta la calidad de los datos y puede distorsionar los resultados. En este capítulo vemos formas de detectarla y, sobre todo, de decidir con responsabilidad qué hacemos con esa detección.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Un control de atención produce un indicador, no un diagnóstico. Registrar el indicador es una decisión técnica. Usarlo para excluir a alguien es una decisión metodológica que debe tomarse antes de ver los datos.
+Un control de atención da un indicador, no un diagnóstico. Registrar el indicador es una decisión técnica. Usarlo para excluir a alguien es una decisión metodológica que se toma antes de ver los datos.
 :::
 
-## Hay varios indicadores de respuesta descuidada
+## Indicadores de respuesta descuidada
 
-La investigación sobre encuestas online propone distintos indicadores. Ninguno es perfecto.
+La investigación sobre encuestas online propone distintos indicadores, y ninguno es perfecto.
 
 | Indicador | Qué observa | Ejemplo |
 |:---|:---|:---|
@@ -48,34 +48,34 @@ La investigación sobre encuestas online propone distintos indicadores. Ninguno 
 
 : Indicadores de respuesta descuidada {#tbl-indicadores}
 
-Tu estudio ya permite calcular algunos. El ítem invertido de la escala de organización permite detectar inconsistencias, como viste en el desafío del capítulo sobre escalas. El tiempo de cada pantalla queda registrado en `rt`, y en el próximo capítulo vas a analizarlo. En este capítulo vas a agregar un ítem de respuesta indicada.
+Tu estudio ya permite calcular algunos. El ítem invertido de la escala de organización sirve para detectar inconsistencias, como viste en el desafío del capítulo sobre escalas. El tiempo de cada pantalla queda en `rt`, y lo analizamos en el próximo capítulo. En este vamos a sumar un ítem de respuesta indicada.
 
-## Un ítem de respuesta indicada da una instrucción explícita
+## El ítem de respuesta indicada
 
-Un **ítem de respuesta indicada** es un ítem que no mide ningún constructo. Solo pide que la persona elija una opción determinada. Quien lee el ítem puede cumplirlo sin dificultad. Quien responde sin leer probablemente elija otra opción.
+Un **ítem de respuesta indicada** es un ítem que no mide ningún constructo y solo le pide a la persona que elija una opción determinada. Quien lo lee lo cumple sin problema, y quien responde sin leer probablemente elija otra cosa.
 
-El ítem se ubica entre los ítems de una escala, con las mismas opciones de respuesta. En tu estudio va a ir en la pantalla de la escala de motivación.
+Se ubica entre los ítems de una escala, con las mismas opciones de respuesta. En tu estudio va a ir en la pantalla de la escala de motivación.
 
 ```javascript
 // Control de atención: no forma parte de la escala y no se suma al puntaje
 { prompt: "Para indicar que estás leyendo, marcá la opción «En desacuerdo».", name: "control_atencion", labels: opciones_acuerdo, required: true }
 ```
 
-La respuesta esperada es “En desacuerdo”, que jsPsych registra como 1. Como la escala tiene orden aleatorio, el control va a aparecer en una posición diferente para cada persona.
+La respuesta esperada es “En desacuerdo”, que jsPsych registra como 1. Como la escala tiene orden aleatorio, el control va a aparecer en un lugar distinto para cada persona.
 
-Elegir la opción esperada también es una decisión. Si la respuesta correcta fuera “Totalmente de acuerdo” o “Totalmente en desacuerdo”, una persona que marca siempre un extremo podría acertar por casualidad. Una opción intermedia reduce esa posibilidad.
+Qué opción esperamos también es una decisión. Si la respuesta correcta fuera “Totalmente de acuerdo” o “Totalmente en desacuerdo”, alguien que marca siempre un extremo podría acertar de casualidad. Con una opción intermedia eso es menos probable.
 
 ::: {.callout-important}
-## Agregar un ítem a una escala validada cambia su contexto
+## Sumar un ítem a una escala validada cambia su contexto
 
-El control de atención no forma parte de la escala y no se suma al puntaje. Aun así, al aparecer entre los ítems, cambia la experiencia de responder la escala. Con una escala ficticia no hay problema. Con una escala real, conviene consultar si el control puede ir entre sus ítems o si es preferible ubicarlo en una pantalla aparte. Esa decisión le corresponde al equipo de investigación.
+El control de atención no es parte de la escala ni se suma al puntaje. Pero, al aparecer entre los ítems, cambia la experiencia de responderla. Con una escala ficticia no pasa nada. Con una real, conviene averiguar si el control puede ir entre sus ítems o si es mejor ponerlo en una pantalla aparte, y esa decisión le toca al equipo de investigación.
 :::
 
-## Una variable derivada resume el control
+## Una variable derivada
 
-El dato registrado es un número de 0 a 4. Para el análisis resulta más cómodo tener una variable que indique directamente si la persona respondió lo esperado. Una **variable derivada** es una variable que se calcula a partir de otras, en lugar de responderse de manera directa.
+El dato registrado es un número de 0 a 4. Para el análisis es más cómodo tener una variable que diga directamente si la persona respondió lo esperado. Una **variable derivada** es una variable que se calcula a partir de otras, en lugar de responderse directamente.
 
-jsPsych permite calcularla en el momento, usando `on_finish` en el ensayo de la escala.
+jsPsych la puede calcular en el momento, con `on_finish` en el ensayo de la escala.
 
 ```javascript
 on_finish: function (data) {
@@ -84,46 +84,46 @@ on_finish: function (data) {
 }
 ```
 
-La línea dentro de la función crea una columna nueva, `atencion_correcta`, en la fila de esa pantalla. Su valor es el resultado de la comparación: `true` si la respuesta fue 1 y `false` en cualquier otro caso.
+La línea de adentro crea una columna nueva, `atencion_correcta`, en la fila de esa pantalla. Su valor es el resultado de la comparación, `true` si la respuesta fue 1 y `false` en cualquier otro caso.
 
-La variable derivada no reemplaza el dato original. `control_atencion` sigue registrado dentro de `response`. Si más adelante descubrís un error en la regla de cálculo, podés recalcularla a partir del dato original.
+La variable derivada no reemplaza el dato original, porque `control_atencion` sigue registrado dentro de `response`. Si más adelante encontrás un error en la regla de cálculo, la podés recalcular a partir del dato original.
 
 ## Registrar no es excluir
 
-Tener un indicador de atención no implica que haya que excluir a quien no lo cumple. Una persona puede equivocarse una vez y haber respondido con atención todo lo demás. También puede haber interpretado la instrucción de otra manera. Por otro lado, excluir a muchas personas puede sesgar la muestra, por ejemplo si las personas con menos tiempo disponible fallan más.
+Tener un indicador de atención no quiere decir que haya que excluir a quien no lo cumple. Una persona puede equivocarse una vez y haber respondido con atención todo lo demás, o puede haber entendido la instrucción de otra manera. Y excluir a mucha gente puede sesgar la muestra, por ejemplo si las personas con menos tiempo disponible fallan más.
 
 Por eso conviene separar tres decisiones.
 
 1. **Qué se registra.** En tu estudio, `control_atencion` y `atencion_correcta`.
 
-2. **Qué criterio se aplicará.** Por ejemplo: “Se excluirán del análisis principal las respuestas de quienes fallen el control de atención.” O: “No se excluirá a nadie; se informará cuántas personas fallaron el control.”
+2. **Qué criterio se va a aplicar.** Por ejemplo, “Se excluirán del análisis principal las respuestas de quienes fallen el control de atención”, o bien “No se excluirá a nadie y se informará cuántas personas fallaron el control”.
 
 3. **Cuándo se decide.** El criterio se decide y se documenta antes de recolectar los datos.
 
-La tercera decisión es la más importante. Si el criterio se elige después de ver los datos, es posible elegir, incluso sin intención, el criterio que produce el resultado más conveniente. Documentar el criterio antes protege la credibilidad del estudio. En algunos estudios, ese criterio forma parte de un **preregistro**, un documento público que describe el plan de análisis antes de recolectar datos.
+La tercera es la más importante. Si el criterio se elige después de ver los datos, es posible elegir, aunque sea sin querer, el que da el resultado más conveniente. Documentarlo antes protege la credibilidad del estudio. En algunos estudios ese criterio forma parte de un **preregistro**, que es un documento público que describe el plan de análisis antes de recolectar datos.
 
 ::: {.callout-warning}
 ## No excluyas participantes dentro del estudio
 
-Sería técnicamente posible terminar el estudio cuando alguien falla el control de atención, con la misma técnica del capítulo sobre lógica condicional. No lo hagas. La persona no sabría por qué fue excluida, perderías datos que quizás sirvan, y aplicarías el criterio sin posibilidad de revisarlo. La exclusión, si corresponde, se hace en el análisis y con un criterio documentado.
+Técnicamente se podría terminar el estudio cuando alguien falla el control de atención, con la misma técnica del capítulo sobre lógica condicional. No lo hagas. La persona no sabría por qué quedó afuera, perderías datos que quizás sirvan y aplicarías el criterio sin poder revisarlo. Si corresponde excluir, se hace en el análisis y con un criterio documentado.
 :::
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-Los controles de calidad en encuestas online son hoy una práctica habitual y, a la vez, discutida. Hay acuerdo en que las respuestas descuidadas existen y pueden distorsionar resultados. Hay menos acuerdo sobre qué indicadores usar y cómo usarlos.
+Los controles de calidad en encuestas online son hoy una práctica habitual y, al mismo tiempo, discutida. Hay acuerdo en que las respuestas descuidadas existen y pueden distorsionar resultados, pero hay menos acuerdo sobre qué indicadores usar y cómo.
 
-Lo que sí tiene consenso es la transparencia: informar qué indicadores se registraron, qué criterio se aplicó, cuándo se decidió y cuántas personas quedaron excluidas. Un estudio que excluye participantes sin informarlo es difícil de evaluar y de reproducir.
+En lo que sí hay consenso es en la transparencia, o sea, en informar qué indicadores se registraron, qué criterio se aplicó, cuándo se decidió y cuántas personas quedaron afuera. Un estudio que excluye participantes sin decirlo es difícil de evaluar y de reproducir.
 
-Tu diccionario de variables es el lugar para documentar el indicador. La sección de criterios, que vas a agregar en este capítulo, es el lugar para documentar la decisión.
+Tu diccionario de variables es el lugar para documentar el indicador, y la sección de criterios que vas a agregar en este capítulo es el lugar para documentar la decisión.
 
-## Agregá el control de atención
+## Con Codex
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Guardá una copia de respaldo de `experiment.js`.
 
-2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+2. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
 3. Escribí este pedido.
 
@@ -142,86 +142,86 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-4. Revisá la propuesta. Comprobá que el texto del control use las comillas angulares « » y que la comparación use el número 1, sin comillas.
+4. Revisá la propuesta. Fijate que el texto del control use las comillas angulares « » y que la comparación use el número 1, sin comillas.
 :::
 
-**Sin acceso a Codex:** agregá el ítem y el parámetro `on_finish` con el editor a partir de los fragmentos de este capítulo.
+**Sin acceso a Codex.** Agregá el ítem y el parámetro `on_finish` con el editor a partir de los fragmentos de este capítulo.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-El agente agregó un elemento a la lista de preguntas de la escala de motivación. Para jsPsych, el control es un ítem más: tiene texto, nombre, opciones y obligatoriedad. La diferencia entre un ítem de la escala y un control de atención no está en el código. Está en la documentación y en el análisis. Por eso el comentario y el diccionario son indispensables.
+El agente agregó un elemento a la lista de preguntas de la escala de motivación. Para jsPsych, el control es un ítem más, con texto, nombre, opciones y obligatoriedad. La diferencia entre un ítem de la escala y un control de atención no está en el código, está en la documentación y en el análisis. Por eso el comentario y el diccionario son imprescindibles.
 
-El agente también agregó una función que se ejecuta al terminar la pantalla. La función lee la respuesta al control y escribe una columna nueva con el resultado de la comparación.
+También agregó una función que se ejecuta al terminar la pantalla. Esa función lee la respuesta al control y escribe una columna nueva con el resultado de la comparación.
 
-Observá un detalle de la comparación: el número `1` va sin comillas. jsPsych registra las respuestas de las escalas como números. Si la comparación usara `"1"`, con comillas, compararía un número con un texto y el resultado sería siempre `false`. Un error así no produce ningún mensaje: la variable derivada estaría mal para todas las personas.
+Fijate en un detalle. El número `1` va sin comillas, porque jsPsych registra las respuestas de las escalas como números. Si la comparación usara `"1"`, con comillas, estaría comparando un número con un texto y daría siempre `false`. Un error así no produce ningún mensaje, y la variable derivada quedaría mal para todo el mundo.
 
-## Verificá el control y su variable derivada
+## Verificar el control y la variable derivada
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 1. Ejecutá el estudio dos veces.
 
-2. En la primera ejecución, marcá “En desacuerdo” en el control de atención.
+2. En la primera, marcá “En desacuerdo” en el control de atención.
 
-3. En la segunda ejecución, marcá “De acuerdo” en el control.
+3. En la segunda, marcá “De acuerdo”.
 
-4. En cada archivo de datos, buscá la fila `escala_motivacion`. Anotá el valor de `control_atencion` dentro de `response` y el valor de la columna `atencion_correcta`.
+4. En cada archivo de datos, buscá la fila `escala_motivacion` y anotá el valor de `control_atencion` dentro de `response` y el de la columna `atencion_correcta`.
 
-5. Comprobá que la primera ejecución tenga `control_atencion` igual a 1 y `atencion_correcta` igual a `true`.
+5. Comprobá que en la primera ejecución `control_atencion` sea 1 y `atencion_correcta` sea `true`.
 
-6. Comprobá que la segunda tenga `control_atencion` igual a 3 y `atencion_correcta` igual a `false`.
+6. Comprobá que en la segunda `control_atencion` sea 3 y `atencion_correcta` sea `false`.
 
 7. Comprobá que la columna `atencion_correcta` esté vacía en todas las demás filas.
 :::
 
-Probar solo el caso correcto no alcanza. Si la comparación tuviera un error, la variable podría dar `true` siempre, y solo el segundo caso lo mostraría.
+Probar solo el caso correcto no alcanza. Si la comparación tuviera un error, la variable podría dar `true` siempre, y eso solo lo muestra el segundo caso.
 
-## Documentá el indicador y el criterio
+## Documentar el indicador y el criterio
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-Agregá a `diccionario.md`, a mano o con un pedido con el texto exacto:
+Agregá a `diccionario.md` lo siguiente, a mano o con un pedido con el texto exacto.
 
 1. Una fila para `control_atencion` en la tabla de preguntas, con la respuesta esperada.
 
-2. Una fila para `atencion_correcta` en la tabla de variables generales, indicando que es una variable derivada y que solo aparece en la fila de la escala de motivación.
+2. Una fila para `atencion_correcta` en la tabla de variables generales, aclarando que es una variable derivada y que solo aparece en la fila de la escala de motivación.
 
-3. Una oración en la sección de codificación que aclare que el control no forma parte de la EFME y no se suma al puntaje.
+3. Una oración en la sección de codificación que aclare que el control no es parte de la EFME y no se suma al puntaje.
 
-4. Una sección nueva, “Criterios definidos antes de recolectar”, con la decisión del equipo sobre el uso del indicador. Para tu estudio, escribí: “`atencion_correcta` se registra como indicador. En esta versión no se excluye a nadie de manera automática.” y “Cualquier criterio de exclusión basado en `atencion_correcta` o en los tiempos de respuesta debe decidirse y documentarse antes de recolectar datos.”
+4. Una sección nueva, “Criterios definidos antes de recolectar”, con lo que decidió el equipo sobre el uso del indicador. Para tu estudio escribí estas dos oraciones, “`atencion_correcta` se registra como indicador. En esta versión no se excluye a nadie de manera automática.” y “Cualquier criterio de exclusión basado en `atencion_correcta` o en los tiempos de respuesta debe decidirse y documentarse antes de recolectar datos.”
 :::
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
-### La variable derivada es siempre `false`
+### La variable derivada da siempre `false`
 
-Revisá la comparación. Probablemente compare con `"1"` entre comillas o con otro número. Revisá también que el `name` del ítem sea exactamente `control_atencion`.
+Revisá la comparación. Seguramente compare con `"1"` entre comillas o con otro número. Fijate también que el `name` del ítem sea exactamente `control_atencion`.
 
-### El control aparece siempre en la misma posición
+### El control aparece siempre en el mismo lugar
 
-La escala de motivación necesita `randomize_question_order: true`. Si el control aparece siempre al final, las personas pueden aprender a reconocerlo.
+La escala de motivación necesita `randomize_question_order: true`. Si el control aparece siempre al final, la gente puede aprender a reconocerlo.
 
 ### El control se sumó al puntaje de la escala
 
-En el análisis, el puntaje de la EFME se calcula solo con `efme_1`, `efme_2` y `efme_3`. El diccionario debe decirlo con claridad.
+En el análisis, el puntaje de la EFME se calcula solo con `efme_1`, `efme_2` y `efme_3`, y el diccionario lo tiene que decir con claridad.
 
-### Se decidió excluir después de ver los datos
+### Decidir excluir después de ver los datos
 
-Si el criterio no estaba documentado antes de recolectar, informalo como una decisión posterior. No lo presentes como si hubiera estado previsto.
+Si el criterio no estaba documentado antes de recolectar, informalo como una decisión posterior y no lo presentes como si hubiera estado previsto.
 
-### Hay demasiados controles
+### Poner demasiados controles
 
-Muchos controles pueden resultar molestos o irrespetuosos para quien responde con atención. En una encuesta breve, uno o dos suelen ser suficientes.
+Muchos controles pueden resultar molestos, y hasta irrespetuosos, para quien responde con atención. En una encuesta corta, uno o dos suelen alcanzar.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
 1. ¿Qué es la respuesta descuidada?
 
-2. ¿Por qué es un problema especialmente frecuente en encuestas online?
+2. ¿Por qué es un problema tan frecuente en las encuestas online?
 
 3. ¿Qué es un ítem de respuesta indicada?
 
@@ -229,14 +229,14 @@ Respondé cada pregunta con una oración completa.
 
 5. ¿Qué es una variable derivada?
 
-6. ¿Por qué el criterio de exclusión debe decidirse antes de ver los datos?
+6. ¿Por qué el criterio de exclusión se decide antes de ver los datos?
 
 7. ¿Por qué no conviene terminar el estudio cuando alguien falla el control?
 
-8. ¿Qué ocurriría si la comparación usara `"1"` con comillas?
+8. ¿Qué pasaría si la comparación usara `"1"` con comillas?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Es una forma de responder sin leer o sin el esfuerzo necesario, de modo que las respuestas no reflejan lo que el instrumento intenta medir.
 
@@ -256,17 +256,17 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Las encuestas online pueden recibir respuestas descuidadas. Existen varios indicadores para detectarlas: ítems de respuesta indicada, patrones uniformes, inconsistencias y tiempos de respuesta. Ninguno es perfecto.
+Las encuestas online pueden recibir respuestas descuidadas. Para detectarlas hay varios indicadores, como los ítems de respuesta indicada, los patrones uniformes, las inconsistencias y los tiempos de respuesta, y ninguno es perfecto.
 
-Un ítem de respuesta indicada se agrega como un ítem más de una escala y se documenta como control. Una variable derivada, calculada con `on_finish`, resume si la respuesta fue la esperada, sin reemplazar el dato original.
+Un ítem de respuesta indicada se agrega como un ítem más de una escala y se documenta como control. Una variable derivada, calculada con `on_finish`, resume si la respuesta fue la esperada sin reemplazar el dato original.
 
 Registrar un indicador no es excluir. El criterio de exclusión es una decisión metodológica que se toma y se documenta antes de recolectar datos, y la exclusión se aplica en el análisis, nunca dentro del estudio.
 
-## Resolvé un desafío breve
+## Desafío
 
-Imaginá que el piloto de tu estudio produjo estos datos para cinco personas.
+Imaginá que el piloto de tu estudio dio estos datos para cinco personas.
 
 | Persona | `atencion_correcta` | Respuestas a la EFOE | Duración total |
 |:---|:---|:---|:---|
@@ -276,14 +276,14 @@ Imaginá que el piloto de tu estudio produjo estos datos para cinco personas.
 | P4 | `true` | 2, 2, 2, 2 | 3 minutos |
 | P5 | `true` | 4, 4, 4, 4 | 1 minuto |
 
-1. Para cada persona, indicá qué indicadores sugieren respuesta descuidada.
+1. Para cada persona, decí qué indicadores sugieren respuesta descuidada.
 
-2. Escribí dos criterios de exclusión posibles y aplicá cada uno. ¿Qué personas quedan excluidas en cada caso?
+2. Escribí dos criterios de exclusión posibles y aplicá cada uno. ¿Quiénes quedan afuera en cada caso?
 
-3. Explicá por qué la persona P3 podría haber respondido con atención aunque falló el control.
+3. Explicá por qué P3 podría haber respondido con atención aunque falló el control.
 
 4. Escribí el criterio que elegirías y justificalo en tres oraciones.
 
-5. Explicá por qué este ejercicio, hecho con datos reales ya recolectados, no reemplaza la decisión previa.
+5. Explicá por qué este ejercicio, hecho con datos ya recolectados, no reemplaza la decisión previa.
 
-En el próximo capítulo vas a analizar los tiempos que registra jsPsych en cada pantalla y vas a calcular la duración total de la participación.
+En el próximo capítulo analizamos los tiempos que registra jsPsych en cada pantalla y calculamos la duración total de la participación.

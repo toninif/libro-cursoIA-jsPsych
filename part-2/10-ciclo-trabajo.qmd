@@ -1,49 +1,49 @@
 ---
-title: "El ciclo especificar–ejecutar–verificar"
+title: "El ciclo de trabajo"
 description: "Un método repetible para trabajar con agentes sin delegar el criterio."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder describir cada paso del ciclo de trabajo con un agente y quién es responsable de cada uno.
+1. describir cada paso del ciclo de trabajo con un agente y quién se encarga de cada uno;
 
-2. Vas a poder escribir una especificación antes de pedir un cambio.
+2. escribir una especificación antes de pedir un cambio;
 
-3. Vas a poder ejecutar un resultado y observar su comportamiento.
+3. ejecutar un resultado y observar cómo se comporta;
 
-4. Vas a poder verificar un cambio en tres niveles: lo que se ve, lo que cambió en los archivos y lo que decidió el investigador.
+4. verificar un cambio en tres niveles, lo que se ve, lo que cambió en los archivos y lo que decidió el investigador;
 
-5. Vas a poder describir un problema de manera que el agente pueda analizarlo.
+5. describir un problema de forma que el agente pueda analizarlo;
 
-6. Vas a poder corregir mediante un pedido nuevo y documentar el estado que quedó funcionando.
+6. corregir con un pedido nuevo y documentar lo que quedó funcionando.
 
-## Una tarea completa permite formular el problema
+## Para empezar, una tarea completa
 
-En los capítulos anteriores practicaste partes separadas del trabajo con un agente. Instalaste Codex y le diste una primera tarea. Aprendiste a escribir pedidos completos. Aprendiste a revisar propuestas de cambio y a comprobar los archivos con herramientas propias.
+En los capítulos anteriores practicaste por separado distintas partes del trabajo con un agente. Instalaste Codex y le diste una primera tarea, aprendiste a escribir pedidos completos y a revisar propuestas de cambio comprobando los archivos con tus propias herramientas.
 
-Las tareas reales combinan todas esas partes. Además, suelen incluir algo que todavía no practicaste con un agente: ejecutar el resultado para ver si se comporta como esperabas.
+Las tareas reales combinan todo eso, y además suelen incluir algo que todavía no hiciste con un agente, que es ejecutar el resultado para ver si se comporta como esperabas.
 
-Imaginá que necesitás la pantalla de bienvenida de un estudio. Es una página breve que se abre en el navegador y muestra un título y un párrafo. El párrafo informa cuánto dura la participación. ¿Por dónde empezás? ¿Cuándo le pedís algo al agente? ¿Cómo sabés que terminaste?
+Imaginá que necesitás la pantalla de bienvenida de un estudio. Es una página corta que se abre en el navegador y muestra un título y un párrafo que dice cuánto dura la participación. ¿Por dónde empezás? ¿En qué momento le pedís algo al agente? ¿Cómo sabés que terminaste?
 
-Este capítulo organiza esas preguntas en un ciclo de trabajo. Vas a usar ese ciclo durante el resto del libro, cada vez con tareas más complejas.
+En este capítulo ordenamos esas preguntas en un ciclo de trabajo que vamos a usar durante el resto del libro, cada vez con tareas más complejas.
 
 ::: {.callout-tip}
 ## Idea clave
 
-El trabajo con un agente sigue un ciclo: especificar, implementar, ejecutar, verificar y corregir. El agente participa en la implementación. La especificación, la verificación y la decisión de dar la tarea por terminada corresponden al investigador.
+El trabajo con un agente sigue un ciclo de especificar, implementar, ejecutar, verificar y corregir. El agente participa en la implementación. La especificación, la verificación y la decisión de dar la tarea por terminada son del investigador.
 :::
 
-## El ciclo organiza el trabajo en pasos
+## Los pasos del ciclo
 
-La introducción del libro presentó el ciclo de trabajo en su forma más breve.
+En la presentación del libro vimos el ciclo en su forma más corta.
 
 ```text
 especificar → implementar → ejecutar → verificar → corregir
 ```
 
-Cuando trabajás con un agente, conviene detallar algunos de esos pasos. La implementación se divide en inspeccionar, planificar y modificar. Además, el ciclo se completa con la documentación del resultado.
+Cuando trabajamos con un agente, conviene desarmar algunos pasos. La implementación se divide en inspeccionar, planificar y modificar, y el ciclo se cierra documentando el resultado.
 
 ```{mermaid}
 %%| fig-cap: "El ciclo de trabajo con un agente. La corrección vuelve a comenzar el ciclo con un pedido nuevo."
@@ -58,7 +58,7 @@ flowchart LR
   C --> E
 ```
 
-La siguiente tabla indica quién realiza cada paso.
+En la @tbl-ciclo se ve quién hace cada paso.
 
 | Paso | Qué ocurre | Quién lo realiza |
 |:---|:---|:---|
@@ -73,61 +73,61 @@ La siguiente tabla indica quién realiza cada paso.
 
 : Pasos del ciclo de trabajo y responsables {#tbl-ciclo}
 
-No todas las tareas necesitan todos los pasos. Una corrección ortográfica no requiere un plan. Una tarea que modifica varias partes del estudio sí lo requiere. Con la práctica vas a reconocer qué pasos puede abreviar cada tarea.
+No todas las tareas necesitan todos los pasos. Corregir una falta de ortografía no requiere un plan, pero una tarea que toca varias partes del estudio sí. Con la práctica vas a ir reconociendo qué pasos se pueden abreviar en cada caso.
 
-## Especificar es decidir antes de pedir
+## Especificar
 
-En el capítulo anterior aprendiste a escribir pedidos completos. La especificación es un paso previo. Reúne las decisiones que el pedido va a transmitir.
+En el capítulo anterior aprendiste a escribir pedidos completos. La especificación viene antes, porque junta las decisiones que después el pedido va a transmitir.
 
 Una especificación útil responde cuatro preguntas.
 
-1. ¿Qué debe existir al terminar?
+1. ¿Qué tiene que existir al terminar?
 
-2. ¿Qué contenido exacto debe tener?
+2. ¿Qué contenido exacto tiene que tener?
 
-3. ¿Qué no debe cambiar?
+3. ¿Qué no tiene que cambiar?
 
 4. ¿Cómo voy a comprobar que el resultado es correcto?
 
-La cuarta pregunta es la más importante para el ciclo. Si no sabés cómo vas a verificar el resultado, todavía no terminaste de especificar.
+Para el ciclo, la cuarta es la más importante. Si no sabés cómo vas a verificar el resultado, todavía no terminaste de especificar.
 
-Conviene escribir la especificación en un archivo o en papel antes de abrir el agente. Escribirla te obliga a tomar las decisiones. Guardarla te permite compararla después con el resultado.
+Conviene escribir la especificación en un archivo o en papel antes de abrir el agente. Escribirla te obliga a tomar las decisiones, y tenerla guardada te deja compararla después con el resultado.
 
-## Ejecutar es poner el resultado en funcionamiento
+## Ejecutar
 
-En la Parte I definiste ejecutar como poner las instrucciones de un programa en funcionamiento. En el ciclo de trabajo, **ejecutar** significa usar el resultado de la manera en que se va a usar realmente.
+En la Parte I dijimos que ejecutar es poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, **ejecutar** es usar el resultado de la misma forma en que se va a usar de verdad.
 
-El tipo de ejecución depende del resultado.
+Cómo se ejecuta depende de qué sea el resultado.
 
 - Un documento se ejecuta abriéndolo y leyéndolo.
 - Una página web se ejecuta abriéndola en el navegador, que interpreta sus instrucciones.
-- Un estudio completo se ejecuta participando en él como lo haría una persona participante.
+- Un estudio completo se ejecuta participando como lo haría una persona participante.
 
-La ejecución aporta información que la lectura del archivo no ofrece. Un archivo puede contener el texto correcto y mostrarlo de manera incorrecta. Una página puede verse bien en la computadora de quien la construyó y fallar en otra situación. Por eso, leer el archivo y ejecutarlo son comprobaciones complementarias.
+La ejecución da información que la lectura del archivo no da. Un archivo puede tener el texto correcto y mostrarlo mal, y una página puede verse bien en la computadora de quien la hizo y fallar en otra situación. Por eso leer el archivo y ejecutarlo son comprobaciones que se complementan.
 
-## Verificar tiene tres niveles
+## Verificar en tres niveles
 
-La verificación compara el resultado con la especificación. Conviene realizarla en tres niveles.
+Verificar es comparar el resultado con la especificación, y conviene hacerlo en tres niveles.
 
-1. **Lo que se ve.** ¿La pantalla muestra lo que la especificación indica? Esta comprobación usa la ejecución.
+1. **Lo que se ve.** ¿La pantalla muestra lo que dice la especificación? Esto se comprueba ejecutando.
 
-2. **Lo que cambió.** ¿Cambiaron solamente los archivos esperados? ¿El contenido coincide con el pedido? Esta comprobación usa las técnicas del capítulo anterior: la propuesta de cambio, `dir`, `Get-Content` y la comparación con una copia de respaldo.
+2. **Lo que cambió.** ¿Cambiaron solo los archivos esperados? ¿El contenido coincide con el pedido? Acá usamos lo del capítulo anterior, la propuesta de cambio, `dir`, `Get-Content` y la comparación con una copia de respaldo.
 
-3. **Lo que se decidió.** ¿El resultado implementa correctamente las decisiones metodológicas y éticas? Esta comprobación usa tu criterio de investigador.
+3. **Lo que se decidió.** ¿El resultado implementa bien las decisiones metodológicas y éticas? Esto lo comprueba tu criterio de investigador.
 
-Más adelante vas a agregar un cuarto nivel: los datos que produce el estudio. Todavía no lo necesitás, porque tu proyecto no recolecta datos.
+Más adelante vamos a sumar un cuarto nivel, los datos que produce el estudio. Todavía no hace falta, porque tu proyecto no recolecta datos.
 
 ::: {.callout-important}
 ## Verificar no es preguntarle al agente si funcionó
 
-El agente puede afirmar que el resultado es correcto. Esa afirmación no es una verificación. La verificación compara el resultado con tu especificación usando observaciones propias.
+El agente puede decir que el resultado es correcto, pero eso no es una verificación. Verificar es comparar el resultado con tu especificación usando tus propias observaciones.
 :::
 
-## Un problema bien descrito es más fácil de corregir
+## Describir bien un problema
 
-Cuando la verificación encuentra una diferencia, el ciclo pasa a la corrección. La calidad de la corrección depende de la calidad con la que describís el problema.
+Cuando la verificación encuentra una diferencia, el ciclo pasa a la corrección. Y la calidad de la corrección depende mucho de qué tan bien describas el problema.
 
-En el capítulo sobre programas y errores aprendiste a leer un mensaje de error: identificar la acción esperada, la instrucción que falló, el objeto mencionado y el contexto. La misma estrategia sirve para comunicarle un problema a un agente.
+En el capítulo sobre programas y errores aprendiste a leer un mensaje de error buscando la acción esperada, la instrucción que falló, el objeto mencionado y el contexto. Esa misma estrategia sirve para contarle un problema a un agente.
 
 Compará estas dos descripciones.
 
@@ -143,21 +143,21 @@ Mensaje de error: no apareció ninguno.
 No modifiques archivos todavía: explicá cuál puede ser la causa.
 ```
 
-La primera descripción obliga al agente a adivinar. La segunda le ofrece lo esperado, lo observado, la forma de reproducir el problema y el mensaje exacto, si existe. También limita la respuesta a una explicación.
+Con la primera, el agente tiene que adivinar. La segunda le da lo esperado, lo observado, cómo reproducir el problema y el mensaje exacto, si lo hay. Además limita la respuesta a una explicación.
 
-Pedir primero la causa y después la corrección evita que el agente pruebe cambios al azar. Una vez que comprendés la causa, formulás un pedido de corrección acotado.
+Pedir primero la causa y después la corrección evita que el agente pruebe cambios al azar. Cuando ya entendés la causa, hacés un pedido de corrección acotado.
 
 ::: {.callout-warning}
-## Si varias correcciones no resuelven el problema, detenete
+## Si varias correcciones no funcionan, frená
 
-Cuando dos o tres pedidos de corrección no producen el resultado esperado, seguir pidiendo cambios suele empeorar la situación. Detené el ciclo. Recuperá la copia de respaldo o el último estado que funcionaba. Revisá la especificación y dividí la tarea en pasos más pequeños.
+Cuando dos o tres pedidos de corrección no dan el resultado esperado, seguir pidiendo cambios suele empeorar las cosas. Frená el ciclo, recuperá la copia de respaldo o el último estado que funcionaba, revisá la especificación y dividí la tarea en pasos más chicos.
 :::
 
-## Documentar conserva lo que quedó funcionando
+## Documentar
 
-El último paso del ciclo registra el resultado. En el capítulo sobre agentes viste que el agente no recuerda las sesiones anteriores. Vos tampoco vas a recordar cada detalle dentro de unas semanas.
+El último paso del ciclo deja registrado el resultado. En el capítulo sobre agentes vimos que el agente no se acuerda de las sesiones anteriores, y vos tampoco te vas a acordar de cada detalle dentro de unas semanas.
 
-Un **registro de cambios** es un documento que conserva, en orden, las modificaciones realizadas en un proyecto. Cada entrada suele incluir estos datos.
+Un **registro de cambios** es un documento que guarda, en orden, las modificaciones hechas en un proyecto. Cada entrada suele tener estos datos.
 
 1. La fecha.
 
@@ -169,20 +169,20 @@ Un **registro de cambios** es un documento que conserva, en orden, las modificac
 
 5. En qué estado quedó el proyecto.
 
-El registro cumple una función de investigación. Permite reconstruir qué versión del procedimiento existía en cada momento. Esta posibilidad forma parte de la **reproducibilidad**, es decir, de la capacidad de otra persona para comprender y repetir lo que se hizo.
+El registro tiene una función de investigación, porque permite reconstruir qué versión del procedimiento había en cada momento. Eso es parte de la **reproducibilidad**, que es la posibilidad de que otra persona entienda y repita lo que se hizo.
 
-Documentá lo que quedó funcionando y cómo lo comprobaste. No documentes lo que querías hacer si no llegaste a verificarlo.
+Documentá lo que quedó funcionando y cómo lo comprobaste. Lo que querías hacer y no llegaste a verificar no va en el registro como si estuviera hecho.
 
-## Recorré el ciclo completo con una pantalla de bienvenida
+## Actividad, una pantalla de bienvenida
 
-Ahora vas a recorrer el ciclo completo en la carpeta `practica_archivos`. Vas a crear una página web muy breve. Todavía no necesitás comprender cómo se escribe una página web. La Parte III va a explicarlo. En esta actividad, lo importante es recorrer cada paso del ciclo y reconocer quién lo realiza.
+Ahora vas a recorrer el ciclo completo en la carpeta `practica_archivos`, creando una página web muy corta. Todavía no hace falta que sepas cómo se escribe una página web, eso lo vemos en la Parte III. Acá lo importante es pasar por cada paso del ciclo y reconocer quién lo hace.
 
-### Paso 1. Especificá la pantalla
+### Paso 1. Especificar
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-Copiá esta especificación en un archivo de texto o en papel. Si querés, cambiá el título por el de un estudio que te interese. Mantené el resto.
+Copiá esta especificación en un archivo de texto o en papel. Si querés, cambiá el título por el de un estudio que te interese, pero dejá el resto igual.
 
 ```text
 Archivo: bienvenida.html, dentro de practica_archivos.
@@ -200,14 +200,14 @@ Verificación:
 ```
 :::
 
-### Pasos 2 a 4. Inspeccioná, planificá y modificá con el agente
+### Pasos 2 a 4. Inspeccionar, planificar y modificar
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-1. Abrí PowerShell, llegá a `practica_archivos` y comprobá la ubicación con `Get-Location`.
+1. Abrí PowerShell, andá a `practica_archivos` y comprobá la ubicación con `Get-Location`.
 
-2. Iniciá Codex y comprobá con `/status` que los permisos sean **Read Only**.
+2. Abrí Codex y fijate con `/status` que los permisos estén en **Read Only**.
 
 3. **Inspeccionar.** Escribí este pedido.
 
@@ -228,14 +228,14 @@ No agregues botones, imágenes, colores ni otros archivos.
 Antes de modificar archivos, explicá qué vas a crear y esperá mi aprobación.
 ```
 
-5. Leé el plan. Comprobá que mencione un solo archivo y los dos textos exactos. Si el plan incluye algo que no pediste, respondé indicando qué debe quitar.
+5. Leé el plan. Fijate que mencione un solo archivo y los dos textos exactos. Si incluye algo que no pediste, respondele qué tiene que sacar.
 
 6. **Modificar.** Cuando el plan coincida con tu especificación, escribí `Implementá el plan.`
 
-7. Revisá la propuesta de cambio antes de aprobarla. Localizá el título y el párrafo. Comprobá que los textos coincidan letra por letra.
+7. Revisá la propuesta de cambio antes de aprobarla. Buscá el título y el párrafo y comprobá que los textos coincidan letra por letra.
 :::
 
-La propuesta probablemente incluya más líneas de las que esperabas. Una página web necesita algunas líneas de estructura además del contenido visible. Podés encontrar líneas como estas.
+Seguramente la propuesta tenga más líneas de las que esperabas. Una página web necesita algunas líneas de estructura además del contenido que se ve. Podés encontrar algo así.
 
 ```html
 <!DOCTYPE html>
@@ -251,42 +251,42 @@ La propuesta probablemente incluya más líneas de las que esperabas. Una págin
 </html>
 ```
 
-No necesitás comprender cada línea. Alcanza con localizar tres elementos.
+No hace falta entender cada línea. Alcanza con encontrar tres elementos.
 
 1. `<h1>` marca el título principal que se ve en la página.
 
 2. `<p>` marca un párrafo, como viste en el capítulo anterior.
 
-3. `<meta charset="utf-8">` indica la codificación del archivo. Es la misma idea que estudiaste con `Get-Content`: le dice al navegador qué regla usar para interpretar las tildes.
+3. `<meta charset="utf-8">` indica la codificación del archivo. Es la misma idea que viste con `Get-Content`, le dice al navegador qué regla usar para interpretar las tildes.
 
-Si alguna línea te genera dudas, aplicá lo que aprendiste en el capítulo anterior. Antes de aprobar, elegí la opción de rechazo y pedí una explicación.
+Si alguna línea te genera dudas, hacé lo que aprendiste en el capítulo anterior. Antes de aprobar, elegí la opción de rechazo y pedí una explicación.
 
 ```text
 Explicá para qué sirve cada línea que no está dentro de <body>. No modifiques archivos.
 ```
 
-Estas líneas de estructura no son excedentes en el sentido del capítulo anterior. No agregan contenido ni modifican decisiones del estudio. Son necesarias para que el navegador interprete el archivo. Distinguir entre una línea de estructura y un cambio de contenido es parte de la revisión.
+Estas líneas de estructura no son excedentes en el sentido del capítulo anterior. No agregan contenido ni cambian decisiones del estudio, son lo que el navegador necesita para interpretar el archivo. Distinguir una línea de estructura de un cambio de contenido también es parte de la revisión.
 
-**Sin acceso a Codex:** abrí el Bloc de notas, copiá el ejemplo anterior y guardalo como `bienvenida.html` dentro de `practica_archivos`. Revisá que el nombre no termine en `.txt`.
+**Sin acceso a Codex.** Abrí el Bloc de notas, copiá el ejemplo anterior y guardalo como `bienvenida.html` dentro de `practica_archivos`. Fijate que el nombre no termine en `.txt`.
 
-### Paso 5. Ejecutá la página
+### Paso 5. Ejecutar
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 1. Abrí `practica_archivos` en el Explorador de archivos.
 
-2. Hacé doble clic sobre `bienvenida.html`. El sistema operativo va a abrirlo con tu navegador predeterminado.
+2. Hacé doble clic sobre `bienvenida.html`. El sistema operativo lo va a abrir con tu navegador predeterminado.
 
-3. Observá la barra de direcciones del navegador. Debe mostrar una ruta que termina en `practica_archivos/bienvenida.html`.
+3. Mirá la barra de direcciones del navegador. Tiene que mostrar una ruta que termina en `practica_archivos/bienvenida.html`.
 :::
 
-La barra de direcciones permite comprobar qué archivo abriste. Comienza con `file:///`, lo que indica que el navegador está mostrando un archivo de tu computadora y no una página de Internet.
+La barra de direcciones te confirma qué archivo abriste. Empieza con `file:///`, que quiere decir que el navegador está mostrando un archivo de tu computadora y no una página de Internet.
 
-### Paso 6. Verificá en tres niveles
+### Paso 6. Verificar en tres niveles
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 **Lo que se ve.** Compará la página con tu especificación.
 
@@ -294,27 +294,27 @@ La barra de direcciones permite comprobar qué archivo abriste. Comienza con `fi
 
 2. ¿El párrafo coincide letra por letra?
 
-3. ¿Las tildes se ven correctamente?
+3. ¿Las tildes se ven bien?
 
 4. ¿Aparece algo que no especificaste?
 
 **Lo que cambió.** Volvé a PowerShell, en una pestaña nueva si Codex sigue abierto.
 
-5. Ejecutá `dir` en `practica_archivos`. Comprobá que el único archivo nuevo sea `bienvenida.html`.
+5. Ejecutá `dir` en `practica_archivos` y comprobá que el único archivo nuevo sea `bienvenida.html`.
 
 **Lo que se decidió.** Respondé con una oración completa.
 
-6. ¿La duración que informa la página es correcta para el estudio que imaginás?
+6. ¿La duración que informa la página es la correcta para el estudio que imaginás?
 :::
 
-La última pregunta no se responde mirando la pantalla. Informar una duración falsa a las personas participantes es un problema ético, aunque la página funcione perfectamente. El consentimiento informado requiere que la información brindada sea exacta.
+Esta última pregunta no se responde mirando la pantalla. Informarles una duración falsa a las personas participantes es un problema ético, por más que la página funcione perfecto. El consentimiento informado requiere que la información que se da sea exacta.
 
-### Paso 7. Corregí con un pedido nuevo
+### Paso 7. Corregir con un pedido nuevo
 
-Imaginá que, después de un pilotaje, el equipo comprobó que la participación dura en promedio 15 minutos. El equipo decide actualizar la información. Esa decisión es metodológica y ética. La implementación es técnica.
+Imaginá que después de un pilotaje el equipo comprueba que la participación dura en promedio 15 minutos, y decide actualizar la información. Esa decisión es metodológica y ética. La implementación es técnica.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Escribí este pedido.
 
@@ -323,27 +323,27 @@ En bienvenida.html, reemplazá "10 minutos" por "15 minutos".
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-2. Revisá la propuesta. Debe contener una sola línea eliminada y una sola línea agregada, y la única diferencia entre ellas debe ser el número.
+2. Revisá la propuesta. Tiene que tener una sola línea borrada y una sola agregada, y la única diferencia entre ellas tiene que ser el número.
 
-3. Aprobá solamente si se cumple esa condición.
+3. Aprobá solo si se cumple eso.
 
-4. Volvé al navegador y presioná `F5` para recargar la página.
+4. Volvé al navegador y apretá `F5` para recargar la página.
 
-5. Comprobá que la página muestre `15 minutos` y que el resto del texto siga igual.
+5. Comprobá que diga `15 minutos` y que el resto del texto siga igual.
 :::
 
-El paso 4 es necesario. El navegador muestra la versión del archivo que leyó cuando abriste la página. Si el archivo cambia después, el navegador no lo detecta por su cuenta. Recargar la página le indica que vuelva a leer el archivo.
+El paso 4 hace falta porque el navegador muestra la versión del archivo que leyó cuando abriste la página. Si el archivo cambia después, el navegador no se entera solo, y al recargar le pedís que lo vuelva a leer.
 
-Observá que la corrección recorrió el ciclo otra vez, en forma abreviada. Hubo una decisión, un pedido acotado, una propuesta revisada, una ejecución y una verificación.
+Fijate que la corrección recorrió de nuevo el ciclo, en versión corta. Hubo una decisión, un pedido acotado, una propuesta revisada, una ejecución y una verificación.
 
-**Sin acceso a Codex:** realizá el reemplazo con el Bloc de notas, guardá el archivo y recargá la página.
+**Sin acceso a Codex.** Hacé el reemplazo con el Bloc de notas, guardá el archivo y recargá la página.
 
-### Paso 8. Documentá el resultado
+### Paso 8. Documentar
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
-Escribí este pedido. Reemplazá `AAAA-MM-DD` por la fecha de hoy, por ejemplo `2026-09-24`.
+Escribí este pedido, reemplazando `AAAA-MM-DD` por la fecha de hoy, por ejemplo `2026-09-24`.
 
 ```text
 Creá un archivo registro.md en esta carpeta con este contenido exacto:
@@ -364,82 +364,82 @@ No modifiques ningún otro archivo.
 Revisá la propuesta y aprobala si coincide. Después verificá el archivo con `Get-Content registro.md -Encoding UTF8`.
 :::
 
-El contenido del registro lo escribiste vos. El agente solo creó el archivo. Esta división refleja la regla del curso: el registro documenta decisiones y verificaciones que solo el investigador puede afirmar.
+El contenido del registro lo escribiste vos, y el agente solo creó el archivo. Esa división respeta la regla del curso, porque el registro documenta decisiones y verificaciones que solo el investigador puede afirmar.
 
-**Sin acceso a Codex:** creá `registro.md` con el Bloc de notas y copiá el mismo contenido.
+**Sin acceso a Codex.** Creá `registro.md` con el Bloc de notas y copiá el mismo contenido.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-Durante el ciclo, el agente intervino en cinco momentos.
+A lo largo del ciclo, el agente intervino en cinco momentos.
 
-1. En la inspección, listó el contenido de la carpeta y respondió sin modificar nada.
+1. En la inspección listó el contenido de la carpeta y respondió sin modificar nada.
 
-2. En la planificación, describió el archivo que iba a crear. Tu aprobación del plan no modificó archivos. Solo autorizó el paso siguiente.
+2. En la planificación describió el archivo que iba a crear. Aprobar el plan no modificó archivos, solo habilitó el paso siguiente.
 
-3. En la modificación, escribió `bienvenida.html` con el contenido y las líneas de estructura necesarias.
+3. En la modificación escribió `bienvenida.html` con el contenido y las líneas de estructura necesarias.
 
-4. En la corrección, reemplazó un número dentro de una línea.
+4. En la corrección reemplazó un número dentro de una línea.
 
-5. En la documentación, creó un archivo con un contenido que vos le diste.
+5. En la documentación creó un archivo con un contenido que le diste vos.
 
-El agente no ejecutó la página, no evaluó si la duración era correcta y no decidió cuándo la tarea estaba terminada. Esos pasos te correspondieron a vos. La especificación inicial fue la referencia de todas las comprobaciones.
+El agente no ejecutó la página, no evaluó si la duración era correcta y no decidió cuándo estaba terminada la tarea. Eso te tocó a vos, y la especificación inicial fue la referencia de todas las comprobaciones.
 
-## Explicá qué ocurrió durante el ciclo
+## Qué pasó en el ciclo
 
-El ciclo transformó una intención general en un resultado verificado y documentado.
+El ciclo convirtió una intención general en un resultado verificado y documentado.
 
-La especificación fijó el contenido exacto y el criterio de verificación antes de abrir el agente. La inspección confirmó el punto de partida. El plan permitió revisar la interpretación del agente antes de que produjera cambios. La propuesta de cambio permitió revisar el contenido exacto. La ejecución mostró cómo se ve el resultado. La verificación comparó lo observado con la especificación en tres niveles. La corrección respondió a una decisión nueva. El registro dejó constancia del estado final.
+La especificación fijó el contenido exacto y el criterio de verificación antes de abrir el agente. La inspección confirmó desde dónde partíamos, el plan te dejó revisar cómo había entendido el agente la tarea antes de que cambiara nada y la propuesta de cambio te mostró el contenido exacto. Con la ejecución viste cómo quedaba el resultado y con la verificación lo comparaste con la especificación en tres niveles. La corrección respondió a una decisión nueva y el registro dejó constancia del estado final.
 
-Cada paso produjo evidencia para el siguiente. Si alguno hubiera fallado, habrías sabido en qué punto del ciclo buscar la causa.
+Cada paso dio evidencia para el siguiente. Si alguno hubiera fallado, habrías sabido en qué parte del ciclo buscar la causa.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
-### El navegador muestra una versión anterior
+### El navegador muestra una versión vieja
 
-Si modificaste el archivo y la página no cambió, recargala con `F5`. Si sigue igual, comprobá en la barra de direcciones que el navegador esté mostrando el archivo correcto.
+Si modificaste el archivo y la página no cambió, recargala con `F5`. Si sigue igual, fijate en la barra de direcciones que el navegador esté mostrando el archivo correcto.
 
-### Las tildes aparecen como símbolos extraños
+### Las tildes aparecen como símbolos raros
 
-Este problema se relaciona con la codificación. Comprobá si el archivo contiene la línea `<meta charset="utf-8">`. Si no la contiene, describí el problema al agente con el formato de este capítulo y pedí primero una explicación de la causa.
+Es un problema de codificación. Fijate si el archivo tiene la línea `<meta charset="utf-8">`. Si no la tiene, describile el problema al agente con el formato de este capítulo y pedile primero que explique la causa.
 
-### El archivo se guardó con una extensión adicional
+### El archivo quedó con una extensión de más
 
-Si creaste el archivo a mano, el Bloc de notas puede haberlo guardado como `bienvenida.html.txt`. En ese caso, el navegador no lo interpreta como página web. Activá la visualización de extensiones y corregí el nombre.
+Si lo creaste a mano, el Bloc de notas puede haberlo guardado como `bienvenida.html.txt`, y entonces el navegador no lo interpreta como página web. Activá la visualización de extensiones y corregí el nombre.
 
-### La verificación se hizo antes de la especificación
+### Decidir qué verificar después de ver el resultado
 
-Si decidís qué comprobar después de ver el resultado, tendés a confirmar lo que ya ves. Escribí el criterio de verificación antes de pedir el cambio.
+Si decidís qué comprobar cuando ya estás mirando el resultado, tendés a confirmar lo que ves. Escribí el criterio de verificación antes de pedir el cambio.
 
-### La corrección no se volvió a verificar
+### No volver a verificar después de corregir
 
-Una corrección es un cambio nuevo. Puede resolver un problema y producir otro. Después de cada corrección, repetí la ejecución y la verificación.
+Una corrección es un cambio nuevo, y puede resolver un problema y crear otro. Después de cada corrección, repetí la ejecución y la verificación.
 
-### El registro describe lo que se intentó
+### Un registro que cuenta lo que se intentó
 
-Un registro útil informa el estado verificado. Si una tarea quedó incompleta, el registro debe decirlo.
+Un registro útil informa el estado verificado. Si una tarea quedó a medias, el registro lo tiene que decir.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué pasos del ciclo corresponden exclusivamente al investigador?
+1. ¿Qué pasos del ciclo le corresponden solo al investigador?
 
 2. ¿Qué cuatro preguntas responde una especificación útil?
 
-3. ¿Qué significa ejecutar una página web?
+3. ¿Qué quiere decir ejecutar una página web?
 
 4. ¿Cuáles son los tres niveles de verificación de este capítulo?
 
-5. ¿Qué información conviene incluir al describir un problema a un agente?
+5. ¿Qué información conviene dar al describirle un problema a un agente?
 
 6. ¿Por qué conviene pedir primero la causa de un problema y después la corrección?
 
 7. ¿Por qué hay que recargar el navegador después de modificar un archivo?
 
-8. ¿Qué datos incluye una entrada de un registro de cambios?
+8. ¿Qué datos tiene una entrada de un registro de cambios?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Especificar, ejecutar, verificar y decidir cuándo la tarea está terminada corresponden al investigador.
 
@@ -459,44 +459,44 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-El trabajo con un agente sigue un ciclo: especificar, inspeccionar, planificar, modificar, ejecutar, verificar, corregir y documentar. El agente participa en la inspección, la planificación y la modificación. El investigador especifica, ejecuta, verifica y decide cuándo la tarea terminó.
+El trabajo con un agente sigue un ciclo en el que especificamos, inspeccionamos, planificamos, modificamos, ejecutamos, verificamos, corregimos y documentamos. El agente participa en la inspección, la planificación y la modificación. El investigador especifica, ejecuta, verifica y decide cuándo terminó la tarea.
 
-Una especificación reúne las decisiones antes de pedir el cambio e incluye el criterio de verificación. Ejecutar significa usar el resultado como se va a usar realmente. La verificación ocurre en tres niveles: lo que se ve, lo que cambió y lo que se decidió.
+La especificación junta las decisiones antes de pedir el cambio e incluye el criterio de verificación. Ejecutar es usar el resultado como se va a usar de verdad, y verificar se hace en tres niveles, lo que se ve, lo que cambió y lo que se decidió.
 
-Un problema bien descrito incluye lo esperado, lo observado, los pasos para reproducirlo y el mensaje exacto. Conviene pedir primero la causa y después una corrección acotada. Si varias correcciones fallan, conviene volver a un estado conocido y revisar la especificación.
+Un problema bien descrito incluye lo esperado, lo observado, los pasos para reproducirlo y el mensaje exacto. Conviene pedir primero la causa y después una corrección acotada, y si varias correcciones fallan, volver a un estado conocido y revisar la especificación.
 
-Un registro de cambios conserva qué quedó funcionando y cómo se comprobó. Esa documentación contribuye a la reproducibilidad del trabajo.
+El registro de cambios guarda qué quedó funcionando y cómo se comprobó, y así contribuye a la reproducibilidad del trabajo.
 
-## Cerrá la Parte II
+## Cierre de la Parte II
 
-Con este capítulo termina la Parte II. Durante estos cinco capítulos desarrollaste tres competencias que vas a usar en el resto del libro.
+Con este capítulo termina la Parte II. En estos cinco capítulos desarrollaste tres competencias que vas a usar en el resto del libro.
 
-1. Formular pedidos claros, delimitados y verificables.
+1. Formular pedidos claros, acotados y verificables.
 
 2. Leer lo que hizo el agente y compararlo con lo que pediste.
 
 3. Comprobar el resultado con evidencia propia.
 
-Tu proyecto `mi-primer-estudio` todavía contiene un solo archivo, `README.md`. Ahora incluye además reglas de trabajo que escribiste vos. La estructura sigue coincidiendo con el checkpoint `proyectos\01-inicial`. El contenido del README puede tener secciones adicionales, como anticipó el capítulo sobre proyectos.
+Tu proyecto `mi-primer-estudio` sigue teniendo un solo archivo, `README.md`, que ahora además incluye reglas de trabajo escritas por vos. La estructura sigue coincidiendo con el checkpoint `proyectos\01-inicial`, aunque el README puede tener secciones extra, como anticipamos en el capítulo sobre proyectos.
 
-## Resolvé un desafío breve
+## Desafío
 
-Aplicá el ciclo completo a `mi-primer-estudio`. El objetivo es agregar al README un registro de los cambios que hiciste durante la Parte II.
+Aplicá el ciclo completo a `mi-primer-estudio`. El objetivo es sumar al README un registro de los cambios que hiciste durante la Parte II.
 
-1. **Especificá.** Escribí el contenido exacto de una sección titulada `## Registro de cambios`. Incluí una entrada por cada cambio que hiciste en el README durante los capítulos 8 y 9. Usá el formato de entrada de este capítulo.
+1. **Especificá.** Escribí el contenido exacto de una sección titulada `## Registro de cambios`, con una entrada por cada cambio que le hiciste al README en los capítulos 8 y 9. Usá el formato de entrada de este capítulo.
 
 2. **Preparate.** Guardá una copia de respaldo de `README.md` en la carpeta `respaldos`.
 
-3. **Pedí el cambio.** Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**. Pedí que agregue la sección al final del archivo con el contenido exacto. Indicá que no modifique nada más.
+3. **Pedí el cambio.** Abrí Codex en `mi-primer-estudio` con permisos **Read Only** y pedile que agregue la sección al final del archivo con el contenido exacto, sin modificar nada más.
 
-4. **Revisá la propuesta** con la lista de cinco preguntas del capítulo anterior.
+4. **Revisá la propuesta** con las cinco preguntas del capítulo anterior.
 
-5. **Ejecutá y verificá.** Leé el archivo con `Get-Content README.md -Encoding UTF8`. Comparalo con la copia de respaldo.
+5. **Ejecutá y verificá.** Leé el archivo con `Get-Content README.md -Encoding UTF8` y comparalo con la copia de respaldo.
 
 6. **Documentá.** Agregá al registro una entrada para este mismo cambio, a mano o con un pedido nuevo.
 
-**Sin acceso a Codex:** realizá los pasos 1, 2, 5 y 6. En lugar del paso 3, agregá la sección con el Bloc de notas.
+**Sin acceso a Codex.** Hacé los pasos 1, 2, 5 y 6, y en lugar del paso 3 agregá la sección con el Bloc de notas.
 
-En la Parte III vas a usar este ciclo para construir tu primer estudio. Vas a partir de algo que ya conocés, Google Forms, para analizar qué hace realmente un formulario y cómo reproducirlo con jsPsych.
+En la Parte III vamos a usar este ciclo para construir tu primer estudio. Partimos de algo que ya conocés, Google Forms, para analizar qué hace realmente un formulario y cómo reproducirlo con jsPsych.

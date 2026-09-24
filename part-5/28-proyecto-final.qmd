@@ -3,45 +3,45 @@ title: "Proyecto final"
 description: "Diseñar, construir, verificar, publicar y documentar un estudio de encuesta propio."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder planificar tu proyecto final a partir de las etapas del libro.
+1. planificar tu proyecto final a partir de las etapas del libro;
 
-2. Vas a poder reconocer qué productos debe incluir el proyecto y qué criterios se usan para evaluarlo.
+2. reconocer qué productos tiene que incluir el proyecto y con qué criterios se evalúa;
 
-3. Vas a poder documentar el uso que hiciste de agentes de IA.
+3. documentar cómo usaste los agentes de IA;
 
-4. Vas a poder realizar una revisión final completa antes de entregar.
+4. hacer una revisión final completa antes de entregar;
 
-5. Vas a poder presentar tu estudio de manera que otra persona pueda comprenderlo y reproducirlo.
+5. presentar tu estudio de forma que otra persona lo pueda entender y reproducir.
 
-## El proyecto final reúne todo el recorrido
+## Todo el recorrido junto
 
-El proyecto final es un estudio de encuesta online, diseñado por vos, publicado y funcionando. Su secuencia es la del estudio que construiste durante el libro:
+El proyecto final es un estudio de encuesta online, diseñado por vos, publicado y funcionando. Tiene la misma secuencia que el estudio que fuiste construyendo en el libro.
 
-1. consentimiento informado;
+1. Consentimiento informado.
 
-2. cuestionario sociodemográfico;
+2. Cuestionario sociodemográfico.
 
-3. una o más escalas psicológicas, elegidas según tu pregunta de investigación;
+3. Una o más escalas psicológicas, elegidas según tu pregunta de investigación.
 
-4. pantalla final de cierre y explicación del estudio.
+4. Pantalla final de cierre y explicación del estudio.
 
-Cada estudiante elige las escalas que necesita y las incorpora a partir de la publicación original de la versión elegida, con su referencia y comprobando sus condiciones de uso.
+Cada estudiante elige las escalas que necesita y las incorpora desde la publicación original de la versión elegida, con su referencia y revisando sus condiciones de uso.
 
-El proyecto no evalúa si sabés programar. Evalúa si podés tomar decisiones metodológicas, convertirlas en especificaciones, implementarlas con ayuda de un agente, verificar que la implementación sea correcta y documentar todo el proceso.
+El proyecto no evalúa si sabés programar. Evalúa si podés tomar decisiones metodológicas, convertirlas en especificaciones, implementarlas con ayuda de un agente, verificar que la implementación esté bien y documentar todo el proceso.
 
 ::: {.callout-tip}
 ## Idea clave
 
-La regla del curso también es el criterio del proyecto final: el agente puede implementar una decisión; el investigador debe decidir qué implementar y verificar que sea correcto. El proyecto tiene que mostrar ambas cosas: tus decisiones y tus verificaciones.
+La regla del curso es también el criterio del proyecto final. El agente puede implementar una decisión, pero el investigador tiene que decidir qué implementar y verificar que esté bien. El proyecto tiene que mostrar las dos cosas, tus decisiones y tus verificaciones.
 :::
 
-## Las etapas del proyecto siguen la Parte V
+## Las etapas del proyecto
 
-El proyecto recorre las etapas de los capítulos anteriores. La tabla indica qué producto deja cada una.
+El proyecto recorre las etapas de los capítulos anteriores, y cada una deja un producto.
 
 | Etapa | Capítulo de referencia | Producto |
 |:---|:---|:---|
@@ -54,11 +54,11 @@ El proyecto recorre las etapas de los capítulos anteriores. La tabla indica qu�
 
 : Etapas y productos del proyecto final {#tbl-etapas}
 
-Podés partir de tu versión de `mi-primer-estudio` o de una copia del checkpoint `proyectos\07-estudio-completo`. El checkpoint es una plantilla: contiene marcas `COMPLETAR` y `REEMPLAZAR` donde van tus decisiones.
+Podés arrancar de tu versión de `mi-primer-estudio` o de una copia del checkpoint `proyectos\07-estudio-completo`. El checkpoint funciona como plantilla y tiene marcas `COMPLETAR` y `REEMPLAZAR` donde van tus decisiones.
 
 ## Un calendario posible
 
-Si el proyecto se desarrolla durante varias semanas, esta distribución puede servir de guía. Tu docente puede proponer otra.
+Si el proyecto dura varias semanas, esta distribución te puede servir de guía, aunque tu docente puede proponer otra.
 
 | Semana | Tareas |
 |:---|:---|
@@ -73,7 +73,7 @@ Si el proyecto se desarrolla durante varias semanas, esta distribución puede se
 
 ## Qué se entrega
 
-La entrega es el enlace a tu repositorio de GitHub. El repositorio debe contener:
+Lo que entregás es el enlace a tu repositorio de GitHub, que tiene que tener estos archivos.
 
 1. `index.html`, `experiment.js` y `styles.css`, con el estudio completo.
 
@@ -83,19 +83,19 @@ La entrega es el enlace a tu repositorio de GitHub. El repositorio debe contener
 
 4. `AGENTS.md`, con las reglas del proyecto.
 
-5. `README.md`, organizado como se describe en la sección siguiente.
+5. `README.md`, organizado como explicamos en la sección siguiente.
 
-El repositorio no debe contener datos de participantes, ni del piloto ni de pruebas.
+El repositorio no puede tener datos de participantes, ni del piloto ni de pruebas.
 
-### El README funciona como informe
+### El README como informe
 
-El README es lo primero que ve una persona al entrar en tu repositorio. Para el proyecto final, organizalo con estas secciones.
+El README es lo primero que ve alguien al entrar a tu repositorio. Para el proyecto final, organizalo con estas secciones.
 
 1. **Título y dirección publicada.** El nombre del estudio, el enlace y la fecha de publicación.
 
 2. **Pregunta de investigación.** En una o dos oraciones.
 
-3. **Instrumentos.** Las escalas usadas, con su referencia completa y la justificación de la elección.
+3. **Instrumentos.** Las escalas que usaste, con su referencia completa y por qué las elegiste.
 
 4. **Procedimiento.** La tabla del procedimiento completo, como la del capítulo sobre la encuesta ampliada.
 
@@ -105,21 +105,21 @@ El README es lo primero que ve una persona al entrar en tu repositorio. Para el 
 
 7. **Pilotaje.** Participantes, duración, problemas encontrados y correcciones.
 
-8. **Uso de agentes de IA.** Descripto en la sección siguiente.
+8. **Uso de agentes de IA.** Lo describimos en la sección siguiente.
 
 9. **Registro de cambios.** Con las entradas de todo el proceso.
 
-10. **Limitaciones.** Lo que el estudio no puede responder, los problemas que no pudiste resolver y lo que harías diferente.
+10. **Limitaciones.** Lo que el estudio no puede responder, los problemas que no pudiste resolver y lo que harías distinto.
 
-## Documentá el uso de agentes de IA
+## Documentar el uso de agentes de IA
 
-Usar un agente para construir un estudio es legítimo. Ocultar cómo se usó, no. Cada vez más revistas y cátedras piden declarar el uso de herramientas de IA. En tu proyecto, esa declaración tiene además una función de aprendizaje: muestra que sabés qué hizo el agente y qué verificaste vos.
+Usar un agente para construir un estudio es legítimo. Esconder cómo se usó, no. Cada vez más revistas y cátedras piden declarar el uso de herramientas de IA, y en tu proyecto esa declaración además te sirve para aprender, porque muestra que sabés qué hizo el agente y qué verificaste vos.
 
-La sección “Uso de agentes de IA” del README debería responder estas preguntas.
+La sección “Uso de agentes de IA” del README tendría que responder estas preguntas.
 
 1. ¿Qué agente usaste y para qué tareas?
 
-2. ¿Qué decisiones tomaste vos antes de cada pedido? Por ejemplo, la elección de las escalas, los textos exactos y las reglas condicionales.
+2. ¿Qué decidiste vos antes de cada pedido? Por ejemplo, la elección de las escalas, los textos exactos y las reglas condicionales.
 
 3. ¿Qué verificaste después de cada cambio, y cómo?
 
@@ -130,14 +130,14 @@ La sección “Uso de agentes de IA” del README debería responder estas pregu
 No hace falta listar cada pedido. Alcanza con describir los tipos de tareas, con uno o dos ejemplos concretos de pedidos y de verificaciones.
 
 ::: {.callout-warning}
-## El agente no redacta la declaración ni las decisiones
+## La declaración y las decisiones no las escribe el agente
 
-Podés pedirle al agente que te ayude a ordenar una lista de los cambios que hizo. Pero la justificación de las escalas, las limitaciones y la declaración de uso de IA expresan tu criterio. Si las redacta el agente, dejan de cumplir su función.
+Le podés pedir al agente que te ayude a ordenar una lista de los cambios que hizo. Pero la justificación de las escalas, las limitaciones y la declaración de uso de IA expresan tu criterio, y si las escribe el agente dejan de cumplir su función.
 :::
 
-## Los criterios de evaluación priorizan las decisiones
+## Cómo se evalúa
 
-El proyecto se evalúa con criterios como los siguientes. Tu docente puede ajustarlos.
+El proyecto se evalúa con criterios como estos, que tu docente puede ajustar.
 
 | Criterio | Qué se observa |
 |:---|:---|
@@ -152,14 +152,14 @@ El proyecto se evalúa con criterios como los siguientes. Tu docente puede ajust
 
 : Criterios de evaluación del proyecto final {#tbl-criterios}
 
-La apariencia del código no es un criterio central. Un código sencillo que implementa correctamente un buen diseño vale más que uno sofisticado que implementa un diseño con problemas.
+Cómo se ve el código no es un criterio central. Un código sencillo que implementa bien un buen diseño vale más que uno sofisticado que implementa un diseño con problemas.
 
-## Hacé una revisión final
+## Una revisión final
 
-Antes de entregar, revisá el proyecto completo. Esta revisión combina todo lo que aprendiste.
+Antes de entregar, revisá todo el proyecto. En esta revisión se junta todo lo que aprendiste.
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 Pedile al agente una revisión de consistencia de todo el proyecto, sin modificaciones.
 
@@ -174,11 +174,11 @@ Revisá todos los archivos del proyecto. Antes de modificar cualquier archivo, r
 No evalúes las decisiones metodológicas. No modifiques ningún archivo.
 ```
 
-Comprobá cada hallazgo por tu cuenta y corregí lo que corresponda con pedidos acotados.
+Comprobá cada hallazgo por tu cuenta y corregí lo que haga falta con pedidos acotados.
 :::
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 Completá la revisión con estas comprobaciones propias.
 
@@ -190,57 +190,57 @@ Completá la revisión con estas comprobaciones propias.
 
 4. Leé el README como si fueras otra persona. ¿Podrías reproducir el estudio a partir de él?
 
-5. Comprobá que el repositorio no contenga archivos de datos.
+5. Comprobá que el repositorio no tenga archivos de datos.
 
-6. Pedile a otra persona que revise el repositorio con los criterios de evaluación y anotá sus observaciones.
+6. Pedile a otra persona que revise el repositorio con los criterios de evaluación y anotá lo que te diga.
 :::
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-El proyecto final reproduce, a pequeña escala, el trabajo de una investigación real: formular una pregunta, elegir instrumentos, diseñar un procedimiento ético, implementarlo, pilotearlo, recolectar datos y documentar todo de manera que otra persona pueda evaluarlo.
+El proyecto final reproduce, en chiquito, el trabajo de una investigación real. Formular una pregunta, elegir instrumentos, diseñar un procedimiento ético, implementarlo, pilotearlo, recolectar datos y documentar todo para que otra persona lo pueda evaluar.
 
-Las herramientas que usaste van a cambiar. Aparecerán otras versiones de jsPsych, otros agentes y otros servicios de guardado. Las competencias que el proyecto evalúa no dependen de esas herramientas: decidir antes de pedir, especificar con precisión, verificar con evidencia propia y documentar lo que se hizo.
+Las herramientas que usaste van a cambiar. Van a aparecer otras versiones de jsPsych, otros agentes y otros servicios de guardado. Pero lo que evalúa el proyecto no depende de esas herramientas. Decidir antes de pedir, especificar con precisión, verificar con evidencia propia y documentar lo que se hizo te va a servir con cualquiera.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### El diseño y el estudio publicado no coinciden
 
-Si hiciste cambios durante la construcción o el piloto, actualizá `diseno.md`. El documento debe describir el estudio que efectivamente se publicó.
+Si hiciste cambios durante la construcción o el piloto, actualizá `diseno.md`. El documento tiene que describir el estudio que efectivamente se publicó.
 
-### Las escalas no tienen referencia completa
+### Escalas sin referencia completa
 
-Cada escala necesita la referencia de la versión usada, no solo la del instrumento original. Si usaste una adaptación, citá la adaptación.
+Cada escala necesita la referencia de la versión que usaste, no solo la del instrumento original. Si usaste una adaptación, citá la adaptación.
 
-### El consentimiento quedó desactualizado
+### Un consentimiento desactualizado
 
-Si cambiaste la duración después del piloto o el destino de los datos, revisá que el consentimiento publicado lo diga.
+Si después del piloto cambiaste la duración o el destino de los datos, fijate que el consentimiento publicado lo diga.
 
-### La declaración de uso de IA es genérica
+### Una declaración de uso de IA genérica
 
 Una declaración como “usé IA para programar” no muestra ninguna verificación. Incluí ejemplos concretos de pedidos, propuestas rechazadas y comprobaciones.
 
-### Quedaron archivos de prueba en el destino de los datos
+### Archivos de prueba en el destino de los datos
 
-Antes de comenzar la recolección real, identificá o eliminá los archivos de prueba de tu Drive o de tu depósito de Zenodo.
+Antes de empezar la recolección real, identificá o borrá los archivos de prueba de tu Drive o de tu depósito de Zenodo.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué secuencia debe tener el estudio del proyecto final?
+1. ¿Qué secuencia tiene que tener el estudio del proyecto final?
 
-2. ¿Qué archivos debe contener el repositorio?
+2. ¿Qué archivos tiene que tener el repositorio?
 
-3. ¿Qué secciones debe tener el README?
+3. ¿Qué secciones tiene que tener el README?
 
 4. ¿Qué preguntas responde la declaración de uso de agentes de IA?
 
-5. ¿Por qué la apariencia del código no es un criterio central?
+5. ¿Por qué cómo se ve el código no es un criterio central?
 
 6. ¿Qué se comprueba en la revisión final además de lo que revisa el agente?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Consentimiento informado, cuestionario sociodemográfico, una o más escalas elegidas según la pregunta de investigación y una pantalla de cierre con explicación del estudio.
 
@@ -256,16 +256,16 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este libro
+## En síntesis, el libro
 
-Empezaste con una pregunta sencilla: qué hace una computadora cuando completás un formulario. Aprendiste a moverte entre archivos y carpetas, a usar una terminal y a ejecutar programas. Aprendiste a trabajar con un agente de IA: a describir una tarea, a revisar lo que hace y a verificar el resultado con tus propias herramientas.
+Empezamos con una pregunta sencilla, qué hace una computadora cuando completás un formulario. Aprendiste a moverte entre archivos y carpetas, a usar una terminal y a ejecutar programas. Aprendiste a trabajar con un agente de IA, a describirle una tarea, a revisar lo que hace y a verificar el resultado con tus propias herramientas.
 
-Después reconstruiste un formulario de Google Forms con jsPsych, y viste dónde queda escrita cada decisión. Lo ampliaste con recursos que Forms no ofrece: aleatorización, lógica condicional, controles de calidad y tiempos. Finalmente, diseñaste, construiste, piloteaste, conectaste y publicaste un estudio propio.
+Después reconstruiste un formulario de Google Forms con jsPsych y viste dónde queda escrita cada decisión. Lo ampliaste con cosas que Forms no ofrece, como aleatorización, lógica condicional, controles de calidad y tiempos. Y al final diseñaste, construiste, piloteaste, conectaste y publicaste un estudio propio.
 
-A lo largo de todo el recorrido se repitió una idea. El agente puede implementar una decisión. Decidir qué implementar y verificar que sea correcto sigue siendo tu trabajo.
+En todo el recorrido se repitió una idea. El agente puede implementar una decisión, pero decidir qué implementar y verificar que esté bien sigue siendo tu trabajo.
 
-## Resolvé el desafío final
+## Desafío final
 
-Realizá tu proyecto final siguiendo las etapas de este capítulo. Antes de entregarlo, respondé por escrito una última pregunta:
+Hacé tu proyecto final siguiendo las etapas de este capítulo. Antes de entregarlo, respondé por escrito una última pregunta.
 
 > ¿Qué decisión de tu estudio te costó más tomar, y cómo verificaste que quedó implementada como la decidiste?

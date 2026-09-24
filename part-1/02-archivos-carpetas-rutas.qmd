@@ -1,86 +1,76 @@
 ---
 title: "Cómo organiza la computadora los archivos"
-description: "Una explicación concreta sobre nombres, extensiones, carpetas y rutas."
+description: "Nombres, extensiones, carpetas y rutas, explicados con ejemplos concretos."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder distinguir un archivo de una carpeta.
+1. distinguir un archivo de una carpeta;
 
-2. Vas a poder interpretar el nombre y la extensión de un archivo.
+2. leer el nombre y la extensión de un archivo;
 
-3. Vas a poder explicar qué información comunica una ruta.
+3. explicar qué información da una ruta;
 
-4. Vas a poder crear una organización sencilla de carpetas y archivos.
+4. armar una organización sencilla de carpetas y archivos;
 
-5. Vas a poder copiar, mover y renombrar archivos mientras controlás su ubicación.
+5. copiar, mover y renombrar archivos sin perder de vista dónde quedan;
 
-6. Vas a poder encontrar el archivo exacto al que se refiere una instrucción.
+6. encontrar el archivo exacto al que se refiere una instrucción.
 
-## Un archivo descargado permite formular el problema
+## Para empezar, una descarga repetida
 
-Imaginá que una docente publica un archivo llamado `actividad.docx`. Lo descargás dos veces. Después editás una de las copias y la guardás con el nombre `actividad final.docx`.
+Una docente sube un archivo llamado `actividad.docx`. Lo descargás dos veces, editás una de las copias y la guardás como `actividad final.docx`.
 
-Al día siguiente encontrás varios archivos parecidos. Uno está en la carpeta Descargas. Otro está en Documentos. También aparece un archivo llamado `actividad final (1).docx`.
+Al otro día te encontrás con varios archivos parecidos. Uno está en Descargas, otro en Documentos y además aparece uno que se llama `actividad final (1).docx`. Querés entregar la versión correcta, y para elegirla tenés que responder algunas preguntas bien concretas.
 
-Querés entregar la versión correcta. Para elegirla necesitás responder preguntas concretas.
-
-1. ¿En qué carpeta se encuentra cada archivo?
+1. ¿En qué carpeta está cada archivo?
 
 2. ¿Qué nombre tiene cada copia?
 
-3. ¿Qué programa puede abrirla?
+3. ¿Con qué programa se abre?
 
-4. ¿Cuál fue modificada por última vez?
+4. ¿Cuál se modificó por última vez?
 
-5. ¿Cuál contiene el trabajo terminado?
+5. ¿Cuál tiene el trabajo terminado?
 
-La computadora puede guardar archivos con nombres parecidos en ubicaciones diferentes. Por eso necesitamos comprender nombres, extensiones, carpetas y rutas. Una ruta describe la ubicación de un archivo o una carpeta.
+La computadora puede guardar archivos con nombres muy parecidos en lugares distintos. Por eso conviene entender bien qué son los nombres, las extensiones, las carpetas y las rutas. Una ruta es la descripción de dónde está un archivo o una carpeta.
 
 ::: {.callout-tip}
-## El nombre y la ubicación identifican el archivo que querés usar
+## Idea clave
 
-El nombre ayuda a reconocer un archivo. La ubicación indica dónde se encuentra. Necesitás ambos datos cuando existen varias copias parecidas.
+El nombre sirve para reconocer un archivo y la ubicación dice dónde está. Cuando hay varias copias parecidas, necesitamos las dos cosas.
 :::
 
-## Un archivo conserva información
+## Los archivos
 
-En el capítulo anterior definimos un **archivo** como una unidad de información guardada con un nombre. Un archivo puede contener texto, imágenes, sonidos, datos o instrucciones.
+En el capítulo anterior dijimos que un **archivo** es una unidad de información guardada con un nombre. Puede tener texto, imágenes, sonidos, datos o instrucciones.
 
-Cada archivo ocupa un lugar dentro del almacenamiento. El sistema operativo registra su nombre, su ubicación, su tamaño y las fechas vinculadas con su creación o modificación.
+Cada archivo ocupa un lugar en el almacenamiento, y el sistema operativo registra su nombre, su ubicación, su tamaño y las fechas en que se creó y se modificó.
 
-Un archivo permanece disponible después de cerrar el programa que lo creó. Podés guardar un documento, cerrar Word, apagar la computadora y abrir el documento más tarde.
+Un archivo sigue estando ahí aunque cerremos el programa que lo creó. Podés guardar un documento, cerrar Word, apagar la computadora y abrirlo de nuevo al otro día.
 
-### El nombre permite reconocer el contenido
+### Nombres que dicen algo
 
-Un nombre claro comunica qué contiene el archivo. Compará estos ejemplos.
+Un buen nombre cuenta qué hay adentro del archivo. Compará estos dos.
 
 ```text
 documento1.docx
 consentimiento_estudio_memoria.docx
 ```
 
-El segundo nombre aporta información concreta. Indica que el archivo contiene el consentimiento de un estudio sobre memoria.
+El segundo nos dice que el archivo tiene el consentimiento de un estudio sobre memoria, y eso nos ahorra abrirlo para saberlo.
 
-Un nombre útil suele cumplir estas condiciones.
+En general, un nombre útil describe el contenido, sigue el mismo criterio durante todo el trabajo, evita caracteres que algunos programas interpretan de forma especial y permite distinguir versiones cuando hace falta.
 
-1. El nombre describe el contenido.
+En este libro vamos a usar letras, números y guiones bajos en muchos nombres técnicos. Por ejemplo, `datos_piloto.csv` separa las palabras con guiones bajos.
 
-2. El nombre conserva un criterio estable a lo largo del trabajo.
+Los espacios funcionan en los sistemas actuales, pero algunos comandos y programas piden cuidados extra cuando una ruta tiene espacios. Esos cuidados los vas a aprender cuando empecemos a usar la terminal.
 
-3. El nombre evita caracteres que algunos programas interpretan de maneras especiales.
+### La extensión
 
-4. El nombre permite distinguir versiones cuando esa distinción resulta necesaria.
-
-En este libro usaremos letras, números y guiones bajos para muchos nombres técnicos. Por ejemplo, `datos_piloto.csv` utiliza guiones bajos para separar palabras.
-
-Los espacios funcionan en los sistemas actuales. Sin embargo, algunos comandos y programas requieren cuidados adicionales cuando una ruta contiene espacios. Aprenderás esos cuidados cuando comiences a usar la terminal.
-
-### La extensión informa el tipo de archivo
-
-La **extensión** aparece al final del nombre. Un punto separa la extensión del resto del nombre.
+La **extensión** va al final del nombre, separada por un punto.
 
 ```text
 informe.docx
@@ -89,27 +79,27 @@ foto.jpg
 pagina.html
 ```
 
-La extensión ayuda al sistema operativo a elegir un programa capaz de interpretar el contenido.
+Le sirve al sistema operativo para elegir con qué programa abrir el archivo.
 
-El archivo `informe.docx` contiene un documento que puede abrir Word u otro programa compatible. El archivo `datos.csv` contiene datos organizados como texto separado por comas u otro separador. El archivo `foto.jpg` contiene una imagen. El archivo `pagina.html` contiene instrucciones y contenido para una página web.
+`informe.docx` es un documento que abre Word u otro programa compatible. `datos.csv` tiene datos escritos como texto y separados por comas. `foto.jpg` es una imagen y `pagina.html` tiene instrucciones y contenido para una página web.
 
-La extensión forma parte del nombre. Cambiarla mediante un renombrado modifica la etiqueta que informa el tipo. Esa acción no transforma el contenido. Un documento de Word renombrado como `informe.jpg` sigue conteniendo información de Word y probablemente produzca un error al intentar abrirlo como imagen.
+La extensión es parte del nombre, así que si la cambiás al renombrar, cambiás la etiqueta pero no el contenido. Un documento de Word renombrado como `informe.jpg` sigue siendo un documento de Word, y lo más probable es que dé error si intentás abrirlo como imagen.
 
 ::: {.callout-warning}
 ## Mostrá las extensiones antes de trabajar con archivos técnicos
 
-El Explorador de archivos puede ocultar extensiones conocidas. Activá la opción que muestra las extensiones de nombres de archivo. En Windows 11 podés encontrarla dentro de **Ver**, luego **Mostrar** y después **Extensiones de nombre de archivo**.
+El Explorador de archivos puede ocultar las extensiones más comunes. Conviene activar la opción que las muestra. En Windows 11 está en **Ver**, después **Mostrar** y después **Extensiones de nombre de archivo**.
 
-La ubicación exacta de la opción puede cambiar entre versiones. Buscá una configuración que incluya las palabras “extensiones de nombre de archivo”.
+Como la ubicación de la opción puede cambiar entre versiones, si no la encontrás buscá una configuración que diga “extensiones de nombre de archivo”.
 
-Microsoft mantiene una [guía actualizada sobre extensiones de nombre de archivo](https://support.microsoft.com/es-es/windows/experience/storage-filemanagement/common-file-name-extensions-in-windows).
+Microsoft tiene una [guía actualizada sobre extensiones de nombre de archivo](https://support.microsoft.com/es-es/windows/experience/storage-filemanagement/common-file-name-extensions-in-windows).
 :::
 
-## Una carpeta reúne archivos y otras carpetas
+## Las carpetas
 
-Una **carpeta** es un contenedor que permite organizar archivos y otras carpetas. Podés crear una carpeta para una materia, otra para un estudio y otras dentro de ella para separar materiales.
+Una **carpeta** es un contenedor para organizar archivos y otras carpetas. Podés tener una carpeta por materia, otra para un estudio y, adentro de esa, otras para separar materiales.
 
-La siguiente organización podría corresponder a una actividad de investigación.
+Una actividad de investigación podría organizarse así.
 
 ```text
 actividad_memoria
@@ -124,273 +114,269 @@ actividad_memoria
     └── respuestas.csv
 ```
 
-La carpeta `actividad_memoria` contiene tres carpetas. Cada carpeta cumple una función. La carpeta `instrucciones` contiene la consigna. La carpeta `materiales` contiene las palabras de la tarea. La carpeta `datos` contiene las respuestas.
+La carpeta `actividad_memoria` tiene tres carpetas y cada una cumple una función. En `instrucciones` está la consigna, en `materiales` las palabras de la tarea y en `datos` las respuestas.
 
-Una carpeta que está dentro de otra recibe a veces el nombre de **subcarpeta**. Este término describe su posición dentro de la organización.
+A una carpeta que está dentro de otra a veces se la llama **subcarpeta**. El término solo describe su posición.
 
-En informática también se usa la palabra **directorio**. En este libro usaremos la palabra carpeta durante las primeras actividades. Más adelante vas a encontrar la palabra directorio en mensajes de programas y agentes. Ambas palabras suelen referirse a la misma unidad de organización.
+En informática también se usa la palabra **directorio**. En las primeras actividades vamos a hablar de carpetas, pero más adelante vas a ver “directorio” en mensajes de programas y agentes. En la práctica son lo mismo.
 
 ::: {.callout-tip}
-## La organización debe expresar la función de cada archivo
+## Que la organización se entienda sola
 
-Una persona debería poder abrir la carpeta principal y comprender dónde buscar instrucciones, materiales y datos. Los nombres claros reducen errores y facilitan la revisión.
+Una persona debería poder abrir la carpeta principal y darse cuenta de dónde buscar instrucciones, materiales y datos. Con nombres claros hay menos errores y la revisión es mucho más fácil.
 :::
 
-## El Explorador de archivos muestra la organización
+## El Explorador de archivos
 
-El **Explorador de archivos** es el programa de Windows que permite recorrer unidades, carpetas y archivos mediante una interfaz gráfica.
+El **Explorador de archivos** es el programa de Windows para recorrer unidades, carpetas y archivos con una interfaz gráfica.
 
-Cuando abrís una carpeta, el Explorador muestra su contenido. Podés elegir distintas vistas. Una vista puede mostrar íconos grandes. Otra puede mostrar una lista con nombres, fechas, tipos y tamaños.
+Cuando abrís una carpeta, el Explorador te muestra lo que tiene adentro, y podés elegir cómo verlo. Hay vistas con íconos grandes y otras con una lista de nombres, fechas, tipos y tamaños.
 
-La vista de detalles resulta útil cuando existen archivos parecidos. Permite comparar la fecha de modificación, el tipo y el tamaño.
+La vista de detalles es muy útil cuando hay archivos parecidos, porque permite comparar la fecha de modificación, el tipo y el tamaño.
 
-El panel lateral muestra ubicaciones frecuentes. La barra de direcciones muestra el recorrido hasta la carpeta actual. Ese recorrido recibe el nombre de ruta.
+En el panel de la izquierda están las ubicaciones más usadas, y arriba, en la barra de direcciones, aparece el camino hasta la carpeta en la que estás. A ese camino lo llamamos ruta.
 
-Otros sistemas operativos ofrecen programas equivalentes. macOS utiliza Finder. Muchas distribuciones de Linux incluyen su propio explorador gráfico. Las funciones principales se mantienen: recorrer carpetas, observar archivos y realizar operaciones sobre ellos.
+Los otros sistemas operativos tienen programas equivalentes. En macOS se llama Finder y muchas versiones de Linux traen su propio explorador. En todos se puede recorrer carpetas, ver archivos y hacer operaciones sobre ellos.
 
-## Una ruta describe una ubicación
+## Las rutas
 
-Una **ruta** expresa la ubicación de un archivo o una carpeta dentro del sistema de almacenamiento.
+Una **ruta** indica dónde está un archivo o una carpeta dentro del almacenamiento.
 
-Observá este ejemplo de Windows.
-
-```text
-C:\Users\Ana\Documents\curso_jspsych\actividad.txt
-```
-
-Podemos leer la ruta por partes.
-
-1. `C:` identifica una unidad de almacenamiento.
-
-2. `Users` identifica una carpeta dentro de esa unidad.
-
-3. `Ana` identifica la carpeta asociada con una persona usuaria.
-
-4. `Documents` identifica la carpeta Documentos.
-
-5. `curso_jspsych` identifica una carpeta creada para el curso.
-
-6. `actividad.txt` identifica el archivo ubicado al final del recorrido.
-
-Windows utiliza la barra invertida `\` para separar las partes de una ruta. Otros entornos suelen usar la barra `/`. Por ahora alcanza con reconocer el separador que muestra tu sistema.
-
-Una ruta se parece a una dirección postal. Cada parte reduce el espacio de búsqueda hasta llegar a una ubicación concreta.
-
-### Una ruta absoluta comienza desde una ubicación de referencia general
-
-Una **ruta absoluta** describe el recorrido completo desde una unidad o desde el punto principal que define el sistema.
+Veamos un ejemplo en Windows.
 
 ```text
 C:\Users\Ana\Documents\curso_jspsych\actividad.txt
 ```
 
-Esta ruta ofrece una ubicación completa dentro de esa computadora. El nombre de la persona usuaria y la organización de carpetas pueden cambiar en otra computadora.
+Esta ruta se puede leer por partes.
 
-### Una ruta relativa comienza desde la carpeta actual
+1. `C:` es una unidad de almacenamiento.
 
-Una **ruta relativa** describe una ubicación a partir de una carpeta que ya tomamos como referencia. Esa referencia recibe el nombre de **carpeta actual**.
+2. `Users` es una carpeta dentro de esa unidad.
 
-Imaginá que la carpeta actual es `curso_jspsych`. La ruta relativa al archivo puede escribirse así.
+3. `Ana` es la carpeta de una persona usuaria.
+
+4. `Documents` es la carpeta Documentos.
+
+5. `curso_jspsych` es una carpeta creada para el curso.
+
+6. `actividad.txt` es el archivo que está al final del recorrido.
+
+Windows separa las partes de una ruta con la barra invertida `\`, y otros sistemas usan la barra común `/`. Por ahora alcanza con que reconozcas el separador que usa el tuyo.
+
+Una ruta se parece bastante a una dirección postal. Cada parte achica la búsqueda hasta llegar a un lugar concreto.
+
+### Rutas absolutas
+
+Una **ruta absoluta** describe el recorrido completo, desde la unidad o desde el punto de partida del sistema.
+
+```text
+C:\Users\Ana\Documents\curso_jspsych\actividad.txt
+```
+
+Esta ruta identifica un lugar completo en esa computadora. En otra computadora cambian el nombre de usuario y la organización de las carpetas, así que la misma ruta probablemente no exista.
+
+### Rutas relativas
+
+Una **ruta relativa** describe una ubicación a partir de una carpeta que tomamos como referencia. A esa referencia la llamamos **carpeta actual**.
+
+Si la carpeta actual es `curso_jspsych`, la ruta relativa al archivo es solo su nombre.
 
 ```text
 actividad.txt
 ```
 
-Si el archivo se encuentra dentro de una carpeta llamada `materiales`, la ruta relativa puede escribirse así.
+Y si el archivo estuviera dentro de una carpeta `materiales`, la ruta relativa sería esta.
 
 ```text
 materiales\actividad.txt
 ```
 
-La ruta relativa resulta útil dentro de un proyecto. El proyecto puede trasladarse a otra computadora y conservar la relación entre sus archivos. Más adelante vas a usar rutas relativas para cargar imágenes, sonidos y otros materiales en un estudio.
+Las rutas relativas son muy útiles dentro de un proyecto, porque el proyecto se puede llevar a otra computadora sin que se rompa la relación entre sus archivos. Más adelante las vas a usar para cargar imágenes, sonidos y otros materiales en un estudio.
 
 ::: {.callout-important}
-## La carpeta actual determina cómo se interpreta una ruta relativa
+## Todo depende de la carpeta actual
 
-La ruta `materiales\actividad.txt` conduce a un archivo solo cuando la carpeta actual contiene la carpeta `materiales`. Un cambio de ubicación modifica el punto desde el cual comienza la búsqueda.
+`materiales\actividad.txt` lleva a un archivo solo si en la carpeta actual hay una carpeta `materiales`. Si cambiás de ubicación, cambia el punto desde donde arranca la búsqueda.
 :::
 
-## Dos archivos pueden compartir el mismo nombre
+## Mismo nombre, archivos distintos
 
-El sistema permite usar el mismo nombre en carpetas diferentes.
+Dos archivos pueden llamarse igual si están en carpetas diferentes.
 
 ```text
 estudio_a\datos\respuestas.csv
 estudio_b\datos\respuestas.csv
 ```
 
-Ambos archivos se llaman `respuestas.csv`. Cada ruta identifica un archivo diferente.
+Los dos se llaman `respuestas.csv`, pero cada ruta apunta a un archivo distinto.
 
-Esta posibilidad explica muchos errores cotidianos. Una persona puede editar una copia guardada en Documentos y después abrir otra copia desde Descargas. El nombre coincide, pero la ubicación y el contenido pueden diferir.
+Esto explica muchos errores de todos los días. Alguien edita una copia guardada en Documentos y después abre la que está en Descargas. El nombre es el mismo, pero la ubicación y el contenido no.
 
-Cuando necesites identificar un archivo, revisá su nombre y su ruta. También podés revisar la fecha de modificación cuando trabajás con varias copias.
+Cuando necesites saber qué archivo es cuál, mirá el nombre y la ruta. Si hay varias copias, la fecha de modificación también ayuda.
 
-## Cada operación produce un cambio diferente
+## Las operaciones con archivos
 
-El Explorador de archivos permite crear, renombrar, copiar, mover y eliminar. Cada operación modifica el sistema de una manera específica.
+Desde el Explorador podemos crear, renombrar, copiar, mover y eliminar. Cada una de estas operaciones cambia algo distinto.
 
-### Crear incorpora una unidad nueva
+### Crear
 
-Cuando creás una carpeta, el sistema registra un contenedor nuevo en la ubicación actual. Cuando guardás un documento por primera vez, el programa crea un archivo.
+Al crear una carpeta, el sistema agrega un contenedor nuevo en la ubicación actual. Al guardar un documento por primera vez, el programa crea un archivo.
 
-### Renombrar modifica el nombre
+### Renombrar
 
-Renombrar conserva el contenido y la ubicación. El sistema actualiza el nombre con el que identifica el archivo o la carpeta.
+Renombrar cambia el nombre y deja igual el contenido y la ubicación. Cuando renombres un archivo, cuidá la extensión. Podés cambiar la parte descriptiva y dejar la extensión como estaba.
 
-Prestá atención a la extensión cuando renombres un archivo. Podés modificar la parte descriptiva y conservar la extensión.
+### Copiar
 
-### Copiar produce otra unidad
+Copiar crea otro archivo con el mismo contenido. A partir de ahí hay dos archivos independientes, y lo que cambies en uno no afecta al otro.
 
-Copiar crea otra unidad con el mismo contenido inicial. Después de la copia existen dos archivos independientes. Un cambio posterior en uno de ellos suele dejar al otro sin modificaciones.
+### Mover
 
-### Mover cambia la ubicación
+Mover lleva el archivo o la carpeta a otro lugar. El contenido y el nombre pueden quedar iguales, pero la ruta cambia.
 
-Mover traslada el archivo o la carpeta. El contenido y el nombre pueden mantenerse, mientras que la ruta cambia.
+### Eliminar
 
-### Eliminar retira la unidad de su ubicación
+Eliminar suele mandar el elemento a la Papelera de reciclaje, desde donde se puede recuperar durante un tiempo. Algunas formas de eliminar se saltean la papelera, así que ahí hay que tener más cuidado.
 
-Eliminar suele enviar el elemento a la Papelera de reciclaje. La papelera permite recuperar archivos durante cierto tiempo. Algunas operaciones omiten la papelera y requieren mayor cuidado.
+Antes de eliminar algo, revisá la ruta y el nombre, y fijate que exista una copia si el archivo tiene información importante.
 
-Antes de eliminar, verificá la ruta y el nombre. También comprobá que exista una copia recuperable cuando el archivo contiene información importante.
+## Por qué nos importa en Psicología
 
-## La organización de archivos afecta una investigación
+Un estudio psicológico online junta varios tipos de archivos, como instrucciones, preguntas, imágenes, sonidos, código y documentación.
 
-Un estudio psicológico digital reúne varios tipos de archivos. Puede incluir instrucciones, preguntas, imágenes, sonidos, código y documentación.
+La organización afecta el funcionamiento. Si el programa busca `materiales\imagen_01.jpg` y la imagen está en otra carpeta, el navegador no la va a poder cargar con esa ruta.
 
-La organización influye en el funcionamiento. Si el programa busca `materiales\imagen_01.jpg` y el archivo se encuentra en otra carpeta, el navegador no podrá cargarlo mediante esa ruta.
-
-La organización también influye en la revisión. Un nombre como `datos.csv` aporta poca información cuando existen varias recolecciones. Un criterio estable puede registrar la etapa y la fecha de manera explícita.
+También afecta la revisión. Un nombre como `datos.csv` dice poco cuando hubo varias recolecciones, y un criterio fijo puede dejar a la vista la etapa y la fecha.
 
 ```text
 datos_piloto_2026_09_18.csv
 ```
 
-La protección de los datos requiere decisiones adicionales. Los archivos con respuestas pueden contener información sensible. El plan de investigación debe indicar su ubicación y quién puede abrirlos. También debe contemplar copias de respaldo. Una copia de respaldo conserva la información en otra ubicación y permite recuperarla cuando se pierde el archivo de trabajo. Estos temas aparecerán con mayor profundidad en la parte dedicada al estudio completo.
+Además, proteger los datos implica tomar decisiones. Los archivos con respuestas pueden tener información sensible, así que el plan de investigación tiene que decir dónde se guardan, quién puede abrirlos y cómo se hacen las copias de respaldo. Una copia de respaldo guarda la información en otro lugar para poder recuperarla si se pierde el archivo de trabajo. Todo esto lo vamos a ver con más detalle en la parte dedicada al estudio completo.
 
-Cuando un agente modifique un proyecto, informará qué archivos cambió. Tu revisión comenzará por comprobar la ruta. Esa comprobación permite confirmar que el agente trabajó sobre la carpeta y la versión correctas.
+Cuando un agente modifique un proyecto, nos va a decir qué archivos cambió. Nuestra revisión va a empezar por la ruta, para confirmar que trabajó sobre la carpeta y la versión correctas.
 
-## Creá una organización pequeña
+## Actividad
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-Usá el Explorador de archivos para completar estas acciones.
+Con el Explorador de archivos, seguí estos pasos.
 
-1. Elegí una ubicación que puedas encontrar con facilidad, como Documentos.
+1. Elegí un lugar fácil de encontrar, como Documentos.
 
 2. Creá una carpeta llamada `practica_archivos`.
 
-3. Dentro de esa carpeta, creá tres carpetas llamadas `instrucciones`, `materiales` y `datos`.
+3. Adentro, creá tres carpetas llamadas `instrucciones`, `materiales` y `datos`.
 
 4. Abrí un editor de texto que ya conozcas.
 
-5. Escribí una oración que explique el propósito de la práctica.
+5. Escribí una oración que explique para qué es esta práctica.
 
-6. Guardá el archivo dentro de `instrucciones` con el nombre `consigna.txt`.
+6. Guardá el archivo en `instrucciones` con el nombre `consigna.txt`.
 
-7. Copiá `consigna.txt` dentro de `materiales`.
+7. Copiá `consigna.txt` a `materiales`.
 
 8. Renombrá la copia como `ejemplo.txt`.
 
-9. Volvé a la carpeta `practica_archivos` y observá la organización completa.
+9. Volvé a `practica_archivos` y mirá cómo quedó todo.
 
 10. Abrí las propiedades de `ejemplo.txt` y buscá su ubicación, su tipo y su fecha de modificación.
 :::
 
-## Explicá qué ocurrió durante la actividad
+## Qué pasó en la actividad
 
-Creaste una carpeta principal y tres carpetas internas. El sistema operativo registró cada una dentro de una ubicación concreta.
+Creaste una carpeta principal con tres carpetas adentro, y el sistema operativo registró cada una en un lugar concreto.
 
-El editor creó `consigna.txt` y guardó texto en su interior. La copia dentro de `materiales` produjo un segundo archivo. El renombrado cambió el nombre de esa copia y conservó su contenido.
+El editor creó `consigna.txt` con el texto que escribiste. La copia en `materiales` generó un segundo archivo, y al renombrarla cambió su nombre pero no su contenido.
 
-Al final de la actividad existen dos archivos independientes. Cada uno posee su propia ruta.
+Al final quedaron dos archivos independientes, cada uno con su propia ruta.
 
 ```text
 practica_archivos\instrucciones\consigna.txt
 practica_archivos\materiales\ejemplo.txt
 ```
 
-Las rutas anteriores son relativas a la carpeta que contiene `practica_archivos`. El Explorador puede mostrar una ruta más completa que comienza en la unidad de almacenamiento.
+Estas rutas son relativas a la carpeta que contiene `practica_archivos`. El Explorador te puede mostrar la ruta completa, la que arranca en la unidad de almacenamiento.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué parte de `respuestas.csv` funciona como extensión?
+1. ¿Qué parte de `respuestas.csv` es la extensión?
 
 2. ¿Qué cambia cuando movés un archivo a otra carpeta?
 
-3. ¿Cuántos archivos existen después de copiar un documento una vez?
+3. ¿Cuántos archivos hay después de copiar un documento una vez?
 
-4. ¿Por qué dos archivos llamados `datos.csv` pueden contener información diferente?
+4. ¿Por qué dos archivos que se llaman `datos.csv` pueden tener información diferente?
 
-5. ¿Desde qué ubicación comienza una ruta relativa?
+5. ¿Desde dónde arranca una ruta relativa?
 
-6. ¿Qué carpeta contiene el archivo de esta ruta: `estudio\materiales\imagen.jpg`?
+6. En la ruta `estudio\materiales\imagen.jpg`, ¿qué carpeta contiene el archivo?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
-1. La extensión del archivo es `.csv`.
+1. La extensión es `.csv`.
 
-2. La ruta cambia cuando movés el archivo a otra carpeta.
+2. Cambia la ruta.
 
-3. Existen dos archivos después de copiar el documento una vez.
+3. Hay dos archivos.
 
-4. Los archivos pueden encontrarse en carpetas diferentes y cada copia puede haber recibido cambios distintos.
+4. Porque pueden estar en carpetas distintas y cada copia puede haber tenido cambios diferentes.
 
-5. Una ruta relativa comienza en la carpeta que usamos como referencia actual.
+5. Arranca en la carpeta que tomamos como referencia, la carpeta actual.
 
-6. La carpeta `materiales` contiene el archivo `imagen.jpg`.
+6. La carpeta `materiales`.
 
 </details>
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
-### Una descarga puede crear varias copias
+### Varias copias por descargar dos veces
 
-El navegador suele agregar un número cuando descargás varias veces un archivo con el mismo nombre. Revisá la ubicación y la fecha antes de elegir una copia.
+Cuando descargás varias veces un archivo con el mismo nombre, el navegador suele agregarle un número. Antes de elegir una copia, mirá la ubicación y la fecha.
 
-### Una extensión oculta puede producir un nombre inesperado
+### Una extensión oculta que cambia el nombre
 
-Podés escribir `datos.csv` mientras el programa agrega `.txt`. El resultado será `datos.csv.txt`. Mostrar las extensiones permite detectar esta situación.
+Escribís `datos.csv` y el programa agrega `.txt` sin avisar, así que el archivo termina llamándose `datos.csv.txt`. Con las extensiones visibles lo detectás enseguida.
 
-### Un acceso directo conduce a otra ubicación
+### Confundir un acceso directo con el archivo
 
-Un acceso directo contiene una referencia que conduce a un archivo o una carpeta. El archivo original permanece en su ubicación. Revisá las propiedades cuando necesites distinguirlos.
+Un acceso directo es solo una referencia que lleva a un archivo o a una carpeta, y el original sigue en su lugar. Si necesitás distinguirlos, mirá las propiedades.
 
-### Una carpeta sincronizada puede depender de Internet
+### Carpetas sincronizadas que dependen de Internet
 
-Servicios como OneDrive pueden mostrar archivos almacenados en la nube. Algunos quedan disponibles en la computadora y otros se descargan cuando los abrís. Los íconos de estado informan la disponibilidad local.
+Servicios como OneDrive muestran archivos que están en la nube. Algunos están guardados en la computadora y otros se descargan recién cuando los abrís. Los íconos de estado te dicen cuál es cuál.
 
-### Un nombre claro facilita la revisión
+### Nombres como `final2`
 
-Nombres como `final`, `final2` y `final_ahora_si` ofrecen poca información. Un criterio que incluya contenido, etapa o fecha permite identificar mejor cada versión.
+Nombres como `final`, `final2` o `final_ahora_si` no dicen nada. Si el nombre incluye el contenido, la etapa o la fecha, cada versión es mucho más fácil de identificar.
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Un archivo conserva información con un nombre. La extensión ayuda a reconocer su tipo. Una carpeta reúne archivos y otras carpetas.
+Un archivo guarda información con un nombre, y la extensión ayuda a saber de qué tipo es. Una carpeta agrupa archivos y otras carpetas.
 
-Una ruta describe una ubicación. La ruta absoluta comienza desde una referencia general del sistema. La ruta relativa comienza desde la carpeta actual.
+La ruta describe dónde está algo. La ruta absoluta arranca desde una referencia general del sistema y la relativa desde la carpeta actual.
 
-Copiar crea otra unidad. Mover cambia la ubicación. Renombrar cambia el nombre. Eliminar retira el elemento de su ubicación y puede enviarlo a la papelera.
+Copiar crea otro archivo, mover cambia la ubicación, renombrar cambia el nombre y eliminar lo saca de su lugar, muchas veces hacia la papelera.
 
-La organización clara permite encontrar materiales, evita confusiones entre versiones y ayuda a verificar los cambios de un proyecto.
+Con una organización clara encontramos los materiales, evitamos confundir versiones y podemos verificar los cambios de un proyecto.
 
-## Resolvé un desafío breve
+## Desafío
 
-Observá la carpeta `practica_archivos` que creaste.
+Mirá la carpeta `practica_archivos` que armaste y escribí cinco oraciones para que otra persona pueda encontrar `ejemplo.txt` sin tu ayuda.
 
-Escribí cinco oraciones que permitan a otra persona encontrar `ejemplo.txt` sin ayuda.
+1. La primera indica el lugar general que elegiste.
 
-1. La primera oración debe indicar la ubicación general que elegiste.
+2. La segunda nombra la carpeta principal.
 
-2. La segunda oración debe nombrar la carpeta principal.
+3. La tercera nombra la carpeta que contiene el archivo.
 
-3. La tercera oración debe nombrar la carpeta que contiene el archivo.
+4. La cuarta da el nombre completo con su extensión.
 
-4. La cuarta oración debe indicar el nombre completo y la extensión.
+5. La quinta explica cómo comprobar que se abrió el archivo correcto.
 
-5. La quinta oración debe explicar cómo comprobar que se abrió el archivo correcto.
-
-En el próximo capítulo vas a recorrer esta misma organización mediante instrucciones escritas en una terminal.
+En el próximo capítulo vamos a recorrer esta misma organización escribiendo instrucciones en una terminal.

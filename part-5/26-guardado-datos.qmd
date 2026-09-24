@@ -3,39 +3,39 @@ title: "Guardado de datos"
 description: "Del navegador de cada participante a un espacio de almacenamiento que controlás, con DataPipe."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder explicar por qué la descarga local no sirve para recolectar datos.
+1. explicar por qué la descarga local no sirve para recolectar datos;
 
-2. Vas a poder describir el recorrido de los datos desde el navegador hasta tu espacio de almacenamiento.
+2. describir el recorrido de los datos desde el navegador hasta tu espacio de almacenamiento;
 
-3. Vas a poder elegir entre Google Drive y Zenodo como destino, considerando la privacidad y la publicación.
+3. elegir entre Google Drive y Zenodo como destino, teniendo en cuenta la privacidad y la publicación;
 
-4. Vas a poder configurar un experimento en DataPipe.
+4. configurar un experimento en DataPipe;
 
-5. Vas a poder conectar tu estudio con DataPipe mediante la extensión de jsPsych.
+5. conectar tu estudio con DataPipe mediante la extensión de jsPsych;
 
-6. Vas a poder explicar qué implica activar el guardado progresivo y cómo se relaciona con el consentimiento.
+6. explicar qué implica activar el guardado progresivo y qué tiene que ver con el consentimiento.
 
-## Un archivo en la computadora equivocada permite formular el problema
+## Para empezar, un archivo en la computadora equivocada
 
-Desde el capítulo sobre los datos generados, tu estudio descarga un archivo CSV al terminar. Para probar el estudio, esa descarga es muy útil. Para recolectar datos, no sirve: el archivo queda en la computadora de la persona que participó, no en la tuya.
+Desde el capítulo sobre los datos generados, tu estudio descarga un archivo CSV al terminar. Para probar el estudio esa descarga sirve muchísimo, pero para recolectar datos no sirve, porque el archivo queda en la computadora de quien participó y no en la tuya.
 
-Google Forms resuelve este problema sin que lo notes. Las respuestas viajan a los servidores de Google y aparecen en tu hoja de cálculo. Un **servidor** es una computadora conectada a Internet que recibe pedidos de otras computadoras y les responde.
+Google Forms resuelve esto sin que te des cuenta. Las respuestas viajan a los servidores de Google y aparecen en tu hoja de cálculo. Un **servidor** es una computadora conectada a Internet que recibe pedidos de otras computadoras y les responde.
 
-jsPsych no incluye un servidor. Para que los datos lleguen a un lugar al que tengas acceso, necesitás un servicio que los reciba y los guarde. En este libro vas a usar **DataPipe**.
+jsPsych no trae un servidor. Para que los datos lleguen a un lugar al que tengas acceso, hace falta un servicio que los reciba y los guarde. En este libro vamos a usar **DataPipe**.
 
 ::: {.callout-tip}
 ## Idea clave
 
-Guardar datos implica decidir dónde quedan, quién puede acceder a ellos, cuándo se envían y qué se envía si una persona no termina. Cada una de esas decisiones es técnica y también ética, y debe coincidir con lo que dice el consentimiento.
+Guardar datos implica decidir dónde quedan, quién puede acceder, cuándo se envían y qué se envía si una persona no termina. Cada una de esas decisiones es técnica y ética a la vez, y tiene que coincidir con lo que dice el consentimiento.
 :::
 
-## DataPipe lleva los datos a tu espacio de almacenamiento
+## Qué es DataPipe
 
-DataPipe es un servicio gratuito y de código abierto creado por el equipo que desarrolla jsPsych. Su función es recibir los datos que envía un estudio y guardarlos en un espacio de almacenamiento que vos controlás.
+DataPipe es un servicio gratuito y de código abierto creado por el mismo equipo que desarrolla jsPsych. Recibe los datos que manda un estudio y los guarda en un espacio de almacenamiento que controlás vos.
 
 El recorrido tiene tres tramos.
 
@@ -47,19 +47,19 @@ DataPipe (pipe.jspsych.org)
 tu espacio de almacenamiento: Google Drive o Zenodo
 ```
 
-DataPipe comprueba que el experimento exista y esté aceptando datos, y después escribe el archivo en tu espacio. En condiciones normales, no conserva una copia. La documentación de DataPipe incluye una [página sobre privacidad](https://pipe.jspsych.org/docs/privacy) con los detalles, pensada para responder las preguntas de un comité de ética.
+DataPipe comprueba que el experimento exista y esté aceptando datos, y después escribe el archivo en tu espacio. En condiciones normales no se queda con una copia. La documentación de DataPipe tiene una [página sobre privacidad](https://pipe.jspsych.org/docs/privacy) con los detalles, pensada para responder las preguntas de un comité de ética.
 
 ::: {.callout-warning}
 ## DataPipe cambió en septiembre de 2026
 
-DataPipe tuvo una actualización importante en septiembre de 2026. Dejó de crear experimentos en OSF, el servicio que usaba antes, e incorporó Google Drive, Zenodo y Dataverse como destinos. Si encontrás tutoriales anteriores, pueden describir un funcionamiento que ya no existe. Esta sección describe la versión vigente al momento de escribir el libro. Ante cualquier diferencia, seguí la [documentación oficial de DataPipe](https://pipe.jspsych.org/getting-started).
+DataPipe tuvo una actualización importante en septiembre de 2026. Dejó de crear experimentos en OSF, el servicio que usaba antes, y sumó Google Drive, Zenodo y Dataverse como destinos. Si encontrás tutoriales anteriores, pueden describir un funcionamiento que ya no existe. Lo que sigue describe la versión vigente cuando escribimos el libro, y ante cualquier diferencia, seguí la [documentación oficial de DataPipe](https://pipe.jspsych.org/getting-started).
 :::
 
-## Elegí el destino de los datos
+## El destino de los datos
 
-DataPipe ofrece tres destinos. En este libro se presentan dos. El tercero, Dataverse, requiere que tu institución tenga su propio repositorio.
+DataPipe ofrece tres destinos y en este libro presentamos dos. El tercero, Dataverse, requiere que tu institución tenga su propio repositorio.
 
-| Aspecto | Opción 1: Google Drive | Opción 2: Zenodo |
+| Aspecto | Google Drive (opción 1) | Zenodo (opción 2) |
 |:---|:---|:---|
 | Qué es | Tu espacio personal de Google. | Un repositorio abierto de datos de investigación, administrado por el CERN. |
 | Dónde quedan los datos | En una carpeta de tu Drive, privada. | En un depósito que permanece privado hasta que lo publicás. |
@@ -69,26 +69,26 @@ DataPipe ofrece tres destinos. En este libro se presentan dos. El tercero, Datav
 
 : Destinos de DataPipe {#tbl-destinos}
 
-### Publicar datos en Zenodo es una decisión ética
+### Publicar en Zenodo es una decisión ética
 
-En Zenodo, el depósito permanece privado mientras no lo publiques. DataPipe nunca lo publica por su cuenta. Publicar es una decisión tuya y tiene consecuencias.
+En Zenodo, el depósito queda privado mientras no lo publiques, y DataPipe nunca lo publica por su cuenta. Publicar es una decisión tuya, y tiene consecuencias.
 
-1. **El consentimiento debe autorizarlo.** Si el consentimiento no informó que los datos se compartirían de forma abierta, no podés publicarlos.
+1. **El consentimiento lo tiene que autorizar.** Si el consentimiento no avisó que los datos se iban a compartir abiertamente, no los podés publicar.
 
-2. **Los datos deben estar anonimizados.** Revisá que ninguna respuesta permita identificar a una persona. Las preguntas abiertas requieren especial atención: alguien puede haber escrito su nombre o un dato que lo identifica.
+2. **Los datos tienen que estar anonimizados.** Revisá que ninguna respuesta permita identificar a alguien. Las preguntas abiertas piden especial atención, porque alguien puede haber escrito su nombre o algún dato que lo identifica.
 
-3. **Los datos deben estar documentados.** Publicá el diccionario de variables junto con los datos.
+3. **Los datos tienen que estar documentados.** Publicá el diccionario de variables junto con los datos.
 
-4. **La publicación es permanente.** Un registro publicado con DOI está pensado para permanecer disponible. No lo publiques hasta estar seguro.
+4. **La publicación es permanente.** Un registro publicado con DOI está pensado para quedar disponible, así que no lo publiques hasta estar seguro.
 
-En este libro, el depósito de Zenodo se mantiene privado. Solo se publica si se cumplen las tres primeras condiciones.
+En este libro, el depósito de Zenodo queda privado, y solo se publica si se cumplen las tres primeras condiciones.
 
-## Configurá DataPipe
+## Configurar DataPipe
 
-La interfaz de DataPipe está en inglés. Los pasos siguientes indican los nombres que vas a ver en pantalla.
+La interfaz de DataPipe está en inglés, así que en los pasos que siguen te indicamos los nombres que vas a ver en pantalla.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 **Crear la cuenta.**
 
@@ -98,34 +98,34 @@ La interfaz de DataPipe está en inglés. Los pasos siguientes indican los nombr
 
 2. Si elegiste Zenodo y no tenés cuenta, creala en [zenodo.org](https://zenodo.org).
 
-3. En DataPipe, entrá en tu cuenta y buscá la sección **Storage Providers**. Presioná **Connect** al lado del destino que elegiste.
+3. En DataPipe, entrá a tu cuenta, buscá la sección **Storage Providers** y apretá **Connect** al lado del destino que elegiste.
 
-4. Se va a abrir la página de Google o de Zenodo para que autorices a DataPipe. DataPipe solo pide permiso para agregar archivos. Al volver, comprobá que aparezca la etiqueta **Connected**.
+4. Se va a abrir la página de Google o de Zenodo para que autorices a DataPipe, que solo pide permiso para agregar archivos. Cuando vuelvas, fijate que aparezca la etiqueta **Connected**.
 
 **Crear el experimento.**
 
-5. Presioná **New Experiment**. Elegí el destino y escribí un **Title**. Ese título va a ser el nombre de la carpeta de Drive o del depósito de Zenodo, así que elegí uno que reconozcas.
+5. Apretá **New Experiment**, elegí el destino y escribí un **Title**. Ese título va a ser el nombre de la carpeta de Drive o del depósito de Zenodo, así que elegí uno que reconozcas.
 
-6. Si elegiste Zenodo, completá el nombre de la persona autora y una descripción. Zenodo los exige para poder publicar más adelante.
+6. Si elegiste Zenodo, completá el nombre de la persona autora y una descripción, que Zenodo exige para poder publicar más adelante.
 
-7. Presioná **Create**. Se va a abrir el panel del experimento.
+7. Apretá **Create**. Se va a abrir el panel del experimento.
 
 **Revisar la configuración.**
 
-8. En el panel, buscá el **experiment ID**, un código de doce caracteres. Copialo: lo vas a necesitar en el código.
+8. En el panel, buscá el **experiment ID**, un código de doce caracteres, y copialo, porque lo vas a necesitar en el código.
 
-9. Comprobá que la validación esté activada. Por defecto, DataPipe rechaza archivos que no tengan la columna `trial_type`. Los archivos de jsPsych la tienen.
+9. Fijate que la validación esté activada. Por defecto, DataPipe rechaza los archivos que no tengan la columna `trial_type`, y los de jsPsych la tienen.
 
-10. Configurá un límite de sesiones, **session limit**, con tu tamaño de muestra objetivo más un margen para las pruebas. DataPipe va a rechazar los envíos que superen ese límite.
+10. Poné un límite de sesiones, **session limit**, con tu tamaño de muestra objetivo más un margen para las pruebas. DataPipe va a rechazar los envíos que pasen ese límite.
 
-11. No actives todavía **Accept new data**. Un experimento nuevo no acepta datos hasta que lo activás.
+11. Todavía no actives **Accept new data**. Un experimento nuevo no acepta datos hasta que lo activás.
 :::
 
-El límite de sesiones y la validación protegen tu espacio de almacenamiento. Como vas a ver en el próximo capítulo, el código de tu estudio va a ser público, incluido el identificador del experimento. Cualquier persona podría intentar enviar datos. Mantener la recolección desactivada cuando no estás recolectando, validar los archivos y limitar las sesiones reduce ese riesgo.
+El límite de sesiones y la validación protegen tu espacio de almacenamiento. Como vas a ver en el próximo capítulo, el código de tu estudio va a ser público, identificador del experimento incluido, así que cualquiera podría intentar mandar datos. Tener la recolección apagada cuando no estás recolectando, validar los archivos y limitar las sesiones reduce ese riesgo.
 
-## La extensión conecta el estudio con DataPipe
+## La extensión de DataPipe
 
-jsPsych se comunica con DataPipe mediante una **extensión**. Una extensión es una pieza que agrega a jsPsych un comportamiento general, que no corresponde a una pantalla en particular. A diferencia de un plugin, no define un tipo de ensayo: actúa sobre todo el estudio.
+jsPsych se comunica con DataPipe mediante una **extensión**, que es una pieza que le agrega a jsPsych un comportamiento general, no ligado a una pantalla en particular. A diferencia de un plugin, no define un tipo de ensayo, sino que actúa sobre todo el estudio.
 
 La extensión se carga en `index.html`, como los plugins.
 
@@ -133,7 +133,7 @@ La extensión se carga en `index.html`, como los plugins.
 <script src="https://unpkg.com/@jspsych/extension-pipe@0.2.0"></script>
 ```
 
-Y se configura en `experiment.js`, al comienzo del archivo.
+Y se configura en `experiment.js`, al principio del archivo.
 
 ```javascript
 // Identificador del experimento en DataPipe.
@@ -173,27 +173,27 @@ const jsPsych = initJsPsych({
 });
 ```
 
-El fragmento es más largo que los anteriores. Leelo por partes.
+El fragmento es más largo que los anteriores, así que conviene leerlo por partes.
 
-1. **`DATAPIPE_ID`.** Guarda el identificador de tu experimento. Mientras valga `"COMPLETAR"`, el estudio sabe que DataPipe no está configurado. La segunda línea guarda ese resultado en `datapipe_configurado`: verdadero si ya escribiste tu identificador y falso si no.
+1. **`DATAPIPE_ID`.** Guarda el identificador de tu experimento. Mientras valga `"COMPLETAR"`, el estudio sabe que DataPipe no está configurado. La segunda línea guarda ese resultado en `datapipe_configurado`, que es verdadero si ya escribiste tu identificador y falso si no.
 
-2. **`extensions`.** Es una lista de extensiones. La única es la de DataPipe, con sus parámetros.
+2. **`extensions`.** Es una lista de extensiones. Acá hay una sola, la de DataPipe, con sus parámetros.
 
-3. **`filename`.** El nombre del archivo que se va a guardar. La forma `() => ...` define una función breve que devuelve ese nombre. Hace falta una función porque `participante` se crea después de esta configuración. Cada nombre es único gracias al identificador aleatorio. DataPipe rechaza un archivo con un nombre repetido.
+3. **`filename`.** Es el nombre del archivo que se va a guardar. La forma `() => ...` define una función corta que devuelve ese nombre, y hace falta una función porque `participante` se crea después de esta configuración. Cada nombre es único gracias al identificador aleatorio, y eso importa porque DataPipe rechaza un archivo con un nombre repetido.
 
-4. **`stream: false`.** Desactiva el guardado progresivo. Los datos se envían una sola vez, al final. La sección siguiente explica esta decisión.
+4. **`stream: false`.** Desactiva el guardado progresivo, así que los datos se mandan una sola vez, al final. En la sección siguiente explicamos por qué.
 
 5. **`enabled: datapipe_configurado`.** Activa la extensión solo si ya escribiste tu identificador.
 
-6. **`wait_message` y `done_message`.** Los mensajes que ve la persona mientras se guardan los datos y cuando terminó. Sin estos parámetros aparecerían en inglés.
+6. **`wait_message` y `done_message`.** Son los mensajes que ve la persona mientras se guardan los datos y cuando terminó. Sin estos parámetros aparecerían en inglés.
 
-7. **`on_save`.** Se ejecuta cuando DataPipe responde. Si el guardado falló, reemplaza el mensaje por un aviso con un contacto.
+7. **`on_save`.** Se ejecuta cuando DataPipe responde. Si el guardado falló, cambia el mensaje por un aviso con un contacto.
 
-8. **`on_finish`.** Mientras DataPipe no esté configurado, descarga el archivo como hasta ahora. Así podés seguir probando el estudio localmente.
+8. **`on_finish`.** Mientras DataPipe no esté configurado, descarga el archivo como hasta ahora, así podés seguir probando el estudio en tu computadora.
 
-Observá que el guardado ya no depende de la última pantalla. La extensión envía los datos cuando el estudio termina, también cuando termina por una regla condicional.
+Fijate que el guardado ya no depende de la última pantalla. La extensión manda los datos cuando el estudio termina, incluso cuando termina por una regla condicional.
 
-## El guardado progresivo está desactivado
+## El guardado progresivo, apagado
 
 La extensión de DataPipe puede funcionar de dos maneras.
 
@@ -206,42 +206,42 @@ La extensión de DataPipe puede funcionar de dos maneras.
 
 : Guardado al final y guardado progresivo {#tbl-stream}
 
-En este libro, el guardado progresivo está desactivado. La razón es la coherencia con el consentimiento de tu estudio, que dice que la persona puede abandonar cerrando la ventana y que, si lo hace, no se guarda ninguna respuesta.
+En este libro, el guardado progresivo está apagado. La razón es que así es coherente con el consentimiento de tu estudio, que dice que la persona puede abandonar cerrando la ventana y que, si lo hace, no se guarda ninguna respuesta.
 
-El guardado progresivo se puede activar cambiando `stream: false` por `stream: true`, o quitando esa línea, porque es el valor predeterminado. Tiene una ventaja: permite conocer cuántas personas abandonan y en qué pantalla, y conservar datos de quienes no terminan. Si lo activás, tenés que hacer tres cosas.
+Se puede activar cambiando `stream: false` por `stream: true`, o sacando esa línea, porque es el valor predeterminado. Tiene una ventaja, que es que permite saber cuántas personas abandonan y en qué pantalla, y quedarse con los datos de quienes no terminan. Pero si lo activás, tenés que hacer tres cosas.
 
-1. Cambiar el consentimiento, para informar que las respuestas se guardan a medida que se responden y que cerrar la ventana no las elimina.
+1. Cambiar el consentimiento para avisar que las respuestas se guardan a medida que se responden y que cerrar la ventana no las borra.
 
-2. Decidir qué vas a hacer con los archivos parciales. DataPipe no distingue a una persona que decidió retirarse de una que perdió la conexión. Si tu protocolo considera que cerrar la ventana es retirarse, tenés que planificar la eliminación de esos archivos.
+2. Decidir qué vas a hacer con los archivos parciales. DataPipe no distingue a alguien que decidió retirarse de alguien que perdió la conexión. Si tu protocolo considera que cerrar la ventana es retirarse, tenés que planificar cómo borrar esos archivos.
 
 3. Tratar los archivos parciales en el análisis como participaciones incompletas. DataPipe los guarda con un nombre que termina en `.partial.json`.
 
-Activar el guardado progresivo es, por lo tanto, una decisión ética y metodológica, no solo técnica.
+O sea, activar el guardado progresivo es una decisión ética y metodológica, no solo técnica.
 
 ## Quien no acepta deja un registro mínimo
 
-Cuando una persona elige “No acepto”, el estudio termina con `abortExperiment`. La extensión de DataPipe también envía los datos en ese caso. El archivo tiene solo dos filas: la bienvenida y la respuesta al consentimiento.
+Cuando alguien elige “No acepto”, el estudio termina con `abortExperiment`, y la extensión de DataPipe manda los datos también en ese caso. El archivo tiene solo dos filas, la bienvenida y la respuesta al consentimiento.
 
-Esa información permite saber cuántas personas entraron al estudio y decidieron no participar. No contiene respuestas a preguntas ni datos que identifiquen a nadie. Como es un registro, el consentimiento y el mensaje final lo informan: “Si elegís no participar, solo queda registrado que no aceptaste”.
+Con esa información podés saber cuántas personas entraron al estudio y decidieron no participar. No tiene respuestas a preguntas ni datos que identifiquen a nadie. Como igual es un registro, el consentimiento y el mensaje final lo informan con una frase como “Si elegís no participar, solo queda registrado que no aceptaste”.
 
-Al analizar los datos, estos archivos se distinguen por su respuesta al consentimiento. No son participaciones y no se cuentan en la muestra.
+En el análisis, estos archivos se reconocen por su respuesta al consentimiento. No son participaciones y no se cuentan en la muestra.
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-Los datos de una investigación con personas requieren protección. Dónde se guardan, quién accede y si se comparten son decisiones que el consentimiento debe informar con exactitud y que un comité de ética puede evaluar.
+Los datos de una investigación con personas necesitan protección. Dónde se guardan, quién accede y si se comparten son decisiones que el consentimiento tiene que informar con exactitud y que un comité de ética puede evaluar.
 
-DataPipe resuelve la parte técnica sin que necesites un servidor propio. Las decisiones siguen siendo tuyas: qué destino usar, si activar el guardado progresivo, qué registrar de quien no acepta, si publicar los datos. Cada una debe estar escrita en `diseno.md` y reflejada en el consentimiento.
+DataPipe resuelve la parte técnica sin que necesites un servidor propio, pero las decisiones siguen siendo tuyas, como qué destino usar, si activar el guardado progresivo, qué registrar de quien no acepta y si publicar los datos. Todas tienen que estar escritas en `diseno.md` y reflejadas en el consentimiento.
 
-## Conectá tu estudio con DataPipe
+## Con Codex
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Guardá una copia de todo el proyecto en `respaldos`.
 
-2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+2. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
-3. Escribí este pedido. Copiá los fragmentos de este capítulo con el botón de copiar.
+3. Escribí este pedido, copiando los fragmentos de este capítulo con el botón de copiar.
 
 ```text
 Quiero conectar el estudio con DataPipe.
@@ -257,74 +257,74 @@ No modifiques ninguna otra parte de los archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-4. Revisá la propuesta. Comprobá especialmente que la línea `localSave` quede dentro de la condición `if (!datapipe_configurado)` y que la dirección de la extensión tenga la versión `0.2.0`.
+4. Revisá la propuesta. Fijate en especial que la línea `localSave` quede dentro de la condición `if (!datapipe_configurado)` y que la dirección de la extensión tenga la versión `0.2.0`.
 :::
 
-**Sin acceso a Codex:** copiá la línea a `index.html` y el fragmento a `experiment.js` con el editor, o tomá ambos archivos del checkpoint `07-estudio-completo` y volvé a aplicar tus propios cambios.
+**Sin acceso a Codex.** Copiá la línea a `index.html` y el fragmento a `experiment.js` con el editor, o tomá los dos archivos del checkpoint `07-estudio-completo` y volvé a aplicar tus propios cambios.
 
-Después, actualizá el consentimiento para que describa el destino real de los datos, con un pedido de texto exacto como en el capítulo anterior. Reemplazá también las marcas `[COMPLETAR: correo de contacto]` por un correo del equipo.
+Después, actualizá el consentimiento para que diga adónde van realmente los datos, con un pedido de texto exacto como en el capítulo anterior. Cambiá también las marcas `[COMPLETAR: correo de contacto]` por un correo del equipo.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-El agente agregó una línea a `index.html` y reemplazó la configuración de jsPsych. No tocó ningún ensayo. Esa separación es importante: el guardado es un comportamiento general del estudio, y por eso vive en la configuración y no en una pantalla.
+El agente agregó una línea a `index.html` y reemplazó la configuración de jsPsych, sin tocar ningún ensayo. Esa separación importa, porque el guardado es un comportamiento general del estudio y por eso va en la configuración y no en una pantalla.
 
-Observá también que el agente no escribió tu identificador de DataPipe. El pedido mantiene `"COMPLETAR"` y tu `AGENTS.md` prohíbe modificar `DATAPIPE_ID`. Lo vas a escribir vos, porque es un dato de tu cuenta.
+Fijate también que el agente no escribió tu identificador de DataPipe. El pedido deja `"COMPLETAR"`, y tu `AGENTS.md` prohíbe modificar `DATAPIPE_ID`. Ese dato lo escribís vos, porque es de tu cuenta.
 
-## Verificá el guardado
+## Verificar el guardado
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 **Sin identificador.**
 
-1. Con `DATAPIPE_ID` todavía en `"COMPLETAR"`, completá el estudio. Comprobá que se descargue el archivo como antes.
+1. Con `DATAPIPE_ID` todavía en `"COMPLETAR"`, completá el estudio y comprobá que se descargue el archivo como antes.
 
 **Con identificador.**
 
-2. Abrí `experiment.js` en el editor y reemplazá `COMPLETAR` por tu identificador en la línea `const DATAPIPE_ID`. Dejá las comillas.
+2. Abrí `experiment.js` en el editor y cambiá `COMPLETAR` por tu identificador en la línea `const DATAPIPE_ID`, dejando las comillas.
 
-3. Con **Accept new data** todavía desactivado en DataPipe, completá el estudio. Al final debería aparecer el mensaje “No pudimos guardar tus respuestas”. DataPipe rechazó el envío porque el experimento no acepta datos. Esta prueba comprueba que el aviso de error funciona.
+3. Con **Accept new data** todavía apagado en DataPipe, completá el estudio. Al final tendría que aparecer el mensaje “No pudimos guardar tus respuestas”, porque DataPipe rechazó el envío al no estar aceptando datos. Esta prueba comprueba que el aviso de error funciona.
 
 4. Activá **Accept new data** en el panel de DataPipe.
 
-5. Completá el estudio otra vez. Al final debería aparecer “Listo. Tus respuestas fueron guardadas.”
+5. Completá el estudio otra vez. Al final tendría que aparecer “Listo. Tus respuestas fueron guardadas.”
 
-6. Abrí tu carpeta de Drive o tu depósito de Zenodo desde el enlace del panel. Comprobá que haya llegado un archivo `datos_` seguido de un identificador.
+6. Abrí tu carpeta de Drive o tu depósito de Zenodo desde el enlace del panel y fijate que haya llegado un archivo `datos_` seguido de un identificador.
 
 7. Abrí el archivo y comparalo con tu diccionario.
 
 8. Recargá el estudio y elegí “No acepto”. Comprobá que llegue un archivo de dos filas.
 
-9. Desactivá **Accept new data** hasta que publiques el estudio.
+9. Apagá **Accept new data** hasta que publiques el estudio.
 :::
 
-Si en el paso 5 aparece el mensaje de error aunque la recolección está activada, puede deberse a que algunos navegadores restringen los envíos desde páginas abiertas como archivos locales. En ese caso, repetí la prueba desde la dirección publicada, en el próximo capítulo. Si el error persiste, abrí la consola con `F12` y leé el mensaje de DataPipe.
+Si en el paso 5 aparece el mensaje de error aunque la recolección esté activada, puede ser que tu navegador restrinja los envíos desde páginas abiertas como archivos locales. En ese caso, repetí la prueba desde la dirección publicada, en el próximo capítulo. Si el error sigue, abrí la consola con `F12` y leé el mensaje de DataPipe.
 
-Los archivos de prueba cuentan como sesiones en DataPipe y quedan en tu espacio de almacenamiento. Anotá sus nombres para excluirlos del análisis, o eliminalos de tu carpeta de Drive. En Zenodo, eliminá los archivos de prueba del depósito antes de publicarlo.
+Los archivos de prueba cuentan como sesiones en DataPipe y quedan en tu espacio de almacenamiento. Anotá sus nombres para dejarlos afuera del análisis, o borralos de tu carpeta de Drive. En Zenodo, borrá los archivos de prueba del depósito antes de publicarlo.
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### Siempre aparece el mensaje de error
 
-Comprobá, en este orden, que **Accept new data** esté activado, que el identificador esté bien copiado y entre comillas, y que no se haya alcanzado el límite de sesiones. Si probás desde un archivo local, repetí la prueba desde la dirección publicada.
+Revisá, en este orden, que **Accept new data** esté activado, que el identificador esté bien copiado y entre comillas, y que no se haya llegado al límite de sesiones. Si probás desde un archivo local, repetí la prueba desde la dirección publicada.
 
 ### Los datos no llegan y no aparece ningún mensaje
 
-Probablemente `DATAPIPE_ID` sigue en `"COMPLETAR"` y el archivo se descargó en tu computadora. Revisá la carpeta Descargas.
+Seguramente `DATAPIPE_ID` sigue en `"COMPLETAR"` y el archivo se descargó en tu computadora. Mirá en Descargas.
 
 ### DataPipe rechaza el archivo por validación
 
-Si configuraste columnas obligatorias, comprobá que existan en tus datos con el mismo nombre. La columna `trial_type` siempre está presente en los datos de jsPsych.
+Si configuraste columnas obligatorias, fijate que existan en tus datos con el mismo nombre. La columna `trial_type` siempre está en los datos de jsPsych.
 
 ### El consentimiento no coincide con el guardado
 
-Si activaste el guardado progresivo, el consentimiento debe decirlo. Si elegiste Zenodo y pensás publicar, el consentimiento debe autorizarlo.
+Si activaste el guardado progresivo, el consentimiento lo tiene que decir. Si elegiste Zenodo y pensás publicar, el consentimiento lo tiene que autorizar.
 
-### Hay datos de participantes en la carpeta del proyecto
+### Datos de participantes en la carpeta del proyecto
 
-Los archivos descargados durante las pruebas no deben estar en `mi-primer-estudio`. En el próximo capítulo esa carpeta va a publicarse.
+Los archivos descargados en las pruebas no pueden estar en `mi-primer-estudio`, porque en el próximo capítulo esa carpeta se publica.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
@@ -334,18 +334,18 @@ Respondé cada pregunta con una oración completa.
 
 3. ¿Qué diferencia hay entre Google Drive y Zenodo como destinos?
 
-4. ¿Qué condiciones deben cumplirse para publicar datos en Zenodo?
+4. ¿Qué condiciones se tienen que cumplir para publicar datos en Zenodo?
 
 5. ¿Qué es una extensión de jsPsych y en qué se diferencia de un plugin?
 
-6. ¿Qué hace `stream: false` y por qué se eligió en este libro?
+6. ¿Qué hace `stream: false` y por qué lo elegimos en este libro?
 
 7. ¿Qué tres cosas habría que hacer si se activara el guardado progresivo?
 
 8. ¿Qué se guarda cuando una persona no acepta participar?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Porque el archivo queda en la computadora de la persona que participó y no llega al investigador.
 
@@ -361,26 +361,26 @@ Respondé cada pregunta con una oración completa.
 
 7. Cambiar el consentimiento, decidir qué hacer con los archivos parciales y tratarlos en el análisis como participaciones incompletas.
 
-8. Un archivo con dos filas: la bienvenida y la respuesta al consentimiento.
+8. Un archivo con dos filas, la bienvenida y la respuesta al consentimiento.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-Para recolectar datos se necesita un servicio que los reciba y los guarde en un lugar al que tengas acceso. DataPipe cumple esa función y los guarda en tu Google Drive o en un depósito de Zenodo. Zenodo permite publicar los datos con un DOI, pero solo si el consentimiento lo autoriza y los datos están anonimizados y documentados.
+Para recolectar datos hace falta un servicio que los reciba y los guarde en un lugar al que tengas acceso. DataPipe cumple esa función y los guarda en tu Google Drive o en un depósito de Zenodo. Zenodo permite publicar los datos con un DOI, pero solo si el consentimiento lo autoriza y los datos están anonimizados y documentados.
 
-La configuración de DataPipe incluye conectar el destino, crear el experimento, obtener su identificador, mantener la validación, fijar un límite de sesiones y activar la recolección solo cuando corresponde.
+Configurar DataPipe implica conectar el destino, crear el experimento, obtener su identificador, mantener la validación, poner un límite de sesiones y activar la recolección solo cuando corresponde.
 
-La extensión de jsPsych envía los datos al terminar el estudio, también cuando termina por una regla condicional. En este libro el guardado progresivo está desactivado para que cerrar la ventana equivalga a retirarse sin dejar datos. Activarlo requiere cambiar el consentimiento y planificar el tratamiento de los archivos parciales. Quien no acepta participar deja un registro mínimo de esa decisión.
+La extensión de jsPsych manda los datos al terminar el estudio, incluso cuando termina por una regla condicional. En este libro el guardado progresivo está apagado para que cerrar la ventana equivalga a retirarse sin dejar datos. Activarlo obliga a cambiar el consentimiento y a planificar qué hacer con los archivos parciales. Y quien no acepta participar deja un registro mínimo de esa decisión.
 
-## Resolvé un desafío breve
+## Desafío
 
 1. Escribí en `diseno.md`, en la sección “Guardado y publicación de los datos”, qué destino elegiste y por qué.
 
-2. Si elegiste Zenodo, escribí qué debería decir el consentimiento para que puedas publicar los datos, y qué revisarías antes de publicarlos.
+2. Si elegiste Zenodo, escribí qué tendría que decir el consentimiento para que puedas publicar los datos, y qué revisarías antes de publicarlos.
 
 3. Imaginá que tu equipo decide activar el guardado progresivo. Reescribí el párrafo del consentimiento sobre el abandono para que sea exacto.
 
 4. Explicá en dos oraciones qué harías con los archivos parciales en ese caso.
 
-En el próximo capítulo vas a publicar tu estudio en Internet con GitHub Pages, para que cualquier persona pueda participar desde un enlace.
+En el próximo capítulo publicamos tu estudio en Internet con GitHub Pages, para que cualquiera pueda participar desde un enlace.

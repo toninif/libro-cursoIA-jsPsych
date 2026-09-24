@@ -3,39 +3,39 @@ title: "Presentación y experiencia de participación"
 description: "Barra de progreso, estilos propios y adaptación a pantallas de celular."
 ---
 
-## Qué vas a poder hacer
+## Objetivos
 
-Al terminar este capítulo, vas a poder realizar las siguientes acciones.
+Al terminar este capítulo vas a poder
 
-1. Vas a poder agregar una barra de progreso y explicar qué información transmite.
+1. agregar una barra de progreso y explicar qué información da;
 
-2. Vas a poder explicar qué es CSS y qué función cumple una hoja de estilos.
+2. explicar qué es CSS y para qué sirve una hoja de estilos;
 
-3. Vas a poder incorporar el archivo `styles.css` al proyecto.
+3. sumar el archivo `styles.css` al proyecto;
 
-4. Vas a poder adaptar el estudio a pantallas de celular y comprobarlo desde la computadora.
+4. adaptar el estudio a pantallas de celular y comprobarlo desde la computadora;
 
-5. Vas a poder revisar la legibilidad y la accesibilidad de las pantallas.
+5. revisar la legibilidad y la accesibilidad de las pantallas;
 
-6. Vas a poder distinguir un cambio de apariencia de un cambio en el instrumento.
+6. distinguir un cambio de apariencia de un cambio en el instrumento.
 
-## Una pantalla que funciona pero se ve mal permite formular el problema
+## Para empezar, una pantalla que funciona pero se ve mal
 
-Tu estudio funciona. Tiene consentimiento, cuestionario, escalas en orden aleatorio, reglas condicionales y un control de atención. Sin embargo, todavía no pensaste cómo se ve.
+Tu estudio funciona. Tiene consentimiento, cuestionario, escalas en orden aleatorio, reglas condicionales y un control de atención. Pero todavía no pensaste cómo se ve.
 
-Abrí el estudio desde un celular, o imaginalo. El texto aparece muy pequeño, porque el navegador muestra la página como si fuera una pantalla de computadora reducida. Las cinco opciones de las escalas quedan apretadas en una línea. La persona no sabe cuántas pantallas faltan. Muchas personas van a responder tu encuesta desde el celular.
+Abrí el estudio desde un celular, o imaginalo. El texto aparece chiquito, porque el navegador muestra la página como si fuera una pantalla de computadora achicada. Las cinco opciones de las escalas quedan apretadas en una línea, y la persona no sabe cuántas pantallas le faltan. Y mucha gente va a responder tu encuesta desde el celular.
 
-Google Forms resuelve estas cuestiones por su cuenta: adapta el formulario al celular, muestra una barra de progreso si la activás y usa un diseño uniforme. En jsPsych, la apariencia también es una decisión que queda escrita en un archivo.
+Google Forms resuelve esto por su cuenta. Adapta el formulario al celular, muestra una barra de progreso si la activás y usa un diseño uniforme. En jsPsych, la apariencia también es una decisión que queda escrita en un archivo.
 
 ::: {.callout-tip}
 ## Idea clave
 
-La presentación cambia cómo se ve el estudio, no qué se pregunta. Sin embargo, algunas decisiones de presentación pueden influir en las respuestas. Por eso también se especifican, se verifican y se documentan.
+La presentación cambia cómo se ve el estudio, no qué se pregunta. Aun así, algunas decisiones de presentación pueden influir en las respuestas, y por eso también se especifican, se verifican y se documentan.
 :::
 
-## La barra de progreso informa cuánto falta
+## La barra de progreso
 
-jsPsych puede mostrar una **barra de progreso** en la parte superior de cada pantalla. La barra avanza a medida que la persona completa pantallas. Se activa en la configuración general de jsPsych.
+jsPsych puede mostrar una **barra de progreso** arriba de cada pantalla, que avanza a medida que la persona completa pantallas. Se activa en la configuración general de jsPsych.
 
 ```javascript
 const jsPsych = initJsPsych({
@@ -47,17 +47,17 @@ const jsPsych = initJsPsych({
 });
 ```
 
-`show_progress_bar: true` activa la barra. `message_progress_bar` define el texto que aparece al lado. Si no lo indicás, jsPsych muestra el texto en inglés “Completion Progress”.
+`show_progress_bar: true` activa la barra y `message_progress_bar` define el texto que aparece al lado. Si no lo ponés, jsPsych muestra el texto en inglés “Completion Progress”.
 
-La barra avanza según la cantidad de pantallas de la línea de tiempo. Con reglas condicionales, ese cálculo es aproximado: si la pregunta sobre herramientas de IA no aparece, la barra no lo sabe de antemano. En tu estudio la diferencia es pequeña.
+La barra avanza según la cantidad de pantallas de la línea de tiempo. Con reglas condicionales ese cálculo es aproximado, porque si la pregunta sobre herramientas de IA no aparece, la barra no lo sabe de antemano. En tu estudio la diferencia es chica.
 
-Mostrar el progreso es una decisión con efectos posibles sobre la participación. Puede motivar a terminar cuando falta poco o desalentar cuando falta mucho. La investigación sobre este efecto tiene resultados mixtos. En una encuesta breve como la tuya, la barra suele ser útil. En un estudio largo, conviene pensarlo.
+Mostrar el progreso es una decisión que puede tener efectos sobre la participación. Puede motivar a terminar cuando falta poco o desanimar cuando falta mucho, y la investigación sobre este efecto tiene resultados mixtos. En una encuesta corta como la tuya, la barra suele ser útil. En un estudio largo, conviene pensarlo.
 
-## CSS define la apariencia
+## CSS
 
-En el capítulo sobre tu primer estudio viste que `index.html` carga una **hoja de estilos** de jsPsych. Una hoja de estilos es un archivo escrito en **CSS**, un lenguaje que describe la apariencia de una página: tamaños, colores, márgenes y disposición de los elementos. La extensión de estos archivos es `.css`.
+En el capítulo de tu primer estudio viste que `index.html` carga una **hoja de estilos** de jsPsych. Una hoja de estilos es un archivo escrito en **CSS**, un lenguaje que describe la apariencia de una página, como tamaños, colores, márgenes y la disposición de los elementos. Estos archivos tienen la extensión `.css`.
 
-Tu proyecto va a tener su propia hoja de estilos, `styles.css`. Así, la estructura del proyecto llega a una nueva etapa.
+Tu proyecto va a tener su propia hoja de estilos, `styles.css`, y con eso la estructura llega a una etapa nueva.
 
 ```text
 mi-primer-estudio/
@@ -68,11 +68,11 @@ mi-primer-estudio/
 └── README.md
 ```
 
-Cada archivo tiene ahora una función clara. `index.html` indica qué cargar. `experiment.js` define el procedimiento. `styles.css` define la apariencia. `diccionario.md` documenta los datos. `README.md` presenta el proyecto.
+Ahora cada archivo tiene una función clara. `index.html` dice qué cargar, `experiment.js` define el procedimiento, `styles.css` define la apariencia, `diccionario.md` documenta los datos y `README.md` presenta el proyecto.
 
-### Una regla de CSS tiene un selector y declaraciones
+### Selector y declaraciones
 
-Una regla de CSS indica a qué elementos se aplica y qué apariencia deben tener.
+Una regla de CSS dice a qué elementos se aplica y qué apariencia tienen que tener.
 
 ```css
 body {
@@ -81,11 +81,11 @@ body {
 }
 ```
 
-La primera parte, `body`, es el **selector**: indica a qué elementos se aplica la regla. `body` es el cuerpo de la página, es decir, todo su contenido. Entre llaves están las **declaraciones**. Cada declaración tiene una propiedad y un valor, separados por dos puntos y terminados en punto y coma. `font-size: 18px` fija el tamaño del texto en 18 píxeles. `line-height: 1.5` fija el espacio entre líneas en una vez y media el tamaño del texto.
+La primera parte, `body`, es el **selector**, que indica a qué elementos se aplica la regla. `body` es el cuerpo de la página, o sea, todo su contenido. Entre llaves van las **declaraciones**. Cada una tiene una propiedad y un valor, unidos por dos puntos y terminados en punto y coma. `font-size: 18px` pone el tamaño del texto en 18 píxeles y `line-height: 1.5` pone el espacio entre líneas en una vez y media el tamaño del texto.
 
-No necesitás aprender CSS para este curso. Necesitás poder leer una regla, reconocer qué modifica y comprobar su efecto.
+Para este curso no hace falta aprender CSS. Lo que hace falta es poder leer una regla, reconocer qué cambia y comprobar su efecto.
 
-## El archivo de estilos del estudio
+## La hoja de estilos del estudio
 
 El archivo `styles.css` de tu estudio tiene tres partes.
 
@@ -125,63 +125,63 @@ body {
 }
 ```
 
-1. Los textos entre `/*` y `*/` son comentarios de CSS. Cumplen la misma función que `//` en JavaScript.
+1. Lo que está entre `/*` y `*/` son comentarios de CSS, y cumplen la misma función que `//` en JavaScript.
 
 2. La regla de `body` agranda el texto y el espacio entre líneas.
 
-3. La regla de `.jspsych-content` limita el ancho del contenido. El punto al comienzo indica que el selector se refiere a una **clase**, un nombre que jsPsych asigna a ciertos elementos. Líneas muy largas son difíciles de leer en pantallas grandes.
+3. La regla de `.jspsych-content` limita el ancho del contenido, porque las líneas muy largas se leen mal en pantallas grandes. El punto del principio indica que el selector se refiere a una **clase**, que es un nombre que jsPsych les pone a ciertos elementos.
 
-4. El bloque `@media (max-width: 600px)` contiene reglas que solo se aplican cuando la pantalla mide 600 píxeles de ancho o menos, como la de un celular. Dentro, las reglas agregan un margen lateral y muestran las opciones de las escalas una debajo de la otra, en lugar de una al lado de la otra.
+4. El bloque `@media (max-width: 600px)` tiene reglas que solo se aplican cuando la pantalla mide 600 píxeles de ancho o menos, como la de un celular. Esas reglas agregan un margen a los costados y muestran las opciones de las escalas una debajo de la otra, en vez de una al lado de la otra.
 
-Los selectores del bloque para celulares son largos porque el plugin `survey-likert` agrega sus propios estilos al mostrar la escala. Para que los estilos del estudio tengan prioridad, los selectores tienen que ser más específicos. La indicación `!important` cumple la misma función en un caso particular. No hace falta que memorices estos detalles. Si en el futuro necesitás cambiar un estilo que no se aplica, podés pedirle al agente que explique por qué.
+Los selectores del bloque para celulares son largos porque el plugin `survey-likert` agrega sus propios estilos al mostrar la escala. Para que los estilos del estudio tengan prioridad, los selectores tienen que ser más específicos, y `!important` cumple esa misma función en un caso puntual. No hace falta que memorices estos detalles. Si algún día un estilo no se aplica, podés pedirle al agente que te explique por qué.
 
-## El celular necesita una indicación en `index.html`
+## Una línea para el celular
 
-Los navegadores de los celulares suelen mostrar las páginas como si fueran pantallas de computadora reducidas. Para que usen el ancho real del dispositivo, `index.html` necesita esta línea dentro de `<head>`.
+Los navegadores de los celulares suelen mostrar las páginas como si fueran pantallas de computadora achicadas. Para que usen el ancho real del dispositivo, `index.html` necesita esta línea dentro de `<head>`.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-Sin esta línea, las reglas para pantallas angostas no se aplicarían en el celular, porque el navegador creería que la pantalla es ancha.
+Sin ella, las reglas para pantallas angostas no se aplicarían en el celular, porque el navegador creería que la pantalla es ancha.
 
-Además, `index.html` debe cargar `styles.css` después de la hoja de estilos de jsPsych. Cuando dos reglas se contradicen con la misma especificidad, gana la que se carga después.
+Además, `index.html` tiene que cargar `styles.css` después de la hoja de estilos de jsPsych. Cuando dos reglas con la misma especificidad se contradicen, gana la que se carga después.
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/jspsych@8.3.0/css/jspsych.css">
 <link rel="stylesheet" href="styles.css">
 ```
 
-## Algunas decisiones de presentación cambian el instrumento
+## Cuando la presentación cambia el instrumento
 
-La mayoría de los cambios de este capítulo solo afectan la comodidad: el tamaño del texto, los márgenes, la barra de progreso. Otros pueden influir en cómo se responde.
+Casi todos los cambios de este capítulo solo afectan la comodidad, como el tamaño del texto, los márgenes o la barra de progreso. Pero otros pueden influir en cómo se responde.
 
-Mostrar las opciones de una escala en vertical en lugar de horizontal es un ejemplo. En horizontal, las opciones forman un continuo visual de izquierda a derecha. En vertical, forman una lista. La investigación sobre encuestas muestra que la disposición visual de las opciones puede afectar las respuestas en algunos casos.
+Mostrar las opciones de una escala en vertical y no en horizontal es un ejemplo. En horizontal, las opciones forman un continuo visual de izquierda a derecha, y en vertical forman una lista. La investigación sobre encuestas muestra que la disposición visual de las opciones puede afectar las respuestas en algunos casos.
 
-Tu estudio usa disposición horizontal en computadoras y vertical en celulares. Es una decisión razonable para la legibilidad, pero introduce una diferencia entre dispositivos. Por eso conviene documentarla y, en el análisis, poder saber qué dispositivo usó cada persona. En un estudio con una escala validada, también conviene revisar si sus autores indican una forma de presentación.
+Tu estudio usa disposición horizontal en computadoras y vertical en celulares. Es una decisión razonable para que se lea mejor, pero introduce una diferencia entre dispositivos. Por eso conviene documentarla y, en el análisis, poder saber qué dispositivo usó cada persona. Con una escala validada, conviene además revisar si sus autores indican una forma de presentación.
 
 ::: {.callout-important}
 ## La accesibilidad también es una decisión de diseño
 
-Una encuesta accesible puede ser respondida por más personas, incluidas personas con dificultades visuales o motoras. Algunas prácticas básicas son usar texto de tamaño suficiente, mantener un buen contraste entre el texto y el fondo, no transmitir información solo mediante colores y permitir hacer clic sobre el texto de cada opción y no solo sobre el círculo. Los plugins de encuesta de jsPsych ya cumplen esta última condición.
+Una encuesta accesible la puede responder más gente, incluidas personas con dificultades visuales o motoras. Algunas prácticas básicas son usar un texto de tamaño suficiente, mantener buen contraste entre el texto y el fondo, no transmitir información solo con colores y permitir hacer clic sobre el texto de cada opción y no solo sobre el círculo. Los plugins de encuesta de jsPsych ya cumplen esta última condición.
 :::
 
-## Este capítulo importa para investigar en Psicología
+## Por qué nos importa en Psicología
 
-La experiencia de participación afecta la calidad de los datos. Un texto difícil de leer aumenta los errores. Una escala incómoda en el celular aumenta el abandono. Una pantalla confusa aumenta las respuestas descuidadas que estudiaste en el capítulo sobre controles de atención.
+La experiencia de participación afecta la calidad de los datos. Un texto difícil de leer aumenta los errores, una escala incómoda en el celular aumenta el abandono y una pantalla confusa aumenta las respuestas descuidadas que vimos en el capítulo sobre controles de atención.
 
-Al mismo tiempo, la presentación forma parte del procedimiento que se reporta. Si dos grupos de personas vieron la escala de maneras diferentes, esa diferencia debe conocerse y documentarse.
+Además, la presentación forma parte del procedimiento que se informa. Si dos grupos de personas vieron la escala de maneras distintas, esa diferencia se tiene que conocer y documentar.
 
-## Agregá la barra de progreso y los estilos
+## Con Codex
 
 ::: {.callout-note}
-## Trabajá con Codex
+## Con Codex
 
 1. Guardá copias de respaldo de `index.html` y `experiment.js`.
 
-2. Iniciá Codex en `mi-primer-estudio` con permisos **Read Only**.
+2. Abrí Codex en `mi-primer-estudio` con permisos **Read Only**.
 
-**Pedido 1: barra de progreso.**
+**Pedido 1. Barra de progreso.**
 
 ```text
 En experiment.js, en la configuración de initJsPsych, agregá antes de on_finish
@@ -191,7 +191,7 @@ estas dos líneas exactas:
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-**Pedido 2: estilos y adaptación al celular.**
+**Pedido 2. Estilos y adaptación al celular.**
 
 ```text
 Quiero agregar una hoja de estilos al estudio.
@@ -208,24 +208,24 @@ Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi apro
 Para el pedido 2, copiá el contenido de `styles.css` con el botón de copiar del bloque de código y pegalo en el lugar indicado.
 :::
 
-**Sin acceso a Codex:** creá `styles.css` con el editor y agregá las líneas a `index.html` y `experiment.js`.
+**Sin acceso a Codex.** Creá `styles.css` con el editor y agregá las líneas a `index.html` y `experiment.js`.
 
-## Explicá qué hizo realmente el agente
+## Qué hizo el agente
 
-En el primer pedido, el agente agregó dos opciones a la configuración de jsPsych. No tocó ningún ensayo.
+En el primer pedido, el agente agregó dos opciones a la configuración de jsPsych, sin tocar ningún ensayo.
 
-En el segundo pedido, el agente creó un archivo nuevo y agregó dos líneas a `index.html`. No modificó `experiment.js`. Esa separación es importante: los estilos no pueden cambiar las preguntas, las opciones, el orden ni los datos. Si una propuesta de este pedido incluyera cambios en `experiment.js`, deberías rechazarla.
+En el segundo creó un archivo nuevo y agregó dos líneas a `index.html`, sin modificar `experiment.js`. Esa separación importa, porque los estilos no pueden cambiar las preguntas, las opciones, el orden ni los datos. Si una propuesta de este pedido tocara `experiment.js`, tendrías que rechazarla.
 
-## Verificá la apariencia en computadora y en celular
+## Verificar en computadora y en celular
 
-Los navegadores permiten simular la pantalla de un celular desde la computadora, con las herramientas para desarrolladores que usaste para ver la consola.
+Los navegadores permiten simular la pantalla de un celular desde la computadora, con las herramientas para desarrolladores que ya usaste para ver la consola.
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
 **En la computadora.**
 
-1. Recargá el estudio con `F5`. Comprobá que aparezca la barra de progreso con el texto “Progreso”.
+1. Recargá el estudio con `F5` y comprobá que aparezca la barra de progreso con el texto “Progreso”.
 
 2. Avanzá algunas pantallas y comprobá que la barra avance.
 
@@ -233,44 +233,44 @@ Los navegadores permiten simular la pantalla de un celular desde la computadora,
 
 **En la simulación de celular.**
 
-4. Presioná `F12` para abrir las herramientas para desarrolladores.
+4. Apretá `F12` para abrir las herramientas para desarrolladores.
 
-5. Presioná `Ctrl + Shift + M`, o buscá el ícono con forma de celular y tableta en la parte superior de las herramientas. La página se va a mostrar con el tamaño de un celular.
+5. Apretá `Ctrl + Shift + M`, o buscá arriba de las herramientas el ícono con forma de celular y tableta. La página se va a mostrar con el tamaño de un celular.
 
 6. Recargá la página y avanzá hasta una escala. Comprobá que las opciones aparezcan una debajo de la otra y que el texto no quede pegado a los bordes.
 
-7. Probá responder con clics sobre el texto de las opciones.
+7. Probá responder haciendo clic sobre el texto de las opciones.
 
 **En los datos.**
 
 8. Completá el estudio en la simulación de celular y abrí el archivo de datos.
 
-9. Comprobá que el archivo tenga las mismas columnas y la misma cantidad de filas que antes de agregar los estilos.
+9. Comprobá que tenga las mismas columnas y la misma cantidad de filas que antes de agregar los estilos.
 :::
 
-El último paso verifica que el cambio fue solo de apariencia. Si los datos cambiaron, algo más que la presentación se modificó.
+El último paso verifica que el cambio fue solo de apariencia. Si los datos cambiaron, se modificó algo más que la presentación.
 
-La simulación es una aproximación. Cuando publiques el estudio, en la Parte V, vas a poder probarlo en un celular real.
+La simulación es una aproximación. Cuando publiques el estudio, en la Parte V, lo vas a poder probar en un celular de verdad.
 
-## Actualizá la documentación
+## Actualizar la documentación
 
 ::: {.callout-note}
-## Realizá esta actividad guiada
+## Actividad guiada
 
-1. En `README.md`, agregá `styles.css` a la descripción de los archivos del proyecto.
+1. En `README.md`, sumá `styles.css` a la descripción de los archivos del proyecto.
 
-2. En `diccionario.md` o en el README, agregá una nota que documente que las escalas se muestran en horizontal en pantallas anchas y en vertical en pantallas de hasta 600 píxeles.
+2. En `diccionario.md` o en el README, agregá una nota que diga que las escalas se muestran en horizontal en pantallas anchas y en vertical en pantallas de hasta 600 píxeles.
 
 3. Agregá una entrada al registro de cambios.
 :::
 
-## Revisá algunas situaciones que suelen causar errores
+## Errores frecuentes
 
 ### Los estilos no se aplican
 
-Revisá que `index.html` cargue `styles.css` y que el nombre del archivo coincida exactamente. Revisá también que la línea esté después de la que carga la hoja de estilos de jsPsych. Recargá la página con `F5`.
+Fijate que `index.html` cargue `styles.css` y que el nombre del archivo coincida exactamente. Fijate también que esa línea esté después de la que carga la hoja de estilos de jsPsych, y recargá la página con `F5`.
 
-### En el celular todo se ve pequeño
+### En el celular todo se ve chiquito
 
 Falta la línea `<meta name="viewport" ...>` en `index.html`, o está fuera de `<head>`.
 
@@ -280,17 +280,17 @@ Falta `message_progress_bar` en la configuración de jsPsych.
 
 ### Un cambio de estilo hizo desaparecer una pantalla
 
-Un error de sintaxis en CSS no suele romper el estudio, pero puede ocultar elementos. Revisá la última regla que cambiaste. Compará con la copia de respaldo.
+Un error de sintaxis en CSS no suele romper el estudio, pero puede esconder elementos. Revisá la última regla que cambiaste y compará con la copia de respaldo.
 
 ### Los estilos cambiaron el procedimiento
 
 Si después de este capítulo cambió el orden, el contenido o los datos, el cambio no fue solo de apariencia. Compará `experiment.js` con la copia de respaldo.
 
-## Comprobá lo que comprendiste
+## Para repasar
 
 Respondé cada pregunta con una oración completa.
 
-1. ¿Qué información transmite la barra de progreso y por qué es aproximada en tu estudio?
+1. ¿Qué información da la barra de progreso y por qué es aproximada en tu estudio?
 
 2. ¿Qué es CSS?
 
@@ -302,12 +302,12 @@ Respondé cada pregunta con una oración completa.
 
 6. ¿Por qué `styles.css` se carga después de la hoja de estilos de jsPsych?
 
-7. ¿Por qué mostrar una escala en vertical puede considerarse más que un cambio de apariencia?
+7. ¿Por qué mostrar una escala en vertical puede ser más que un cambio de apariencia?
 
 8. ¿Cómo comprobaste que los estilos no cambiaron el procedimiento?
 
 <details>
-<summary>Consultá una posible respuesta después de resolver la actividad.</summary>
+<summary>Ver respuestas posibles</summary>
 
 1. Transmite cuánto del estudio se completó, y es aproximada porque la barra no sabe de antemano si una pantalla condicional va a aparecer.
 
@@ -327,24 +327,24 @@ Respondé cada pregunta con una oración completa.
 
 </details>
 
-## Qué aprendiste en este capítulo
+## En síntesis
 
-La presentación del estudio es una decisión de diseño. La barra de progreso informa cuánto falta y puede influir en la participación. En jsPsych se activa en la configuración general.
+La presentación del estudio es una decisión de diseño. La barra de progreso dice cuánto falta y puede influir en la participación, y en jsPsych se activa en la configuración general.
 
-CSS describe la apariencia de una página. Una hoja de estilos propia, `styles.css`, permite cambiar tamaños, márgenes y disposición sin modificar el procedimiento. Un bloque `@media` aplica reglas solo en pantallas angostas, y la línea `viewport` de `index.html` hace que los celulares usen su ancho real.
+CSS describe la apariencia de una página. Con una hoja de estilos propia, `styles.css`, cambiamos tamaños, márgenes y disposición sin tocar el procedimiento. Un bloque `@media` aplica reglas solo en pantallas angostas, y la línea `viewport` de `index.html` hace que los celulares usen su ancho real.
 
-Algunos cambios de presentación, como la disposición de las opciones de una escala, pueden influir en las respuestas y deben documentarse. La accesibilidad también forma parte del diseño.
+Algunos cambios de presentación, como la disposición de las opciones de una escala, pueden influir en las respuestas y hay que documentarlos. La accesibilidad también es parte del diseño.
 
-Un cambio de apariencia se verifica en computadora, en la simulación de celular y en los datos, que no deben cambiar.
+Un cambio de apariencia se verifica en la computadora, en la simulación de celular y en los datos, que no tienen que cambiar.
 
-## Resolvé un desafío breve
+## Desafío
 
-1. Cambiá en `styles.css` el tamaño del texto de 18 a 20 píxeles. Comprobá el efecto en la computadora y en la simulación de celular. Después volvé a 18.
+1. Cambiá en `styles.css` el tamaño del texto de 18 a 20 píxeles. Mirá el efecto en la computadora y en la simulación de celular, y después volvé a 18.
 
-2. Proponé una regla nueva que cambie el color del texto de las instrucciones. Antes de aplicarla, respondé: ¿el color elegido mantiene un buen contraste con el fondo blanco?
+2. Proponé una regla nueva que cambie el color del texto de las instrucciones. Antes de aplicarla, pensá si el color que elegiste mantiene buen contraste con el fondo blanco.
 
-3. Imaginá que una escala validada indica en sus instrucciones que las opciones deben presentarse en horizontal. Explicá qué harías con la regla para celulares y qué alternativas tendrías.
+3. Imaginá que una escala validada dice en sus instrucciones que las opciones tienen que ir en horizontal. Explicá qué harías con la regla para celulares y qué alternativas tendrías.
 
-4. Explicá qué información necesitarías registrar en los datos para saber si cada persona respondió desde una pantalla angosta o ancha. No la implementes: describí la variable como si fuera una fila del diccionario.
+4. Explicá qué información tendrías que registrar en los datos para saber si cada persona respondió desde una pantalla angosta o ancha. No la implementes, describí la variable como si fuera una fila del diccionario.
 
-En el próximo capítulo vas a integrar todo lo que hiciste en la Parte IV: vas a revisar el procedimiento completo, verificar cada rama, actualizar la documentación y comparar tu encuesta con lo que permite Google Forms.
+En el próximo capítulo juntamos todo lo que hiciste en la Parte IV. Vamos a revisar el procedimiento completo, verificar cada rama, actualizar la documentación y comparar tu encuesta con lo que permite Google Forms.
