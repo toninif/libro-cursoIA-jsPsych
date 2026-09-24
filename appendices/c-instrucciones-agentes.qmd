@@ -23,7 +23,7 @@ El texto entre corchetes, como `[nombre del archivo]`, marca lo que tenés que r
 Copiar un patrón sin tomar las decisiones que requiere produce el mismo problema que un pedido ambiguo. Antes de usar un patrón, completá la sección **Vos decidís**. Si no podés completarla, todavía no estás en condiciones de enviar el pedido.
 :::
 
-Por ahora, el apéndice contiene los patrones de las Partes II a IV. Se va a ampliar a medida que el libro incorpore el guardado y la publicación.
+El apéndice reúne los patrones de las Partes II a V.
 
 ## La estructura de un pedido completo
 
@@ -381,6 +381,38 @@ No modifiques ningún archivo. Esperá mi respuesta antes de proponer cambios.
 **Comprobás:** cada hallazgo en los archivos. Después, ejecutá el plan de pruebas.
 
 **Usado en:** [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
+
+### Identificar dependencias antes de un cambio
+
+```text
+Quiero [reemplazar / quitar] [elemento]. Antes de modificar archivos, indicá qué otras
+partes de [archivo] dependen de ese elemento y qué pasaría con cada una.
+No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué hacer con cada dependencia. Si la decisión es metodológica, escribila en `diseno.md` antes de pedir el cambio.
+
+**Comprobás:** que el plan de pruebas siga dando los resultados esperados después del cambio.
+
+**Usado en:** [capítulo 24](../part-5/24-construccion-estudio.qmd).
+
+### Revisar el proyecto antes de publicarlo
+
+```text
+Voy a publicar este proyecto en un repositorio público. Antes de modificar cualquier
+archivo, revisá y respondé:
+1. ¿Quedan marcas COMPLETAR o REEMPLAZAR? Indicá las líneas.
+2. ¿Todas las direcciones de unpkg.com tienen una versión fija?
+3. ¿Hay archivos que parezcan datos?
+4. ¿Los nombres de archivo que usa index.html coinciden exactamente con los de la carpeta?
+No modifiques ningún archivo.
+```
+
+**Vos decidís:** qué corregir antes de publicar.
+
+**Comprobás:** cada respuesta con `dir`, `Select-String` y el editor.
+
+**Usado en:** [capítulo 27](../part-5/27-publicacion.qmd).
 
 ## Corregir
 

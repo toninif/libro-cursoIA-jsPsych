@@ -14,6 +14,6 @@ Esta carpeta reúne versiones recuperables de `mi-primer-estudio`. Cada checkpoi
 
 ## Estado
 
-Los checkpoints `01-inicial` a `06-encuesta-ampliada` están completos y fueron probados con jsPsych 8.3.0. Las demás carpetas están reservadas para evitar que una estructura vacía se confunda con un estudio funcional. Cada una deberá incorporar instrucciones de ejecución y criterios de verificación cuando se desarrolle.
+Los siete checkpoints están completos y fueron probados con jsPsych 8.3.0. El checkpoint `07-estudio-completo` es una plantilla para el proyecto final: contiene marcas `COMPLETAR` y `REEMPLAZAR` donde cada estudiante incorpora sus propias decisiones y sus escalas.
 
-Los checkpoints `02` a `06` cargan jsPsych desde Internet, por lo que necesitan conexión para funcionar.
+Los checkpoints `02` a `07` cargan jsPsych desde Internet, por lo que necesitan conexión para funcionar.

@@ -7,7 +7,7 @@ description: "Definiciones breves de los términos técnicos utilizados."
 
 Cada término se define en lenguaje claro la primera vez que aparece en el libro. Este glosario sirve para volver a consultarlo, no para reemplazar aquella explicación. Cada entrada indica el capítulo donde podés encontrar la explicación completa.
 
-El glosario se completa a medida que avanza el libro. Por ahora reúne los términos de las Partes I a IV.
+Reúne los términos de las cinco partes del libro.
 
 ## A {.unnumbered}
 
@@ -31,6 +31,9 @@ Alias
 
 Almacenamiento
 : Conservación de información para usarla más adelante, incluso después de apagar la computadora. También designa la parte física que la conserva, como un disco. Ver [capítulo 1](../part-1/01-computadora.qmd).
+
+Alojamiento web
+: Servicio que entrega los archivos de un sitio a los navegadores que los piden. En inglés, *hosting*. Ver [capítulo 27](../part-5/27-publicacion.qmd).
 
 Aprobación
 : Pregunta que un agente hace antes de realizar una acción. Muestra qué quiere hacer y permite aceptar o rechazar. Ver [capítulo 6](../part-2/06-chatbot-agente.qmd).
@@ -111,11 +114,17 @@ Comando con barra
 Comentario de código
 : Línea que comienza con `//` en JavaScript. El navegador la ignora y sirve para dejar notas a quien lee el código. Ver [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
 
+Commit
+: Cambio confirmado en un repositorio, con fecha y un mensaje que lo describe. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
 Consentimiento informado
 : Proceso mediante el cual una persona recibe información sobre un estudio y decide libremente si participa. En un estudio online se presenta antes de cualquier pregunta. Ver [capítulo 13](../part-3/13-preguntas-formularios.qmd).
 
 Consola del navegador
 : Pestaña de las herramientas para desarrolladores, que se abren con `F12`, donde el navegador muestra los errores con su archivo y número de línea. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
+
+Construcción incremental
+: Forma de implementar un estudio en pasos pequeños, cada uno con criterios de aceptación, verificación y copia de respaldo. Ver [capítulo 24](../part-5/24-construccion-estudio.qmd).
 
 Constructo
 : Concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. Ver [capítulo 1](../part-1/01-computadora.qmd).
@@ -125,6 +134,9 @@ Contexto
 
 Copia de respaldo
 : Copia que conserva la información en otra ubicación y permite recuperarla si se pierde o se daña el archivo de trabajo. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y [capítulo 9](../part-2/09-revisar-agente.qmd).
+
+Criterio de aceptación
+: Condición observable que un paso de construcción debe cumplir para darlo por terminado. Ver [capítulo 24](../part-5/24-construccion-estudio.qmd).
 
 Criterio de inclusión
 : Condición que una persona debe cumplir para formar parte de la población del estudio. Ver [capítulo 18](../part-4/18-logica-condicional.qmd).
@@ -137,17 +149,26 @@ CSV
 
 ## D {.unnumbered}
 
+DataPipe
+: Servicio gratuito que recibe los datos de un estudio y los guarda en un espacio de almacenamiento del investigador, como Google Drive o Zenodo. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
 Dato
 : Representación de información que un sistema puede registrar y procesar. Ver [capítulo 1](../part-1/01-computadora.qmd).
 
 Dato faltante
 : Valor que debería existir en los datos y no está registrado. Ver [capítulo 11](../part-3/11-google-forms.qmd).
 
+Debriefing
+: Pantalla de cierre que explica el propósito del estudio, agradece la participación y ofrece un contacto. Ver [capítulo 23](../part-5/23-disenar-antes.qmd).
+
 Decisión metodológica
 : Decisión que define qué se quiere investigar y bajo qué condiciones, como el constructo, la población, el procedimiento o el significado de una variable. Ver [capítulo 5](../part-1/05-proyecto.qmd).
 
 Decisión técnica
 : Decisión que define cómo se realiza una parte del procedimiento mediante archivos y programas. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+Depurar
+: Encontrar y corregir la causa de un problema en un programa. En inglés, *debugging*. Ver [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
 
 Diccionario de variables
 : Documento que describe cada variable de un conjunto de datos: nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas. También se lo llama libro de códigos. Ver [capítulo 16](../part-3/16-diccionario-datos.qmd).
@@ -157,6 +178,12 @@ Diferencias
 
 Directorio
 : Término técnico equivalente a carpeta. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
+
+Documento de diseño
+: Documento que reúne las decisiones metodológicas de un estudio antes de programarlo. En el proyecto del libro es `diseno.md`. Ver [capítulo 23](../part-5/23-disenar-antes.qmd).
+
+DOI
+: Identificador permanente que permite citar un conjunto de datos u otra publicación. Zenodo lo genera al publicar un depósito. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
 
 ## E {.unnumbered}
 
@@ -190,6 +217,9 @@ Explorador de archivos
 Extensión
 : Parte final del nombre de un archivo, separada por un punto, que ayuda a reconocer su tipo. Por ejemplo, `.csv` en `datos.csv`. Ver [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
 
+Extensión de jsPsych
+: Pieza que agrega a jsPsych un comportamiento general, que no corresponde a una pantalla en particular, como el guardado de datos con DataPipe. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
+
 ## F {.unnumbered}
 
 Formato ancho
@@ -204,10 +234,16 @@ Formato Likert
 ## G {.unnumbered}
 
 Git
-: Herramienta que registra las versiones de un proyecto y muestra qué cambió entre una versión y otra. El libro la va a presentar más adelante. Ver [capítulo 9](../part-2/09-revisar-agente.qmd).
+: Herramienta que registra las versiones de un proyecto y muestra qué cambió entre una versión y otra. Ver [capítulo 9](../part-2/09-revisar-agente.qmd) y [capítulo 27](../part-5/27-publicacion.qmd).
 
 GitHub
 : Servicio web que permite alojar y compartir proyectos. Ver [capítulo 5](../part-1/05-proyecto.qmd).
+
+GitHub Pages
+: Servicio de GitHub que publica como sitio web los archivos de un repositorio. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
+Guardado progresivo
+: Forma de guardado en la que cada pantalla se envía a medida que se responde. Quien abandona deja un archivo parcial. En este libro está desactivado. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
 
 ## H {.unnumbered}
 
@@ -360,7 +396,16 @@ Proyecto
 Prueba de regresión
 : Prueba que se repite para detectar si un cambio nuevo rompió algo que ya funcionaba. Ver [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
 
+Prueba piloto
+: Aplicación de un estudio a pocas personas antes de la recolección real, para encontrar problemas de funcionamiento, comprensión y calidad de datos. Ver [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
+
+Push
+: Envío de los cambios registrados en una computadora a un repositorio de GitHub. Ver [capítulo 27](../part-5/27-publicacion.qmd).
+
 ## R {.unnumbered}
+
+Rama
+: Línea de versiones de un repositorio. La rama principal suele llamarse `main`. En inglés, *branch*. Ver [capítulo 27](../part-5/27-publicacion.qmd).
 
 `README.md`
 : Archivo que presenta un proyecto a las personas y explica su propósito, su estado y cómo comenzar. Ver [capítulo 5](../part-1/05-proyecto.qmd).
@@ -370,6 +415,9 @@ Reemplazo
 
 Registro de cambios
 : Documento que conserva, en orden, las modificaciones realizadas en un proyecto, con su fecha, sus archivos, su verificación y el estado resultante. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+
+Repositorio
+: Espacio de GitHub que contiene los archivos de un proyecto y el historial de sus cambios. Ver [capítulo 27](../part-5/27-publicacion.qmd).
 
 Reproducibilidad
 : Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
@@ -408,6 +456,9 @@ Script
 
 Selector
 : Parte de una regla de CSS que indica a qué elementos se aplica. Ver [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
+
+Servidor
+: Computadora conectada a Internet que recibe pedidos de otras computadoras y les responde. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).
 
 Sintaxis
 : Conjunto de reglas de escritura de un lenguaje, como el uso de comas, comillas y llaves en JavaScript. Ver [capítulo 12](../part-3/12-primer-jspsych.qmd).
@@ -467,3 +518,8 @@ Variable derivada
 
 Windows Terminal
 : Aplicación de Windows que proporciona la ventana en la que funcionan intérpretes de comandos como PowerShell. Ver [capítulo 3](../part-1/03-terminal.qmd).
+
+## Z {.unnumbered}
+
+Zenodo
+: Repositorio abierto de datos de investigación. Los depósitos son privados hasta que se publican, y al publicarse reciben un DOI. Ver [capítulo 26](../part-5/26-guardado-datos.qmd).

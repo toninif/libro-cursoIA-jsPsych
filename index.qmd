@@ -46,5 +46,5 @@ El libro incluye puntos de recuperación o *checkpoints*. Si una versión deja d
 ::: {.callout-note}
 ## Estado actual
 
-La arquitectura completa del libro ya está definida. Los capítulos se desarrollarán y verificarán de manera incremental; los que todavía son borradores lo indican al comienzo.
+Los veintiocho capítulos y los checkpoints del proyecto están desarrollados. Algunos apéndices todavía son borradores y lo indican al comienzo. Las instrucciones sobre herramientas que cambian con frecuencia, como Codex, DataPipe y GitHub, se revisaron en septiembre de 2026.
 :::
