@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Un método repetible para trabajar con agentes sin delegar el criterio.">
+
+<title>10&nbsp; El ciclo especificar–ejecutar–verificar – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-3/11-google-forms.html" rel="next">
+<link href="../part-2/09-revisar-agente.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<meta name="mermaid-theme" content="forest">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">10.1</span> Qué vas a poder hacer</a></li>
+  <li><a href="#una-tarea-completa-permite-formular-el-problema" id="toc-una-tarea-completa-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-tarea-completa-permite-formular-el-problema"><span class="header-section-number">10.2</span> Una tarea completa permite formular el problema</a></li>
+  <li><a href="#el-ciclo-organiza-el-trabajo-en-pasos" id="toc-el-ciclo-organiza-el-trabajo-en-pasos" class="nav-link" data-scroll-target="#el-ciclo-organiza-el-trabajo-en-pasos"><span class="header-section-number">10.3</span> El ciclo organiza el trabajo en pasos</a></li>
+  <li><a href="#especificar-es-decidir-antes-de-pedir" id="toc-especificar-es-decidir-antes-de-pedir" class="nav-link" data-scroll-target="#especificar-es-decidir-antes-de-pedir"><span class="header-section-number">10.4</span> Especificar es decidir antes de pedir</a></li>
+  <li><a href="#ejecutar-es-poner-el-resultado-en-funcionamiento" id="toc-ejecutar-es-poner-el-resultado-en-funcionamiento" class="nav-link" data-scroll-target="#ejecutar-es-poner-el-resultado-en-funcionamiento"><span class="header-section-number">10.5</span> Ejecutar es poner el resultado en funcionamiento</a></li>
+  <li><a href="#verificar-tiene-tres-niveles" id="toc-verificar-tiene-tres-niveles" class="nav-link" data-scroll-target="#verificar-tiene-tres-niveles"><span class="header-section-number">10.6</span> Verificar tiene tres niveles</a></li>
+  <li><a href="#un-problema-bien-descrito-es-más-fácil-de-corregir" id="toc-un-problema-bien-descrito-es-más-fácil-de-corregir" class="nav-link" data-scroll-target="#un-problema-bien-descrito-es-más-fácil-de-corregir"><span class="header-section-number">10.7</span> Un problema bien descrito es más fácil de corregir</a></li>
+  <li><a href="#documentar-conserva-lo-que-quedó-funcionando" id="toc-documentar-conserva-lo-que-quedó-funcionando" class="nav-link" data-scroll-target="#documentar-conserva-lo-que-quedó-funcionando"><span class="header-section-number">10.8</span> Documentar conserva lo que quedó funcionando</a></li>
+  <li><a href="#recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" id="toc-recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" class="nav-link" data-scroll-target="#recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Recorré el ciclo completo con una pantalla de bienvenida</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-especificá-la-pantalla" id="toc-paso-1.-especificá-la-pantalla" class="nav-link" data-scroll-target="#paso-1.-especificá-la-pantalla"><span class="header-section-number">10.9.1</span> Paso 1. Especificá la pantalla</a></li>
+  <li><a href="#pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" id="toc-pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" class="nav-link" data-scroll-target="#pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccioná, planificá y modificá con el agente</a></li>
+  <li><a href="#paso-5.-ejecutá-la-página" id="toc-paso-5.-ejecutá-la-página" class="nav-link" data-scroll-target="#paso-5.-ejecutá-la-página"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutá la página</a></li>
+  <li><a href="#paso-6.-verificá-en-tres-niveles" id="toc-paso-6.-verificá-en-tres-niveles" class="nav-link" data-scroll-target="#paso-6.-verificá-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificá en tres niveles</a></li>
+  <li><a href="#paso-7.-corregí-con-un-pedido-nuevo" id="toc-paso-7.-corregí-con-un-pedido-nuevo" class="nav-link" data-scroll-target="#paso-7.-corregí-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregí con un pedido nuevo</a></li>
+  <li><a href="#paso-8.-documentá-el-resultado" id="toc-paso-8.-documentá-el-resultado" class="nav-link" data-scroll-target="#paso-8.-documentá-el-resultado"><span class="header-section-number">10.9.6</span> Paso 8. Documentá el resultado</a></li>
+  </ul></li>
+  <li><a href="#explicá-qué-hizo-realmente-el-agente" id="toc-explicá-qué-hizo-realmente-el-agente" class="nav-link" data-scroll-target="#explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">10.10</span> Explicá qué hizo realmente el agente</a></li>
+  <li><a href="#explicá-qué-ocurrió-durante-el-ciclo" id="toc-explicá-qué-ocurrió-durante-el-ciclo" class="nav-link" data-scroll-target="#explicá-qué-ocurrió-durante-el-ciclo"><span class="header-section-number">10.11</span> Explicá qué ocurrió durante el ciclo</a></li>
+  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-errores" id="toc-revisá-algunas-situaciones-que-suelen-causar-errores" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">10.12</span> Revisá algunas situaciones que suelen causar errores</a>
+  <ul class="collapse">
+  <li><a href="#el-navegador-muestra-una-versión-anterior" id="toc-el-navegador-muestra-una-versión-anterior" class="nav-link" data-scroll-target="#el-navegador-muestra-una-versión-anterior"><span class="header-section-number">10.12.1</span> El navegador muestra una versión anterior</a></li>
+  <li><a href="#las-tildes-aparecen-como-símbolos-extraños" id="toc-las-tildes-aparecen-como-símbolos-extraños" class="nav-link" data-scroll-target="#las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos extraños</a></li>
+  <li><a href="#el-archivo-se-guardó-con-una-extensión-adicional" id="toc-el-archivo-se-guardó-con-una-extensión-adicional" class="nav-link" data-scroll-target="#el-archivo-se-guardó-con-una-extensión-adicional"><span class="header-section-number">10.12.3</span> El archivo se guardó con una extensión adicional</a></li>
+  <li><a href="#la-verificación-se-hizo-antes-de-la-especificación" id="toc-la-verificación-se-hizo-antes-de-la-especificación" class="nav-link" data-scroll-target="#la-verificación-se-hizo-antes-de-la-especificación"><span class="header-section-number">10.12.4</span> La verificación se hizo antes de la especificación</a></li>
+  <li><a href="#la-corrección-no-se-volvió-a-verificar" id="toc-la-corrección-no-se-volvió-a-verificar" class="nav-link" data-scroll-target="#la-corrección-no-se-volvió-a-verificar"><span class="header-section-number">10.12.5</span> La corrección no se volvió a verificar</a></li>
+  <li><a href="#el-registro-describe-lo-que-se-intentó" id="toc-el-registro-describe-lo-que-se-intentó" class="nav-link" data-scroll-target="#el-registro-describe-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> El registro describe lo que se intentó</a></li>
+  </ul></li>
+  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">10.13</span> Comprobá lo que comprendiste</a></li>
+  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">10.14</span> Qué aprendiste en este capítulo</a></li>
+  <li><a href="#cerrá-la-parte-ii" id="toc-cerrá-la-parte-ii" class="nav-link" data-scroll-target="#cerrá-la-parte-ii"><span class="header-section-number">10.15</span> Cerrá la Parte II</a></li>
+  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">10.16</span> Resolvé un desafío breve</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-2/06-chatbot-agente.html">Parte II. Trabajar con agentes de IA</a></li><li class="breadcrumb-item"><a href="../part-2/10-ciclo-trabajo.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-vas-a-poder-hacer" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">10.1</span> Qué vas a poder hacer</h2>
+<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<ol type="1">
+<li><p>Vas a poder describir cada paso del ciclo de trabajo con un agente y quién es responsable de cada uno.</p></li>
+<li><p>Vas a poder escribir una especificación antes de pedir un cambio.</p></li>
+<li><p>Vas a poder ejecutar un resultado y observar su comportamiento.</p></li>
+<li><p>Vas a poder verificar un cambio en tres niveles: lo que se ve, lo que cambió en los archivos y lo que decidió el investigador.</p></li>
+<li><p>Vas a poder describir un problema de manera que el agente pueda analizarlo.</p></li>
+<li><p>Vas a poder corregir mediante un pedido nuevo y documentar el estado que quedó funcionando.</p></li>
+</ol>
+</section>
+<section id="una-tarea-completa-permite-formular-el-problema" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="una-tarea-completa-permite-formular-el-problema"><span class="header-section-number">10.2</span> Una tarea completa permite formular el problema</h2>
+<p>En los capítulos anteriores practicaste partes separadas del trabajo con un agente. Instalaste Codex y le diste una primera tarea. Aprendiste a escribir pedidos completos. Aprendiste a revisar propuestas de cambio y a comprobar los archivos con herramientas propias.</p>
+<p>Las tareas reales combinan todas esas partes. Además, suelen incluir algo que todavía no practicaste con un agente: ejecutar el resultado para ver si se comporta como esperabas.</p>
+<p>Imaginá que necesitás la pantalla de bienvenida de un estudio. Es una página breve que se abre en el navegador y muestra un título y un párrafo. El párrafo informa cuánto dura la participación. ¿Por dónde empezás? ¿Cuándo le pedís algo al agente? ¿Cómo sabés que terminaste?</p>
+<p>Este capítulo organiza esas preguntas en un ciclo de trabajo. Vas a usar ese ciclo durante el resto del libro, cada vez con tareas más complejas.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Idea clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El trabajo con un agente sigue un ciclo: especificar, implementar, ejecutar, verificar y corregir. El agente participa en la implementación. La especificación, la verificación y la decisión de dar la tarea por terminada corresponden al investigador.</p>
+</div>
+</div>
+</section>
+<section id="el-ciclo-organiza-el-trabajo-en-pasos" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="el-ciclo-organiza-el-trabajo-en-pasos"><span class="header-section-number">10.3</span> El ciclo organiza el trabajo en pasos</h2>
+<p>La introducción del libro presentó el ciclo de trabajo en su forma más breve.</p>
+<pre class="text"><code>especificar → implementar → ejecutar → verificar → corregir</code></pre>
+<p>Cuando trabajás con un agente, conviene detallar algunos de esos pasos. La implementación se divide en inspeccionar, planificar y modificar. Además, el ciclo se completa con la documentación del resultado.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  E[Especificar] --&gt; I[Inspeccionar]
+  I --&gt; P[Planificar]
+  P --&gt; M[Modificar]
+  M --&gt; X[Ejecutar]
+  X --&gt; V[Verificar]
+  V --&gt;|coincide| D[Documentar]
+  V --&gt;|no coincide| C[Corregir]
+  C --&gt; E
+</pre>
+</div>
+<p></p><figcaption> El ciclo de trabajo con un agente. La corrección vuelve a comenzar el ciclo con un pedido nuevo.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>La siguiente tabla indica quién realiza cada paso.</p>
+<div id="tbl-ciclo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ciclo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;10.1: Pasos del ciclo de trabajo y responsables
+</figcaption>
+<div aria-describedby="tbl-ciclo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Paso</th>
+<th style="text-align: left;">Qué ocurre</th>
+<th style="text-align: left;">Quién lo realiza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Especificar</td>
+<td style="text-align: left;">Se decide qué debe construirse y cómo se va a reconocer el resultado correcto.</td>
+<td style="text-align: left;">El investigador.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Inspeccionar</td>
+<td style="text-align: left;">Se revisa el estado actual de los archivos sin modificarlos.</td>
+<td style="text-align: left;">El agente, a pedido del investigador.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Planificar</td>
+<td style="text-align: left;">Se describen los cambios antes de realizarlos.</td>
+<td style="text-align: left;">El agente propone y el investigador aprueba.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Modificar</td>
+<td style="text-align: left;">Se realizan los cambios en los archivos.</td>
+<td style="text-align: left;">El agente, con aprobación del investigador.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ejecutar</td>
+<td style="text-align: left;">Se pone en funcionamiento el resultado.</td>
+<td style="text-align: left;">El investigador.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Verificar</td>
+<td style="text-align: left;">Se compara el resultado con la especificación.</td>
+<td style="text-align: left;">El investigador.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Corregir</td>
+<td style="text-align: left;">Se formula un pedido nuevo y acotado.</td>
+<td style="text-align: left;">El investigador, y el ciclo vuelve a empezar.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Documentar</td>
+<td style="text-align: left;">Se registra qué quedó funcionando y cómo se comprobó.</td>
+<td style="text-align: left;">El investigador, con ayuda del agente si hace falta.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>No todas las tareas necesitan todos los pasos. Una corrección ortográfica no requiere un plan. Una tarea que modifica varias partes del estudio sí lo requiere. Con la práctica vas a reconocer qué pasos puede abreviar cada tarea.</p>
+</section>
+<section id="especificar-es-decidir-antes-de-pedir" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="especificar-es-decidir-antes-de-pedir"><span class="header-section-number">10.4</span> Especificar es decidir antes de pedir</h2>
+<p>En el capítulo anterior aprendiste a escribir pedidos completos. La especificación es un paso previo. Reúne las decisiones que el pedido va a transmitir.</p>
+<p>Una especificación útil responde cuatro preguntas.</p>
+<ol type="1">
+<li><p>¿Qué debe existir al terminar?</p></li>
+<li><p>¿Qué contenido exacto debe tener?</p></li>
+<li><p>¿Qué no debe cambiar?</p></li>
+<li><p>¿Cómo voy a comprobar que el resultado es correcto?</p></li>
+</ol>
+<p>La cuarta pregunta es la más importante para el ciclo. Si no sabés cómo vas a verificar el resultado, todavía no terminaste de especificar.</p>
+<p>Conviene escribir la especificación en un archivo o en papel antes de abrir el agente. Escribirla te obliga a tomar las decisiones. Guardarla te permite compararla después con el resultado.</p>
+</section>
+<section id="ejecutar-es-poner-el-resultado-en-funcionamiento" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="ejecutar-es-poner-el-resultado-en-funcionamiento"><span class="header-section-number">10.5</span> Ejecutar es poner el resultado en funcionamiento</h2>
+<p>En la Parte I definiste ejecutar como poner las instrucciones de un programa en funcionamiento. En el ciclo de trabajo, <strong>ejecutar</strong> significa usar el resultado de la manera en que se va a usar realmente.</p>
+<p>El tipo de ejecución depende del resultado.</p>
+<ul>
+<li>Un documento se ejecuta abriéndolo y leyéndolo.</li>
+<li>Una página web se ejecuta abriéndola en el navegador, que interpreta sus instrucciones.</li>
+<li>Un estudio completo se ejecuta participando en él como lo haría una persona participante.</li>
+</ul>
+<p>La ejecución aporta información que la lectura del archivo no ofrece. Un archivo puede contener el texto correcto y mostrarlo de manera incorrecta. Una página puede verse bien en la computadora de quien la construyó y fallar en otra situación. Por eso, leer el archivo y ejecutarlo son comprobaciones complementarias.</p>
+</section>
+<section id="verificar-tiene-tres-niveles" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="verificar-tiene-tres-niveles"><span class="header-section-number">10.6</span> Verificar tiene tres niveles</h2>
+<p>La verificación compara el resultado con la especificación. Conviene realizarla en tres niveles.</p>
+<ol type="1">
+<li><p><strong>Lo que se ve.</strong> ¿La pantalla muestra lo que la especificación indica? Esta comprobación usa la ejecución.</p></li>
+<li><p><strong>Lo que cambió.</strong> ¿Cambiaron solamente los archivos esperados? ¿El contenido coincide con el pedido? Esta comprobación usa las técnicas del capítulo anterior: la propuesta de cambio, <code>dir</code>, <code>Get-Content</code> y la comparación con una copia de respaldo.</p></li>
+<li><p><strong>Lo que se decidió.</strong> ¿El resultado implementa correctamente las decisiones metodológicas y éticas? Esta comprobación usa tu criterio de investigador.</p></li>
+</ol>
+<p>Más adelante vas a agregar un cuarto nivel: los datos que produce el estudio. Todavía no lo necesitás, porque tu proyecto no recolecta datos.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Verificar no es preguntarle al agente si funcionó
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El agente puede afirmar que el resultado es correcto. Esa afirmación no es una verificación. La verificación compara el resultado con tu especificación usando observaciones propias.</p>
+</div>
+</div>
+</section>
+<section id="un-problema-bien-descrito-es-más-fácil-de-corregir" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="un-problema-bien-descrito-es-más-fácil-de-corregir"><span class="header-section-number">10.7</span> Un problema bien descrito es más fácil de corregir</h2>
+<p>Cuando la verificación encuentra una diferencia, el ciclo pasa a la corrección. La calidad de la corrección depende de la calidad con la que describís el problema.</p>
+<p>En el capítulo sobre programas y errores aprendiste a leer un mensaje de error: identificar la acción esperada, la instrucción que falló, el objeto mencionado y el contexto. La misma estrategia sirve para comunicarle un problema a un agente.</p>
+<p>Compará estas dos descripciones.</p>
+<pre class="text"><code>No funciona.</code></pre>
+<pre class="text"><code>Esperaba: que la página muestre "La participación dura aproximadamente 10 minutos."
+Observé: la página muestra "La participaciÃ³n dura aproximadamente 10 minutos."
+Pasos: abrí bienvenida.html con doble clic desde el Explorador de archivos.
+Mensaje de error: no apareció ninguno.
+No modifiques archivos todavía: explicá cuál puede ser la causa.</code></pre>
+<p>La primera descripción obliga al agente a adivinar. La segunda le ofrece lo esperado, lo observado, la forma de reproducir el problema y el mensaje exacto, si existe. También limita la respuesta a una explicación.</p>
+<p>Pedir primero la causa y después la corrección evita que el agente pruebe cambios al azar. Una vez que comprendés la causa, formulás un pedido de corrección acotado.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Si varias correcciones no resuelven el problema, detenete
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando dos o tres pedidos de corrección no producen el resultado esperado, seguir pidiendo cambios suele empeorar la situación. Detené el ciclo. Recuperá la copia de respaldo o el último estado que funcionaba. Revisá la especificación y dividí la tarea en pasos más pequeños.</p>
+</div>
+</div>
+</section>
+<section id="documentar-conserva-lo-que-quedó-funcionando" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="documentar-conserva-lo-que-quedó-funcionando"><span class="header-section-number">10.8</span> Documentar conserva lo que quedó funcionando</h2>
+<p>El último paso del ciclo registra el resultado. En el capítulo sobre agentes viste que el agente no recuerda las sesiones anteriores. Vos tampoco vas a recordar cada detalle dentro de unas semanas.</p>
+<p>Un <strong>registro de cambios</strong> es un documento que conserva, en orden, las modificaciones realizadas en un proyecto. Cada entrada suele incluir estos datos.</p>
+<ol type="1">
+<li><p>La fecha.</p></li>
+<li><p>Qué se pidió.</p></li>
+<li><p>Qué archivos cambiaron.</p></li>
+<li><p>Cómo se verificó.</p></li>
+<li><p>En qué estado quedó el proyecto.</p></li>
+</ol>
+<p>El registro cumple una función de investigación. Permite reconstruir qué versión del procedimiento existía en cada momento. Esta posibilidad forma parte de la <strong>reproducibilidad</strong>, es decir, de la capacidad de otra persona para comprender y repetir lo que se hizo.</p>
+<p>Documentá lo que quedó funcionando y cómo lo comprobaste. No documentes lo que querías hacer si no llegaste a verificarlo.</p>
+</section>
+<section id="recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="recorré-el-ciclo-completo-con-una-pantalla-de-bienvenida"><span class="header-section-number">10.9</span> Recorré el ciclo completo con una pantalla de bienvenida</h2>
+<p>Ahora vas a recorrer el ciclo completo en la carpeta <code>practica_archivos</code>. Vas a crear una página web muy breve. Todavía no necesitás comprender cómo se escribe una página web. La Parte III va a explicarlo. En esta actividad, lo importante es recorrer cada paso del ciclo y reconocer quién lo realiza.</p>
+<section id="paso-1.-especificá-la-pantalla" class="level3" data-number="10.9.1">
+<h3 data-number="10.9.1" class="anchored" data-anchor-id="paso-1.-especificá-la-pantalla"><span class="header-section-number">10.9.1</span> Paso 1. Especificá la pantalla</h3>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Copiá esta especificación en un archivo de texto o en papel. Si querés, cambiá el título por el de un estudio que te interese. Mantené el resto.</p>
+<pre class="text"><code>Archivo: bienvenida.html, dentro de practica_archivos.
+
+Contenido exacto:
+  Título: Estudio sobre hábitos de estudio
+  Párrafo: Gracias por tu interés en participar. La participación dura aproximadamente 10 minutos.
+
+No debe incluir: botones, imágenes, colores ni otros archivos.
+
+Verificación:
+  1. Al abrir el archivo en el navegador, se ven el título y el párrafo exactos.
+  2. Las tildes se ven correctamente.
+  3. En practica_archivos solo aparece un archivo nuevo: bienvenida.html.</code></pre>
+</div>
+</div>
+</section>
+<section id="pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente" class="level3" data-number="10.9.2">
+<h3 data-number="10.9.2" class="anchored" data-anchor-id="pasos-2-a-4.-inspeccioná-planificá-y-modificá-con-el-agente"><span class="header-section-number">10.9.2</span> Pasos 2 a 4. Inspeccioná, planificá y modificá con el agente</h3>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Abrí PowerShell, llegá a <code>practica_archivos</code> y comprobá la ubicación con <code>Get-Location</code>.</p></li>
+<li><p>Iniciá Codex y comprobá con <code>/status</code> que los permisos sean <strong>Read Only</strong>.</p></li>
+<li><p><strong>Inspeccionar.</strong> Escribí este pedido.</p></li>
+</ol>
+<pre class="text"><code>Revisá esta carpeta y decime si existe un archivo llamado bienvenida.html.
+No modifiques ningún archivo.</code></pre>
+<ol start="4" type="1">
+<li><strong>Planificar.</strong> Escribí este pedido, con el título y el párrafo de tu especificación.</li>
+</ol>
+<pre class="text"><code>Quiero crear un archivo bienvenida.html en esta carpeta. Al abrirlo en el navegador
+debe mostrar este título exacto:
+Estudio sobre hábitos de estudio
+y debajo este párrafo exacto:
+Gracias por tu interés en participar. La participación dura aproximadamente 10 minutos.
+No agregues botones, imágenes, colores ni otros archivos.
+Antes de modificar archivos, explicá qué vas a crear y esperá mi aprobación.</code></pre>
+<ol start="5" type="1">
+<li><p>Leé el plan. Comprobá que mencione un solo archivo y los dos textos exactos. Si el plan incluye algo que no pediste, respondé indicando qué debe quitar.</p></li>
+<li><p><strong>Modificar.</strong> Cuando el plan coincida con tu especificación, escribí <code>Implementá el plan.</code></p></li>
+<li><p>Revisá la propuesta de cambio antes de aprobarla. Localizá el título y el párrafo. Comprobá que los textos coincidan letra por letra.</p></li>
+</ol>
+</div>
+</div>
+<p>La propuesta probablemente incluya más líneas de las que esperabas. Una página web necesita algunas líneas de estructura además del contenido visible. Podés encontrar líneas como estas.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">"es"</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">"utf-8"</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Estudio sobre hábitos de estudio<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Estudio sobre hábitos de estudio<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Gracias por tu interés en participar. La participación dura aproximadamente 10 minutos.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>No necesitás comprender cada línea. Alcanza con localizar tres elementos.</p>
+<ol type="1">
+<li><p><code>&lt;h1&gt;</code> marca el título principal que se ve en la página.</p></li>
+<li><p><code>&lt;p&gt;</code> marca un párrafo, como viste en el capítulo anterior.</p></li>
+<li><p><code>&lt;meta charset="utf-8"&gt;</code> indica la codificación del archivo. Es la misma idea que estudiaste con <code>Get-Content</code>: le dice al navegador qué regla usar para interpretar las tildes.</p></li>
+</ol>
+<p>Si alguna línea te genera dudas, aplicá lo que aprendiste en el capítulo anterior. Antes de aprobar, elegí la opción de rechazo y pedí una explicación.</p>
+<pre class="text"><code>Explicá para qué sirve cada línea que no está dentro de &lt;body&gt;. No modifiques archivos.</code></pre>
+<p>Estas líneas de estructura no son excedentes en el sentido del capítulo anterior. No agregan contenido ni modifican decisiones del estudio. Son necesarias para que el navegador interprete el archivo. Distinguir entre una línea de estructura y un cambio de contenido es parte de la revisión.</p>
+<p><strong>Sin acceso a Codex:</strong> abrí el Bloc de notas, copiá el ejemplo anterior y guardalo como <code>bienvenida.html</code> dentro de <code>practica_archivos</code>. Revisá que el nombre no termine en <code>.txt</code>.</p>
+</section>
+<section id="paso-5.-ejecutá-la-página" class="level3" data-number="10.9.3">
+<h3 data-number="10.9.3" class="anchored" data-anchor-id="paso-5.-ejecutá-la-página"><span class="header-section-number">10.9.3</span> Paso 5. Ejecutá la página</h3>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Abrí <code>practica_archivos</code> en el Explorador de archivos.</p></li>
+<li><p>Hacé doble clic sobre <code>bienvenida.html</code>. El sistema operativo va a abrirlo con tu navegador predeterminado.</p></li>
+<li><p>Observá la barra de direcciones del navegador. Debe mostrar una ruta que termina en <code>practica_archivos/bienvenida.html</code>.</p></li>
+</ol>
+</div>
+</div>
+<p>La barra de direcciones permite comprobar qué archivo abriste. Comienza con <code>file:///</code>, lo que indica que el navegador está mostrando un archivo de tu computadora y no una página de Internet.</p>
+</section>
+<section id="paso-6.-verificá-en-tres-niveles" class="level3" data-number="10.9.4">
+<h3 data-number="10.9.4" class="anchored" data-anchor-id="paso-6.-verificá-en-tres-niveles"><span class="header-section-number">10.9.4</span> Paso 6. Verificá en tres niveles</h3>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lo que se ve.</strong> Compará la página con tu especificación.</p>
+<ol type="1">
+<li><p>¿El título coincide letra por letra?</p></li>
+<li><p>¿El párrafo coincide letra por letra?</p></li>
+<li><p>¿Las tildes se ven correctamente?</p></li>
+<li><p>¿Aparece algo que no especificaste?</p></li>
+</ol>
+<p><strong>Lo que cambió.</strong> Volvé a PowerShell, en una pestaña nueva si Codex sigue abierto.</p>
+<ol start="5" type="1">
+<li>Ejecutá <code>dir</code> en <code>practica_archivos</code>. Comprobá que el único archivo nuevo sea <code>bienvenida.html</code>.</li>
+</ol>
+<p><strong>Lo que se decidió.</strong> Respondé con una oración completa.</p>
+<ol start="6" type="1">
+<li>¿La duración que informa la página es correcta para el estudio que imaginás?</li>
+</ol>
+</div>
+</div>
+<p>La última pregunta no se responde mirando la pantalla. Informar una duración falsa a las personas participantes es un problema ético, aunque la página funcione perfectamente. El consentimiento informado requiere que la información brindada sea exacta.</p>
+</section>
+<section id="paso-7.-corregí-con-un-pedido-nuevo" class="level3" data-number="10.9.5">
+<h3 data-number="10.9.5" class="anchored" data-anchor-id="paso-7.-corregí-con-un-pedido-nuevo"><span class="header-section-number">10.9.5</span> Paso 7. Corregí con un pedido nuevo</h3>
+<p>Imaginá que, después de un pilotaje, el equipo comprobó que la participación dura en promedio 15 minutos. El equipo decide actualizar la información. Esa decisión es metodológica y ética. La implementación es técnica.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Escribí este pedido.</li>
+</ol>
+<pre class="text"><code>En bienvenida.html, reemplazá "10 minutos" por "15 minutos".
+No modifiques ninguna otra parte del archivo ni otros archivos.</code></pre>
+<ol start="2" type="1">
+<li><p>Revisá la propuesta. Debe contener una sola línea eliminada y una sola línea agregada, y la única diferencia entre ellas debe ser el número.</p></li>
+<li><p>Aprobá solamente si se cumple esa condición.</p></li>
+<li><p>Volvé al navegador y presioná <code>F5</code> para recargar la página.</p></li>
+<li><p>Comprobá que la página muestre <code>15 minutos</code> y que el resto del texto siga igual.</p></li>
+</ol>
+</div>
+</div>
+<p>El paso 4 es necesario. El navegador muestra la versión del archivo que leyó cuando abriste la página. Si el archivo cambia después, el navegador no lo detecta por su cuenta. Recargar la página le indica que vuelva a leer el archivo.</p>
+<p>Observá que la corrección recorrió el ciclo otra vez, en forma abreviada. Hubo una decisión, un pedido acotado, una propuesta revisada, una ejecución y una verificación.</p>
+<p><strong>Sin acceso a Codex:</strong> realizá el reemplazo con el Bloc de notas, guardá el archivo y recargá la página.</p>
+</section>
+<section id="paso-8.-documentá-el-resultado" class="level3" data-number="10.9.6">
+<h3 data-number="10.9.6" class="anchored" data-anchor-id="paso-8.-documentá-el-resultado"><span class="header-section-number">10.9.6</span> Paso 8. Documentá el resultado</h3>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Escribí este pedido. Reemplazá <code>AAAA-MM-DD</code> por la fecha de hoy, por ejemplo <code>2026-09-24</code>.</p>
+<pre class="text"><code>Creá un archivo registro.md en esta carpeta con este contenido exacto:
+
+# Registro de cambios
+
+## AAAA-MM-DD
+
+- Pedido: crear bienvenida.html con un título y un párrafo de bienvenida.
+- Archivos modificados: bienvenida.html.
+- Verificación: abrí la página en el navegador y comparé los textos con la especificación.
+- Corrección: la duración informada cambió de 10 a 15 minutos por decisión del equipo.
+- Estado: la página coincide con la especificación.
+
+No modifiques ningún otro archivo.</code></pre>
+<p>Revisá la propuesta y aprobala si coincide. Después verificá el archivo con <code>Get-Content registro.md -Encoding UTF8</code>.</p>
+</div>
+</div>
+<p>El contenido del registro lo escribiste vos. El agente solo creó el archivo. Esta división refleja la regla del curso: el registro documenta decisiones y verificaciones que solo el investigador puede afirmar.</p>
+<p><strong>Sin acceso a Codex:</strong> creá <code>registro.md</code> con el Bloc de notas y copiá el mismo contenido.</p>
+</section>
+</section>
+<section id="explicá-qué-hizo-realmente-el-agente" class="level2" data-number="10.10">
+<h2 data-number="10.10" class="anchored" data-anchor-id="explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">10.10</span> Explicá qué hizo realmente el agente</h2>
+<p>Durante el ciclo, el agente intervino en cinco momentos.</p>
+<ol type="1">
+<li><p>En la inspección, listó el contenido de la carpeta y respondió sin modificar nada.</p></li>
+<li><p>En la planificación, describió el archivo que iba a crear. Tu aprobación del plan no modificó archivos. Solo autorizó el paso siguiente.</p></li>
+<li><p>En la modificación, escribió <code>bienvenida.html</code> con el contenido y las líneas de estructura necesarias.</p></li>
+<li><p>En la corrección, reemplazó un número dentro de una línea.</p></li>
+<li><p>En la documentación, creó un archivo con un contenido que vos le diste.</p></li>
+</ol>
+<p>El agente no ejecutó la página, no evaluó si la duración era correcta y no decidió cuándo la tarea estaba terminada. Esos pasos te correspondieron a vos. La especificación inicial fue la referencia de todas las comprobaciones.</p>
+</section>
+<section id="explicá-qué-ocurrió-durante-el-ciclo" class="level2" data-number="10.11">
+<h2 data-number="10.11" class="anchored" data-anchor-id="explicá-qué-ocurrió-durante-el-ciclo"><span class="header-section-number">10.11</span> Explicá qué ocurrió durante el ciclo</h2>
+<p>El ciclo transformó una intención general en un resultado verificado y documentado.</p>
+<p>La especificación fijó el contenido exacto y el criterio de verificación antes de abrir el agente. La inspección confirmó el punto de partida. El plan permitió revisar la interpretación del agente antes de que produjera cambios. La propuesta de cambio permitió revisar el contenido exacto. La ejecución mostró cómo se ve el resultado. La verificación comparó lo observado con la especificación en tres niveles. La corrección respondió a una decisión nueva. El registro dejó constancia del estado final.</p>
+<p>Cada paso produjo evidencia para el siguiente. Si alguno hubiera fallado, habrías sabido en qué punto del ciclo buscar la causa.</p>
+</section>
+<section id="revisá-algunas-situaciones-que-suelen-causar-errores" class="level2" data-number="10.12">
+<h2 data-number="10.12" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">10.12</span> Revisá algunas situaciones que suelen causar errores</h2>
+<section id="el-navegador-muestra-una-versión-anterior" class="level3" data-number="10.12.1">
+<h3 data-number="10.12.1" class="anchored" data-anchor-id="el-navegador-muestra-una-versión-anterior"><span class="header-section-number">10.12.1</span> El navegador muestra una versión anterior</h3>
+<p>Si modificaste el archivo y la página no cambió, recargala con <code>F5</code>. Si sigue igual, comprobá en la barra de direcciones que el navegador esté mostrando el archivo correcto.</p>
+</section>
+<section id="las-tildes-aparecen-como-símbolos-extraños" class="level3" data-number="10.12.2">
+<h3 data-number="10.12.2" class="anchored" data-anchor-id="las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">10.12.2</span> Las tildes aparecen como símbolos extraños</h3>
+<p>Este problema se relaciona con la codificación. Comprobá si el archivo contiene la línea <code>&lt;meta charset="utf-8"&gt;</code>. Si no la contiene, describí el problema al agente con el formato de este capítulo y pedí primero una explicación de la causa.</p>
+</section>
+<section id="el-archivo-se-guardó-con-una-extensión-adicional" class="level3" data-number="10.12.3">
+<h3 data-number="10.12.3" class="anchored" data-anchor-id="el-archivo-se-guardó-con-una-extensión-adicional"><span class="header-section-number">10.12.3</span> El archivo se guardó con una extensión adicional</h3>
+<p>Si creaste el archivo a mano, el Bloc de notas puede haberlo guardado como <code>bienvenida.html.txt</code>. En ese caso, el navegador no lo interpreta como página web. Activá la visualización de extensiones y corregí el nombre.</p>
+</section>
+<section id="la-verificación-se-hizo-antes-de-la-especificación" class="level3" data-number="10.12.4">
+<h3 data-number="10.12.4" class="anchored" data-anchor-id="la-verificación-se-hizo-antes-de-la-especificación"><span class="header-section-number">10.12.4</span> La verificación se hizo antes de la especificación</h3>
+<p>Si decidís qué comprobar después de ver el resultado, tendés a confirmar lo que ya ves. Escribí el criterio de verificación antes de pedir el cambio.</p>
+</section>
+<section id="la-corrección-no-se-volvió-a-verificar" class="level3" data-number="10.12.5">
+<h3 data-number="10.12.5" class="anchored" data-anchor-id="la-corrección-no-se-volvió-a-verificar"><span class="header-section-number">10.12.5</span> La corrección no se volvió a verificar</h3>
+<p>Una corrección es un cambio nuevo. Puede resolver un problema y producir otro. Después de cada corrección, repetí la ejecución y la verificación.</p>
+</section>
+<section id="el-registro-describe-lo-que-se-intentó" class="level3" data-number="10.12.6">
+<h3 data-number="10.12.6" class="anchored" data-anchor-id="el-registro-describe-lo-que-se-intentó"><span class="header-section-number">10.12.6</span> El registro describe lo que se intentó</h3>
+<p>Un registro útil informa el estado verificado. Si una tarea quedó incompleta, el registro debe decirlo.</p>
+</section>
+</section>
+<section id="comprobá-lo-que-comprendiste" class="level2" data-number="10.13">
+<h2 data-number="10.13" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">10.13</span> Comprobá lo que comprendiste</h2>
+<p>Respondé cada pregunta con una oración completa.</p>
+<ol type="1">
+<li><p>¿Qué pasos del ciclo corresponden exclusivamente al investigador?</p></li>
+<li><p>¿Qué cuatro preguntas responde una especificación útil?</p></li>
+<li><p>¿Qué significa ejecutar una página web?</p></li>
+<li><p>¿Cuáles son los tres niveles de verificación de este capítulo?</p></li>
+<li><p>¿Qué información conviene incluir al describir un problema a un agente?</p></li>
+<li><p>¿Por qué conviene pedir primero la causa de un problema y después la corrección?</p></li>
+<li><p>¿Por qué hay que recargar el navegador después de modificar un archivo?</p></li>
+<li><p>¿Qué datos incluye una entrada de un registro de cambios?</p></li>
+</ol>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<ol type="1">
+<li><p>Especificar, ejecutar, verificar y decidir cuándo la tarea está terminada corresponden al investigador.</p></li>
+<li><p>Una especificación útil indica qué debe existir, qué contenido exacto debe tener, qué no debe cambiar y cómo se va a comprobar el resultado.</p></li>
+<li><p>Ejecutar una página web significa abrirla en el navegador para que interprete sus instrucciones y la muestre.</p></li>
+<li><p>Los niveles son lo que se ve, lo que cambió en los archivos y lo que se decidió metodológicamente.</p></li>
+<li><p>Conviene incluir lo esperado, lo observado, los pasos para reproducir el problema y el mensaje exacto si existe.</p></li>
+<li><p>Comprender la causa evita que el agente pruebe cambios al azar y permite formular una corrección acotada.</p></li>
+<li><p>El navegador muestra la versión que leyó al abrir la página y no detecta por su cuenta los cambios posteriores del archivo.</p></li>
+<li><p>Una entrada incluye la fecha, el pedido, los archivos modificados, la forma de verificación y el estado del proyecto.</p></li>
+</ol>
+</details>
+</section>
+<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="10.14">
+<h2 data-number="10.14" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">10.14</span> Qué aprendiste en este capítulo</h2>
+<p>El trabajo con un agente sigue un ciclo: especificar, inspeccionar, planificar, modificar, ejecutar, verificar, corregir y documentar. El agente participa en la inspección, la planificación y la modificación. El investigador especifica, ejecuta, verifica y decide cuándo la tarea terminó.</p>
+<p>Una especificación reúne las decisiones antes de pedir el cambio e incluye el criterio de verificación. Ejecutar significa usar el resultado como se va a usar realmente. La verificación ocurre en tres niveles: lo que se ve, lo que cambió y lo que se decidió.</p>
+<p>Un problema bien descrito incluye lo esperado, lo observado, los pasos para reproducirlo y el mensaje exacto. Conviene pedir primero la causa y después una corrección acotada. Si varias correcciones fallan, conviene volver a un estado conocido y revisar la especificación.</p>
+<p>Un registro de cambios conserva qué quedó funcionando y cómo se comprobó. Esa documentación contribuye a la reproducibilidad del trabajo.</p>
+</section>
+<section id="cerrá-la-parte-ii" class="level2" data-number="10.15">
+<h2 data-number="10.15" class="anchored" data-anchor-id="cerrá-la-parte-ii"><span class="header-section-number">10.15</span> Cerrá la Parte II</h2>
+<p>Con este capítulo termina la Parte II. Durante estos cinco capítulos desarrollaste tres competencias que vas a usar en el resto del libro.</p>
+<ol type="1">
+<li><p>Formular pedidos claros, delimitados y verificables.</p></li>
+<li><p>Leer lo que hizo el agente y compararlo con lo que pediste.</p></li>
+<li><p>Comprobar el resultado con evidencia propia.</p></li>
+</ol>
+<p>Tu proyecto <code>mi-primer-estudio</code> todavía contiene un solo archivo, <code>README.md</code>. Ahora incluye además reglas de trabajo que escribiste vos. La estructura sigue coincidiendo con el checkpoint <code>proyectos\01-inicial</code>. El contenido del README puede tener secciones adicionales, como anticipó el capítulo sobre proyectos.</p>
+</section>
+<section id="resolvé-un-desafío-breve" class="level2" data-number="10.16">
+<h2 data-number="10.16" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">10.16</span> Resolvé un desafío breve</h2>
+<p>Aplicá el ciclo completo a <code>mi-primer-estudio</code>. El objetivo es agregar al README un registro de los cambios que hiciste durante la Parte II.</p>
+<ol type="1">
+<li><p><strong>Especificá.</strong> Escribí el contenido exacto de una sección titulada <code>## Registro de cambios</code>. Incluí una entrada por cada cambio que hiciste en el README durante los capítulos 8 y 9. Usá el formato de entrada de este capítulo.</p></li>
+<li><p><strong>Preparate.</strong> Guardá una copia de respaldo de <code>README.md</code> en la carpeta <code>respaldos</code>.</p></li>
+<li><p><strong>Pedí el cambio.</strong> Iniciá Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong>. Pedí que agregue la sección al final del archivo con el contenido exacto. Indicá que no modifique nada más.</p></li>
+<li><p><strong>Revisá la propuesta</strong> con la lista de cinco preguntas del capítulo anterior.</p></li>
+<li><p><strong>Ejecutá y verificá.</strong> Leé el archivo con <code>Get-Content README.md -Encoding UTF8</code>. Comparalo con la copia de respaldo.</p></li>
+<li><p><strong>Documentá.</strong> Agregá al registro una entrada para este mismo cambio, a mano o con un pedido nuevo.</p></li>
+</ol>
+<p><strong>Sin acceso a Codex:</strong> realizá los pasos 1, 2, 5 y 6. En lugar del paso 3, agregá la sección con el Bloc de notas.</p>
+<p>En la Parte III vas a usar este ciclo para construir tu primer estudio. Vas a partir de algo que ya conocés, Google Forms, para analizar qué hace realmente un formulario y cómo reproducirlo con jsPsych.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-2/09-revisar-agente.html" class="pagination-link" aria-label="Leer y revisar lo que hace el agente">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-3/11-google-forms.html" class="pagination-link" aria-label="Qué hace realmente Google Forms">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Barra de progreso, estilos propios y adaptación a pantallas de celular.">
+
+<title>21&nbsp; Presentación y experiencia de participación – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-4/22-encuesta-ampliada.html" rel="next">
+<link href="../part-4/20-tiempos-respuesta.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-4/17-aleatorizacion.html">Parte IV. Más allá de Google Forms</a></li><li class="breadcrumb-item"><a href="../part-4/21-presentacion-encuesta.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">21.1</span> Qué vas a poder hacer</a></li>
+  <li><a href="#una-pantalla-que-funciona-pero-se-ve-mal-permite-formular-el-problema" id="toc-una-pantalla-que-funciona-pero-se-ve-mal-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-pantalla-que-funciona-pero-se-ve-mal-permite-formular-el-problema"><span class="header-section-number">21.2</span> Una pantalla que funciona pero se ve mal permite formular el problema</a></li>
+  <li><a href="#la-barra-de-progreso-informa-cuánto-falta" id="toc-la-barra-de-progreso-informa-cuánto-falta" class="nav-link" data-scroll-target="#la-barra-de-progreso-informa-cuánto-falta"><span class="header-section-number">21.3</span> La barra de progreso informa cuánto falta</a></li>
+  <li><a href="#css-define-la-apariencia" id="toc-css-define-la-apariencia" class="nav-link" data-scroll-target="#css-define-la-apariencia"><span class="header-section-number">21.4</span> CSS define la apariencia</a>
+  <ul class="collapse">
+  <li><a href="#una-regla-de-css-tiene-un-selector-y-declaraciones" id="toc-una-regla-de-css-tiene-un-selector-y-declaraciones" class="nav-link" data-scroll-target="#una-regla-de-css-tiene-un-selector-y-declaraciones"><span class="header-section-number">21.4.1</span> Una regla de CSS tiene un selector y declaraciones</a></li>
+  </ul></li>
+  <li><a href="#el-archivo-de-estilos-del-estudio" id="toc-el-archivo-de-estilos-del-estudio" class="nav-link" data-scroll-target="#el-archivo-de-estilos-del-estudio"><span class="header-section-number">21.5</span> El archivo de estilos del estudio</a></li>
+  <li><a href="#el-celular-necesita-una-indicación-en-index.html" id="toc-el-celular-necesita-una-indicación-en-index.html" class="nav-link" data-scroll-target="#el-celular-necesita-una-indicación-en-index.html"><span class="header-section-number">21.6</span> El celular necesita una indicación en <code>index.html</code></a></li>
+  <li><a href="#algunas-decisiones-de-presentación-cambian-el-instrumento" id="toc-algunas-decisiones-de-presentación-cambian-el-instrumento" class="nav-link" data-scroll-target="#algunas-decisiones-de-presentación-cambian-el-instrumento"><span class="header-section-number">21.7</span> Algunas decisiones de presentación cambian el instrumento</a></li>
+  <li><a href="#este-capítulo-importa-para-investigar-en-psicología" id="toc-este-capítulo-importa-para-investigar-en-psicología" class="nav-link" data-scroll-target="#este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">21.8</span> Este capítulo importa para investigar en Psicología</a></li>
+  <li><a href="#agregá-la-barra-de-progreso-y-los-estilos" id="toc-agregá-la-barra-de-progreso-y-los-estilos" class="nav-link" data-scroll-target="#agregá-la-barra-de-progreso-y-los-estilos"><span class="header-section-number">21.9</span> Agregá la barra de progreso y los estilos</a></li>
+  <li><a href="#explicá-qué-hizo-realmente-el-agente" id="toc-explicá-qué-hizo-realmente-el-agente" class="nav-link" data-scroll-target="#explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">21.10</span> Explicá qué hizo realmente el agente</a></li>
+  <li><a href="#verificá-la-apariencia-en-computadora-y-en-celular" id="toc-verificá-la-apariencia-en-computadora-y-en-celular" class="nav-link" data-scroll-target="#verificá-la-apariencia-en-computadora-y-en-celular"><span class="header-section-number">21.11</span> Verificá la apariencia en computadora y en celular</a></li>
+  <li><a href="#actualizá-la-documentación" id="toc-actualizá-la-documentación" class="nav-link" data-scroll-target="#actualizá-la-documentación"><span class="header-section-number">21.12</span> Actualizá la documentación</a></li>
+  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-errores" id="toc-revisá-algunas-situaciones-que-suelen-causar-errores" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">21.13</span> Revisá algunas situaciones que suelen causar errores</a>
+  <ul class="collapse">
+  <li><a href="#los-estilos-no-se-aplican" id="toc-los-estilos-no-se-aplican" class="nav-link" data-scroll-target="#los-estilos-no-se-aplican"><span class="header-section-number">21.13.1</span> Los estilos no se aplican</a></li>
+  <li><a href="#en-el-celular-todo-se-ve-pequeño" id="toc-en-el-celular-todo-se-ve-pequeño" class="nav-link" data-scroll-target="#en-el-celular-todo-se-ve-pequeño"><span class="header-section-number">21.13.2</span> En el celular todo se ve pequeño</a></li>
+  <li><a href="#la-barra-de-progreso-aparece-en-inglés" id="toc-la-barra-de-progreso-aparece-en-inglés" class="nav-link" data-scroll-target="#la-barra-de-progreso-aparece-en-inglés"><span class="header-section-number">21.13.3</span> La barra de progreso aparece en inglés</a></li>
+  <li><a href="#un-cambio-de-estilo-hizo-desaparecer-una-pantalla" id="toc-un-cambio-de-estilo-hizo-desaparecer-una-pantalla" class="nav-link" data-scroll-target="#un-cambio-de-estilo-hizo-desaparecer-una-pantalla"><span class="header-section-number">21.13.4</span> Un cambio de estilo hizo desaparecer una pantalla</a></li>
+  <li><a href="#los-estilos-cambiaron-el-procedimiento" id="toc-los-estilos-cambiaron-el-procedimiento" class="nav-link" data-scroll-target="#los-estilos-cambiaron-el-procedimiento"><span class="header-section-number">21.13.5</span> Los estilos cambiaron el procedimiento</a></li>
+  </ul></li>
+  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">21.14</span> Comprobá lo que comprendiste</a></li>
+  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">21.15</span> Qué aprendiste en este capítulo</a></li>
+  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">21.16</span> Resolvé un desafío breve</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-4/17-aleatorizacion.html">Parte IV. Más allá de Google Forms</a></li><li class="breadcrumb-item"><a href="../part-4/21-presentacion-encuesta.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-vas-a-poder-hacer" class="level2" data-number="21.1">
+<h2 data-number="21.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">21.1</span> Qué vas a poder hacer</h2>
+<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<ol type="1">
+<li><p>Vas a poder agregar una barra de progreso y explicar qué información transmite.</p></li>
+<li><p>Vas a poder explicar qué es CSS y qué función cumple una hoja de estilos.</p></li>
+<li><p>Vas a poder incorporar el archivo <code>styles.css</code> al proyecto.</p></li>
+<li><p>Vas a poder adaptar el estudio a pantallas de celular y comprobarlo desde la computadora.</p></li>
+<li><p>Vas a poder revisar la legibilidad y la accesibilidad de las pantallas.</p></li>
+<li><p>Vas a poder distinguir un cambio de apariencia de un cambio en el instrumento.</p></li>
+</ol>
+</section>
+<section id="una-pantalla-que-funciona-pero-se-ve-mal-permite-formular-el-problema" class="level2" data-number="21.2">
+<h2 data-number="21.2" class="anchored" data-anchor-id="una-pantalla-que-funciona-pero-se-ve-mal-permite-formular-el-problema"><span class="header-section-number">21.2</span> Una pantalla que funciona pero se ve mal permite formular el problema</h2>
+<p>Tu estudio funciona. Tiene consentimiento, cuestionario, escalas en orden aleatorio, reglas condicionales y un control de atención. Sin embargo, todavía no pensaste cómo se ve.</p>
+<p>Abrí el estudio desde un celular, o imaginalo. El texto aparece muy pequeño, porque el navegador muestra la página como si fuera una pantalla de computadora reducida. Las cinco opciones de las escalas quedan apretadas en una línea. La persona no sabe cuántas pantallas faltan. Muchas personas van a responder tu encuesta desde el celular.</p>
+<p>Google Forms resuelve estas cuestiones por su cuenta: adapta el formulario al celular, muestra una barra de progreso si la activás y usa un diseño uniforme. En jsPsych, la apariencia también es una decisión que queda escrita en un archivo.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Idea clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La presentación cambia cómo se ve el estudio, no qué se pregunta. Sin embargo, algunas decisiones de presentación pueden influir en las respuestas. Por eso también se especifican, se verifican y se documentan.</p>
+</div>
+</div>
+</section>
+<section id="la-barra-de-progreso-informa-cuánto-falta" class="level2" data-number="21.3">
+<h2 data-number="21.3" class="anchored" data-anchor-id="la-barra-de-progreso-informa-cuánto-falta"><span class="header-section-number">21.3</span> La barra de progreso informa cuánto falta</h2>
+<p>jsPsych puede mostrar una <strong>barra de progreso</strong> en la parte superior de cada pantalla. La barra avanza a medida que la persona completa pantallas. Se activa en la configuración general de jsPsych.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> jsPsych <span class="op">=</span> <span class="fu">initJsPsych</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">show_progress_bar</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">message_progress_bar</span><span class="op">:</span> <span class="st">"Progreso"</span><span class="op">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">on_finish</span><span class="op">:</span> <span class="kw">function</span> () {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    jsPsych<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="fu">get</span>()<span class="op">.</span><span class="fu">localSave</span>(<span class="st">"csv"</span><span class="op">,</span> <span class="st">"datos_"</span> <span class="op">+</span> participante <span class="op">+</span> <span class="st">".csv"</span>)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>show_progress_bar: true</code> activa la barra. <code>message_progress_bar</code> define el texto que aparece al lado. Si no lo indicás, jsPsych muestra el texto en inglés “Completion Progress”.</p>
+<p>La barra avanza según la cantidad de pantallas de la línea de tiempo. Con reglas condicionales, ese cálculo es aproximado: si la pregunta sobre herramientas de IA no aparece, la barra no lo sabe de antemano. En tu estudio la diferencia es pequeña.</p>
+<p>Mostrar el progreso es una decisión con efectos posibles sobre la participación. Puede motivar a terminar cuando falta poco o desalentar cuando falta mucho. La investigación sobre este efecto tiene resultados mixtos. En una encuesta breve como la tuya, la barra suele ser útil. En un estudio largo, conviene pensarlo.</p>
+</section>
+<section id="css-define-la-apariencia" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="css-define-la-apariencia"><span class="header-section-number">21.4</span> CSS define la apariencia</h2>
+<p>En el capítulo sobre tu primer estudio viste que <code>index.html</code> carga una <strong>hoja de estilos</strong> de jsPsych. Una hoja de estilos es un archivo escrito en <strong>CSS</strong>, un lenguaje que describe la apariencia de una página: tamaños, colores, márgenes y disposición de los elementos. La extensión de estos archivos es <code>.css</code>.</p>
+<p>Tu proyecto va a tener su propia hoja de estilos, <code>styles.css</code>. Así, la estructura del proyecto llega a una nueva etapa.</p>
+<pre class="text"><code>mi-primer-estudio/
+├── index.html
+├── experiment.js
+├── styles.css
+├── diccionario.md
+└── README.md</code></pre>
+<p>Cada archivo tiene ahora una función clara. <code>index.html</code> indica qué cargar. <code>experiment.js</code> define el procedimiento. <code>styles.css</code> define la apariencia. <code>diccionario.md</code> documenta los datos. <code>README.md</code> presenta el proyecto.</p>
+<section id="una-regla-de-css-tiene-un-selector-y-declaraciones" class="level3" data-number="21.4.1">
+<h3 data-number="21.4.1" class="anchored" data-anchor-id="una-regla-de-css-tiene-un-selector-y-declaraciones"><span class="header-section-number">21.4.1</span> Una regla de CSS tiene un selector y declaraciones</h3>
+<p>Una regla de CSS indica a qué elementos se aplica y qué apariencia deben tener.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La primera parte, <code>body</code>, es el <strong>selector</strong>: indica a qué elementos se aplica la regla. <code>body</code> es el cuerpo de la página, es decir, todo su contenido. Entre llaves están las <strong>declaraciones</strong>. Cada declaración tiene una propiedad y un valor, separados por dos puntos y terminados en punto y coma. <code>font-size: 18px</code> fija el tamaño del texto en 18 píxeles. <code>line-height: 1.5</code> fija el espacio entre líneas en una vez y media el tamaño del texto.</p>
+<p>No necesitás aprender CSS para este curso. Necesitás poder leer una regla, reconocer qué modifica y comprobar su efecto.</p>
+</section>
+</section>
+<section id="el-archivo-de-estilos-del-estudio" class="level2" data-number="21.5">
+<h2 data-number="21.5" class="anchored" data-anchor-id="el-archivo-de-estilos-del-estudio"><span class="header-section-number">21.5</span> El archivo de estilos del estudio</h2>
+<p>El archivo <code>styles.css</code> de tu estudio tiene tres partes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Apariencia del estudio. Estos estilos cambian cómo se ve el estudio, no su procedimiento. */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">/* Texto más grande y con más espacio entre líneas, para facilitar la lectura */</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>body {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span><span class="ch">:</span> <span class="dv">18</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span><span class="ch">:</span> <span class="dv">1.5</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* Ancho máximo del contenido, para que las líneas no sean demasiado largas en pantallas grandes */</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.jspsych-content</span> {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">max-width</span><span class="ch">:</span> <span class="dv">700</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">/* En pantallas angostas, como las de un celular, las opciones de las escalas se muestran una debajo de la otra */</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">max-width</span><span class="ch">:</span> <span class="dv">600</span><span class="dt">px</span><span class="fu">)</span> {</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">.jspsych-content</span> {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">16</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  <span class="pp">#jspsych-survey-likert-form</span> <span class="fu">.jspsych-survey-likert-opts</span> li {</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span><span class="ch">:</span> <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span><span class="ch">:</span> <span class="dv">100</span><span class="dt">%</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">left</span><span class="op">;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin-bottom</span><span class="ch">:</span> <span class="dv">8</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="pp">#jspsych-survey-likert-form</span> <span class="fu">.jspsych-survey-likert-opts</span> li input<span class="ex">[</span><span class="ss">type</span><span class="op">=</span><span class="st">radio</span><span class="ex">]</span> {</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span><span class="ch">:</span> <span class="dv">inline-block</span><span class="op">;</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span><span class="ch">:</span> <span class="dv">static</span><span class="op">;</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span><span class="ch">:</span> <span class="dv">0</span> <span class="dv">8</span><span class="dt">px</span> <span class="dv">0</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="pp">#jspsych-survey-likert-form</span> <span class="fu">.jspsych-survey-likert-opts</span><span class="in">:before</span> {</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li><p>Los textos entre <code>/*</code> y <code>*/</code> son comentarios de CSS. Cumplen la misma función que <code>//</code> en JavaScript.</p></li>
+<li><p>La regla de <code>body</code> agranda el texto y el espacio entre líneas.</p></li>
+<li><p>La regla de <code>.jspsych-content</code> limita el ancho del contenido. El punto al comienzo indica que el selector se refiere a una <strong>clase</strong>, un nombre que jsPsych asigna a ciertos elementos. Líneas muy largas son difíciles de leer en pantallas grandes.</p></li>
+<li><p>El bloque <code>@media (max-width: 600px)</code> contiene reglas que solo se aplican cuando la pantalla mide 600 píxeles de ancho o menos, como la de un celular. Dentro, las reglas agregan un margen lateral y muestran las opciones de las escalas una debajo de la otra, en lugar de una al lado de la otra.</p></li>
+</ol>
+<p>Los selectores del bloque para celulares son largos porque el plugin <code>survey-likert</code> agrega sus propios estilos al mostrar la escala. Para que los estilos del estudio tengan prioridad, los selectores tienen que ser más específicos. La indicación <code>!important</code> cumple la misma función en un caso particular. No hace falta que memorices estos detalles. Si en el futuro necesitás cambiar un estilo que no se aplica, podés pedirle al agente que explique por qué.</p>
+</section>
+<section id="el-celular-necesita-una-indicación-en-index.html" class="level2" data-number="21.6">
+<h2 data-number="21.6" class="anchored" data-anchor-id="el-celular-necesita-una-indicación-en-index.html"><span class="header-section-number">21.6</span> El celular necesita una indicación en <code>index.html</code></h2>
+<p>Los navegadores de los celulares suelen mostrar las páginas como si fueran pantallas de computadora reducidas. Para que usen el ancho real del dispositivo, <code>index.html</code> necesita esta línea dentro de <code>&lt;head&gt;</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> name</span><span class="op">=</span><span class="st">"viewport"</span><span class="ot"> content</span><span class="op">=</span><span class="st">"width=device-width, initial-scale=1"</span><span class="dt">&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Sin esta línea, las reglas para pantallas angostas no se aplicarían en el celular, porque el navegador creería que la pantalla es ancha.</p>
+<p>Además, <code>index.html</code> debe cargar <code>styles.css</code> después de la hoja de estilos de jsPsych. Cuando dos reglas se contradicen con la misma especificidad, gana la que se carga después.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"https://unpkg.com/jspsych@8.3.0/css/jspsych.css"</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">"stylesheet"</span><span class="ot"> href</span><span class="op">=</span><span class="st">"styles.css"</span><span class="dt">&gt;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="algunas-decisiones-de-presentación-cambian-el-instrumento" class="level2" data-number="21.7">
+<h2 data-number="21.7" class="anchored" data-anchor-id="algunas-decisiones-de-presentación-cambian-el-instrumento"><span class="header-section-number">21.7</span> Algunas decisiones de presentación cambian el instrumento</h2>
+<p>La mayoría de los cambios de este capítulo solo afectan la comodidad: el tamaño del texto, los márgenes, la barra de progreso. Otros pueden influir en cómo se responde.</p>
+<p>Mostrar las opciones de una escala en vertical en lugar de horizontal es un ejemplo. En horizontal, las opciones forman un continuo visual de izquierda a derecha. En vertical, forman una lista. La investigación sobre encuestas muestra que la disposición visual de las opciones puede afectar las respuestas en algunos casos.</p>
+<p>Tu estudio usa disposición horizontal en computadoras y vertical en celulares. Es una decisión razonable para la legibilidad, pero introduce una diferencia entre dispositivos. Por eso conviene documentarla y, en el análisis, poder saber qué dispositivo usó cada persona. En un estudio con una escala validada, también conviene revisar si sus autores indican una forma de presentación.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La accesibilidad también es una decisión de diseño
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una encuesta accesible puede ser respondida por más personas, incluidas personas con dificultades visuales o motoras. Algunas prácticas básicas son usar texto de tamaño suficiente, mantener un buen contraste entre el texto y el fondo, no transmitir información solo mediante colores y permitir hacer clic sobre el texto de cada opción y no solo sobre el círculo. Los plugins de encuesta de jsPsych ya cumplen esta última condición.</p>
+</div>
+</div>
+</section>
+<section id="este-capítulo-importa-para-investigar-en-psicología" class="level2" data-number="21.8">
+<h2 data-number="21.8" class="anchored" data-anchor-id="este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">21.8</span> Este capítulo importa para investigar en Psicología</h2>
+<p>La experiencia de participación afecta la calidad de los datos. Un texto difícil de leer aumenta los errores. Una escala incómoda en el celular aumenta el abandono. Una pantalla confusa aumenta las respuestas descuidadas que estudiaste en el capítulo sobre controles de atención.</p>
+<p>Al mismo tiempo, la presentación forma parte del procedimiento que se reporta. Si dos grupos de personas vieron la escala de maneras diferentes, esa diferencia debe conocerse y documentarse.</p>
+</section>
+<section id="agregá-la-barra-de-progreso-y-los-estilos" class="level2" data-number="21.9">
+<h2 data-number="21.9" class="anchored" data-anchor-id="agregá-la-barra-de-progreso-y-los-estilos"><span class="header-section-number">21.9</span> Agregá la barra de progreso y los estilos</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Guardá copias de respaldo de <code>index.html</code> y <code>experiment.js</code>.</p></li>
+<li><p>Iniciá Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong>.</p></li>
+</ol>
+<p><strong>Pedido 1: barra de progreso.</strong></p>
+<pre class="text"><code>En experiment.js, en la configuración de initJsPsych, agregá antes de on_finish
+estas dos líneas exactas:
+  show_progress_bar: true,
+  message_progress_bar: "Progreso",
+No modifiques ninguna otra parte del archivo ni otros archivos.</code></pre>
+<p><strong>Pedido 2: estilos y adaptación al celular.</strong></p>
+<pre class="text"><code>Quiero agregar una hoja de estilos al estudio.
+1. Creá un archivo styles.css con este contenido exacto:
+[pegá aquí el contenido completo de styles.css de este capítulo]
+2. En index.html, agregá esta línea exacta después de &lt;meta charset="utf-8"&gt;:
+   &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+3. En index.html, agregá esta línea exacta después de la línea que carga jspsych.css:
+   &lt;link rel="stylesheet" href="styles.css"&gt;
+No modifiques ninguna otra parte de los archivos ni experiment.js.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.</code></pre>
+<p>Para el pedido 2, copiá el contenido de <code>styles.css</code> con el botón de copiar del bloque de código y pegalo en el lugar indicado.</p>
+</div>
+</div>
+<p><strong>Sin acceso a Codex:</strong> creá <code>styles.css</code> con el editor y agregá las líneas a <code>index.html</code> y <code>experiment.js</code>.</p>
+</section>
+<section id="explicá-qué-hizo-realmente-el-agente" class="level2" data-number="21.10">
+<h2 data-number="21.10" class="anchored" data-anchor-id="explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">21.10</span> Explicá qué hizo realmente el agente</h2>
+<p>En el primer pedido, el agente agregó dos opciones a la configuración de jsPsych. No tocó ningún ensayo.</p>
+<p>En el segundo pedido, el agente creó un archivo nuevo y agregó dos líneas a <code>index.html</code>. No modificó <code>experiment.js</code>. Esa separación es importante: los estilos no pueden cambiar las preguntas, las opciones, el orden ni los datos. Si una propuesta de este pedido incluyera cambios en <code>experiment.js</code>, deberías rechazarla.</p>
+</section>
+<section id="verificá-la-apariencia-en-computadora-y-en-celular" class="level2" data-number="21.11">
+<h2 data-number="21.11" class="anchored" data-anchor-id="verificá-la-apariencia-en-computadora-y-en-celular"><span class="header-section-number">21.11</span> Verificá la apariencia en computadora y en celular</h2>
+<p>Los navegadores permiten simular la pantalla de un celular desde la computadora, con las herramientas para desarrolladores que usaste para ver la consola.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>En la computadora.</strong></p>
+<ol type="1">
+<li><p>Recargá el estudio con <code>F5</code>. Comprobá que aparezca la barra de progreso con el texto “Progreso”.</p></li>
+<li><p>Avanzá algunas pantallas y comprobá que la barra avance.</p></li>
+<li><p>Comprobá que el texto se vea más grande que antes y que las escalas muestren las opciones en horizontal.</p></li>
+</ol>
+<p><strong>En la simulación de celular.</strong></p>
+<ol start="4" type="1">
+<li><p>Presioná <code>F12</code> para abrir las herramientas para desarrolladores.</p></li>
+<li><p>Presioná <code>Ctrl + Shift + M</code>, o buscá el ícono con forma de celular y tableta en la parte superior de las herramientas. La página se va a mostrar con el tamaño de un celular.</p></li>
+<li><p>Recargá la página y avanzá hasta una escala. Comprobá que las opciones aparezcan una debajo de la otra y que el texto no quede pegado a los bordes.</p></li>
+<li><p>Probá responder con clics sobre el texto de las opciones.</p></li>
+</ol>
+<p><strong>En los datos.</strong></p>
+<ol start="8" type="1">
+<li><p>Completá el estudio en la simulación de celular y abrí el archivo de datos.</p></li>
+<li><p>Comprobá que el archivo tenga las mismas columnas y la misma cantidad de filas que antes de agregar los estilos.</p></li>
+</ol>
+</div>
+</div>
+<p>El último paso verifica que el cambio fue solo de apariencia. Si los datos cambiaron, algo más que la presentación se modificó.</p>
+<p>La simulación es una aproximación. Cuando publiques el estudio, en la Parte V, vas a poder probarlo en un celular real.</p>
+</section>
+<section id="actualizá-la-documentación" class="level2" data-number="21.12">
+<h2 data-number="21.12" class="anchored" data-anchor-id="actualizá-la-documentación"><span class="header-section-number">21.12</span> Actualizá la documentación</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>En <code>README.md</code>, agregá <code>styles.css</code> a la descripción de los archivos del proyecto.</p></li>
+<li><p>En <code>diccionario.md</code> o en el README, agregá una nota que documente que las escalas se muestran en horizontal en pantallas anchas y en vertical en pantallas de hasta 600 píxeles.</p></li>
+<li><p>Agregá una entrada al registro de cambios.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="revisá-algunas-situaciones-que-suelen-causar-errores" class="level2" data-number="21.13">
+<h2 data-number="21.13" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">21.13</span> Revisá algunas situaciones que suelen causar errores</h2>
+<section id="los-estilos-no-se-aplican" class="level3" data-number="21.13.1">
+<h3 data-number="21.13.1" class="anchored" data-anchor-id="los-estilos-no-se-aplican"><span class="header-section-number">21.13.1</span> Los estilos no se aplican</h3>
+<p>Revisá que <code>index.html</code> cargue <code>styles.css</code> y que el nombre del archivo coincida exactamente. Revisá también que la línea esté después de la que carga la hoja de estilos de jsPsych. Recargá la página con <code>F5</code>.</p>
+</section>
+<section id="en-el-celular-todo-se-ve-pequeño" class="level3" data-number="21.13.2">
+<h3 data-number="21.13.2" class="anchored" data-anchor-id="en-el-celular-todo-se-ve-pequeño"><span class="header-section-number">21.13.2</span> En el celular todo se ve pequeño</h3>
+<p>Falta la línea <code>&lt;meta name="viewport" ...&gt;</code> en <code>index.html</code>, o está fuera de <code>&lt;head&gt;</code>.</p>
+</section>
+<section id="la-barra-de-progreso-aparece-en-inglés" class="level3" data-number="21.13.3">
+<h3 data-number="21.13.3" class="anchored" data-anchor-id="la-barra-de-progreso-aparece-en-inglés"><span class="header-section-number">21.13.3</span> La barra de progreso aparece en inglés</h3>
+<p>Falta <code>message_progress_bar</code> en la configuración de jsPsych.</p>
+</section>
+<section id="un-cambio-de-estilo-hizo-desaparecer-una-pantalla" class="level3" data-number="21.13.4">
+<h3 data-number="21.13.4" class="anchored" data-anchor-id="un-cambio-de-estilo-hizo-desaparecer-una-pantalla"><span class="header-section-number">21.13.4</span> Un cambio de estilo hizo desaparecer una pantalla</h3>
+<p>Un error de sintaxis en CSS no suele romper el estudio, pero puede ocultar elementos. Revisá la última regla que cambiaste. Compará con la copia de respaldo.</p>
+</section>
+<section id="los-estilos-cambiaron-el-procedimiento" class="level3" data-number="21.13.5">
+<h3 data-number="21.13.5" class="anchored" data-anchor-id="los-estilos-cambiaron-el-procedimiento"><span class="header-section-number">21.13.5</span> Los estilos cambiaron el procedimiento</h3>
+<p>Si después de este capítulo cambió el orden, el contenido o los datos, el cambio no fue solo de apariencia. Compará <code>experiment.js</code> con la copia de respaldo.</p>
+</section>
+</section>
+<section id="comprobá-lo-que-comprendiste" class="level2" data-number="21.14">
+<h2 data-number="21.14" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">21.14</span> Comprobá lo que comprendiste</h2>
+<p>Respondé cada pregunta con una oración completa.</p>
+<ol type="1">
+<li><p>¿Qué información transmite la barra de progreso y por qué es aproximada en tu estudio?</p></li>
+<li><p>¿Qué es CSS?</p></li>
+<li><p>¿Qué partes tiene una regla de CSS?</p></li>
+<li><p>¿Qué hace el bloque <code>@media (max-width: 600px)</code>?</p></li>
+<li><p>¿Para qué sirve la línea <code>&lt;meta name="viewport" ...&gt;</code>?</p></li>
+<li><p>¿Por qué <code>styles.css</code> se carga después de la hoja de estilos de jsPsych?</p></li>
+<li><p>¿Por qué mostrar una escala en vertical puede considerarse más que un cambio de apariencia?</p></li>
+<li><p>¿Cómo comprobaste que los estilos no cambiaron el procedimiento?</p></li>
+</ol>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<ol type="1">
+<li><p>Transmite cuánto del estudio se completó, y es aproximada porque la barra no sabe de antemano si una pantalla condicional va a aparecer.</p></li>
+<li><p>CSS es un lenguaje que describe la apariencia de una página web.</p></li>
+<li><p>Una regla tiene un selector, que indica a qué elementos se aplica, y declaraciones, que indican propiedades y valores.</p></li>
+<li><p>Aplica las reglas que contiene solo cuando la pantalla mide 600 píxeles de ancho o menos.</p></li>
+<li><p>Hace que el navegador del celular use el ancho real del dispositivo.</p></li>
+<li><p>Porque, cuando dos reglas se contradicen con la misma especificidad, gana la que se carga después.</p></li>
+<li><p>Porque la disposición visual de las opciones puede influir en las respuestas.</p></li>
+<li><p>Comparé el archivo de datos con uno anterior y comprobé que tuviera las mismas columnas y la misma cantidad de filas.</p></li>
+</ol>
+</details>
+</section>
+<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="21.15">
+<h2 data-number="21.15" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">21.15</span> Qué aprendiste en este capítulo</h2>
+<p>La presentación del estudio es una decisión de diseño. La barra de progreso informa cuánto falta y puede influir en la participación. En jsPsych se activa en la configuración general.</p>
+<p>CSS describe la apariencia de una página. Una hoja de estilos propia, <code>styles.css</code>, permite cambiar tamaños, márgenes y disposición sin modificar el procedimiento. Un bloque <code>@media</code> aplica reglas solo en pantallas angostas, y la línea <code>viewport</code> de <code>index.html</code> hace que los celulares usen su ancho real.</p>
+<p>Algunos cambios de presentación, como la disposición de las opciones de una escala, pueden influir en las respuestas y deben documentarse. La accesibilidad también forma parte del diseño.</p>
+<p>Un cambio de apariencia se verifica en computadora, en la simulación de celular y en los datos, que no deben cambiar.</p>
+</section>
+<section id="resolvé-un-desafío-breve" class="level2" data-number="21.16">
+<h2 data-number="21.16" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">21.16</span> Resolvé un desafío breve</h2>
+<ol type="1">
+<li><p>Cambiá en <code>styles.css</code> el tamaño del texto de 18 a 20 píxeles. Comprobá el efecto en la computadora y en la simulación de celular. Después volvé a 18.</p></li>
+<li><p>Proponé una regla nueva que cambie el color del texto de las instrucciones. Antes de aplicarla, respondé: ¿el color elegido mantiene un buen contraste con el fondo blanco?</p></li>
+<li><p>Imaginá que una escala validada indica en sus instrucciones que las opciones deben presentarse en horizontal. Explicá qué harías con la regla para celulares y qué alternativas tendrías.</p></li>
+<li><p>Explicá qué información necesitarías registrar en los datos para saber si cada persona respondió desde una pantalla angosta o ancha. No la implementes: describí la variable como si fuera una fila del diccionario.</p></li>
+</ol>
+<p>En el próximo capítulo vas a integrar todo lo que hiciste en la Parte IV: vas a revisar el procedimiento completo, verificar cada rama, actualizar la documentación y comparar tu encuesta con lo que permite Google Forms.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-4/20-tiempos-respuesta.html" class="pagination-link" aria-label="Tiempos de respuesta">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-4/22-encuesta-ampliada.html" class="pagination-link" aria-label="Una encuesta más allá de Google Forms">
+        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

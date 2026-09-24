@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Cómo cambia el recorrido de una encuesta según las respuestas anteriores.">
+
+<title>18&nbsp; Lógica condicional – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-4/19-controles-atencion.html" rel="next">
+<link href="../part-4/17-aleatorizacion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<meta name="mermaid-theme" content="forest">
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-4/17-aleatorizacion.html">Parte IV. Más allá de Google Forms</a></li><li class="breadcrumb-item"><a href="../part-4/18-logica-condicional.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">18.1</span> Qué vas a poder hacer</a></li>
+  <li><a href="#un-solo-camino-permite-formular-el-problema" id="toc-un-solo-camino-permite-formular-el-problema" class="nav-link" data-scroll-target="#un-solo-camino-permite-formular-el-problema"><span class="header-section-number">18.2</span> Un solo camino permite formular el problema</a></li>
+  <li><a href="#una-regla-condicional-tiene-una-condición-y-una-consecuencia" id="toc-una-regla-condicional-tiene-una-condición-y-una-consecuencia" class="nav-link" data-scroll-target="#una-regla-condicional-tiene-una-condición-y-una-consecuencia"><span class="header-section-number">18.3</span> Una regla condicional tiene una condición y una consecuencia</a></li>
+  <li><a href="#las-ramas-se-pueden-dibujar" id="toc-las-ramas-se-pueden-dibujar" class="nav-link" data-scroll-target="#las-ramas-se-pueden-dibujar"><span class="header-section-number">18.4</span> Las ramas se pueden dibujar</a></li>
+  <li><a href="#terminar-el-estudio-es-una-consecuencia" id="toc-terminar-el-estudio-es-una-consecuencia" class="nav-link" data-scroll-target="#terminar-el-estudio-es-una-consecuencia"><span class="header-section-number">18.5</span> Terminar el estudio es una consecuencia</a></li>
+  <li><a href="#un-criterio-de-inclusión-también-puede-terminar-el-estudio" id="toc-un-criterio-de-inclusión-también-puede-terminar-el-estudio" class="nav-link" data-scroll-target="#un-criterio-de-inclusión-también-puede-terminar-el-estudio"><span class="header-section-number">18.6</span> Un criterio de inclusión también puede terminar el estudio</a>
+  <ul class="collapse">
+  <li><a href="#una-validación-y-un-criterio-de-inclusión-no-son-lo-mismo" id="toc-una-validación-y-un-criterio-de-inclusión-no-son-lo-mismo" class="nav-link" data-scroll-target="#una-validación-y-un-criterio-de-inclusión-no-son-lo-mismo"><span class="header-section-number">18.6.1</span> Una validación y un criterio de inclusión no son lo mismo</a></li>
+  </ul></li>
+  <li><a href="#una-pregunta-de-seguimiento-aparece-solo-si-corresponde" id="toc-una-pregunta-de-seguimiento-aparece-solo-si-corresponde" class="nav-link" data-scroll-target="#una-pregunta-de-seguimiento-aparece-solo-si-corresponde"><span class="header-section-number">18.7</span> Una pregunta de seguimiento aparece solo si corresponde</a></li>
+  <li><a href="#una-pregunta-que-no-aplica-no-es-un-dato-faltante" id="toc-una-pregunta-que-no-aplica-no-es-un-dato-faltante" class="nav-link" data-scroll-target="#una-pregunta-que-no-aplica-no-es-un-dato-faltante"><span class="header-section-number">18.8</span> Una pregunta que no aplica no es un dato faltante</a></li>
+  <li><a href="#este-capítulo-importa-para-investigar-en-psicología" id="toc-este-capítulo-importa-para-investigar-en-psicología" class="nav-link" data-scroll-target="#este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">18.9</span> Este capítulo importa para investigar en Psicología</a></li>
+  <li><a href="#agregá-las-reglas-al-estudio" id="toc-agregá-las-reglas-al-estudio" class="nav-link" data-scroll-target="#agregá-las-reglas-al-estudio"><span class="header-section-number">18.10</span> Agregá las reglas al estudio</a></li>
+  <li><a href="#explicá-qué-hizo-realmente-el-agente" id="toc-explicá-qué-hizo-realmente-el-agente" class="nav-link" data-scroll-target="#explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">18.11</span> Explicá qué hizo realmente el agente</a></li>
+  <li><a href="#verificá-cada-rama" id="toc-verificá-cada-rama" class="nav-link" data-scroll-target="#verificá-cada-rama"><span class="header-section-number">18.12</span> Verificá cada rama</a></li>
+  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-errores" id="toc-revisá-algunas-situaciones-que-suelen-causar-errores" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">18.13</span> Revisá algunas situaciones que suelen causar errores</a>
+  <ul class="collapse">
+  <li><a href="#la-regla-nunca-se-cumple" id="toc-la-regla-nunca-se-cumple" class="nav-link" data-scroll-target="#la-regla-nunca-se-cumple"><span class="header-section-number">18.13.1</span> La regla nunca se cumple</a></li>
+  <li><a href="#la-pregunta-de-seguimiento-aparece-siempre-o-nunca" id="toc-la-pregunta-de-seguimiento-aparece-siempre-o-nunca" class="nav-link" data-scroll-target="#la-pregunta-de-seguimiento-aparece-siempre-o-nunca"><span class="header-section-number">18.13.2</span> La pregunta de seguimiento aparece siempre o nunca</a></li>
+  <li><a href="#el-estudio-termina-pero-se-muestra-una-pantalla-en-blanco" id="toc-el-estudio-termina-pero-se-muestra-una-pantalla-en-blanco" class="nav-link" data-scroll-target="#el-estudio-termina-pero-se-muestra-una-pantalla-en-blanco"><span class="header-section-number">18.13.3</span> El estudio termina, pero se muestra una pantalla en blanco</a></li>
+  <li><a href="#la-pregunta-de-seguimiento-produce-un-error-en-la-consola" id="toc-la-pregunta-de-seguimiento-produce-un-error-en-la-consola" class="nav-link" data-scroll-target="#la-pregunta-de-seguimiento-produce-un-error-en-la-consola"><span class="header-section-number">18.13.4</span> La pregunta de seguimiento produce un error en la consola</a></li>
+  <li><a href="#solo-se-probó-la-rama-principal" id="toc-solo-se-probó-la-rama-principal" class="nav-link" data-scroll-target="#solo-se-probó-la-rama-principal"><span class="header-section-number">18.13.5</span> Solo se probó la rama principal</a></li>
+  </ul></li>
+  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">18.14</span> Comprobá lo que comprendiste</a></li>
+  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">18.15</span> Qué aprendiste en este capítulo</a></li>
+  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">18.16</span> Resolvé un desafío breve</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-4/17-aleatorizacion.html">Parte IV. Más allá de Google Forms</a></li><li class="breadcrumb-item"><a href="../part-4/18-logica-condicional.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-vas-a-poder-hacer" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">18.1</span> Qué vas a poder hacer</h2>
+<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<ol type="1">
+<li><p>Vas a poder expresar una regla del procedimiento con la forma “si ocurre…, entonces…”.</p></li>
+<li><p>Vas a poder dibujar las ramas posibles de un estudio.</p></li>
+<li><p>Vas a poder terminar el estudio cuando una persona no acepta el consentimiento o no cumple un criterio de inclusión.</p></li>
+<li><p>Vas a poder mostrar una pregunta de seguimiento solo cuando corresponde.</p></li>
+<li><p>Vas a poder distinguir un dato faltante de una pregunta que no aplica.</p></li>
+<li><p>Vas a poder diseñar casos de prueba que recorran cada rama.</p></li>
+</ol>
+</section>
+<section id="un-solo-camino-permite-formular-el-problema" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="un-solo-camino-permite-formular-el-problema"><span class="header-section-number">18.2</span> Un solo camino permite formular el problema</h2>
+<p>Hasta ahora tu estudio tiene un único recorrido. Todas las personas ven las mismas pantallas en la misma secuencia, salvo el orden aleatorio de las escalas. Esa estructura genera tres problemas.</p>
+<p>Primero, el consentimiento tiene un solo botón. Quien no quiere participar tiene que cerrar la ventana. No hay una forma explícita de decir que no, y el estudio no confirma que la decisión fue respetada.</p>
+<p>Segundo, el estudio está pensado para estudiantes universitarios, pero no lo comprueba. Cualquier persona que reciba el enlace puede responder.</p>
+<p>Tercero, algunas preguntas solo tienen sentido para algunas personas. Si alguien eligió “Herramientas de IA” entre sus recursos de estudio, podría interesarte saber cuáles usa. Preguntárselo a quien no las usa sería confuso.</p>
+<p>Google Forms resuelve algunas de estas situaciones con la opción “Ir a la sección según la respuesta”. jsPsych las resuelve con <strong>lógica condicional</strong>: reglas que deciden qué ocurre a continuación según lo que pasó antes.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Idea clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una regla condicional tiene la forma “si ocurre…, entonces…”. Cada regla crea ramas en el procedimiento. Cada rama produce un archivo de datos diferente y necesita su propia verificación.</p>
+</div>
+</div>
+</section>
+<section id="una-regla-condicional-tiene-una-condición-y-una-consecuencia" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="una-regla-condicional-tiene-una-condición-y-una-consecuencia"><span class="header-section-number">18.3</span> Una regla condicional tiene una condición y una consecuencia</h2>
+<p>Antes de escribir código, conviene formular cada regla en palabras. Tu estudio va a tener tres reglas.</p>
+<ol type="1">
+<li><p><strong>Si</strong> la persona elige “No acepto” en el consentimiento, <strong>entonces</strong> el estudio termina con un mensaje.</p></li>
+<li><p><strong>Si</strong> la persona responde que no estudia en la universidad, <strong>entonces</strong> el estudio termina con otro mensaje.</p></li>
+<li><p><strong>Si</strong> la persona eligió “Herramientas de IA” entre sus recursos, <strong>entonces</strong> aparece una pregunta sobre qué herramientas usa.</p></li>
+</ol>
+<p>Cada regla tiene dos partes. La <strong>condición</strong> es lo que se comprueba: una respuesta anterior. La <strong>consecuencia</strong> es lo que ocurre si la condición se cumple: terminar el estudio o mostrar una pantalla.</p>
+<p>Cada condición depende de un dato previo. Identificar ese dato es el primer paso para implementar la regla y para verificarla después.</p>
+<div id="tbl-reglas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-reglas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;18.1: Reglas condicionales del estudio
+</figcaption>
+<div aria-describedby="tbl-reglas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Regla</th>
+<th style="text-align: left;">Dato que controla la decisión</th>
+<th style="text-align: left;">Consecuencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Consentimiento rechazado</td>
+<td style="text-align: left;">La respuesta al consentimiento</td>
+<td style="text-align: left;">Terminar el estudio</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Criterio de inclusión</td>
+<td style="text-align: left;">La variable <code>estudiante</code></td>
+<td style="text-align: left;">Terminar el estudio</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Pregunta de seguimiento</td>
+<td style="text-align: left;">La variable <code>recursos</code></td>
+<td style="text-align: left;">Mostrar <code>herramientas_ia</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="las-ramas-se-pueden-dibujar" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="las-ramas-se-pueden-dibujar"><span class="header-section-number">18.4</span> Las ramas se pueden dibujar</h2>
+<p>Cuando un procedimiento tiene reglas condicionales, conviene dibujar sus ramas. El dibujo permite ver todos los recorridos posibles antes de implementarlos.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+  B[Bienvenida] --&gt; C{Consentimiento}
+  C --&gt;|No acepto| F1[Fin: no participa]
+  C --&gt;|Acepto| E{¿Estudia en la universidad?}
+  E --&gt;|No| F2[Fin: no cumple el criterio]
+  E --&gt;|Sí| D[Edad, género y año, carrera, recursos]
+  D --&gt; R{¿Eligió Herramientas de IA?}
+  R --&gt;|Sí| IA[Pregunta sobre herramientas de IA]
+  R --&gt;|No| S[Escalas en orden aleatorio]
+  IA --&gt; S
+  S --&gt; K[Comentarios y cierre]
+</pre>
+</div>
+<p></p><figcaption> Recorridos posibles del estudio con las tres reglas condicionales.</figcaption> </figure><p></p>
+</div>
+</div>
+</div>
+<p>El diagrama muestra cuatro recorridos: dos terminan antes, uno completa el estudio sin la pregunta de seguimiento y uno la incluye. Vas a tener que probar los cuatro.</p>
+</section>
+<section id="terminar-el-estudio-es-una-consecuencia" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="terminar-el-estudio-es-una-consecuencia"><span class="header-section-number">18.5</span> Terminar el estudio es una consecuencia</h2>
+<p>Para terminar el estudio cuando la persona no acepta, el consentimiento necesita dos botones y una regla. jsPsych permite ejecutar instrucciones cuando un ensayo termina, mediante el parámetro <code>on_finish</code>. Ya lo usaste en la configuración general de jsPsych para guardar los datos al final del estudio. Ahora lo vas a usar en un ensayo.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> consentimiento <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> jsPsychHtmlButtonResponse<span class="op">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">stimulus</span><span class="op">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;h2&gt;Consentimiento informado&lt;/h2&gt;"</span> <span class="op">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;p&gt;Este estudio forma parte de una actividad de aprendizaje. Vas a responder preguntas sobre tus datos generales y tus hábitos de estudio.&lt;/p&gt;"</span> <span class="op">+</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;p&gt;La participación dura aproximadamente 5 minutos. Es voluntaria y anónima. Podés abandonar el estudio en cualquier momento cerrando esta ventana.&lt;/p&gt;"</span> <span class="op">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"&lt;p&gt;Indicá si aceptás participar.&lt;/p&gt;"</span><span class="op">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">choices</span><span class="op">:</span> [<span class="st">"Acepto participar"</span><span class="op">,</span> <span class="st">"No acepto"</span>]<span class="op">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> { <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"consentimiento"</span> }<span class="op">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">on_finish</span><span class="op">:</span> <span class="kw">function</span> (data) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Si la persona elige "No acepto" (el segundo botón, posición 1), el estudio termina.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (data<span class="op">.</span><span class="at">response</span> <span class="op">===</span> <span class="dv">1</span>) {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      jsPsych<span class="op">.</span><span class="fu">abortExperiment</span>(<span class="st">"&lt;p&gt;Elegiste no participar. El estudio terminó y no se registraron respuestas a las preguntas. Podés cerrar esta ventana.&lt;/p&gt;"</span>)<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Las partes nuevas son estas.</p>
+<ol type="1">
+<li><p><code>choices</code> tiene dos botones. Como viste en el capítulo sobre los datos, jsPsych registra la posición del botón presionado: 0 para “Acepto participar” y 1 para “No acepto”.</p></li>
+<li><p><code>on_finish: function (data) { ... }</code> contiene instrucciones que se ejecutan cuando el ensayo termina. La palabra <code>data</code> da acceso a los datos de ese ensayo.</p></li>
+<li><p><code>if (data.response === 1) { ... }</code> es la regla. <code>if</code> significa “si”. Lo que está entre paréntesis es la condición: que la respuesta sea igual a 1. El signo <code>===</code> compara si dos valores son iguales. Lo que está entre llaves es la consecuencia.</p></li>
+<li><p><code>jsPsych.abortExperiment("...")</code> termina el estudio y muestra el mensaje indicado.</p></li>
+</ol>
+<p>Observá que la última oración del consentimiento cambió. Ya no dice “Si no aceptás, cerrá esta ventana”, porque ahora existe un botón para no aceptar.</p>
+</section>
+<section id="un-criterio-de-inclusión-también-puede-terminar-el-estudio" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="un-criterio-de-inclusión-también-puede-terminar-el-estudio"><span class="header-section-number">18.6</span> Un criterio de inclusión también puede terminar el estudio</h2>
+<p>La regla de inclusión tiene la misma forma. La pregunta usa <code>survey-multi-choice</code> y la condición compara el texto de la respuesta.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Criterio de inclusión: el estudio está dirigido a estudiantes universitarios</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pregunta_estudiante <span class="op">=</span> {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> jsPsychSurveyMultiChoice<span class="op">,</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">questions</span><span class="op">:</span> [</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">prompt</span><span class="op">:</span> <span class="st">"¿Estudiás actualmente en la universidad?"</span><span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      <span class="dt">name</span><span class="op">:</span> <span class="st">"estudiante"</span><span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="dt">options</span><span class="op">:</span> [<span class="st">"Sí"</span><span class="op">,</span> <span class="st">"No"</span>]<span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">button_label</span><span class="op">:</span> <span class="st">"Continuar"</span><span class="op">,</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> { <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"estudiante"</span> }<span class="op">,</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">on_finish</span><span class="op">:</span> <span class="kw">function</span> (data) {</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Si la persona responde "No", no cumple el criterio de inclusión y el estudio termina.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (data<span class="op">.</span><span class="at">response</span><span class="op">.</span><span class="at">estudiante</span> <span class="op">===</span> <span class="st">"No"</span>) {</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      jsPsych<span class="op">.</span><span class="fu">abortExperiment</span>(<span class="st">"&lt;p&gt;Este estudio está dirigido a estudiantes universitarios. Muchas gracias por tu interés.&lt;/p&gt;"</span>)<span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La condición <code>data.response.estudiante === "No"</code> busca dentro de la respuesta la variable <code>estudiante</code> y la compara con el texto <code>"No"</code>. El texto debe coincidir exactamente con la opción. Si la opción dijera “no” en minúscula, la comparación con “No” fallaría y la regla nunca se cumpliría.</p>
+<section id="una-validación-y-un-criterio-de-inclusión-no-son-lo-mismo" class="level3" data-number="18.6.1">
+<h3 data-number="18.6.1" class="anchored" data-anchor-id="una-validación-y-un-criterio-de-inclusión-no-son-lo-mismo"><span class="header-section-number">18.6.1</span> Una validación y un criterio de inclusión no son lo mismo</h3>
+<p>La pregunta de edad también expresa un criterio: aceptar personas de 18 a 80 años. Sin embargo, está implementada como validación. Compará qué ocurre en cada caso.</p>
+<div id="tbl-validacion-inclusion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-validacion-inclusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;18.2: Validación frente a criterio de inclusión
+</figcaption>
+<div aria-describedby="tbl-validacion-inclusion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Situación</th>
+<th style="text-align: left;">Implementación</th>
+<th style="text-align: left;">Qué experimenta la persona</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Una persona de 17 años escribe su edad</td>
+<td style="text-align: left;">Validación de rango</td>
+<td style="text-align: left;">No puede continuar. El navegador muestra un aviso y la persona queda detenida en esa pantalla.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Una persona que no estudia responde “No”</td>
+<td style="text-align: left;">Regla de inclusión</td>
+<td style="text-align: left;">El estudio termina con un mensaje que explica por qué.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Para la persona, la segunda experiencia es más clara y respetuosa. La primera, además, puede inducir a escribir una edad falsa para poder avanzar. Elegir entre ambas implementaciones es una decisión metodológica y ética. En tu estudio, la validación de edad se mantiene porque también cumple la función de controlar el formato de la respuesta. En el desafío final vas a analizar una alternativa.</p>
+</section>
+</section>
+<section id="una-pregunta-de-seguimiento-aparece-solo-si-corresponde" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="una-pregunta-de-seguimiento-aparece-solo-si-corresponde"><span class="header-section-number">18.7</span> Una pregunta de seguimiento aparece solo si corresponde</h2>
+<p>Para la tercera regla no hay que terminar el estudio: hay que decidir si una pantalla aparece o no. jsPsych lo resuelve con una línea de tiempo anidada, como la del capítulo anterior, que incluye una función de condición.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Pregunta de seguimiento: solo aparece si la persona eligió "Herramientas de IA"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pregunta_herramientas_ia <span class="op">=</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">timeline</span><span class="op">:</span> [</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>      <span class="dt">type</span><span class="op">:</span> jsPsychSurveyText<span class="op">,</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>      <span class="dt">questions</span><span class="op">:</span> [</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        { <span class="dt">prompt</span><span class="op">:</span> <span class="st">"¿Qué herramientas de IA usás para estudiar?"</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> <span class="st">"herramientas_ia"</span><span class="op">,</span> <span class="dt">required</span><span class="op">:</span> <span class="kw">true</span> }</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      ]<span class="op">,</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">button_label</span><span class="op">:</span> <span class="st">"Continuar"</span><span class="op">,</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">data</span><span class="op">:</span> { <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"herramientas_ia"</span> }</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">conditional_function</span><span class="op">:</span> <span class="kw">function</span> () {</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> recursos <span class="op">=</span> jsPsych<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="fu">get</span>()<span class="op">.</span><span class="fu">filter</span>({ <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"recursos"</span> })<span class="op">.</span><span class="fu">values</span>()[<span class="dv">0</span>]<span class="op">.</span><span class="at">response</span><span class="op">.</span><span class="at">recursos</span><span class="op">;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> recursos<span class="op">.</span><span class="fu">includes</span>(<span class="st">"Herramientas de IA"</span>)<span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El bloque tiene dos partes.</p>
+<ol type="1">
+<li><p><code>timeline</code> contiene el ensayo de la pregunta, escrito como ya conocés.</p></li>
+<li><p><code>conditional_function</code> contiene la regla. jsPsych la ejecuta justo antes de llegar a esta parte de la secuencia. Si la función devuelve verdadero, la pregunta aparece. Si devuelve falso, jsPsych la salta.</p></li>
+</ol>
+<p>Dentro de la función hay dos líneas.</p>
+<ol type="1">
+<li><p>La primera busca la respuesta de la pregunta de recursos. Se lee de izquierda a derecha: de todos los datos, filtrá la fila cuya <code>pantalla</code> es <code>"recursos"</code>, tomá la primera y, dentro de su respuesta, la variable <code>recursos</code>. El resultado es la lista de opciones elegidas.</p></li>
+<li><p>La segunda devuelve el resultado de comprobar si esa lista incluye el texto <code>"Herramientas de IA"</code>. La palabra <code>return</code> significa “devolver”.</p></li>
+</ol>
+<p>Observá que la búsqueda usa la etiqueta <code>pantalla</code> que agregaste en el capítulo sobre los datos. Sin esa etiqueta, encontrar la fila correcta sería mucho más difícil.</p>
+</section>
+<section id="una-pregunta-que-no-aplica-no-es-un-dato-faltante" class="level2" data-number="18.8">
+<h2 data-number="18.8" class="anchored" data-anchor-id="una-pregunta-que-no-aplica-no-es-un-dato-faltante"><span class="header-section-number">18.8</span> Una pregunta que no aplica no es un dato faltante</h2>
+<p>Cuando la pregunta de seguimiento no aparece, su fila no existe en los datos. Esa ausencia tiene un significado diferente al de un comentario vacío.</p>
+<ul>
+<li>Un <strong>dato faltante</strong> es un valor que debería existir y no está. La pregunta se mostró y la persona no respondió.</li>
+<li>Un valor que <strong>no aplica</strong> corresponde a una pregunta que, por diseño, no se le hizo a esa persona.</li>
+</ul>
+<p>Confundir ambos casos produce errores de análisis. Si alguien calculara el porcentaje de personas que no respondieron sobre herramientas de IA contando a quienes nunca vieron la pregunta, obtendría un número sin sentido. El diccionario de variables debe distinguirlos.</p>
+</section>
+<section id="este-capítulo-importa-para-investigar-en-psicología" class="level2" data-number="18.9">
+<h2 data-number="18.9" class="anchored" data-anchor-id="este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">18.9</span> Este capítulo importa para investigar en Psicología</h2>
+<p>La lógica condicional implementa decisiones éticas y metodológicas. La salida explícita del consentimiento respeta la decisión de no participar. El criterio de inclusión define la población del estudio. Las preguntas de seguimiento reducen la carga para quien no las necesita.</p>
+<p>Cada regla también cambia los datos. Quien no acepta produce un archivo de dos filas. Quien no cumple el criterio, uno de tres. Quien usa herramientas de IA, una fila más que quien no las usa. Antes de recolectar, tenés que saber qué archivo produce cada recorrido.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Decidí qué se registra de quien no participa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Con esta implementación, quien elige “No acepto” produce igualmente un archivo con dos filas: la bienvenida y la respuesta al consentimiento. No contiene respuestas a preguntas ni datos personales, y permite saber cuántas personas decidieron no participar. Aun así, registrar esa decisión es una elección del equipo de investigación. El mensaje final debe describir con exactitud lo que se registró. En la Parte V vas a revisar esta decisión cuando configures el guardado en línea.</p>
+</div>
+</div>
+</section>
+<section id="agregá-las-reglas-al-estudio" class="level2" data-number="18.10">
+<h2 data-number="18.10" class="anchored" data-anchor-id="agregá-las-reglas-al-estudio"><span class="header-section-number">18.10</span> Agregá las reglas al estudio</h2>
+<p>Vas a realizar tres pedidos, uno por regla. Después de cada uno, verificá la rama correspondiente antes de pasar al siguiente.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Guardá una copia de respaldo de <code>experiment.js</code>.</p></li>
+<li><p>Iniciá Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong>.</p></li>
+</ol>
+<p><strong>Pedido 1: consentimiento con salida.</strong></p>
+<pre class="text"><code>En experiment.js, modificá el ensayo consentimiento:
+1. Reemplazá el último párrafo del texto por este párrafo exacto:
+   &lt;p&gt;Indicá si aceptás participar.&lt;/p&gt;
+2. Cambiá choices para que tenga dos botones: "Acepto participar" y "No acepto".
+3. Agregá un parámetro on_finish que, si la respuesta es 1 (el botón "No acepto"),
+   ejecute jsPsych.abortExperiment con este mensaje exacto:
+   &lt;p&gt;Elegiste no participar. El estudio terminó y no se registraron respuestas a las preguntas. Podés cerrar esta ventana.&lt;/p&gt;
+   Incluí antes de la condición este comentario exacto:
+   // Si la persona elige "No acepto" (el segundo botón, posición 1), el estudio termina.
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.</code></pre>
+<p><strong>Pedido 2: criterio de inclusión.</strong></p>
+<pre class="text"><code>En experiment.js, agregá un ensayo llamado pregunta_estudiante después de consentimiento
+y ubicalo en la línea de tiempo entre consentimiento y pregunta_edad.
+Debe usar jsPsychSurveyMultiChoice con una pregunta obligatoria:
+"¿Estudiás actualmente en la universidad?", name "estudiante", opciones exactas: Sí, No.
+Botón "Continuar" y data: { pantalla: "estudiante" }.
+Agregá un on_finish que, si la respuesta a estudiante es "No", ejecute
+jsPsych.abortExperiment con este mensaje exacto:
+&lt;p&gt;Este estudio está dirigido a estudiantes universitarios. Muchas gracias por tu interés.&lt;/p&gt;
+No modifiques ninguna otra parte del archivo ni otros archivos.</code></pre>
+<p><strong>Pedido 3: pregunta de seguimiento.</strong></p>
+<pre class="text"><code>En experiment.js, agregá después de pregunta_recursos un bloque llamado
+pregunta_herramientas_ia con una línea de tiempo anidada que contenga un ensayo
+jsPsychSurveyText con la pregunta obligatoria "¿Qué herramientas de IA usás para estudiar?",
+name "herramientas_ia", botón "Continuar" y data: { pantalla: "herramientas_ia" }.
+Agregá una conditional_function que muestre la pregunta solo si la respuesta de la
+pantalla "recursos" incluye la opción "Herramientas de IA".
+Ubicá pregunta_herramientas_ia en la línea de tiempo después de pregunta_recursos.
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.</code></pre>
+<p>En cada propuesta, compará el código con los fragmentos de este capítulo. El agente puede escribir la condición de otra manera y obtener el mismo resultado. Si no entendés una forma diferente, pedí una explicación antes de aprobar.</p>
+</div>
+</div>
+<p><strong>Sin acceso a Codex:</strong> realizá los cambios con el editor a partir de los fragmentos de este capítulo. El checkpoint <code>06-encuesta-ampliada</code> contiene la versión completa.</p>
+</section>
+<section id="explicá-qué-hizo-realmente-el-agente" class="level2" data-number="18.11">
+<h2 data-number="18.11" class="anchored" data-anchor-id="explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">18.11</span> Explicá qué hizo realmente el agente</h2>
+<p>En los pedidos 1 y 2, el agente agregó una función que se ejecuta al terminar un ensayo. La función compara una respuesta con un valor y, si coinciden, termina el estudio. La decisión sobre qué respuesta termina el estudio, y con qué mensaje, la tomaste vos.</p>
+<p>En el pedido 3, el agente envolvió la pregunta en una línea de tiempo anidada y le agregó una condición. Para escribir la condición tuvo que saber dónde encontrar la respuesta de recursos. La encontró gracias a la etiqueta <code>pantalla</code>.</p>
+<p>Si el agente escribió la condición de otra forma, por ejemplo con <code>indexOf</code> en lugar de <code>includes</code>, el resultado puede ser equivalente. Lo que no puede cambiar es el texto comparado: debe coincidir exactamente con la opción de la pregunta de recursos.</p>
+</section>
+<section id="verificá-cada-rama" class="level2" data-number="18.12">
+<h2 data-number="18.12" class="anchored" data-anchor-id="verificá-cada-rama"><span class="header-section-number">18.12</span> Verificá cada rama</h2>
+<p>Una regla condicional se verifica recorriendo cada rama. Para eso necesitás un caso de prueba por rama, como aprendiste en el capítulo sobre validaciones.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Completá la columna “Esperado” antes de probar. Para cada caso, recargá el estudio con <code>F5</code>, recorrelo y abrí el archivo descargado.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Caso</th>
+<th style="text-align: left;">Acciones</th>
+<th style="text-align: left;">Esperado: mensaje o pantalla</th>
+<th style="text-align: left;">Esperado: filas del archivo</th>
+<th style="text-align: left;">Observado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Elegir “No acepto”</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">Aceptar y responder “No” a la pregunta de inclusión</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">Completar sin elegir “Herramientas de IA”</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Completar eligiendo “Herramientas de IA”</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>En los casos A y B, comprobá además que el mensaje final coincida con el texto especificado.</p>
+</div>
+</div>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Caso</th>
+<th style="text-align: left;">Mensaje o pantalla</th>
+<th style="text-align: left;">Filas del archivo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A</td>
+<td style="text-align: left;">Mensaje de no participación</td>
+<td style="text-align: left;">2: bienvenida y consentimiento</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">Mensaje de criterio de inclusión</td>
+<td style="text-align: left;">3: bienvenida, consentimiento y estudiante</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">C</td>
+<td style="text-align: left;">No aparece la pregunta sobre herramientas de IA</td>
+<td style="text-align: left;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">Aparece la pregunta sobre herramientas de IA</td>
+<td style="text-align: left;">12</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Si alguna rama no se comporta como esperabas, describí el problema al agente con el formato del capítulo sobre el ciclo de trabajo: esperado, observado, pasos y mensaje exacto.</p>
+</section>
+<section id="revisá-algunas-situaciones-que-suelen-causar-errores" class="level2" data-number="18.13">
+<h2 data-number="18.13" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">18.13</span> Revisá algunas situaciones que suelen causar errores</h2>
+<section id="la-regla-nunca-se-cumple" class="level3" data-number="18.13.1">
+<h3 data-number="18.13.1" class="anchored" data-anchor-id="la-regla-nunca-se-cumple"><span class="header-section-number">18.13.1</span> La regla nunca se cumple</h3>
+<p>Revisá que el texto o el número comparado coincida exactamente con la respuesta. <code>"no"</code> no es igual a <code>"No"</code>, y el botón “No acepto” se registra como <code>1</code>, no como <code>"No acepto"</code>.</p>
+</section>
+<section id="la-pregunta-de-seguimiento-aparece-siempre-o-nunca" class="level3" data-number="18.13.2">
+<h3 data-number="18.13.2" class="anchored" data-anchor-id="la-pregunta-de-seguimiento-aparece-siempre-o-nunca"><span class="header-section-number">18.13.2</span> La pregunta de seguimiento aparece siempre o nunca</h3>
+<p>Revisá que el texto de <code>includes</code> coincida exactamente con la opción de la pregunta de recursos, incluidas las mayúsculas.</p>
+</section>
+<section id="el-estudio-termina-pero-se-muestra-una-pantalla-en-blanco" class="level3" data-number="18.13.3">
+<h3 data-number="18.13.3" class="anchored" data-anchor-id="el-estudio-termina-pero-se-muestra-una-pantalla-en-blanco"><span class="header-section-number">18.13.3</span> El estudio termina, pero se muestra una pantalla en blanco</h3>
+<p>Revisá que <code>abortExperiment</code> reciba el mensaje entre comillas. Abrí la consola con <code>F12</code> para buscar errores.</p>
+</section>
+<section id="la-pregunta-de-seguimiento-produce-un-error-en-la-consola" class="level3" data-number="18.13.4">
+<h3 data-number="18.13.4" class="anchored" data-anchor-id="la-pregunta-de-seguimiento-produce-un-error-en-la-consola"><span class="header-section-number">18.13.4</span> La pregunta de seguimiento produce un error en la consola</h3>
+<p>Si la condición busca la pantalla <code>"recursos"</code> y esa etiqueta no existe, la búsqueda no encuentra ninguna fila. Comprobá que el ensayo de recursos tenga <code>data: { pantalla: "recursos" }</code>.</p>
+</section>
+<section id="solo-se-probó-la-rama-principal" class="level3" data-number="18.13.5">
+<h3 data-number="18.13.5" class="anchored" data-anchor-id="solo-se-probó-la-rama-principal"><span class="header-section-number">18.13.5</span> Solo se probó la rama principal</h3>
+<p>Las ramas menos frecuentes también las van a recorrer personas reales. Probá cada una.</p>
+</section>
+</section>
+<section id="comprobá-lo-que-comprendiste" class="level2" data-number="18.14">
+<h2 data-number="18.14" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">18.14</span> Comprobá lo que comprendiste</h2>
+<p>Respondé cada pregunta con una oración completa.</p>
+<ol type="1">
+<li><p>¿Qué partes tiene una regla condicional?</p></li>
+<li><p>¿Qué dato controla la aparición de la pregunta sobre herramientas de IA?</p></li>
+<li><p>¿Qué hace el parámetro <code>on_finish</code> de un ensayo?</p></li>
+<li><p>¿Qué compara el signo <code>===</code>?</p></li>
+<li><p>¿Qué diferencia existe entre terminar el estudio con <code>abortExperiment</code> y saltar una pantalla con <code>conditional_function</code>?</p></li>
+<li><p>¿Por qué una persona de 17 años queda detenida en la pregunta de edad, mientras que una persona que no estudia recibe un mensaje?</p></li>
+<li><p>¿Qué diferencia existe entre un dato faltante y un valor que no aplica?</p></li>
+<li><p>¿Cuántos casos de prueba necesitás, como mínimo, para verificar las tres reglas?</p></li>
+</ol>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<ol type="1">
+<li><p>Una regla condicional tiene una condición, que es lo que se comprueba, y una consecuencia, que es lo que ocurre si la condición se cumple.</p></li>
+<li><p>La controla la variable <code>recursos</code>.</p></li>
+<li><p>Ejecuta instrucciones cuando el ensayo termina.</p></li>
+<li><p>Compara si dos valores son exactamente iguales.</p></li>
+<li><p><code>abortExperiment</code> termina todo el estudio, mientras que <code>conditional_function</code> decide si una parte de la secuencia se muestra o se salta.</p></li>
+<li><p>La edad está implementada como validación, que impide continuar, mientras que el criterio de inclusión está implementado como una regla que termina el estudio con un mensaje.</p></li>
+<li><p>Un dato faltante corresponde a una pregunta que se mostró y no se respondió, mientras que un valor que no aplica corresponde a una pregunta que no se le hizo a esa persona por diseño.</p></li>
+<li><p>Se necesitan al menos cuatro casos, uno por cada recorrido posible.</p></li>
+</ol>
+</details>
+</section>
+<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="18.15">
+<h2 data-number="18.15" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">18.15</span> Qué aprendiste en este capítulo</h2>
+<p>La lógica condicional crea ramas en el procedimiento. Cada regla tiene una condición, que depende de un dato previo, y una consecuencia. Dibujar las ramas permite ver todos los recorridos antes de implementarlos.</p>
+<p>En jsPsych, <code>on_finish</code> ejecuta instrucciones al terminar un ensayo, <code>if</code> expresa una condición y <code>abortExperiment</code> termina el estudio con un mensaje. Una línea de tiempo anidada con <code>conditional_function</code> muestra una parte de la secuencia solo cuando la condición se cumple.</p>
+<p>Una validación y un criterio de inclusión pueden expresar la misma restricción con experiencias muy diferentes para la persona. Una pregunta que no aplica no es un dato faltante, y el diccionario debe distinguirlos.</p>
+<p>Cada rama produce un archivo diferente y requiere su propio caso de prueba.</p>
+</section>
+<section id="resolvé-un-desafío-breve" class="level2" data-number="18.16">
+<h2 data-number="18.16" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">18.16</span> Resolvé un desafío breve</h2>
+<p>Imaginá que el equipo decide reemplazar la validación de edad por un criterio de inclusión: la pregunta aceptaría cualquier número entero positivo, y el estudio terminaría con un mensaje si la persona tiene menos de 18 años o más de 80.</p>
+<ol type="1">
+<li><p>Formulá la regla con la forma “si…, entonces…”.</p></li>
+<li><p>Indicá qué atributos del campo de edad habría que cambiar.</p></li>
+<li><p>Escribí el mensaje que recibiría una persona excluida. Cuidá que sea respetuoso y exacto.</p></li>
+<li><p>Dibujá cómo cambiaría el diagrama de ramas.</p></li>
+<li><p>Escribí los casos de prueba necesarios, incluidos los casos límite.</p></li>
+<li><p>Explicá en dos oraciones qué ventaja y qué desventaja tiene este cambio frente a la validación actual.</p></li>
+</ol>
+<p>No apliques el cambio a tu proyecto.</p>
+<p>En el próximo capítulo vas a incorporar un control de atención y vas a discutir cómo evaluar la calidad de las respuestas sin convertir un indicador en una sentencia.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-4/17-aleatorizacion.html" class="pagination-link" aria-label="Aleatorización">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-4/19-controles-atencion.html" class="pagination-link" aria-label="Controles de atención y calidad de respuesta">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

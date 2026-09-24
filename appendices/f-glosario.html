@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Definiciones breves de los términos técnicos utilizados.">
+
+<title>34&nbsp; Glosario – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../appendices/e-estructura-jspsych.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-terminal.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../appendices/f-glosario.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#cómo-usar-este-glosario" id="toc-cómo-usar-este-glosario" class="nav-link active" data-scroll-target="#cómo-usar-este-glosario">Cómo usar este glosario</a></li>
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">A</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">B</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">D</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">F</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">G</a></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">H</a></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i">I</a></li>
+  <li><a href="#j" id="toc-j" class="nav-link" data-scroll-target="#j">J</a></li>
+  <li><a href="#l" id="toc-l" class="nav-link" data-scroll-target="#l">L</a></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m">M</a></li>
+  <li><a href="#n" id="toc-n" class="nav-link" data-scroll-target="#n">N</a></li>
+  <li><a href="#o" id="toc-o" class="nav-link" data-scroll-target="#o">O</a></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p">P</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s">S</a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t">T</a></li>
+  <li><a href="#u" id="toc-u" class="nav-link" data-scroll-target="#u">U</a></li>
+  <li><a href="#v" id="toc-v" class="nav-link" data-scroll-target="#v">V</a></li>
+  <li><a href="#w" id="toc-w" class="nav-link" data-scroll-target="#w">W</a></li>
+  <li><a href="#z" id="toc-z" class="nav-link" data-scroll-target="#z">Z</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-terminal.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../appendices/f-glosario.html"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cómo-usar-este-glosario" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="cómo-usar-este-glosario">Cómo usar este glosario</h2>
+<p>Cada término se define en lenguaje claro la primera vez que aparece en el libro. Este glosario sirve para volver a consultarlo, no para reemplazar aquella explicación. Cada entrada indica el capítulo donde podés encontrar la explicación completa.</p>
+<p>Reúne los términos de las cinco partes del libro.</p>
+</section>
+<section id="a" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="a">A</h2>
+<dl>
+<dt>Accesibilidad</dt>
+<dd>
+Característica de un estudio que permite que lo respondan más personas, incluidas personas con dificultades visuales o motoras. Ver <a href="../part-4/21-presentacion-encuesta.html">capítulo 21</a>.
+</dd>
+<dt>Administrador de tareas</dt>
+<dd>
+Herramienta de Windows que muestra las aplicaciones y los procesos activos, y el uso de recursos como el procesador y la memoria. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Advertencia</dt>
+<dd>
+Mensaje que informa una condición que merece atención, aunque el programa pueda continuar. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Agente de IA</dt>
+<dd>
+Programa que usa un modelo de lenguaje para realizar tareas mediante acciones concretas, como leer archivos, modificarlos o ejecutar comandos. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt><code>AGENTS.md</code></dt>
+<dd>
+Archivo que comunica reglas estables a los agentes que trabajan dentro de un proyecto. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Alias</dt>
+<dd>
+Nombre alternativo que un intérprete de comandos acepta para otro comando. Por ejemplo, <code>dir</code> es un alias de <code>Get-ChildItem</code>. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Almacenamiento</dt>
+<dd>
+Conservación de información para usarla más adelante, incluso después de apagar la computadora. También designa la parte física que la conserva, como un disco. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Alojamiento web</dt>
+<dd>
+Servicio que entrega los archivos de un sitio a los navegadores que los piden. En inglés, <em>hosting</em>. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt>Aprobación</dt>
+<dd>
+Pregunta que un agente hace antes de realizar una acción. Muestra qué quiere hacer y permite aceptar o rechazar. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Archivo</dt>
+<dd>
+Unidad de información guardada con un nombre. Puede contener texto, imágenes, sonidos, datos o instrucciones. Ver <a href="../part-1/01-computadora.html">capítulo 1</a> y <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Argumento</dt>
+<dd>
+Información que un comando necesita para realizar una acción. En <code>cd materiales</code>, <code>materiales</code> es el argumento. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Asignación aleatoria</dt>
+<dd>
+Asignación al azar de cada persona a una versión diferente del procedimiento, llamada condición. Es la base de los diseños experimentales. Ver <a href="../part-4/17-aleatorizacion.html">capítulo 17</a>.
+</dd>
+<dt>Atributo</dt>
+<dd>
+Indicación escrita dentro de una etiqueta HTML que define cómo funciona un elemento, como <code>min="18"</code> en un campo de respuesta. Ver <a href="../part-3/13-preguntas-formularios.html">capítulo 13</a>.
+</dd>
+</dl>
+</section>
+<section id="b" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="b">B</h2>
+<dl>
+<dt>Barra de progreso</dt>
+<dd>
+Indicador visual que muestra qué parte del estudio se completó. Ver <a href="../part-4/21-presentacion-encuesta.html">capítulo 21</a>.
+</dd>
+<dt>Base de datos</dt>
+<dd>
+Conjunto organizado de datos que permite guardar y consultar información. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Biblioteca</dt>
+<dd>
+Conjunto de instrucciones ya escritas por otras personas que un programa puede usar. jsPsych es una biblioteca de JavaScript. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+</dl>
+</section>
+<section id="c" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="c">C</h2>
+<dl>
+<dt>Carpeta</dt>
+<dd>
+Contenedor que permite organizar archivos y otras carpetas. También se la llama directorio. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Carpeta actual</dt>
+<dd>
+Carpeta que se toma como referencia para interpretar una ruta relativa. En la terminal recibe el nombre de carpeta de trabajo actual. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a> y <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Carpeta de trabajo de un agente</dt>
+<dd>
+Carpeta desde la cual se inicia un agente. Define el alcance habitual de lo que puede leer y modificar. En inglés se la llama <em>workspace</em>. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Carpeta principal</dt>
+<dd>
+Carpeta que contiene un proyecto completo. También se la llama raíz del proyecto o <em>project root</em>. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Caso de prueba</dt>
+<dd>
+Entrada preparada de antemano junto con el resultado que se espera obtener. Sirve para verificar una validación u otro comportamiento. Ver <a href="../part-3/13-preguntas-formularios.html">capítulo 13</a>.
+</dd>
+<dt>Caso límite</dt>
+<dd>
+Caso de prueba ubicado justo en el borde de una regla, como los valores 18 y 80 en un rango de 18 a 80. Ver <a href="../part-3/13-preguntas-formularios.html">capítulo 13</a>.
+</dd>
+<dt>Chatbot</dt>
+<dd>
+Programa que conversa mediante mensajes. Produce respuestas, pero no actúa sobre tus archivos. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Checkpoint</dt>
+<dd>
+Copia del proyecto guardada en un momento concreto del recorrido. Funciona de manera independiente y permite comparar o recuperar el trabajo. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Clase de CSS</dt>
+<dd>
+Nombre asignado a ciertos elementos de una página que una regla de CSS puede usar como selector. Se escribe con un punto al comienzo, como <code>.jspsych-content</code>. Ver <a href="../part-4/21-presentacion-encuesta.html">capítulo 21</a>.
+</dd>
+<dt>CLI</dt>
+<dd>
+Sigla de <em>command-line interface</em>, interfaz de línea de comandos. Designa a los programas que se usan escribiendo instrucciones en una terminal. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Clonar</dt>
+<dd>
+Crear en tu computadora una copia de un repositorio de GitHub que queda conectada con el original. Ver el <a href="../appendices/b-git.html">apéndice B</a>.
+</dd>
+<dt>Codex</dt>
+<dd>
+Agente de IA desarrollado por OpenAI. En este libro se usa su versión de terminal, Codex CLI. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Codificación</dt>
+<dd>
+Regla que usa una computadora para guardar cada carácter como información. UTF-8 es la codificación más usada en archivos de texto actuales. Si un archivo se interpreta con otra codificación, las tildes pueden verse como símbolos extraños. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a>.
+</dd>
+<dt>Código</dt>
+<dd>
+Texto escrito según reglas que un programa puede interpretar. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Código de salida</dt>
+<dd>
+Número que un programa devuelve al terminar. El valor <code>0</code> suele indicar una finalización correcta. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Comando</dt>
+<dd>
+Instrucción escrita que solicita una acción. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Comando con barra</dt>
+<dd>
+Instrucción que comienza con <code>/</code> y que, dentro de un agente como Codex, configura la sesión en lugar de enviarse al modelo. En inglés se lo llama <em>slash command</em>. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Comentario de código</dt>
+<dd>
+Línea que comienza con <code>//</code> en JavaScript. El navegador la ignora y sirve para dejar notas a quien lee el código. Ver <a href="../part-3/14-escalas-psicologicas.html">capítulo 14</a>.
+</dd>
+<dt>Commit</dt>
+<dd>
+Cambio confirmado en un repositorio, con fecha y un mensaje que lo describe. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt>Consentimiento informado</dt>
+<dd>
+Proceso mediante el cual una persona recibe información sobre un estudio y decide libremente si participa. En un estudio online se presenta antes de cualquier pregunta. Ver <a href="../part-3/13-preguntas-formularios.html">capítulo 13</a>.
+</dd>
+<dt>Consola del navegador</dt>
+<dd>
+Pestaña de las herramientas para desarrolladores, que se abren con <code>F12</code>, donde el navegador muestra los errores con su archivo y número de línea. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Construcción incremental</dt>
+<dd>
+Forma de implementar un estudio en pasos pequeños, cada uno con criterios de aceptación, verificación y copia de respaldo. Ver <a href="../part-5/24-construccion-estudio.html">capítulo 24</a>.
+</dd>
+<dt>Constructo</dt>
+<dd>
+Concepto teórico que la investigación busca describir o medir, como la memoria de trabajo o la ansiedad. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Contexto</dt>
+<dd>
+Conjunto de información con la que trabaja un agente durante una sesión: los mensajes, sus respuestas y el contenido de los archivos que leyó. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Copia de respaldo</dt>
+<dd>
+Copia que conserva la información en otra ubicación y permite recuperarla si se pierde o se daña el archivo de trabajo. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a> y <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Criterio de aceptación</dt>
+<dd>
+Condición observable que un paso de construcción debe cumplir para darlo por terminado. Ver <a href="../part-5/24-construccion-estudio.html">capítulo 24</a>.
+</dd>
+<dt>Criterio de inclusión</dt>
+<dd>
+Condición que una persona debe cumplir para formar parte de la población del estudio. Ver <a href="../part-4/18-logica-condicional.html">capítulo 18</a>.
+</dd>
+<dt>CSS</dt>
+<dd>
+Lenguaje que describe la apariencia de una página web: tamaños, colores, márgenes y disposición. Ver <a href="../part-4/21-presentacion-encuesta.html">capítulo 21</a>.
+</dd>
+<dt>CSV</dt>
+<dd>
+Formato de archivo de texto que organiza datos en filas y columnas separadas por comas. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a> y <a href="../part-3/15-datos-generados.html">capítulo 15</a>.
+</dd>
+</dl>
+</section>
+<section id="d" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="d">D</h2>
+<dl>
+<dt>DataPipe</dt>
+<dd>
+Servicio gratuito que recibe los datos de un estudio y los guarda en un espacio de almacenamiento del investigador, como Google Drive o Zenodo. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+<dt>Dato</dt>
+<dd>
+Representación de información que un sistema puede registrar y procesar. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Dato faltante</dt>
+<dd>
+Valor que debería existir en los datos y no está registrado. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+<dt>Debriefing</dt>
+<dd>
+Pantalla de cierre que explica el propósito del estudio, agradece la participación y ofrece un contacto. Ver <a href="../part-5/23-disenar-antes.html">capítulo 23</a>.
+</dd>
+<dt>Decisión metodológica</dt>
+<dd>
+Decisión que define qué se quiere investigar y bajo qué condiciones, como el constructo, la población, el procedimiento o el significado de una variable. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Decisión técnica</dt>
+<dd>
+Decisión que define cómo se realiza una parte del procedimiento mediante archivos y programas. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Depurar</dt>
+<dd>
+Encontrar y corregir la causa de un problema en un programa. En inglés, <em>debugging</em>. Ver <a href="../part-5/25-pilotaje-depuracion.html">capítulo 25</a>.
+</dd>
+<dt>Diccionario de variables</dt>
+<dd>
+Documento que describe cada variable de un conjunto de datos: nombre, origen, contenido, tipo, valores posibles, datos faltantes y notas. También se lo llama libro de códigos. Ver <a href="../part-3/16-diccionario-datos.html">capítulo 16</a>.
+</dd>
+<dt>Diferencias</dt>
+<dd>
+Presentación que muestra qué cambia entre dos versiones de un archivo. Las líneas con <code>+</code> se agregan y las líneas con <code>-</code> se eliminan. En inglés se la llama <em>diff</em>. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Directorio</dt>
+<dd>
+Término técnico equivalente a carpeta. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Documento de diseño</dt>
+<dd>
+Documento que reúne las decisiones metodológicas de un estudio antes de programarlo. En el proyecto del libro es <code>diseno.md</code>. Ver <a href="../part-5/23-disenar-antes.html">capítulo 23</a>.
+</dd>
+<dt>DOI</dt>
+<dd>
+Identificador permanente que permite citar un conjunto de datos u otra publicación. Zenodo lo genera al publicar un depósito. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+</dl>
+</section>
+<section id="e" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="e">E</h2>
+<dl>
+<dt>Efecto de orden</dt>
+<dd>
+Influencia de la posición de una pregunta, o de las preguntas anteriores, sobre las respuestas. Ver <a href="../part-4/17-aleatorizacion.html">capítulo 17</a>.
+</dd>
+<dt>Ejecutar</dt>
+<dd>
+Poner en funcionamiento las instrucciones de un programa. En el ciclo de trabajo, usar el resultado de la manera en que se va a usar realmente. Ver <a href="../part-1/01-computadora.html">capítulo 1</a> y <a href="../part-2/10-ciclo-trabajo.html">capítulo 10</a>.
+</dd>
+<dt>Ensayo</dt>
+<dd>
+Cada pantalla de la secuencia de un estudio en jsPsych. En inglés, <em>trial</em>. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Entrada</dt>
+<dd>
+Información que recibe la computadora, como una tecla presionada o una respuesta escrita. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Error</dt>
+<dd>
+Condición que impide completar una acción esperada. El mensaje de error describe la dificultad. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Escala psicológica</dt>
+<dd>
+Conjunto de ítems que buscan medir un mismo constructo. Tiene instrucciones, ítems, opciones de respuesta y reglas de puntuación. Ver <a href="../part-3/14-escalas-psicologicas.html">capítulo 14</a>.
+</dd>
+<dt>Escala validada</dt>
+<dd>
+Escala para la cual existe evidencia de que una versión concreta mide lo que dice medir y lo hace de manera consistente. Ver <a href="../part-3/14-escalas-psicologicas.html">capítulo 14</a>.
+</dd>
+<dt>Especificación</dt>
+<dd>
+Descripción precisa de lo que debe construirse, incluido el criterio para comprobar que el resultado es correcto. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a> y <a href="../part-2/10-ciclo-trabajo.html">capítulo 10</a>.
+</dd>
+<dt>Explorador de archivos</dt>
+<dd>
+Programa de Windows que permite recorrer unidades, carpetas y archivos mediante una interfaz gráfica. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Extensión</dt>
+<dd>
+Parte final del nombre de un archivo, separada por un punto, que ayuda a reconocer su tipo. Por ejemplo, <code>.csv</code> en <code>datos.csv</code>. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Extensión de jsPsych</dt>
+<dd>
+Pieza que agrega a jsPsych un comportamiento general, que no corresponde a una pantalla en particular, como el guardado de datos con DataPipe. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+</dl>
+</section>
+<section id="f" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="f">F</h2>
+<dl>
+<dt>Formato ancho</dt>
+<dd>
+Organización de datos con una fila por persona y una columna por variable, como la hoja de Google Forms. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a> y <a href="../part-3/15-datos-generados.html">capítulo 15</a>.
+</dd>
+<dt>Formato largo</dt>
+<dd>
+Organización de datos con una fila por ensayo, como la que produce jsPsych. Ver <a href="../part-3/15-datos-generados.html">capítulo 15</a>.
+</dd>
+<dt>Formato Likert</dt>
+<dd>
+Formato de respuesta con opciones ordenadas que expresan grados de acuerdo. Ver <a href="../part-3/14-escalas-psicologicas.html">capítulo 14</a>.
+</dd>
+</dl>
+</section>
+<section id="g" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="g">G</h2>
+<dl>
+<dt>Git</dt>
+<dd>
+Herramienta que registra las versiones de un proyecto y muestra qué cambió entre una versión y otra. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a> y <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt>GitHub</dt>
+<dd>
+Servicio web que permite alojar y compartir proyectos. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>GitHub Pages</dt>
+<dd>
+Servicio de GitHub que publica como sitio web los archivos de un repositorio. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt><code>.gitignore</code></dt>
+<dd>
+Archivo que indica qué archivos debe ignorar Git. En un estudio sirve para evitar que los archivos de datos lleguen al repositorio. Ver el <a href="../appendices/b-git.html">apéndice B</a>.
+</dd>
+<dt>Guardado progresivo</dt>
+<dd>
+Forma de guardado en la que cada pantalla se envía a medida que se responde. Quien abandona deja un archivo parcial. En este libro está desactivado. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+</dl>
+</section>
+<section id="h" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="h">H</h2>
+<dl>
+<dt>Hardware</dt>
+<dd>
+Partes físicas de una computadora, como la pantalla, el teclado, el procesador y el disco. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Herramienta de un agente</dt>
+<dd>
+Capacidad que el programa pone a disposición del modelo de lenguaje, como leer un archivo, escribirlo o ejecutar un comando. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Hoja de estilos</dt>
+<dd>
+Archivo que define la apariencia de una página web. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>HTML</dt>
+<dd>
+Lenguaje de marcas que describe la estructura de una página web mediante etiquetas como <code>&lt;h1&gt;</code> o <code>&lt;p&gt;</code>. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+</dl>
+</section>
+<section id="i" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="i">I</h2>
+<dl>
+<dt>Identificador de participante</dt>
+<dd>
+Código que distingue a cada persona en los datos sin revelar quién es. En este libro se genera al azar con <code>randomID</code>. Ver <a href="../part-3/15-datos-generados.html">capítulo 15</a>.
+</dd>
+<dt>Identificador de proceso</dt>
+<dd>
+Número que identifica un proceso durante una ejecución. También se lo conoce por la sigla <code>PID</code>. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Indicador</dt>
+<dd>
+Línea de la terminal que muestra que el intérprete espera una instrucción. Suele incluir la carpeta actual. En inglés se lo llama <em>prompt</em>. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Instalar</dt>
+<dd>
+Incorporar a la computadora los archivos y la configuración que un programa necesita para funcionar. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Interfaz gráfica</dt>
+<dd>
+Conjunto de elementos visibles, como ventanas, íconos y botones, que permiten controlar un programa. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Intérprete de comandos</dt>
+<dd>
+Programa que lee instrucciones escritas y solicita al sistema operativo que las ejecute. PowerShell es un intérprete de comandos. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Ítem de respuesta indicada</dt>
+<dd>
+Ítem que no mide un constructo y pide elegir una opción determinada. Se usa como control de atención. Ver <a href="../part-4/19-controles-atencion.html">capítulo 19</a>.
+</dd>
+<dt>Ítem invertido</dt>
+<dd>
+Ítem de una escala redactado en sentido contrario al resto. Debe transformarse antes de calcular el puntaje. Ver <a href="../part-3/14-escalas-psicologicas.html">capítulo 14</a>.
+</dd>
+</dl>
+</section>
+<section id="j" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="j">J</h2>
+<dl>
+<dt>JavaScript</dt>
+<dd>
+Lenguaje de programación que interpretan los navegadores. jsPsych está escrito en JavaScript. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>JSON</dt>
+<dd>
+Forma estándar de escribir datos como texto, con pares de nombre y valor entre llaves. Ver <a href="../part-3/15-datos-generados.html">capítulo 15</a>.
+</dd>
+<dt>jsPsych</dt>
+<dd>
+Biblioteca de JavaScript para construir estudios psicológicos que funcionan en el navegador. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+</dl>
+</section>
+<section id="l" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="l">L</h2>
+<dl>
+<dt>Límite de uso</dt>
+<dd>
+Cantidad máxima de trabajo que se le puede pedir a un agente en un período determinado según el plan de la cuenta. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Línea de contexto</dt>
+<dd>
+En una presentación de diferencias, línea que no cambia y aparece para ubicar el cambio dentro del archivo. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Línea de tiempo</dt>
+<dd>
+Secuencia de ensayos de un estudio en jsPsych. En inglés, <em>timeline</em>. Determina qué pantallas aparecen y en qué orden. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Línea de tiempo anidada</dt>
+<dd>
+Línea de tiempo incluida como un elemento dentro de otra. Permite mezclar o mostrar condicionalmente un grupo de pantallas. Ver <a href="../part-4/17-aleatorizacion.html">capítulo 17</a> y <a href="../part-4/18-logica-condicional.html">capítulo 18</a>.
+</dd>
+<dt>Lista de Markdown</dt>
+<dd>
+Serie de elementos escritos en líneas que comienzan con un guion <code>-</code> seguido de un espacio. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a>.
+</dd>
+<dt>Lógica condicional</dt>
+<dd>
+Conjunto de reglas con la forma “si ocurre…, entonces…” que deciden el recorrido de un estudio según lo que ocurrió antes. Ver <a href="../part-4/18-logica-condicional.html">capítulo 18</a>.
+</dd>
+</dl>
+</section>
+<section id="m" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="m">M</h2>
+<dl>
+<dt>Markdown</dt>
+<dd>
+Forma de escribir texto plano que marca títulos, listas y otros elementos mediante caracteres visibles, como <code>#</code>. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Memoria de trabajo</dt>
+<dd>
+Parte del hardware que mantiene disponible la información mientras un programa funciona. También se la llama memoria RAM. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Milisegundo</dt>
+<dd>
+Milésima parte de un segundo. El valor <code>500</code> en milisegundos equivale a medio segundo. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Modelo de lenguaje</dt>
+<dd>
+Programa entrenado con grandes cantidades de texto que, a partir de un texto de entrada, produce una continuación probable. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a>.
+</dd>
+<dt>Muestreo</dt>
+<dd>
+Selección al azar de algunos elementos de un conjunto más grande, como ítems de un banco. Ver <a href="../part-4/17-aleatorizacion.html">capítulo 17</a>.
+</dd>
+</dl>
+</section>
+<section id="n" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="n">N</h2>
+<dl>
+<dt>Navegador</dt>
+<dd>
+Programa que permite acceder a sitios y aplicaciones web, y que interpreta los archivos de una página para mostrarla. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Nivel de medición</dt>
+<dd>
+Clasificación de una variable según las relaciones entre sus valores: nominal, ordinal, intervalar o de razón. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+</dl>
+</section>
+<section id="o" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="o">O</h2>
+<dl>
+<dt>Operacionalización</dt>
+<dd>
+Definición de cómo se va a observar o medir un concepto en un estudio. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+</dl>
+</section>
+<section id="p" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p">P</h2>
+<dl>
+<dt>Parámetro</dt>
+<dd>
+Parte de un comando que especifica cómo interpretar el valor que sigue, como <code>-Seconds</code> en <code>Start-Sleep -Seconds 5</code>. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Permiso</dt>
+<dd>
+Configuración que establece qué acciones puede realizar un agente por su cuenta y cuáles requieren aprobación. Ver <a href="../part-2/06-chatbot-agente.html">capítulo 6</a> y <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Plan</dt>
+<dd>
+Descripción de los pasos que un agente propone realizar antes de modificar archivos. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a>.
+</dd>
+<dt>Plan de pruebas</dt>
+<dd>
+Lista de casos que, en conjunto, recorren todas las ramas y comprueban todos los recursos de un estudio. Ver <a href="../part-4/22-encuesta-ampliada.html">capítulo 22</a>.
+</dd>
+<dt>Plugin</dt>
+<dd>
+Pieza de jsPsych que agrega un tipo de pantalla, como una pregunta de texto o una escala. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Política de ejecución</dt>
+<dd>
+Configuración de Windows que controla si PowerShell puede ejecutar scripts. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>PowerShell</dt>
+<dd>
+Intérprete de comandos de Windows usado en este libro. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Pregunta abierta</dt>
+<dd>
+Pregunta que permite escribir cualquier respuesta. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+<dt>Pregunta cerrada</dt>
+<dd>
+Pregunta que ofrece opciones fijas. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+<dt>Preregistro</dt>
+<dd>
+Documento público que describe el diseño y el plan de análisis de un estudio antes de recolectar datos. Ver <a href="../part-4/19-controles-atencion.html">capítulo 19</a>.
+</dd>
+<dt>Procesamiento</dt>
+<dd>
+Aplicación de instrucciones a la información recibida. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Proceso</dt>
+<dd>
+Programa que se está ejecutando, junto con la memoria y los recursos que utiliza. Ver <a href="../part-1/04-programas-procesos-errores.html">capítulo 4</a>.
+</dd>
+<dt>Programa</dt>
+<dd>
+Conjunto organizado de instrucciones que permite realizar una tarea. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Propuesta de cambio</dt>
+<dd>
+Presentación que un agente muestra antes de modificar un archivo, con las líneas que agregaría o eliminaría. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a> y <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Proyecto</dt>
+<dd>
+Conjunto organizado de archivos y carpetas que comparten un propósito. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Prueba de regresión</dt>
+<dd>
+Prueba que se repite para detectar si un cambio nuevo rompió algo que ya funcionaba. Ver <a href="../part-4/22-encuesta-ampliada.html">capítulo 22</a>.
+</dd>
+<dt>Prueba piloto</dt>
+<dd>
+Aplicación de un estudio a pocas personas antes de la recolección real, para encontrar problemas de funcionamiento, comprensión y calidad de datos. Ver <a href="../part-5/25-pilotaje-depuracion.html">capítulo 25</a>.
+</dd>
+<dt>Pull</dt>
+<dd>
+Traer a tu computadora los cambios de un repositorio de GitHub que todavía no tenés. Ver el <a href="../appendices/b-git.html">apéndice B</a>.
+</dd>
+<dt>Push</dt>
+<dd>
+Envío de los cambios registrados en una computadora a un repositorio de GitHub. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+</dl>
+</section>
+<section id="r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="r">R</h2>
+<dl>
+<dt>Rama</dt>
+<dd>
+Línea de versiones de un repositorio. La rama principal suele llamarse <code>main</code>. En inglés, <em>branch</em>. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt><code>README.md</code></dt>
+<dd>
+Archivo que presenta un proyecto a las personas y explica su propósito, su estado y cómo comenzar. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Reemplazo</dt>
+<dd>
+En una presentación de diferencias, una línea eliminada seguida de una línea agregada en la misma posición. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Registro de cambios</dt>
+<dd>
+Documento que conserva, en orden, las modificaciones realizadas en un proyecto, con su fecha, sus archivos, su verificación y el estado resultante. Ver <a href="../part-2/10-ciclo-trabajo.html">capítulo 10</a>.
+</dd>
+<dt>Repositorio</dt>
+<dd>
+Espacio de GitHub que contiene los archivos de un proyecto y el historial de sus cambios. Ver <a href="../part-5/27-publicacion.html">capítulo 27</a>.
+</dd>
+<dt>Repositorio local</dt>
+<dd>
+Carpeta de tu computadora que Git controla, con el historial de sus cambios. Ver el <a href="../appendices/b-git.html">apéndice B</a>.
+</dd>
+<dt>Repositorio remoto</dt>
+<dd>
+Copia de un repositorio guardada en un servicio como GitHub. Ver el <a href="../appendices/b-git.html">apéndice B</a>.
+</dd>
+<dt>Reproducibilidad</dt>
+<dd>
+Capacidad de otra persona para comprender y repetir lo que se hizo en una investigación. Ver <a href="../part-2/10-ciclo-trabajo.html">capítulo 10</a>.
+</dd>
+<dt>Resaltado de sintaxis</dt>
+<dd>
+Uso de colores en un editor para distinguir las partes del código. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Respuesta descuidada</dt>
+<dd>
+Forma de responder sin leer o sin el esfuerzo necesario, de modo que las respuestas no reflejan lo que el instrumento intenta medir. Ver <a href="../part-4/19-controles-atencion.html">capítulo 19</a>.
+</dd>
+<dt>Restricción metodológica</dt>
+<dd>
+Límite de un pedido que protege una decisión del estudio, como un rango de edad o el texto exacto de un consentimiento. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a>.
+</dd>
+<dt>Restricción técnica</dt>
+<dd>
+Límite de un pedido que restringe qué archivos, programas o acciones puede usar el agente. Ver <a href="../part-2/08-describir-tarea.html">capítulo 8</a>.
+</dd>
+<dt>Revertir</dt>
+<dd>
+Devolver una parte de un archivo a su estado anterior. Ver <a href="../part-2/09-revisar-agente.html">capítulo 9</a>.
+</dd>
+<dt>Ruta</dt>
+<dd>
+Expresión que describe la ubicación de un archivo o una carpeta. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Ruta absoluta</dt>
+<dd>
+Ruta que describe el recorrido completo desde una unidad o desde el punto principal del sistema. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+<dt>Ruta relativa</dt>
+<dd>
+Ruta que describe una ubicación a partir de la carpeta actual. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+</dl>
+</section>
+<section id="s" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="s">S</h2>
+<dl>
+<dt>Salida</dt>
+<dd>
+Resultado que la computadora comunica, como un texto en pantalla, un sonido o un archivo creado. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Script</dt>
+<dd>
+Archivo de texto que contiene instrucciones para un intérprete de comandos. Los scripts de PowerShell usan la extensión <code>.ps1</code>. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+<dt>Selector</dt>
+<dd>
+Parte de una regla de CSS que indica a qué elementos se aplica. Ver <a href="../part-4/21-presentacion-encuesta.html">capítulo 21</a>.
+</dd>
+<dt>Servidor</dt>
+<dd>
+Computadora conectada a Internet que recibe pedidos de otras computadoras y les responde. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+<dt>Sintaxis</dt>
+<dd>
+Conjunto de reglas de escritura de un lenguaje, como el uso de comas, comillas y llaves en JavaScript. Ver <a href="../part-3/12-primer-jspsych.html">capítulo 12</a>.
+</dd>
+<dt>Sistema operativo</dt>
+<dd>
+Software que coordina el funcionamiento general de la computadora, como Windows, macOS o Linux. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Software</dt>
+<dd>
+Programas e instrucciones que utiliza una computadora. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Subcarpeta</dt>
+<dd>
+Carpeta que se encuentra dentro de otra carpeta. Ver <a href="../part-1/02-archivos-carpetas-rutas.html">capítulo 2</a>.
+</dd>
+</dl>
+</section>
+<section id="t" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="t">T</h2>
+<dl>
+<dt>Terminal</dt>
+<dd>
+Programa que permite escribir instrucciones y leer sus resultados mediante texto. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+<dt>Texto plano</dt>
+<dd>
+Texto formado solo por caracteres, sin un formato exclusivo de un programa. Muchos editores pueden abrirlo. Ver <a href="../part-1/05-proyecto.html">capítulo 5</a>.
+</dd>
+<dt>Tiempo de reacción</dt>
+<dd>
+Tiempo que tarda una persona en responder a un estímulo en una tarea diseñada para medirlo. Suele ser la variable dependiente de un experimento. Ver <a href="../part-4/20-tiempos-respuesta.html">capítulo 20</a>.
+</dd>
+<dt>Tiempo de respuesta</dt>
+<dd>
+En una encuesta, tiempo desde que aparece una pantalla hasta que la persona avanza. En jsPsych se registra en <code>rt</code>. Ver <a href="../part-4/20-tiempos-respuesta.html">capítulo 20</a>.
+</dd>
+<dt>Tubería</dt>
+<dd>
+Signo <code>|</code> que envía el resultado de un comando al comando siguiente. Ver <a href="../part-2/07-codex-terminal.html">capítulo 7</a>.
+</dd>
+</dl>
+</section>
+<section id="u" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="u">U</h2>
+<dl>
+<dt>Umbral</dt>
+<dd>
+Valor que separa los casos que cumplen un criterio de los que no, como un tiempo mínimo por ítem. Ver <a href="../part-4/20-tiempos-respuesta.html">capítulo 20</a>.
+</dd>
+<dt>Unidad de aleatorización</dt>
+<dd>
+Elemento que se mezcla o se asigna al azar, como los ítems de una escala o las escalas de un estudio. Ver <a href="../part-4/17-aleatorizacion.html">capítulo 17</a>.
+</dd>
+</dl>
+</section>
+<section id="v" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="v">V</h2>
+<dl>
+<dt>Validación</dt>
+<dd>
+Regla que un programa comprueba antes de aceptar una respuesta. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a> y <a href="../part-3/13-preguntas-formularios.html">capítulo 13</a>.
+</dd>
+<dt>Valor</dt>
+<dd>
+Cada respuesta concreta que toma una variable. Ver <a href="../part-3/11-google-forms.html">capítulo 11</a>.
+</dd>
+<dt>Valor que no aplica</dt>
+<dd>
+Ausencia de dato que corresponde a una pregunta que, por diseño, no se le hizo a esa persona. No es un dato faltante. Ver <a href="../part-4/18-logica-condicional.html">capítulo 18</a>.
+</dd>
+<dt>Variable</dt>
+<dd>
+Característica que se registra y que puede tomar distintos valores, como la edad. Ver <a href="../part-1/01-computadora.html">capítulo 1</a>.
+</dd>
+<dt>Variable derivada</dt>
+<dd>
+Variable que se calcula a partir de otras, en lugar de responderse de manera directa. Ver <a href="../part-4/19-controles-atencion.html">capítulo 19</a>.
+</dd>
+</dl>
+</section>
+<section id="w" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="w">W</h2>
+<dl>
+<dt>Windows Terminal</dt>
+<dd>
+Aplicación de Windows que proporciona la ventana en la que funcionan intérpretes de comandos como PowerShell. Ver <a href="../part-1/03-terminal.html">capítulo 3</a>.
+</dd>
+</dl>
+</section>
+<section id="z" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="z">Z</h2>
+<dl>
+<dt>Zenodo</dt>
+<dd>
+Repositorio abierto de datos de investigación. Los depósitos son privados hasta que se publican, y al publicarse reciben un DOI. Ver <a href="../part-5/26-guardado-datos.html">capítulo 26</a>.
+</dd>
+</dl>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../appendices/e-estructura-jspsych.html" class="pagination-link" aria-label="Estructura de un proyecto jsPsych">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Cómo organiza jsPsych los datos, cómo identificar filas y participantes, y cómo obtener un archivo para revisar.">
+
+<title>15&nbsp; Los datos que genera el estudio – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-3/16-diccionario-datos.html" rel="next">
+<link href="../part-3/14-escalas-psicologicas.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-3/11-google-forms.html">Parte III. De Google Forms a jsPsych</a></li><li class="breadcrumb-item"><a href="../part-3/15-datos-generados.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">15.1</span> Qué vas a poder hacer</a></li>
+  <li><a href="#una-tabla-difícil-de-leer-permite-formular-el-problema" id="toc-una-tabla-difícil-de-leer-permite-formular-el-problema" class="nav-link" data-scroll-target="#una-tabla-difícil-de-leer-permite-formular-el-problema"><span class="header-section-number">15.2</span> Una tabla difícil de leer permite formular el problema</a></li>
+  <li><a href="#jspsych-registra-una-fila-por-ensayo" id="toc-jspsych-registra-una-fila-por-ensayo" class="nav-link" data-scroll-target="#jspsych-registra-una-fila-por-ensayo"><span class="header-section-number">15.3</span> jsPsych registra una fila por ensayo</a></li>
+  <li><a href="#cada-columna-tiene-un-significado" id="toc-cada-columna-tiene-un-significado" class="nav-link" data-scroll-target="#cada-columna-tiene-un-significado"><span class="header-section-number">15.4</span> Cada columna tiene un significado</a></li>
+  <li><a href="#la-columna-response-contiene-variables-agrupadas" id="toc-la-columna-response-contiene-variables-agrupadas" class="nav-link" data-scroll-target="#la-columna-response-contiene-variables-agrupadas"><span class="header-section-number">15.5</span> La columna <code>response</code> contiene variables agrupadas</a></li>
+  <li><a href="#una-etiqueta-identifica-cada-pantalla" id="toc-una-etiqueta-identifica-cada-pantalla" class="nav-link" data-scroll-target="#una-etiqueta-identifica-cada-pantalla"><span class="header-section-number">15.6</span> Una etiqueta identifica cada pantalla</a></li>
+  <li><a href="#un-identificador-distingue-a-cada-participante" id="toc-un-identificador-distingue-a-cada-participante" class="nav-link" data-scroll-target="#un-identificador-distingue-a-cada-participante"><span class="header-section-number">15.7</span> Un identificador distingue a cada participante</a></li>
+  <li><a href="#el-estudio-puede-descargar-un-archivo" id="toc-el-estudio-puede-descargar-un-archivo" class="nav-link" data-scroll-target="#el-estudio-puede-descargar-un-archivo"><span class="header-section-number">15.8</span> El estudio puede descargar un archivo</a></li>
+  <li><a href="#este-capítulo-importa-para-investigar-en-psicología" id="toc-este-capítulo-importa-para-investigar-en-psicología" class="nav-link" data-scroll-target="#este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">15.9</span> Este capítulo importa para investigar en Psicología</a></li>
+  <li><a href="#agregá-etiquetas-identificador-y-descarga" id="toc-agregá-etiquetas-identificador-y-descarga" class="nav-link" data-scroll-target="#agregá-etiquetas-identificador-y-descarga"><span class="header-section-number">15.10</span> Agregá etiquetas, identificador y descarga</a></li>
+  <li><a href="#explicá-qué-hizo-realmente-el-agente" id="toc-explicá-qué-hizo-realmente-el-agente" class="nav-link" data-scroll-target="#explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">15.11</span> Explicá qué hizo realmente el agente</a></li>
+  <li><a href="#verificá-el-archivo-de-datos" id="toc-verificá-el-archivo-de-datos" class="nav-link" data-scroll-target="#verificá-el-archivo-de-datos"><span class="header-section-number">15.12</span> Verificá el archivo de datos</a></li>
+  <li><a href="#anticipá-la-base-de-datos" id="toc-anticipá-la-base-de-datos" class="nav-link" data-scroll-target="#anticipá-la-base-de-datos"><span class="header-section-number">15.13</span> Anticipá la base de datos</a></li>
+  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-errores" id="toc-revisá-algunas-situaciones-que-suelen-causar-errores" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">15.14</span> Revisá algunas situaciones que suelen causar errores</a>
+  <ul class="collapse">
+  <li><a href="#el-navegador-no-descarga-nada" id="toc-el-navegador-no-descarga-nada" class="nav-link" data-scroll-target="#el-navegador-no-descarga-nada"><span class="header-section-number">15.14.1</span> El navegador no descarga nada</a></li>
+  <li><a href="#todas-las-filas-aparecen-en-una-sola-columna" id="toc-todas-las-filas-aparecen-en-una-sola-columna" class="nav-link" data-scroll-target="#todas-las-filas-aparecen-en-una-sola-columna"><span class="header-section-number">15.14.2</span> Todas las filas aparecen en una sola columna</a></li>
+  <li><a href="#las-tildes-aparecen-como-símbolos-extraños" id="toc-las-tildes-aparecen-como-símbolos-extraños" class="nav-link" data-scroll-target="#las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">15.14.3</span> Las tildes aparecen como símbolos extraños</a></li>
+  <li><a href="#falta-la-columna-pantalla-en-alguna-fila" id="toc-falta-la-columna-pantalla-en-alguna-fila" class="nav-link" data-scroll-target="#falta-la-columna-pantalla-en-alguna-fila"><span class="header-section-number">15.14.4</span> Falta la columna <code>pantalla</code> en alguna fila</a></li>
+  <li><a href="#el-estudio-quedó-en-blanco-después-de-agregar-las-etiquetas" id="toc-el-estudio-quedó-en-blanco-después-de-agregar-las-etiquetas" class="nav-link" data-scroll-target="#el-estudio-quedó-en-blanco-después-de-agregar-las-etiquetas"><span class="header-section-number">15.14.5</span> El estudio quedó en blanco después de agregar las etiquetas</a></li>
+  </ul></li>
+  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">15.15</span> Comprobá lo que comprendiste</a></li>
+  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">15.16</span> Qué aprendiste en este capítulo</a></li>
+  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">15.17</span> Resolvé un desafío breve</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-3/11-google-forms.html">Parte III. De Google Forms a jsPsych</a></li><li class="breadcrumb-item"><a href="../part-3/15-datos-generados.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-vas-a-poder-hacer" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">15.1</span> Qué vas a poder hacer</h2>
+<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<ol type="1">
+<li><p>Vas a poder describir cómo organiza jsPsych los datos de un estudio.</p></li>
+<li><p>Vas a poder distinguir el formato largo del formato ancho.</p></li>
+<li><p>Vas a poder interpretar las columnas principales del archivo de datos.</p></li>
+<li><p>Vas a poder agregar a los datos una etiqueta por pantalla y un identificador de participante.</p></li>
+<li><p>Vas a poder descargar los datos como archivo CSV y abrirlos en una planilla de cálculo.</p></li>
+<li><p>Vas a poder anticipar la estructura de datos que producirá un estudio antes de recolectarlos.</p></li>
+</ol>
+</section>
+<section id="una-tabla-difícil-de-leer-permite-formular-el-problema" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="una-tabla-difícil-de-leer-permite-formular-el-problema"><span class="header-section-number">15.2</span> Una tabla difícil de leer permite formular el problema</h2>
+<p>Al terminar el estudio, la página muestra una tabla de datos en formato CSV. En los capítulos anteriores la usaste para comprobar que cada variable quedaba registrada. Sin embargo, esa tabla tiene tres problemas para un investigador.</p>
+<ol type="1">
+<li><p>Aparece en la pantalla de quien completa el estudio y desaparece al cerrar la ventana.</p></li>
+<li><p>Las filas no dicen a qué pantalla corresponden, salvo por su posición.</p></li>
+<li><p>Nada identifica a la persona que respondió. Si juntaras los datos de veinte personas, no podrías saber qué filas son de quién.</p></li>
+</ol>
+<p>Además, la tabla no se parece a la hoja de cálculo de Google Forms. Allí había una fila por persona. Aquí hay una fila por pantalla.</p>
+<p>Este capítulo explica esa diferencia y resuelve los tres problemas. Al terminar, tu estudio va a descargar un archivo de datos que podés abrir en una planilla de cálculo.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Idea clave
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de recolectar datos, un investigador debe saber qué archivo va a obtener: cuántas filas, qué columnas, qué significa cada valor y cómo se identifica a cada participante. Esa anticipación permite detectar problemas cuando todavía se pueden corregir.</p>
+</div>
+</div>
+</section>
+<section id="jspsych-registra-una-fila-por-ensayo" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="jspsych-registra-una-fila-por-ensayo"><span class="header-section-number">15.3</span> jsPsych registra una fila por ensayo</h2>
+<p>Google Forms produce una tabla en <strong>formato ancho</strong>: una fila por persona y una columna por variable. jsPsych produce una tabla en <strong>formato largo</strong>: una fila por ensayo.</p>
+<p>Compará las dos organizaciones para una persona que respondió edad y carrera.</p>
+<pre class="text"><code>Formato ancho (Google Forms)
+Marca temporal       | edad | carrera
+24/09/2026 10:15:02  | 22   | Psicología</code></pre>
+<pre class="text"><code>Formato largo (jsPsych)
+trial_index | trial_type          | response
+0           | html-button-response | 0
+1           | survey-html-form     | {"edad":"22"}
+2           | survey-text          | {"carrera":"Psicología"}
+3           | html-button-response | 0</code></pre>
+<p>El formato largo registra todo lo que ocurrió, pantalla por pantalla, incluidas las pantallas sin preguntas, como la bienvenida. Es un registro completo del procedimiento. El formato ancho es más cómodo para muchos análisis. Pasar de uno a otro es una tarea del análisis de datos, que se realiza con programas como una planilla de cálculo, Jamovi o R. En este libro nos concentramos en comprender el formato largo y en documentarlo.</p>
+</section>
+<section id="cada-columna-tiene-un-significado" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="cada-columna-tiene-un-significado"><span class="header-section-number">15.4</span> Cada columna tiene un significado</h2>
+<p>El archivo de datos de tu estudio tiene estas columnas principales.</p>
+<div id="tbl-columnas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-columnas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;15.1: Columnas principales del archivo de datos
+</figcaption>
+<div aria-describedby="tbl-columnas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Columna</th>
+<th style="text-align: left;">Qué registra</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>rt</code></td>
+<td style="text-align: left;">El tiempo de respuesta: milisegundos desde que apareció la pantalla hasta que la persona avanzó.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>stimulus</code></td>
+<td style="text-align: left;">El contenido que mostró la pantalla, en las pantallas con texto y botones.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>response</code></td>
+<td style="text-align: left;">La respuesta. En los botones, la posición del botón presionado. En las preguntas, las variables con sus valores.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>trial_type</code></td>
+<td style="text-align: left;">El plugin que se usó en esa pantalla.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>trial_index</code></td>
+<td style="text-align: left;">La posición de la pantalla en la línea de tiempo, contando desde 0.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>time_elapsed</code></td>
+<td style="text-align: left;">Milisegundos transcurridos desde el comienzo del estudio.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>plugin_version</code></td>
+<td style="text-align: left;">La versión del plugin usado.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Algunos plugins agregan columnas propias. Por ejemplo, <code>survey-multi-choice</code> agrega <code>response_index</code>, con la posición de cada opción elegida. Cuando una fila corresponde a un plugin que no usa esa columna, la celda queda vacía.</p>
+<p>Observá la columna <code>rt</code>. Google Forms no registra este dato. jsPsych lo registra en cada pantalla, sin que lo pidas. En la Parte IV vas a estudiar qué información aporta en una encuesta.</p>
+</section>
+<section id="la-columna-response-contiene-variables-agrupadas" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="la-columna-response-contiene-variables-agrupadas"><span class="header-section-number">15.5</span> La columna <code>response</code> contiene variables agrupadas</h2>
+<p>En las pantallas de preguntas, la columna <code>response</code> no contiene un único valor. Contiene un grupo de variables con sus valores, escrito así.</p>
+<pre class="text"><code>{"genero":"Mujer","anio_carrera":"2.º"}</code></pre>
+<p>Esta notación se llama <strong>JSON</strong>. Es una forma estándar de escribir datos como texto. Las llaves <code>{ }</code> agrupan pares formados por un nombre y un valor, separados por dos puntos. Los pares se separan con comas. Es la misma forma que usás en <code>experiment.js</code> para describir un ensayo, porque JSON proviene de JavaScript.</p>
+<p>Cuando esta notación aparece dentro de un archivo CSV, las comillas se duplican.</p>
+<pre class="text"><code>"{""genero"":""Mujer"",""anio_carrera"":""2.º""}"</code></pre>
+<p>Las comillas duplicadas no son un error. El formato CSV usa comillas para delimitar cada celda, así que las comillas que forman parte del contenido se escriben dos veces. Una planilla de cálculo las interpreta correctamente al abrir el archivo.</p>
+</section>
+<section id="una-etiqueta-identifica-cada-pantalla" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="una-etiqueta-identifica-cada-pantalla"><span class="header-section-number">15.6</span> Una etiqueta identifica cada pantalla</h2>
+<p>Para saber a qué pantalla corresponde una fila, podés usar la columna <code>trial_index</code>. Sin embargo, esa posición cambia si agregás o quitás pantallas. Una forma más estable es etiquetar cada ensayo.</p>
+<p>Todos los plugins aceptan un parámetro llamado <code>data</code>. Lo que escribas en ese parámetro se agrega como columnas a la fila de ese ensayo.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> bienvenida <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> jsPsychHtmlButtonResponse<span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">stimulus</span><span class="op">:</span> <span class="st">"&lt;h1&gt;Estudio sobre hábitos de estudio&lt;/h1&gt;&lt;p&gt;Gracias por tu interés en participar.&lt;/p&gt;"</span><span class="op">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">choices</span><span class="op">:</span> [<span class="st">"Comenzar"</span>]<span class="op">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> { <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"bienvenida"</span> }</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Con esta línea, la fila de la bienvenida va a tener una columna <code>pantalla</code> con el valor <code>bienvenida</code>. Si cada ensayo tiene su etiqueta, cada fila del archivo va a indicar a qué pantalla corresponde.</p>
+</section>
+<section id="un-identificador-distingue-a-cada-participante" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="un-identificador-distingue-a-cada-participante"><span class="header-section-number">15.7</span> Un identificador distingue a cada participante</h2>
+<p>Cuando reúnas los datos de muchas personas, vas a necesitar saber qué filas pertenecen a cada una. Para eso se usa un <strong>identificador de participante</strong>: un código que distingue a cada persona sin revelar quién es.</p>
+<p>Un identificador no debe contener datos personales como el nombre, el correo electrónico o el documento. En el capítulo sobre agentes viste que los datos de participantes requieren un tratamiento protegido. Un código generado al azar permite distinguir a las personas sin identificarlas.</p>
+<p>jsPsych puede generar ese código y agregarlo a todas las filas.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> participante <span class="op">=</span> jsPsych<span class="op">.</span><span class="at">randomization</span><span class="op">.</span><span class="fu">randomID</span>(<span class="dv">8</span>)<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>jsPsych<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="fu">addProperties</span>({ <span class="dt">participante</span><span class="op">:</span> participante })<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La primera línea genera un código de ocho letras y números al azar, como <code>8sx0gfol</code>, y lo guarda con el nombre <code>participante</code>. La segunda línea agrega una columna <code>participante</code> con ese código a todas las filas de datos.</p>
+</section>
+<section id="el-estudio-puede-descargar-un-archivo" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="el-estudio-puede-descargar-un-archivo"><span class="header-section-number">15.8</span> El estudio puede descargar un archivo</h2>
+<p>Hasta ahora, al terminar, el estudio mostraba los datos en la pantalla. jsPsych puede, en cambio, descargar un archivo CSV.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> jsPsych <span class="op">=</span> <span class="fu">initJsPsych</span>({</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">on_finish</span><span class="op">:</span> <span class="kw">function</span> () {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    jsPsych<span class="op">.</span><span class="at">data</span><span class="op">.</span><span class="fu">get</span>()<span class="op">.</span><span class="fu">localSave</span>(<span class="st">"csv"</span><span class="op">,</span> <span class="st">"datos_"</span> <span class="op">+</span> participante <span class="op">+</span> <span class="st">".csv"</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La línea dentro de <code>on_finish</code> obtiene todos los datos y los guarda en un archivo. El nombre del archivo se forma uniendo <code>datos_</code>, el código del participante y la extensión <code>.csv</code>. Por ejemplo, <code>datos_8sx0gfol.csv</code>. El navegador lo guarda en la carpeta Descargas, como cualquier descarga.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La descarga sirve para probar, no para recolectar
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El archivo se descarga en la computadora de quien completa el estudio. Si una persona participante completara esta versión desde su casa, el archivo quedaría en su computadora y vos no lo recibirías. Esta forma de guardado sirve para probar el estudio y revisar sus datos. En la Parte V vas a configurar un guardado en línea para recolectar datos reales.</p>
+</div>
+</div>
+</section>
+<section id="este-capítulo-importa-para-investigar-en-psicología" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="este-capítulo-importa-para-investigar-en-psicología"><span class="header-section-number">15.9</span> Este capítulo importa para investigar en Psicología</h2>
+<p>La estructura de los datos se decide antes de recolectarlos. Si descubrís después de la recolección que faltaba un identificador o que las filas no se podían interpretar, esos datos pueden quedar inutilizables.</p>
+<p>Anticipar el archivo de datos es parte del diseño. Un investigador debería poder responder, antes de publicar un estudio, qué filas va a tener el archivo de cada participante, qué columnas, qué valores posibles y qué significa un valor vacío. En el próximo capítulo vas a escribir esas respuestas en un diccionario de variables.</p>
+</section>
+<section id="agregá-etiquetas-identificador-y-descarga" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="agregá-etiquetas-identificador-y-descarga"><span class="header-section-number">15.10</span> Agregá etiquetas, identificador y descarga</h2>
+<p>Vas a realizar dos pedidos. El primero agrega las etiquetas de pantalla. El segundo agrega el identificador y la descarga.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Trabajá con Codex
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Guardá una copia de respaldo de <code>experiment.js</code>.</p></li>
+<li><p>Iniciá Codex en <code>mi-primer-estudio</code> con permisos <strong>Read Only</strong>.</p></li>
+</ol>
+<p><strong>Pedido 1: etiquetas de pantalla.</strong></p>
+<pre class="text"><code>En experiment.js, agregá a cada ensayo el parámetro data con una propiedad pantalla.
+Usá exactamente estos valores:
+bienvenida -&gt; "bienvenida"
+consentimiento -&gt; "consentimiento"
+pregunta_edad -&gt; "edad"
+preguntas_genero_anio -&gt; "genero_anio"
+pregunta_carrera -&gt; "carrera"
+pregunta_recursos -&gt; "recursos"
+escala_organizacion -&gt; "escala_organizacion"
+pregunta_comentarios -&gt; "comentarios"
+cierre -&gt; "cierre"
+Por ejemplo, el ensayo bienvenida debe incluir: data: { pantalla: "bienvenida" }
+No modifiques ninguna otra parte del archivo ni otros archivos.</code></pre>
+<ol start="3" type="1">
+<li>Revisá la propuesta. Debe agregar una línea <code>data</code> en cada uno de los nueve ensayos y no cambiar nada más. Aprobala si coincide.</li>
+</ol>
+<p><strong>Pedido 2: identificador y descarga.</strong></p>
+<pre class="text"><code>En experiment.js:
+1. Inmediatamente después del bloque initJsPsych, agregá estas dos líneas y un comentario:
+   // Identificador aleatorio de la persona participante
+   const participante = jsPsych.randomization.randomID(8);
+   jsPsych.data.addProperties({ participante: participante });
+2. En on_finish, reemplazá la línea que muestra los datos por esta línea exacta:
+   jsPsych.data.get().localSave("csv", "datos_" + participante + ".csv");
+No modifiques ninguna otra parte del archivo ni otros archivos.
+Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.</code></pre>
+<ol start="4" type="1">
+<li>Revisá el plan y la propuesta. Comprobá que la línea <code>displayData</code> se elimine y que la línea <code>localSave</code> la reemplace.</li>
+</ol>
+</div>
+</div>
+<p><strong>Sin acceso a Codex:</strong> realizá los cambios con el editor a partir de los fragmentos de este capítulo. El checkpoint <code>04-escalas</code> contiene la versión completa de <code>experiment.js</code>.</p>
+</section>
+<section id="explicá-qué-hizo-realmente-el-agente" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="explicá-qué-hizo-realmente-el-agente"><span class="header-section-number">15.11</span> Explicá qué hizo realmente el agente</h2>
+<p>En el primer pedido, el agente agregó la misma estructura a nueve ensayos. Es un cambio repetitivo, del tipo que un agente realiza con rapidez. También es un cambio fácil de revisar, porque cada línea agregada tiene la misma forma. Revisá especialmente las comas: al agregar un parámetro al final de un ensayo, el parámetro anterior necesita una coma al final.</p>
+<p>En el segundo pedido, el agente agregó un nombre nuevo, <code>participante</code>, y lo usó en dos lugares: en <code>addProperties</code> y en el nombre del archivo. Observá que <code>on_finish</code> usa <code>participante</code> aunque aparece antes en el archivo. Esto funciona porque las instrucciones de <code>on_finish</code> recién se ejecutan cuando el estudio termina, y para entonces <code>participante</code> ya existe.</p>
+</section>
+<section id="verificá-el-archivo-de-datos" class="level2" data-number="15.12">
+<h2 data-number="15.12" class="anchored" data-anchor-id="verificá-el-archivo-de-datos"><span class="header-section-number">15.12</span> Verificá el archivo de datos</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><p>Recargá el estudio y completalo. Al presionar <strong>Finalizar</strong>, el navegador va a descargar un archivo.</p></li>
+<li><p>Abrí la carpeta Descargas y buscá un archivo cuyo nombre empiece con <code>datos_</code>.</p></li>
+<li><p>Completá el estudio una segunda vez. Comprobá que se descargue un segundo archivo con otro código.</p></li>
+<li><p>Abrí uno de los archivos en una planilla de cálculo. Podés usar Google Sheets, LibreOffice Calc o Excel.</p></li>
+<li><p>Comprobá que el archivo tenga nueve filas de datos, una por pantalla, además de la fila de nombres de columnas.</p></li>
+<li><p>Comprobá que todas las filas tengan el mismo valor en la columna <code>participante</code>.</p></li>
+<li><p>Comprobá que la columna <code>pantalla</code> tenga un valor diferente en cada fila, en el orden de la línea de tiempo.</p></li>
+<li><p>Buscá la fila de <code>comentarios</code> y observá cómo aparece la respuesta vacía.</p></li>
+</ol>
+</div>
+</div>
+<p>Para abrir el archivo en Google Sheets, creá una hoja nueva y usá <strong>Archivo</strong>, <strong>Importar</strong> y <strong>Subir</strong>. En LibreOffice Calc, abrilo con doble clic y, en la ventana de importación, elegí la coma como separador y la codificación UTF-8.</p>
+</section>
+<section id="anticipá-la-base-de-datos" class="level2" data-number="15.13">
+<h2 data-number="15.13" class="anchored" data-anchor-id="anticipá-la-base-de-datos"><span class="header-section-number">15.13</span> Anticipá la base de datos</h2>
+<p>Ahora podés describir el archivo que produce tu estudio antes de recolectar datos reales.</p>
+<pre class="text"><code>Archivo:    datos_&lt;participante&gt;.csv, uno por persona
+Filas:      9 por persona, una por pantalla
+Columnas:   participante, pantalla, rt, response, trial_type, trial_index,
+            time_elapsed, stimulus, plugin_version, response_index, question_order
+Variables:  edad, genero, anio_carrera, carrera, recursos,
+            efoe_1 a efoe_4 y comentarios, dentro de la columna response</code></pre>
+<p>Esta descripción ya es una forma de documentación. En el próximo capítulo la vas a convertir en un diccionario de variables completo.</p>
+</section>
+<section id="revisá-algunas-situaciones-que-suelen-causar-errores" class="level2" data-number="15.14">
+<h2 data-number="15.14" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-errores"><span class="header-section-number">15.14</span> Revisá algunas situaciones que suelen causar errores</h2>
+<section id="el-navegador-no-descarga-nada" class="level3" data-number="15.14.1">
+<h3 data-number="15.14.1" class="anchored" data-anchor-id="el-navegador-no-descarga-nada"><span class="header-section-number">15.14.1</span> El navegador no descarga nada</h3>
+<p>Algunos navegadores piden permiso para descargar archivos desde una página. Revisá si aparece un aviso en la barra de direcciones. También comprobá con la consola, usando <code>F12</code>, que no haya errores.</p>
+</section>
+<section id="todas-las-filas-aparecen-en-una-sola-columna" class="level3" data-number="15.14.2">
+<h3 data-number="15.14.2" class="anchored" data-anchor-id="todas-las-filas-aparecen-en-una-sola-columna"><span class="header-section-number">15.14.2</span> Todas las filas aparecen en una sola columna</h3>
+<p>La planilla no reconoció la coma como separador. Esto ocurre con frecuencia en Excel configurado en español, que espera punto y coma. Usá la opción de importar datos desde texto y elegí la coma como separador.</p>
+</section>
+<section id="las-tildes-aparecen-como-símbolos-extraños" class="level3" data-number="15.14.3">
+<h3 data-number="15.14.3" class="anchored" data-anchor-id="las-tildes-aparecen-como-símbolos-extraños"><span class="header-section-number">15.14.3</span> Las tildes aparecen como símbolos extraños</h3>
+<p>La planilla interpretó el archivo con otra codificación, como viste en el capítulo sobre cómo describir una tarea. Al importar, elegí UTF-8.</p>
+</section>
+<section id="falta-la-columna-pantalla-en-alguna-fila" class="level3" data-number="15.14.4">
+<h3 data-number="15.14.4" class="anchored" data-anchor-id="falta-la-columna-pantalla-en-alguna-fila"><span class="header-section-number">15.14.4</span> Falta la columna <code>pantalla</code> en alguna fila</h3>
+<p>Algún ensayo no tiene el parámetro <code>data</code>. Buscá en <code>experiment.js</code> el ensayo correspondiente a esa fila.</p>
+</section>
+<section id="el-estudio-quedó-en-blanco-después-de-agregar-las-etiquetas" class="level3" data-number="15.14.5">
+<h3 data-number="15.14.5" class="anchored" data-anchor-id="el-estudio-quedó-en-blanco-después-de-agregar-las-etiquetas"><span class="header-section-number">15.14.5</span> El estudio quedó en blanco después de agregar las etiquetas</h3>
+<p>Probablemente falte una coma antes de la línea <code>data</code>. Abrí la consola con <code>F12</code>, ubicá la línea indicada y revisá la línea anterior.</p>
+</section>
+</section>
+<section id="comprobá-lo-que-comprendiste" class="level2" data-number="15.15">
+<h2 data-number="15.15" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">15.15</span> Comprobá lo que comprendiste</h2>
+<p>Respondé cada pregunta con una oración completa.</p>
+<ol type="1">
+<li><p>¿Qué diferencia existe entre el formato ancho y el formato largo?</p></li>
+<li><p>¿Qué registra la columna <code>rt</code>?</p></li>
+<li><p>¿Qué es JSON?</p></li>
+<li><p>¿Por qué aparecen comillas duplicadas en el archivo CSV?</p></li>
+<li><p>¿Qué función cumple el parámetro <code>data</code> de un ensayo?</p></li>
+<li><p>¿Por qué el identificador de participante no debe contener datos personales?</p></li>
+<li><p>¿Por qué la descarga local no sirve para recolectar datos de participantes?</p></li>
+<li><p>¿Cuántas filas produce cada participante en la versión actual del estudio?</p></li>
+</ol>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<ol type="1">
+<li><p>En formato ancho hay una fila por persona, mientras que en formato largo hay una fila por ensayo.</p></li>
+<li><p>Registra los milisegundos desde que apareció la pantalla hasta que la persona avanzó.</p></li>
+<li><p>JSON es una forma estándar de escribir datos como texto, con pares de nombre y valor entre llaves.</p></li>
+<li><p>El formato CSV usa comillas para delimitar las celdas, por lo que las comillas del contenido se escriben dos veces.</p></li>
+<li><p>Agrega columnas con información propia a la fila de datos de ese ensayo.</p></li>
+<li><p>El identificador debe distinguir a las personas sin permitir saber quiénes son, para proteger su privacidad.</p></li>
+<li><p>El archivo se descarga en la computadora de quien completa el estudio, no en la del investigador.</p></li>
+<li><p>Cada participante produce nueve filas.</p></li>
+</ol>
+</details>
+</section>
+<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="15.16">
+<h2 data-number="15.16" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">15.16</span> Qué aprendiste en este capítulo</h2>
+<p>jsPsych registra los datos en formato largo: una fila por ensayo. Google Forms usa formato ancho: una fila por persona. Ambas organizaciones describen los mismos datos de maneras diferentes.</p>
+<p>Cada fila incluye columnas como <code>rt</code>, <code>response</code>, <code>trial_type</code> y <code>time_elapsed</code>. En las preguntas, la columna <code>response</code> agrupa las variables con sus valores en notación JSON.</p>
+<p>El parámetro <code>data</code> permite etiquetar cada ensayo. <code>randomID</code> y <code>addProperties</code> agregan un identificador de participante a todas las filas, sin datos personales. <code>localSave</code> descarga los datos como archivo CSV, lo que sirve para probar el estudio, no para recolectar datos reales.</p>
+<p>Anticipar la estructura del archivo de datos es parte del diseño del estudio.</p>
+</section>
+<section id="resolvé-un-desafío-breve" class="level2" data-number="15.17">
+<h2 data-number="15.17" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">15.17</span> Resolvé un desafío breve</h2>
+<p>Imaginá que agregás al estudio una pantalla nueva, con dos preguntas de opción múltiple sobre horas de sueño, entre la escala y los comentarios.</p>
+<ol type="1">
+<li><p>Indicá cuántas filas va a producir cada participante con ese cambio.</p></li>
+<li><p>Proponé una etiqueta de pantalla y dos nombres de variable para las preguntas nuevas.</p></li>
+<li><p>Escribí cómo se vería la columna <code>response</code> de esa pantalla para una persona que eligió “Entre 6 y 8 horas” y “Sí”.</p></li>
+<li><p>Indicá qué valor tendría <code>trial_index</code> para la pantalla de comentarios después del cambio.</p></li>
+<li><p>Explicá por qué la etiqueta <code>pantalla</code> es más estable que <code>trial_index</code> para identificar filas.</p></li>
+</ol>
+<p>En el próximo capítulo vas a documentar todas las variables del estudio en un diccionario y vas a usarlo para verificar el trabajo de un agente.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-3/14-escalas-psicologicas.html" class="pagination-link" aria-label="Escalas psicológicas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-3/16-diccionario-datos.html" class="pagination-link" aria-label="El diccionario de variables">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

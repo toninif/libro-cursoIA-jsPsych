@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Mapa de archivos, responsabilidades y lugares donde queda escrita cada decisión del estudio.">
+
+<title>33&nbsp; Estructura de un proyecto jsPsych – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../appendices/f-glosario.html" rel="next">
+<link href="../appendices/d-errores-frecuentes.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-terminal.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../appendices/e-estructura-jspsych.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#cómo-usar-este-apéndice" id="toc-cómo-usar-este-apéndice" class="nav-link active" data-scroll-target="#cómo-usar-este-apéndice"><span class="header-section-number">33.1</span> Cómo usar este apéndice</a></li>
+  <li><a href="#los-archivos-del-proyecto-final" id="toc-los-archivos-del-proyecto-final" class="nav-link" data-scroll-target="#los-archivos-del-proyecto-final"><span class="header-section-number">33.2</span> Los archivos del proyecto final</a></li>
+  <li><a href="#dónde-se-define-cada-decisión" id="toc-dónde-se-define-cada-decisión" class="nav-link" data-scroll-target="#dónde-se-define-cada-decisión"><span class="header-section-number">33.3</span> Dónde se define cada decisión</a></li>
+  <li><a href="#la-organización-de-index.html" id="toc-la-organización-de-index.html" class="nav-link" data-scroll-target="#la-organización-de-index.html"><span class="header-section-number">33.4</span> La organización de <code>index.html</code></a></li>
+  <li><a href="#la-organización-de-experiment.js" id="toc-la-organización-de-experiment.js" class="nav-link" data-scroll-target="#la-organización-de-experiment.js"><span class="header-section-number">33.5</span> La organización de <code>experiment.js</code></a></li>
+  <li><a href="#la-anatomía-de-un-ensayo" id="toc-la-anatomía-de-un-ensayo" class="nav-link" data-scroll-target="#la-anatomía-de-un-ensayo"><span class="header-section-number">33.6</span> La anatomía de un ensayo</a></li>
+  <li><a href="#plugins-usados-y-datos-que-producen" id="toc-plugins-usados-y-datos-que-producen" class="nav-link" data-scroll-target="#plugins-usados-y-datos-que-producen"><span class="header-section-number">33.7</span> Plugins usados y datos que producen</a></li>
+  <li><a href="#cómo-creció-el-proyecto" id="toc-cómo-creció-el-proyecto" class="nav-link" data-scroll-target="#cómo-creció-el-proyecto"><span class="header-section-number">33.8</span> Cómo creció el proyecto</a></li>
+  <li><a href="#cuando-el-proyecto-crece-más" id="toc-cuando-el-proyecto-crece-más" class="nav-link" data-scroll-target="#cuando-el-proyecto-crece-más"><span class="header-section-number">33.9</span> Cuando el proyecto crece más</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../appendices/a-terminal.html">Apéndices</a></li><li class="breadcrumb-item"><a href="../appendices/e-estructura-jspsych.html"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cómo-usar-este-apéndice" class="level2" data-number="33.1">
+<h2 data-number="33.1" class="anchored" data-anchor-id="cómo-usar-este-apéndice"><span class="header-section-number">33.1</span> Cómo usar este apéndice</h2>
+<p>Este apéndice ofrece una vista de conjunto del proyecto que construiste durante el libro. Sirve para consultar qué hace cada archivo, dónde se define cada decisión y qué datos produce cada tipo de pantalla. Todo lo que aparece aquí se explicó antes en los capítulos, que se indican en cada sección.</p>
+</section>
+<section id="los-archivos-del-proyecto-final" class="level2" data-number="33.2">
+<h2 data-number="33.2" class="anchored" data-anchor-id="los-archivos-del-proyecto-final"><span class="header-section-number">33.2</span> Los archivos del proyecto final</h2>
+<p>La estructura del proyecto al final del libro, igual a la del checkpoint <code>07-estudio-completo</code>, es esta.</p>
+<pre class="text"><code>mi-primer-estudio/
+├── index.html
+├── experiment.js
+├── styles.css
+├── diseno.md
+├── diccionario.md
+├── AGENTS.md
+└── README.md</code></pre>
+<div id="tbl-archivos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-archivos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;33.1: Archivos del proyecto final
+</figcaption>
+<div aria-describedby="tbl-archivos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Archivo</th>
+<th style="text-align: left;">Función</th>
+<th style="text-align: left;">Quién lo lee</th>
+<th style="text-align: left;">Capítulo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>index.html</code></td>
+<td style="text-align: left;">Página que se abre. Carga jsPsych, los plugins, la extensión de DataPipe, las hojas de estilos y <code>experiment.js</code>.</td>
+<td style="text-align: left;">El navegador</td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>experiment.js</code></td>
+<td style="text-align: left;">Define el procedimiento: pantallas, textos, variables, orden, reglas y guardado.</td>
+<td style="text-align: left;">El navegador</td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>styles.css</code></td>
+<td style="text-align: left;">Define la apariencia, sin cambiar el procedimiento.</td>
+<td style="text-align: left;">El navegador</td>
+<td style="text-align: left;"><a href="../part-4/21-presentacion-encuesta.html">21</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>diseno.md</code></td>
+<td style="text-align: left;">Reúne las decisiones metodológicas.</td>
+<td style="text-align: left;">Personas y agentes</td>
+<td style="text-align: left;"><a href="../part-5/23-disenar-antes.html">23</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>diccionario.md</code></td>
+<td style="text-align: left;">Describe cada variable de los datos.</td>
+<td style="text-align: left;">Personas y agentes</td>
+<td style="text-align: left;"><a href="../part-3/16-diccionario-datos.html">16</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>AGENTS.md</code></td>
+<td style="text-align: left;">Reglas estables para los agentes.</td>
+<td style="text-align: left;">Codex, al iniciarse</td>
+<td style="text-align: left;"><a href="../part-5/24-construccion-estudio.html">24</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>README.md</code></td>
+<td style="text-align: left;">Presenta el proyecto, su estado, sus pruebas y su registro de cambios.</td>
+<td style="text-align: left;">Personas</td>
+<td style="text-align: left;"><a href="../part-1/05-proyecto.html">5</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Los tres primeros archivos forman el estudio: son los que el navegador interpreta. Los cuatro restantes forman la documentación: explican el estudio a personas y agentes.</p>
+</section>
+<section id="dónde-se-define-cada-decisión" class="level2" data-number="33.3">
+<h2 data-number="33.3" class="anchored" data-anchor-id="dónde-se-define-cada-decisión"><span class="header-section-number">33.3</span> Dónde se define cada decisión</h2>
+<p>Esta tabla responde a una pregunta frecuente al revisar un cambio: ¿dónde está escrita esta decisión?</p>
+<div id="tbl-decisiones" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-decisiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;33.2: Dónde se define cada decisión
+</figcaption>
+<div aria-describedby="tbl-decisiones-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Decisión</th>
+<th style="text-align: left;">Dónde está escrita</th>
+<th style="text-align: left;">Ejemplo</th>
+<th style="text-align: left;">Capítulo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Texto que ve la persona</td>
+<td style="text-align: left;"><code>stimulus</code>, <code>prompt</code>, <code>preamble</code> o <code>html</code></td>
+<td style="text-align: left;"><code>prompt: "¿Qué carrera estudiás?"</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nombre de una variable</td>
+<td style="text-align: left;"><code>name</code>, o el atributo <code>name</code> de un campo HTML</td>
+<td style="text-align: left;"><code>name: "anio_carrera"</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Obligatoriedad</td>
+<td style="text-align: left;"><code>required</code></td>
+<td style="text-align: left;"><code>required: true</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Opciones de una pregunta</td>
+<td style="text-align: left;"><code>options</code> o <code>labels</code></td>
+<td style="text-align: left;"><code>options: ["Sí", "No"]</code></td>
+<td style="text-align: left;"><a href="../part-3/13-preguntas-formularios.html">13</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Botones</td>
+<td style="text-align: left;"><code>choices</code> y <code>button_label</code></td>
+<td style="text-align: left;"><code>choices: ["Acepto participar", "No acepto"]</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Restricción de un valor</td>
+<td style="text-align: left;">Atributos del campo <code>&lt;input&gt;</code></td>
+<td style="text-align: left;"><code>min="18" max="80"</code></td>
+<td style="text-align: left;"><a href="../part-3/13-preguntas-formularios.html">13</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Orden de las pantallas</td>
+<td style="text-align: left;">Lista de <code>jsPsych.run</code></td>
+<td style="text-align: left;"><code>jsPsych.run([bienvenida, ...])</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Aleatorización de ítems</td>
+<td style="text-align: left;"><code>randomize_question_order</code></td>
+<td style="text-align: left;"><code>randomize_question_order: true</code></td>
+<td style="text-align: left;"><a href="../part-4/17-aleatorizacion.html">17</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Aleatorización de pantallas</td>
+<td style="text-align: left;"><code>jsPsych.randomization.shuffle</code></td>
+<td style="text-align: left;"><code>shuffle([escala_a, escala_b])</code></td>
+<td style="text-align: left;"><a href="../part-4/17-aleatorizacion.html">17</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Terminar el estudio según una respuesta</td>
+<td style="text-align: left;"><code>on_finish</code> con <code>abortExperiment</code></td>
+<td style="text-align: left;"><code>if (data.response === 1) { ... }</code></td>
+<td style="text-align: left;"><a href="../part-4/18-logica-condicional.html">18</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mostrar una pantalla según una respuesta</td>
+<td style="text-align: left;"><code>conditional_function</code></td>
+<td style="text-align: left;"><code>return recursos.includes(...)</code></td>
+<td style="text-align: left;"><a href="../part-4/18-logica-condicional.html">18</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Variable derivada</td>
+<td style="text-align: left;"><code>on_finish</code> de un ensayo</td>
+<td style="text-align: left;"><code>data.atencion_correcta = ...</code></td>
+<td style="text-align: left;"><a href="../part-4/19-controles-atencion.html">19</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Etiqueta de cada fila de datos</td>
+<td style="text-align: left;"><code>data</code> de un ensayo</td>
+<td style="text-align: left;"><code>data: { pantalla: "edad" }</code></td>
+<td style="text-align: left;"><a href="../part-3/15-datos-generados.html">15</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Identificador de participante</td>
+<td style="text-align: left;"><code>randomID</code> y <code>addProperties</code></td>
+<td style="text-align: left;"><code>jsPsych.data.addProperties({ participante: participante })</code></td>
+<td style="text-align: left;"><a href="../part-3/15-datos-generados.html">15</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Duración de una pantalla</td>
+<td style="text-align: left;"><code>trial_duration</code>, en milisegundos. El estudio del libro no lo usa.</td>
+<td style="text-align: left;"><code>trial_duration: 500</code></td>
+<td style="text-align: left;"><a href="../part-2/09-revisar-agente.html">9</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dónde se guardan los datos</td>
+<td style="text-align: left;">Extensión de DataPipe en <code>initJsPsych</code></td>
+<td style="text-align: left;"><code>experiment_id: DATAPIPE_ID</code></td>
+<td style="text-align: left;"><a href="../part-5/26-guardado-datos.html">26</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cuándo se envían los datos</td>
+<td style="text-align: left;">Parámetro <code>stream</code> de la extensión</td>
+<td style="text-align: left;"><code>stream: false</code></td>
+<td style="text-align: left;"><a href="../part-5/26-guardado-datos.html">26</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Barra de progreso</td>
+<td style="text-align: left;">Configuración de <code>initJsPsych</code></td>
+<td style="text-align: left;"><code>show_progress_bar: true</code></td>
+<td style="text-align: left;"><a href="../part-4/21-presentacion-encuesta.html">21</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Apariencia</td>
+<td style="text-align: left;"><code>styles.css</code></td>
+<td style="text-align: left;"><code>font-size: 18px;</code></td>
+<td style="text-align: left;"><a href="../part-4/21-presentacion-encuesta.html">21</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Versión de jsPsych y plugins</td>
+<td style="text-align: left;">Direcciones de <code>index.html</code></td>
+<td style="text-align: left;"><code>jspsych@8.3.0</code></td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="la-organización-de-index.html" class="level2" data-number="33.4">
+<h2 data-number="33.4" class="anchored" data-anchor-id="la-organización-de-index.html"><span class="header-section-number">33.4</span> La organización de <code>index.html</code></h2>
+<pre class="text"><code>&lt;head&gt;
+  ├── codificación (charset) y adaptación al celular (viewport)
+  ├── título de la pestaña
+  ├── jsPsych
+  ├── un plugin por cada tipo de pantalla
+  ├── extensión de DataPipe
+  ├── hoja de estilos de jsPsych
+  └── styles.css (después de la de jsPsych)
+&lt;body&gt;
+  └── experiment.js</code></pre>
+<p>Cada dirección de <code>unpkg.com</code> termina con una versión fija. La hoja de estilos propia se carga después de la de jsPsych, para que sus reglas tengan prioridad. <code>experiment.js</code> se carga al final, cuando todo lo anterior ya está disponible.</p>
+</section>
+<section id="la-organización-de-experiment.js" class="level2" data-number="33.5">
+<h2 data-number="33.5" class="anchored" data-anchor-id="la-organización-de-experiment.js"><span class="header-section-number">33.5</span> La organización de <code>experiment.js</code></h2>
+<p>El archivo del estudio final tiene siempre el mismo orden. Conocerlo ayuda a ubicar un cambio.</p>
+<pre class="text"><code>1. Configuración de DataPipe          DATAPIPE_ID
+2. Configuración de jsPsych           initJsPsych: barra de progreso, extensión, on_finish
+3. Identificador de participante      randomID y addProperties
+4. Definición de los ensayos          bienvenida, consentimiento, preguntas, escalas, cierre
+5. Orden aleatorio de las escalas     shuffle y primera_escala
+6. Línea de tiempo                    jsPsych.run([...])</code></pre>
+<p>Los nombres se definen antes de usarse. Por eso las escalas se definen antes de mezclarlas, y todo se define antes de <code>jsPsych.run</code>. La única excepción aparente es <code>participante</code> dentro de <code>on_finish</code> y de <code>filename</code>: esas instrucciones se ejecutan recién al final del estudio, cuando <code>participante</code> ya existe.</p>
+</section>
+<section id="la-anatomía-de-un-ensayo" class="level2" data-number="33.6">
+<h2 data-number="33.6" class="anchored" data-anchor-id="la-anatomía-de-un-ensayo"><span class="header-section-number">33.6</span> La anatomía de un ensayo</h2>
+<p>Todos los ensayos comparten una forma. Algunos parámetros son comunes a todos los plugins y otros son propios de cada uno.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pregunta_estudiante <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">type</span><span class="op">:</span> jsPsychSurveyMultiChoice<span class="op">,</span>          <span class="co">// plugin: define el tipo de pantalla</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">questions</span><span class="op">:</span> [ <span class="op">...</span> ]<span class="op">,</span>                      <span class="co">// parámetros propios del plugin</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">button_label</span><span class="op">:</span> <span class="st">"Continuar"</span><span class="op">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">data</span><span class="op">:</span> { <span class="dt">pantalla</span><span class="op">:</span> <span class="st">"estudiante"</span> }<span class="op">,</span>        <span class="co">// común: agrega columnas a los datos</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">on_finish</span><span class="op">:</span> <span class="kw">function</span> (data) { <span class="op">...</span> }       <span class="co">// común: se ejecuta al terminar el ensayo</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-parametros-comunes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-parametros-comunes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;33.3: Parámetros comunes a todos los ensayos
+</figcaption>
+<div aria-describedby="tbl-parametros-comunes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parámetro común</th>
+<th style="text-align: left;">Qué hace</th>
+<th style="text-align: left;">Capítulo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>type</code></td>
+<td style="text-align: left;">Indica el plugin.</td>
+<td style="text-align: left;"><a href="../part-3/12-primer-jspsych.html">12</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>data</code></td>
+<td style="text-align: left;">Agrega columnas propias a la fila de datos del ensayo.</td>
+<td style="text-align: left;"><a href="../part-3/15-datos-generados.html">15</a></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>on_finish</code></td>
+<td style="text-align: left;">Ejecuta instrucciones cuando el ensayo termina.</td>
+<td style="text-align: left;"><a href="../part-4/18-logica-condicional.html">18</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Una línea de tiempo anidada tiene otra forma: un bloque con <code>timeline</code> y, opcionalmente, <code>conditional_function</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> pregunta_herramientas_ia <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">timeline</span><span class="op">:</span> [ { <span class="op">...</span>un ensayo<span class="op">...</span> } ]<span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">conditional_function</span><span class="op">:</span> <span class="kw">function</span> () { <span class="op">...</span> }</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="plugins-usados-y-datos-que-producen" class="level2" data-number="33.7">
+<h2 data-number="33.7" class="anchored" data-anchor-id="plugins-usados-y-datos-que-producen"><span class="header-section-number">33.7</span> Plugins usados y datos que producen</h2>
+<div id="tbl-plugins-datos" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-plugins-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;33.4: Plugins del estudio y datos que registran
+</figcaption>
+<div aria-describedby="tbl-plugins-datos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Plugin</th>
+<th style="text-align: left;">Nombre en el código</th>
+<th style="text-align: left;">Dirección en <code>index.html</code></th>
+<th style="text-align: left;">Qué registra en <code>response</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">html-button-response</td>
+<td style="text-align: left;"><code>jsPsychHtmlButtonResponse</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-html-button-response@2.1.0</code></td>
+<td style="text-align: left;">La posición del botón presionado, desde 0.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">survey-text</td>
+<td style="text-align: left;"><code>jsPsychSurveyText</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-survey-text@2.1.1</code></td>
+<td style="text-align: left;">El texto escrito, o <code>""</code> si la pregunta es opcional y quedó vacía.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">survey-html-form</td>
+<td style="text-align: left;"><code>jsPsychSurveyHtmlForm</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-survey-html-form@2.1.0</code></td>
+<td style="text-align: left;">El valor de cada campo, como texto.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">survey-multi-choice</td>
+<td style="text-align: left;"><code>jsPsychSurveyMultiChoice</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-survey-multi-choice@2.2.1</code></td>
+<td style="text-align: left;">El texto de la opción elegida.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">survey-multi-select</td>
+<td style="text-align: left;"><code>jsPsychSurveyMultiSelect</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-survey-multi-select@2.1.1</code></td>
+<td style="text-align: left;">Una lista con los textos de las opciones elegidas.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">survey-likert</td>
+<td style="text-align: left;"><code>jsPsychSurveyLikert</code></td>
+<td style="text-align: left;"><code>@jspsych/plugin-survey-likert@2.2.0</code></td>
+<td style="text-align: left;">La posición de la opción elegida en cada ítem, desde 0.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Todas las direcciones comienzan con <code>https://unpkg.com/</code>. La biblioteca se carga con <code>https://unpkg.com/jspsych@8.3.0</code> y la extensión de DataPipe con <code>https://unpkg.com/@jspsych/extension-pipe@0.2.0</code>.</p>
+<p>Además de <code>response</code>, cada fila incluye columnas que jsPsych agrega por su cuenta: <code>rt</code>, <code>trial_type</code>, <code>trial_index</code>, <code>time_elapsed</code> y <code>plugin_version</code>. Algunos plugins agregan columnas propias, como <code>question_order</code> en las escalas y los cuestionarios con orden aleatorio. El <a href="../part-3/15-datos-generados.html">capítulo 15</a> explica cada una.</p>
+</section>
+<section id="cómo-creció-el-proyecto" class="level2" data-number="33.8">
+<h2 data-number="33.8" class="anchored" data-anchor-id="cómo-creció-el-proyecto"><span class="header-section-number">33.8</span> Cómo creció el proyecto</h2>
+<p>El proyecto creció de a un archivo por vez, cuando cada uno se volvió necesario. Los checkpoints del libro conservan cada etapa.</p>
+<div id="tbl-evolucion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-evolucion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;33.5: Evolución del proyecto en los checkpoints
+</figcaption>
+<div aria-describedby="tbl-evolucion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Checkpoint</th>
+<th style="text-align: left;">Archivos</th>
+<th style="text-align: left;">Qué incorporó</th>
+<th style="text-align: left;">Parte</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>01-inicial</code></td>
+<td style="text-align: left;"><code>README.md</code></td>
+<td style="text-align: left;">Propósito y estado del proyecto.</td>
+<td style="text-align: left;">I</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>02-primer-jspsych</code></td>
+<td style="text-align: left;"><code>index.html</code>, <code>experiment.js</code>, <code>README.md</code></td>
+<td style="text-align: left;">Bienvenida, pregunta de edad, cierre y datos en pantalla.</td>
+<td style="text-align: left;">III</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>03-formulario</code></td>
+<td style="text-align: left;">Los mismos</td>
+<td style="text-align: left;">Consentimiento, cuestionario sociodemográfico y validaciones.</td>
+<td style="text-align: left;">III</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>04-escalas</code></td>
+<td style="text-align: left;">Se suma <code>diccionario.md</code></td>
+<td style="text-align: left;">Escala ficticia, etiquetas de pantalla, identificador y descarga de datos.</td>
+<td style="text-align: left;">III</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>05-aleatorizacion</code></td>
+<td style="text-align: left;">Los mismos</td>
+<td style="text-align: left;">Segunda escala ficticia y orden aleatorio de ítems y escalas.</td>
+<td style="text-align: left;">IV</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>06-encuesta-ampliada</code></td>
+<td style="text-align: left;">Se suma <code>styles.css</code></td>
+<td style="text-align: left;">Reglas condicionales, control de atención, barra de progreso y adaptación al celular.</td>
+<td style="text-align: left;">IV</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>07-estudio-completo</code></td>
+<td style="text-align: left;">Se suman <code>diseno.md</code> y <code>AGENTS.md</code></td>
+<td style="text-align: left;">DataPipe, consentimiento y cierre finales, y marcas para el proyecto final.</td>
+<td style="text-align: left;">V</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Cada checkpoint funciona por separado. Si tu versión deja de funcionar, podés copiar los archivos del checkpoint de la etapa en la que estás y continuar desde allí.</p>
+</section>
+<section id="cuando-el-proyecto-crece-más" class="level2" data-number="33.9">
+<h2 data-number="33.9" class="anchored" data-anchor-id="cuando-el-proyecto-crece-más"><span class="header-section-number">33.9</span> Cuando el proyecto crece más</h2>
+<p>El estudio del libro cabe cómodamente en un solo archivo <code>experiment.js</code>. En estudios con muchas escalas o muchas pantallas, ese archivo puede volverse difícil de leer. Una organización habitual en ese caso separa el código en varios archivos dentro de una carpeta <code>src</code>.</p>
+<pre class="text"><code>mi-estudio/
+├── index.html
+├── src/
+│   ├── experiment.js        configuración y línea de tiempo
+│   └── questionnaires.js    definición de cuestionarios y escalas
+├── styles/
+│   └── styles.css
+├── README.md
+└── AGENTS.md</code></pre>
+<p>Si reorganizás el proyecto así, <code>index.html</code> tiene que cargar cada archivo con su nueva ruta relativa, y <code>questionnaires.js</code> antes que <code>experiment.js</code>, porque el segundo usa lo que define el primero. Es un cambio que afecta varios archivos: pedí un plan antes de hacerlo, guardá una copia de respaldo y ejecutá el plan de pruebas completo después.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../appendices/d-errores-frecuentes.html" class="pagination-link" aria-label="Errores frecuentes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../appendices/f-glosario.html" class="pagination-link" aria-label="Glosario">
+        <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

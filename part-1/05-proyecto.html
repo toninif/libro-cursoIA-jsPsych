@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="La primera versión recuperable del estudio que crecerá durante el curso.">
+
+<title>5&nbsp; Cómo se organiza un proyecto – De Google Forms a estudios web</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../part-2/06-chatbot-agente.html" rel="next">
+<link href="../part-1/04-programas-procesos-errores.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0840d38038a012555ded72f5a6d3d77f.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bd2efbc01eb684601f9e14f8667d411.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0acbcd4e0e0d574bc769856ba7bba0ab.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/05-proyecto.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">De Google Forms a estudios web</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Parte I. Entender la computadora</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/01-computadora.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Qué hace una computadora</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/02-archivos-carpetas-rutas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Cómo organiza la computadora los archivos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/03-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Cómo darle instrucciones a la computadora mediante texto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/04-programas-procesos-errores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-1/05-proyecto.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte II. Trabajar con agentes de IA</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/06-chatbot-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/07-codex-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Codex desde la terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/08-describir-tarea.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Cómo describir una tarea</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/09-revisar-agente.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Leer y revisar lo que hace el agente</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-2/10-ciclo-trabajo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">El ciclo especificar–ejecutar–verificar</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte III. De Google Forms a jsPsych</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/11-google-forms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Qué hace realmente Google Forms</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/12-primer-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Nuestro primer estudio con jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/13-preguntas-formularios.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Preguntas, respuestas y validaciones</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/14-escalas-psicologicas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Escalas psicológicas</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/15-datos-generados.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Los datos que genera el estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-3/16-diccionario-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">El diccionario de variables</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte IV. Más allá de Google Forms</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/17-aleatorizacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Aleatorización</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/18-logica-condicional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lógica condicional</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/19-controles-atencion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Controles de atención y calidad de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/20-tiempos-respuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tiempos de respuesta</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/21-presentacion-encuesta.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Presentación y experiencia de participación</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-4/22-encuesta-ampliada.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Una encuesta más allá de Google Forms</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Parte V. Construir un estudio completo</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/23-disenar-antes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Diseñar antes de programar</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/24-construccion-estudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Construcción incremental del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/25-pilotaje-depuracion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Prueba piloto y depuración</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/26-guardado-datos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Guardado de datos</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/27-publicacion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Publicación del estudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../part-5/28-proyecto-final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Proyecto final</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">Apéndices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/a-terminal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comandos de terminal</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/b-git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Introducción optativa a Git</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/c-instrucciones-agentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Instrucciones útiles para agentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/d-errores-frecuentes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Errores frecuentes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/e-estructura-jspsych.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Estructura de un proyecto jsPsych</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/f-glosario.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Glosario</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#qué-vas-a-poder-hacer" id="toc-qué-vas-a-poder-hacer" class="nav-link active" data-scroll-target="#qué-vas-a-poder-hacer"><span class="header-section-number">5.1</span> Qué vas a poder hacer</a></li>
+  <li><a href="#varios-archivos-dispersos-permiten-formular-el-problema" id="toc-varios-archivos-dispersos-permiten-formular-el-problema" class="nav-link" data-scroll-target="#varios-archivos-dispersos-permiten-formular-el-problema"><span class="header-section-number">5.2</span> Varios archivos dispersos permiten formular el problema</a></li>
+  <li><a href="#un-proyecto-reúne-trabajo-relacionado" id="toc-un-proyecto-reúne-trabajo-relacionado" class="nav-link" data-scroll-target="#un-proyecto-reúne-trabajo-relacionado"><span class="header-section-number">5.3</span> Un proyecto reúne trabajo relacionado</a></li>
+  <li><a href="#la-carpeta-principal-delimita-el-proyecto" id="toc-la-carpeta-principal-delimita-el-proyecto" class="nav-link" data-scroll-target="#la-carpeta-principal-delimita-el-proyecto"><span class="header-section-number">5.4</span> La carpeta principal delimita el proyecto</a></li>
+  <li><a href="#los-archivos-cumplen-funciones-diferentes" id="toc-los-archivos-cumplen-funciones-diferentes" class="nav-link" data-scroll-target="#los-archivos-cumplen-funciones-diferentes"><span class="header-section-number">5.5</span> Los archivos cumplen funciones diferentes</a>
+  <ul class="collapse">
+  <li><a href="#la-documentación-explica-el-trabajo" id="toc-la-documentación-explica-el-trabajo" class="nav-link" data-scroll-target="#la-documentación-explica-el-trabajo"><span class="header-section-number">5.5.1</span> La documentación explica el trabajo</a></li>
+  <li><a href="#las-instrucciones-definen-el-comportamiento-del-estudio" id="toc-las-instrucciones-definen-el-comportamiento-del-estudio" class="nav-link" data-scroll-target="#las-instrucciones-definen-el-comportamiento-del-estudio"><span class="header-section-number">5.5.2</span> Las instrucciones definen el comportamiento del estudio</a></li>
+  <li><a href="#los-materiales-aportan-contenido-al-procedimiento" id="toc-los-materiales-aportan-contenido-al-procedimiento" class="nav-link" data-scroll-target="#los-materiales-aportan-contenido-al-procedimiento"><span class="header-section-number">5.5.3</span> Los materiales aportan contenido al procedimiento</a></li>
+  <li><a href="#los-datos-registran-interacciones-y-resultados" id="toc-los-datos-registran-interacciones-y-resultados" class="nav-link" data-scroll-target="#los-datos-registran-interacciones-y-resultados"><span class="header-section-number">5.5.4</span> Los datos registran interacciones y resultados</a></li>
+  <li><a href="#la-configuración-orienta-a-las-herramientas" id="toc-la-configuración-orienta-a-las-herramientas" class="nav-link" data-scroll-target="#la-configuración-orienta-a-las-herramientas"><span class="header-section-number">5.5.5</span> La configuración orienta a las herramientas</a></li>
+  </ul></li>
+  <li><a href="#readme.md-presenta-el-proyecto-a-una-persona" id="toc-readme.md-presenta-el-proyecto-a-una-persona" class="nav-link" data-scroll-target="#readme.md-presenta-el-proyecto-a-una-persona"><span class="header-section-number">5.6</span> <code>README.md</code> presenta el proyecto a una persona</a></li>
+  <li><a href="#markdown-permite-marcar-títulos-con-caracteres-visibles" id="toc-markdown-permite-marcar-títulos-con-caracteres-visibles" class="nav-link" data-scroll-target="#markdown-permite-marcar-títulos-con-caracteres-visibles"><span class="header-section-number">5.7</span> Markdown permite marcar títulos con caracteres visibles</a></li>
+  <li><a href="#agents.md-orientará-el-trabajo-de-los-agentes" id="toc-agents.md-orientará-el-trabajo-de-los-agentes" class="nav-link" data-scroll-target="#agents.md-orientará-el-trabajo-de-los-agentes"><span class="header-section-number">5.8</span> <code>AGENTS.md</code> orientará el trabajo de los agentes</a></li>
+  <li><a href="#el-proyecto-técnico-representa-decisiones-metodológicas" id="toc-el-proyecto-técnico-representa-decisiones-metodológicas" class="nav-link" data-scroll-target="#el-proyecto-técnico-representa-decisiones-metodológicas"><span class="header-section-number">5.9</span> El proyecto técnico representa decisiones metodológicas</a></li>
+  <li><a href="#el-proyecto-crecerá-cuando-aparezca-una-necesidad" id="toc-el-proyecto-crecerá-cuando-aparezca-una-necesidad" class="nav-link" data-scroll-target="#el-proyecto-crecerá-cuando-aparezca-una-necesidad"><span class="header-section-number">5.10</span> El proyecto crecerá cuando aparezca una necesidad</a></li>
+  <li><a href="#un-checkpoint-conserva-una-etapa-recuperable" id="toc-un-checkpoint-conserva-una-etapa-recuperable" class="nav-link" data-scroll-target="#un-checkpoint-conserva-una-etapa-recuperable"><span class="header-section-number">5.11</span> Un checkpoint conserva una etapa recuperable</a></li>
+  <li><a href="#creá-la-primera-versión-del-proyecto" id="toc-creá-la-primera-versión-del-proyecto" class="nav-link" data-scroll-target="#creá-la-primera-versión-del-proyecto"><span class="header-section-number">5.12</span> Creá la primera versión del proyecto</a></li>
+  <li><a href="#explicá-qué-ocurrió-durante-la-actividad" id="toc-explicá-qué-ocurrió-durante-la-actividad" class="nav-link" data-scroll-target="#explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">5.13</span> Explicá qué ocurrió durante la actividad</a></li>
+  <li><a href="#el-primer-checkpoint-permite-comparar-y-recuperar" id="toc-el-primer-checkpoint-permite-comparar-y-recuperar" class="nav-link" data-scroll-target="#el-primer-checkpoint-permite-comparar-y-recuperar"><span class="header-section-number">5.14</span> El primer checkpoint permite comparar y recuperar</a></li>
+  <li><a href="#una-revisión-puede-anticipar-los-datos-futuros" id="toc-una-revisión-puede-anticipar-los-datos-futuros" class="nav-link" data-scroll-target="#una-revisión-puede-anticipar-los-datos-futuros"><span class="header-section-number">5.15</span> Una revisión puede anticipar los datos futuros</a></li>
+  <li><a href="#la-documentación-permite-que-otra-persona-continúe" id="toc-la-documentación-permite-que-otra-persona-continúe" class="nav-link" data-scroll-target="#la-documentación-permite-que-otra-persona-continúe"><span class="header-section-number">5.16</span> La documentación permite que otra persona continúe</a></li>
+  <li><a href="#comprobá-lo-que-comprendiste" id="toc-comprobá-lo-que-comprendiste" class="nav-link" data-scroll-target="#comprobá-lo-que-comprendiste"><span class="header-section-number">5.17</span> Comprobá lo que comprendiste</a></li>
+  <li><a href="#revisá-algunas-situaciones-que-suelen-causar-confusión" id="toc-revisá-algunas-situaciones-que-suelen-causar-confusión" class="nav-link" data-scroll-target="#revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">5.18</span> Revisá algunas situaciones que suelen causar confusión</a>
+  <ul class="collapse">
+  <li><a href="#el-archivo-puede-terminar-con-una-extensión-adicional" id="toc-el-archivo-puede-terminar-con-una-extensión-adicional" class="nav-link" data-scroll-target="#el-archivo-puede-terminar-con-una-extensión-adicional"><span class="header-section-number">5.18.1</span> El archivo puede terminar con una extensión adicional</a></li>
+  <li><a href="#la-carpeta-puede-quedar-dentro-de-otra-carpeta-con-el-mismo-nombre" id="toc-la-carpeta-puede-quedar-dentro-de-otra-carpeta-con-el-mismo-nombre" class="nav-link" data-scroll-target="#la-carpeta-puede-quedar-dentro-de-otra-carpeta-con-el-mismo-nombre"><span class="header-section-number">5.18.2</span> La carpeta puede quedar dentro de otra carpeta con el mismo nombre</a></li>
+  <li><a href="#una-copia-dispersa-puede-confundirse-con-el-proyecto-actual" id="toc-una-copia-dispersa-puede-confundirse-con-el-proyecto-actual" class="nav-link" data-scroll-target="#una-copia-dispersa-puede-confundirse-con-el-proyecto-actual"><span class="header-section-number">5.18.3</span> Una copia dispersa puede confundirse con el proyecto actual</a></li>
+  <li><a href="#un-readme-demasiado-general-aporta-poco-contexto" id="toc-un-readme-demasiado-general-aporta-poco-contexto" class="nav-link" data-scroll-target="#un-readme-demasiado-general-aporta-poco-contexto"><span class="header-section-number">5.18.4</span> Un README demasiado general aporta poco contexto</a></li>
+  <li><a href="#la-estructura-completa-del-curso-todavía-resultaría-prematura" id="toc-la-estructura-completa-del-curso-todavía-resultaría-prematura" class="nav-link" data-scroll-target="#la-estructura-completa-del-curso-todavía-resultaría-prematura"><span class="header-section-number">5.18.5</span> La estructura completa del curso todavía resultaría prematura</a></li>
+  <li><a href="#el-checkpoint-de-referencia-debe-permanecer-recuperable" id="toc-el-checkpoint-de-referencia-debe-permanecer-recuperable" class="nav-link" data-scroll-target="#el-checkpoint-de-referencia-debe-permanecer-recuperable"><span class="header-section-number">5.18.6</span> El checkpoint de referencia debe permanecer recuperable</a></li>
+  </ul></li>
+  <li><a href="#qué-aprendiste-en-este-capítulo" id="toc-qué-aprendiste-en-este-capítulo" class="nav-link" data-scroll-target="#qué-aprendiste-en-este-capítulo"><span class="header-section-number">5.19</span> Qué aprendiste en este capítulo</a></li>
+  <li><a href="#resolvé-un-desafío-breve" id="toc-resolvé-un-desafío-breve" class="nav-link" data-scroll-target="#resolvé-un-desafío-breve"><span class="header-section-number">5.20</span> Resolvé un desafío breve</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-1/01-computadora.html">Parte I. Entender la computadora</a></li><li class="breadcrumb-item"><a href="../part-1/05-proyecto.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Cómo se organiza un proyecto</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="qué-vas-a-poder-hacer" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="qué-vas-a-poder-hacer"><span class="header-section-number">5.1</span> Qué vas a poder hacer</h2>
+<p>Al terminar este capítulo, vas a poder realizar las siguientes acciones.</p>
+<ol type="1">
+<li><p>Vas a poder explicar qué convierte una carpeta en un proyecto.</p></li>
+<li><p>Vas a poder reconocer la carpeta principal de un proyecto.</p></li>
+<li><p>Vas a poder distinguir la documentación, los materiales, las instrucciones y los datos.</p></li>
+<li><p>Vas a poder explicar qué funciones cumplen <code>README.md</code> y <code>AGENTS.md</code>.</p></li>
+<li><p>Vas a poder crear la primera versión de <code>mi-primer-estudio</code>.</p></li>
+<li><p>Vas a poder verificar su ubicación, su estructura y su documentación.</p></li>
+<li><p>Vas a poder explicar para qué sirve un checkpoint.</p></li>
+</ol>
+</section>
+<section id="varios-archivos-dispersos-permiten-formular-el-problema" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="varios-archivos-dispersos-permiten-formular-el-problema"><span class="header-section-number">5.2</span> Varios archivos dispersos permiten formular el problema</h2>
+<p>Imaginá que comenzás a preparar un estudio sobre hábitos de estudio. Guardás una consigna en Documentos. Descargás una imagen en Descargas. Escribís posibles preguntas en un archivo llamado <code>ideas final.docx</code>. Después creás otra versión llamada <code>ideas final 2.docx</code>.</p>
+<p>Una semana más tarde necesitás continuar. Recordás el tema general, pero aparecen preguntas concretas.</p>
+<ol type="1">
+<li><p>¿Qué archivo contiene la versión actual?</p></li>
+<li><p>¿Qué imagen forma parte del estudio?</p></li>
+<li><p>¿Dónde se guardarán las respuestas?</p></li>
+<li><p>¿Qué decisiones ya fueron tomadas?</p></li>
+<li><p>¿Qué tareas quedan pendientes?</p></li>
+</ol>
+<p>Los archivos existen, pero su relación depende de tu memoria. Otra persona tendría dificultades para comprenderlos. Un agente también carecería de un punto de partida claro.</p>
+<p>Un proyecto organiza esas relaciones. Reúne los archivos vinculados con un propósito y conserva información que permite interpretarlos.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Un proyecto vincula un propósito con una organización verificable
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La carpeta principal delimita los archivos. La documentación explica el objetivo y el estado. La estructura permite encontrar cada elemento y comprobar los cambios.</p>
+</div>
+</div>
+</section>
+<section id="un-proyecto-reúne-trabajo-relacionado" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="un-proyecto-reúne-trabajo-relacionado"><span class="header-section-number">5.3</span> Un proyecto reúne trabajo relacionado</h2>
+<p>Un <strong>proyecto</strong> es un conjunto organizado de archivos y carpetas que comparten un propósito. Puede representar un informe, una aplicación, un análisis o un estudio psicológico digital.</p>
+<p>La organización cumple varias funciones.</p>
+<ol type="1">
+<li><p>Mantiene juntos los archivos que participan en el mismo trabajo.</p></li>
+<li><p>Permite reconocer qué función cumple cada archivo.</p></li>
+<li><p>Conserva instrucciones para continuar la tarea.</p></li>
+<li><p>Facilita la revisión de los cambios.</p></li>
+<li><p>Ayuda a trasladar el trabajo a otra computadora.</p></li>
+</ol>
+<p>Una carpeta adquiere sentido como proyecto cuando su contenido responde a un objetivo compartido y puede interpretarse mediante su estructura y su documentación.</p>
+<p>Durante el curso vas a construir un proyecto llamado <code>mi-primer-estudio</code>. Su propósito será aprender a diseñar, implementar y verificar un estudio psicológico digital. La estructura crecerá cuando cada etapa necesite nuevos archivos.</p>
+</section>
+<section id="la-carpeta-principal-delimita-el-proyecto" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="la-carpeta-principal-delimita-el-proyecto"><span class="header-section-number">5.4</span> La carpeta principal delimita el proyecto</h2>
+<p>La carpeta que contiene el proyecto completo recibe el nombre de <strong>carpeta principal</strong>. En documentación técnica también vas a encontrar las expresiones <strong>raíz del proyecto</strong> y <em>project root</em>.</p>
+<p>En la primera etapa, la estructura será pequeña.</p>
+<pre class="text"><code>mi-primer-estudio/
+    README.md</code></pre>
+<p>La carpeta <code>mi-primer-estudio</code> es la carpeta principal. El archivo <code>README.md</code> se encuentra directamente dentro de ella.</p>
+<p>Esta ubicación importa. Más adelante, algunas herramientas buscarán archivos especiales a partir de la raíz. Un agente que comienza a trabajar allí podrá inspeccionar el contenido del proyecto y leer sus instrucciones.</p>
+<p>La carpeta principal también funciona como referencia para las rutas relativas. Cuando la ubicación actual es <code>mi-primer-estudio</code>, la ruta relativa <code>README.md</code> identifica el archivo de documentación.</p>
+<div class="callout callout-style-simple callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La carpeta principal define el alcance inicial del trabajo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Antes de ejecutar una herramienta o iniciar un agente, comprobá que PowerShell se encuentre en la carpeta principal del proyecto. <code>Get-Location</code> muestra la ubicación y <code>dir</code> muestra su contenido.</p>
+</div>
+</div>
+</section>
+<section id="los-archivos-cumplen-funciones-diferentes" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="los-archivos-cumplen-funciones-diferentes"><span class="header-section-number">5.5</span> Los archivos cumplen funciones diferentes</h2>
+<p>Un proyecto de investigación puede reunir varios tipos de contenido. Cada tipo responde a una necesidad.</p>
+<section id="la-documentación-explica-el-trabajo" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="la-documentación-explica-el-trabajo"><span class="header-section-number">5.5.1</span> La documentación explica el trabajo</h3>
+<p>La documentación describe el propósito, el estado, las decisiones y los pasos necesarios para usar o revisar el proyecto.</p>
+<p>En esta primera etapa, <code>README.md</code> será el único archivo. Su contenido explicará por qué existe el proyecto y qué incluye actualmente.</p>
+</section>
+<section id="las-instrucciones-definen-el-comportamiento-del-estudio" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="las-instrucciones-definen-el-comportamiento-del-estudio"><span class="header-section-number">5.5.2</span> Las instrucciones definen el comportamiento del estudio</h3>
+<p>Más adelante aparecerán archivos con instrucciones que el navegador podrá ejecutar. Esas instrucciones controlarán preguntas, estímulos, tiempos y respuestas. Con frecuencia reciben el nombre de <strong>código</strong>.</p>
+<p>El código es texto escrito según reglas que un programa puede interpretar. Este libro introducirá esas reglas de manera progresiva. Primero vas a aprender a leer, localizar y verificar cambios pequeños.</p>
+</section>
+<section id="los-materiales-aportan-contenido-al-procedimiento" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="los-materiales-aportan-contenido-al-procedimiento"><span class="header-section-number">5.5.3</span> Los materiales aportan contenido al procedimiento</h3>
+<p>Las imágenes, los sonidos, los textos y otros estímulos forman parte de los materiales. Su selección depende del diseño metodológico y de los permisos para utilizarlos.</p>
+</section>
+<section id="los-datos-registran-interacciones-y-resultados" class="level3" data-number="5.5.4">
+<h3 data-number="5.5.4" class="anchored" data-anchor-id="los-datos-registran-interacciones-y-resultados"><span class="header-section-number">5.5.4</span> Los datos registran interacciones y resultados</h3>
+<p>Las respuestas, los tiempos y las condiciones asignadas pueden convertirse en datos. Su ubicación, su estructura y su protección requieren decisiones explícitas.</p>
+</section>
+<section id="la-configuración-orienta-a-las-herramientas" class="level3" data-number="5.5.5">
+<h3 data-number="5.5.5" class="anchored" data-anchor-id="la-configuración-orienta-a-las-herramientas"><span class="header-section-number">5.5.5</span> La configuración orienta a las herramientas</h3>
+<p>Algunos archivos indican cómo debe ejecutarse, revisarse o publicarse un proyecto. Esos archivos aparecerán cuando hagan falta. Incorporarlos antes de comprender su función agregaría complejidad innecesaria.</p>
+<p>Por ahora, una carpeta y un archivo de documentación resultan suficientes.</p>
+</section>
+</section>
+<section id="readme.md-presenta-el-proyecto-a-una-persona" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="readme.md-presenta-el-proyecto-a-una-persona"><span class="header-section-number">5.6</span> <code>README.md</code> presenta el proyecto a una persona</h2>
+<p>El nombre <code>README</code> puede leerse como una invitación en inglés: “leeme”. Un archivo con ese nombre suele presentar el proyecto y explicar cómo comenzar.</p>
+<p>La extensión <code>.md</code> indica que el archivo utiliza <strong>Markdown</strong>. Markdown es una forma de escribir texto plano y señalar títulos, enlaces u otros elementos mediante caracteres visibles.</p>
+<p>El texto plano contiene caracteres que muchos programas pueden abrir. No depende de un formato exclusivo de Word. El Bloc de notas y otros editores gratuitos pueden modificarlo.</p>
+<p>GitHub es un servicio web que permite alojar y compartir proyectos. Lo utilizaremos en una etapa posterior del curso. GitHub reconoce los archivos <code>README.md</code> y suele mostrarlos al entrar en un proyecto. Su <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">documentación sobre archivos README</a> recomienda incluir información como el propósito, la utilidad y la forma de comenzar.</p>
+<p>Un README inicial puede responder cuatro preguntas.</p>
+<ol type="1">
+<li><p>¿Cómo se llama el proyecto?</p></li>
+<li><p>¿Qué propósito tiene?</p></li>
+<li><p>¿En qué estado se encuentra?</p></li>
+<li><p>¿Cuál será el próximo paso?</p></li>
+</ol>
+<p>Durante este capítulo vas a escribir respuestas breves y verificables.</p>
+</section>
+<section id="markdown-permite-marcar-títulos-con-caracteres-visibles" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="markdown-permite-marcar-títulos-con-caracteres-visibles"><span class="header-section-number">5.7</span> Markdown permite marcar títulos con caracteres visibles</h2>
+<p>Observá este ejemplo.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Mi primer estudio psicológico</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Este proyecto tiene un propósito</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Este proyecto permitirá aprender a construir y verificar un estudio psicológico digital.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El primer signo <code>#</code> marca el título principal. Los dos signos <code>##</code> marcan un título interno. La línea restante contiene un párrafo.</p>
+<p>Los signos forman parte del archivo de texto. Un programa capaz de interpretar Markdown puede mostrarlos como títulos con distinto tamaño. Un editor básico puede mostrarlos como caracteres comunes. El contenido se conserva en ambos casos.</p>
+<p>En esta etapa necesitás reconocer solamente esos dos niveles. Las demás posibilidades de Markdown aparecerán cuando ayuden a documentar una tarea concreta.</p>
+</section>
+<section id="agents.md-orientará-el-trabajo-de-los-agentes" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="agents.md-orientará-el-trabajo-de-los-agentes"><span class="header-section-number">5.8</span> <code>AGENTS.md</code> orientará el trabajo de los agentes</h2>
+<p>Más adelante, el proyecto incorporará un archivo llamado <code>AGENTS.md</code>. Su función será comunicar instrucciones estables a los agentes que trabajen dentro del proyecto.</p>
+<p>Ese archivo podrá indicar quiénes usarán el estudio, qué términos deben explicarse, qué archivos requieren cuidado y qué verificaciones deben realizarse después de una modificación.</p>
+<p><code>README.md</code> presenta el proyecto y ayuda a las personas a comprenderlo. <code>AGENTS.md</code> establece reglas de trabajo para los agentes. Ambos archivos pueden compartir información, aunque cumplen funciones diferentes.</p>
+<p>En el siguiente capítulo vas a estudiar qué cambia cuando una IA puede leer archivos y realizar acciones. El archivo <code>AGENTS.md</code> se incorporará cuando esa función resulte necesaria.</p>
+</section>
+<section id="el-proyecto-técnico-representa-decisiones-metodológicas" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="el-proyecto-técnico-representa-decisiones-metodológicas"><span class="header-section-number">5.9</span> El proyecto técnico representa decisiones metodológicas</h2>
+<p>La carpeta organiza una implementación. El estudio comienza con decisiones de investigación que necesitan quedar documentadas.</p>
+<p>Una <strong>decisión metodológica</strong> define qué se quiere investigar y bajo qué condiciones. Por ejemplo, el investigador decide qué constructo estudiar, quiénes pueden participar, qué procedimiento se utilizará y qué variable representará cada respuesta.</p>
+<p>Una <strong>decisión técnica</strong> define cómo se realizará una parte del procedimiento mediante archivos y programas. Por ejemplo, el equipo decide qué nombre tendrá una variable, dónde estará una imagen y qué archivo controlará una pantalla.</p>
+<p>Las decisiones se relacionan. El nombre técnico <code>edad</code> puede representar la edad informada por una persona. El rango permitido debe surgir de los criterios metodológicos del estudio.</p>
+<p>El proyecto necesita registrar ambas capas. La ejecución permite comprobar la implementación técnica. El protocolo, la documentación y la revisión del investigador permiten evaluar la correspondencia metodológica.</p>
+<div class="callout callout-style-simple callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La estructura ordenada todavía necesita contenido válido
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una carpeta puede contener archivos bien nombrados y un programa puede ejecutarse correctamente. La calidad metodológica depende de las decisiones que esos archivos implementan.</p>
+</div>
+</div>
+</section>
+<section id="el-proyecto-crecerá-cuando-aparezca-una-necesidad" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="el-proyecto-crecerá-cuando-aparezca-una-necesidad"><span class="header-section-number">5.10</span> El proyecto crecerá cuando aparezca una necesidad</h2>
+<p>El proyecto inicial contiene un solo archivo. Esa restricción permite concentrarse en el propósito, la ubicación y la verificación.</p>
+<p>En una etapa posterior aparecerán archivos para mostrar el estudio en un navegador.</p>
+<pre class="text"><code>mi-primer-estudio/
+    index.html
+    experiment.js
+    README.md</code></pre>
+<p>Esa estructura se introducirá cuando el curso explique qué función cumple cada archivo. Más adelante también podrán aparecer carpetas para materiales, estilos y componentes del estudio.</p>
+<p>Agregar archivos de forma gradual permite comprender por qué existe cada elemento. También facilita la detección de errores. Cuando una etapa pequeña funciona, el siguiente cambio tiene un punto de partida conocido.</p>
+</section>
+<section id="un-checkpoint-conserva-una-etapa-recuperable" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="un-checkpoint-conserva-una-etapa-recuperable"><span class="header-section-number">5.11</span> Un checkpoint conserva una etapa recuperable</h2>
+<p>Un <strong>checkpoint</strong> es una copia del proyecto guardada en un momento concreto del recorrido. Cada checkpoint de este curso funciona de manera independiente y representa una etapa terminada.</p>
+<p>El primer checkpoint contiene solamente <code>README.md</code>.</p>
+<pre class="text"><code>proyectos/
+    01-inicial/
+        README.md</code></pre>
+<p>El número <code>01</code> indica la posición dentro de la secuencia. La palabra <code>inicial</code> describe la etapa.</p>
+<p>Los checkpoints permiten comparar el trabajo propio con una versión de referencia. También permiten continuar si una versión posterior deja de funcionar. La recuperación consiste en copiar una etapa conocida y trabajar sobre la copia.</p>
+<p>La versión de referencia debe conservarse sin cambios durante las actividades. Tu trabajo cotidiano ocurrirá dentro de <code>mi-primer-estudio</code>.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Un checkpoint ofrece un punto de recuperación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando una práctica produce cambios difíciles de comprender, podés volver a una etapa funcional. Después podés repetir un cambio por vez y verificar cada resultado.</p>
+</div>
+</div>
+</section>
+<section id="creá-la-primera-versión-del-proyecto" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="creá-la-primera-versión-del-proyecto"><span class="header-section-number">5.12</span> Creá la primera versión del proyecto</h2>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Realizá esta actividad guiada
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Primero vas a crear la carpeta principal.</p>
+<ol type="1">
+<li><p>Elegí una ubicación que puedas encontrar con facilidad. Podés usar Documentos o una carpeta destinada al curso.</p></li>
+<li><p>Creá una carpeta llamada <code>mi-primer-estudio</code>.</p></li>
+<li><p>Abrí esa carpeta y comprobá que se encuentre vacía.</p></li>
+</ol>
+<p>Después vas a crear la documentación.</p>
+<ol start="4" type="1">
+<li><p>Abrí el Bloc de notas u otro editor de texto plano.</p></li>
+<li><p>Copiá el siguiente contenido.</p></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Mi primer estudio psicológico</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Este proyecto tiene un propósito</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Este proyecto permitirá aprender a diseñar, construir y verificar un estudio psicológico digital.</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## El proyecto se encuentra en su etapa inicial</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>La carpeta contiene únicamente este archivo de documentación. Todavía no presenta preguntas ni recolecta datos.</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## El próximo paso incorporará nuevas herramientas</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>El proyecto incorporará archivos e instrucciones de manera gradual durante el curso.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="6" type="1">
+<li><p>Elegí la opción para guardar el archivo dentro de <code>mi-primer-estudio</code>.</p></li>
+<li><p>Escribí el nombre completo <code>README.md</code>.</p></li>
+<li><p>Si el editor ofrece una opción para elegir el tipo de archivo, seleccioná una alternativa que conserve el nombre completo, como <strong>Todos los archivos</strong>.</p></li>
+<li><p>Cerrá el editor y activá la visualización de extensiones en el Explorador de archivos.</p></li>
+<li><p>Comprobá que el archivo se llame <code>README.md</code>.</p></li>
+</ol>
+<p>Finalmente vas a verificar el proyecto desde PowerShell.</p>
+<ol start="11" type="1">
+<li><p>Copiá la ruta de <code>mi-primer-estudio</code> desde la barra de direcciones del Explorador.</p></li>
+<li><p>Abrí PowerShell.</p></li>
+<li><p>Escribí <code>cd</code>, agregá un espacio y pegá la ruta entre comillas.</p></li>
+<li><p>Ejecutá <code>Get-Location</code> y comprobá que la ruta termine en <code>mi-primer-estudio</code>.</p></li>
+<li><p>Ejecutá <code>dir</code> y comprobá que aparezca <code>README.md</code>.</p></li>
+<li><p>Abrí <code>README.md</code> y comprobá que el contenido se haya conservado.</p></li>
+<li><p>Cerrá el archivo, cerrá PowerShell y volvé a encontrar el proyecto desde el Explorador.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="explicá-qué-ocurrió-durante-la-actividad" class="level2" data-number="5.13">
+<h2 data-number="5.13" class="anchored" data-anchor-id="explicá-qué-ocurrió-durante-la-actividad"><span class="header-section-number">5.13</span> Explicá qué ocurrió durante la actividad</h2>
+<p>Creaste una carpeta principal con un propósito definido. El nombre <code>mi-primer-estudio</code> permite reconocerla. Su ubicación completa permite distinguirla de otras carpetas que podrían compartir el mismo nombre.</p>
+<p>El editor creó un archivo de texto plano. La extensión <code>.md</code> indicó que su contenido utiliza Markdown. Los títulos y los párrafos documentaron el propósito, el estado y el próximo paso.</p>
+<p>PowerShell permitió verificar dos condiciones. <code>Get-Location</code> confirmó la ubicación. <code>dir</code> confirmó la estructura. La apertura final del archivo confirmó el contenido.</p>
+<p>La verificación reunió tres preguntas diferentes.</p>
+<ol type="1">
+<li><p>¿Creé el proyecto en la ubicación prevista?</p></li>
+<li><p>¿La carpeta contiene el archivo previsto?</p></li>
+<li><p>¿El archivo contiene la información prevista?</p></li>
+</ol>
+<p>Responder las tres preguntas aporta más evidencia que observar únicamente el nombre de la carpeta.</p>
+</section>
+<section id="el-primer-checkpoint-permite-comparar-y-recuperar" class="level2" data-number="5.14">
+<h2 data-number="5.14" class="anchored" data-anchor-id="el-primer-checkpoint-permite-comparar-y-recuperar"><span class="header-section-number">5.14</span> El primer checkpoint permite comparar y recuperar</h2>
+<p>Este libro incluye una versión de referencia dentro de <code>proyectos\01-inicial</code>. Esa carpeta contiene el estado esperado al finalizar este capítulo.</p>
+<p>Si tenés acceso a los archivos del curso, podés abrir ese checkpoint y comparar su estructura con <code>mi-primer-estudio</code>. La redacción puede presentar pequeñas diferencias si personalizaste el propósito. La estructura debe contener un archivo llamado <code>README.md</code> dentro de la carpeta principal.</p>
+<p>Conservá <code>01-inicial</code> como referencia. Si una actividad futura daña tu proyecto, copiá el checkpoint en otra ubicación y asignale un nombre nuevo. Después repetí solamente los cambios que ya comprendés.</p>
+<p>La recuperación también forma parte de una práctica responsable de investigación. Una versión identificable permite reconstruir qué procedimiento estaba disponible en una etapa determinada.</p>
+</section>
+<section id="una-revisión-puede-anticipar-los-datos-futuros" class="level2" data-number="5.15">
+<h2 data-number="5.15" class="anchored" data-anchor-id="una-revisión-puede-anticipar-los-datos-futuros"><span class="header-section-number">5.15</span> Una revisión puede anticipar los datos futuros</h2>
+<p>El proyecto todavía no recolecta respuestas. Sin embargo, ya podés practicar una pregunta que acompañará todo el curso: ¿qué datos producirá este estudio?</p>
+<p>Imaginá que más adelante agregás una pregunta de edad. La especificación podría incluir estas oraciones.</p>
+<ol type="1">
+<li><p>El estudio registrará la respuesta con el nombre <code>edad</code>.</p></li>
+<li><p>La respuesta tendrá un valor numérico.</p></li>
+<li><p>La respuesta aceptará valores entre 18 y 80.</p></li>
+<li><p>El procedimiento indicará qué debe ocurrir cuando una persona deja el campo vacío.</p></li>
+</ol>
+<p>Estas decisiones todavía no forman parte del proyecto inicial. El ejemplo muestra cómo una intención de investigación necesita convertirse en una especificación verificable antes de implementar una pregunta.</p>
+<p>Más adelante, el README podrá registrar qué variables produce el estudio y dónde encontrar su definición completa.</p>
+</section>
+<section id="la-documentación-permite-que-otra-persona-continúe" class="level2" data-number="5.16">
+<h2 data-number="5.16" class="anchored" data-anchor-id="la-documentación-permite-que-otra-persona-continúe"><span class="header-section-number">5.16</span> La documentación permite que otra persona continúe</h2>
+<p>Un proyecto necesita ser comprensible después de una pausa. También necesita permitir una revisión realizada por otra persona.</p>
+<p>Considerá dos descripciones posibles.</p>
+<pre class="text"><code>Proyecto para la facultad.</code></pre>
+<pre class="text"><code>Este proyecto permitirá aprender a diseñar, construir y verificar un estudio psicológico digital.</code></pre>
+<p>La segunda oración comunica una finalidad concreta. Todavía puede ampliarse, pero ofrece un criterio para evaluar los próximos cambios.</p>
+<p>Cuando una persona lea el README, debería poder reconocer el objetivo general y el estado actual. Cuando un agente lo lea, tendrá contexto para interpretar los archivos. La documentación reduce la dependencia de la memoria de quien creó el proyecto.</p>
+</section>
+<section id="comprobá-lo-que-comprendiste" class="level2" data-number="5.17">
+<h2 data-number="5.17" class="anchored" data-anchor-id="comprobá-lo-que-comprendiste"><span class="header-section-number">5.17</span> Comprobá lo que comprendiste</h2>
+<p>Respondé cada pregunta con una oración completa.</p>
+<ol type="1">
+<li><p>¿Qué relación comparten los archivos de un proyecto?</p></li>
+<li><p>¿Qué significa la expresión “carpeta principal”?</p></li>
+<li><p>¿Qué función cumple <code>README.md</code>?</p></li>
+<li><p>¿Qué información comunicará <code>AGENTS.md</code> en una etapa posterior?</p></li>
+<li><p>¿Qué indica la extensión <code>.md</code>?</p></li>
+<li><p>¿Qué tres aspectos verificaste después de crear el proyecto?</p></li>
+<li><p>¿Para qué sirve un checkpoint?</p></li>
+<li><p>¿Por qué una estructura correcta todavía requiere una revisión metodológica?</p></li>
+</ol>
+<details>
+<summary>
+Consultá una posible respuesta después de resolver la actividad.
+</summary>
+<ol type="1">
+<li><p>Los archivos de un proyecto comparten un propósito y una organización.</p></li>
+<li><p>La carpeta principal contiene el proyecto completo y funciona como referencia para su estructura.</p></li>
+<li><p><code>README.md</code> presenta el proyecto y documenta su propósito, su estado y la forma de comenzar.</p></li>
+<li><p><code>AGENTS.md</code> comunicará reglas estables para los agentes que trabajen dentro del proyecto.</p></li>
+<li><p>La extensión <code>.md</code> indica que el archivo utiliza Markdown.</p></li>
+<li><p>Verifiqué la ubicación, la estructura y el contenido.</p></li>
+<li><p>Un checkpoint conserva una etapa recuperable y permite comparar el trabajo con una versión conocida.</p></li>
+<li><p>La estructura organiza la implementación, mientras que la revisión metodológica evalúa las decisiones de investigación representadas por esa implementación.</p></li>
+</ol>
+</details>
+</section>
+<section id="revisá-algunas-situaciones-que-suelen-causar-confusión" class="level2" data-number="5.18">
+<h2 data-number="5.18" class="anchored" data-anchor-id="revisá-algunas-situaciones-que-suelen-causar-confusión"><span class="header-section-number">5.18</span> Revisá algunas situaciones que suelen causar confusión</h2>
+<section id="el-archivo-puede-terminar-con-una-extensión-adicional" class="level3" data-number="5.18.1">
+<h3 data-number="5.18.1" class="anchored" data-anchor-id="el-archivo-puede-terminar-con-una-extensión-adicional"><span class="header-section-number">5.18.1</span> El archivo puede terminar con una extensión adicional</h3>
+<p>Algunos editores agregan <code>.txt</code> de manera automática. Activá la visualización de extensiones y comprobá que el nombre sea <code>README.md</code> en lugar de <code>README.md.txt</code>.</p>
+</section>
+<section id="la-carpeta-puede-quedar-dentro-de-otra-carpeta-con-el-mismo-nombre" class="level3" data-number="5.18.2">
+<h3 data-number="5.18.2" class="anchored" data-anchor-id="la-carpeta-puede-quedar-dentro-de-otra-carpeta-con-el-mismo-nombre"><span class="header-section-number">5.18.2</span> La carpeta puede quedar dentro de otra carpeta con el mismo nombre</h3>
+<p>Comprobá la ruta completa. La estructura esperada contiene una carpeta principal y el archivo directamente dentro de ella.</p>
+<pre class="text"><code>mi-primer-estudio/
+    README.md</code></pre>
+</section>
+<section id="una-copia-dispersa-puede-confundirse-con-el-proyecto-actual" class="level3" data-number="5.18.3">
+<h3 data-number="5.18.3" class="anchored" data-anchor-id="una-copia-dispersa-puede-confundirse-con-el-proyecto-actual"><span class="header-section-number">5.18.3</span> Una copia dispersa puede confundirse con el proyecto actual</h3>
+<p>Evitá crear varias carpetas llamadas <code>mi-primer-estudio</code> en ubicaciones distintas. Cuando exista más de una copia, documentá cuál representa el trabajo actual y cuál funciona como respaldo.</p>
+</section>
+<section id="un-readme-demasiado-general-aporta-poco-contexto" class="level3" data-number="5.18.4">
+<h3 data-number="5.18.4" class="anchored" data-anchor-id="un-readme-demasiado-general-aporta-poco-contexto"><span class="header-section-number">5.18.4</span> Un README demasiado general aporta poco contexto</h3>
+<p>Escribí qué permitirá hacer el proyecto y en qué estado se encuentra. Las expresiones concretas ayudan a evaluar si una modificación corresponde al objetivo.</p>
+</section>
+<section id="la-estructura-completa-del-curso-todavía-resultaría-prematura" class="level3" data-number="5.18.5">
+<h3 data-number="5.18.5" class="anchored" data-anchor-id="la-estructura-completa-del-curso-todavía-resultaría-prematura"><span class="header-section-number">5.18.5</span> La estructura completa del curso todavía resultaría prematura</h3>
+<p>Cada archivo aparecerá cuando puedas explicar su función. La estructura inicial mantiene visible todo el proyecto y facilita su verificación.</p>
+</section>
+<section id="el-checkpoint-de-referencia-debe-permanecer-recuperable" class="level3" data-number="5.18.6">
+<h3 data-number="5.18.6" class="anchored" data-anchor-id="el-checkpoint-de-referencia-debe-permanecer-recuperable"><span class="header-section-number">5.18.6</span> El checkpoint de referencia debe permanecer recuperable</h3>
+<p>Realizá las actividades dentro de <code>mi-primer-estudio</code>. Usá <code>proyectos\01-inicial</code> para comparar o copiar una base nueva.</p>
+</section>
+</section>
+<section id="qué-aprendiste-en-este-capítulo" class="level2" data-number="5.19">
+<h2 data-number="5.19" class="anchored" data-anchor-id="qué-aprendiste-en-este-capítulo"><span class="header-section-number">5.19</span> Qué aprendiste en este capítulo</h2>
+<p>Un proyecto reúne archivos y carpetas que comparten un propósito. La carpeta principal delimita el trabajo y funciona como referencia para las rutas relativas.</p>
+<p>Los archivos pueden documentar, implementar instrucciones, aportar materiales, registrar datos o configurar herramientas. La estructura crece cuando el proyecto necesita cumplir una función nueva.</p>
+<p><code>README.md</code> presenta el proyecto mediante texto en formato Markdown. <code>AGENTS.md</code> comunicará reglas estables a los agentes en una etapa posterior.</p>
+<p>El proyecto inicial contiene solamente <code>README.md</code>. <code>Get-Location</code> permite verificar la ubicación. <code>dir</code> permite verificar la estructura. La lectura del archivo permite verificar el contenido.</p>
+<p>Un checkpoint conserva una etapa recuperable. La primera referencia del curso se encuentra en <code>proyectos\01-inicial</code>.</p>
+<p>La organización técnica ayuda a implementar y revisar el estudio. Las decisiones metodológicas determinan qué debe representar esa organización.</p>
+</section>
+<section id="resolvé-un-desafío-breve" class="level2" data-number="5.20">
+<h2 data-number="5.20" class="anchored" data-anchor-id="resolvé-un-desafío-breve"><span class="header-section-number">5.20</span> Resolvé un desafío breve</h2>
+<p>Pedile a otra persona que revise <code>mi-primer-estudio</code> sin explicarle previamente cómo lo creaste.</p>
+<ol type="1">
+<li><p>La persona debe encontrar la carpeta a partir de la ubicación que le indiques.</p></li>
+<li><p>La persona debe identificar el propósito mediante <code>README.md</code>.</p></li>
+<li><p>La persona debe describir el estado actual del proyecto.</p></li>
+<li><p>La persona debe indicar cuál será el próximo paso.</p></li>
+<li><p>La persona debe confirmar que el proyecto todavía no recolecta datos.</p></li>
+</ol>
+<p>Registrá cualquier pregunta que la documentación haya dejado sin respuesta. Después agregá al README una oración que resuelva esa duda y volvé a realizar la revisión.</p>
+<p>Con este proyecto termina la Parte I. En la Parte II vas a estudiar cómo trabaja un agente de IA sobre una carpeta, qué acciones puede realizar y qué decisiones debe conservar el investigador.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../part-1/04-programas-procesos-errores.html" class="pagination-link" aria-label="Qué ocurre cuando un programa se ejecuta">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Qué ocurre cuando un programa se ejecuta</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../part-2/06-chatbot-agente.html" class="pagination-link" aria-label="De chatbot a agente">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">De chatbot a agente</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Material educativo abierto para estudiantes de Psicología.</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Construido con Quarto.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
