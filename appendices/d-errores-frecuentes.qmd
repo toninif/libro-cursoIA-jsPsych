@@ -7,10 +7,10 @@ description: "Qué se observa, qué significa, qué comprobar primero y cómo sa
 
 Este apéndice reúne los errores que aparecen en los capítulos del libro, agrupados según dónde se observan. Cada caso sigue la misma estructura.
 
-- **Qué se observa:** lo que ves en la pantalla.
-- **Qué significa:** la causa más probable.
-- **Qué comprobar primero:** las comprobaciones seguras, que no modifican nada.
-- **Cómo saber si se corrigió:** la verificación posterior.
+- **Qué se observa.** Lo que ves en la pantalla.
+- **Qué significa.** La causa más probable.
+- **Qué comprobar primero.** Las comprobaciones seguras, que no modifican nada.
+- **Cómo saber si se corrigió.** La verificación posterior.
 
 Antes de buscar un caso concreto, recordá la estrategia general.
 
@@ -42,19 +42,19 @@ No modifiques archivos todavía: explicá cuál puede ser la causa.
 
 ### El archivo se llama `datos.csv.txt` o `README.md.txt`
 
-- **Qué se observa:** un archivo con una extensión adicional, o un archivo que no se abre con el programa esperado.
-- **Qué significa:** el editor agregó `.txt` al guardar y el Explorador ocultaba la extensión.
-- **Qué comprobar primero:** activá la visualización de extensiones en el Explorador de archivos.
-- **Cómo saber si se corrigió:** después de renombrar, `dir` muestra el nombre exacto.
+- **Qué se observa.** Un archivo con una extensión adicional, o un archivo que no se abre con el programa esperado.
+- **Qué significa.** El editor agregó `.txt` al guardar y el Explorador ocultaba la extensión.
+- **Qué comprobar primero.** Activá la visualización de extensiones en el Explorador de archivos.
+- **Cómo saber si se corrigió.** Después de renombrar, `dir` muestra el nombre exacto.
 
 Ver el [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd) y el [capítulo 5](../part-1/05-proyecto.qmd).
 
 ### Editaste una copia distinta de la que abrís
 
-- **Qué se observa:** los cambios no aparecen, aunque guardaste el archivo.
-- **Qué significa:** existen dos archivos con el mismo nombre en carpetas diferentes.
-- **Qué comprobar primero:** la ruta del archivo en el editor y la ruta en la barra de direcciones del navegador.
-- **Cómo saber si se corrigió:** un cambio pequeño en el archivo aparece al recargar.
+- **Qué se observa.** Los cambios no aparecen, aunque guardaste el archivo.
+- **Qué significa.** Existen dos archivos con el mismo nombre en carpetas diferentes.
+- **Qué comprobar primero.** La ruta del archivo en el editor y la ruta en la barra de direcciones del navegador.
+- **Cómo saber si se corrigió.** Un cambio pequeño en el archivo aparece al recargar.
 
 Ver el [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
 
@@ -62,28 +62,28 @@ Ver el [capítulo 2](../part-1/02-archivos-carpetas-rutas.qmd).
 
 ### PowerShell no encuentra una ruta
 
-- **Qué se observa:** un mensaje que indica que la ruta no existe, después de `cd`.
-- **Qué significa:** el nombre está mal escrito, falta una parte de la ruta o faltan comillas en una ruta con espacios.
-- **Qué comprobar primero:** `Get-Location` para ver dónde estás y `dir` para ver los nombres disponibles.
-- **Cómo saber si se corrigió:** `Get-Location` muestra la carpeta de destino.
+- **Qué se observa.** Un mensaje que indica que la ruta no existe, después de `cd`.
+- **Qué significa.** El nombre está mal escrito, falta una parte de la ruta o faltan comillas en una ruta con espacios.
+- **Qué comprobar primero.** `Get-Location` para ver dónde estás y `dir` para ver los nombres disponibles.
+- **Cómo saber si se corrigió.** `Get-Location` muestra la carpeta de destino.
 
 Ver el [capítulo 3](../part-1/03-terminal.qmd).
 
 ### PowerShell no reconoce un término
 
-- **Qué se observa:** un mensaje que indica que el término no se reconoce como nombre de un comando.
-- **Qué significa:** el comando está mal escrito, falta el espacio antes del argumento o el programa no está instalado.
-- **Qué comprobar primero:** compará cada letra con el ejemplo. Si es un programa recién instalado, como `codex` o `git`, cerrá y abrí la terminal.
-- **Cómo saber si se corrigió:** el comando se ejecuta. Para programas, `--version` muestra un número.
+- **Qué se observa.** Un mensaje que indica que el término no se reconoce como nombre de un comando.
+- **Qué significa.** El comando está mal escrito, falta el espacio antes del argumento o el programa no está instalado.
+- **Qué comprobar primero.** Compará cada letra con el ejemplo. Si es un programa recién instalado, como `codex` o `git`, cerrá y abrí la terminal.
+- **Cómo saber si se corrigió.** El comando se ejecuta. Para programas, `--version` muestra un número.
 
 Ver el [capítulo 3](../part-1/03-terminal.qmd) y el [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ### Las tildes aparecen como símbolos extraños en la terminal
 
-- **Qué se observa:** `psicolÃ³gico` en lugar de `psicológico` al usar `Get-Content`.
-- **Qué significa:** PowerShell interpreta el archivo con una codificación diferente. El archivo está bien.
-- **Qué comprobar primero:** agregá `-Encoding UTF8` al comando.
-- **Cómo saber si se corrigió:** las tildes se ven correctamente.
+- **Qué se observa.** `psicolÃ³gico` en lugar de `psicológico` al usar `Get-Content`.
+- **Qué significa.** PowerShell interpreta el archivo con una codificación diferente. El archivo está bien.
+- **Qué comprobar primero.** Agregá `-Encoding UTF8` al comando.
+- **Cómo saber si se corrigió.** Las tildes se ven correctamente.
 
 Ver el [capítulo 8](../part-2/08-describir-tarea.qmd).
 
@@ -91,46 +91,46 @@ Ver el [capítulo 8](../part-2/08-describir-tarea.qmd).
 
 ### Codex trabaja en la carpeta equivocada
 
-- **Qué se observa:** la línea `directory` del encabezado o `/status` muestran otra carpeta.
-- **Qué significa:** Codex se inició desde otra ubicación.
-- **Qué comprobar primero:** cerrá con `/exit`, ejecutá `Get-Location` y llegá a la carpeta del proyecto.
-- **Cómo saber si se corrigió:** `/status` muestra la carpeta del proyecto.
+- **Qué se observa.** La línea `directory` del encabezado o `/status` muestran otra carpeta.
+- **Qué significa.** Codex se inició desde otra ubicación.
+- **Qué comprobar primero.** Cerrá con `/exit`, ejecutá `Get-Location` y llegá a la carpeta del proyecto.
+- **Cómo saber si se corrigió.** `/status` muestra la carpeta del proyecto.
 
 Ver el [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ### Codex modifica archivos sin pedir aprobación
 
-- **Qué se observa:** los cambios ocurren sin una propuesta previa.
-- **Qué significa:** los permisos no están en **Read Only**.
-- **Qué comprobar primero:** `/status`. Si hace falta, cambiá con `/permissions`. Revisá con `dir` y con tu copia de respaldo qué cambió.
-- **Cómo saber si se corrigió:** el siguiente pedido que modifique archivos muestra una propuesta.
+- **Qué se observa.** Los cambios ocurren sin una propuesta previa.
+- **Qué significa.** Los permisos no están en **Read Only**.
+- **Qué comprobar primero.** `/status`. Si hace falta, cambiá con `/permissions`. Revisá con `dir` y con tu copia de respaldo qué cambió.
+- **Cómo saber si se corrigió.** El siguiente pedido que modifique archivos muestra una propuesta.
 
 Ver el [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ### Codex no sigue las reglas de `AGENTS.md`
 
-- **Qué se observa:** el agente propone cambios que el archivo prohíbe.
-- **Qué significa:** Codex no se inició en la carpeta del proyecto, el archivo tiene otro nombre, o el agente no aplicó la regla.
-- **Qué comprobar primero:** preguntale qué reglas debe seguir en el proyecto, sin modificar archivos.
-- **Cómo saber si se corrigió:** la respuesta menciona tus reglas. Si igual no las cumple, recordalas en el pedido.
+- **Qué se observa.** El agente propone cambios que el archivo prohíbe.
+- **Qué significa.** Codex no se inició en la carpeta del proyecto, el archivo tiene otro nombre, o el agente no aplicó la regla.
+- **Qué comprobar primero.** Preguntale qué reglas debe seguir en el proyecto, sin modificar archivos.
+- **Cómo saber si se corrigió.** La respuesta menciona tus reglas. Si igual no las cumple, recordalas en el pedido.
 
 Ver el [capítulo 24](../part-5/24-construccion-estudio.qmd).
 
 ### Codex alcanzó el límite de uso
 
-- **Qué se observa:** un mensaje que indica que se alcanzó el límite.
-- **Qué significa:** tu plan tiene una cantidad máxima de uso por período.
-- **Qué comprobar primero:** esperá a que el límite se renueve y realizá mientras tanto la alternativa sin agente.
-- **Cómo saber si se corrigió:** Codex vuelve a responder. Para evitarlo, formulá pedidos pequeños.
+- **Qué se observa.** Un mensaje que indica que se alcanzó el límite.
+- **Qué significa.** Tu plan tiene una cantidad máxima de uso por período.
+- **Qué comprobar primero.** Esperá a que el límite se renueve y realizá mientras tanto la alternativa sin agente.
+- **Cómo saber si se corrigió.** Codex vuelve a responder. Para evitarlo, formulá pedidos pequeños.
 
 Ver el [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ### La propuesta cambia más de lo que pediste
 
-- **Qué se observa:** líneas marcadas con `-` o `+` que no corresponden al pedido.
-- **Qué significa:** el pedido dejaba decisiones abiertas o el agente agregó cambios por su cuenta.
-- **Qué comprobar primero:** leé las líneas eliminadas. Elegí la opción de rechazo y explicá qué debe conservarse.
-- **Cómo saber si se corrigió:** la nueva propuesta contiene solo el cambio pedido.
+- **Qué se observa.** Líneas marcadas con `-` o `+` que no corresponden al pedido.
+- **Qué significa.** El pedido dejaba decisiones abiertas o el agente agregó cambios por su cuenta.
+- **Qué comprobar primero.** Leé las líneas eliminadas. Elegí la opción de rechazo y explicá qué debe conservarse.
+- **Cómo saber si se corrigió.** La nueva propuesta contiene solo el cambio pedido.
 
 Ver el [capítulo 9](../part-2/09-revisar-agente.qmd).
 
@@ -138,73 +138,73 @@ Ver el [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### La página queda en blanco
 
-- **Qué se observa:** no aparece ninguna pantalla.
-- **Qué significa:** hay un error de sintaxis, como una coma o una comilla faltante, o no se cargó un archivo.
-- **Qué comprobar primero:** abrí la consola con `F12` y leé el mensaje en rojo. Indica el archivo y el número de línea.
-- **Cómo saber si se corrigió:** la consola no muestra errores y aparece la bienvenida.
+- **Qué se observa.** No aparece ninguna pantalla.
+- **Qué significa.** Hay un error de sintaxis, como una coma o una comilla faltante, o no se cargó un archivo.
+- **Qué comprobar primero.** Abrí la consola con `F12` y leé el mensaje en rojo. Indica el archivo y el número de línea.
+- **Cómo saber si se corrigió.** La consola no muestra errores y aparece la bienvenida.
 
 Ver el [capítulo 12](../part-3/12-primer-jspsych.qmd).
 
 ### La consola dice que `initJsPsych` no está definido
 
-- **Qué se observa:** el mensaje `initJsPsych is not defined`.
-- **Qué significa:** jsPsych no se descargó.
-- **Qué comprobar primero:** la conexión a Internet y la dirección de la primera etiqueta `<script>` de `index.html`.
-- **Cómo saber si se corrigió:** el mensaje desaparece al recargar.
+- **Qué se observa.** El mensaje `initJsPsych is not defined`.
+- **Qué significa.** JsPsych no se descargó.
+- **Qué comprobar primero.** La conexión a Internet y la dirección de la primera etiqueta `<script>` de `index.html`.
+- **Cómo saber si se corrigió.** El mensaje desaparece al recargar.
 
 Ver el [capítulo 12](../part-3/12-primer-jspsych.qmd).
 
 ### La consola dice que un plugin no está definido
 
-- **Qué se observa:** un mensaje como `jsPsychSurveyText is not defined`.
-- **Qué significa:** el ensayo usa un plugin que `index.html` no carga.
-- **Qué comprobar primero:** que `index.html` tenga la línea del plugin, con su versión.
-- **Cómo saber si se corrigió:** la pantalla aparece.
+- **Qué se observa.** Un mensaje como `jsPsychSurveyText is not defined`.
+- **Qué significa.** El ensayo usa un plugin que `index.html` no carga.
+- **Qué comprobar primero.** Que `index.html` tenga la línea del plugin, con su versión.
+- **Cómo saber si se corrigió.** La pantalla aparece.
 
 Ver el [capítulo 12](../part-3/12-primer-jspsych.qmd).
 
 ### Una pantalla definida no aparece
 
-- **Qué se observa:** el ensayo existe en `experiment.js`, pero no se muestra.
-- **Qué significa:** falta en la línea de tiempo, o una regla condicional lo salta.
-- **Qué comprobar primero:** la lista de `jsPsych.run`. Si el ensayo tiene `conditional_function`, el texto que compara.
-- **Cómo saber si se corrigió:** el caso de prueba correspondiente muestra la pantalla.
+- **Qué se observa.** El ensayo existe en `experiment.js`, pero no se muestra.
+- **Qué significa.** Falta en la línea de tiempo, o una regla condicional lo salta.
+- **Qué comprobar primero.** La lista de `jsPsych.run`. Si el ensayo tiene `conditional_function`, el texto que compara.
+- **Cómo saber si se corrigió.** El caso de prueba correspondiente muestra la pantalla.
 
 Ver el [capítulo 12](../part-3/12-primer-jspsych.qmd) y el [capítulo 18](../part-4/18-logica-condicional.qmd).
 
 ### Una regla condicional nunca se cumple
 
-- **Qué se observa:** la pregunta de seguimiento no aparece, o el estudio no termina cuando debería. La consola no muestra errores.
-- **Qué significa:** el valor comparado no coincide exactamente con la respuesta. Por ejemplo, `"No"` frente a `"no"`, o un botón que se registra como número.
-- **Qué comprobar primero:** compará el texto de la condición con el texto exacto de la opción, y revisá en los datos cómo quedó registrada la respuesta.
-- **Cómo saber si se corrigió:** el caso de prueba de esa rama da el resultado esperado.
+- **Qué se observa.** La pregunta de seguimiento no aparece, o el estudio no termina cuando debería. La consola no muestra errores.
+- **Qué significa.** El valor comparado no coincide exactamente con la respuesta. Por ejemplo, `"No"` frente a `"no"`, o un botón que se registra como número.
+- **Qué comprobar primero.** Compará el texto de la condición con el texto exacto de la opción, y revisá en los datos cómo quedó registrada la respuesta.
+- **Cómo saber si se corrigió.** El caso de prueba de esa rama da el resultado esperado.
 
 Ver el [capítulo 18](../part-4/18-logica-condicional.qmd) y el [capítulo 25](../part-5/25-pilotaje-depuracion.qmd).
 
 ### El navegador muestra una versión anterior
 
-- **Qué se observa:** los cambios guardados no aparecen.
-- **Qué significa:** el navegador no volvió a leer los archivos.
-- **Qué comprobar primero:** recargá con `F5`, o con `Ctrl + F5` si el estudio está publicado. Revisá la dirección en la barra.
-- **Cómo saber si se corrigió:** el cambio aparece.
+- **Qué se observa.** Los cambios guardados no aparecen.
+- **Qué significa.** El navegador no volvió a leer los archivos.
+- **Qué comprobar primero.** Recargá con `F5`, o con `Ctrl + F5` si el estudio está publicado. Revisá la dirección en la barra.
+- **Cómo saber si se corrigió.** El cambio aparece.
 
 Ver el [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ### La validación acepta un valor que debería rechazar
 
-- **Qué se observa:** la pregunta de edad acepta un valor fuera del rango.
-- **Qué significa:** falta `type="number"`, o `min` y `max` están fuera de la etiqueta `<input>`.
-- **Qué comprobar primero:** la etiqueta completa del campo en `experiment.js`.
-- **Cómo saber si se corrigió:** los casos de prueba, incluidos los límites, dan los resultados esperados.
+- **Qué se observa.** La pregunta de edad acepta un valor fuera del rango.
+- **Qué significa.** Falta `type="number"`, o `min` y `max` están fuera de la etiqueta `<input>`.
+- **Qué comprobar primero.** La etiqueta completa del campo en `experiment.js`.
+- **Cómo saber si se corrigió.** Los casos de prueba, incluidos los límites, dan los resultados esperados.
 
 Ver el [capítulo 13](../part-3/13-preguntas-formularios.qmd).
 
 ### Los estilos no se aplican o el celular muestra todo pequeño
 
-- **Qué se observa:** el estudio se ve como antes de agregar `styles.css`, o muy pequeño en el celular.
-- **Qué significa:** `index.html` no carga `styles.css`, lo carga antes que la hoja de estilos de jsPsych, o falta la línea `viewport`.
-- **Qué comprobar primero:** las líneas `<link>` y `<meta name="viewport">` de `index.html`.
-- **Cómo saber si se corrigió:** la simulación de celular, con `Ctrl + Shift + M`, muestra las opciones de las escalas en vertical.
+- **Qué se observa.** El estudio se ve como antes de agregar `styles.css`, o muy pequeño en el celular.
+- **Qué significa.** `index.html` no carga `styles.css`, lo carga antes que la hoja de estilos de jsPsych, o falta la línea `viewport`.
+- **Qué comprobar primero.** Las líneas `<link>` y `<meta name="viewport">` de `index.html`.
+- **Cómo saber si se corrigió.** La simulación de celular, con `Ctrl + Shift + M`, muestra las opciones de las escalas en vertical.
 
 Ver el [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
 
@@ -212,28 +212,28 @@ Ver el [capítulo 21](../part-4/21-presentacion-encuesta.qmd).
 
 ### El archivo CSV se ve en una sola columna
 
-- **Qué se observa:** la planilla muestra cada fila completa en la primera columna.
-- **Qué significa:** la planilla no reconoció la coma como separador. Ocurre con frecuencia en Excel configurado en español.
-- **Qué comprobar primero:** usá la opción de importar datos desde texto y elegí la coma como separador y UTF-8 como codificación.
-- **Cómo saber si se corrigió:** cada variable aparece en su columna.
+- **Qué se observa.** La planilla muestra cada fila completa en la primera columna.
+- **Qué significa.** La planilla no reconoció la coma como separador. Ocurre con frecuencia en Excel configurado en español.
+- **Qué comprobar primero.** Usá la opción de importar datos desde texto y elegí la coma como separador y UTF-8 como codificación.
+- **Cómo saber si se corrigió.** Cada variable aparece en su columna.
 
 Ver el [capítulo 15](../part-3/15-datos-generados.qmd).
 
 ### Los puntajes de una escala superan el máximo posible
 
-- **Qué se observa:** un puntaje mayor que el rango de la escala.
-- **Qué significa:** se sumaron valores como si fueran de 1 a 5, cuando jsPsych los registra desde 0, o se invirtió mal un ítem.
-- **Qué comprobar primero:** la tabla de codificación del diccionario y un archivo de datos real.
-- **Cómo saber si se corrigió:** el puntaje calculado a mano para un caso conocido coincide.
+- **Qué se observa.** Un puntaje mayor que el rango de la escala.
+- **Qué significa.** Se sumaron valores como si fueran de 1 a 5, cuando jsPsych los registra desde 0, o se invirtió mal un ítem.
+- **Qué comprobar primero.** La tabla de codificación del diccionario y un archivo de datos real.
+- **Cómo saber si se corrigió.** El puntaje calculado a mano para un caso conocido coincide.
 
 Ver el [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
 
 ### Una variable derivada tiene siempre el mismo valor
 
-- **Qué se observa:** `atencion_correcta` es siempre `false`, o siempre `true`.
-- **Qué significa:** la comparación usa un valor de otro tipo, como `"1"` con comillas, o un nombre de variable equivocado.
-- **Qué comprobar primero:** la línea de `on_finish` y el valor registrado en `response`.
-- **Cómo saber si se corrigió:** un caso correcto da `true` y un caso incorrecto da `false`.
+- **Qué se observa.** `atencion_correcta` es siempre `false`, o siempre `true`.
+- **Qué significa.** La comparación usa un valor de otro tipo, como `"1"` con comillas, o un nombre de variable equivocado.
+- **Qué comprobar primero.** La línea de `on_finish` y el valor registrado en `response`.
+- **Cómo saber si se corrigió.** Un caso correcto da `true` y un caso incorrecto da `false`.
 
 Ver el [capítulo 19](../part-4/19-controles-atencion.qmd).
 
@@ -241,19 +241,19 @@ Ver el [capítulo 19](../part-4/19-controles-atencion.qmd).
 
 ### Aparece el mensaje “No pudimos guardar tus respuestas”
 
-- **Qué se observa:** el aviso de error al final del estudio.
-- **Qué significa:** DataPipe rechazó el envío. Las causas más frecuentes son que **Accept new data** está desactivado, que el identificador está mal copiado o que se alcanzó el límite de sesiones.
-- **Qué comprobar primero:** el panel del experimento en DataPipe y la línea `DATAPIPE_ID` de `experiment.js`. Si probás desde un archivo local, repetí la prueba desde la dirección publicada.
-- **Cómo saber si se corrigió:** aparece “Listo. Tus respuestas fueron guardadas.” y el archivo llega al destino.
+- **Qué se observa.** El aviso de error al final del estudio.
+- **Qué significa.** DataPipe rechazó el envío. Las causas más frecuentes son que **Accept new data** está desactivado, que el identificador está mal copiado o que se alcanzó el límite de sesiones.
+- **Qué comprobar primero.** El panel del experimento en DataPipe y la línea `DATAPIPE_ID` de `experiment.js`. Si probás desde un archivo local, repetí la prueba desde la dirección publicada.
+- **Cómo saber si se corrigió.** Aparece “Listo. Tus respuestas fueron guardadas.” y el archivo llega al destino.
 
 Ver el [capítulo 26](../part-5/26-guardado-datos.qmd).
 
 ### Los datos se descargan en lugar de enviarse
 
-- **Qué se observa:** al terminar, se descarga un archivo CSV.
-- **Qué significa:** `DATAPIPE_ID` todavía vale `"COMPLETAR"`.
-- **Qué comprobar primero:** la línea `const DATAPIPE_ID` de `experiment.js`.
-- **Cómo saber si se corrigió:** al terminar aparece el mensaje de guardado y no se descarga nada.
+- **Qué se observa.** Al terminar, se descarga un archivo CSV.
+- **Qué significa.** `DATAPIPE_ID` todavía vale `"COMPLETAR"`.
+- **Qué comprobar primero.** La línea `const DATAPIPE_ID` de `experiment.js`.
+- **Cómo saber si se corrigió.** Al terminar aparece el mensaje de guardado y no se descarga nada.
 
 Ver el [capítulo 26](../part-5/26-guardado-datos.qmd).
 
@@ -261,27 +261,27 @@ Ver el [capítulo 26](../part-5/26-guardado-datos.qmd).
 
 ### La dirección publicada muestra un error 404
 
-- **Qué se observa:** una página que dice que no se encontró el sitio.
-- **Qué significa:** GitHub Pages no está activado, `index.html` no está en el primer nivel del repositorio o todavía no pasaron unos minutos.
-- **Qué comprobar primero:** **Settings**, **Pages** en el repositorio, y la lista de archivos del repositorio.
-- **Cómo saber si se corrigió:** la dirección muestra la bienvenida.
+- **Qué se observa.** Una página que dice que no se encontró el sitio.
+- **Qué significa.** GitHub Pages no está activado, `index.html` no está en el primer nivel del repositorio o todavía no pasaron unos minutos.
+- **Qué comprobar primero.** **Settings**, **Pages** en el repositorio, y la lista de archivos del repositorio.
+- **Cómo saber si se corrigió.** La dirección muestra la bienvenida.
 
 Ver el [capítulo 27](../part-5/27-publicacion.qmd).
 
 ### El estudio funciona en tu computadora, pero no publicado
 
-- **Qué se observa:** la página publicada queda en blanco o sin estilos.
-- **Qué significa:** un archivo no se subió, o su nombre difiere en mayúsculas y minúsculas del que usa `index.html`. GitHub Pages distingue mayúsculas; Windows no.
-- **Qué comprobar primero:** la consola con `F12`, que indica qué archivo no encontró, y los nombres de archivo en el repositorio.
-- **Cómo saber si se corrigió:** la consola no muestra errores en la dirección publicada.
+- **Qué se observa.** La página publicada queda en blanco o sin estilos.
+- **Qué significa.** Un archivo no se subió, o su nombre difiere en mayúsculas y minúsculas del que usa `index.html`. GitHub Pages distingue mayúsculas; Windows no.
+- **Qué comprobar primero.** La consola con `F12`, que indica qué archivo no encontró, y los nombres de archivo en el repositorio.
+- **Cómo saber si se corrigió.** La consola no muestra errores en la dirección publicada.
 
 Ver el [capítulo 27](../part-5/27-publicacion.qmd).
 
 ### Se subió un archivo de datos al repositorio
 
-- **Qué se observa:** un archivo CSV u otro archivo de datos en el repositorio público.
-- **Qué significa:** el archivo estaba en la carpeta del proyecto al subirla.
-- **Qué comprobar primero:** no alcanza con borrarlo, porque el historial lo conserva. Eliminá el repositorio desde **Settings** y creá uno nuevo con los archivos del estudio.
-- **Cómo saber si se corrigió:** el repositorio nuevo no contiene datos en ninguna versión. Para prevenirlo, mantené los datos fuera de la carpeta del proyecto.
+- **Qué se observa.** Un archivo CSV u otro archivo de datos en el repositorio público.
+- **Qué significa.** El archivo estaba en la carpeta del proyecto al subirla.
+- **Qué comprobar primero.** No alcanza con borrarlo, porque el historial lo conserva. Eliminá el repositorio desde **Settings** y creá uno nuevo con los archivos del estudio.
+- **Cómo saber si se corrigió.** El repositorio nuevo no contiene datos en ninguna versión. Para prevenirlo, mantené los datos fuera de la carpeta del proyecto.
 
 Ver el [capítulo 27](../part-5/27-publicacion.qmd) y el [apéndice B](b-git.qmd).

@@ -7,7 +7,7 @@ description: "Consulta rápida de los comandos y atajos introducidos en el libro
 
 Este apéndice reúne los comandos de PowerShell, los comandos de Codex y los atajos de teclado que aparecen en el libro. Cada entrada indica para qué sirve, un ejemplo, el resultado esperado y el capítulo donde se explica en detalle.
 
-No incluye comandos que el libro no haya usado. Si necesitás uno nuevo, consultá la documentación oficial y aplicá la regla de siempre: ejecutá solamente instrucciones cuyo propósito puedas explicar.
+No incluye comandos que el libro no haya usado. Si necesitás uno nuevo, consultá la documentación oficial y aplicá la regla de siempre, que es ejecutar solo instrucciones cuyo propósito puedas explicar.
 
 ::: {.callout-warning}
 ## Antes de ejecutar cualquier comando que modifique archivos

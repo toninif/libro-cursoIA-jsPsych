@@ -242,7 +242,7 @@ Tipo:
 numérica
 
 Restricción:
-18–80
+18 a 80
 
 Obligatoria:
 sí

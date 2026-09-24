@@ -7,13 +7,13 @@ description: "Patrones de pedidos pequeños, delimitados y verificables, agrupad
 
 Este apéndice reúne los pedidos que usaste en los capítulos. Cada pedido aparece como un **patrón**, es decir, como un modelo que podés adaptar a una situación nueva.
 
-Los patrones están agrupados por objetivo: inspeccionar, planificar, modificar, explicar, corregir, verificar y documentar. Cada uno indica tres cosas.
+Los patrones están agrupados según el objetivo, que puede ser inspeccionar, planificar, modificar, explicar, corregir, verificar y documentar. Cada uno indica tres cosas.
 
-1. **Vos decidís:** la información que tenés que aportar antes de enviar el pedido.
+1. **Vos decidís.** La información que tenés que aportar antes de enviar el pedido.
 
-2. **Comprobás:** lo que tenés que observar por tu cuenta después del pedido.
+2. **Comprobás.** Lo que tenés que observar por tu cuenta después del pedido.
 
-3. **Usado en:** el capítulo donde el patrón aparece por primera vez.
+3. **Usado en.** El capítulo donde el patrón aparece por primera vez.
 
 El texto entre corchetes, como `[nombre del archivo]`, marca lo que tenés que reemplazar. Borrá los corchetes al escribir el pedido.
 
@@ -66,11 +66,11 @@ Inspeccionar significa pedirle al agente que revise el estado actual sin modific
 Describí qué carpetas y archivos contiene esta carpeta. No modifiques ningún archivo.
 ```
 
-**Vos decidís:** en qué carpeta iniciás el agente.
+**Vos decidís.** En qué carpeta iniciás el agente.
 
-**Comprobás:** que la descripción coincida con lo que muestra `dir`. Prestá atención a elementos que el agente mencione y no existan.
+**Comprobás.** Que la descripción coincida con lo que muestra `dir`. Prestá atención a elementos que el agente mencione y no existan.
 
-**Usado en:** [capítulo 7](../part-2/07-codex-terminal.qmd).
+**Usado en.** [capítulo 7](../part-2/07-codex-terminal.qmd).
 
 ### Comprobar si existe un archivo
 
@@ -79,11 +79,11 @@ Revisá esta carpeta y decime si existe un archivo llamado [nombre del archivo].
 No modifiques ningún archivo.
 ```
 
-**Vos decidís:** qué archivo necesitás confirmar antes de continuar.
+**Vos decidís.** Qué archivo necesitás confirmar antes de continuar.
 
-**Comprobás:** la respuesta con `dir`.
+**Comprobás.** La respuesta con `dir`.
 
-**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ## Planificar
 
@@ -97,11 +97,11 @@ Antes de modificar archivos, explicá qué cambios harías y en qué archivos.
 Esperá mi aprobación antes de implementarlos.
 ```
 
-**Vos decidís:** todo el contenido de la tarea, como en cualquier pedido completo.
+**Vos decidís.** Todo el contenido de la tarea, como en cualquier pedido completo.
 
-**Comprobás:** que el plan mencione solo los archivos esperados y que no agregue elementos que no pediste. Si el plan coincide, respondé `Implementá el plan.` y revisá igualmente la propuesta de cambio.
+**Comprobás.** Que el plan mencione solo los archivos esperados y que no agregue elementos que no pediste. Si el plan coincide, respondé `Implementá el plan.` y revisá igualmente la propuesta de cambio.
 
-**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 8](../part-2/08-describir-tarea.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ### Observar cómo interpreta el agente un pedido
 
@@ -110,11 +110,11 @@ Esperá mi aprobación antes de implementarlos.
 solo explicá qué cambios harías y por qué.
 ```
 
-**Vos decidís:** qué pedido querés poner a prueba.
+**Vos decidís.** Qué pedido querés poner a prueba.
 
-**Comprobás:** qué decisiones tomaría el agente por su cuenta. Cada una indica información que tu pedido debería aportar.
+**Comprobás.** Qué decisiones tomaría el agente por su cuenta. Cada una indica información que tu pedido debería aportar.
 
-**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+**Usado en.** [capítulo 8](../part-2/08-describir-tarea.qmd).
 
 ### Invitar al agente a preguntar
 
@@ -124,9 +124,9 @@ Si algo del pedido no está claro, preguntame antes de modificar archivos.
 
 Esta línea se agrega al final de otro pedido.
 
-**Vos decidís:** responder las preguntas del agente. Si una pregunta es metodológica, respondela a partir del diseño del estudio y no de lo que proponga el agente.
+**Vos decidís.** Responder las preguntas del agente. Si una pregunta es metodológica, respondela a partir del diseño del estudio y no de lo que proponga el agente.
 
-**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+**Usado en.** [capítulo 8](../part-2/08-describir-tarea.qmd).
 
 ## Modificar
 
@@ -141,11 +141,11 @@ Debe contener [cantidad] línea(s) con este texto exacto:
 No modifiques ni crees ningún otro archivo.
 ```
 
-**Vos decidís:** el nombre, la ubicación y el contenido completo.
+**Vos decidís.** El nombre, la ubicación y el contenido completo.
 
-**Comprobás:** con `dir` que el archivo exista en la ubicación correcta y con `Get-Content [nombre] -Encoding UTF8` que el contenido coincida letra por letra.
+**Comprobás.** Con `dir` que el archivo exista en la ubicación correcta y con `Get-Content [nombre] -Encoding UTF8` que el contenido coincida letra por letra.
 
-**Usado en:** [capítulo 7](../part-2/07-codex-terminal.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 7](../part-2/07-codex-terminal.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ### Agregar una sección al final de un archivo
 
@@ -158,11 +158,11 @@ No modifiques ninguna otra parte de [archivo] ni otros archivos.
 Al terminar, indicá qué líneas agregaste.
 ```
 
-**Vos decidís:** el título y el texto de la sección.
+**Vos decidís.** El título y el texto de la sección.
 
-**Comprobás:** que la propuesta solo contenga líneas con `+`, que aparezcan al final y que el resto del archivo quede igual.
+**Comprobás.** Que la propuesta solo contenga líneas con `+`, que aparezcan al final y que el resto del archivo quede igual.
 
-**Usado en:** [capítulo 8](../part-2/08-describir-tarea.qmd).
+**Usado en.** [capítulo 8](../part-2/08-describir-tarea.qmd).
 
 ### Agregar un elemento a una lista existente
 
@@ -175,11 +175,11 @@ agregá un elemento al final de la lista con este texto exacto:
 No modifiques ninguna otra línea de [archivo] ni otros archivos.
 ```
 
-**Vos decidís:** el texto del elemento nuevo.
+**Vos decidís.** El texto del elemento nuevo.
 
-**Comprobás:** que la línea nueva quede dentro de la sección indicada y que ninguna línea aparezca marcada con `-`.
+**Comprobás.** Que la línea nueva quede dentro de la sección indicada y que ninguna línea aparezca marcada con `-`.
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### Reemplazar un texto exacto
 
@@ -188,15 +188,15 @@ En [archivo], reemplazá "[texto actual]" por "[texto nuevo]".
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-**Vos decidís:** el texto nuevo. Si el reemplazo afecta un número, un nombre de variable o una instrucción para participantes, la decisión es metodológica.
+**Vos decidís.** El texto nuevo. Si el reemplazo afecta un número, un nombre de variable o una instrucción para participantes, la decisión es metodológica.
 
-**Comprobás:** que la propuesta contenga una sola línea eliminada y una sola línea agregada, y que la única diferencia entre ellas sea el texto pedido.
+**Comprobás.** Que la propuesta contenga una sola línea eliminada y una sola línea agregada, y que la única diferencia entre ellas sea el texto pedido.
 
-**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ## Construir el estudio con jsPsych
 
-Estos patrones modifican `index.html` y `experiment.js`. Recordá que agregar una pantalla requiere tres cambios: cargar el plugin, definir el ensayo e incluirlo en la línea de tiempo.
+Estos patrones modifican `index.html` y `experiment.js`. Acordate de que agregar una pantalla requiere tres cambios, que son cargar el plugin, definir el ensayo e incluirlo en la línea de tiempo.
 
 ### Agregar una pregunta con un plugin nuevo
 
@@ -212,11 +212,11 @@ No modifiques ninguna otra parte de los archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-**Vos decidís:** la pregunta, el nombre de la variable, la obligatoriedad, las opciones si las hay, la posición y la versión exacta del plugin.
+**Vos decidís.** La pregunta, el nombre de la variable, la obligatoriedad, las opciones si las hay, la posición y la versión exacta del plugin.
 
-**Comprobás:** que la dirección del plugin tenga la versión indicada, que el ensayo aparezca en la posición correcta y que el dato quede registrado con el nombre de variable especificado.
+**Comprobás.** Que la dirección del plugin tenga la versión indicada, que el ensayo aparezca en la posición correcta y que el dato quede registrado con el nombre de variable especificado.
 
-**Usado en:** [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+**Usado en.** [capítulo 12](../part-3/12-primer-jspsych.qmd) y [capítulo 13](../part-3/13-preguntas-formularios.qmd).
 
 ### Reemplazar un ensayo conservando su nombre
 
@@ -227,11 +227,11 @@ No modifiques ninguna otra parte de los archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-**Vos decidís:** el comportamiento nuevo, por ejemplo los atributos de una validación.
+**Vos decidís.** El comportamiento nuevo, por ejemplo los atributos de una validación.
 
-**Comprobás:** la validación con casos de prueba, incluidos los casos límite.
+**Comprobás.** La validación con casos de prueba, incluidos los casos límite.
 
-**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd).
+**Usado en.** [capítulo 13](../part-3/13-preguntas-formularios.qmd).
 
 ### Agregar texto exacto que no debe modificarse
 
@@ -242,11 +242,11 @@ No redactes contenido nuevo ni modifiques la redacción.
 No modifiques ninguna otra parte de los archivos.
 ```
 
-**Vos decidís:** el texto completo. Se aplica a consentimientos, instrucciones, ítems y opciones de respuesta.
+**Vos decidís.** El texto completo. Se aplica a consentimientos, instrucciones, ítems y opciones de respuesta.
 
-**Comprobás:** el texto en pantalla, palabra por palabra, contra la fuente.
+**Comprobás.** El texto en pantalla, palabra por palabra, contra la fuente.
 
-**Usado en:** [capítulo 13](../part-3/13-preguntas-formularios.qmd) y [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
+**Usado en.** [capítulo 13](../part-3/13-preguntas-formularios.qmd) y [capítulo 14](../part-3/14-escalas-psicologicas.qmd).
 
 ### Agregar la misma propiedad a varios ensayos
 
@@ -258,11 +258,11 @@ Usá exactamente estos valores:
 No modifiques ninguna otra parte del archivo ni otros archivos.
 ```
 
-**Vos decidís:** el nombre de la propiedad y el valor para cada ensayo.
+**Vos decidís.** El nombre de la propiedad y el valor para cada ensayo.
 
-**Comprobás:** que cada fila del archivo de datos tenga el valor esperado.
+**Comprobás.** Que cada fila del archivo de datos tenga el valor esperado.
 
-**Usado en:** [capítulo 15](../part-3/15-datos-generados.qmd).
+**Usado en.** [capítulo 15](../part-3/15-datos-generados.qmd).
 
 ### Agregar una regla condicional
 
@@ -274,11 +274,11 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-**Vos decidís:** la condición, la consecuencia y el texto de cualquier mensaje. El texto comparado debe coincidir exactamente con la opción de la pregunta.
+**Vos decidís.** La condición, la consecuencia y el texto de cualquier mensaje. El texto comparado debe coincidir exactamente con la opción de la pregunta.
 
-**Comprobás:** cada rama con un caso de prueba, incluida la cantidad de filas del archivo de datos que produce.
+**Comprobás.** Cada rama con un caso de prueba, incluida la cantidad de filas del archivo de datos que produce.
 
-**Usado en:** [capítulo 18](../part-4/18-logica-condicional.qmd).
+**Usado en.** [capítulo 18](../part-4/18-logica-condicional.qmd).
 
 ### Aleatorizar y registrar el resultado
 
@@ -289,11 +289,11 @@ No modifiques ninguna otra parte del archivo ni otros archivos.
 Antes de modificar archivos, explicá qué cambios vas a hacer y esperá mi aprobación.
 ```
 
-**Vos decidís:** qué se aleatoriza, qué queda fijo y cómo se registra el resultado.
+**Vos decidís.** Qué se aleatoriza, qué queda fijo y cómo se registra el resultado.
 
-**Comprobás:** con varias ejecuciones, que todos los resultados posibles ocurran y que el registro coincida con lo observado.
+**Comprobás.** Con varias ejecuciones, que todos los resultados posibles ocurran y que el registro coincida con lo observado.
 
-**Usado en:** [capítulo 17](../part-4/17-aleatorizacion.qmd).
+**Usado en.** [capítulo 17](../part-4/17-aleatorizacion.qmd).
 
 ### Pedir un borrador de documentación a partir del código
 
@@ -306,11 +306,11 @@ leyendo el código, escribí PENDIENTE en esa celda. No inventes información.
 No modifiques ningún otro archivo.
 ```
 
-**Vos decidís:** la estructura del documento y el contenido de las celdas PENDIENTE.
+**Vos decidís.** La estructura del documento y el contenido de las celdas PENDIENTE.
 
-**Comprobás:** cada fila contra el código y contra un archivo de datos real. Prestá especial atención a la codificación de las escalas.
+**Comprobás.** Cada fila contra el código y contra un archivo de datos real. Prestá especial atención a la codificación de las escalas.
 
-**Usado en:** [capítulo 16](../part-3/16-diccionario-datos.qmd).
+**Usado en.** [capítulo 16](../part-3/16-diccionario-datos.qmd).
 
 ## Explicar
 
@@ -322,11 +322,11 @@ Explicar significa pedirle al agente información sin permitir cambios. Todo ped
 Explicá qué hace la línea [línea]. No modifiques ningún archivo.
 ```
 
-**Vos decidís:** qué línea necesitás comprender.
+**Vos decidís.** Qué línea necesitás comprender.
 
-**Comprobás:** que la explicación sea coherente con lo que observás al ejecutar el resultado. Una explicación puede ser incorrecta.
+**Comprobás.** Que la explicación sea coherente con lo que observás al ejecutar el resultado. Una explicación puede ser incorrecta.
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### Explicar un cambio que no pediste
 
@@ -335,9 +335,9 @@ Cambiaste [elemento] de [valor anterior] a [valor nuevo]. Yo no pedí ese cambio
 Explicá por qué lo hiciste. No modifiques ningún archivo.
 ```
 
-**Vos decidís:** si el cambio se conserva o se revierte. Una justificación convincente no convierte un cambio no pedido en una decisión correcta.
+**Vos decidís.** Si el cambio se conserva o se revierte. Una justificación convincente no convierte un cambio no pedido en una decisión correcta.
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### Describir los cambios realizados
 
@@ -346,9 +346,9 @@ Describí línea por línea qué cambió en [archivo] con tu última modificaci�
 No modifiques ningún archivo.
 ```
 
-**Comprobás:** el informe contra tu propia comparación con la copia de respaldo. El informe orienta la revisión, pero no la reemplaza.
+**Comprobás.** El informe contra tu propia comparación con la copia de respaldo. El informe orienta la revisión, pero no la reemplaza.
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### Explicar la causa de un problema
 
@@ -360,11 +360,11 @@ Mensaje de error: [mensaje exacto, o "no apareció ninguno"]
 No modifiques archivos todavía: explicá cuál puede ser la causa.
 ```
 
-**Vos decidís:** qué era lo esperado. Esa información surge de tu especificación.
+**Vos decidís.** Qué era lo esperado. Esa información surge de tu especificación.
 
-**Comprobás:** que la causa propuesta sea coherente con lo que observaste. Después formulá un pedido de corrección acotado.
+**Comprobás.** Que la causa propuesta sea coherente con lo que observaste. Después formulá un pedido de corrección acotado.
 
-**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ### Pedir una revisión de consistencia
 
@@ -376,11 +376,11 @@ Revisá [archivo de código] y [archivo de documentación]. Antes de modificar c
 No modifiques ningún archivo. Esperá mi respuesta antes de proponer cambios.
 ```
 
-**Vos decidís:** qué diferencias son reales y cómo se corrigen.
+**Vos decidís.** Qué diferencias son reales y cómo se corrigen.
 
-**Comprobás:** cada hallazgo en los archivos. Después, ejecutá el plan de pruebas.
+**Comprobás.** Cada hallazgo en los archivos. Después, ejecutá el plan de pruebas.
 
-**Usado en:** [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
+**Usado en.** [capítulo 22](../part-4/22-encuesta-ampliada.qmd).
 
 ### Identificar dependencias antes de un cambio
 
@@ -390,11 +390,11 @@ partes de [archivo] dependen de ese elemento y qué pasaría con cada una.
 No modifiques ningún archivo.
 ```
 
-**Vos decidís:** qué hacer con cada dependencia. Si la decisión es metodológica, escribila en `diseno.md` antes de pedir el cambio.
+**Vos decidís.** Qué hacer con cada dependencia. Si la decisión es metodológica, escribila en `diseno.md` antes de pedir el cambio.
 
-**Comprobás:** que el plan de pruebas siga dando los resultados esperados después del cambio.
+**Comprobás.** Que el plan de pruebas siga dando los resultados esperados después del cambio.
 
-**Usado en:** [capítulo 24](../part-5/24-construccion-estudio.qmd).
+**Usado en.** [capítulo 24](../part-5/24-construccion-estudio.qmd).
 
 ### Revisar el proyecto antes de publicarlo
 
@@ -408,11 +408,11 @@ archivo, revisá y respondé:
 No modifiques ningún archivo.
 ```
 
-**Vos decidís:** qué corregir antes de publicar.
+**Vos decidís.** Qué corregir antes de publicar.
 
-**Comprobás:** cada respuesta con `dir`, `Select-String` y el editor.
+**Comprobás.** Cada respuesta con `dir`, `Select-String` y el editor.
 
-**Usado en:** [capítulo 27](../part-5/27-publicacion.qmd).
+**Usado en.** [capítulo 27](../part-5/27-publicacion.qmd).
 
 ## Corregir
 
@@ -426,7 +426,7 @@ Cuando una propuesta no coincide con el pedido, elegí la opción **No, and tell
 Solo tenés que [cambio pedido]. No cambies [elemento]: debe seguir en [valor].
 ```
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ### Revertir un cambio
 
@@ -435,11 +435,11 @@ Revertí el cambio de [elemento]: debe volver a [valor anterior].
 No modifiques ninguna otra línea.
 ```
 
-**Vos decidís:** qué cambio se revierte y a qué valor vuelve.
+**Vos decidís.** Qué cambio se revierte y a qué valor vuelve.
 
-**Comprobás:** que la propuesta afecte solo esa línea. Después ejecutá el resultado otra vez.
+**Comprobás.** Que la propuesta afecte solo esa línea. Después ejecutá el resultado otra vez.
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd).
 
 ::: {.callout-warning}
 ## Si varias correcciones fallan, detenete
@@ -476,7 +476,7 @@ La ejecución y la verificación te corresponden a vos. No hay un pedido al agen
 
 5. **Evidencia.** ¿Comprobaste el resultado con herramientas propias?
 
-**Usado en:** [capítulo 9](../part-2/09-revisar-agente.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 9](../part-2/09-revisar-agente.qmd) y [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ## Documentar
 
@@ -500,11 +500,11 @@ No modifiques ningún otro archivo.
 
 Si el registro ya existe, reemplazá la primera línea por `En registro.md, agregá al final del archivo esta entrada con el contenido exacto:` y copiá solo la entrada nueva.
 
-**Vos decidís:** todo el contenido. El registro documenta verificaciones que solo el investigador puede afirmar.
+**Vos decidís.** Todo el contenido. El registro documenta verificaciones que solo el investigador puede afirmar.
 
-**Comprobás:** con `Get-Content registro.md -Encoding UTF8` que la entrada coincida con lo que escribiste.
+**Comprobás.** Con `Get-Content registro.md -Encoding UTF8` que la entrada coincida con lo que escribiste.
 
-**Usado en:** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
+**Usado en.** [capítulo 10](../part-2/10-ciclo-trabajo.qmd).
 
 ## Pedidos que conviene evitar
 
